@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Doc_title on Buezwqwg&#39;s Blog</title>
+    <link>http://localhost:1313/tags/doc_title/</link>
+    <description>Recent content in Doc_title on Buezwqwg&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Author)</managingEditor>
+    <webMaster>youremail@example.com (Author)</webMaster>
+    <copyright>© 2024 Author</copyright>
+    <atom:link href="http://localhost:1313/tags/doc_title/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>blog</title>
+      <link>http://localhost:1313/docs/13-copy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Author)</author>
+      <guid>http://localhost:1313/docs/13-copy/</guid>
+      <description>&lt;p&gt;123123123123&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
