@@ -22,15 +22,35 @@
     
     <item>
       <title>D2L 3.1 Linear Regression</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/</link>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/</guid>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 4/15/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
+    </item>
+    
+    <item>
+      <title>Chapter 3. Linear Neural Network</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
+      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
+      <description>&lt;hr&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Chapter 4. Multilayer Perceptron</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
+      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/</guid>
+      <description>&lt;hr&gt;</description>
+      
     </item>
     
     <item>
