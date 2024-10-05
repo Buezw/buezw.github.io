@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>D2L on Buezwqwg</title>
+    <link>https://buezw.github.io/series/d2l/</link>
+    <description>Recent content in D2L on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2024 Buezwqwg</copyright>
+    <lastBuildDate>Mon, 15 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/series/d2l/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>D2L 3.1 Linear Regression</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/</link>
+      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit 4/15/24&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/feature.png" />
+    </item>
+    
+    <item>
+      <title>Dive Into Deep Learning</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/</link>
+      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/</guid>
+      <description>&lt;hr&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

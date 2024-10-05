@@ -49,7 +49,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_content/ecms-2.-elastic-behavior/</loc>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
     <lastmod>2024-09-24T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -93,8 +93,50 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_content/</loc>
+    <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/ecms3.plasticdeformation/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
+    <lastmod>2024-09-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/</loc>
+    <lastmod>2024-09-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/computer-science/</loc>
+    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/d2l/</loc>
+    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/series/d2l/</loc>
+    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/</loc>
+    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/</loc>
+    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>

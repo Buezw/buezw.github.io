@@ -12,10 +12,10 @@
     <lastBuildDate>Tue, 24 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ECMS 2. Elastic Behavior</title>
-      <link>https://buezw.github.io/docs/emcs_content/ecms-2.-elastic-behavior/</link>
+      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</link>
       <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/emcs_content/ecms-2.-elastic-behavior/</guid>
+      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 9/24/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -32,7 +32,172 @@
     
 &lt;/h2&gt;
 &lt;p&gt;$$F=kx$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_content/ecms-2.-elastic-behavior/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/feature.png" />
+    </item>
+    
+    <item>
+      <title>ECMS 3. Plastic Deformation</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/ecms3.plasticdeformation/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/ecms3.plasticdeformation/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 9/23/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Plastice Deformation (Permanent Deformation) 
+    &lt;div id=&#34;plastice-deformation-permanent-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#plastice-deformation-permanent-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;we use the term &lt;strong&gt;plastic&lt;/strong&gt; to describe permanent deformation&lt;/li&gt;
+&lt;li&gt;之所以是Plastic，是因为它derives from the Greek &lt;strong&gt;plastikos&lt;/strong&gt; meaning to sculpt&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h5 class=&#34;relative group&#34;&gt;Changes After Plastic Deformation 
+    &lt;div id=&#34;changes-after-plastic-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#changes-after-plastic-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;在Plastic Deformation后，Atomic Spacing将保持\(r=r_0\)&lt;/li&gt;
+&lt;li&gt;但是Sequence of atoms将进入一个New Equilibrium&lt;/li&gt;
+&lt;li&gt;即在Marcro Perspective上发生Shape的Deform&lt;/li&gt;
+&lt;li&gt;Tensile Strain将会保持一定非零大小&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h5 class=&#34;relative group&#34;&gt;Micro Perspective of Plastic Deformation 
+    &lt;div id=&#34;micro-perspective-of-plastic-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#micro-perspective-of-plastic-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h5&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+
+
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-1.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+
+
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-2.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/ecms3.plasticdeformation/feature.png" />
+    </item>
+    
+    <item>
+      <title>ECMS 3. Plastic Deformation</title>
+      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 9/23/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Plastice Deformation (Permanent Deformation) 
+    &lt;div id=&#34;plastice-deformation-permanent-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#plastice-deformation-permanent-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;we use the term &lt;strong&gt;plastic&lt;/strong&gt; to describe permanent deformation&lt;/li&gt;
+&lt;li&gt;之所以是Plastic，是因为它derives from the Greek &lt;strong&gt;plastikos&lt;/strong&gt; meaning to sculpt&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h5 class=&#34;relative group&#34;&gt;Changes After Plastic Deformation 
+    &lt;div id=&#34;changes-after-plastic-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#changes-after-plastic-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;在Plastic Deformation后，Atomic Spacing将保持\(r=r_0\)&lt;/li&gt;
+&lt;li&gt;但是Sequence of atoms将进入一个New Equilibrium&lt;/li&gt;
+&lt;li&gt;即在Marcro Perspective上发生Shape的Deform&lt;/li&gt;
+&lt;li&gt;Tensile Strain将会保持一定非零大小&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h5 class=&#34;relative group&#34;&gt;Micro Perspective of Plastic Deformation 
+    &lt;div id=&#34;micro-perspective-of-plastic-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#micro-perspective-of-plastic-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h5&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+
+
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-1.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+
+
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-2.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/feature.png" />
+    </item>
+    
+    <item>
+      <title>D2L 3.1 Linear Regression</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/</link>
+      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit 4/15/24&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/3.1_linearregression/feature.png" />
     </item>
     
   </channel>
