@@ -3,8 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://buezw.github.io/</loc>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
     <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
+    <lastmod>2024-09-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms4.thestructureproperty/</loc>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/</loc>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -20,43 +38,37 @@
   </url>
   <url>
     <loc>https://buezw.github.io/tags/chemistry/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/ecms/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/series/ecms/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/series/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -72,7 +84,7 @@
   </url>
   <url>
     <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -88,12 +100,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/tags/cover/</loc>
-    <lastmod>2024-09-23T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -234,5 +240,25 @@
       hreflang="en"
       href="https://buezw.github.io/categories/"
     />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/credits/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/credits/%E6%B3%95%E8%80%81/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/credits/ss/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/credits/%E6%B3%95%E8%80%81-copy/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
