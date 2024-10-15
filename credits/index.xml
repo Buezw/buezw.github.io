@@ -12,12 +12,12 @@
     <atom:link href="https://buezw.github.io/credits/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Faker</title>
-      <link>https://buezw.github.io/credits/%E6%B3%95%E8%80%81/</link>
+      <link>https://buezw.github.io/credits/faker/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/credits/%E6%B3%95%E8%80%81/</guid>
+      <guid>https://buezw.github.io/credits/faker/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/credits/%E6%B3%95%E8%80%81/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/credits/faker/feature.jpg" />
     </item>
     
     <item>
@@ -32,12 +32,22 @@
     
     <item>
       <title>法老</title>
-      <link>https://buezw.github.io/credits/%E6%B3%95%E8%80%81-copy/</link>
+      <link>https://buezw.github.io/credits/%E6%B3%95%E8%80%81/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/credits/%E6%B3%95%E8%80%81-copy/</guid>
+      <guid>https://buezw.github.io/credits/%E6%B3%95%E8%80%81/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/credits/%E6%B3%95%E8%80%81-copy/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/credits/%E6%B3%95%E8%80%81/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>邓紫棋</title>
+      <link>https://buezw.github.io/credits/%E9%82%93%E7%B4%AB%E6%A3%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/credits/%E9%82%93%E7%B4%AB%E6%A3%8B/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/credits/%E9%82%93%E7%B4%AB%E6%A3%8B/feature.jpg" />
     </item>
     
   </channel>

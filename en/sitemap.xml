@@ -21,8 +21,14 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/blogs/</loc>
+    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -34,6 +40,40 @@
       rel="alternate"
       hreflang="en"
       href="https://buezw.github.io/"
+    />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/ontario/</loc>
+    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/ontariolake/</loc>
+    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/pic/</loc>
+    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/</loc>
+    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/tags/"
     />
   </url>
   <url>
@@ -80,22 +120,6 @@
       rel="alternate"
       hreflang="en"
       href="https://buezw.github.io/series/"
-    />
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/tags/"
     />
   </url>
   <url>
@@ -207,6 +231,102 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/tags/wangyiyun/</loc>
+    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/wangyiyun/</loc>
+    <lastmod>2021-12-27T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/shanghai/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/theband/</loc>
+    <lastmod>2021-12-26T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/desk2021/</loc>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/csgp/</loc>
+    <lastmod>2021-11-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/5e600/</loc>
+    <lastmod>2021-10-12T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/desk/</loc>
+    <lastmod>2021-10-12T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/foxcsgo/</loc>
+    <lastmod>2021-09-03T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/qiuqiu/</loc>
+    <lastmod>2020-04-28T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/zhuzi/</loc>
+    <lastmod>2020-04-28T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/qiuqiu/young/</loc>
+    <lastmod>2020-04-28T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/zhuzi/young/</loc>
+    <lastmod>2020-04-28T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/qiuqiu/</loc>
+    <lastmod>2020-01-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/fundationchristams/</loc>
+    <lastmod>2018-12-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/zhuzi/</loc>
+    <lastmod>2018-12-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/authors/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -220,11 +340,6 @@
       hreflang="en"
       href="https://buezw.github.io/authors/"
     />
-  </url>
-  <url>
-    <loc>https://buezw.github.io/blogs/</loc>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/categories/</loc>
@@ -247,7 +362,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/credits/%E6%B3%95%E8%80%81/</loc>
+    <loc>https://buezw.github.io/credits/faker/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
@@ -257,7 +372,12 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/credits/%E6%B3%95%E8%80%81-copy/</loc>
+    <loc>https://buezw.github.io/credits/%E6%B3%95%E8%80%81/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/credits/%E9%82%93%E7%B4%AB%E6%A3%8B/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
