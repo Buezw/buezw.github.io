@@ -21,14 +21,14 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/blogs/</loc>
-    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/mcms5.furtheronstressstrain/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -41,6 +41,74 @@
       hreflang="en"
       href="https://buezw.github.io/"
     />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/chemistry/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/docs/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/ecms/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/series/ecms/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/series/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/series/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/series/"
+    />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/tags/"
+    />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/blogs/</loc>
+    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/ontario/</loc>
@@ -59,68 +127,6 @@
     <lastmod>2024-10-14T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2024-10-14T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/tags/"
-    />
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/chemistry/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/ecms/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/series/ecms/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/series/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/series/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/series/"
-    />
   </url>
   <url>
     <loc>https://buezw.github.io/tags/cover/</loc>
