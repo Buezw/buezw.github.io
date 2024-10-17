@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ECMS on Buezwqwg</title>
+    <link>https://buezw.github.io/tags/ecms/</link>
+    <description>Recent content in ECMS on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2024 Buezwqwg</copyright>
+    <lastBuildDate>Wed, 16 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ecms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ECMS 2. Elastic Behavior</title>
+      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit 9/24/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Hooke’s Law 
+    &lt;div id=&#34;hookes-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#hookes-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;$$F=kx$$&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/feature.png" />
+    </item>
+    
+    <item>
+      <title>Test. Elastic Behavior</title>
+      <link>https://buezw.github.io/docs/montecarlomethod/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/montecarlomethod/</guid>
+      <description>&lt;video width=&#34;640&#34; height=&#34;360&#34; controls&gt;
+  &lt;source src=&#34;https://www.bilibili.com/video/BV1LY2BYZEQi?spm_id_from=player_end_recommend_autoplay&amp;vd_source=39a084f59f47356eb53ecd6679c7d7d8&#34; type=&#34;video/mp4&#34;&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>ECMS 3. Plastic Deformation</title>
+      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 9/23/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Plastice Deformation (Permanent Deformation) 
+    &lt;div id=&#34;plastice-deformation-permanent-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#plastice-deformation-permanent-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;we use the term &lt;strong&gt;plastic&lt;/strong&gt; to describe permanent deformation&lt;/li&gt;
+&lt;li&gt;之所以是Plastic，是因为它derives from the Greek &lt;strong&gt;plastikos&lt;/strong&gt; meaning to sculpt&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h5 class=&#34;relative group&#34;&gt;Changes After Plastic Deformation 
+    &lt;div id=&#34;changes-after-plastic-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#changes-after-plastic-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;在Plastic Deformation后，Atomic Spacing将保持\(r=r_0\)&lt;/li&gt;
+&lt;li&gt;但是Sequence of atoms将进入一个New Equilibrium&lt;/li&gt;
+&lt;li&gt;即在Marcro Perspective上发生Shape的Deform&lt;/li&gt;
+&lt;li&gt;Tensile Strain将会保持一定非零大小&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h5 class=&#34;relative group&#34;&gt;Micro Perspective of Plastic Deformation 
+    &lt;div id=&#34;micro-perspective-of-plastic-deformation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#micro-perspective-of-plastic-deformation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h5&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+
+
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-1.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+
+
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-2.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/feature.png" />
+    </item>
+    
+    <item>
+      <title>ECMS 4. The Structure Property</title>
+      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms4.thestructureproperty/</link>
+      <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms4.thestructureproperty/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 9/25/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Young’s modulus change with Density 
+    &lt;div id=&#34;youngs-modulus-change-with-density&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#youngs-modulus-change-with-density&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS4.TheStructureProperty/ECMS4.TheStructure-Property-24.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms4.thestructureproperty/feature.png" />
+    </item>
+    
+    <item>
+      <title>MCMS 5. Further On Stress Strain</title>
+      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/mcms5.furtheronstressstrain/</link>
+      <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/mcms5.furtheronstressstrain/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 10/16/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Stress-Strain Curve 
+    &lt;div id=&#34;stress-strain-curve&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#stress-strain-curve&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/MCMS5.FurtherOnStressStrain/MCMS5.FurtherOnStressStrain.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;当回头重新看Stress-Strain Curve的时候可以发现一些特殊的点&lt;/li&gt;
+&lt;li&gt;如Proportion Limit，Ultimate Tensile Strength两个点&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Proportional Limit 
+    &lt;div id=&#34;proportional-limit&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#proportional-limit&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在曲线的最初阶段，存在一个接近于Linear的区域，其代表了Linear Elastic的Region&lt;/li&gt;
+&lt;li&gt;而也必会存在一个点象征着Linear Elastic Region的结束&lt;/li&gt;
+&lt;li&gt;但犹豫一些测量的误差或者精度上的问题，将导致最终的这一个Linear Elastic结束的点无法被确定，所以需要一个约定俗成的方法&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;0.2% Offset Yield Strength 
+    &lt;div id=&#34;02-offset-yield-strength&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#02-offset-yield-strength&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/MCMS5.FurtherOnStressStrain/MCMS5.FurtherOnStressStrain-1.png&#34; alt=&#34;&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/mcms5.furtheronstressstrain/feature.png" />
+    </item>
+    
+    <item>
+      <title>Engineering Chemistry &amp; Materials Science</title>
+      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/</link>
+      <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Ramsay, S. (2024). Engineering Chemistry &amp;amp; Materials Science. Top Hat. &lt;a href=&#34;https://app.tophat.com/e/797389/content/course-work/item/1213609::72131f51-0d59-4379-85f9-30182e840f9b&#34; target=&#34;_blank&#34;&gt;https://app.tophat.com/e/797389/content/course-work/item/1213609::72131f51-0d59-4379-85f9-30182e840f9b&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

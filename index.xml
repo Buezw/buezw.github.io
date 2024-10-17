@@ -9,7 +9,7 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2024 Buezwqwg</copyright>
-    <lastBuildDate>Wed, 16 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ECMS 2. Elastic Behavior</title>
       <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</link>
@@ -33,19 +33,6 @@
 &lt;/h2&gt;
 &lt;p&gt;$$F=kx$$&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/feature.png" />
-    </item>
-    
-    <item>
-      <title>Test. Elastic Behavior</title>
-      <link>https://buezw.github.io/docs/montecarlomethod/</link>
-      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/montecarlomethod/</guid>
-      <description>&lt;video width=&#34;640&#34; height=&#34;360&#34; controls&gt;
-  &lt;source src=&#34;CreateCircle.mp4&#34; type=&#34;video/mp4&#34;&gt;
-  Your browser does not support the video tag.
-&lt;/video&gt;</description>
-      
     </item>
     
     <item>
@@ -221,6 +208,74 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/mcms5.furtheronstressstrain/feature.png" />
+    </item>
+    
+    <item>
+      <title>Monte Carlo Approach to Calculate π</title>
+      <link>https://buezw.github.io/docs/montecarlomethod/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/montecarlomethod/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;“这种方法虽然简单，却展示了数学中的一种用随机的蛮力对抗精确逻辑的思想方法，一种用数量得到质量的计算思想” - 三体&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/montecarlomethod/feature.png" />
+    </item>
+    
+    <item>
+      <title>The Three Body Problem</title>
+      <link>https://buezw.github.io/notes/thethreebodyproblem/</link>
+      <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/notes/thethreebodyproblem/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;[!abstract] 三体（全集）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+  &lt;figure&gt;
+    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://cdn.weread.qq.com/weread/cover/80/yuewen_695233/t7_yuewen_6952331725163983.jpg&#34; alt=&#34; 三体（全集）|200&#34; /&gt;
+    
+  &lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;书名： 三体（全集）&lt;/li&gt;
+&lt;li&gt;作者： 刘慈欣&lt;/li&gt;
+&lt;li&gt;简介： 每个人的书架上都该有套《三体》！关于宇宙最狂野的想象！就是它！征服世界的中国科幻神作！包揽九项世界顶级科幻大奖！出版16个语种，横扫30国读者！奥巴马、雷军、马化腾、周鸿祎、潘石屹、扎克伯格……强推！刘慈欣获得2018年度克拉克想象力贡献社会奖！刘慈欣是中国科幻小说的最主要代表作家，亚洲首位世界科幻大奖“雨果奖”得主，被誉为中国科幻的领军人物。&lt;/li&gt;
+&lt;li&gt;出版时间： 2018-12-01 00:00:00&lt;/li&gt;
+&lt;li&gt;ISBN： 9785214589626&lt;/li&gt;
+&lt;li&gt;分类： 精品小说-科幻小说&lt;/li&gt;
+&lt;li&gt;出版社： 海南省电子音像出版社&lt;/li&gt;
+&lt;li&gt;PC地址：https://weread.qq.com/web/reader/ce032b305a9bc1ce0b0dd2a&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;高亮划线 
+    &lt;div id=&#34;%E9%AB%98%E4%BA%AE%E5%88%92%E7%BA%BF&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E9%AB%98%E4%BA%AE%E5%88%92%E7%BA%BF&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;第十三章 红岸之二 
+    &lt;div id=&#34;%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E7%BA%A2%E5%B2%B8%E4%B9%8B%E4%BA%8C&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E7%BA%A2%E5%B2%B8%E4%B9%8B%E4%BA%8C&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;📌 雷政委说完站起来，迈着军人的稳健步伐离去。叶文洁的双眼盈满了泪水，透过眼泪，屏幕上的代码变成了一团团跳动的火焰。自父亲死后，这是她第一次流泪。
+叶文洁开始熟悉监听部的工作，她很快发现，自己在这里远不如在发射部顺利，她已有的计算机知识早已落后，大部分软件技术都得从头学起。虽然有雷政委的信任，但对她的限制还是很严的，她可以看程序源代码，但不许接触数据库。
+在日常工作中，叶文洁更多是接受杨卫宁的领导，他对她更加粗暴了，动不动就发火。雷政委多次劝他也没用，好像一见到叶文洁，他就充满了一种无名的焦虑。
+⏱ 2024-08-30 09:52:10 ^695233-17-5851&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/notes/thethreebodyproblem/feature.jpg" />
     </item>
     
     <item>
@@ -631,63 +686,6 @@ d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
       <guid>https://buezw.github.io/credits/ss/</guid>
       <description></description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/credits/ss/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>The Three Body Problem</title>
-      <link>https://buezw.github.io/notes/thethreebodyproblem/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/notes/thethreebodyproblem/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;[!abstract] 三体（全集）&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-  &lt;figure&gt;
-    &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://cdn.weread.qq.com/weread/cover/80/yuewen_695233/t7_yuewen_6952331725163983.jpg&#34; alt=&#34; 三体（全集）|200&#34; /&gt;
-    
-  &lt;/figure&gt;
-&lt;/li&gt;
-&lt;li&gt;书名： 三体（全集）&lt;/li&gt;
-&lt;li&gt;作者： 刘慈欣&lt;/li&gt;
-&lt;li&gt;简介： 每个人的书架上都该有套《三体》！关于宇宙最狂野的想象！就是它！征服世界的中国科幻神作！包揽九项世界顶级科幻大奖！出版16个语种，横扫30国读者！奥巴马、雷军、马化腾、周鸿祎、潘石屹、扎克伯格……强推！刘慈欣获得2018年度克拉克想象力贡献社会奖！刘慈欣是中国科幻小说的最主要代表作家，亚洲首位世界科幻大奖“雨果奖”得主，被誉为中国科幻的领军人物。&lt;/li&gt;
-&lt;li&gt;出版时间： 2018-12-01 00:00:00&lt;/li&gt;
-&lt;li&gt;ISBN： 9785214589626&lt;/li&gt;
-&lt;li&gt;分类： 精品小说-科幻小说&lt;/li&gt;
-&lt;li&gt;出版社： 海南省电子音像出版社&lt;/li&gt;
-&lt;li&gt;PC地址：https://weread.qq.com/web/reader/ce032b305a9bc1ce0b0dd2a&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;高亮划线 
-    &lt;div id=&#34;%E9%AB%98%E4%BA%AE%E5%88%92%E7%BA%BF&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E9%AB%98%E4%BA%AE%E5%88%92%E7%BA%BF&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;第十三章 红岸之二 
-    &lt;div id=&#34;%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E7%BA%A2%E5%B2%B8%E4%B9%8B%E4%BA%8C&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E7%BA%A2%E5%B2%B8%E4%B9%8B%E4%BA%8C&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;📌 雷政委说完站起来，迈着军人的稳健步伐离去。叶文洁的双眼盈满了泪水，透过眼泪，屏幕上的代码变成了一团团跳动的火焰。自父亲死后，这是她第一次流泪。
-叶文洁开始熟悉监听部的工作，她很快发现，自己在这里远不如在发射部顺利，她已有的计算机知识早已落后，大部分软件技术都得从头学起。虽然有雷政委的信任，但对她的限制还是很严的，她可以看程序源代码，但不许接触数据库。
-在日常工作中，叶文洁更多是接受杨卫宁的领导，他对她更加粗暴了，动不动就发火。雷政委多次劝他也没用，好像一见到叶文洁，他就充满了一种无名的焦虑。
-⏱ 2024-08-30 09:52:10 ^695233-17-5851&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/notes/thethreebodyproblem/feature.jpg" />
     </item>
     
     <item>

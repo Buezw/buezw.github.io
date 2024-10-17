@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Buezwqwg</title>
+    <link>https://buezw.github.io/docs/</link>
+    <description>Recent content in Docs on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2024 Buezwqwg</copyright>
+    <lastBuildDate>Wed, 16 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test. Elastic Behavior</title>
+      <link>https://buezw.github.io/docs/montecarlomethod/</link>
+      <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/montecarlomethod/</guid>
+      <description>&lt;video width=&#34;640&#34; height=&#34;360&#34; controls&gt;
+  &lt;source src=&#34;https://www.bilibili.com/video/BV1LY2BYZEQi?spm_id_from=player_end_recommend_autoplay&amp;vd_source=39a084f59f47356eb53ecd6679c7d7d8&#34; type=&#34;video/mp4&#34;&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
