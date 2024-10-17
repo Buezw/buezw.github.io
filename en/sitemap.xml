@@ -378,6 +378,26 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/notes/thethreebodyproblem/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/thoughts/thethreebodyproblem/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/notes/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/thoughts/</loc>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/credits/%E6%B3%95%E8%80%81/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
