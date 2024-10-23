@@ -9,7 +9,7 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2024 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 17 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ECMS 2. Elastic Behavior</title>
       <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</link>
@@ -208,6 +208,19 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/mcms5.furtheronstressstrain/feature.png" />
+    </item>
+    
+    <item>
+      <title>Projectile Motion when air resisitance is propftional to velocity</title>
+      <link>https://buezw.github.io/docs/projectilemotion/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/projectilemotion/</guid>
+      <description>&lt;video width=&#34;640&#34; height=&#34;360&#34; controls&gt;
+  &lt;source src=&#34;Projectile.mp4&#34; type=&#34;video/mp4&#34;&gt;
+  Your browser does not support the video tag.
+&lt;/video&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/projectilemotion/feature.png" />
     </item>
     
     <item>
