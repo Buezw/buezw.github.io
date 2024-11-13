@@ -3,38 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
-    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
-    <lastmod>2024-09-23T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms4.thestructureproperty/</loc>
-    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</loc>
-    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms6.plastics/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -50,37 +20,43 @@
   </url>
   <url>
     <loc>https://buezw.github.io/tags/chemistry/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/ecms/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/series/ecms/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms6.plastics/</loc>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/series/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -96,7 +72,7 @@
   </url>
   <url>
     <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -111,6 +87,30 @@
     />
   </url>
   <url>
+    <loc>https://buezw.github.io/tags/computer-science/</loc>
+    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/d2l/</loc>
+    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/series/d2l/</loc>
+    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/</loc>
+    <lastmod>2024-11-04T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/docs/projectilemotion/</loc>
     <lastmod>2024-10-22T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -119,6 +119,12 @@
   <url>
     <loc>https://buezw.github.io/docs/montecarlomethod/</loc>
     <lastmod>2024-10-17T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</loc>
+    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
@@ -159,7 +165,25 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms4.thestructureproperty/</loc>
+    <lastmod>2024-09-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
+    <lastmod>2024-09-24T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/tags/cover/</loc>
+    <lastmod>2024-09-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -167,24 +191,6 @@
   <url>
     <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/computer-science/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/d2l/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/series/d2l/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
@@ -262,12 +268,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/</loc>
-    <lastmod>2024-01-23T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/</loc>
     <lastmod>2024-01-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
