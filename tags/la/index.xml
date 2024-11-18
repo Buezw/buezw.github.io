@@ -2,20 +2,54 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LA on Buezwqwg</title>
-    <link>http://localhost:1313/tags/la/</link>
+    <link>https://buezw.github.io/tags/la/</link>
     <description>Recent content in LA on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2024 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/la/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/la/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linear Algebra</title>
-      <link>http://localhost:1313/docs/linearalgebra/</link>
+      <title>LA 6. Determinants</title>
+      <link>https://buezw.github.io/docs/linearalgebra/la6.determiants/</link>
       <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/linearalgebra/</guid>
+      <guid>https://buezw.github.io/docs/linearalgebra/la6.determiants/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 10/24/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Introduction to Determinate 
+    &lt;div id=&#34;introduction-to-determinate&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#introduction-to-determinate&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;行列式是一个每个方阵都具有的数值&lt;/li&gt;
+&lt;li&gt;Determinate measures the factor by which the area of a given region increases or decreases&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LA6.Determinants/LA6.Determinats.png&#34; alt=&#34;Img&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/linearalgebra/la6.determiants/feature.png" />
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://buezw.github.io/docs/linearalgebra/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/linearalgebra/</guid>
       <description></description>
       
     </item>
