@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cover on Buezwqwg</title>
-    <link>https://buezw.github.io/tags/cover/</link>
+    <link>http://localhost:1313/tags/cover/</link>
     <description>Recent content in Cover on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2024 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 23 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/cover/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cover/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Engineering Chemistry &amp; Materials Science</title>
-      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/</link>
+      <link>http://localhost:1313/docs/emcs_engineering-chemistry--materials-science/</link>
       <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/</guid>
+      <guid>http://localhost:1313/docs/emcs_engineering-chemistry--materials-science/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Ramsay, S. (2024). Engineering Chemistry &amp;amp; Materials Science. Top Hat. &lt;a href=&#34;https://app.tophat.com/e/797389/content/course-work/item/1213609::72131f51-0d59-4379-85f9-30182e840f9b&#34; target=&#34;_blank&#34;&gt;https://app.tophat.com/e/797389/content/course-work/item/1213609::72131f51-0d59-4379-85f9-30182e840f9b&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -25,30 +25,30 @@
     
     <item>
       <title>Chapter 3. Linear Neural Network</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
+      <link>http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
+      <guid>http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
       <description>&lt;hr&gt;</description>
       
     </item>
     
     <item>
       <title>Chapter 4. Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
+      <link>http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/</guid>
+      <guid>http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/</guid>
       <description>&lt;hr&gt;</description>
       
     </item>
     
     <item>
       <title>Dive Into Deep Learning</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/</link>
+      <link>http://localhost:1313/docs/d2l_dive-into-deep-learning/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/</guid>
+      <guid>http://localhost:1313/docs/d2l_dive-into-deep-learning/</guid>
       <description>&lt;p&gt;《动手学深度学习》 — 动手学深度学习 2.0.0 documentation. (2023). Zh-V2.D2l.ai. &lt;a href=&#34;https://zh-v2.d2l.ai/index.html&#34; target=&#34;_blank&#34;&gt;https://zh-v2.d2l.ai/index.html&lt;/a&gt;&lt;/p&gt;
 
 

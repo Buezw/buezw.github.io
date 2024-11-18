@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head>
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -16,7 +16,7 @@
   <meta name="keywords" content="D2L, Computer Science, Docs, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/" />
+  <link rel="canonical" href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/" />
   
   
   
@@ -64,7 +64,7 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
+  <meta property="og:url" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="D2L 3.5 Image classification datasets">
   <meta property="og:description" content="MNIST数据集 (LeCun et al., 1998) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (Xiao et al., 2017)。">
@@ -76,17 +76,17 @@
     <meta property="article:tag" content="D2L">
     <meta property="article:tag" content="Computer Science">
     <meta property="article:tag" content="Docs">
-    <meta property="og:image" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+    <meta property="og:image" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png">
+  <meta name="twitter:image" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png">
   <meta name="twitter:title" content="D2L 3.5 Image classification datasets">
   <meta name="twitter:description" content="MNIST数据集 (LeCun et al., 1998) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (Xiao et al., 2017)。">
 
@@ -101,7 +101,7 @@
     
     "abstract": "\u003cp\u003eMNIST数据集 (\u003ca href=\u0022https:\/\/zh-v2.d2l.ai\/chapter_references\/zreferences.html#id90\u0022title=\u0022LeCun, Y., Bottou, L., Bengio, Y., Haffner, P., \u0026amp; others. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324.\u0022 target=\u0022_blank\u0022\u003eLeCun \u003cem\u003eet al.\u003c\/em\u003e, 1998\u003c\/a\u003e) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (\u003ca href=\u0022https:\/\/zh-v2.d2l.ai\/chapter_references\/zreferences.html#id189\u0022title=\u0022Xiao, H., Rasul, K., \u0026amp; Vollgraf, R. (2017). Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms. arXiv preprint arXiv:1708.07747.\u0022 target=\u0022_blank\u0022\u003eXiao \u003cem\u003eet al.\u003c\/em\u003e, 2017\u003c\/a\u003e)。\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/d2l_dive-into-deep-learning\/d2l_chapter3linearneuralnetwork\/3.5_imageclassificationdatasets\/",
+    "url" : "http:\/\/localhost:1313\/docs\/d2l_dive-into-deep-learning\/d2l_chapter3linearneuralnetwork\/3.5_imageclassificationdatasets\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
@@ -914,7 +914,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/">
             Part 1: Linear Regression
         </a>
     </div>
@@ -923,7 +923,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
             Part 1: Chapter 3. Linear Neural Network
         </a>
     </div>
@@ -932,7 +932,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
             Part 1: Chapter 4. Multilayer Perceptron
         </a>
     </div>
@@ -941,7 +941,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/">
             Part 1: Dive Into Deep Learning
         </a>
     </div>
@@ -950,7 +950,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
             Part 2: D2L 3.1 Linear Regression
         </a>
     </div>
@@ -959,7 +959,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
             Part 3: D2L 3.2 Object-Oriented Design for Implementation
         </a>
     </div>
@@ -968,7 +968,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
             Part 4: D2L 3.3 A concise implementation of linear regression
         </a>
     </div>
@@ -977,7 +977,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
             Part 5: D2L 3.4 Softmax Regression
         </a>
     </div>
@@ -993,7 +993,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
     </div>
@@ -1002,7 +1002,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
             Part 8: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1011,7 +1011,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
             Part 9: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1020,7 +1020,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
             Part 10: D2L 4.3 Simple Implementation of Multilayer Perceptron
         </a>
     </div>
@@ -1029,7 +1029,7 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
             Part 10: D2L 4.4 Model Selection, Underfitting, and Overfitting
         </a>
     </div>
@@ -1194,7 +1194,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/">
             Part 1: Linear Regression
         </a>
     </div>
@@ -1203,7 +1203,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
             Part 1: Chapter 3. Linear Neural Network
         </a>
     </div>
@@ -1212,7 +1212,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
             Part 1: Chapter 4. Multilayer Perceptron
         </a>
     </div>
@@ -1221,7 +1221,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/">
             Part 1: Dive Into Deep Learning
         </a>
     </div>
@@ -1230,7 +1230,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
             Part 2: D2L 3.1 Linear Regression
         </a>
     </div>
@@ -1239,7 +1239,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
             Part 3: D2L 3.2 Object-Oriented Design for Implementation
         </a>
     </div>
@@ -1248,7 +1248,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
             Part 4: D2L 3.3 A concise implementation of linear regression
         </a>
     </div>
@@ -1257,7 +1257,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
             Part 5: D2L 3.4 Softmax Regression
         </a>
     </div>
@@ -1273,7 +1273,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
     </div>
@@ -1282,7 +1282,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
             Part 8: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1291,7 +1291,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
             Part 9: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1300,7 +1300,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
             Part 10: D2L 4.3 Simple Implementation of Multilayer Perceptron
         </a>
     </div>
@@ -1309,7 +1309,7 @@ for X, y in train_iter:
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
             Part 10: D2L 4.4 Model Selection, Underfitting, and Overfitting
         </a>
     </div>
@@ -2009,11 +2009,11 @@ for X, y in train_iter:
   
   
 
-  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/" class="min-w-full">
+  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/feature_hu511238667851196185.png);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature_hu511238667851196185.png);"></div>
         
       
 
@@ -2021,7 +2021,7 @@ for X, y in train_iter:
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">D2L 4.1 MultilayerPerceptron</div>
+          href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">D2L 4.1 MultilayerPerceptron</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -2245,10 +2245,16 @@ for X, y in train_iter:
   </a>
 </div>
     </main><script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
 
 <footer id="site-footer" class="py-10 print:hidden">
   
@@ -2310,7 +2316,7 @@ for X, y in train_iter:
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div

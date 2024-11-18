@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head>
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -16,7 +16,7 @@
   <meta name="keywords" content="D2L, Computer Science, docs, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/" />
+  <link rel="canonical" href="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/" />
   
   
   
@@ -64,7 +64,7 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
+  <meta property="og:url" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="Linear Regression">
   <meta property="og:description" content=" Last Edit: 11/4/2024
@@ -78,17 +78,17 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     <meta property="article:tag" content="D2L">
     <meta property="article:tag" content="Computer Science">
     <meta property="article:tag" content="Docs">
-    <meta property="og:image" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/feature.png">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+    <meta property="og:image" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/feature.png">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/feature.png">
+  <meta name="twitter:image" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/feature.png">
   <meta name="twitter:title" content="Linear Regression">
   <meta name="twitter:description" content=" Last Edit: 11/4/2024
 Your browser does not support the video tag. Full Code is Provided
@@ -105,7 +105,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 11\/4\/2024\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cvideo width=\u0022640\u0022 height=\u0022360\u0022 controls\u003e\n  \u003csource src=\u0022LinearRegression.mp4\u0022 type=\u0022video\/mp4\u0022\u003e\n  Your browser does not support the video tag.\n\u003c\/video\u003e\n\u003cp\u003eFull Code is Provided\u003c\/p\u003e\n\u003cpre tabindex=\u00220\u0022\u003e\u003ccode class=\u0022language-from\u0022 data-lang=\u0022from\u0022\u003eimport numpy as np\nimport torch\nimport random\n\nclass LinearRegression(Scene):\n    def construct(self):\n        def data_generator(w,b,num):\n            X = torch.normal(0, 1, (num, len(w)))\n            y = torch.matmul(X, w) \u002b b\n            y \u002b= torch.normal(0, 0.01, y.shape)\n            return X, y.reshape((-1, 1))\n\n        true_w = torch.tensor([2,-3.4])\n        true_b = 4.2\n        features, labels = data_generator(true_w,true_b,1000)\n        normal_data = features[:,[0]].numpy()\n        #plt.hist(normal_data,bins=100,density=True,color=\u0026#39;lightblue\u0026#39;)  \n         \n\n        head = Text(\u0026#34;Linear Regression - Buezwqwg\u0026#34;)\n        head.set_color(BLUE)\n        self.play(Create(head))\n\n        head_0 = Text(\u0026#34;In one process of Linear Regression, there bascially includes 5 steps\u0026#34;,font_size=30)\n        self.play(Uncreate(head),Write(head_0))\n        self.play(head_0.animate.move_to(UP*3.5))\n        head_1 = Text(\u0026#34;1. Initial Parameters\u0026#34;,font_size=30)\n        head_2 = Text(\u0026#34;2. Defining Model and Loss Function\u0026#34;,font_size=30)\n        head_3 = Text(\u0026#34;3. Optimization\u0026#34;,font_size=30)\n        head_4 = Text(\u0026#34;4. Loop\u0026#34;,font_size=30)\n        head = VGroup(head_1,head_2,head_3,head_4)\n        head.arrange(DOWN)\n        self.play(Write(head))\n\n        # --------------------------------------------------------------------------------------------\n\n        head_5 = Text(\u0026#34;In this animate, we start with generating the data\u0026#34;,font_size=30)\n        head_5.move_to(UP*3.5)\n        self.play(Uncreate(head),Uncreate(head_0),Write(head_5))\n        code_text = \u0026#39;\u0026#39;\u0026#39;\n        def data_generator(w, b, num):\n            X = torch.normal(0, 1, (num, len(w)))\n            y = torch.matmul(X, w) \u002b b\n            y \u002b= torch.normal(0, 0.01, y.shape)\n            return X, y.reshape((-1, 1))\n            \n        true_w = torch.tensor([2,-3.4])\n        true_b = 4.2\n        features, labels = data_generator(true_w,true_b,1000)\n        \u0026#39;\u0026#39;\u0026#39;\n        code = Code(code=code_text,insert_line_no=False,language=\u0026#34;Python\u0026#34;,font=\u0026#34;Monospace\u0026#34;)\n        self.play(Write(code),Uncreate(head_5),run_time=3)\n        self.wait(3)\n        self.play(Unwrite(code))\n        axes = Axes(\n            x_range=[-4, 4, 1],\n            y_range=[0, 0.5, 0.1],\n            axis_config={\u0026#34;color\u0026#34;: BLUE},\n        ).add_coordinates()\n\n        # 正态分布函数 y = (1\/sqrt(2*pi)) * exp(-x^2 \/ 2)\n        normal_curve = axes.plot(\n            lambda x: (1 \/ (2 * PI) ** 0.5) * np.exp(-x**2 \/ 2),\n            color=YELLOW\n        )\n\n        # 绘制均值为0的竖线\n        mean_line = DashedLine(\n            start=axes.c2p(0, 0),\n            end=axes.c2p(0, (1 \/ (2 * PI) ** 0.5)),\n            color=RED\n        )\n\n        # 添加图形和标注\n        self.play(Create(axes))\n        self.play(Create(normal_curve), Create(mean_line))\n        \n        # 标注均值和标准差\n        mean_label = MathTex(r\u0026#34;\\mu=0\u0026#34;).next_to(mean_line, DOWN)\n        std_label = MathTex(r\u0026#34;\\sigma=1\u0026#34;).next_to(normal_curve, UP, buff=0.5)\n        self.play(Write(mean_label), Write(std_label))\n\n        # 展示最终效果\n        self.wait(2)\n        self.play(Unwrite(mean_label),Unwrite(std_label),Uncreate(axes),Uncreate(normal_curve),Uncreate(mean_line))\n\n        # --------------------------------------------------------------------------------------------\n\n        head = Text(\u0026#34;Displaying the distribution of features\u0026#34;)\n        feature_one = features[:,[0]].tolist()\n        feature_two = features[:,[1]].tolist()\n        labels = labels.tolist()\n        axes_1 = Axes(\n            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1\n            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1\n            x_length=5,  # x轴的长度\n            y_length=5,  # y轴的长度\n            axis_config={\u0026#34;color\u0026#34;: BLUE},  # 坐标轴的颜色\n        )\n        axes_2 = Axes(\n            x_range=[min(feature_two)[0], max(feature_two)[0], 1],  # x轴范围：从-5到5，步长为1\n            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1\n            x_length=5,  # x轴的长度\n            y_length=5,  # y轴的长度\n            axis_config={\u0026#34;color\u0026#34;: BLUE},  # 坐标轴的颜色\n        )\n        axes = VGroup(axes_1,axes_2)\n        axes.arrange(RIGHT,buff=1)\n        self.play(Create(axes))\n\n        points_1 = []\n        for i in range(len(labels)):\n            dot_position = axes_1.coords_to_point(feature_one[i][0], labels[i][0])\n            points_1.append(Dot(point=dot_position, radius=0.05, color=YELLOW))\n        animations_1 = [Create(dot) for dot in points_1]\n        points_2 = []\n        for i in range(len(labels)):\n            dot_position = axes_2.coords_to_point(feature_two[i][0], labels[i][0])\n            points_2.append(Dot(point=dot_position, radius=0.05, color=YELLOW))\n        animations_2 = [Create(dot) for dot in points_2]\n        self.play(Succession(*animations_1, lag_ratio=0.005),Succession(*animations_2, lag_ratio=0.005))\n\n        # 抽取样本-------------------------------------------------------------------------------------------- \n\n        head = Text(\u0026#39;Shuffle the data and divided into samples(batches)\u0026#39;,font_size=30)\n        self.play(Uncreate(axes),Write(head),Uncreate(VGroup(*points_1)),Uncreate(VGroup(*points_2)))\n        head.move_to(UP*3.5)\n        code_text = \u0026#39;\u0026#39;\u0026#39;\n        def data_iter(batch_size,features,labels):\n            num = len(features)\n            index = list(range(num))\n            random.shuffle(index)\n            for i in range(0,num,batch_size):\n                batch_index = torch.tensor(index[i:min(i\u002bbatch_size,num)])\n                yield features[batch_index], labels[batch_index]\n        \u0026#39;\u0026#39;\u0026#39;\n        code = Code(code=code_text,insert_line_no=False,language=\u0026#34;Python\u0026#34;,font=\u0026#34;Monospace\u0026#34;)\n        self.play(Write(code))\n        self.wait(2)\n        self.play(Uncreate(code),Unwrite(head))\n\n        def data_iter(batch_size,features,labels):\n            num = len(features)\n            index = list(range(num))\n            random.shuffle(index)\n            for i in range(0,num,batch_size):\n                batch_index = torch.tensor(index[i:min(i\u002bbatch_size,num)])\n                return batch_index.tolist()\n\n\n\n        axes_1 = Axes(\n            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1\n            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1\n            x_length=2.5,  # x轴的长度\n            y_length=2.5,  # y轴的长度\n            axis_config={\u0026#34;color\u0026#34;: BLUE},  # 坐标轴的颜色\n        )\n        \n\n        axes_2 = Axes(\n            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1\n            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1\n            x_length=2.5,  # x轴的长度\n            y_length=2.5,  # y轴的长度\n            axis_config={\u0026#34;color\u0026#34;: BLUE},  # 坐标轴的颜色\n        )\n        \n        axes_3 = Axes(\n            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1\n            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1\n            x_length=2.5,  # x轴的长度\n            y_length=2.5,  # y轴的长度\n            axis_config={\u0026#34;color\u0026#34;: BLUE},  # 坐标轴的颜色\n        )\n        axes_4 = Axes(\n            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1\n            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1\n            x_length=2.5,  # x轴的长度\n            y_length=2.5,  # y轴的长度\n            axis_config={\u0026#34;color\u0026#34;: BLUE},  # 坐标轴的颜色\n        )\n        axes_5 = Axes(\n            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1\n            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1\n            x_length=2.5,  # x轴的长度\n            y_length=2.5,  # y轴的长度\n            axis_config={\u0026#34;color\u0026#34;: BLUE},  # 坐标轴的颜色\n        )\n        axes = VGroup(axes_1,axes_2,axes_3,axes_4,axes_5)\n        axes.arrange(RIGHT)\n\n        sample_1 = data_iter(10,features,labels)\n        points_1 = []\n        for i in sample_1:\n            dot_position = axes_1.coords_to_point(features[i][0],labels[i][0])\n            points_1.append(Dot(point=dot_position, radius=0.05, color=YELLOW))\n        animations_1 = [Create(dot) for dot in points_1]\n\n        sample_2 = data_iter(10,features,labels)\n        points_2 = []\n        for i in sample_2:\n            dot_position = axes_2.coords_to_point(features[i][0],labels[i][0])\n            points_2.append(Dot(point=dot_position, radius=0.05, color=YELLOW))\n        animations_2 = [Create(dot) for dot in points_2]\n\n        sample_3 = data_iter(10,features,labels)\n        points_3 = []\n        for i in sample_3:\n            dot_position = axes_3.coords_to_point(features[i][0],labels[i][0])\n            points_3.append(Dot(point=dot_position, radius=0.05, color=YELLOW))\n        animations_3 = [Create(dot) for dot in points_3]\n\n        sample_4 = data_iter(10,features,labels)\n        points_4 = []\n        for i in sample_4:\n            dot_position = axes_4.coords_to_point(features[i][0],labels[i][0])\n            points_4.append(Dot(point=dot_position, radius=0.05, color=YELLOW))\n        animations_4 = [Create(dot) for dot in points_4]\n\n        sample_5 = data_iter(10,features,labels)\n        points_5 = []\n        for i in sample_5:\n            dot_position = axes_5.coords_to_point(features[i][0],labels[i][0])\n            points_5.append(Dot(point=dot_position, radius=0.05, color=YELLOW))\n        animations_5 = [Create(dot) for dot in points_5]   \n        head = Text(\u0026#34;Display five of Sample Batches (Batch Size = 10)\u0026#34;,font_size=30)\n        head.set_color(BLUE)\n        head.move_to(UP*2.5)\n        self.play(Write(head))\n        self.play(Create(axes),Succession(*animations_1, lag_ratio=0.05),Succession(*animations_2, lag_ratio=0.05),Succession(*animations_3, lag_ratio=0.05),Succession(*animations_4, lag_ratio=0.05),Succession(*animations_5, lag_ratio=0.05))\n        self.wait(3)\n        self.play(Uncreate(axes),Uncreate(head),Uncreate(VGroup(*points_1)),Uncreate(VGroup(*points_2)),Uncreate(VGroup(*points_3)),Uncreate(VGroup(*points_4)),Uncreate(VGroup(*points_5)))\n\n        # 定义模型-------------------------------------------------------------------------------------------- \n\n        head_1 = Text(\u0026#39;Define the Function\u0026#39;)\n        head_1.set_color(BLUE)\n        code_text_1 = \u0026#39;\u0026#39;\u0026#39;\n        def linreg(X, w, b):\n            return torch.matmul(X, w) \u002b b\n        \u0026#39;\u0026#39;\u0026#39;\n        code_1 = Code(code=code_text_1,insert_line_no=False,language=\u0026#34;Python\u0026#34;,font=\u0026#34;Monospace\u0026#34;)\n        head_2 = Text(\u0026#39;Define the Loss Function\u0026#39;)\n        head_2.set_color(BLUE)\n        code_text_2 = \u0026#39;\u0026#39;\u0026#39;\n        def squared_loss(y_hat, y):\n            return (y_hat - y.reshape(y_hat.shape)) ** 2 \/ 2\n        \u0026#39;\u0026#39;\u0026#39;\n\n\n        code_2 = Code(code=code_text_2,insert_line_no=False,language=\u0026#34;Python\u0026#34;,font=\u0026#34;Monospace\u0026#34;)\n        head = VGroup(head_1,code_1,head_2,code_2)\n        head.arrange(DOWN,buff=1)\n        self.play(Write(head))\n        self.wait(2)\n        self.play(Unwrite(head))\n\n        # 展示MSE--------------------------------------------------------------------------------------------    \n        head = MathTex(r\u0026#34;Lose~Function~MSE~:(y_i - \\hat{y}_i)^2\u0026#34;)\n        head.set_color(BLUE)\n        head.move_to(UP*3)\n        self.play(Write(head))\n        axes = Axes(\n            x_range=[-10, 10, 2.5],\n            y_range=[0, 100, 20],\n            x_length=10,\n            y_length=5,\n            axis_config={\u0026#34;color\u0026#34;: GREEN},\n        )\n        \n        # 定义MSE函数\n        mse_curve = axes.plot(lambda x: (x**2), color=BLUE, x_range=[-10, 10])\n        mse_der = axes.plot(lambda x: (2*x), color=RED, x_range=[-10, 10])\n        # 将元素添加到场景中\n        self.play(Create(axes),Create(mse_curve))\n        self.wait(2)\n        self.play(Uncreate(head))\n        head = Text(\u0026#34;The MSE Derivative indicates that loss will be increasing as it increase\u0026#34;,font_size=30)\n        head.set_color(BLUE)\n        head.move_to(UP*3)\n        self.play(Write(head),Create(mse_der))\n        self.wait(3)\n        self.play(Uncreate(head),Uncreate(mse_der),Uncreate(mse_curve),Uncreate(axes))\n\n\n        # 展示SGD--------------------------------------------------------------------------------------------\n        head = Text(\u0026#34;Now Conduct the Optimization Method\u0026#34;)\n        head.move_to(UP*3)\n        head.set_color(BLUE)\n        code_text = \u0026#39;\u0026#39;\u0026#39;\n        def sgd(params, lr, batch_size):\n        with torch.no_grad():\n            for param in params:\n                param -= lr * param.grad \/ batch_size\n                param.grad.zero_()\n        \u0026#39;\u0026#39;\u0026#39;\n        code = Code(code=code_text,insert_line_no=False,language=\u0026#34;Python\u0026#34;,font=\u0026#34;Monospace\u0026#34;)\n        head_2 = Text(\u0026#39;Apply this optimization method for each batch\u0026#39;)\n        head_2.set_color(BLUE)\n        sgd = MathTex(r\u0026#34;(w,b)\\leftarrow (w,b)-\\eta g\u0026#34;)\n        main = VGroup(head,code,head_2,sgd)\n        main.arrange(DOWN,buff=0.7)\n        self.play(Write(main))\n        self.wait(2)\n        self.play(Uncreate(main),run_time=0.1)\n        \n        # 计算梯度--------------------------------------------------------------------------------------------\n        head = Text(\u0026#34;Now Calculate the Gradient\u0026#34;)\n        head.set_color(BLUE)\n        head.move_to(UP*3)\n        grad = MathTex(r\u0026#34;\\frac{\\partial \\text{MSE}}{\\partial w} = \\frac{1}{n} \\sum_{i=1}^{n} \\frac{\\partial}{\\partial w} \\left( y_i - (w x_i \u002b b) \\right)^2\u0026#34;)\n        grad_1 = MathTex(r\u0026#34;= \\frac{1}{n} \\sum_{i=1}^{n} 2(y_i - (wx_i \u002b b)) \\cdot (-x_i)\u0026#34;)\n        grad_2 = MathTex(r\u0026#34;= -\\frac{1}{n} \\sum_{i=1}^{n} 2(y_i - \\hat{y}_i) \\cdot x_i\u0026#34;)\n\n        main = VGroup(head,grad,grad_1,grad_2)\n        main.arrange(DOWN,buff=0.7)\n        self.play(Write(main))\n        self.wait(2)\n        self.play(Uncreate(main),run_time=0.01)\n        head = Text(\u0026#34;Then apllies the formula for 1000\/10=100 Times\u0026#34;,font_size=45)\n        head.set_color(BLUE)\n        grad = MathTex(r\u0026#39;w := w \u002b \\eta \\cdot \\frac{1}{n} \\sum_{i=1}^{n} 2(y_i - \\hat{y}_i) \\cdot x_i\u0026#39;)\n        grad_1 = MathTex(r\u0026#34;b := b \u002b \\eta \\cdot \\frac{1}{n} \\sum_{i=1}^{n} 2(y_i - \\hat{y}_i)\u0026#34;)\n        main = VGroup(head,grad,grad_1)\n        main.arrange(DOWN,buff=0.7)\n        self.play(Write(main))\n        self.wait(3)\n        self.play(Uncreate(main),run_time=0.01)\n\n        # 总结--------------------------------------------------------------------------------------------\n        code_text = \u0026#39;\u0026#39;\u0026#39;\n        lr = 0.03\n        num_epochs = 3\n        net = linreg\n        loss = squared_loss\n\n        for epoch in range(num_epochs):\n            for X, y in data_iter(batch_size, features, labels):\n                l = loss(net(X, w, b), y)\n                l.sum().backward()\n                sgd([w, b], lr, batch_size)\n            with torch.no_grad():\n                train_l = loss(net(features, w, b), labels)\n                print(f\u0026#39;epoch {epoch \u002b 1}, loss {float(train_l.mean()):f}\u0026#39;)\n        \u0026#39;\u0026#39;\u0026#39;\n        code = Code(code=code_text,insert_line_no=False,language=\u0026#34;Python\u0026#34;,font=\u0026#34;Monospace\u0026#34;)\n        head = Text(\u0026#34;Then applies the whole process in epochs and that\u0026#39;s linear regression\u0026#34;,font_size=30)\n        main = VGroup(head,code)\n        main.arrange(DOWN,buff=1)\n        self.play(Write(main))\n---\n\u003c\/code\u003e\u003c\/pre\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/d2l_dive-into-deep-learning\/linearregression\/",
+    "url" : "http:\/\/localhost:1313\/docs\/d2l_dive-into-deep-learning\/linearregression\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
@@ -800,7 +800,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
             Part 1: Chapter 3. Linear Neural Network
         </a>
     </div>
@@ -809,7 +809,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
             Part 1: Chapter 4. Multilayer Perceptron
         </a>
     </div>
@@ -818,7 +818,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/">
             Part 1: Dive Into Deep Learning
         </a>
     </div>
@@ -827,7 +827,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
             Part 2: D2L 3.1 Linear Regression
         </a>
     </div>
@@ -836,7 +836,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
             Part 3: D2L 3.2 Object-Oriented Design for Implementation
         </a>
     </div>
@@ -845,7 +845,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
             Part 4: D2L 3.3 A concise implementation of linear regression
         </a>
     </div>
@@ -854,7 +854,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
             Part 5: D2L 3.4 Softmax Regression
         </a>
     </div>
@@ -863,7 +863,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
             Part 6: D2L 3.5 Image classification datasets
         </a>
     </div>
@@ -872,7 +872,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
     </div>
@@ -881,7 +881,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
             Part 8: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -890,7 +890,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
             Part 9: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -899,7 +899,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
             Part 10: D2L 4.3 Simple Implementation of Multilayer Perceptron
         </a>
     </div>
@@ -908,7 +908,7 @@ import numpy as np import torch import random class LinearRegression(Scene): def
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
             Part 10: D2L 4.4 Model Selection, Underfitting, and Overfitting
         </a>
     </div>
@@ -1308,7 +1308,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
             Part 1: Chapter 3. Linear Neural Network
         </a>
     </div>
@@ -1317,7 +1317,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
             Part 1: Chapter 4. Multilayer Perceptron
         </a>
     </div>
@@ -1326,7 +1326,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/">
             Part 1: Dive Into Deep Learning
         </a>
     </div>
@@ -1335,7 +1335,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
             Part 2: D2L 3.1 Linear Regression
         </a>
     </div>
@@ -1344,7 +1344,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
             Part 3: D2L 3.2 Object-Oriented Design for Implementation
         </a>
     </div>
@@ -1353,7 +1353,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
             Part 4: D2L 3.3 A concise implementation of linear regression
         </a>
     </div>
@@ -1362,7 +1362,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
             Part 5: D2L 3.4 Softmax Regression
         </a>
     </div>
@@ -1371,7 +1371,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
             Part 6: D2L 3.5 Image classification datasets
         </a>
     </div>
@@ -1380,7 +1380,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
     </div>
@@ -1389,7 +1389,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
             Part 8: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1398,7 +1398,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
             Part 9: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1407,7 +1407,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
             Part 10: D2L 4.3 Simple Implementation of Multilayer Perceptron
         </a>
     </div>
@@ -1416,7 +1416,7 @@ class LinearRegression(Scene):
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
             Part 10: D2L 4.4 Model Selection, Underfitting, and Overfitting
         </a>
     </div>
@@ -2290,10 +2290,16 @@ class LinearRegression(Scene):
   </a>
 </div>
     </main><script type="text/javascript"
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
-
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
 
 <footer id="site-footer" class="py-10 print:hidden">
   
@@ -2355,7 +2361,7 @@ class LinearRegression(Scene):
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div

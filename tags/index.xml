@@ -2,150 +2,170 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Buezwqwg</title>
-    <link>https://buezw.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2024 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Chemistry</title>
-      <link>https://buezw.github.io/tags/chemistry/</link>
-      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <title>Docs</title>
+      <link>http://localhost:1313/tags/docs/</link>
+      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/chemistry/</guid>
+      <guid>http://localhost:1313/tags/docs/</guid>
       <description></description>
       
     </item>
     
     <item>
-      <title>Docs</title>
-      <link>https://buezw.github.io/tags/docs/</link>
+      <title>Econ</title>
+      <link>http://localhost:1313/tags/econ/</link>
+      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/tags/econ/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Chemistry</title>
+      <link>http://localhost:1313/tags/chemistry/</link>
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/docs/</guid>
+      <guid>http://localhost:1313/tags/chemistry/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ECMS</title>
-      <link>https://buezw.github.io/tags/ecms/</link>
+      <link>http://localhost:1313/tags/ecms/</link>
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/ecms/</guid>
+      <guid>http://localhost:1313/tags/ecms/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Computer Science</title>
-      <link>https://buezw.github.io/tags/computer-science/</link>
+      <link>http://localhost:1313/tags/computer-science/</link>
       <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/computer-science/</guid>
+      <guid>http://localhost:1313/tags/computer-science/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>D2L</title>
-      <link>https://buezw.github.io/tags/d2l/</link>
+      <link>http://localhost:1313/tags/d2l/</link>
       <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/d2l/</guid>
+      <guid>http://localhost:1313/tags/d2l/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>LA</title>
+      <link>http://localhost:1313/tags/la/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/tags/la/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Ontario</title>
-      <link>https://buezw.github.io/tags/ontario/</link>
+      <link>http://localhost:1313/tags/ontario/</link>
       <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/ontario/</guid>
+      <guid>http://localhost:1313/tags/ontario/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Pic</title>
-      <link>https://buezw.github.io/tags/pic/</link>
+      <link>http://localhost:1313/tags/pic/</link>
       <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/pic/</guid>
+      <guid>http://localhost:1313/tags/pic/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Cover</title>
-      <link>https://buezw.github.io/tags/cover/</link>
+      <link>http://localhost:1313/tags/cover/</link>
       <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/cover/</guid>
+      <guid>http://localhost:1313/tags/cover/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Wangyiyun</title>
-      <link>https://buezw.github.io/tags/wangyiyun/</link>
+      <link>http://localhost:1313/tags/wangyiyun/</link>
       <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/wangyiyun/</guid>
+      <guid>http://localhost:1313/tags/wangyiyun/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Shanghai</title>
-      <link>https://buezw.github.io/tags/shanghai/</link>
+      <link>http://localhost:1313/tags/shanghai/</link>
       <pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/shanghai/</guid>
+      <guid>http://localhost:1313/tags/shanghai/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Csgp</title>
-      <link>https://buezw.github.io/tags/csgp/</link>
+      <link>http://localhost:1313/tags/csgp/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/csgp/</guid>
+      <guid>http://localhost:1313/tags/csgp/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Desk</title>
-      <link>https://buezw.github.io/tags/desk/</link>
+      <link>http://localhost:1313/tags/desk/</link>
       <pubDate>Tue, 12 Oct 2021 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/desk/</guid>
+      <guid>http://localhost:1313/tags/desk/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Qiuqiu</title>
-      <link>https://buezw.github.io/tags/qiuqiu/</link>
+      <link>http://localhost:1313/tags/qiuqiu/</link>
       <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/qiuqiu/</guid>
+      <guid>http://localhost:1313/tags/qiuqiu/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Zhuzi</title>
-      <link>https://buezw.github.io/tags/zhuzi/</link>
+      <link>http://localhost:1313/tags/zhuzi/</link>
       <pubDate>Tue, 28 Apr 2020 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/tags/zhuzi/</guid>
+      <guid>http://localhost:1313/tags/zhuzi/</guid>
       <description></description>
       
     </item>

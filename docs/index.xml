@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docs on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/</link>
+    <link>http://localhost:1313/docs/</link>
     <description>Recent content in Docs on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2024 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 10 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Projectile Motion when air resisitance is propftional to velocity</title>
-      <link>https://buezw.github.io/docs/projectilemotion/</link>
+      <link>http://localhost:1313/docs/projectilemotion/</link>
       <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/projectilemotion/</guid>
+      <guid>http://localhost:1313/docs/projectilemotion/</guid>
       <description>&lt;video width=&#34;640&#34; height=&#34;360&#34; controls&gt;
   &lt;source src=&#34;Projectile.mp4&#34; type=&#34;video/mp4&#34;&gt;
   Your browser does not support the video tag.
 &lt;/video&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/projectilemotion/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/projectilemotion/feature.png" />
     </item>
     
     <item>
       <title>Monte Carlo Approach to Calculate π</title>
-      <link>https://buezw.github.io/docs/montecarlomethod/</link>
+      <link>http://localhost:1313/docs/montecarlomethod/</link>
       <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/montecarlomethod/</guid>
+      <guid>http://localhost:1313/docs/montecarlomethod/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“这种方法虽然简单，却展示了数学中的一种用随机的蛮力对抗精确逻辑的思想方法，一种用数量得到质量的计算思想” - 三体&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/montecarlomethod/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/montecarlomethod/feature.png" />
     </item>
     
   </channel>
