@@ -9,14 +9,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>2021 桌搭 &middot; Buezwqwg</title>
-  <meta name="title" content="2021 桌搭 &middot; Buezwqwg" />
+  <title>LA Least Square &middot; Buezwqwg</title>
+  <meta name="title" content="LA Least Square &middot; Buezwqwg" />
   
   
-  <meta name="keywords" content="Pic, Csgp, " />
+  <meta name="keywords" content="Docs, LA, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/blogs/desk2021/" />
+  <link rel="canonical" href="https://buezw.github.io/docs/linearalgebra/leastsquare/" />
   
   
   
@@ -64,49 +64,53 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/blogs/desk2021/">
+  <meta property="og:url" content="https://buezw.github.io/docs/linearalgebra/leastsquare/">
   <meta property="og:site_name" content="Buezwqwg">
-  <meta property="og:title" content="2021 桌搭">
+  <meta property="og:title" content="LA Least Square">
+  <meta property="og:description" content=" Last Edit: 11/19/24
+Solution 解 #对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\) 要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution 由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1 ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
-    <meta property="article:section" content="blogs">
-    <meta property="article:published_time" content="2021-11-01T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-11-01T00:00:00+00:00">
-    <meta property="article:tag" content="Pic">
-    <meta property="article:tag" content="Csgp">
-    <meta property="og:image" content="https://buezw.github.io/blogs/desk2021/feature.jpg">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-11-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-19T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="LA">
+    <meta property="og:image" content="https://buezw.github.io/docs/linearalgebra/leastsquare/feature.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/blogs/desk2021/feature.jpg">
-  <meta name="twitter:title" content="2021 桌搭">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/linearalgebra/leastsquare/feature.png">
+  <meta name="twitter:title" content="LA Least Square">
+  <meta name="twitter:description" content=" Last Edit: 11/19/24
+Solution 解 #对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\) 要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution 由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1 ">
 
   
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "Blogs",
-    "name": "2021 桌搭",
-    "headline": "2021 桌搭",
+    "articleSection": "Docs",
+    "name": "LA Least Square",
+    "headline": "LA Least Square",
     
-    "abstract": "\u003cp\u003e\r\n    \u003cfigure\u003e\r\n      \u003cimg class=\u0022my-0 rounded-md\u0022 loading=\u0022lazy\u0022 src=\u0022\/blog\/FoxCsgo\/FoxCsgo-1.png\u0022 alt=\u0022Img\u0022 \/\u003e\r\n      \r\n    \u003c\/figure\u003e\r\n\u003c\/p\u003e",
+    "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 11\/19\/24\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eSolution 解 \r\n    \u003cdiv id=\u0022solution-%E8%A7%A3\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#solution-%E8%A7%A3\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e对于一个Vector \\(a=[1,2]^T\\)和一个直线\\(y=0\\)\u003c\/li\u003e\n\u003cli\u003e要研究\\(c[1,2]^T=0\\)的问题的时候，很明显不存在Non-Trivial Solution\u003c\/li\u003e\n\u003cli\u003e由于a在\\(R^2\\)中，而\\([1,0]^T\\)仅Span出了\\(R^2\\)中的一个Subspace，其Dim=1\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\r\n    \u003cfigure\u003e\r\n      \u003cimg class=\u0022my-0 rounded-md\u0022 loading=\u0022lazy\u0022 src=\u0022\/docs\/LinearAlgebra_Static\/LeastSquare\/LeastSquare-1.png\u0022 alt=\u0022Img\u0022 \/\u003e\r\n      \r\n    \u003c\/figure\u003e\r\n\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/blogs\/desk2021\/",
+    "url" : "https:\/\/buezw.github.io\/docs\/linearalgebra\/leastsquare\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
     },
-    "copyrightYear": "2021",
-    "dateCreated": "2021-11-01T00:00:00\u002b00:00",
-    "datePublished": "2021-11-01T00:00:00\u002b00:00",
+    "copyrightYear": "2024",
+    "dateCreated": "2024-11-19T00:00:00\u002b00:00",
+    "datePublished": "2024-11-19T00:00:00\u002b00:00",
     
-    "dateModified": "2021-11-01T00:00:00\u002b00:00",
+    "dateModified": "2024-11-19T00:00:00\u002b00:00",
     
-    "keywords": ["Pic","Csgp"],
+    "keywords": ["Docs","LA"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "0"
+    "wordCount": "1199"
   }]
   </script>
 
@@ -553,7 +557,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/blogs/desk2021/feature_hu16946116070990093318.jpg);">
+    style="background-image:url(/docs/linearalgebra/leastsquare/feature_hu9813467328997408744.png);">
     
 
 
@@ -585,6 +589,8 @@
   
     
   
+    
+  
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
@@ -597,8 +603,17 @@
   <li class="inline ">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/blogs/"
-      >Blogs</a
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/linearalgebra/"
+      >Linear Algebra</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -606,8 +621,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/blogs/desk2021/"
-      >2021 桌搭</a
+      href="/docs/linearalgebra/leastsquare/"
+      >LA Least Square</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -616,7 +631,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      2021 桌搭
+      LA Least Square
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -640,6 +655,8 @@
 
 
 
+  
+
 
 
 
@@ -657,7 +674,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2021-11-01T00:00:00&#43;00:00">Nov 1 2021</time>
+  <time datetime="2024-11-19T00:00:00&#43;00:00">Nov 19 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1199 words</span>
   
 
   
@@ -695,18 +712,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/pic/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Pic
+    Docs
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/csgp/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Csgp
+    LA
   </span>
 </span>
   </span>
@@ -743,7 +760,131 @@
   
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#solution-解">Solution 解</a>
+      <ul>
+        <li><a href="#least-error-solution-optimization-最优解">Least Error Solution (Optimization) 最优解</a></li>
+        <li><a href="#r3-case">R^3 Case</a></li>
+      </ul>
+    </li>
+    <li><a href="#projection-投影">Projection 投影</a></li>
+    <li><a href="#least-squares-最小二乘">Least Squares 最小二乘</a>
+      <ul>
+        <li><a href="#几何角度">几何角度</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#solution-解">Solution 解</a>
+      <ul>
+        <li><a href="#least-error-solution-optimization-最优解">Least Error Solution (Optimization) 最优解</a></li>
+        <li><a href="#r3-case">R^3 Case</a></li>
+      </ul>
+    </li>
+    <li><a href="#projection-投影">Projection 投影</a></li>
+    <li><a href="#least-squares-最小二乘">Least Squares 最小二乘</a>
+      <ul>
+        <li><a href="#几何角度">几何角度</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
 
       <div class="min-w-0 min-h-0 max-w-fit">
         
@@ -751,12 +892,239 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <p>
+          <blockquote>
+<p>Last Edit: 11/19/24</p>
+</blockquote>
+
+
+<h2 class="relative group">Solution 解 
+    <div id="solution-%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\)</li>
+<li>要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution</li>
+<li>由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1</li>
+</ul>
+<p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="/blog/FoxCsgo/FoxCsgo-1.png" alt="Img" />
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-1.png" alt="Img" />
       
     </figure>
 </p>
+
+
+<h3 class="relative group">Least Error Solution (Optimization) 最优解 
+    <div id="least-error-solution-optimization-%E6%9C%80%E4%BC%98%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#least-error-solution-optimization-%E6%9C%80%E4%BC%98%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>但是对于a到直线的距离仍存在Optimized Solution</li>
+<li>最优解出现在\([1,2]^T\)的终点在\([1,0]\)方向上最短的情况，即一个Error最小的情况</li>
+<li>可以从a出发找到无数个到达向量\([1,0]^T\)方向的向量</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-2.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>而其中最短的则是\(\vec {e}\)</li>
+<li>也可以说\(\vec e\)是Equation Error最小的Solution</li>
+</ul>
+
+
+<h3 class="relative group">R^3 Case 
+    <div id="r3-case" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#r3-case" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于向量\([1,1,3]^T\)来说，要计算其到达平面\(x+y-2z=0\)的最短距离</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>\(\vec e\) 则代表了这一个距离</li>
+<li>则e的起点在Plane\(x+y-2z=0\)上的位置就是这一个最优解</li>
+</ul>
+
+
+<h2 class="relative group">Projection 投影 
+    <div id="projection-%E6%8A%95%E5%BD%B1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#projection-%E6%8A%95%E5%BD%B1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>可以发现，要找到最优解，一个合理的办法是从Projection开始</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-3.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>在上图中p就是a在\([1,0]^T\)方向上的投影</li>
+<li>则有\(e=b-p\)</li>
+<li>而最小化这个e就是目标，这个目标通过Orthogonal 正交实现</li>
+<li>具体来说从A出发的orthogonal to p的vector e就是这个Optimized Solution</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-4.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>\(R^3\)中同理，只不过是将投影的改为了Plane</li>
+<li>于是便有\(e=(b-A\hat x)\)</li>
+<li>要让e垂直于Plane \(A=[a1,a2]\)</li>
+<li>有\(a_1^T(b-A\hat x  )=0\)并且\(a_2^T(b-A\hat x  )=0\)</li>
+<li>于是可以得到公式
+$$A^T(b-A\hat x)=0\Rightarrow A^TA\hat x=A^Tb$$</li>
+</ul>
+
+
+<h2 class="relative group">Least Squares 最小二乘 
+    <div id="least-squares-%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#least-squares-%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>直接进入例子</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-6.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>对于三个点{(1,1), (2,2), (3,2)}</li>
+<li>构建方程\(y=wx\)</li>
+<li>带入点后得到\(1=w,2=2w,2=3w\)</li>
+<li>通过\(A^TA\hat x=A^Tb\)</li>
+</ul>
+<div>
+$$A^T A = \begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}
+= 1^2 + 2^2 + 3^2
+= 1 + 4 + 9
+= 14$$
+$$A^T b = \begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+2
+\end{bmatrix}
+= 1 \cdot 1 + 2 \cdot 2 + 3 \cdot 2
+= 1 + 4 + 6
+= 11
+$$
+</div>
+<ul>
+<li>便有\(14w=11\Rightarrow w=\frac{11}{14}\)</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-7.png" alt="Img" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">几何角度 
+    <div id="%E5%87%A0%E4%BD%95%E8%A7%92%E5%BA%A6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%A0%E4%BD%95%E8%A7%92%E5%BA%A6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>那么上面的公式在几何空间中干的事就是</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-8.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>找到了这个红色的Vector，也就是最小的e</li>
+<li>同理运用到最经典的\(y=wx+b\)也是一样</li>
+<li>\(1=w+b,2=2w+b,2=3w+b\)</li>
+</ul>
+<div>
+$$A^T A = \begin{bmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 2 & 1 \\ 3 & 1 \end{bmatrix} = \begin{bmatrix} 1^2 + 2^2 + 3^2 & 1 + 2 + 3 \\ 1 + 2 + 3 & 3 \end{bmatrix} = \begin{bmatrix} 14 & 6 \\ 6 & 3 \end{bmatrix}$$
+$$A^T \mathbf{b} = \begin{bmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix} = \begin{bmatrix} 1 \cdot 1 + 2 \cdot 2 + 3 \cdot 2 \\ 1 \cdot 1 + 1 \cdot 2 + 1 \cdot 2 \end{bmatrix} = \begin{bmatrix} 11 \\ 5 \end{bmatrix}$$
+$$\begin{bmatrix} 14 & 6 \\ 6 & 3 \end{bmatrix} \begin{bmatrix} w \\ b \end{bmatrix} = \begin{bmatrix} 11 \\ 5 \end{bmatrix} $$
+</div>
+<ul>
+<li>于是有\(w=\frac{1}{2},b=\frac{2}{3}\)</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-10.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>同理几何上找到了向量在Plane上的投影之间的最小Error</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-9.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>所以这就是\(A^TA\hat x=A^Tb\) 在Linear Regression的作用</li>
+<li>需要知道的是这个方法（Normal Equation）求得的是解析解，在一般在feature &lt; 10000的时候采用，但是过程可能不可逆</li>
+</ul>
 
           
           
@@ -776,11 +1144,11 @@
   
   
 
-  <a href="/blogs/5e600/" class="min-w-full">
+  <a href="/docs/linearalgebra/la6.determiants/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/blogs/5e600/feature_hu13421533363064308014.jpg);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/linearalgebra/la6.determiants/feature_hu4082458941292485923.png);"></div>
         
       
 
@@ -788,7 +1156,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blogs/5e600/">5e 600分对决</div>
+          href="/docs/linearalgebra/la6.determiants/">LA 6. Determinants</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -810,6 +1178,8 @@
 
 
 
+  
+
 
 
 
@@ -827,7 +1197,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2021-10-12T00:00:00&#43;00:00">Oct 12 2021</time>
+  <time datetime="2024-10-24T00:00:00&#43;00:00">Oct 24 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5928 words</span>
   
 
   
@@ -865,18 +1235,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/pic/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Pic
+    Docs
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/desk/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Desk
+    LA
   </span>
 </span>
   </span>
@@ -902,11 +1272,11 @@
   
   
 
-  <a href="/blogs/foxcsgo/" class="min-w-full">
+  <a href="/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/blogs/foxcsgo/feature_hu15755756041436685281.png);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/feature_hu2317425060822347641.png);"></div>
         
       
 
@@ -914,7 +1284,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blogs/foxcsgo/">沙漠之狐</div>
+          href="/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/">ECMS 7. Light and Quantum</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -936,6 +1306,8 @@
 
 
 
+  
+
 
 
 
@@ -953,7 +1325,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2021-09-03T00:00:00&#43;00:00">Sep 3 2021</time>
+  <time datetime="2024-11-18T00:00:00&#43;00:00">Nov 18 2024</time><span class="px-2 text-primary-500">&middot;</span><span>10562 words</span>
   
 
   
@@ -991,18 +1363,26 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/pic/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ecms/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Pic
+    ECMS
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/desk/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/chemistry/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Desk
+    Chemistry
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
   </span>
 </span>
   </span>
@@ -1028,11 +1408,11 @@
   
   
 
-  <a href="/blogs/zhuzi/young/" class="min-w-full">
+  <a href="/docs/linearregression_display/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/blogs/zhuzi/young/feature_hu3453976005463443170.jpg);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/linearregression_display/feature_hu9656265767413737026.png);"></div>
         
       
 
@@ -1040,7 +1420,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blogs/zhuzi/young/">小时候</div>
+          href="/docs/linearregression_display/">Linear Regression Display</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1079,7 +1459,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2020-04-28T00:00:00&#43;00:00">Apr 28 2020</time>
+  <time datetime="2024-11-18T00:00:00&#43;00:00">Nov 18 2024</time>
   
 
   
@@ -1117,18 +1497,10 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/pic/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Pic
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/zhuzi/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Zhuzi
+    Docs
   </span>
 </span>
   </span>
@@ -1154,11 +1526,11 @@
   
   
 
-  <a href="/blogs/qiuqiu/young/" class="min-w-full">
+  <a href="/docs/economic/foreignexchange/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/blogs/qiuqiu/young/feature_hu18278439222469228239.jpg);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/economic/foreignexchange/feature_hu1155698283376161671.png);"></div>
         
       
 
@@ -1166,7 +1538,7 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blogs/qiuqiu/young/">小时候</div>
+          href="/docs/economic/foreignexchange/">Foreign Exchange</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1188,6 +1560,8 @@
 
 
 
+  
+
 
 
 
@@ -1205,7 +1579,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2020-04-28T00:00:00&#43;00:00">Apr 28 2020</time>
+  <time datetime="2024-11-13T00:00:00&#43;00:00">Nov 13 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1023 words</span>
   
 
   
@@ -1243,18 +1617,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/pic/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Pic
+    Docs
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/qiuqiu/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/econ/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Qiuqiu
+    Econ
   </span>
 </span>
   </span>
@@ -1280,11 +1654,11 @@
   
   
 
-  <a href="/blogs/fundationchristams/" class="min-w-full">
+  <a href="/docs/emcs_engineering-chemistry--materials-science/ecms6.plastics/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/blogs/fundationchristams/feature_hu9432472566330254537.jpg);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/emcs_engineering-chemistry--materials-science/ecms6.plastics/feature_hu466592324736666198.png);"></div>
         
       
 
@@ -1292,7 +1666,143 @@
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blogs/fundationchristams/">Fundation Christams</div>
+          href="/docs/emcs_engineering-chemistry--materials-science/ecms6.plastics/">MCMS 6. Plastics</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-10T00:00:00&#43;00:00">Nov 10 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5551 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ecms/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ECMS
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/chemistry/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Chemistry
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/projectilemotion/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/projectilemotion/feature_hu1043517429465453439.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/projectilemotion/">Projectile Motion when air resisitance is propftional to velocity</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1331,7 +1841,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2018-12-21T00:00:00&#43;00:00">Dec 21 2018</time>
+  <time datetime="2024-10-22T00:00:00&#43;00:00">Oct 22 2024</time>
   
 
   
@@ -1369,18 +1879,10 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/pic/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Pic
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ontario/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Ontario
+    Docs
   </span>
 </span>
   </span>
@@ -1417,8 +1919,8 @@
           
         
       <script>
-        var oid = "views_blogs\\Desk2021\\index.md"
-        var oid_likes = "likes_blogs\\Desk2021\\index.md"
+        var oid = "views_docs\\LinearAlgebra\\LeastSquare\\index.md"
+        var oid_likes = "likes_docs\\LinearAlgebra\\LeastSquare\\index.md"
       </script>
       
       
@@ -1429,12 +1931,60 @@
   <footer class="pt-8 max-w-prose print:hidden">
 
     
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/linearalgebra/la6.determiants/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >LA 6. Determinants</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-10-24T00:00:00&#43;00:00">Oct 24 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
 
     
   </footer>
 </article>
 
-      
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
     </main><script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
