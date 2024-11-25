@@ -9,7 +9,47 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2024 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 19 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LA 7. Orthogonal and Projection</title>
+      <link>https://buezw.github.io/docs/linearalgebra/la7.orthogonalprojection/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/linearalgebra/la7.orthogonalprojection/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit 11/21/2024&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;正交向量Orthogonal vectors 
+    &lt;div id=&#34;%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8Forthogonal-vectors&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8Forthogonal-vectors&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;amp;Projection/LA7.Orthogonal&amp;amp;Projection-3.png&#34; alt=&#34;Img&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/linearalgebra/la7.orthogonalprojection/feature.png" />
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://buezw.github.io/docs/linearalgebra/</link>
+      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/linearalgebra/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>LA Least Square</title>
       <link>https://buezw.github.io/docs/linearalgebra/leastsquare/</link>
@@ -43,16 +83,6 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/linearalgebra/leastsquare/feature.png" />
-    </item>
-    
-    <item>
-      <title>Linear Algebra</title>
-      <link>https://buezw.github.io/docs/linearalgebra/</link>
-      <pubDate>Tue, 19 Nov 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/linearalgebra/</guid>
-      <description></description>
-      
     </item>
     
     <item>

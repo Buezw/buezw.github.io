@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -20,37 +20,37 @@
   </url>
   <url>
     <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/la/</loc>
-    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/linearalgebra/leastsquare/</loc>
-    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+    <loc>https://buezw.github.io/docs/linearalgebra/la7.orthogonalprojection/</loc>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/docs/linearalgebra/</loc>
-    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+    <lastmod>2024-11-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -63,6 +63,12 @@
       hreflang="en"
       href="https://buezw.github.io/tags/"
     />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/linearalgebra/leastsquare/</loc>
+    <lastmod>2024-11-19T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/chemistry/</loc>
