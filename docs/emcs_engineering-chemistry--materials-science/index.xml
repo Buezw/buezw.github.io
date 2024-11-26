@@ -11,6 +11,104 @@
     <copyright>© 2024 Buezwqwg</copyright>
     <lastBuildDate>Mon, 23 Sep 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>ECMS 8. Thermodynamics</title>
+      <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms8.thermodynamics/</link>
+      <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms8.thermodynamics/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 11/25/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;The finger of time 
+    &lt;div id=&#34;the-finger-of-time&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#the-finger-of-time&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在上一章中讨论了Solide Crystalline Nacl的形成，我们知道它在室温和压力下是稳定的&lt;/li&gt;
+&lt;li&gt;同理当我们看到手机从人手上掉下来并不会感到惊讶&lt;/li&gt;
+&lt;li&gt;通过The Second Law Of Thermodynamics，我们可以意识到时间的流逝&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;The Second Law of Thermodynamics 热力学第二定律 
+    &lt;div id=&#34;the-second-law-of-thermodynamics-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#the-second-law-of-thermodynamics-%E7%83%AD%E5%8A%9B%E5%AD%A6%E7%AC%AC%E4%BA%8C%E5%AE%9A%E5%BE%8B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;The entropy of the Universe increases during any spontaneous process&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Spontaneous 自发的 
+    &lt;div id=&#34;spontaneous-%E8%87%AA%E5%8F%91%E7%9A%84&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#spontaneous-%E8%87%AA%E5%8F%91%E7%9A%84&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Spontaneous&lt;/em&gt;, here, means that the process proceeds on its own, without the need for an input of energy 代表了该过程自行进行，不需要能量输入&lt;/li&gt;
+&lt;li&gt;例如在空气中点燃一张纸，他将会燃烧，我面对如此现象并不会感到惊讶&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Entropy 熵 
+    &lt;div id=&#34;entropy-%E7%86%B5&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#entropy-%E7%86%B5&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;前面反复的介绍的Second Law的重要性，而Entropy的存在将定义如何使用它&lt;/li&gt;
+&lt;li&gt;熵是一个衡量系统混乱程度的物理量，系统的熵越高，系统的无序程度就越高
+$$\Delta S = \frac{q_{REV}}{T}$$&lt;/li&gt;
+&lt;li&gt;S is the entropy 熵&lt;/li&gt;
+&lt;li&gt;\(q_{rev}\)​ is the heat transferred 传递的热量&lt;/li&gt;
+&lt;li&gt;T is the &lt;em&gt;thermodynamic&lt;/em&gt; temperature 热力学温度，单位为Kelvin&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;The Thermodynamic Alphabet 热力学字母表 
+    &lt;div id=&#34;the-thermodynamic-alphabet-%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%AD%97%E6%AF%8D%E8%A1%A8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#the-thermodynamic-alphabet-%E7%83%AD%E5%8A%9B%E5%AD%A6%E5%AD%97%E6%AF%8D%E8%A1%A8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/EMCS_Static/ECMS8.Thermodynamics/ECMS8.Thermodynamics.png&#34; alt=&#34;Img&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms8.thermodynamics/feature.png" />
+    </item>
+    
+    <item>
       <title>ECMS 7. Light and Quantum</title>
       <link>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/</link>
       <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
