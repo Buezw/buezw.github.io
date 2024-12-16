@@ -76,9 +76,11 @@ Real Number 实数 #Rational Number 有理数 #整数，有限位小数，无�
     <meta property="article:modified_time" content="2024-12-15T00:00:00+00:00">
     <meta property="article:tag" content="Docs">
     <meta property="article:tag" content="MA">
+    <meta property="og:image" content="https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/feature.png">
 
   
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/feature.png">
   <meta name="twitter:title" content="MA 2. RealNumber">
   <meta name="twitter:description" content=" Last Edit: 12/15/24
 Real Number 实数 #Rational Number 有理数 #整数，有限位小数，无限循环小数，分数 只要是能被表达为 $$\frac{p}{q},p,q\in \mathbb z,q\neq 0$$ 的数都叫做Rational Number 也就是说可以被任意两个Nature Number通过加减乘除所得到的数都被称为Rational Number（做除法的时候分母不能为零） Irrational Number 无理数 #Pythagoras Theorem 毕达哥拉斯定理 #在一个直角三角形中，直角边对面的斜边（最长边）的平方等于两个直角边的平方和 Contradiction #在当时并没有Irrational Number的定义，但是表示一个两个直角边长度为一的直角三角形的斜边的时候却出现了问题，即\(1^2&#43;1^2=x^2\)，无法通过一个Rational Number，也就是两个Nature Number的任意四则运算求出这个x Proof that sqrt 2 isn’t Rational Number #Proof By Contradiction 假设\(\sqrt 2\)是一个Rational Number，则有\(2=(\frac{p}{q})^2\)，其中p和q是互素的 即\(p^2=2q^2\)，已知\(2q^2\)为一个Even Number，则等号另一边的\(p\)也必为一个Even Number（Odd Number的平方为Odd Number） 既然p是一个Even Number，则他可以被2整除，即\(p^2\)可以被4整除，同理可以得到\(2|q^2\) 那既然p和q都是偶数，很明显他们不可能互素，Contradict，故假设不成立 于是证明了Irrational Number的存在 Define Real Number #首先要知道的是，根号的本质是一个服务幂而创造出的代数运算，其能表达出的Irrational Number的个数几乎可以忽略不计 所以定义实数的第一步就是构造出所有Irrational Number，第二步则是定义全序列关系，第三步为定义代数运算，第四步研究拓扑结构（稠密性） Dedekind Cut #设数集的一个划分\({\alpha,\beta }\)，其中">
@@ -547,9 +549,33 @@ Real Number 实数 #Rational Number 有理数 #整数，有限位小数，无�
   
   
   
- 
 
 
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/docs/mathematicalanalysis/ma2.realnumber/feature_hu14372588396764087265.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
 
   
   
