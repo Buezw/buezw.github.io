@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projectile Motion when air resisitance is propftional to velocity on Buezwqwg</title>
+    <link>https://buezw.github.io/docs/mathematicalanalysis/</link>
+    <description>Recent content in Projectile Motion when air resisitance is propftional to velocity on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2024 Buezwqwg</copyright>
+    <lastBuildDate>Tue, 22 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/mathematicalanalysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MA 2. RealNumber</title>
+      <link>https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 12/15/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Real Number 实数 
+    &lt;div id=&#34;real-number-%E5%AE%9E%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#real-number-%E5%AE%9E%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Rational Number 有理数 
+    &lt;div id=&#34;rational-number-%E6%9C%89%E7%90%86%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#rational-number-%E6%9C%89%E7%90%86%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;整数，有限位小数，无限循环小数，分数&lt;/li&gt;
+&lt;li&gt;只要是能被表达为
+$$\frac{p}{q},p,q\in \mathbb z,q\neq 0$$&lt;/li&gt;
+&lt;li&gt;的数都叫做Rational Number&lt;/li&gt;
+&lt;li&gt;也就是说可以被任意两个Nature Number通过加减乘除所得到的数都被称为Rational Number（做除法的时候分母不能为零）&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Irrational Number 无理数 
+    &lt;div id=&#34;irrational-number-%E6%97%A0%E7%90%86%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#irrational-number-%E6%97%A0%E7%90%86%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Pythagoras Theorem 毕达哥拉斯定理 
+    &lt;div id=&#34;pythagoras-theorem-%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#pythagoras-theorem-%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;在一个直角三角形中，直角边对面的斜边（最长边）的平方等于两个直角边的平方和&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Contradiction 
+    &lt;div id=&#34;contradiction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#contradiction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;在当时并没有Irrational Number的定义，但是表示一个两个直角边长度为一的直角三角形的斜边的时候却出现了问题，即\(1^2+1^2=x^2\)，无法通过一个Rational Number，也就是两个Nature Number的任意四则运算求出这个x&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Proof that sqrt 2 isn&amp;rsquo;t Rational Number 
+    &lt;div id=&#34;proof-that-sqrt-2-isnt-rational-number&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#proof-that-sqrt-2-isnt-rational-number&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Proof By Contradiction&lt;/li&gt;
+&lt;li&gt;假设\(\sqrt 2\)是一个Rational Number，则有\(2=(\frac{p}{q})^2\)，其中p和q是互素的&lt;/li&gt;
+&lt;li&gt;即\(p^2=2q^2\)，已知\(2q^2\)为一个Even Number，则等号另一边的\(p\)也必为一个Even Number（Odd Number的平方为Odd Number）&lt;/li&gt;
+&lt;li&gt;既然p是一个Even Number，则他可以被2整除，即\(p^2\)可以被4整除，同理可以得到\(2|q^2\)&lt;/li&gt;
+&lt;li&gt;那既然p和q都是偶数，很明显他们不可能互素，Contradict，故假设不成立&lt;/li&gt;
+&lt;li&gt;于是证明了Irrational Number的存在&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Define Real Number 
+    &lt;div id=&#34;define-real-number&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#define-real-number&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;首先要知道的是，根号的本质是一个服务幂而创造出的代数运算，其能表达出的Irrational Number的个数几乎可以忽略不计&lt;/li&gt;
+&lt;li&gt;所以定义实数的第一步就是构造出所有Irrational Number，第二步则是定义全序列关系，第三步为定义代数运算，第四步研究拓扑结构（稠密性）&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Dedekind Cut 
+    &lt;div id=&#34;dedekind-cut&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#dedekind-cut&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;设数集的一个划分\({\alpha,\beta }\)，其中&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,2785 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>MA 2. RealNumber &middot; Buezwqwg</title>
+  <meta name="title" content="MA 2. RealNumber &middot; Buezwqwg" />
+  
+  
+  <meta name="keywords" content="Docs, MA, " />
+  
+  
+  <link rel="canonical" href="https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
+    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.821d421a756ddb6f1c91d41c53d0e2b2afa007b11ade688aa55594a12048893dadc2cbc127bd32da081f77022a40c9e1b73193584db9a34368e9cfd56758e43f.js"
+    integrity="sha512-gh1CGnVt228ckdQcU9Disq&#43;gB7Ea3miKpVWUoSBIiT2twsvBJ70y2ggfdwIqQMnhtzGTWE25o0No6c/VZ1jkPw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/">
+  <meta property="og:site_name" content="Buezwqwg">
+  <meta property="og:title" content="MA 2. RealNumber">
+  <meta property="og:description" content=" Last Edit: 12/15/24
+Real Number 实数 #Rational Number 有理数 #整数，有限位小数，无限循环小数，分数 只要是能被表达为 $$\frac{p}{q},p,q\in \mathbb z,q\neq 0$$ 的数都叫做Rational Number 也就是说可以被任意两个Nature Number通过加减乘除所得到的数都被称为Rational Number（做除法的时候分母不能为零） Irrational Number 无理数 #Pythagoras Theorem 毕达哥拉斯定理 #在一个直角三角形中，直角边对面的斜边（最长边）的平方等于两个直角边的平方和 Contradiction #在当时并没有Irrational Number的定义，但是表示一个两个直角边长度为一的直角三角形的斜边的时候却出现了问题，即\(1^2&#43;1^2=x^2\)，无法通过一个Rational Number，也就是两个Nature Number的任意四则运算求出这个x Proof that sqrt 2 isn’t Rational Number #Proof By Contradiction 假设\(\sqrt 2\)是一个Rational Number，则有\(2=(\frac{p}{q})^2\)，其中p和q是互素的 即\(p^2=2q^2\)，已知\(2q^2\)为一个Even Number，则等号另一边的\(p\)也必为一个Even Number（Odd Number的平方为Odd Number） 既然p是一个Even Number，则他可以被2整除，即\(p^2\)可以被4整除，同理可以得到\(2|q^2\) 那既然p和q都是偶数，很明显他们不可能互素，Contradict，故假设不成立 于是证明了Irrational Number的存在 Define Real Number #首先要知道的是，根号的本质是一个服务幂而创造出的代数运算，其能表达出的Irrational Number的个数几乎可以忽略不计 所以定义实数的第一步就是构造出所有Irrational Number，第二步则是定义全序列关系，第三步为定义代数运算，第四步研究拓扑结构（稠密性） Dedekind Cut #设数集的一个划分\({\alpha,\beta }\)，其中">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-12-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-15T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="MA">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="MA 2. RealNumber">
+  <meta name="twitter:description" content=" Last Edit: 12/15/24
+Real Number 实数 #Rational Number 有理数 #整数，有限位小数，无限循环小数，分数 只要是能被表达为 $$\frac{p}{q},p,q\in \mathbb z,q\neq 0$$ 的数都叫做Rational Number 也就是说可以被任意两个Nature Number通过加减乘除所得到的数都被称为Rational Number（做除法的时候分母不能为零） Irrational Number 无理数 #Pythagoras Theorem 毕达哥拉斯定理 #在一个直角三角形中，直角边对面的斜边（最长边）的平方等于两个直角边的平方和 Contradiction #在当时并没有Irrational Number的定义，但是表示一个两个直角边长度为一的直角三角形的斜边的时候却出现了问题，即\(1^2&#43;1^2=x^2\)，无法通过一个Rational Number，也就是两个Nature Number的任意四则运算求出这个x Proof that sqrt 2 isn’t Rational Number #Proof By Contradiction 假设\(\sqrt 2\)是一个Rational Number，则有\(2=(\frac{p}{q})^2\)，其中p和q是互素的 即\(p^2=2q^2\)，已知\(2q^2\)为一个Even Number，则等号另一边的\(p\)也必为一个Even Number（Odd Number的平方为Odd Number） 既然p是一个Even Number，则他可以被2整除，即\(p^2\)可以被4整除，同理可以得到\(2|q^2\) 那既然p和q都是偶数，很明显他们不可能互素，Contradict，故假设不成立 于是证明了Irrational Number的存在 Define Real Number #首先要知道的是，根号的本质是一个服务幂而创造出的代数运算，其能表达出的Irrational Number的个数几乎可以忽略不计 所以定义实数的第一步就是构造出所有Irrational Number，第二步则是定义全序列关系，第三步为定义代数运算，第四步研究拓扑结构（稠密性） Dedekind Cut #设数集的一个划分\({\alpha,\beta }\)，其中">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "MA 2. RealNumber",
+    "headline": "MA 2. RealNumber",
+    
+    "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 12\/15\/24\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eReal Number 实数 \r\n    \u003cdiv id=\u0022real-number-%E5%AE%9E%E6%95%B0\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#real-number-%E5%AE%9E%E6%95%B0\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eRational Number 有理数 \r\n    \u003cdiv id=\u0022rational-number-%E6%9C%89%E7%90%86%E6%95%B0\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#rational-number-%E6%9C%89%E7%90%86%E6%95%B0\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e整数，有限位小数，无限循环小数，分数\u003c\/li\u003e\n\u003cli\u003e只要是能被表达为\n$$\\frac{p}{q},p,q\\in \\mathbb z,q\\neq 0$$\u003c\/li\u003e\n\u003cli\u003e的数都叫做Rational Number\u003c\/li\u003e\n\u003cli\u003e也就是说可以被任意两个Nature Number通过加减乘除所得到的数都被称为Rational Number（做除法的时候分母不能为零）\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eIrrational Number 无理数 \r\n    \u003cdiv id=\u0022irrational-number-%E6%97%A0%E7%90%86%E6%95%B0\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#irrational-number-%E6%97%A0%E7%90%86%E6%95%B0\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\r\n\r\n\u003ch4 class=\u0022relative group\u0022\u003ePythagoras Theorem 毕达哥拉斯定理 \r\n    \u003cdiv id=\u0022pythagoras-theorem-%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#pythagoras-theorem-%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h4\u003e\r\n\u003cul\u003e\n\u003cli\u003e在一个直角三角形中，直角边对面的斜边（最长边）的平方等于两个直角边的平方和\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch4 class=\u0022relative group\u0022\u003eContradiction \r\n    \u003cdiv id=\u0022contradiction\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#contradiction\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h4\u003e\r\n\u003cul\u003e\n\u003cli\u003e在当时并没有Irrational Number的定义，但是表示一个两个直角边长度为一的直角三角形的斜边的时候却出现了问题，即\\(1^2\u002b1^2=x^2\\)，无法通过一个Rational Number，也就是两个Nature Number的任意四则运算求出这个x\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch4 class=\u0022relative group\u0022\u003eProof that sqrt 2 isn\u0026rsquo;t Rational Number \r\n    \u003cdiv id=\u0022proof-that-sqrt-2-isnt-rational-number\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#proof-that-sqrt-2-isnt-rational-number\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h4\u003e\r\n\u003cul\u003e\n\u003cli\u003eProof By Contradiction\u003c\/li\u003e\n\u003cli\u003e假设\\(\\sqrt 2\\)是一个Rational Number，则有\\(2=(\\frac{p}{q})^2\\)，其中p和q是互素的\u003c\/li\u003e\n\u003cli\u003e即\\(p^2=2q^2\\)，已知\\(2q^2\\)为一个Even Number，则等号另一边的\\(p\\)也必为一个Even Number（Odd Number的平方为Odd Number）\u003c\/li\u003e\n\u003cli\u003e既然p是一个Even Number，则他可以被2整除，即\\(p^2\\)可以被4整除，同理可以得到\\(2|q^2\\)\u003c\/li\u003e\n\u003cli\u003e那既然p和q都是偶数，很明显他们不可能互素，Contradict，故假设不成立\u003c\/li\u003e\n\u003cli\u003e于是证明了Irrational Number的存在\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eDefine Real Number \r\n    \u003cdiv id=\u0022define-real-number\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#define-real-number\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e首先要知道的是，根号的本质是一个服务幂而创造出的代数运算，其能表达出的Irrational Number的个数几乎可以忽略不计\u003c\/li\u003e\n\u003cli\u003e所以定义实数的第一步就是构造出所有Irrational Number，第二步则是定义全序列关系，第三步为定义代数运算，第四步研究拓扑结构（稠密性）\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eDedekind Cut \r\n    \u003cdiv id=\u0022dedekind-cut\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#dedekind-cut\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e设数集的一个划分\\({\\alpha,\\beta }\\)，其中\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/buezw.github.io\/docs\/mathematicalanalysis\/ma2.realnumber\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Buezwqwg"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-12-15T00:00:00\u002b00:00",
+    "datePublished": "2024-12-15T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-12-15T00:00:00\u002b00:00",
+    
+    "keywords": ["Docs","MA"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "5429"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Buezwqwg" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEDMYR1V0K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEDMYR1V0K');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-8 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Docs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/blogs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Thoughts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Notes
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Zhihu
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Docs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/blogs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Thoughts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Notes
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Zhihu
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow ">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+
+
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Buezwqwg</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/mathematicalanalysis/"
+      >Projectile Motion when air resisitance is propftional to velocity</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/mathematicalanalysis/ma2.realnumber/"
+      >MA 2. RealNumber</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      MA 2. RealNumber
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-12-15T00:00:00&#43;00:00">Dec 15 2024</time>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ma/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    MA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#real-number-实数">Real Number 实数</a>
+      <ul>
+        <li><a href="#rational-number-有理数">Rational Number 有理数</a></li>
+        <li><a href="#irrational-number-无理数">Irrational Number 无理数</a>
+          <ul>
+            <li><a href="#pythagoras-theorem-毕达哥拉斯定理">Pythagoras Theorem 毕达哥拉斯定理</a></li>
+            <li><a href="#contradiction">Contradiction</a></li>
+            <li><a href="#proof-that-sqrt-2-isnt-rational-number">Proof that sqrt 2 isn&rsquo;t Rational Number</a></li>
+          </ul>
+        </li>
+        <li><a href="#define-real-number">Define Real Number</a></li>
+        <li><a href="#dedekind-cut">Dedekind Cut</a></li>
+        <li><a href="#real-number-set-definition">Real Number Set Definition</a></li>
+        <li><a href="#sequence-relationship">Sequence Relationship</a></li>
+        <li><a href="#summation">Summation</a>
+          <ul>
+            <li><a href="#proof">Proof</a></li>
+          </ul>
+        </li>
+        <li><a href="#law-of-operation">Law of Operation</a>
+          <ul>
+            <li><a href="#加法结合律">加法结合律</a></li>
+            <li><a href="#加法交换律">加法交换律</a></li>
+            <li><a href="#加法零元">加法零元</a></li>
+            <li><a href="#加法负元">加法负元</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#dense-稠密">Dense 稠密</a>
+          <ul>
+            <li><a href="#real-number-fields-density-实数域的稠密性">Real Number Field&rsquo;s Density 实数域的稠密性</a></li>
+          </ul>
+        </li>
+        <li><a href="#proof-1">Proof</a></li>
+        <li><a href="#dedekind-theorem-in-rational-number-field-有理数的戴德金分割">Dedekind Theorem In Rational Number Field 有理数的戴德金分割</a>
+          <ul>
+            <li><a href="#ex-sqrt2-在-q中的分割">ex. sqrt{2} 在 Q中的分割</a></li>
+          </ul>
+        </li>
+        <li><a href="#dedekind-theorem-in-real-number-field-实数的戴德金分割">Dedekind Theorem in Real Number Field 实数的戴德金分割</a>
+          <ul>
+            <li><a href="#proof-2">Proof</a></li>
+          </ul>
+        </li>
+        <li><a href="#the-limit-principle-界">The limit principle 界</a>
+          <ul>
+            <li><a href="#bounded-有界的">Bounded 有界的</a></li>
+            <li><a href="#supremum-上确界">Supremum 上确界</a></li>
+            <li><a href="#infimum-下确界">Infimum 下确界</a></li>
+            <li><a href="#existence-of-supremum--infimum-上下确界的存在性">Existence of Supremum &amp; Infimum 上，下确界的存在性</a></li>
+            <li><a href="#ex-supremum--infimum">ex. Supremum &amp; Infimum</a></li>
+          </ul>
+        </li>
+        <li><a href="#least-upper-bound-property-lub-最小上界性">Least-upper-bound property, LUB 最小上界性</a></li>
+        <li><a href="#heine-borel-theorem">Heine-Borel Theorem</a>
+          <ul>
+            <li><a href="#open-cover-开覆盖">Open Cover 开覆盖</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#sets-cardinality-集合的基数">Set&rsquo;s Cardinality 集合的基数</a>
+      <ul>
+        <li><a href="#cardinality-基数">Cardinality 基数</a></li>
+        <li><a href="#equivalency-of-set-集合的对等">Equivalency of Set 集合的对等</a></li>
+        <li><a href="#finite-set-有限集">Finite Set 有限集</a></li>
+        <li><a href="#equivalency-of-integer-set-and-nature-number-set-整数集和自然数集的对等">Equivalency of Integer Set and Nature Number Set 整数集和自然数集的对等</a></li>
+        <li><a href="#countable-set-可数集">Countable Set 可数集</a></li>
+        <li><a href="#rational-number-set-is-a-countable-set">Rational Number Set is a Countable Set</a></li>
+        <li><a href="#uncountable-set-不可数集">Uncountable Set 不可数集</a>
+          <ul>
+            <li><a href="#ex-interval-01-is-uncountable-set">ex. Interval \([0,1)\) is Uncountable Set</a></li>
+          </ul>
+        </li>
+        <li><a href="#real-number-set-is-uncountable-实数集是不可数集">Real Number Set is Uncountable 实数集是不可数集</a></li>
+        <li><a href="#continuum-连续统">Continuum 连续统</a></li>
+        <li><a href="#continuum-hypothesis-连续统假设">Continuum hypothesis 连续统假设</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#real-number-实数">Real Number 实数</a>
+      <ul>
+        <li><a href="#rational-number-有理数">Rational Number 有理数</a></li>
+        <li><a href="#irrational-number-无理数">Irrational Number 无理数</a>
+          <ul>
+            <li><a href="#pythagoras-theorem-毕达哥拉斯定理">Pythagoras Theorem 毕达哥拉斯定理</a></li>
+            <li><a href="#contradiction">Contradiction</a></li>
+            <li><a href="#proof-that-sqrt-2-isnt-rational-number">Proof that sqrt 2 isn&rsquo;t Rational Number</a></li>
+          </ul>
+        </li>
+        <li><a href="#define-real-number">Define Real Number</a></li>
+        <li><a href="#dedekind-cut">Dedekind Cut</a></li>
+        <li><a href="#real-number-set-definition">Real Number Set Definition</a></li>
+        <li><a href="#sequence-relationship">Sequence Relationship</a></li>
+        <li><a href="#summation">Summation</a>
+          <ul>
+            <li><a href="#proof">Proof</a></li>
+          </ul>
+        </li>
+        <li><a href="#law-of-operation">Law of Operation</a>
+          <ul>
+            <li><a href="#加法结合律">加法结合律</a></li>
+            <li><a href="#加法交换律">加法交换律</a></li>
+            <li><a href="#加法零元">加法零元</a></li>
+            <li><a href="#加法负元">加法负元</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#dense-稠密">Dense 稠密</a>
+          <ul>
+            <li><a href="#real-number-fields-density-实数域的稠密性">Real Number Field&rsquo;s Density 实数域的稠密性</a></li>
+          </ul>
+        </li>
+        <li><a href="#proof-1">Proof</a></li>
+        <li><a href="#dedekind-theorem-in-rational-number-field-有理数的戴德金分割">Dedekind Theorem In Rational Number Field 有理数的戴德金分割</a>
+          <ul>
+            <li><a href="#ex-sqrt2-在-q中的分割">ex. sqrt{2} 在 Q中的分割</a></li>
+          </ul>
+        </li>
+        <li><a href="#dedekind-theorem-in-real-number-field-实数的戴德金分割">Dedekind Theorem in Real Number Field 实数的戴德金分割</a>
+          <ul>
+            <li><a href="#proof-2">Proof</a></li>
+          </ul>
+        </li>
+        <li><a href="#the-limit-principle-界">The limit principle 界</a>
+          <ul>
+            <li><a href="#bounded-有界的">Bounded 有界的</a></li>
+            <li><a href="#supremum-上确界">Supremum 上确界</a></li>
+            <li><a href="#infimum-下确界">Infimum 下确界</a></li>
+            <li><a href="#existence-of-supremum--infimum-上下确界的存在性">Existence of Supremum &amp; Infimum 上，下确界的存在性</a></li>
+            <li><a href="#ex-supremum--infimum">ex. Supremum &amp; Infimum</a></li>
+          </ul>
+        </li>
+        <li><a href="#least-upper-bound-property-lub-最小上界性">Least-upper-bound property, LUB 最小上界性</a></li>
+        <li><a href="#heine-borel-theorem">Heine-Borel Theorem</a>
+          <ul>
+            <li><a href="#open-cover-开覆盖">Open Cover 开覆盖</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#sets-cardinality-集合的基数">Set&rsquo;s Cardinality 集合的基数</a>
+      <ul>
+        <li><a href="#cardinality-基数">Cardinality 基数</a></li>
+        <li><a href="#equivalency-of-set-集合的对等">Equivalency of Set 集合的对等</a></li>
+        <li><a href="#finite-set-有限集">Finite Set 有限集</a></li>
+        <li><a href="#equivalency-of-integer-set-and-nature-number-set-整数集和自然数集的对等">Equivalency of Integer Set and Nature Number Set 整数集和自然数集的对等</a></li>
+        <li><a href="#countable-set-可数集">Countable Set 可数集</a></li>
+        <li><a href="#rational-number-set-is-a-countable-set">Rational Number Set is a Countable Set</a></li>
+        <li><a href="#uncountable-set-不可数集">Uncountable Set 不可数集</a>
+          <ul>
+            <li><a href="#ex-interval-01-is-uncountable-set">ex. Interval \([0,1)\) is Uncountable Set</a></li>
+          </ul>
+        </li>
+        <li><a href="#real-number-set-is-uncountable-实数集是不可数集">Real Number Set is Uncountable 实数集是不可数集</a></li>
+        <li><a href="#continuum-连续统">Continuum 连续统</a></li>
+        <li><a href="#continuum-hypothesis-连续统假设">Continuum hypothesis 连续统假设</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <blockquote>
+<p>Last Edit: 12/15/24</p>
+</blockquote>
+
+
+<h2 class="relative group">Real Number 实数 
+    <div id="real-number-%E5%AE%9E%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#real-number-%E5%AE%9E%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Rational Number 有理数 
+    <div id="rational-number-%E6%9C%89%E7%90%86%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rational-number-%E6%9C%89%E7%90%86%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>整数，有限位小数，无限循环小数，分数</li>
+<li>只要是能被表达为
+$$\frac{p}{q},p,q\in \mathbb z,q\neq 0$$</li>
+<li>的数都叫做Rational Number</li>
+<li>也就是说可以被任意两个Nature Number通过加减乘除所得到的数都被称为Rational Number（做除法的时候分母不能为零）</li>
+</ul>
+
+
+<h3 class="relative group">Irrational Number 无理数 
+    <div id="irrational-number-%E6%97%A0%E7%90%86%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#irrational-number-%E6%97%A0%E7%90%86%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">Pythagoras Theorem 毕达哥拉斯定理 
+    <div id="pythagoras-theorem-%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pythagoras-theorem-%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>在一个直角三角形中，直角边对面的斜边（最长边）的平方等于两个直角边的平方和</li>
+</ul>
+
+
+<h4 class="relative group">Contradiction 
+    <div id="contradiction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#contradiction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>在当时并没有Irrational Number的定义，但是表示一个两个直角边长度为一的直角三角形的斜边的时候却出现了问题，即\(1^2+1^2=x^2\)，无法通过一个Rational Number，也就是两个Nature Number的任意四则运算求出这个x</li>
+</ul>
+
+
+<h4 class="relative group">Proof that sqrt 2 isn&rsquo;t Rational Number 
+    <div id="proof-that-sqrt-2-isnt-rational-number" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof-that-sqrt-2-isnt-rational-number" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Proof By Contradiction</li>
+<li>假设\(\sqrt 2\)是一个Rational Number，则有\(2=(\frac{p}{q})^2\)，其中p和q是互素的</li>
+<li>即\(p^2=2q^2\)，已知\(2q^2\)为一个Even Number，则等号另一边的\(p\)也必为一个Even Number（Odd Number的平方为Odd Number）</li>
+<li>既然p是一个Even Number，则他可以被2整除，即\(p^2\)可以被4整除，同理可以得到\(2|q^2\)</li>
+<li>那既然p和q都是偶数，很明显他们不可能互素，Contradict，故假设不成立</li>
+<li>于是证明了Irrational Number的存在</li>
+</ul>
+
+
+<h3 class="relative group">Define Real Number 
+    <div id="define-real-number" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#define-real-number" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>首先要知道的是，根号的本质是一个服务幂而创造出的代数运算，其能表达出的Irrational Number的个数几乎可以忽略不计</li>
+<li>所以定义实数的第一步就是构造出所有Irrational Number，第二步则是定义全序列关系，第三步为定义代数运算，第四步研究拓扑结构（稠密性）</li>
+</ul>
+
+
+<h3 class="relative group">Dedekind Cut 
+    <div id="dedekind-cut" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dedekind-cut" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>设数集的一个划分\({\alpha,\beta }\)，其中</p>
+</li>
+<li>
+<p>\(\alpha,\beta\neq \emptyset\)，即两个划分必须为有元素</p>
+</li>
+<li>
+<p>向下封闭：\(\forall x,y\in k, x&lt;y,y\in \alpha \Rightarrow x\in \alpha\)</p>
+</li>
+<li>
+<p>\(\alpha\)中无最大元素：\(\forall x\in \alpha,\exists y\in \alpha~ st.~y&gt;x\)</p>
+</li>
+<li>
+<p>满足以上条件的Cut则称为k上的一个Dedekind Cut，记做\(\alpha|\beta\) ，其中\(\alpha,\beta\)分别称为Dedekind Cut的Lower Set和Upper Set</p>
+</li>
+<li>
+<p>每一个Dedekind Cut都确定了一个Real Number，其为一个存在无限过程的集合，具体来说有对于一个Set，其无最大元素的定义便是一个无限的过程，所以即使Dedekind Cut的Lower Set是一个集合，其实际上表示的是一个Real Number</p>
+</li>
+<li>
+<p>再次对于上面的\(x^2=2\)做分析，假设其正根为\(x_0\)，令
+$$\alpha = {a \in \mathbb{Q} : a &lt; x_0}~~~~~
+\beta = {a \in \mathbb{Q} : a &gt; x_0}$$
+![[MA2.RealNumber.png]]</p>
+</li>
+<li>
+<p>则集合\(\alpha\)便就是一个表达\(\sqrt2\)的方法</p>
+</li>
+</ul>
+
+
+<h3 class="relative group">Real Number Set Definition 
+    <div id="real-number-set-definition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#real-number-set-definition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>有理数集\(\mathbb Q\)上的所有Dedekind Cut的Lower Set的Set称为Set of Real Numbers，记做\(\mathbb R\)</li>
+<li>其中的每一个Dedekind Cut的Lower Set表示一个Real Number</li>
+</ul>
+
+
+<h3 class="relative group">Sequence Relationship 
+    <div id="sequence-relationship" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sequence-relationship" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>定义了Real Number后，需要将他们排列，具体来说需要将由Dedekind Cut所确定的Lower Sets做排列，有
+$$\alpha_1\leq\alpha_2=\alpha1\subseteq\alpha _2$$</li>
+<li>但是左边是一个全序集，而右边是偏序集</li>
+<li>证明右边是全序集可以通过向下封闭的性质，即
+$$\forall \alpha_1\leq \alpha_2~\exists\forall x\in\alpha_1\Rightarrow x \in\alpha_2$$</li>
+<li>则可以证明出Real Number Set\(\mathbb R\)是一个全序集</li>
+</ul>
+
+
+<h3 class="relative group">Summation 
+    <div id="summation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>通过两个Dedekind Cut相加定义出一个新的Dedekind Cut
+$$\alpha+\beta={a+b,a\in\alpha,b\in\beta}$$</li>
+<li>现在需要证明这个定义Well-defined</li>
+</ul>
+
+
+<h4 class="relative group">Proof 
+    <div id="proof" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>只需证明\(\alpha + \beta\)是一个 <strong>Dedekind Cut</strong>的Lower Set，也就是证明其1.向下封闭，2.没有最大元素</li>
+<li>(i) 显然\(\alpha + \beta \neq \emptyset\)。任取\(c \in (\alpha + \beta)\)，令\(c = a + b\)，其中\(a \in \alpha, b \in \beta\)。若\(c&rsquo; &lt; c\)，则存在\(d &gt; 0\)满足\(c&rsquo; = c - d = (a + b) - d = (a - d) + b\)，由于\(a - d &lt; a\)，故\(a - d \in \alpha\)。这表明\(c&rsquo; \in (\alpha + \beta)\)，于是可知\(\alpha + \beta\)向下封闭</li>
+<li>(ii) 由于\(\alpha\)和\(\beta\)中都没有最大元素，因此一定存在\(a&rsquo; \in \alpha, b&rsquo; \in \beta\)满足\(a&rsquo; &gt; a, b&rsquo; &gt; b\)，于是\((a&rsquo; + b&rsquo;) \in (\alpha + \beta)\)且\(a&rsquo; + b&rsquo; &gt; a + b\)，于是可知\(\alpha + \beta\)中也没有最大元素。</li>
+<li>综上可述\(\alpha+\beta\in \mathbb R\)</li>
+</ul>
+
+
+<h3 class="relative group">Law of Operation 
+    <div id="law-of-operation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#law-of-operation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">加法结合律 
+    <div id="%E5%8A%A0%E6%B3%95%E7%BB%93%E5%90%88%E5%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%A0%E6%B3%95%E7%BB%93%E5%90%88%E5%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>对任意的\(\alpha, \beta, \gamma \in \mathbb{R}\)，有\((\alpha + \beta) + \gamma = \alpha + (\beta + \gamma)\)</li>
+</ul>
+
+
+<h4 class="relative group">加法交换律 
+    <div id="%E5%8A%A0%E6%B3%95%E4%BA%A4%E6%8D%A2%E5%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%A0%E6%B3%95%E4%BA%A4%E6%8D%A2%E5%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>对任意的\(\alpha, \beta \in \mathbb{R}\)，有\(\alpha + \beta = \beta + \alpha\)</li>
+</ul>
+
+
+<h4 class="relative group">加法零元 
+    <div id="%E5%8A%A0%E6%B3%95%E9%9B%B6%E5%85%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%A0%E6%B3%95%E9%9B%B6%E5%85%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>对于任意的\(\alpha \in \mathbb{R}\)，存在一个零元\(0^<em>\)使得\(\alpha + 0^</em> = 0^* + \alpha = \alpha\)</li>
+</ul>
+
+
+<h4 class="relative group">加法负元 
+    <div id="%E5%8A%A0%E6%B3%95%E8%B4%9F%E5%85%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8A%A0%E6%B3%95%E8%B4%9F%E5%85%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>对于任意的\(\alpha \in \mathbb{R}\)，存在一个负元\(\beta\)使得\(\alpha + \beta = \beta + \alpha = 0^*\)</li>
+</ul>
+
+
+<h1 class="relative group">Completeness of Real Number Field 实数域的完备性 
+    <div id="completeness-of-real-number-field-%E5%AE%9E%E6%95%B0%E5%9F%9F%E7%9A%84%E5%AE%8C%E5%A4%87%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#completeness-of-real-number-field-%E5%AE%9E%E6%95%B0%E5%9F%9F%E7%9A%84%E5%AE%8C%E5%A4%87%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h3 class="relative group">Dense 稠密 
+    <div id="dense-%E7%A8%A0%E5%AF%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dense-%E7%A8%A0%E5%AF%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>设S是一个集合，X是一个包含S的更大的空间。我们说S在X中稠密，如果对于X中任意的点x，在x的任意小的邻域中，总能找到至少一个属于S的点
+$$\forall x \in X, \forall \epsilon &gt; 0, \exists s \in S \ \text{st.} \ |s - x| &lt; \epsilon$$</p>
+
+
+<h4 class="relative group">Real Number Field&rsquo;s Density 实数域的稠密性 
+    <div id="real-number-fields-density-%E5%AE%9E%E6%95%B0%E5%9F%9F%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#real-number-fields-density-%E5%AE%9E%E6%95%B0%E5%9F%9F%E7%9A%84%E7%A8%A0%E5%AF%86%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>对于任意𝛼,𝛽∈R,若𝛼&lt; 𝛽,则一定存在𝛾∈R满足\(\alpha &lt; \gamma &lt;\beta\)</li>
+</ul>
+
+
+<h3 class="relative group">Proof 
+    <div id="proof-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>令𝛾=(𝛼+𝛽)/2.由于𝛼 &lt; 𝛽,故
+$$2𝛼 &lt; 𝛼+𝛽 &lt;2𝛽 ⇐⇒ 𝛼&lt; \frac{𝛼+𝛽} {2} &lt;𝛽 ⇐⇒ 𝛼&lt;𝛾&lt;\beta$$</li>
+</ul>
+
+
+<h3 class="relative group">Dedekind Theorem In Rational Number Field 有理数的戴德金分割 
+    <div id="dedekind-theorem-in-rational-number-field-%E6%9C%89%E7%90%86%E6%95%B0%E7%9A%84%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dedekind-theorem-in-rational-number-field-%E6%9C%89%E7%90%86%E6%95%B0%E7%9A%84%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>有理数域\(\mathbb Q\)上的Dedekind Cut可能会出现Upper Set中无最小元素的情况.这说明有理数域存在空隙</p>
+
+
+<h4 class="relative group">ex. sqrt{2} 在 Q中的分割 
+    <div id="ex-sqrt2-%E5%9C%A8-q%E4%B8%AD%E7%9A%84%E5%88%86%E5%89%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-sqrt2-%E5%9C%A8-q%E4%B8%AD%E7%9A%84%E5%88%86%E5%89%B2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>考虑实数\(\sqrt{2}\)（它是无理数，不属于\(\mathbb{Q}\)），我们定义：</p>
+<ul>
+<li>\(A = { q \in \mathbb{Q} \mid q^2 &lt; 2 }\) （所有小于\(\sqrt{2}\) 的有理数）</li>
+<li>\(B = { q \in \mathbb{Q} \mid q^2 &gt; 2 }\) （所有大于\(\sqrt{2}\) 的有理数）</li>
+</ul>
+<p>可以验证：</p>
+<ol>
+<li>\(A \cup B = \mathbb{Q}\)且\(A \cap B = \emptyset\)</li>
+<li>\(a &lt; b\) 对于任意\(a \in A, b \in B\)</li>
+</ol>
+<p>但是Upper Set B中<strong>不存在最小元素</strong>，因为对于任意\(b \in B\)，都可以找到一个更小的\(b&rsquo; \in B\)</p>
+<p>这说明在\(\mathbb{Q}\)中，\(\sqrt{2}\)这样的点无法被有理数表示，导致了“<strong>空隙</strong>”的存在。</p>
+
+
+<h3 class="relative group">Dedekind Theorem in Real Number Field 实数的戴德金分割 
+    <div id="dedekind-theorem-in-real-number-field-%E5%AE%9E%E6%95%B0%E7%9A%84%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dedekind-theorem-in-real-number-field-%E5%AE%9E%E6%95%B0%E7%9A%84%E6%88%B4%E5%BE%B7%E9%87%91%E5%88%86%E5%89%B2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于实数域R上的任一Dedekind Cut \(𝐴| 𝐵\), Upper Set 𝐵中都有最小元素</li>
+</ul>
+
+
+<h4 class="relative group">Proof 
+    <div id="proof-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>简单来说，给定实数域上的一个Dedekind Cut(A|B)。</p>
+<ol>
+<li>若A有最大元，则这个最大元即属于B，因此B有最小元。</li>
+<li>若A无最大元，则A中可找出一列有理数向上递增逼近分割点。若该分割点存在于A中，则逼近过程能产生一个最大元与分割矛盾；若分割点不在A中，就会落在B中，从而成为B的最小元。</li>
+</ol>
+<p>总而言之，无论A是否有最大元，B中总能找到一个最小元</p>
+
+
+<h3 class="relative group">The limit principle 界 
+    <div id="the-limit-principle-%E7%95%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-limit-principle-%E7%95%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Dedekind Cut  𝐴 | 𝐵 中, Lower Set 𝐴的任一元素都小于𝐵中任一元素，从直观上看, 𝐴是有‘‘上界的”,而𝐵是有‘‘下界的”.</p>
+
+
+<h4 class="relative group">Bounded 有界的 
+    <div id="bounded-%E6%9C%89%E7%95%8C%E7%9A%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bounded-%E6%9C%89%E7%95%8C%E7%9A%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>设非空集合𝐸⊆R.若存在𝑀&gt;0使得|𝑥|&lt;𝑀 (∀𝑥∈𝐸),则称𝐸是有界的(bounded)</li>
+</ul>
+
+
+<h4 class="relative group">Supremum 上确界 
+    <div id="supremum-%E4%B8%8A%E7%A1%AE%E7%95%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#supremum-%E4%B8%8A%E7%A1%AE%E7%95%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>集合E的一个数M被称为其上确界（supremum），如果满足以下两个条件</p>
+<ul>
+<li>M是E的上界 Upper bound：
+$$\forall x \in E, \quad x \leq M$$</li>
+<li>M是所有上界中的最小值，也就是上确界 Supremum：</li>
+<li>对于任意\(\varepsilon &gt; 0\)，都存在\(x_\varepsilon \in E\)，使得\(M - \varepsilon &lt; x_\varepsilon \leq M\)</li>
+</ul>
+
+
+<h4 class="relative group">Infimum 下确界 
+    <div id="infimum-%E4%B8%8B%E7%A1%AE%E7%95%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#infimum-%E4%B8%8B%E7%A1%AE%E7%95%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>集合E的一个数m被称为其<strong>下确界（infimum）</strong>，如果满足以下两个条件：</p>
+<ul>
+<li>m是E的下界（lower bound）：
+$$\forall x \in E, \quad m \leq x$$</li>
+</ul>
+<ol start="2">
+<li>m是所有下界中的最大值： 对于任意\(\varepsilon &gt; 0\)，都存在\(x_\varepsilon \in E\)，使得\(m\leq x_\varepsilon &lt; m + \varepsilon\)</li>
+</ol>
+
+
+<h4 class="relative group">Existence of Supremum &amp; Infimum 上，下确界的存在性 
+    <div id="existence-of-supremum--infimum-%E4%B8%8A%E4%B8%8B%E7%A1%AE%E7%95%8C%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#existence-of-supremum--infimum-%E4%B8%8A%E4%B8%8B%E7%A1%AE%E7%95%8C%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>对于一个实数集的子集\(E\subseteq\mathbb R\)，其根据Real  Number的 Completeness一定存在确界</li>
+</ul>
+
+
+<h4 class="relative group">ex. Supremum &amp; Infimum 
+    <div id="ex-supremum--infimum" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-supremum--infimum" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$E ={ \frac{1}{n} : n \in \mathbb{N}^* }$$</p>
+<ul>
+<li>对于E来说，\(supE=1,infE=0\)</li>
+</ul>
+
+
+<h3 class="relative group">Least-upper-bound property, LUB 最小上界性 
+    <div id="least-upper-bound-property-lub-%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#least-upper-bound-property-lub-%E6%9C%80%E5%B0%8F%E4%B8%8A%E7%95%8C%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>定义</strong>：如果一个非空的实数集合S在实数集中有上界，那么S必定在实数集中有最小的上界（简称为<strong>确界</strong>）</p>
+<ul>
+<li>Dedekind Theorem和确界原理是等价的</li>
+</ul>
+
+
+<h3 class="relative group">Heine-Borel Theorem 
+    <div id="heine-borel-theorem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#heine-borel-theorem" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>有限闭区间的任一开覆盖都存在一个有限子覆盖</li>
+</ul>
+
+
+<h4 class="relative group">Open Cover 开覆盖 
+    <div id="open-cover-%E5%BC%80%E8%A6%86%E7%9B%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#open-cover-%E5%BC%80%E8%A6%86%E7%9B%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>设Set \(E\subseteq \mathbb R\)和一族开区间\({I_\lambda:\lambda\in \Lambda }\)，\(\Lambda\)是一个指标集，若
+$$E \subseteq \bigcup_{\lambda \in \Lambda} I_\lambda.$$</li>
+<li>则\({I_\lambda:\lambda\in \Lambda }\)是E的一个Open Cover，也就是一个开区间的集合的并集能够覆盖满整个集合E，记作\(C_E\)</li>
+<li>若E有一个Open Cover \(C_E&rsquo;\subseteq C_E\)，则称\(C_E&rsquo;\)为\(C_E\)的Subcover 子覆盖</li>
+<li>过这个Cover里只有有限个Open Set，则称他为Finite Subcover 有限子覆盖</li>
+</ul>
+
+
+<h2 class="relative group">Set&rsquo;s Cardinality 集合的基数 
+    <div id="sets-cardinality-%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sets-cardinality-%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Cardinality 基数 
+    <div id="cardinality-%E5%9F%BA%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cardinality-%E5%9F%BA%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于一个Finite Set A来说，他的基数是一个可以数出来的数字，即可以在\(\mathbb Z\)中找到一个数表示他的Cardinality，计作cardA或是\(|A|\)</li>
+<li>我们约定\(card \emptyset =0\)</li>
+<li>同时也可以发现两个Card相同的Set之间一定存在一个Bijective</li>
+<li>对于一个Infinite Set，即使无法直接数出他的Card，但可以通过Bijective的角度刻画</li>
+</ul>
+
+
+<h3 class="relative group">Equivalency of Set 集合的对等 
+    <div id="equivalency-of-set-%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#equivalency-of-set-%E9%9B%86%E5%90%88%E7%9A%84%E5%AF%B9%E7%AD%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>设集合A，B若存在一个A到B的双射 , 则称A与B对等 (equivalent), 记作A ∼ B</li>
+</ul>
+
+
+<h3 class="relative group">Finite Set 有限集 
+    <div id="finite-set-%E6%9C%89%E9%99%90%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#finite-set-%E6%9C%89%E9%99%90%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>设集合A. 若A= ∅ , 或存在\(n∈ N^∗\), 使得集合 \({ 1 , 2 , · · · , n}\) ∼ A , 则称集合A为有限集 (finite set)</li>
+<li>Finite Set的任一Subset仍是一个Finite Set</li>
+</ul>
+
+
+<h3 class="relative group">Equivalency of Integer Set and Nature Number Set 整数集和自然数集的对等 
+    <div id="equivalency-of-integer-set-and-nature-number-set-%E6%95%B4%E6%95%B0%E9%9B%86%E5%92%8C%E8%87%AA%E7%84%B6%E6%95%B0%E9%9B%86%E7%9A%84%E5%AF%B9%E7%AD%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#equivalency-of-integer-set-and-nature-number-set-%E6%95%B4%E6%95%B0%E9%9B%86%E5%92%8C%E8%87%AA%E7%84%B6%E6%95%B0%E9%9B%86%E7%9A%84%E5%AF%B9%E7%AD%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>考虑以下问题，自然数集和整数集的Cardinality是否相等？</li>
+<li>从直觉上看\(\mathbb N \subset \mathbb Z\)，看似自然数的总数比整数少，但并非如此</li>
+<li>前面说明了，如果两个Set之间可以建立一个Bijective的关系，则说明两个Set是Equivalent的，现在把Integer Set的所有元素排成一列
+$$0,1,-1,2,-2,3,-3,\cdots$$</li>
+<li>通过以下函数建立\(f:\mathbb N\rightarrow \mathbb Z\)
+$$f(n) =
+\begin{cases}
+-\frac{n}{2}, &amp; \text{n is Even} \
+\frac{n+1}{2}, &amp; \text{n is Odd}
+\end{cases}$$</li>
+<li>可以发现
+$$n = 1 \to 0,n = 2 \to -n,n = 3 \to 1,n = 4 \to -2,n = 5 \to 2,n = 6 \to -3
+$$</li>
+<li>于是可知\(\mathbb N\) ~ \(\mathbb Z\)</li>
+</ul>
+
+
+<h3 class="relative group">Countable Set 可数集 
+    <div id="countable-set-%E5%8F%AF%E6%95%B0%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#countable-set-%E5%8F%AF%E6%95%B0%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>设Infinite Set A，若\(A\) ~ \(\mathbb N\)，集存在一个<strong>A到N的Bijective Relationship</strong>，则称A为<strong>Countable 可数的</strong>，这样的Set也被称为<strong>Countable Set</strong></li>
+<li>Countable Set的Cardinality称为<strong>Countable Cardinality 可数基数</strong>，记做\(\aleph_0\)</li>
+</ul>
+<blockquote>
+<p>Aleph 阿列夫</p>
+</blockquote>
+
+
+<h3 class="relative group">Rational Number Set is a Countable Set 
+    <div id="rational-number-set-is-a-countable-set" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rational-number-set-is-a-countable-set" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>同理只要将Rational Number通过\(\frac{p}{q}\)那样排成一排然后和\(\mathbb N\)建立Bijective Relationship就行
+$$
+\left[
+\begin{array}{cccc}
+\frac{1}{1} &amp; \frac{1}{2} &amp; \frac{1}{3} &amp; \cdots \
+\frac{2}{1} &amp; \frac{2}{2} &amp; \frac{2}{3} &amp; \cdots \
+\frac{3}{1} &amp; \frac{3}{2} &amp; \frac{3}{3} &amp; \cdots \
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots
+\end{array}
+\right]
+$$</li>
+<li>具体排列方式不限，但可以知道Rational Number Set的Cardinality也同为\(\aleph_0\)</li>
+</ul>
+
+
+<h3 class="relative group">Uncountable Set 不可数集 
+    <div id="uncountable-set-%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#uncountable-set-%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>下面给出一个不可数集的例子，其实既然知道了有理数集是Infinite Countable Set，那Uncountable Set很明显就是Irrational Number或者的Subset了</li>
+</ul>
+
+
+<h4 class="relative group">ex. Interval \([0,1)\) is Uncountable Set 
+    <div id="ex-interval-01-is-uncountable-set" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-interval-01-is-uncountable-set" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>假设区间\([0,1)\)中的所有实数是可数的，那么我们可以将这些实数按序列排列如下：
+$$x_1, x_2, x_3, \ldots$$</p>
+<ul>
+<li>每一个Real Number \(x_i\)都可以表示为小数形式
+$$\begin{align}
+x_1 = 0.a_{11}a_{12}a_{13}a_{14} \cdots \
+x_2 = 0.a_{21}a_{22}a_{23}a_{24} \cdots \
+x_3 = 0.a_{31}a_{32}a_{33}a_{34} \cdots \
+\vdots
+\end{align}
+$$</li>
+<li>假设前三个实数
+$$
+\begin{array}{c|cccc}
+&amp; \text{第1位} &amp; \text{第2位} &amp; \text{第3位} &amp; \text{第4位} \
+\hline
+x_1 &amp; 3 &amp; 1 &amp; 4 &amp; 1 \
+x_2 &amp; 5 &amp; 9 &amp; 2 &amp; 6 \
+x_3 &amp; 5 &amp; 3 &amp; 5 &amp; 8 \
+\end{array}
+$$</li>
+<li>康托尔的对角线论证法要求我们构造一个新的实数y，其小数部分的每一位都与列表中第i个数\(x_i\)的第i位不同，通过这样的构造，y与列表中的每个数\(x_i\)至少在第i位上不同，也就是说前面的假设：我们可以将实数按序列排列成一个序列不成立，因为永远存在一个y不在列表中</li>
+<li>这证明了\([0,1)\)的实数集合是不可数的</li>
+<li>这种证明方法也叫做Cantor的Diagonal Process</li>
+</ul>
+
+
+<h3 class="relative group">Real Number Set is Uncountable 实数集是不可数集 
+    <div id="real-number-set-is-uncountable-%E5%AE%9E%E6%95%B0%E9%9B%86%E6%98%AF%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#real-number-set-is-uncountable-%E5%AE%9E%E6%95%B0%E9%9B%86%E6%98%AF%E4%B8%8D%E5%8F%AF%E6%95%B0%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>通过一个Bijective Relationship
+$$f(x)=-cot(\pi x)$$</li>
+<li>其Domain为\((0,1)\)，Range为\(\mathbb R\)，即f为\((0,1)和\mathbb R\)的一个Bijective Relationship</li>
+<li>因此\((0,1)\) ~ \(\mathbb R\)</li>
+<li>已知\((0,1)\)是一个Uncountable Set，即证\(\mathbb R\)也是Uncountable的</li>
+</ul>
+
+
+<h3 class="relative group">Continuum 连续统 
+    <div id="continuum-%E8%BF%9E%E7%BB%AD%E7%BB%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#continuum-%E8%BF%9E%E7%BB%AD%E7%BB%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>和Real Number Set等势的Set称为continuum 连续统</li>
+<li>Continuum的Cardinality为\(\aleph_1\)</li>
+</ul>
+
+
+<h3 class="relative group">Continuum hypothesis 连续统假设 
+    <div id="continuum-hypothesis-%E8%BF%9E%E7%BB%AD%E7%BB%9F%E5%81%87%E8%AE%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#continuum-hypothesis-%E8%BF%9E%E7%BB%AD%E7%BB%9F%E5%81%87%E8%AE%BE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>1874 年 Cantor 提出猜想 : 不存在基数介于\(ℵ_0\)和\(ℵ_1\)的集合 . 这就是著名的连续统假设</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/linearalgebra/la7.orthogonalprojection/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/linearalgebra/la7.orthogonalprojection/feature_hu2875639789542466424.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/linearalgebra/la7.orthogonalprojection/">LA 7. Orthogonal and Projection</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-21T00:00:00&#43;00:00">Nov 21 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5753 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/linearalgebra/la1.vectorlineplane/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/linearalgebra/la1.vectorlineplane/feature_hu6775954676940934288.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/linearalgebra/la1.vectorlineplane/">LA 1. Vector Line & Plane</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-25T00:00:00&#43;00:00">Nov 25 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2559 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/emcs_engineering-chemistry--materials-science/ecms8.thermodynamics/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/emcs_engineering-chemistry--materials-science/ecms8.thermodynamics/feature_hu10258315598459797496.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/emcs_engineering-chemistry--materials-science/ecms8.thermodynamics/">ECMS 8. Thermodynamics</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-25T00:00:00&#43;00:00">Nov 25 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2743 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ecms/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ECMS
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/chemistry/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Chemistry
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/linearalgebra/la8.diagonalizationandeigenvalues/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/linearalgebra/la8.diagonalizationandeigenvalues/feature_hu7018778625350674788.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/linearalgebra/la8.diagonalizationandeigenvalues/">LA 8. Diagonalization and Eigenvalues</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-25T00:00:00&#43;00:00">Nov 25 2024</time><span class="px-2 text-primary-500">&middot;</span><span>3669 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/linearalgebra/leastsquare/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/linearalgebra/leastsquare/feature_hu8119715986056169394.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/linearalgebra/leastsquare/">LA Least Square</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-19T00:00:00&#43;00:00">Nov 19 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1199 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/feature_hu2317425060822347641.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/">ECMS 7. Light and Quantum</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-18T00:00:00&#43;00:00">Nov 18 2024</time><span class="px-2 text-primary-500">&middot;</span><span>10562 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ecms/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ECMS
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/chemistry/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Chemistry
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\MathematicalAnalysis\\MA2.RealNumber\\index.md"
+        var oid_likes = "likes_docs\\MathematicalAnalysis\\MA2.RealNumber\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+
+<footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
+            title="">
+            
+            Credits
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      Buezwqwg
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://buezw.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
