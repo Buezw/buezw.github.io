@@ -9,7 +9,20 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2024 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 19 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>D2L 4.1 Multilayer Perceptron</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/</link>
+      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/feature.png" />
+    </item>
+    
     <item>
       <title>D2L Weierstrass Approximation Theorem</title>
       <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
@@ -21,7 +34,7 @@
 &lt;/blockquote&gt;
 
 
-&lt;h1 class=&#34;relative group&#34;&gt;Weierstrass Approximation Theorem 
+&lt;h2 class=&#34;relative group&#34;&gt;Weierstrass Approximation Theorem 
     &lt;div id=&#34;weierstrass-approximation-theorem&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
     &lt;span
@@ -30,14 +43,14 @@
             style=&#34;text-decoration-line: none !important;&#34; href=&#34;#weierstrass-approximation-theorem&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
     &lt;/span&gt;        
     
-&lt;/h1&gt;
+&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;每一个定义在闭区间$[a,b]$上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li&gt;
-&lt;li&gt;换句话说，给定任意的连续函数$f: [a, b] \to \mathbb{R}$和任意小的正数$\epsilon$，都存在一个多项式$P(x)$，使得对所有$x \in [a, b]$都有$|f(x) - P(x)| &amp;lt; \epsilon$&lt;/li&gt;
+&lt;li&gt;每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li&gt;
+&lt;li&gt;换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &amp;lt; \epsilon\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
-&lt;h1 class=&#34;relative group&#34;&gt;Bernstein&amp;rsquo;s Proof 1912 
+&lt;h2 class=&#34;relative group&#34;&gt;Bernstein&amp;rsquo;s Proof 1912 
     &lt;div id=&#34;bernsteins-proof-1912&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
     &lt;span
@@ -46,15 +59,15 @@
             style=&#34;text-decoration-line: none !important;&#34; href=&#34;#bernsteins-proof-1912&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
     &lt;/span&gt;        
     
-&lt;/h1&gt;
+&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;采用离散的Convolution
 $$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$&lt;/li&gt;
-&lt;li&gt;其满足$\sum_i(x_i)=1$，离$x$越近的地方$w(x_i)$越大&lt;/li&gt;
+&lt;li&gt;其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大&lt;/li&gt;
 &lt;/ul&gt;
 
 
-&lt;h2 class=&#34;relative group&#34;&gt;Binomial Distribution 二项分布 
+&lt;h3 class=&#34;relative group&#34;&gt;Binomial Distribution 二项分布 
     &lt;div id=&#34;binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
     &lt;span
@@ -63,7 +76,7 @@ $$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$&lt;/li&gt;
             style=&#34;text-decoration-line: none !important;&#34; href=&#34;#binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
     &lt;/span&gt;        
     
-&lt;/h2&gt;
+&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;一种离散概率分布，用于模型在固定次数的独立试验中每次试验成功的次数&lt;/li&gt;
 &lt;li&gt;其质量概率函数为
@@ -74,7 +87,7 @@ $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$&lt;/li&gt;
 &lt;/ul&gt;
 
 
-&lt;h2 class=&#34;relative group&#34;&gt;Interpretation 
+&lt;h3 class=&#34;relative group&#34;&gt;Interpretation 
     &lt;div id=&#34;interpretation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
     &lt;span
@@ -83,20 +96,20 @@ $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$&lt;/li&gt;
             style=&#34;text-decoration-line: none !important;&#34; href=&#34;#interpretation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
     &lt;/span&gt;        
     
-&lt;/h2&gt;
+&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;这样理解，先不管$\binom{n}{k}$，假设一个成功率为$60%$的事件，其总共实验次数为5次，也就是$p=0.6,n=5$&lt;/li&gt;
-&lt;li&gt;现在当$k=5$的时候，Binomial Distribution表示的概率为$0.6^5$，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为$0.6^5$，这就是最简单的概率&lt;/li&gt;
-&lt;li&gt;当$k=3$时，概率质量函数为
+&lt;li&gt;这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)&lt;/li&gt;
+&lt;li&gt;现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率&lt;/li&gt;
+&lt;li&gt;当\(k=3\)时，概率质量函数为
 $$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$&lt;/li&gt;
-&lt;li&gt;也就是说，5次实验，每一个5次实验中3次成功的概率为$0.6^3 (1-0.6)^{5-3}$&lt;/li&gt;
+&lt;li&gt;也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)&lt;/li&gt;
 &lt;li&gt;而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
 $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
 &lt;li&gt;这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10&lt;/li&gt;
 &lt;/ul&gt;
 
 
-&lt;h1 class=&#34;relative group&#34;&gt;Bernstein Polynomial 伯恩斯坦多项式 
+&lt;h2 class=&#34;relative group&#34;&gt;Bernstein Polynomial 伯恩斯坦多项式 
     &lt;div id=&#34;bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
     &lt;span
@@ -105,7 +118,7 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
             style=&#34;text-decoration-line: none !important;&#34; href=&#34;#bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
     &lt;/span&gt;        
     
-&lt;/h1&gt;
+&lt;/h2&gt;
 &lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
@@ -1758,48 +1771,6 @@ $$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;
       <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
       <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 4.3 Simple Implementation of Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/</guid>
-      <description>&lt;p&gt;通过更高级的API进一步简洁训练过程&lt;/p&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;4.3.1 模型 
-    &lt;div id=&#34;431-%E6%A8%A1%E5%9E%8B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#431-%E6%A8%A1%E5%9E%8B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;net = nn.Sequential(nn.Flatten(),
-                    nn.Linear(784, 256),
-                    nn.ReLU(),
-                    nn.Linear(256, 10))
-
-def init_weights(m):
-    if type(m) == nn.Linear:
-        nn.init.normal_(m.weight, std=0.01)
-
-net.apply(init_weights);
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;初始化神经网络&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;batch_size, lr, num_epochs = 256, 0.1, 10
-loss = nn.CrossEntropyLoss(reduction=&amp;#39;none&amp;#39;)
-trainer = torch.optim.SGD(net.parameters(), lr=lr)
-
-train_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)
-d2l.train_ch3(net, train_iter, test_iter, loss, num_epochs, trainer)
-&lt;/code&gt;&lt;/pre&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/feature.png" />
     </item>
     
     <item>
