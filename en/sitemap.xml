@@ -43,6 +43,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/</loc>
+    <lastmod>2024-12-20T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/tags/docs/</loc>
     <lastmod>2024-12-20T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -340,12 +346,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</loc>
-    <lastmod>2024-04-15T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/</loc>
     <lastmod>2024-04-15T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>

@@ -78,12 +78,12 @@
     <meta property="article:tag" content="Docs">
     <meta property="og:image" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png">
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
+      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
 
   
   <meta name="twitter:card" content="summary_large_image">
@@ -928,6 +928,15 @@
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
+            Part : D2L 4.2 Example of MLP
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
             Part 1: Linear Regression
         </a>
@@ -1011,15 +1020,6 @@
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
-            Part 8: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
     
@@ -1240,6 +1240,15 @@ O=HW^{(2)}+b^{(2)}
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
+            Part : D2L 4.2 Example of MLP
+        </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
             Part 1: Linear Regression
         </a>
@@ -1330,15 +1339,6 @@ O=HW^{(2)}+b^{(2)}
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
-            Part 8: D2L 4.1 MultilayerPerceptron
-        </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
         Part 9: This Article
     </div>
     
@@ -1372,142 +1372,6 @@ O=HW^{(2)}+b^{(2)}
 
 <h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
 <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-  
-  
-
-  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/feature_hu511238667851196185.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">D2L 4.1 MultilayerPerceptron</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-04-15T00:00:00&#43;00:00">Apr 15 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1476 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/d2l/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    D2L
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/computer-science/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Computer Science
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
   
   
 
@@ -2189,6 +2053,142 @@ O=HW^{(2)}+b^{(2)}
   </a>
 
   
+  
+
+  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature_hu17137768951587348652.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">D2L 3.6 Implementation of softmax regression from scratch</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-04-15T00:00:00&#43;00:00">Apr 15 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2032 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/d2l/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    D2L
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/computer-science/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Computer Science
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
 </section>
 
   
@@ -2226,7 +2226,7 @@ O=HW^{(2)}+b^{(2)}
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
+            <a class="flex group mr-3" href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -2238,11 +2238,11 @@ O=HW^{(2)}+b^{(2)}
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >D2L 4.1 MultilayerPerceptron</span
+                  >D2L Weierstrass Approximation Theorem</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-04-15T00:00:00&#43;00:00">Apr 15 2024</time>
+                    <time datetime="2024-12-19T00:00:00&#43;00:00">Dec 19 2024</time>
                   
                 </span>
               </span>

@@ -9,8 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>D2L 4.1 MultilayerPerceptron &middot; Buezwqwg</title>
-  <meta name="title" content="D2L 4.1 MultilayerPerceptron &middot; Buezwqwg" />
+  <title>D2L 4.2 Example of MLP &middot; Buezwqwg</title>
+  <meta name="title" content="D2L 4.2 Example of MLP &middot; Buezwqwg" />
   
   
   <meta name="keywords" content="D2L, Computer Science, Docs, " />
@@ -66,13 +66,14 @@
   
   <meta property="og:url" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/">
   <meta property="og:site_name" content="Buezwqwg">
-  <meta property="og:title" content="D2L 4.1 MultilayerPerceptron">
-  <meta property="og:description" content="在了解多层感知机前，需要先了解[[Perceptron 感知机]]">
+  <meta property="og:title" content="D2L 4.2 Example of MLP">
+  <meta property="og:description" content=" Last Edit: 12/20/24
+# This Python 3 environment comes with many helpful analytics libraries installed # It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python # For example, here&#39;s several helpful packages to load import numpy as np # linear algebra import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv) # Input data files are available in the read-only &#34;../input/&#34; directory # For example, running this (by clicking run or pressing Shift&#43;Enter) will list all files under the input directory import os for dirname, _, filenames in os.walk(&#39;/kaggle/input/d/heptapod/titanic/train_and_test2.csv&#39;): for filename in filenames: print(os.path.join(dirname, filename)) # You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &#34;Save &amp; Run All&#34; # You can also write temporary files to /kaggle/temp/, but they won&#39;t be saved outside of the current session train_path = &#39;/kaggle/input/titanic/train.csv&#39; test_path = &#39;/kaggle/input/titanic/test.csv&#39; train_data = pd.read_csv(train_path) test_data = pd.read_csv(test_path) data = pd.concat([train_data, test_data], sort=False).reset_index(drop=True) display(data) # 填补Age的缺失值 data[&#39;Age&#39;].fillna(data[&#39;Age&#39;].median(), inplace=True) # 填补Fare的缺失值 data[&#39;Fare&#39;].fillna(data[&#39;Fare&#39;].median(), inplace=True) display(data[&#39;Fare&#39;]) data = data[[&#39;Survived&#39;,&#39;Pclass&#39;,&#39;Sex&#39;,&#39;Age&#39;,&#39;SibSp&#39;,&#39;Parch&#39;,&#39;Fare&#39;]] data[&#39;Sex&#39;] = data[&#39;Sex&#39;].map({&#39;male&#39;: 0, &#39;female&#39;: 1}) print(data) train_data = data.iloc[:891].copy() test_data = data.iloc[891:].copy() X_train = train_data.drop(&#39;Survived&#39;, axis=1) y_train = train_data[&#39;Survived&#39;].astype(int) X_test = test_data.drop(&#39;Survived&#39;, axis=1).copy() print(X_test) from sklearn.neural_network import MLPClassifier from sklearn.model_selection import train_test_split from sklearn.metrics import accuracy_score, classification_report # 将训练集分为训练子集和验证子集 X_tr, X_val, y_tr, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=42) # 初始化MLPClassifier mlp = MLPClassifier(hidden_layer_sizes=(100,), # 一个隐藏层，100个神经元 activation=&#39;relu&#39;, # 激活函数为ReLU solver=&#39;adam&#39;, # 优化器为Adam max_iter=1000, # 最大迭代次数 random_state=42) # 训练模型 mlp.fit(X_tr, y_tr) # 在验证集上进行预测 y_pred = mlp.predict(X_val) # 计算准确率 accuracy = accuracy_score(y_val, y_pred) print(f&#34;\n验证集准确率：{accuracy:.4f}&#34;) # 查看分类报告 print(&#34;\n分类报告：&#34;) print(classification_report(y_val, y_pred)) y_test = mlp.predict(X_test) result = mlp.predict(X_test) X_test[&#39;Survived&#39;] = result passenger_ids = np.arange(891, 1309) X_test[&#39;Passengerid&#39;] = passenger_ids X_test = X_test[&#39;Survived&#39;] print(X_test) X_test.to_csv(&#39;submission.csv&#39;, index=False) print(&#34;提交文件 &#39;submission.csv&#39; 已生成。&#34;) ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2024-04-15T00:00:00+00:00">
-    <meta property="article:modified_time" content="2024-04-15T00:00:00+00:00">
+    <meta property="article:published_time" content="2024-12-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-12-20T00:00:00+00:00">
     <meta property="article:tag" content="D2L">
     <meta property="article:tag" content="Computer Science">
     <meta property="article:tag" content="Docs">
@@ -83,13 +84,13 @@
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
       <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
 
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/feature.png">
-  <meta name="twitter:title" content="D2L 4.1 MultilayerPerceptron">
-  <meta name="twitter:description" content="在了解多层感知机前，需要先了解[[Perceptron 感知机]]">
+  <meta name="twitter:title" content="D2L 4.2 Example of MLP">
+  <meta name="twitter:description" content=" Last Edit: 12/20/24
+# This Python 3 environment comes with many helpful analytics libraries installed # It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python # For example, here&#39;s several helpful packages to load import numpy as np # linear algebra import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv) # Input data files are available in the read-only &#34;../input/&#34; directory # For example, running this (by clicking run or pressing Shift&#43;Enter) will list all files under the input directory import os for dirname, _, filenames in os.walk(&#39;/kaggle/input/d/heptapod/titanic/train_and_test2.csv&#39;): for filename in filenames: print(os.path.join(dirname, filename)) # You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &#34;Save &amp; Run All&#34; # You can also write temporary files to /kaggle/temp/, but they won&#39;t be saved outside of the current session train_path = &#39;/kaggle/input/titanic/train.csv&#39; test_path = &#39;/kaggle/input/titanic/test.csv&#39; train_data = pd.read_csv(train_path) test_data = pd.read_csv(test_path) data = pd.concat([train_data, test_data], sort=False).reset_index(drop=True) display(data) # 填补Age的缺失值 data[&#39;Age&#39;].fillna(data[&#39;Age&#39;].median(), inplace=True) # 填补Fare的缺失值 data[&#39;Fare&#39;].fillna(data[&#39;Fare&#39;].median(), inplace=True) display(data[&#39;Fare&#39;]) data = data[[&#39;Survived&#39;,&#39;Pclass&#39;,&#39;Sex&#39;,&#39;Age&#39;,&#39;SibSp&#39;,&#39;Parch&#39;,&#39;Fare&#39;]] data[&#39;Sex&#39;] = data[&#39;Sex&#39;].map({&#39;male&#39;: 0, &#39;female&#39;: 1}) print(data) train_data = data.iloc[:891].copy() test_data = data.iloc[891:].copy() X_train = train_data.drop(&#39;Survived&#39;, axis=1) y_train = train_data[&#39;Survived&#39;].astype(int) X_test = test_data.drop(&#39;Survived&#39;, axis=1).copy() print(X_test) from sklearn.neural_network import MLPClassifier from sklearn.model_selection import train_test_split from sklearn.metrics import accuracy_score, classification_report # 将训练集分为训练子集和验证子集 X_tr, X_val, y_tr, y_val = train_test_split(X_train, y_train, test_size=0.2, random_state=42) # 初始化MLPClassifier mlp = MLPClassifier(hidden_layer_sizes=(100,), # 一个隐藏层，100个神经元 activation=&#39;relu&#39;, # 激活函数为ReLU solver=&#39;adam&#39;, # 优化器为Adam max_iter=1000, # 最大迭代次数 random_state=42) # 训练模型 mlp.fit(X_tr, y_tr) # 在验证集上进行预测 y_pred = mlp.predict(X_val) # 计算准确率 accuracy = accuracy_score(y_val, y_pred) print(f&#34;\n验证集准确率：{accuracy:.4f}&#34;) # 查看分类报告 print(&#34;\n分类报告：&#34;) print(classification_report(y_val, y_pred)) y_test = mlp.predict(X_test) result = mlp.predict(X_test) X_test[&#39;Survived&#39;] = result passenger_ids = np.arange(891, 1309) X_test[&#39;Passengerid&#39;] = passenger_ids X_test = X_test[&#39;Survived&#39;] print(X_test) X_test.to_csv(&#39;submission.csv&#39;, index=False) print(&#34;提交文件 &#39;submission.csv&#39; 已生成。&#34;) ">
 
   
   <script type="application/ld+json">
@@ -97,10 +98,10 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Docs",
-    "name": "D2L 4.1 MultilayerPerceptron",
-    "headline": "D2L 4.1 MultilayerPerceptron",
+    "name": "D2L 4.2 Example of MLP",
+    "headline": "D2L 4.2 Example of MLP",
     
-    "abstract": "\u003cp\u003e在了解多层感知机前，需要先了解[[Perceptron 感知机]]\u003c\/p\u003e",
+    "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 12\/20\/24\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-python\u0022 data-lang=\u0022python\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# This Python 3 environment comes with many helpful analytics libraries installed\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# It is defined by the kaggle\/python Docker image: https:\/\/github.com\/kaggle\/docker-python\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# For example, here\u0026#39;s several helpful packages to load\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kn\u0022\u003eimport\u003c\/span\u003e \u003cspan class=\u0022nn\u0022\u003enumpy\u003c\/span\u003e \u003cspan class=\u0022k\u0022\u003eas\u003c\/span\u003e \u003cspan class=\u0022nn\u0022\u003enp\u003c\/span\u003e \u003cspan class=\u0022c1\u0022\u003e# linear algebra\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kn\u0022\u003eimport\u003c\/span\u003e \u003cspan class=\u0022nn\u0022\u003epandas\u003c\/span\u003e \u003cspan class=\u0022k\u0022\u003eas\u003c\/span\u003e \u003cspan class=\u0022nn\u0022\u003epd\u003c\/span\u003e \u003cspan class=\u0022c1\u0022\u003e# data processing, CSV file I\/O (e.g. pd.read_csv)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# Input data files are available in the read-only \u0026#34;..\/input\/\u0026#34; directory\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# For example, running this (by clicking run or pressing Shift\u002bEnter) will list all files under the input directory\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kn\u0022\u003eimport\u003c\/span\u003e \u003cspan class=\u0022nn\u0022\u003eos\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022k\u0022\u003efor\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003edirname\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003e_\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003efilenames\u003c\/span\u003e \u003cspan class=\u0022ow\u0022\u003ein\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eos\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ewalk\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;\/kaggle\/input\/d\/heptapod\/titanic\/train_and_test2.csv\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e):\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022k\u0022\u003efor\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003efilename\u003c\/span\u003e \u003cspan class=\u0022ow\u0022\u003ein\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003efilenames\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e:\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e        \u003cspan class=\u0022nb\u0022\u003eprint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eos\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003epath\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ejoin\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edirname\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003efilename\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e))\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# You can write up to 20GB to the current directory (\/kaggle\/working\/) that gets preserved as output when you create a version using \u0026#34;Save \u0026amp; Run All\u0026#34; \u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# You can also write temporary files to \/kaggle\/temp\/, but they won\u0026#39;t be saved outside of the current session\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003etrain_path\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022s1\u0022\u003e\u0026#39;\/kaggle\/input\/titanic\/train.csv\u0026#39;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003etest_path\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022s1\u0022\u003e\u0026#39;\/kaggle\/input\/titanic\/test.csv\u0026#39;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003etrain_data\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003epd\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eread_csv\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003etrain_path\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003etest_data\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003epd\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eread_csv\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003etest_path\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003epd\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003econcat\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e([\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003etrain_data\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003etest_data\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e],\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003esort\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022kc\u0022\u003eFalse\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ereset_index\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edrop\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022kc\u0022\u003eTrue\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003edisplay\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# 填补Age的缺失值\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Age\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003efillna\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Age\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003emedian\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(),\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003einplace\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022kc\u0022\u003eTrue\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# 填补Fare的缺失值\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Fare\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003efillna\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Fare\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003emedian\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(),\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003einplace\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022kc\u0022\u003eTrue\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003edisplay\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Fare\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e])\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Survived\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Pclass\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Sex\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Age\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;SibSp\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Parch\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Fare\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]]\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Sex\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Sex\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003emap\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e({\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;male\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e:\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e0\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022s1\u0022\u003e\u0026#39;female\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e:\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e1\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e})\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nb\u0022\u003eprint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003etrain_data\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eiloc\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[:\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e891\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ecopy\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e()\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003etest_data\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003edata\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eiloc\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e891\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e:]\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ecopy\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e()\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eX_train\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003etrain_data\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edrop\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Survived\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eaxis\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e1\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003ey_train\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003etrain_data\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Survived\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eastype\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022nb\u0022\u003eint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003etest_data\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003edrop\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Survived\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eaxis\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e1\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ecopy\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e()\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nb\u0022\u003eprint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kn\u0022\u003efrom\u003c\/span\u003e \u003cspan class=\u0022nn\u0022\u003esklearn.neural_network\u003c\/span\u003e \u003cspan class=\u0022kn\u0022\u003eimport\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eMLPClassifier\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kn\u0022\u003efrom\u003c\/span\u003e \u003cspan class=\u0022nn\u0022\u003esklearn.model_selection\u003c\/span\u003e \u003cspan class=\u0022kn\u0022\u003eimport\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003etrain_test_split\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kn\u0022\u003efrom\u003c\/span\u003e \u003cspan class=\u0022nn\u0022\u003esklearn.metrics\u003c\/span\u003e \u003cspan class=\u0022kn\u0022\u003eimport\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eaccuracy_score\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eclassification_report\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# 将训练集分为训练子集和验证子集\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eX_tr\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eX_val\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003ey_tr\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003ey_val\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003etrain_test_split\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eX_train\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003ey_train\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003etest_size\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022mf\u0022\u003e0.2\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003erandom_state\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e42\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# 初始化MLPClassifier\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003emlp\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eMLPClassifier\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ehidden_layer_sizes\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e100\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,),\u003c\/span\u003e  \u003cspan class=\u0022c1\u0022\u003e# 一个隐藏层，100个神经元\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e                    \u003cspan class=\u0022n\u0022\u003eactivation\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;relu\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e        \u003cspan class=\u0022c1\u0022\u003e# 激活函数为ReLU\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e                    \u003cspan class=\u0022n\u0022\u003esolver\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;adam\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e            \u003cspan class=\u0022c1\u0022\u003e# 优化器为Adam\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e                    \u003cspan class=\u0022n\u0022\u003emax_iter\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e1000\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e            \u003cspan class=\u0022c1\u0022\u003e# 最大迭代次数\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e                    \u003cspan class=\u0022n\u0022\u003erandom_state\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e42\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# 训练模型\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003emlp\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003efit\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eX_tr\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003ey_tr\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# 在验证集上进行预测\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003ey_pred\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003emlp\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003epredict\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eX_val\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# 计算准确率\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eaccuracy\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eaccuracy_score\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ey_val\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003ey_pred\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nb\u0022\u003eprint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022sa\u0022\u003ef\u003c\/span\u003e\u003cspan class=\u0022s2\u0022\u003e\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022se\u0022\u003e\\n\u003c\/span\u003e\u003cspan class=\u0022s2\u0022\u003e验证集准确率：\u003c\/span\u003e\u003cspan class=\u0022si\u0022\u003e{\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eaccuracy\u003c\/span\u003e\u003cspan class=\u0022si\u0022\u003e:\u003c\/span\u003e\u003cspan class=\u0022s2\u0022\u003e.4f\u003c\/span\u003e\u003cspan class=\u0022si\u0022\u003e}\u003c\/span\u003e\u003cspan class=\u0022s2\u0022\u003e\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e# 查看分类报告\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nb\u0022\u003eprint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s2\u0022\u003e\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022se\u0022\u003e\\n\u003c\/span\u003e\u003cspan class=\u0022s2\u0022\u003e分类报告：\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nb\u0022\u003eprint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eclassification_report\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ey_val\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003ey_pred\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e))\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003ey_test\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003emlp\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003epredict\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eresult\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003emlp\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003epredict\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Survived\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eresult\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003epassenger_ids\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003enp\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003earange\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e891\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e1309\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e \n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Passengerid\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003epassenger_ids\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;Survived\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nb\u0022\u003eprint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022n\u0022\u003eX_test\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e.\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eto_csv\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s1\u0022\u003e\u0026#39;submission.csv\u0026#39;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eindex\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e\u003cspan class=\u0022kc\u0022\u003eFalse\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022nb\u0022\u003eprint\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s2\u0022\u003e\u0026#34;提交文件 \u0026#39;submission.csv\u0026#39; 已生成。\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e",
     "inLanguage": "en",
     "url" : "https:\/\/buezw.github.io\/docs\/d2l_dive-into-deep-learning\/d2l_chapter4multilayerperceptron\/4.2_implementationofmultilayerperceptronfromscratch\/",
     "author" : {
@@ -108,15 +109,15 @@
       "name": "Buezwqwg"
     },
     "copyrightYear": "2024",
-    "dateCreated": "2024-04-15T00:00:00\u002b00:00",
-    "datePublished": "2024-04-15T00:00:00\u002b00:00",
+    "dateCreated": "2024-12-20T00:00:00\u002b00:00",
+    "datePublished": "2024-12-20T00:00:00\u002b00:00",
     
-    "dateModified": "2024-04-15T00:00:00\u002b00:00",
+    "dateModified": "2024-12-20T00:00:00\u002b00:00",
     
     "keywords": ["D2L","Computer Science","Docs"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1476"
+    "wordCount": "469"
   }]
   </script>
 
@@ -639,7 +640,7 @@
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2_implementationofmultilayerperceptronfromscratch/"
-      >D2L 4.1 MultilayerPerceptron</a
+      >D2L 4.2 Example of MLP</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -648,7 +649,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      D2L 4.1 MultilayerPerceptron
+      D2L 4.2 Example of MLP
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -691,7 +692,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-04-15T00:00:00&#43;00:00">Apr 15 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1476 words</span>
+  <time datetime="2024-12-20T00:00:00&#43;00:00">Dec 20 2024</time><span class="px-2 text-primary-500">&middot;</span><span>469 words</span>
   
 
   
@@ -785,125 +786,7 @@
   
   <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
     
-     <div
-      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
-      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
-
-         <details open id="TOCView"
-  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
-  <summary
-    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
-  </summary>
-  <div
-    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#411-隐藏层">4.1.1 隐藏层</a>
-      <ul>
-        <li><a href="#4111-线性模型可能会出错">4.1.1.1 线性模型可能会出错</a></li>
-        <li><a href="#4112-在网络中加入隐藏层">4.1.1.2 在网络中加入隐藏层</a></li>
-        <li><a href="#4113-从线性到非线性">4.1.1.3 从线性到非线性</a></li>
-      </ul>
-    </li>
-    <li><a href="#4114-通用近似定理">4.1.1.4 通用近似定理</a></li>
-    <li><a href="#412-激活函数-activation-function">4.1.2 激活函数 Activation Function</a></li>
-  </ul>
-</nav>
-  </div>
-</details>
-<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
-  <summary
-    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
-  </summary>
-  <div
-    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#411-隐藏层">4.1.1 隐藏层</a>
-      <ul>
-        <li><a href="#4111-线性模型可能会出错">4.1.1.1 线性模型可能会出错</a></li>
-        <li><a href="#4112-在网络中加入隐藏层">4.1.1.2 在网络中加入隐藏层</a></li>
-        <li><a href="#4113-从线性到非线性">4.1.1.3 从线性到非线性</a></li>
-      </ul>
-    </li>
-    <li><a href="#4114-通用近似定理">4.1.1.4 通用近似定理</a></li>
-    <li><a href="#412-激活函数-activation-function">4.1.2 激活函数 Activation Function</a></li>
-  </ul>
-</nav>
-  </div>
-</details>
-
-<script>
-
-  var margin = 200;
-  var marginError = 50;
-
-  (function () {
-    var $window = $(window);
-    var $toc = $('#TOCView');
-    var tocHeight = $toc.height();
-
-    function onResize() {
-      var windowAndMarginHeight = $window.height() - margin;
-      if(tocHeight >= windowAndMarginHeight) {
-        $toc.css("overflow-y", "scroll")
-        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
-      } else {
-        $toc.css("overflow-y", "hidden")
-        $toc.css("max-height", "9999999px")
-      }
-    }
-
-    $window.on('resize', onResize);
-    $(document).ready(onResize);
-  })();
-
-
-
-  (function () {
-    var $toc = $('#TableOfContents');
-    if ($toc.length > 0) {
-      var $window = $(window);
-
-      function onScroll() {
-        var currentScroll = $window.scrollTop();
-        var h = $('.anchor');
-        var id = "";
-        h.each(function (i, e) {
-          e = $(e);
-          if (e.offset().top - $(window).height()/3 <= currentScroll) {
-            id = decodeURIComponent(e.attr('id'));
-          }
-        });
-        var active = $toc.find('a.active');      
-        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
-
-        active.each(function (i, e) {
-          
-            $(e).removeClass('active');
-          
-        });
-        $toc.find('a[href="#' + id + '"]').addClass('active')
-        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-          $(e).children('a').parents('ul').show();          
-        });
-      }
-
-      $window.on('scroll', onScroll);
-      $(document).ready(function () {
-        
-        onScroll();
-      });
-    }
-  })();
-
-
-</script>
-   </div>
-      </div>
-      
+    
 
       <div class="min-w-0 min-h-0 max-w-fit">
         
@@ -922,6 +805,13 @@
         <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
             Part : D2L 4.1 Multilayer Perceptron
         </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        Part : This Article
     </div>
     
     
@@ -1012,13 +902,6 @@
         <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        Part 8: This Article
     </div>
     
     
@@ -1056,162 +939,81 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <p>在了解多层感知机前，需要先了解[[Perceptron 感知机]]</p>
-
-
-<h2 class="relative group">4.1.1 隐藏层 
-    <div id="411-%E9%9A%90%E8%97%8F%E5%B1%82" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#411-%E9%9A%90%E8%97%8F%E5%B1%82" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>在[[3.1_LinearRegression#3.1.1.1 线性模型]]中我们描述了[[Affine Transformation 仿射变换]]，如一次函数一般是一种带有偏置项的线性变换</li>
-<li>如果预测值在仿射变换后确实与输入数据有线性关系，那么这种方式确实够用</li>
-<li>可是大部分情况下，仿射变换中的线性是一个很强的假设</li>
-</ul>
-
-
-<h3 class="relative group">4.1.1.1 线性模型可能会出错 
-    <div id="4111-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%87%BA%E9%94%99" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#4111-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%87%BA%E9%94%99" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>线性意味着<strong>单调假设</strong>，权重w在正的情况下，任何特征的增大都会导致模型输出的增大</li>
-</ul>
-<p><em>E.X.</em></p>
-<ul>
-<li>如果我们试图预测一个人是否会偿还贷款，我们可以认为收入较高的申请人比收入较低的申请人更有可能偿还贷款</li>
-<li>但上述例子只阐明了<strong>单调性</strong>而非<strong>线性</strong></li>
-<li>收入从0到5万会带来比100万到105万更大的还款可能性</li>
-<li>在上例中，我们任然可以通过[[2.2 数据预处理]]的方式使线性更加合理，如对数化处理</li>
-<li>但一个违反单调性的例子比如体温和死亡率的关系</li>
-<li>对于体温高于37度的人来说，温度越高风险越高</li>
-<li>而对于体温低于37度的人来说，温度越低风险就越低</li>
-<li>这种情况也可以使用理37度的距离作为特征</li>
-<li>分类问题，如对于猫狗分类问题，在位置（13，17）处像素强度进行添加，是否整个图像描绘狗的[[Likehood 似然]]会增加？</li>
-<li>这一评估标准注定会失败，如倒置图像后，类别依然保留</li>
-<li>对于上面两个例子来说，猫狗的分类问题无法通过简单的预处理解决</li>
-<li>对于[[深度神经网络]]，我们将使用隐藏层</li>
-</ul>
-
-
-<h3 class="relative group">4.1.1.2 在网络中加入隐藏层 
-    <div id="4112-%E5%9C%A8%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%8A%A0%E5%85%A5%E9%9A%90%E8%97%8F%E5%B1%82" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#4112-%E5%9C%A8%E7%BD%91%E7%BB%9C%E4%B8%AD%E5%8A%A0%E5%85%A5%E9%9A%90%E8%97%8F%E5%B1%82" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>
-<p>我们可以通过在网络中加入一个或多个隐藏层来克服线性模型的限制， 使其能处理更普遍的函数关系类型
-
-    <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="/docs/D2L_Static/4.1_MultilayerPerceptron/4.1_MultilayerPerceptron-1.png" alt="" />
-      
-    </figure>
-</p>
-</li>
-<li>
-<p>有全连接层的多层感知机的参数开销可能会高得令人望而却步。 即使在不改变输入或输出大小的情况下， 可能在参数节约和模型有效性之间进行权衡</p>
-</li>
-</ul>
-
-
-<h3 class="relative group">4.1.1.3 从线性到非线性 
-    <div id="4113-%E4%BB%8E%E7%BA%BF%E6%80%A7%E5%88%B0%E9%9D%9E%E7%BA%BF%E6%80%A7" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#4113-%E4%BB%8E%E7%BA%BF%E6%80%A7%E5%88%B0%E9%9D%9E%E7%BA%BF%E6%80%A7" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>
-<p>同之前的章节一样，我们通过矩阵\(X\in R^{n\times d}\)来表示n个样本的小批量，其中每个样本具有d个输入特征</p>
-</li>
-<li>
-<p>对于具有h个隐藏单元的单隐藏层多层感知机，用\(H\in R^{n\times h}\)表示隐藏层的输出，称为Hidden Representatiosn 隐藏表示</p>
-</li>
-<li>
-<p>因为隐藏层和输出层都是全连接的， 所以我们有隐藏层权重\(W^{(1)}\in R^{R\times h}\)和隐藏层偏置\(b^{(1)}\in R^{1\times h}\)以及输出层\(W^{(2)}\in R^{h\times q}\)和输出层偏置\(b^{(2)}\in R^{1\times q}\)</p>
-</li>
-<li>
-<p>所以形式上，对于单隐藏层的多层感知机的输出\(O\in R^{n\times q}\)，有
-$$\begin{align} \
-H=WX^{(1)}+b^{(1)} \
-O=HW^{(2)}+b^{(2)}
-\end{align}$$</p>
-</li>
-<li>
-<p>现阶段，隐藏层为输入层的放射函数，而输出层为隐藏层的放射函数，即$$O=(XW^{(1)}+b^{(1)})W^{(2)}+b^{(2)}=XW+b$$</p>
-</li>
-<li>
-<p>注意到现在在多层感知机的单隐藏层下，模型依然只做到了线性的放射函数</p>
-</li>
-<li>
-<p>所以为了发挥多层架构的潜力，我们需要添加一个额外的关键要素：[[Activation Function 激活函数]]，激活函数的输出则称为Activations 活性值</p>
-</li>
-<li>
-<p>一般来说，有了激活函数，模型就不会退化成线性模型
-$$\begin{align} \
-H=\sigma(XW^{(1)}+b^{(1)}) \
-O=HW^{(2)}+b^{(2)}
-\end{align}$$</p>
-</li>
-<li>
-<p>为了构建更通用的多层感知机，我们可以继续堆叠这样的隐藏层，从而产生更有表达能力的模型</p>
-</li>
-</ul>
-
-
-<h2 class="relative group">4.1.1.4 通用近似定理 
-    <div id="4114-%E9%80%9A%E7%94%A8%E8%BF%91%E4%BC%BC%E5%AE%9A%E7%90%86" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#4114-%E9%80%9A%E7%94%A8%E8%BF%91%E4%BC%BC%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>多层感知机可以通过隐藏神经元，捕捉到输入之间复杂的相互作用， 这些神经元依赖于每个输入的值。 我们可以很容易地设计隐藏节点来执行任意计算</li>
-<li>即使是网络只有一个隐藏层，给定足够的神经元和正确的权重， 我们可以对任意函数建模，尽管实际中学习该函数是很困难的</li>
-<li>而且，虽然一个单隐层网络能学习任何函数， 但并不意味着我们应该尝试使用单隐藏层网络来解决所有问题。 事实上，通过使用更深（而不是更广）的网络，我们可以更容易地逼近许多函数。 我们将在后面的章节中进行更细致的讨论</li>
-</ul>
-
-
-<h2 class="relative group">4.1.2 激活函数 Activation Function 
-    <div id="412-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0-activation-function" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#412-%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0-activation-function" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>[[Activation Function 激活函数]]</li>
-</ul>
-
+          <blockquote>
+<p>Last Edit: 12/20/24</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># This Python 3 environment comes with many helpful analytics libraries installed</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># For example, here&#39;s several helpful packages to load</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># linear algebra</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1"># data processing, CSV file I/O (e.g. pd.read_csv)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Input data files are available in the read-only &#34;../input/&#34; directory</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">dirname</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">filenames</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s1">&#39;/kaggle/input/d/heptapod/titanic/train_and_test2.csv&#39;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">filenames</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using &#34;Save &amp; Run All&#34; </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># You can also write temporary files to /kaggle/temp/, but they won&#39;t be saved outside of the current session</span>
+</span></span><span class="line"><span class="cl"><span class="n">train_path</span> <span class="o">=</span> <span class="s1">&#39;/kaggle/input/titanic/train.csv&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_path</span> <span class="o">=</span> <span class="s1">&#39;/kaggle/input/titanic/test.csv&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">train_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">test_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_data</span><span class="p">,</span> <span class="n">test_data</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 填补Age的缺失值</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 填补Fare的缺失值</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">display</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span><span class="s1">&#39;SibSp&#39;</span><span class="p">,</span><span class="s1">&#39;Parch&#39;</span><span class="p">,</span><span class="s1">&#39;Fare&#39;</span><span class="p">]]</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;male&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">train_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">891</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">test_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">891</span><span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_train</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_test</span> <span class="o">=</span> <span class="n">test_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 将训练集分为训练子集和验证子集</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_tr</span><span class="p">,</span> <span class="n">X_val</span><span class="p">,</span> <span class="n">y_tr</span><span class="p">,</span> <span class="n">y_val</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 初始化MLPClassifier</span>
+</span></span><span class="line"><span class="cl"><span class="n">mlp</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">hidden_layer_sizes</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,),</span>  <span class="c1"># 一个隐藏层，100个神经元</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span>        <span class="c1"># 激活函数为ReLU</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>            <span class="c1"># 优化器为Adam</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>            <span class="c1"># 最大迭代次数</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 训练模型</span>
+</span></span><span class="line"><span class="cl"><span class="n">mlp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_tr</span><span class="p">,</span> <span class="n">y_tr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 在验证集上进行预测</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_pred</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算准确率</span>
+</span></span><span class="line"><span class="cl"><span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">验证集准确率：</span><span class="si">{</span><span class="n">accuracy</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看分类报告</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">分类报告：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_val</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">y_test</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl"><span class="n">passenger_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">891</span><span class="p">,</span> <span class="mi">1309</span><span class="p">)</span> 
+</span></span><span class="line"><span class="cl"><span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;Passengerid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">passenger_ids</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">X_test</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;submission.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提交文件 &#39;submission.csv&#39; 已生成。&#34;</span><span class="p">)</span>
+</span></span></code></pre></div>
           
           
           
@@ -1234,6 +1036,13 @@ O=HW^{(2)}+b^{(2)}
         <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
             Part : D2L 4.1 Multilayer Perceptron
         </a>
+    </div>
+    
+    
+    
+    <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        Part : This Article
     </div>
     
     
@@ -1324,13 +1133,6 @@ O=HW^{(2)}+b^{(2)}
         <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
-    </div>
-    
-    
-    
-    <div
-        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        Part 8: This Article
     </div>
     
     
@@ -1375,11 +1177,11 @@ O=HW^{(2)}+b^{(2)}
   
   
 
-  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/" class="min-w-full">
+  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/" class="min-w-full">
     
     <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
         
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature_hu511238667851196185.png);"></div>
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/feature_hu5006185738536164737.png);"></div>
         
       
 
@@ -1387,7 +1189,7 @@ O=HW^{(2)}+b^{(2)}
 
         
         <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">D2L 4.1 MultilayerPerceptron</div>
+          href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">D2L 4.1 Multilayer Perceptron</div>
         
 
         <div class="text-sm text-neutral-500 dark:text-neutral-400">
@@ -1428,7 +1230,143 @@ O=HW^{(2)}+b^{(2)}
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-04-15T00:00:00&#43;00:00">Apr 15 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1476 words</span>
+  <time datetime="2024-12-20T00:00:00&#43;00:00">Dec 20 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2588 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/d2l/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    D2L
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/computer-science/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Computer Science
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature_hu13403472430127670840.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">D2L Weierstrass Approximation Theorem</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-12-19T00:00:00&#43;00:00">Dec 19 2024</time><span class="px-2 text-primary-500">&middot;</span><span>915 words</span>
   
 
   
@@ -2053,142 +1991,6 @@ O=HW^{(2)}+b^{(2)}
   </a>
 
   
-  
-
-  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature_hu17137768951587348652.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">D2L 3.5 Image classification datasets</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-04-15T00:00:00&#43;00:00">Apr 15 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1074 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/d2l/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    D2L
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/computer-science/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Computer Science
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
 </section>
 
   
@@ -2226,7 +2028,7 @@ O=HW^{(2)}+b^{(2)}
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
+            <a class="flex group mr-3" href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1_multilayerperceptron/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -2238,11 +2040,11 @@ O=HW^{(2)}+b^{(2)}
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >D2L Weierstrass Approximation Theorem</span
+                  >D2L 4.1 Multilayer Perceptron</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-12-19T00:00:00&#43;00:00">Dec 19 2024</time>
+                    <time datetime="2024-12-20T00:00:00&#43;00:00">Dec 20 2024</time>
                   
                 </span>
               </span>
@@ -2251,15 +2053,15 @@ O=HW^{(2)}+b^{(2)}
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+            <a class="flex text-right group ml-3" href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >D2L 4.1 MultilayerPerceptron</span
+                  >D2L Weierstrass Approximation Theorem</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-04-15T00:00:00&#43;00:00">Apr 15 2024</time>
+                    <time datetime="2024-12-19T00:00:00&#43;00:00">Dec 19 2024</time>
                   
                 </span>
               </span>
