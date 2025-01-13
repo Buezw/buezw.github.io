@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>EF 1. Coulomb&#39;sLaw &middot; Buezwqwg</title>
+  <meta name="title" content="EF 1. Coulomb&#39;sLaw &middot; Buezwqwg" />
+  
+  
+  <meta name="keywords" content="Docs, EF, " />
+  
+  
+  <link rel="canonical" href="http://localhost:1313/docs/electricalfundamentals/ef1.coulombslaw/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
+    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.821d421a756ddb6f1c91d41c53d0e2b2afa007b11ade688aa55594a12048893dadc2cbc127bd32da081f77022a40c9e1b73193584db9a34368e9cfd56758e43f.js"
+    integrity="sha512-gh1CGnVt228ckdQcU9Disq&#43;gB7Ea3miKpVWUoSBIiT2twsvBJ70y2ggfdwIqQMnhtzGTWE25o0No6c/VZ1jkPw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/docs/electricalfundamentals/ef1.coulombslaw/">
+  <meta property="og:site_name" content="Buezwqwg">
+  <meta property="og:title" content="EF 1. Coulomb&#39;sLaw">
+  <meta property="og:description" content=" Last Edit: 1/8/25
+Coulomb’s Law 库仑定律 #Charge 电荷 #Particle与周围物体的电相互作用的强度取决于其电荷（通常表示为 q） 其可以是Positive的也可以是Negative的 具有相同电荷符号的粒子相互排斥，而具有相反电荷符号的粒子相互吸引 Neutral Charge 中性 #一个有相同数量的两种Charge的物体是Electrically Neutral的 Imbalanced Charge 不平衡 #当两种Charge的数量不同时，物体是Imbalanced，并且存在Excess Charge Conductor &amp; Insulator 导体和绝缘体 #Conductor 导体是Electrons可以自由移动的材料 Insulator 非导体（绝缘体）中的带电粒子不能自由移动 Conductor主要依赖于电子的自由移动，因此强调电子的行为。 Insulator中的电荷载流子（无论是电子还是离子）都被限制，因此用“带电粒子”更加准确">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-01-08T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-08T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="EF">
+    <meta property="og:image" content="http://localhost:1313/docs/electricalfundamentals/ef1.coulombslaw/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/docs/electricalfundamentals/ef1.coulombslaw/feature.png">
+  <meta name="twitter:title" content="EF 1. Coulomb&#39;sLaw">
+  <meta name="twitter:description" content=" Last Edit: 1/8/25
+Coulomb’s Law 库仑定律 #Charge 电荷 #Particle与周围物体的电相互作用的强度取决于其电荷（通常表示为 q） 其可以是Positive的也可以是Negative的 具有相同电荷符号的粒子相互排斥，而具有相反电荷符号的粒子相互吸引 Neutral Charge 中性 #一个有相同数量的两种Charge的物体是Electrically Neutral的 Imbalanced Charge 不平衡 #当两种Charge的数量不同时，物体是Imbalanced，并且存在Excess Charge Conductor &amp; Insulator 导体和绝缘体 #Conductor 导体是Electrons可以自由移动的材料 Insulator 非导体（绝缘体）中的带电粒子不能自由移动 Conductor主要依赖于电子的自由移动，因此强调电子的行为。 Insulator中的电荷载流子（无论是电子还是离子）都被限制，因此用“带电粒子”更加准确">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "EF 1. Coulomb\u0027sLaw",
+    "headline": "EF 1. Coulomb\u0027sLaw",
+    
+    "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 1\/8\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch1 class=\u0022relative group\u0022\u003eCoulomb\u0026rsquo;s Law 库仑定律 \r\n    \u003cdiv id=\u0022coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h1\u003e\r\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eCharge 电荷 \r\n    \u003cdiv id=\u0022charge-%E7%94%B5%E8%8D%B7\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#charge-%E7%94%B5%E8%8D%B7\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003eParticle与周围物体的电相互作用的强度取决于其电荷（通常表示为 q）\u003c\/li\u003e\n\u003cli\u003e其可以是Positive的也可以是Negative的\u003c\/li\u003e\n\u003cli\u003e具有相同电荷符号的粒子相互排斥，而具有相反电荷符号的粒子相互吸引\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eNeutral Charge 中性 \r\n    \u003cdiv id=\u0022neutral-charge-%E4%B8%AD%E6%80%A7\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#neutral-charge-%E4%B8%AD%E6%80%A7\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e一个有相同数量的两种Charge的物体是Electrically Neutral的\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eImbalanced Charge 不平衡 \r\n    \u003cdiv id=\u0022imbalanced-charge-%E4%B8%8D%E5%B9%B3%E8%A1%A1\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#imbalanced-charge-%E4%B8%8D%E5%B9%B3%E8%A1%A1\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e当两种Charge的数量不同时，物体是Imbalanced，并且存在Excess Charge\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eConductor \u0026amp; Insulator 导体和绝缘体 \r\n    \u003cdiv id=\u0022conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003eConductor 导体是Electrons可以自由移动的材料\u003c\/li\u003e\n\u003cli\u003eInsulator 非导体（绝缘体）中的带电粒子不能自由移动\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cblockquote\u003e\n\u003cp\u003e\u003cstrong\u003eConductor\u003c\/strong\u003e主要依赖于\u003cstrong\u003e电子\u003c\/strong\u003e的自由移动，因此强调电子的行为。\n\u003cstrong\u003eInsulator\u003c\/strong\u003e中的电荷载流子（无论是电子还是离子）都被限制，因此用“带电粒子”更加准确\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/docs\/electricalfundamentals\/ef1.coulombslaw\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Buezwqwg"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-01-08T00:00:00\u002b00:00",
+    "datePublished": "2025-01-08T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-01-08T00:00:00\u002b00:00",
+    
+    "keywords": ["Docs","EF"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "2474"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Buezwqwg" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEDMYR1V0K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEDMYR1V0K');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-8 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Docs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/blogs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Thoughts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Notes
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Zhihu
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Docs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/blogs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Thoughts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Notes
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Zhihu
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow ">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/docs/electricalfundamentals/ef1.coulombslaw/feature_hu10383483522745078814.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Buezwqwg</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/electricalfundamentals/"
+      >Electrical Fundamentals</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/electricalfundamentals/ef1.coulombslaw/"
+      >EF 1. Coulomb&#39;sLaw</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      EF 1. Coulomb'sLaw
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-08T00:00:00&#43;00:00">Jan 8 2025</time><span class="px-2 text-primary-500">&middot;</span><span>2474 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#charge-电荷">Charge 电荷</a>
+      <ul>
+        <li><a href="#neutral-charge-中性">Neutral Charge 中性</a></li>
+      </ul>
+    </li>
+    <li><a href="#imbalanced-charge-不平衡">Imbalanced Charge 不平衡</a></li>
+    <li><a href="#conductor--insulator-导体和绝缘体">Conductor &amp; Insulator 导体和绝缘体</a></li>
+    <li><a href="#electric-current-电流">Electric Current 电流</a></li>
+    <li><a href="#coulombs-law-库仑定律-1">Coulomb&rsquo;s Law 库仑定律</a></li>
+    <li><a href="#shell-theorem-壳定理">Shell Theorem 壳定理</a>
+      <ul>
+        <li><a href="#shell-theorem-1">Shell Theorem #1</a></li>
+        <li><a href="#shell-theorem-2">Shell Theorem #2</a></li>
+        <li><a href="#charge-on-conducting-spherical-shell-导体球壳">Charge on Conducting Spherical Shell 导体球壳</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#conducting-path-传导路径">Conducting Path 传导路径</a>
+      <ul>
+        <li><a href="#gounding-接地">Gounding 接地</a></li>
+        <li><a href="#discharge-放电">Discharge 放电</a></li>
+      </ul>
+    </li>
+    <li><a href="#charged-particles-带电粒子">Charged Particles 带电粒子</a>
+      <ul>
+        <li><a href="#conduction-electrons-价电子">Conduction electrons 价电子</a></li>
+      </ul>
+    </li>
+    <li><a href="#induced-charge-感应电荷">Induced Charge 感应电荷</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#charge-of-three-particles">Charge of three Particles</a></li>
+    <li><a href="#charge-on-two-quarks">Charge on two quarks</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#alpha-decay-阿尔法衰变">Alpha Decay 阿尔法衰变</a></li>
+        <li><a href="#electron-capture-电子捕获">Electron Capture 电子捕获</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#charge-电荷">Charge 电荷</a>
+      <ul>
+        <li><a href="#neutral-charge-中性">Neutral Charge 中性</a></li>
+      </ul>
+    </li>
+    <li><a href="#imbalanced-charge-不平衡">Imbalanced Charge 不平衡</a></li>
+    <li><a href="#conductor--insulator-导体和绝缘体">Conductor &amp; Insulator 导体和绝缘体</a></li>
+    <li><a href="#electric-current-电流">Electric Current 电流</a></li>
+    <li><a href="#coulombs-law-库仑定律-1">Coulomb&rsquo;s Law 库仑定律</a></li>
+    <li><a href="#shell-theorem-壳定理">Shell Theorem 壳定理</a>
+      <ul>
+        <li><a href="#shell-theorem-1">Shell Theorem #1</a></li>
+        <li><a href="#shell-theorem-2">Shell Theorem #2</a></li>
+        <li><a href="#charge-on-conducting-spherical-shell-导体球壳">Charge on Conducting Spherical Shell 导体球壳</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#conducting-path-传导路径">Conducting Path 传导路径</a>
+      <ul>
+        <li><a href="#gounding-接地">Gounding 接地</a></li>
+        <li><a href="#discharge-放电">Discharge 放电</a></li>
+      </ul>
+    </li>
+    <li><a href="#charged-particles-带电粒子">Charged Particles 带电粒子</a>
+      <ul>
+        <li><a href="#conduction-electrons-价电子">Conduction electrons 价电子</a></li>
+      </ul>
+    </li>
+    <li><a href="#induced-charge-感应电荷">Induced Charge 感应电荷</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#charge-of-three-particles">Charge of three Particles</a></li>
+    <li><a href="#charge-on-two-quarks">Charge on two quarks</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#alpha-decay-阿尔法衰变">Alpha Decay 阿尔法衰变</a></li>
+        <li><a href="#electron-capture-电子捕获">Electron Capture 电子捕获</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <blockquote>
+<p>Last Edit: 1/8/25</p>
+</blockquote>
+
+
+<h1 class="relative group">Coulomb&rsquo;s Law 库仑定律 
+    <div id="coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Charge 电荷 
+    <div id="charge-%E7%94%B5%E8%8D%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#charge-%E7%94%B5%E8%8D%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Particle与周围物体的电相互作用的强度取决于其电荷（通常表示为 q）</li>
+<li>其可以是Positive的也可以是Negative的</li>
+<li>具有相同电荷符号的粒子相互排斥，而具有相反电荷符号的粒子相互吸引</li>
+</ul>
+
+
+<h3 class="relative group">Neutral Charge 中性 
+    <div id="neutral-charge-%E4%B8%AD%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#neutral-charge-%E4%B8%AD%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>一个有相同数量的两种Charge的物体是Electrically Neutral的</li>
+</ul>
+
+
+<h2 class="relative group">Imbalanced Charge 不平衡 
+    <div id="imbalanced-charge-%E4%B8%8D%E5%B9%B3%E8%A1%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#imbalanced-charge-%E4%B8%8D%E5%B9%B3%E8%A1%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>当两种Charge的数量不同时，物体是Imbalanced，并且存在Excess Charge</li>
+</ul>
+
+
+<h2 class="relative group">Conductor &amp; Insulator 导体和绝缘体 
+    <div id="conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Conductor 导体是Electrons可以自由移动的材料</li>
+<li>Insulator 非导体（绝缘体）中的带电粒子不能自由移动</li>
+</ul>
+<blockquote>
+<p><strong>Conductor</strong>主要依赖于<strong>电子</strong>的自由移动，因此强调电子的行为。
+<strong>Insulator</strong>中的电荷载流子（无论是电子还是离子）都被限制，因此用“带电粒子”更加准确</p>
+</blockquote>
+
+
+<h2 class="relative group">Electric Current 电流 
+    <div id="electric-current-%E7%94%B5%E6%B5%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-current-%E7%94%B5%E6%B5%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Electric current i is the rate dq/dt at which charge passes a point
+$$i=\frac{dq}{dt}$$</li>
+</ul>
+
+
+<h2 class="relative group">Coulomb&rsquo;s Law 库仑定律 
+    <div id="coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Coulomb&rsquo;s Law描述了两个Charged Particals之间的Electrostatic Force（或Electric Force）</li>
+</ul>
+<blockquote>
+<p>Electrostatic Force专指静止或相对静止的电荷之间的作用力
+Electric Force则为更广义的术语，指电场对电荷施加的作用力</p>
+</blockquote>
+<p>$$F = \frac{1}{4 \pi \varepsilon_0} \frac{|q_1||q_2|}{r^2} \quad (\text{Coulomb&rsquo;s law})$$</p>
+<ul>
+<li>$\varepsilon_0 = 8.85 \times 10^{-12} , \text{C}^2/\text{N} \cdot \text{m}^2$：Vacancies Permittivity Constant 真空介电常数</li>
+</ul>
+<blockquote>
+<p>Permittivity Constant是电场中重要的参数，体现了材料对电场的响应能力。真空介电常数是固定值，而不同材料的介电常数决定了其在电场中的行为特性</p>
+</blockquote>
+<ul>
+<li>The ratio $\frac{1}{4πε0}$通常会被electrostatic constant 静电常数$k = 8.99 \times 10^9 , \text{N} \cdot \text{m}^2/\text{C}^2$替代</li>
+<li>由于两个Charged Particle之间的作用力是一条直线，所以其Electrostatic Force Vactor要么直接指向第二个Particle（相反的电荷符号），要么直接远离第二个粒子（相同的电荷符号）</li>
+<li>如果多个Electrostatic Force作用在一个粒子上，则Net Force是各个力的矢量和</li>
+</ul>
+
+
+<h2 class="relative group">Shell Theorem 壳定理 
+    <div id="shell-theorem-%E5%A3%B3%E5%AE%9A%E7%90%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shell-theorem-%E5%A3%B3%E5%AE%9A%E7%90%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Shell Theorem #1 
+    <div id="shell-theorem-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shell-theorem-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于一个带电粒子，如果它位于一个带电球壳的外部，且球壳的电荷均匀分布在表面上，该粒子受到的力等效于球壳的电荷全部集中在球壳的中心（即外部粒子感受到的电场与球壳的半径无关，只与球壳的总电荷有关。）</li>
+</ul>
+
+
+<h3 class="relative group">Shell Theorem #2 
+    <div id="shell-theorem-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shell-theorem-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于一个带电粒子，如果它位于一个带电球壳的内部，且球壳的电荷均匀分布在表面上，那么该粒子不会受到来自球壳的净电场作用力。 （即在球壳内部，电场为零。）</li>
+</ul>
+
+
+<h3 class="relative group">Charge on Conducting Spherical Shell 导体球壳 
+    <div id="charge-on-conducting-spherical-shell-%E5%AF%BC%E4%BD%93%E7%90%83%E5%A3%B3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#charge-on-conducting-spherical-shell-%E5%AF%BC%E4%BD%93%E7%90%83%E5%A3%B3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>一个中空的球形壳体，由导电材料制成</li>
+<li>在一个导体球壳上，Charges会均匀地分布在其<strong>外表面</strong>，而不是内表面，这是因为导体内电荷会相互排斥，最终达到平衡分布</li>
+</ul>
+
+
+<h1 class="relative group">Conductor &amp; Insulator 导体和绝缘体 
+    <div id="conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>我们通常可以根据Charge穿过它们的能力对材料进行分类</li>
+</ul>
+
+
+<h2 class="relative group">Conducting Path 传导路径 
+    <div id="conducting-path-%E4%BC%A0%E5%AF%BC%E8%B7%AF%E5%BE%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conducting-path-%E4%BC%A0%E5%AF%BC%E8%B7%AF%E5%BE%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>用羊毛摩擦铜棒时，电荷会从羊毛转移到铜棒，使铜棒带电。</li>
+<li>如果此时握着铜棒，并接触一个与金属管道相连的水龙头，那么铜棒cannot be charged，这是因为人、铜棒、水龙头与地球表面通过管道形成了一条导电路径。多余的电荷会通过这条路径流向地球（地球是一个巨大的导体）。因此，铜棒上的电荷会扩散到地球表面，最终使铜棒变得<strong>电中性</strong>。</li>
+</ul>
+
+
+<h3 class="relative group">Gounding 接地 
+    <div id="gounding-%E6%8E%A5%E5%9C%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gounding-%E6%8E%A5%E5%9C%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>通过设置一条导体路径连接物体和地球，可以消除物体上的多余电荷，这个过程称为Grounding</li>
+</ul>
+
+
+<h3 class="relative group">Discharge 放电 
+    <div id="discharge-%E6%94%BE%E7%94%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#discharge-%E6%94%BE%E7%94%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>这一个Grounding的将Exceed的Charge Neutralize的过程被称为Discharge</li>
+</ul>
+
+
+<h2 class="relative group">Charged Particles 带电粒子 
+    <div id="charged-particles-%E5%B8%A6%E7%94%B5%E7%B2%92%E5%AD%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#charged-particles-%E5%B8%A6%E7%94%B5%E7%B2%92%E5%AD%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>原子由带正电的质子、带负电的电子和电中性中子组成</li>
+<li>质子和中子紧密地堆积在一个原子核中</li>
+<li>单个电子的电荷和单个质子的电荷具有相同的大小，但符号相反</li>
+</ul>
+
+
+<h3 class="relative group">Conduction electrons 价电子 
+    <div id="conduction-electrons-%E4%BB%B7%E7%94%B5%E5%AD%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conduction-electrons-%E4%BB%B7%E7%94%B5%E5%AD%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在导体中<strong>Conduction electrons</strong>（价电子）因其与原子核的吸引力较弱而变得<strong>自由移动</strong>。</li>
+<li>当导体原子形成固体结构时，这些导电电子在导体中形成“电子海”，可以在整个导体内自由流动</li>
+<li>而在在绝缘体中，原子的电子与原子核结合得非常紧密，几乎没有自由电子</li>
+</ul>
+
+
+<h2 class="relative group">Induced Charge 感应电荷 
+    <div id="induced-charge-%E6%84%9F%E5%BA%94%E7%94%B5%E8%8D%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#induced-charge-%E6%84%9F%E5%BA%94%E7%94%B5%E8%8D%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Induced Charge指的是由于<strong>邻近电荷的影响</strong>，导体内的电荷重新分布，形成正负电荷分离的现象</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electricalfundamentals/ef1.coulombslaw/EF1.Coulomb%27sLaw_hu7811087203898363607.png 330w,
+        /docs/electricalfundamentals/ef1.coulombslaw/EF1.Coulomb%27sLaw_hu4178983547517654330.png 660w,
+        /docs/electricalfundamentals/ef1.coulombslaw/EF1.Coulomb%27sLaw_hu11066862736770179640.png 1024w,
+        /docs/electricalfundamentals/ef1.coulombslaw/EF1.Coulomb%27sLaw_hu11329418431880859729.png 2x"
+        src="/docs/electricalfundamentals/ef1.coulombslaw/EF1.Coulomb%27sLaw_hu4178983547517654330.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>如图将一个Charged Plastic Rod放置到Neutral的Copper Rod旁边，Positive Charge将会被吸引到Copper Rod的左侧，Negative Charge则会被排斥到右侧，此时虽然Copper Rod是Neutral的，但其有一个 Induced Charge 感应电荷</li>
+<li>需要注意的是，在Induced Charge形成的过程中，并不是Positive Charge移动了，而是因为原来均匀分布在整个Copper Rod上的Positive &amp; Negative Charge中的Negative Charge移动了，所以才会有Positive Charge的出现</li>
+<li>换句话说，Positive Charge不是“增加”来的，而是因为失去了Negative Charge，所以显得“正”</li>
+</ul>
+
+
+<h1 class="relative group">Charge is Quantized 量化电荷 
+    <div id="charge-is-quantized-%E9%87%8F%E5%8C%96%E7%94%B5%E8%8D%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#charge-is-quantized-%E9%87%8F%E5%8C%96%E7%94%B5%E8%8D%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>在Benjamin Franklin的时代，电荷被认为是一种连续的流体——这个想法有很多用途。然而，我们现在知道流体本身，例如空气和水，不是连续的，而是由原子和分子组成的;物质是离散的</li>
+<li>实验表明，Electrical fluid也不是连续的，而是由某种基本电荷的倍数组成。任何可以检测到的正电荷或负电荷 q 都可以写成
+$$q = n e, \quad n = \pm 1, \pm 2, \pm 3, \ldots$$</li>
+</ul>
+
+
+<h2 class="relative group">Charge of three Particles 
+    <div id="charge-of-three-particles" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#charge-of-three-particles" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Particle</th>
+          <th style="text-align: left">Symbol</th>
+          <th style="text-align: left">Charge</th>
+          <th style="text-align: left">Antiparticle</th>
+          <th style="text-align: left">Symbol</th>
+          <th style="text-align: left">Charge</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Electron</td>
+          <td style="text-align: left">e or e⁻</td>
+          <td style="text-align: left">-e</td>
+          <td style="text-align: left">Positron</td>
+          <td style="text-align: left">e⁺</td>
+          <td style="text-align: left">+e</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Proton</td>
+          <td style="text-align: left">p</td>
+          <td style="text-align: left">+e</td>
+          <td style="text-align: left">Antiproton</td>
+          <td style="text-align: left"><strong>p̅</strong></td>
+          <td style="text-align: left">-e</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Neutron</td>
+          <td style="text-align: left">n</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">Antineutron</td>
+          <td style="text-align: left"><strong>n̅</strong></td>
+          <td style="text-align: left">0</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p>Electron的Symbol为e是因为其通常表示电子作为一种<strong>粒子</strong>的名称，而不特别强调它的电荷性质</p>
+</blockquote>
+
+
+<h2 class="relative group">Charge on two quarks 
+    <div id="charge-on-two-quarks" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#charge-on-two-quarks" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Quark</th>
+          <th style="text-align: left">Symbol</th>
+          <th style="text-align: left">Charge</th>
+          <th style="text-align: left">Antiparticle</th>
+          <th style="text-align: left">Symbol</th>
+          <th style="text-align: left">Charge</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Up</td>
+          <td style="text-align: left">u</td>
+          <td style="text-align: left">$+\frac{2}{3}e$</td>
+          <td style="text-align: left">Antiup</td>
+          <td style="text-align: left">$\bar{u}$</td>
+          <td style="text-align: left">$-\frac{2}{3}e$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Down</td>
+          <td style="text-align: left">d</td>
+          <td style="text-align: left">$-\frac{1}{3}e$</td>
+          <td style="text-align: left">Antidown</td>
+          <td style="text-align: left">$\bar{d}$</td>
+          <td style="text-align: left">$+\frac{1}{3}e$</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>由于Quark不能单独存在（被限制在强相互作用中），我们通常不将它们的电荷视为基本电荷</li>
+</ul>
+
+
+<h1 class="relative group">Charge is Conserved 电荷守恒 
+    <div id="charge-is-conserved-%E7%94%B5%E8%8D%B7%E5%AE%88%E6%81%92" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#charge-is-conserved-%E7%94%B5%E8%8D%B7%E5%AE%88%E6%81%92" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>摩擦不会产生电荷，而只会将其从一个物体转移到另一个物体，从而在此过程中破坏每个物体的电中性</li>
+<li>任何孤立系统的净电荷总是守恒的，无论系统内部发生什么变化（如粒子的生成、湮灭或分裂），系统的总电荷量不会改变，下面给出一些常见的例子说明这一现象</li>
+</ul>
+
+
+<h3 class="relative group">Alpha Decay 阿尔法衰变 
+    <div id="alpha-decay-%E9%98%BF%E5%B0%94%E6%B3%95%E8%A1%B0%E5%8F%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#alpha-decay-%E9%98%BF%E5%B0%94%E6%B3%95%E8%A1%B0%E5%8F%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$^{238}<em>{92}\text{U} \rightarrow ^{234}</em>{90}\text{Th} + ^{4}_{2}\text{He}$$</p>
+
+
+<h3 class="relative group">Electron Capture 电子捕获 
+    <div id="electron-capture-%E7%94%B5%E5%AD%90%E6%8D%95%E8%8E%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electron-capture-%E7%94%B5%E5%AD%90%E6%8D%95%E8%8E%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>母核中的质子“捕获”原子的一个内部电子以形成中子（保留在子核中）并释放中微子
+$$p + e^- \rightarrow n + \nu$$</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/calculus/calculus10.parametricequationsandpolarcoordinates/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/calculus/calculus10.parametricequationsandpolarcoordinates/feature_hu11814816904180590191.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/calculus/calculus10.parametricequationsandpolarcoordinates/">Calculus 10. Parametric Equations and Polar Coordinates</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-08T00:00:00&#43;00:00">Jan 8 2025</time><span class="px-2 text-primary-500">&middot;</span><span>809 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cal/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Cal
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/dynamics/calculus10.parametricequationsandpolarcoordinates/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/dynamics/calculus10.parametricequationsandpolarcoordinates/feature_hu11814816904180590191.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/dynamics/calculus10.parametricequationsandpolarcoordinates/">Calculus 10. Parametric Equations and Polar Coordinates</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-08T00:00:00&#43;00:00">Jan 8 2025</time><span class="px-2 text-primary-500">&middot;</span><span>809 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cal/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Cal
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/feature_hu4433503684358583432.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/">LPC 1. Intro to Programming Computers</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-08T00:00:00&#43;00:00">Jan 8 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1178 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/feature_hu2317425060822347641.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/">ECMS 7. Light and Quantum</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-18T00:00:00&#43;00:00">Nov 18 2024</time><span class="px-2 text-primary-500">&middot;</span><span>10562 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ecms/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ECMS
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/chemistry/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Chemistry
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature_hu5006185738536164737.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">D2L 4.1 Multilayer Perceptron</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-12-20T00:00:00&#43;00:00">Dec 20 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2588 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/d2l/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    D2L
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/computer-science/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Computer Science
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature_hu4731301635812159069.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">D2L 4.2 Example of MLP</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-12-20T00:00:00&#43;00:00">Dec 20 2024</time><span class="px-2 text-primary-500">&middot;</span><span>532 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/d2l/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    D2L
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/computer-science/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Computer Science
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\ElectricalFundamentals\\EF1.Coulomb\u0027sLaw\\index.md"
+        var oid_likes = "likes_docs\\ElectricalFundamentals\\EF1.Coulomb\u0027sLaw\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/electricalfundamentals/ef2.electricfield/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >EF 2. Electric Field</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-01-13T00:00:00&#43;00:00">Jan 13 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+
+<footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
+            title="">
+            
+            Credits
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Buezwqwg
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>

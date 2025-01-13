@@ -9,7 +9,494 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EF 2. Electric Field</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Electric Field 电场 
+    &lt;div id=&#34;electric-field-%E7%94%B5%E5%9C%BA&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-field-%E7%94%B5%E5%9C%BA&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;在科学中存在多个 Field的概念，其中包含了Teperature Field，Pressure Field等&lt;/li&gt;
+&lt;li&gt;而Electric Field则是一个Vecotr Field，矢量场，具体来说其包含了大小与方向&lt;/li&gt;
+&lt;li&gt;具体来说，定义Electric Field的方式是在Electric Field $\vec{E}$ 的某个点P处放置一个With Small Positive Charge的$q_0$，其为Test Charge，为测试Electric Field的一个Charge 电荷&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We want the charge to be small so that it does not disturb the object’s charge distribution&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/feature.png" />
+    </item>
+    
+    <item>
+      <title>Electrical Fundamentals</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Learning Programming with C</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>LPC 3. Decision Making Statements</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/</link>
+      <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; In this chapter, we will discuss how to make decisions in C. We will discuss the &lt;code&gt;if&lt;/code&gt;, &lt;code&gt;else&lt;/code&gt; and &lt;code&gt;else if&lt;/code&gt; statements&lt;/p&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;3.1 If-Statement 
+    &lt;div id=&#34;31-if-statement&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#31-if-statement&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;开发一个提示用户输入年龄的程序。如果未满工作的法定年龄，程序会打印“您还没有资格工作”，否则会显示“您有资格工作”&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;if&lt;/code&gt;和&lt;code&gt;else&lt;/code&gt;的语法在C中如下&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;condition&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;// code to execute if condition is true
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;// code to execute if condition is false
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;3.1.1 What can this condition be 
+    &lt;div id=&#34;311-what-can-this-condition-be&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#311-what-can-this-condition-be&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Condition是一个Bool variable，其可以用&lt;code&gt;True&lt;/code&gt;表示，也可以用Numerical Value。在C中，任意非零的值都（通常用1）代表了&lt;code&gt;True&lt;/code&gt;，而&lt;code&gt;False&lt;/code&gt;则是0&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Relational Expression 
+    &lt;div id=&#34;relational-expression&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#relational-expression&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;关系运算符通常使用以下的符号&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;==&lt;/code&gt;：Equal to&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;!=&lt;/code&gt;：Not Equal to&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;&lt;/code&gt;：Less than&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;gt;&lt;/code&gt;：Greater than&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;=&lt;/code&gt;：Leq&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;gt;=&lt;/code&gt;：Geq&lt;/li&gt;
+&lt;li&gt;有了这些就可以完整编写一个判断年龄的程序了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;age&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Enter your age: &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;age&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;14&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// Condition 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;checking&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;age&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;less&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;than&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;14&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;You are not yet &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;eligible&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;work&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ontario&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;You are eligible to &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;work&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Ontario&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 class=&#34;relative group&#34;&gt;3.1.2. What can we do with relational operators? 
+    &lt;div id=&#34;312what-can-we-do-with-relational-operators&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#312what-can-we-do-with-relational-operators&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;通过Relational Operators，可以实现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;比较值的大小：&lt;code&gt;(7.2&amp;gt;5.1)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;比较&lt;code&gt;char&lt;/code&gt;的大小：&lt;code&gt;&#39;a&#39;&amp;gt;&#39;b&#39;&lt;/code&gt;，这里比较的是他们的ASCII&lt;/li&gt;
+&lt;li&gt;比较&lt;code&gt;char&lt;/code&gt;和&lt;code&gt;int&lt;/code&gt;：比如&lt;code&gt;(0 == &#39;0&#39;)&lt;/code&gt;，char的0有ASCII = 48，所以0 != &amp;lsquo;0&amp;rsquo;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;	&lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;True&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;这是一个判断，他最终会输出True，这是因为即使第一行赋值&lt;code&gt;int x = 0;&lt;/code&gt;，第二行重新令&lt;code&gt;x = 1&lt;/code&gt;，使得判断变成了&lt;code&gt;if (1)&lt;/code&gt;，而1就是True&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;3.2 Multiple Conditions 
+    &lt;div id=&#34;32-multiple-conditions&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#32-multiple-conditions&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;想要同时判断两个Condition的成立，可以通过&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;的判断符，这些完整的叫做Logical Operators&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;3.2.1 Logical/Boolean Operators 
+    &lt;div id=&#34;321-logicalboolean-operators&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#321-logicalboolean-operators&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;A&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;B&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;A &amp;amp;&amp;amp; B&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;A || B&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;false&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;false&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;false&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;false&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;false&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;true&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;false&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;true&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;true&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;false&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;false&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;true&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;true&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;true&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;true&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;true&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;完整的Logical Opeators的判断结果如上，但是记住过程比背下表格更加简单&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;，and，当A和B同为true则为True，其他均为False&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;||&lt;/code&gt;，or，当A和B其中一个为True则整体为True&lt;/li&gt;
+&lt;li&gt;还有第三个Logial Operators为&lt;code&gt;!&lt;/code&gt;，其的作用就是Reverse Bool Value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;letter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Enter a letter: &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;scanf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;%c&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;letter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;letter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39;A&amp;#39;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;letter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;sc&#34;&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;You entered an upper case or lower &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;You did not enter an upper case or &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;lower&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;case&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;上面的程序，当输入为A或者a的时候，都会进入if，因为用的是&lt;code&gt;||&lt;/code&gt;，or判断符&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;3.2.1.1 Lazy Evaluation 
+    &lt;div id=&#34;3211-lazy-evaluation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#3211-lazy-evaluation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;假设执行了&lt;code&gt;x % y &amp;lt; 10&lt;/code&gt;的判断，一个问题可能出现在当y=0的时候，所以这就需要在整除之前做一步&lt;code&gt;y!=0&lt;/code&gt;的判断&lt;/li&gt;
+&lt;li&gt;一种做法就是nested-if，嵌套if，这是一个非常lj的做法，虽然可读性高，但占用的时间和空间都是庞大的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;条件&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// 条件1满足时执行的代码
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;条件&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;c1&#34;&gt;// 条件1和条件2同时满足时执行的代码
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;另外一种做法就是通过Lazy Evaluation，其实就是使用&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;c1&#34;&gt;// do something
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;Lazy evaluation将多个判断结合为一个的办法，详细来说他会从左到右的顺序判断&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;||&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;这个运算符先评估左侧的表达式（LHS，Left-Hand Side）。&lt;/li&gt;
+&lt;li&gt;如果LHS为&lt;code&gt;true&lt;/code&gt;，那么整个条件表达式结果为&lt;code&gt;true&lt;/code&gt;，程序将不再继续评估右侧的表达式（RHS，Right-Hand Side）。&lt;/li&gt;
+&lt;li&gt;如果LHS为&lt;code&gt;false&lt;/code&gt;，程序需要继续评估RHS来决定整个表达式的结果。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;这个运算符也先评估LHS。&lt;/li&gt;
+&lt;li&gt;如果LHS为&lt;code&gt;false&lt;/code&gt;，那么整个条件表达式结果为&lt;code&gt;false&lt;/code&gt;，程序将不再继续评估RHS。&lt;/li&gt;
+&lt;li&gt;如果LHS为&lt;code&gt;true&lt;/code&gt;，程序需要继续评估RHS来决定整个表达式的结果。&lt;/li&gt;
+&lt;li&gt;这种评估方式是一种效率优化手段，可以减少不必要的计算&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;3.2.1.2 De Morgan&amp;rsquo;s Law 
+    &lt;div id=&#34;3212-de-morgans-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#3212-de-morgans-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当一个&lt;strong&gt;Lazy Evaluation&lt;/strong&gt;（注意仅是两个及以上的判断同时发生的情况下）判断的最外侧为一个Not，也就是&lt;code&gt;!&lt;/code&gt;的时候，整体的判断将会看上去十分复杂，这可以通过De Morgan&amp;rsquo;s Law化简&lt;/li&gt;
+&lt;li&gt;具体来说&lt;code&gt;!(A &amp;amp;&amp;amp; B)&lt;/code&gt; is equivalent to &lt;code&gt;!A || !B&lt;/code&gt;，&lt;code&gt;!(A || B)&lt;/code&gt; is equivalent to &lt;code&gt;!A &amp;amp;&amp;amp; !B&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;同时Relational Expression也可以变换，&amp;gt; 变成了&amp;lt;=，&amp;gt;= 变成 &amp;lt;，== 变成 !=&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu14771444122089271576.png 330w,
+        /docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png 660w,
+        /docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu9341054436462208839.png 1024w,
+        /docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu13158954285452890454.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png&#34;
+        alt=&#34;Img&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/feature.png" />
+    </item>
+    
+    <item>
+      <title>DYN 1. Intoduction to Dynamics</title>
+      <link>https://buezw.github.io/docs/dynamics/dyn1.intoductiontodynamics/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dynamics/dyn1.intoductiontodynamics/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/12/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;1.1 Basic Concepts 
+    &lt;div id=&#34;11-basic-concepts&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#11-basic-concepts&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Concepts&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Definition&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Space&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;The geometric region occupied by bodies&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Time&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;A measure of the succession of events and is considered an absolute quantity in Newtonian mechanics&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Mass&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;The quantitative measure of the inertia or resistance to change in motion of a body&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Force&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;The vector action of one body on another&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Particle&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;A body of negligible dimensions (e.g., mass, size)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Rigid Body&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;A body whose changes in shape are negligible&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Vector and Scalar&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Their distinction should be perfectly clear&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;1.2 Newton&amp;rsquo;s Laws 
+    &lt;div id=&#34;12-newtons-laws&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#12-newtons-laws&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Law I. A particle remains at rest or continues to move with uniform velocity (in a straight line with a constant speed) if there is no unbalanced force acting on it.&lt;/li&gt;
+&lt;li&gt;Law II. The acceleration of a particle is proportional to the resultant force acting on it and is in the direction of this force.&lt;/li&gt;
+&lt;li&gt;Law III.  The forces of action and reaction between interacting bodies are equal in magnitude, opposite in direction, and collinear.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;1.3 Units 
+    &lt;div id=&#34;13-units&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#13-units&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Dimension&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;SI Unit&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;U.S. Unit&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Conversion Factor&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Mass {M}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Kg&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Slug&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1 slug = 14.5939 kg&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Length {L}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;m&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;ft&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1 ft = 0.3048 m&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Time {T}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;s&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;s&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1 s = 1 s&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;Force {F}&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;N&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;lbf&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;1 lbf = 4.44822 N (*g = 32.2 ft/s²)&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;1.4 Gravitation 
+    &lt;div id=&#34;14-gravitation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#14-gravitation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Newton’s Law of Gravitational Attraction 
+    &lt;div id=&#34;newtons-law-of-gravitational-attraction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#newtons-law-of-gravitational-attraction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;$$F = \frac{G m_1 m_2}{r^2}$$&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn1.intoductiontodynamics/feature.png" />
+    </item>
+    
+    <item>
+      <title>Dynamics</title>
+      <link>https://buezw.github.io/docs/dynamics/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dynamics/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>CAL 11. Complex Number</title>
       <link>https://buezw.github.io/docs/calculus/cal11.complexnumber/</link>
@@ -81,16 +568,6 @@ $$&lt;/p&gt;</description>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/calculus/</guid>
       <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Learning Programming with C</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
-      <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
       
     </item>
     
@@ -214,6 +691,96 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
 &lt;/h4&gt;
 &lt;p&gt;$$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/calculus/calculus10.parametricequationsandpolarcoordinates/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 1. Coulomb&#39;s Law</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</link>
+      <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/8/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Coulomb&amp;rsquo;s Law 库仑定律 
+    &lt;div id=&#34;coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Charge 电荷 
+    &lt;div id=&#34;charge-%E7%94%B5%E8%8D%B7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#charge-%E7%94%B5%E8%8D%B7&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Particle与周围物体的电相互作用的强度取决于其电荷（通常表示为 q）&lt;/li&gt;
+&lt;li&gt;其可以是Positive的也可以是Negative的&lt;/li&gt;
+&lt;li&gt;具有相同电荷符号的粒子相互排斥，而具有相反电荷符号的粒子相互吸引&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Neutral Charge 中性 
+    &lt;div id=&#34;neutral-charge-%E4%B8%AD%E6%80%A7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#neutral-charge-%E4%B8%AD%E6%80%A7&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;一个有相同数量的两种Charge的物体是Electrically Neutral的&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Imbalanced Charge 不平衡 
+    &lt;div id=&#34;imbalanced-charge-%E4%B8%8D%E5%B9%B3%E8%A1%A1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#imbalanced-charge-%E4%B8%8D%E5%B9%B3%E8%A1%A1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;当两种Charge的数量不同时，物体是Imbalanced，并且存在Excess Charge&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Conductor &amp;amp; Insulator 导体和绝缘体 
+    &lt;div id=&#34;conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Conductor 导体是Electrons可以自由移动的材料&lt;/li&gt;
+&lt;li&gt;Insulator 非导体（绝缘体）中的带电粒子不能自由移动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Conductor&lt;/strong&gt;主要依赖于&lt;strong&gt;电子&lt;/strong&gt;的自由移动，因此强调电子的行为。
+&lt;strong&gt;Insulator&lt;/strong&gt;中的电荷载流子（无论是电子还是离子）都被限制，因此用“带电粒子”更加准确&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/feature.png" />
     </item>
     
     <item>
