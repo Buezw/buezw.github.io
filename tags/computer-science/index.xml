@@ -9,7 +9,79 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Fri, 20 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>D2L 5.3 Deferred Initialization</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</link>
+      <pubDate>Sat, 18 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/18/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Deferred Initialization是指模型的某些参数在模型创建时并不会立即被初始化，而是会在第一次接收到输入数据时，根据输入数据的实际形状动态地完成初始化
+需要知道的是延后初始化的&lt;strong&gt;核心目标&lt;/strong&gt; 就是为了解决 &lt;strong&gt;输入维度未知&lt;/strong&gt; 的问题，而模型内部层之间的维度通常是事先定义好的&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png" />
+    </item>
+    
+    <item>
+      <title>D2L 5.2 Parameter Management</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</link>
+      <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/17/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在训练的过程中，目标是找到使得Cost Function最小化的Parameters，而有些时候需要提取其中一层的参数检查或者移动到其他环境下，这就需要访问参数&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/feature.png" />
+    </item>
+    
+    <item>
+      <title>D2 5.1 Layer &amp; Block</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</link>
+      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 12/21/24&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Layer 层 
+    &lt;div id=&#34;layer-%E5%B1%82&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#layer-%E5%B1%82&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;对于一个Layer来说，其接受一组输入（通常是矢量化的），通过调整参数后生成相应的输出&lt;/li&gt;
+&lt;li&gt;对于一个Softmax回归，其模型本身就是一个Layer&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Block 块 
+    &lt;div id=&#34;block-%E5%9D%97&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#block-%E5%9D%97&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;在神经网络中，Block是一种通用的抽象概念，用来描述网络中的组件，可以是一个简单的单层，也可以是由多层组成的模块，甚至是整个模型本身&lt;/li&gt;
+&lt;li&gt;块的主要目的是对神经网络的结构进行分层抽象，方便构建和复用复杂的网络&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;![[D2L5.1Layer&amp;amp;Block.png]]&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png" />
+    </item>
+    
     <item>
       <title>D2L 4.1 Multilayer Perceptron</title>
       <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
@@ -655,6 +727,16 @@ $$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
+      <description>&lt;hr&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Chapter 4. Multilayer Perceptron</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/</link>
+      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/</guid>
       <description>&lt;hr&gt;</description>
       
     </item>
