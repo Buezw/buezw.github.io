@@ -905,7 +905,22 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
 &lt;li&gt;在神经网络中，Block是一种通用的抽象概念，用来描述网络中的组件，可以是一个简单的单层，也可以是由多层组成的模块，甚至是整个模型本身&lt;/li&gt;
 &lt;li&gt;块的主要目的是对神经网络的结构进行分层抽象，方便构建和复用复杂的网络&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;![[D2L5.1Layer&amp;amp;Block.png]]&lt;/p&gt;</description>
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu399865873791596830.png 330w,
+        /docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png 660w,
+        /docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu17735818070818276903.png 1024w,
+        /docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13633986511892309580.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png&#34;
+        alt=&#34;Img&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png" />
     </item>
     
