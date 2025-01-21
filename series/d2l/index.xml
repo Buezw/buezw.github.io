@@ -9,7 +9,30 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sat, 18 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/series/d2l/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/series/d2l/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>D2L 5. Deep Learning Computation</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/</link>
+      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>D2L 5.4 Custom Layer</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link>
+      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/19/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在整体网络中，存在一些不同的层，他们都是专门用来处理不同事件的，这也令自定义层变得有必要&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
+    </item>
+    
     <item>
       <title>D2L 5.3 Deferred Initialization</title>
       <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</link>
@@ -742,16 +765,6 @@ $$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
-      <description>&lt;hr&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Chapter 4. Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/</link>
-      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/</guid>
       <description>&lt;hr&gt;</description>
       
     </item>

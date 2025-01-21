@@ -65,6 +65,29 @@
     </item>
     
     <item>
+      <title>Learning Programming with C</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>LPC 4. Repetition</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Loops帮助程序节省空间，提高编写效率并减少错误，常见的Loop存在两种，while loop和for loop&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/feature.png" />
+    </item>
+    
+    <item>
       <title>Build a personal website by Hugo</title>
       <link>https://buezw.github.io/docs/projects/buildapersonalwebsitebyhugo/</link>
       <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
@@ -105,6 +128,19 @@
     </item>
     
     <item>
+      <title>D2L 5.4 Custom Layer</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link>
+      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/19/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在整体网络中，存在一些不同的层，他们都是专门用来处理不同事件的，这也令自定义层变得有必要&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
+    </item>
+    
+    <item>
       <title>DYN 2. Rectilinear Motion</title>
       <link>https://buezw.github.io/docs/dynamics/dyn2.rectilinearmotion/</link>
       <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
@@ -142,6 +178,16 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn2.rectilinearmotion/feature.png" />
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://buezw.github.io/docs/projects/</link>
+      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/projects/</guid>
+      <description>&lt;p&gt;Projects&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -258,16 +304,6 @@ $$L_1(x) := \begin{cases}
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/electrical-fundamentals/</guid>
       <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Learning Programming with C</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
-      <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
       
     </item>
     
@@ -2307,16 +2343,6 @@ class LinearRegression(Scene):
       <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/mathematicalanalysis/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Mathematical Analysis</title>
-      <link>https://buezw.github.io/docs/projects/</link>
-      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/projects/</guid>
       <description></description>
       
     </item>

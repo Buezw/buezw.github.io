@@ -55,6 +55,19 @@
     </item>
     
     <item>
+      <title>LPC 4. Repetition</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Loops帮助程序节省空间，提高编写效率并减少错误，常见的Loop存在两种，while loop和for loop&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/feature.png" />
+    </item>
+    
+    <item>
       <title>Build a personal website by Hugo</title>
       <link>https://buezw.github.io/docs/projects/buildapersonalwebsitebyhugo/</link>
       <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
@@ -92,6 +105,19 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/projects/buildapersonalwebsitebyhugo/feature.png" />
+    </item>
+    
+    <item>
+      <title>D2L 5.4 Custom Layer</title>
+      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link>
+      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/19/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在整体网络中，存在一些不同的层，他们都是专门用来处理不同事件的，这也令自定义层变得有必要&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
     </item>
     
     <item>
