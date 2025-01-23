@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2025-01-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -16,6 +16,52 @@
       rel="alternate"
       hreflang="en"
       href="https://buezw.github.io/"
+    />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/docs/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/ef/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/</loc>
+    <lastmod>2025-01-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/tags/"
     />
   </url>
   <url>
@@ -37,34 +83,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2025-01-22T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2025-01-22T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2025-01-22T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/tags/"
-    />
-  </url>
-  <url>
     <loc>https://buezw.github.io/tags/c/</loc>
     <lastmod>2025-01-20T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -84,6 +102,12 @@
   </url>
   <url>
     <loc>https://buezw.github.io/docs/dynamics/</loc>
+    <lastmod>2025-01-20T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw/</loc>
     <lastmod>2025-01-20T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -207,19 +231,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/ef/</loc>
-    <lastmod>2025-01-13T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/</loc>
-    <lastmod>2025-01-13T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/</loc>
     <lastmod>2025-01-13T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -237,7 +249,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/calculus/cal11.complexnumber/</loc>
+    <loc>https://buezw.github.io/docs/calculus/calculus11.complexnumber/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
