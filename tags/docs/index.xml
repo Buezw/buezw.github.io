@@ -9,7 +9,42 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 23 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learning Programming with C</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>LPC 5. Functions</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/28/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;5.1 Functions 
+    &lt;div id=&#34;51-functions&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#51-functions&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Function是用来执行特定任务的可重复调用恶的代码块，通过Modular Programming将复杂问题分解&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/feature.png" />
+    </item>
+    
     <item>
       <title>EF 4. Electric Potential</title>
       <link>https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/</link>
@@ -507,16 +542,6 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     </item>
     
     <item>
-      <title>Learning Programming with C</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
-      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
       <title>LPC 4. Repetition</title>
       <link>https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/</link>
       <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
@@ -571,15 +596,15 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     
     <item>
       <title>D2L 5.4 Custom Layer</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link>
       <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/19/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在整体网络中，存在一些不同的层，他们都是专门用来处理不同事件的，这也令自定义层变得有必要&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
     </item>
     
     <item>
@@ -634,29 +659,29 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     
     <item>
       <title>D2L 5.3 Deferred Initialization</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</link>
       <pubDate>Sat, 18 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/18/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Deferred Initialization是指模型的某些参数在模型创建时并不会立即被初始化，而是会在第一次接收到输入数据时，根据输入数据的实际形状动态地完成初始化
 需要知道的是延后初始化的&lt;strong&gt;核心目标&lt;/strong&gt; 就是为了解决 &lt;strong&gt;输入维度未知&lt;/strong&gt; 的问题，而模型内部层之间的维度通常是事先定义好的&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png" />
     </item>
     
     <item>
       <title>D2L 5.2 Parameter Management</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</link>
       <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/17/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在训练的过程中，目标是找到使得Cost Function最小化的Parameters，而有些时候需要提取其中一层的参数检查或者移动到其他环境下，这就需要访问参数&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/feature.png" />
     </item>
     
     <item>
@@ -1156,70 +1181,6 @@ $$L_1(x) := \begin{cases}
     </item>
     
     <item>
-      <title>CAL 11. Complex Number</title>
-      <link>https://buezw.github.io/docs/calculus/calculus11.complexnumber/</link>
-      <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/calculus/calculus11.complexnumber/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/9/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;1.  Imaginary and complex numbers 
-    &lt;div id=&#34;1--imaginary-and-complex-numbers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1--imaginary-and-complex-numbers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Real Number 实数，包含了Reation &amp;amp; Irrational Number一直以来拥有一个Fundamental Property就是 Square of any real number is always nonnegative&lt;/li&gt;
-&lt;li&gt;换句话来说，方程\(x^2=-1\)在实数域是无解的，但这并不代表这个方程无解&lt;/li&gt;
-&lt;li&gt;要分析这一问题，首先就需要定义\(\sqrt{-1}\)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Definition of Imaginary Number 
-    &lt;div id=&#34;definition-of-imaginary-number&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#definition-of-imaginary-number&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;An imaginary number is a number of the form bi, where b is real and
-$$i=\sqrt{-1}$$&lt;/li&gt;
-&lt;li&gt;定义指出Complex Number是形式为\(bi\)的数，其中b为Real Number&lt;/li&gt;
-&lt;li&gt;有了这定义，我们便可以为任意Real Number找到对应的Square Root，具体来说
-$$(bi)^2=b^2\cdot i^2=b^2\cdot -1=-b^2$$&lt;/li&gt;
-&lt;li&gt;例如\((3i)^2=-9,\sqrt{-9}=3i\)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;ex. 
-    &lt;div id=&#34;ex&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ex&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;p&gt;Solve the equation \(x^2 +2x+2 = 0\). Using the quadratic formula
-$$z_1 = \frac{-2 + \sqrt{4 - 8}}{2} = -1 + i \quad \text{and} \quad z_2 = \frac{-2 - \sqrt{4 - 8}}{2} = -1 - i.
-$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/calculus/calculus11.complexnumber/feature.png" />
-    </item>
-    
-    <item>
       <title>LPC 2. Data &amp; Operations</title>
       <link>https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
@@ -1283,62 +1244,6 @@ $$&lt;/p&gt;</description>
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;这样操作将会报错，因为&lt;code&gt;InchesToCm&lt;/code&gt;是一个不可以更改的Constant&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/feature.png" />
-    </item>
-    
-    <item>
-      <title>Calculus 10. Parametric Equations and Polar Coordinates</title>
-      <link>https://buezw.github.io/docs/calculus/calculus10.parametricequationsandpolarcoordinates/</link>
-      <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/calculus/calculus10.parametricequationsandpolarcoordinates/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/8/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;10.1 Parametric Equations 
-    &lt;div id=&#34;101-parametric-equations&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#101-parametric-equations&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;If x and y are continuous functions of t on an interval I, then the equations are called parametric equations and t is called the parameter
-$$x=x(t) andy=y(t)$$&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Eliminating the Parameter 化简 
-    &lt;div id=&#34;eliminating-the-parameter-%E5%8C%96%E7%AE%80&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#eliminating-the-parameter-%E5%8C%96%E7%AE%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;通过关系式直接得到x和y之间的函数&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;ex. 
-    &lt;div id=&#34;ex&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ex&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;p&gt;$$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/calculus/calculus10.parametricequationsandpolarcoordinates/feature.png" />
     </item>
     
     <item>
@@ -1488,10 +1393,10 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
     
     <item>
       <title>D2 5.1 Layer &amp; Block</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/21/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1533,51 +1438,51 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu399865873791596830.png 330w,
-        /docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png 660w,
-        /docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu17735818070818276903.png 1024w,
-        /docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13633986511892309580.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png&#34;
+        /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu399865873791596830.png 330w,
+        /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png 660w,
+        /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu17735818070818276903.png 1024w,
+        /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13633986511892309580.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.1 Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.2 Example of MLP</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;使用纯MLP参加https://www.kaggle.com/competitions/titanic的Competition&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
     </item>
     
     <item>
       <title>D2L Weierstrass Approximation Theorem</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
       <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/19/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1669,7 +1574,7 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
     
     <item>
@@ -2357,10 +2262,10 @@ Requires further completion&lt;/p&gt;</description>
     
     <item>
       <title>Linear Regression</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</link>
       <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/4/2024&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2722,7 +2627,7 @@ class LinearRegression(Scene):
         self.play(Write(main))
 ---
 &lt;/code&gt;&lt;/pre&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/linearregression/feature.png" />
     </item>
     
     <item>
@@ -3178,63 +3083,63 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     
     <item>
       <title>D2L 3.1 Linear Regression</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 4/15/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.2 Object-Oriented Design for Implementation</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid>
       <description>&lt;p&gt;从零开始实现整个方法， 包括数据流水线、模型、损失函数和小批量随机梯度下降优化器。 虽然现代的深度学习框架几乎可以自动化地进行所有这些工作，但从零开始实现可以确保我们真正知道自己在做什么。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.3 A concise implementation of linear regression</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid>
       <description>&lt;p&gt;本节将介绍如何通过使用深度学习框架来简洁地实现[[3.2_Object-OrientedDesignforImplementation]]中的线性回归模型&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.4 Softmax Regression</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid>
       <description>&lt;p&gt;回归可以用于预测_多少_的问题。 比如预测房屋被售出价格，或者棒球队可能获得的胜场数，又或者患者住院的天数。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.5 Image classification datasets</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid>
       <description>&lt;p&gt;MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id90&#34;title=&#34;LeCun, Y., Bottou, L., Bengio, Y., Haffner, P., &amp;amp; others. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324.&#34; target=&#34;_blank&#34;&gt;LeCun &lt;em&gt;et al.&lt;/em&gt;, 1998&lt;/a&gt;) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id189&#34;title=&#34;Xiao, H., Rasul, K., &amp;amp; Vollgraf, R. (2017). Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms. arXiv preprint arXiv:1708.07747.&#34; target=&#34;_blank&#34;&gt;Xiao &lt;em&gt;et al.&lt;/em&gt;, 2017&lt;/a&gt;)。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.6 Implementation of softmax regression from scratch</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;3.6.1 初始化模型参数 
     &lt;div id=&#34;361-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -3296,27 +3201,27 @@ $$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;keepdim=True: 在进行张量操作时，保持原始张量的维度&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.1 MultilayerPerceptron</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
       <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.4 Model Selection, Underfitting, and Overfitting</title>
-      <link>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
       <description>&lt;p&gt;深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
     </item>
     
   </channel>

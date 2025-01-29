@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head>
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -16,7 +16,7 @@
   <meta name="keywords" content="D2L, Computer Science, Docs, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/" />
+  <link rel="canonical" href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/" />
   
   
   
@@ -64,7 +64,7 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/">
+  <meta property="og:url" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="D2 5.1 Layer & Block">
   <meta property="og:description" content=" Last Edit: 12/21/24
@@ -77,17 +77,17 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     <meta property="article:tag" content="D2L">
     <meta property="article:tag" content="Computer Science">
     <meta property="article:tag" content="Docs">
-    <meta property="og:image" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
+    <meta property="og:image" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png">
+  <meta name="twitter:image" content="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png">
   <meta name="twitter:title" content="D2 5.1 Layer & Block">
   <meta name="twitter:description" content=" Last Edit: 12/21/24
 Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化的），通过调整参数后生成相应的输出 对于一个Softmax回归，其模型本身就是一个Layer Block 块 #在神经网络中，Block是一种通用的抽象概念，用来描述网络中的组件，可以是一个简单的单层，也可以是由多层组成的模块，甚至是整个模型本身 块的主要目的是对神经网络的结构进行分层抽象，方便构建和复用复杂的网络 ">
@@ -103,7 +103,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 12\/21\/24\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch1 class=\u0022relative group\u0022\u003eLayer 层 \r\n    \u003cdiv id=\u0022layer-%E5%B1%82\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#layer-%E5%B1%82\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h1\u003e\r\n\u003cul\u003e\n\u003cli\u003e对于一个Layer来说，其接受一组输入（通常是矢量化的），通过调整参数后生成相应的输出\u003c\/li\u003e\n\u003cli\u003e对于一个Softmax回归，其模型本身就是一个Layer\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch1 class=\u0022relative group\u0022\u003eBlock 块 \r\n    \u003cdiv id=\u0022block-%E5%9D%97\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#block-%E5%9D%97\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h1\u003e\r\n\u003cul\u003e\n\u003cli\u003e在神经网络中，Block是一种通用的抽象概念，用来描述网络中的组件，可以是一个简单的单层，也可以是由多层组成的模块，甚至是整个模型本身\u003c\/li\u003e\n\u003cli\u003e块的主要目的是对神经网络的结构进行分层抽象，方便构建和复用复杂的网络\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\r\n    \u003cfigure\u003e\r\n      \u003cimg\r\n        class=\u0022my-0 rounded-md\u0022\r\n        loading=\u0022lazy\u0022\r\n        srcset=\u0022\r\n        \/docs\/d2l_dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.1layerblock\/D2L5.1Layer\u0026amp;Block_hu399865873791596830.png 330w,\r\n        \/docs\/d2l_dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.1layerblock\/D2L5.1Layer\u0026amp;Block_hu13772976285383848655.png 660w,\r\n        \/docs\/d2l_dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.1layerblock\/D2L5.1Layer\u0026amp;Block_hu17735818070818276903.png 1024w,\r\n        \/docs\/d2l_dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.1layerblock\/D2L5.1Layer\u0026amp;Block_hu13633986511892309580.png 2x\u0022\r\n        src=\u0022\/docs\/d2l_dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.1layerblock\/D2L5.1Layer\u0026amp;Block_hu13772976285383848655.png\u0022\r\n        alt=\u0022Img\u0022\r\n      \/\u003e\r\n      \r\n    \u003c\/figure\u003e\r\n\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/d2l_dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.1layerblock\/",
+    "url" : "http:\/\/localhost:1313\/docs\/d2l_dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.1layerblock\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
@@ -802,7 +802,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
             Part : D2L 5.4 Custom Layer
         </a>
     </div>
@@ -811,7 +811,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
             Part : D2L 5.3 Deferred Initialization
         </a>
     </div>
@@ -820,7 +820,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
             Part : D2L 5.2 Parameter Management
         </a>
     </div>
@@ -836,7 +836,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
             Part : D2L 4.1 Multilayer Perceptron
         </a>
     </div>
@@ -845,7 +845,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
             Part : D2L 4.2 Example of MLP
         </a>
     </div>
@@ -854,7 +854,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/">
             Part 1: D2L 5. Deep Learning Computation
         </a>
     </div>
@@ -863,7 +863,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/">
             Part 1: Linear Regression
         </a>
     </div>
@@ -872,7 +872,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
             Part 1: Chapter 3. Linear Neural Network
         </a>
     </div>
@@ -881,7 +881,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
             Part 1: Chapter 4. Multilayer Perceptron
         </a>
     </div>
@@ -890,7 +890,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/">
             Part 1: Dive Into Deep Learning
         </a>
     </div>
@@ -899,7 +899,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
             Part 2: D2L 3.1 Linear Regression
         </a>
     </div>
@@ -908,7 +908,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
             Part 3: D2L 3.2 Object-Oriented Design for Implementation
         </a>
     </div>
@@ -917,7 +917,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
             Part 4: D2L 3.3 A concise implementation of linear regression
         </a>
     </div>
@@ -926,7 +926,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
             Part 5: D2L 3.4 Softmax Regression
         </a>
     </div>
@@ -935,7 +935,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
             Part 6: D2L 3.5 Image classification datasets
         </a>
     </div>
@@ -944,7 +944,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
     </div>
@@ -953,7 +953,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
             Part 9: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -962,7 +962,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
             Part 10: D2L Weierstrass Approximation Theorem
         </a>
     </div>
@@ -971,7 +971,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
             Part 10: D2L 4.4 Model Selection, Underfitting, and Overfitting
         </a>
     </div>
@@ -1193,7 +1193,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
             Part : D2L 5.4 Custom Layer
         </a>
     </div>
@@ -1202,7 +1202,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
             Part : D2L 5.3 Deferred Initialization
         </a>
     </div>
@@ -1211,7 +1211,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
             Part : D2L 5.2 Parameter Management
         </a>
     </div>
@@ -1227,7 +1227,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
             Part : D2L 4.1 Multilayer Perceptron
         </a>
     </div>
@@ -1236,7 +1236,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
             Part : D2L 4.2 Example of MLP
         </a>
     </div>
@@ -1245,7 +1245,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l5.deeplearningcomputation/">
             Part 1: D2L 5. Deep Learning Computation
         </a>
     </div>
@@ -1254,7 +1254,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/linearregression/">
             Part 1: Linear Regression
         </a>
     </div>
@@ -1263,7 +1263,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
             Part 1: Chapter 3. Linear Neural Network
         </a>
     </div>
@@ -1272,7 +1272,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
             Part 1: Chapter 4. Multilayer Perceptron
         </a>
     </div>
@@ -1281,7 +1281,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/">
             Part 1: Dive Into Deep Learning
         </a>
     </div>
@@ -1290,7 +1290,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
             Part 2: D2L 3.1 Linear Regression
         </a>
     </div>
@@ -1299,7 +1299,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
             Part 3: D2L 3.2 Object-Oriented Design for Implementation
         </a>
     </div>
@@ -1308,7 +1308,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
             Part 4: D2L 3.3 A concise implementation of linear regression
         </a>
     </div>
@@ -1317,7 +1317,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
             Part 5: D2L 3.4 Softmax Regression
         </a>
     </div>
@@ -1326,7 +1326,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
             Part 6: D2L 3.5 Image classification datasets
         </a>
     </div>
@@ -1335,7 +1335,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
     </div>
@@ -1344,7 +1344,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
             Part 9: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1353,7 +1353,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
             Part 10: D2L Weierstrass Approximation Theorem
         </a>
     </div>
@@ -1362,7 +1362,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
+        <a href="http://localhost:1313/docs/d2l_dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
             Part 10: D2L 4.4 Model Selection, Underfitting, and Overfitting
         </a>
     </div>
@@ -2347,7 +2347,7 @@ Layer 层 #对于一个Layer来说，其接受一组输入（通常是矢量化
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div
