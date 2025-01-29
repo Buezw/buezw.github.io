@@ -9,15 +9,18 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 19 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/computer-science/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>D2L 5. Deep Learning Computation</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</link>
-      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
+      <title>D2L 6.2 Image Convolution</title>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</link>
+      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</guid>
-      <description></description>
-      
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/29/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;由于卷积神经网络的设计就是为了处理图像，所以这里直接以图像为例&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/feature.png" />
     </item>
     
     <item>
@@ -757,26 +760,6 @@ $$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;
       <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
       <description>&lt;p&gt;深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
-    </item>
-    
-    <item>
-      <title>Chapter 3. Linear Neural Network</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
-      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
-      <description>&lt;hr&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Chapter 4. Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
-      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</guid>
-      <description>&lt;hr&gt;</description>
-      
     </item>
     
     <item>
