@@ -17,9 +17,39 @@
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/electrical-fundamentals/ef6.currentresistance/</guid>
       <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 2/6/25&lt;/p&gt;
+&lt;p&gt;Last Edit: 2/7/25&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Capacitor 电容器是一种储存 Electrical Energy 的装置，由两个相互隔离的导体（即极板）组成，分别带有 +q 和 -q 的电荷&lt;/p&gt;</description>
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Electric Current 
+    &lt;div id=&#34;electric-current&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-current&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对于一个铜环，内部每一处都处于同一个 Potential 下，即 In Electrostatic Equilibrium 处于静电平衡，并且内部 Electric Field 均为零
+
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu12897430973313359960.png 330w,
+        /docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu13147796366552973561.png 660w,
+        /docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu4088479549258487442.png 1024w,
+        /docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu7321396153845132530.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu13147796366552973561.png&#34;
+        alt=&#34;Img&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef6.currentresistance/feature.png" />
     </item>
     
@@ -31,19 +61,6 @@
       <guid>https://buezw.github.io/docs/electrical-fundamentals/</guid>
       <description></description>
       
-    </item>
-    
-    <item>
-      <title>EF 5. Capacitance</title>
-      <link>https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/</link>
-      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/29/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Capacitor 电容器是一种储存 Electrical Energy 的装置，由两个相互隔离的导体（即极板）组成，分别带有 +q 和 -q 的电荷&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/feature.png" />
     </item>
     
     <item>
@@ -105,6 +122,49 @@
 &lt;/h1&gt;
 &lt;p&gt;Function是用来执行特定任务的可重复调用恶的代码块，通过Modular Programming将复杂问题分解&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 4. Electric Potential</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/23/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;4.1 Electric Potential 
+    &lt;div id=&#34;41-electric-potential&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#41-electric-potential&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于一个重力场，其Field Strength为g，而Gravity所做的功则为\(W=mgh\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu3013009443759680203.png 330w,
+        /docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu10790805179443622640.png 660w,
+        /docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu15032556861933157744.png 1024w,
+        /docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu2476701224367274999.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu10790805179443622640.png&#34;
+        alt=&#34;Img&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/feature.png" />
     </item>
     
     <item>
@@ -505,6 +565,40 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn3.curvilinearmotion/feature.png" />
+    </item>
+    
+    <item>
+      <title>DYN 3. Curvilinear Motion</title>
+      <link>https://buezw.github.io/docs/dynamics/dyn4.coordinate/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dynamics/dyn4.coordinate/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;曲线运动，主要描述物体的位移速度和加速度&lt;/p&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Plane Curvilinear Motion 平面曲线运动 
+    &lt;div id=&#34;plane-curvilinear-motion-%E5%B9%B3%E9%9D%A2%E6%9B%B2%E7%BA%BF%E8%BF%90%E5%8A%A8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#plane-curvilinear-motion-%E5%B9%B3%E9%9D%A2%E6%9B%B2%E7%BA%BF%E8%BF%90%E5%8A%A8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;已知位置r，速度v和加速度a&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;DYN3.CurvilinearMotion.png&#34; alt=&#34;Img&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn4.coordinate/feature.png" />
     </item>
     
     <item>
