@@ -9,7 +9,20 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/learning-programming-with-c/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/learning-programming-with-c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LPC 6. Pointers</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/</link>
+      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上一章中提到的所有有关于 Function 的内容都是关于一个函数的输入以及输出的，本章将讨论如何在不同函数间访问 Variables&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/feature.png" />
+    </item>
+    
     <item>
       <title>LPC 5. Functions</title>
       <link>https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/</link>

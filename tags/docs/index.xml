@@ -80,6 +80,29 @@
     </item>
     
     <item>
+      <title>Learning Programming with C</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
+      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>LPC 6. Pointers</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/</link>
+      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上一章中提到的所有有关于 Function 的内容都是关于一个函数的输入以及输出的，本章将讨论如何在不同函数间访问 Variables&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/feature.png" />
+    </item>
+    
+    <item>
       <title>DYN 4. Coordinate</title>
       <link>https://buezw.github.io/docs/dynamics/dyn4.coordinate/</link>
       <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate>
@@ -294,16 +317,6 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
 &lt;/blockquote&gt;
 &lt;p&gt;由于卷积神经网络的设计就是为了处理图像，所以这里直接以图像为例&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/feature.png" />
-    </item>
-    
-    <item>
-      <title>Learning Programming with C</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
-      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
-      
     </item>
     
     <item>
