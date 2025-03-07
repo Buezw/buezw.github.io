@@ -9,7 +9,20 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sat, 22 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/lpc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/lpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LPC 8. Dynamic Memory Allocation </title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/7/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;前面提到过了 Array 中的 Memory 的分配方式是固定的连续内存，而想要修改 Array 的大小则变得困难，这时候就需要通过 Dynamic Memory Allocation 来动态的分布内存&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/feature.png" />
+    </item>
+    
     <item>
       <title>LPC 7. Arrays</title>
       <link>https://buezw.github.io/docs/learning-programming-with-c/lpc7.arrays/</link>

@@ -9,15 +9,69 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sat, 22 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Learning Programming with C</title>
       <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
-      <pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
       
+    </item>
+    
+    <item>
+      <title>LPC 8. Dynamic Memory Allocation </title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/7/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;前面提到过了 Array 中的 Memory 的分配方式是固定的连续内存，而想要修改 Array 的大小则变得困难，这时候就需要通过 Dynamic Memory Allocation 来动态的分布内存&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/feature.png" />
+    </item>
+    
+    <item>
+      <title>Calculus</title>
+      <link>https://buezw.github.io/docs/calculus/</link>
+      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/calculus/</guid>
+      <description>&lt;p&gt;Calculus&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Calculus 8. Methods of Integration</title>
+      <link>https://buezw.github.io/docs/calculus/calculus8.methodsofintegration/</link>
+      <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/calculus/calculus8.methodsofintegration/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/6/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Integration by part 
+    &lt;div id=&#34;integration-by-part&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#integration-by-part&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;当 Integral 内存在两个函数的乘积的时候，可以使用 Integration by parts&lt;/li&gt;
+&lt;li&gt;已知有 Derivative&amp;rsquo;s Product Rule&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\left( u(x) v(x) \right)&amp;rsquo; = u&amp;rsquo;(x) v(x) + u(x) v&amp;rsquo;(x)
+$$&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/calculus/calculus8.methodsofintegration/feature.png" />
     </item>
     
     <item>
@@ -90,6 +144,69 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef8.inductioninductance/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 8. Induction &amp; Inductance</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</link>
+      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;EF9.ResistiveCircuits 
+    &lt;div id=&#34;ef9resistivecircuits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ef9resistivecircuits&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Last Edit: 3/3/25&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ohm’s Law 
+    &lt;div id=&#34;ohms-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ohms-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ohm’s Law是以德国物理学家 Georg Simon Ohm 的名字命名的，他确立了 Voltage 和 Current 之间的关系，其发现了 Resistor 两端的 Voltage 和通过的 Current 成正比&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Symbol for a Resistor 
+    &lt;div id=&#34;symbol-for-a-resistor&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#symbol-for-a-resistor&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu8924352349811077473.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14812148851474538778.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu7439742641865735479.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png&#34;
+        alt=&#34;EF9.ResistiveCircuits.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
     </item>
     
     <item>
@@ -398,16 +515,6 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/feature.png" />
-    </item>
-    
-    <item>
-      <title>Calculus</title>
-      <link>https://buezw.github.io/docs/calculus/</link>
-      <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/calculus/</guid>
-      <description>&lt;p&gt;Calculus&lt;/p&gt;</description>
-      
     </item>
     
     <item>

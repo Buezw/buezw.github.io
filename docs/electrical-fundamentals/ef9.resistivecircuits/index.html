@@ -1,0 +1,2436 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>EF 8. Induction & Inductance &middot; Buezwqwg</title>
+  <meta name="title" content="EF 8. Induction & Inductance &middot; Buezwqwg" />
+  
+  
+  <meta name="keywords" content="Docs, EF, " />
+  
+  
+  <link rel="canonical" href="https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
+    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.821d421a756ddb6f1c91d41c53d0e2b2afa007b11ade688aa55594a12048893dadc2cbc127bd32da081f77022a40c9e1b73193584db9a34368e9cfd56758e43f.js"
+    integrity="sha512-gh1CGnVt228ckdQcU9Disq&#43;gB7Ea3miKpVWUoSBIiT2twsvBJ70y2ggfdwIqQMnhtzGTWE25o0No6c/VZ1jkPw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/">
+  <meta property="og:site_name" content="Buezwqwg">
+  <meta property="og:title" content="EF 8. Induction & Inductance">
+  <meta property="og:description" content="EF9.ResistiveCircuits #Last Edit: 3/3/25
+Ohm’s Law #Ohm’s Law是以德国物理学家 Georg Simon Ohm 的名字命名的，他确立了 Voltage 和 Current 之间的关系，其发现了 Resistor 两端的 Voltage 和通过的 Current 成正比 Symbol for a Resistor #">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-02-20T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-20T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="EF">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="EF 8. Induction & Inductance">
+  <meta name="twitter:description" content="EF9.ResistiveCircuits #Last Edit: 3/3/25
+Ohm’s Law #Ohm’s Law是以德国物理学家 Georg Simon Ohm 的名字命名的，他确立了 Voltage 和 Current 之间的关系，其发现了 Resistor 两端的 Voltage 和通过的 Current 成正比 Symbol for a Resistor #">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "EF 8. Induction \u0026 Inductance",
+    "headline": "EF 8. Induction \u0026 Inductance",
+    
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eEF9.ResistiveCircuits \r\n    \u003cdiv id=\u0022ef9resistivecircuits\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ef9resistivecircuits\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cp\u003eLast Edit: 3\/3\/25\u003c\/p\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eOhm’s Law \r\n    \u003cdiv id=\u0022ohms-law\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ohms-law\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003eOhm’s Law是以德国物理学家 Georg Simon Ohm 的名字命名的，他确立了 Voltage 和 Current 之间的关系，其发现了 Resistor 两端的 Voltage 和通过的 Current 成正比\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eSymbol for a Resistor \r\n    \u003cdiv id=\u0022symbol-for-a-resistor\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#symbol-for-a-resistor\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cp\u003e\r\n    \u003cfigure\u003e\r\n      \u003cimg\r\n        class=\u0022my-0 rounded-md\u0022\r\n        loading=\u0022lazy\u0022\r\n        srcset=\u0022\r\n        \/docs\/electrical-fundamentals\/ef9.resistivecircuits\/EF9.ResistiveCircuits_hu8924352349811077473.png 330w,\r\n        \/docs\/electrical-fundamentals\/ef9.resistivecircuits\/EF9.ResistiveCircuits_hu14817147965503634486.png 660w,\r\n        \/docs\/electrical-fundamentals\/ef9.resistivecircuits\/EF9.ResistiveCircuits_hu14812148851474538778.png 1024w,\r\n        \/docs\/electrical-fundamentals\/ef9.resistivecircuits\/EF9.ResistiveCircuits_hu7439742641865735479.png 2x\u0022\r\n        src=\u0022\/docs\/electrical-fundamentals\/ef9.resistivecircuits\/EF9.ResistiveCircuits_hu14817147965503634486.png\u0022\r\n        alt=\u0022EF9.ResistiveCircuits.png\u0022\r\n      \/\u003e\r\n      \r\n    \u003c\/figure\u003e\r\n\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/buezw.github.io\/docs\/electrical-fundamentals\/ef9.resistivecircuits\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Buezwqwg"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-02-20T00:00:00\u002b00:00",
+    "datePublished": "2025-02-20T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-02-20T00:00:00\u002b00:00",
+    
+    "keywords": ["Docs","EF"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1185"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Buezwqwg" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEDMYR1V0K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEDMYR1V0K');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-8 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Docs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Thoughts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Notes
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Zhihu
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Docs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Thoughts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Notes
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Zhihu
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow ">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+ 
+
+
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Buezwqwg</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/electrical-fundamentals/"
+      >Electrical Fundamentals</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/electrical-fundamentals/ef9.resistivecircuits/"
+      >EF 8. Induction &amp; Inductance</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      EF 8. Induction & Inductance
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-20T00:00:00&#43;00:00">Feb 20 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1185 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ef9resistivecircuits">EF9.ResistiveCircuits</a></li>
+    <li><a href="#ohms-law">Ohm’s Law</a>
+      <ul>
+        <li><a href="#symbol-for-a-resistor">Symbol for a Resistor</a></li>
+        <li><a href="#mathematical-relationship">Mathematical Relationship</a></li>
+        <li><a href="#graphical-representation-of-v-vs-i">Graphical representation of V vs. I</a></li>
+      </ul>
+    </li>
+    <li><a href="#conductance-电导">Conductance 电导</a></li>
+    <li><a href="#power-relationships">Power Relationships</a></li>
+    <li><a href="#conductors-influence-in-circuit">Conductor&rsquo;s Influence in Circuit</a></li>
+    <li><a href="#kirchhoffs-laws">Kirchhoff&rsquo;s Laws</a>
+      <ul>
+        <li><a href="#kcl-current-law">KCL Current Law</a></li>
+        <li><a href="#kirchhoffs-voltage-law">Kirchhoff’s Voltage Law</a></li>
+        <li><a href="#voltage-division">Voltage Division</a></li>
+      </ul>
+    </li>
+    <li><a href="#multiple-sourceresistor-networks">Multiple-Source/Resistor Networks</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#ex-find-voltage-in-a-fragment">ex. Find Voltage in a fragment</a></li>
+            <li><a href="#ex2">ex2.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#single-node-pair-circuits">Single-Node-Pair Circuits</a></li>
+    <li><a href="#multiple-sourceresistor-networks-1">Multiple-Source/Resistor Networks</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ef9resistivecircuits">EF9.ResistiveCircuits</a></li>
+    <li><a href="#ohms-law">Ohm’s Law</a>
+      <ul>
+        <li><a href="#symbol-for-a-resistor">Symbol for a Resistor</a></li>
+        <li><a href="#mathematical-relationship">Mathematical Relationship</a></li>
+        <li><a href="#graphical-representation-of-v-vs-i">Graphical representation of V vs. I</a></li>
+      </ul>
+    </li>
+    <li><a href="#conductance-电导">Conductance 电导</a></li>
+    <li><a href="#power-relationships">Power Relationships</a></li>
+    <li><a href="#conductors-influence-in-circuit">Conductor&rsquo;s Influence in Circuit</a></li>
+    <li><a href="#kirchhoffs-laws">Kirchhoff&rsquo;s Laws</a>
+      <ul>
+        <li><a href="#kcl-current-law">KCL Current Law</a></li>
+        <li><a href="#kirchhoffs-voltage-law">Kirchhoff’s Voltage Law</a></li>
+        <li><a href="#voltage-division">Voltage Division</a></li>
+      </ul>
+    </li>
+    <li><a href="#multiple-sourceresistor-networks">Multiple-Source/Resistor Networks</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#ex-find-voltage-in-a-fragment">ex. Find Voltage in a fragment</a></li>
+            <li><a href="#ex2">ex2.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#single-node-pair-circuits">Single-Node-Pair Circuits</a></li>
+    <li><a href="#multiple-sourceresistor-networks-1">Multiple-Source/Resistor Networks</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">EF9.ResistiveCircuits 
+    <div id="ef9resistivecircuits" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ef9resistivecircuits" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Last Edit: 3/3/25</p>
+
+
+<h2 class="relative group">Ohm’s Law 
+    <div id="ohms-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ohms-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Ohm’s Law是以德国物理学家 Georg Simon Ohm 的名字命名的，他确立了 Voltage 和 Current 之间的关系，其发现了 Resistor 两端的 Voltage 和通过的 Current 成正比</li>
+</ul>
+
+
+<h3 class="relative group">Symbol for a Resistor 
+    <div id="symbol-for-a-resistor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#symbol-for-a-resistor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu8924352349811077473.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14812148851474538778.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu7439742641865735479.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png"
+        alt="EF9.ResistiveCircuits.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Mathematical Relationship 
+    <div id="mathematical-relationship" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mathematical-relationship" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Ohm&rsquo;s Law 指出</li>
+</ul>
+<p>$$
+v(t) = Ri(t), \text{ where } R \geq 0
+$$</p>
+<ul>
+<li>其中 Ohms 的符号为 \(\Omega,1\Omega=1V/A\)</li>
+</ul>
+
+
+<h3 class="relative group">Graphical representation of V vs. I 
+    <div id="graphical-representation-of-v-vs-i" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#graphical-representation-of-v-vs-i" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>不同用电器有着不同的 Voltage-Current Relationship</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-1_hu6196207493185010725.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-1_hu12496419358421967423.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-1_hu18072482437367907890.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-1_hu7617267956718368343.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-1_hu12496419358421967423.png"
+        alt="EF9.ResistiveCircuits-1.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>一个线性电阻器</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-2_hu8119273537793472759.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-2_hu2495369412495228226.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-2_hu14718257807498709414.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-2_hu13489045616089562741.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-2_hu2495369412495228226.png"
+        alt="EF9.ResistiveCircuits-2.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>一个 Light Bulb 的则是非线性的关系</li>
+</ul>
+
+
+<h2 class="relative group">Conductance 电导 
+    <div id="conductance-%E7%94%B5%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conductance-%E7%94%B5%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Conductance 由符号 G 表示，其是 Resistor 的倒数</li>
+<li>它的单位是 Siemens，有 \(1S=1A/V\)</li>
+</ul>
+
+
+<h2 class="relative group">Power Relationships 
+    <div id="power-relationships" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#power-relationships" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Power 的最基础的定义为 W = VI，也就是</li>
+</ul>
+<p>$$
+p(t) = v(t) i(t)
+$$</p>
+<ul>
+<li>当把 \(V=Ri\) 带入，有</li>
+</ul>
+<p>$$
+p(t) = Ri^2(t) = \frac{v^2(t)}{R}
+$$</p>
+<ul>
+<li>带入 Conductance \(i(t) = Gv(t)\) 可以得到</li>
+</ul>
+<p>$$
+p(t) = \frac{i^2(t)}{G} = Gv^2(t)
+$$</p>
+
+
+<h2 class="relative group">Conductor&rsquo;s Influence in Circuit 
+    <div id="conductors-influence-in-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conductors-influence-in-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于一个位于 Circuit 中的 Resistor 来说，其可以通过变换对 Circuit 整体造成不同的影响</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-3_hu3373598228590633301.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-3_hu2893617617735083252.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-3_hu16791651092059205683.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-3_hu4134620797855380984.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-3_hu2893617617735083252.png"
+        alt="EF9.ResistiveCircuits-3.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>如上图所示，当 Resistor 减小到零的时候，电源两端直接连线，形成 Short Circuit</li>
+<li>而到了 C 中，Resistor 增大到无限大时，形成 Open Circuit</li>
+</ul>
+
+
+<h2 class="relative group">Kirchhoff&rsquo;s Laws 
+    <div id="kirchhoffs-laws" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kirchhoffs-laws" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Kirchhoff&rsquo;s Laws 具体表现为 Kirchhoff&rsquo;s Current Law 和 Kirchhoff&rsquo;s Voltage Law</li>
+</ul>
+
+
+<h3 class="relative group">KCL Current Law 
+    <div id="kcl-current-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kcl-current-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于一个 Circuit 中的 Node 来说，其 Algebraic Sum of the Current leaving or entering a node is zero，说明从节点流出或流入的电流 之代数和为零</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-4_hu14402617924308234350.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-4_hu18243027360576961353.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-4_hu4555845869324609914.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-4_hu3732175111675904943.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-4_hu18243027360576961353.png"
+        alt="EF9.ResistiveCircuits-4.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>想要解决 Circuit 中每一个 Node 的 Current 的办法就是通过解线性方程组，而并不是每一个节点的 Equation 都在 System 中是 Linearly Independent 的，这说明仅需要选择线性独立的方程来进行分析</li>
+</ul>
+
+
+<h3 class="relative group">Kirchhoff’s Voltage Law 
+    <div id="kirchhoffs-voltage-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kirchhoffs-voltage-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>KVL 指出，在任何闭合回路中，电压的代数和必须为零</li>
+</ul>
+
+
+<h3 class="relative group">Voltage Division 
+    <div id="voltage-division" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#voltage-division" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在 Series, Parallel Circuit 中，需要进一步通过 Current 和 Voltage 在不同情况下的性质在写出 Linear Equation 后进一步求解</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-5_hu964424063948575828.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-5_hu8756772450307929375.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-5_hu1747910660029123293.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-5_hu288721662873571798.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-5_hu8756772450307929375.png"
+        alt="EF9.ResistiveCircuits-5.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>当 Circuit 中存在一个 Series 的时候，可以得到d</li>
+</ul>
+<p>$$
+-v(t) + v_{R1} + v_{R2} = 0\Rightarrow v(t) = v_{R1} + v_{R2}
+$$</p>
+<ul>
+<li>根据 Ohm&rsquo;s Law 可以知道，\(v_{R1} = R_1i(t),v_{R2} = R_2i(t)\)，有 \(v(t)=R_1i(t)+R_2i(t)\)，可以解出 \(i(t) = \frac{v(t)}{R_1 + R_2}\)</li>
+<li>带回 \(v_{R_1}=R_1 i(t)\) 后可以得到</li>
+</ul>
+<p>$$
+= R_1 \left[ \frac{v(t)}{R_1 + R_2} \right]
+= \frac{R_1}{R_1 + R_2} v(t)
+$$</p>
+
+
+<h2 class="relative group">Multiple-Source/Resistor Networks 
+    <div id="multiple-sourceresistor-networks" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#multiple-sourceresistor-networks" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>有的时候的 Circuit 会非常复杂，比如存在多个 Voltage Sources 的情况，这时候就需要通过 Simplified Equivalent Circuit 来分析 Circuit</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-6_hu5474158514655029536.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-6_hu13365977305018206439.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-6_hu4393569076202268684.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-6_hu12633272903016547409.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-6_hu13365977305018206439.png"
+        alt="EF9.ResistiveCircuits-6.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>上图中，a 存在了多个 Voltage Sources 和 Resistors，沿着 Closed Loop 列出所有 KVL 方程 \(+vR1+v2(t)−v3(t)+vR2+v4(t)+v5(t)−v1(t)=0\)，将所有非 Resistor 的 Voltage 移动到等式右边，有 \(vR1+vR2=v1(t)−v2(t)+v3(t)−v4(t)−v5(t)\)</li>
+<li>根据 KVL ，就可以创建一个 \(R_S=R_1+R_2+R_3+R_4+R_5\) 的等效电路</li>
+<li>于是就把整个 Circuit 化简为了 b 中的等效电路</li>
+</ul>
+
+
+<h4 class="relative group">ex. Find Voltage in a fragment 
+    <div id="ex-find-voltage-in-a-fragment" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-find-voltage-in-a-fragment" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>有以下图 a，求 bd 段的等效电路</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-7_hu592520424604215958.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-7_hu17855074842823591409.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-7_hu4333992270268463864.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-7_hu4360075232164233096.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-7_hu17855074842823591409.png"
+        alt="EF9.ResistiveCircuits-7.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>在同时存在 Resistor 和 Battery 的情况下，要先求得他们的 Current （串联分压不分流）</li>
+<li>根据 KVL，有</li>
+</ul>
+<p>$$
+10kI + 20kI + 12 + 30kI - 6 = 0\Rightarrow60kI = -6 \Rightarrow I = -0.1 , \text{mA}
+$$</p>
+<ul>
+<li>bd 段的 Voltage 自然可以通过 \(10kI + V_{bd} + 30kI - 6 = 0\) 得到，代入 \(I = -0.1 , \text{mA}\) 后得到 \(V_{bd}=10V\)</li>
+</ul>
+
+
+<h4 class="relative group">ex2. 
+    <div id="ex2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>求出 \(V_S\) 段的 Voltage</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-8_hu8695289506672255901.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-8_hu5361361087834853824.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-8_hu11660631067518183836.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-8_hu17416550586682799925.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-8_hu5361361087834853824.png"
+        alt="EF9.ResistiveCircuits-8.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>已知 Parallel Circuit 分流不分压，有 \(I_L=458.3/220=2.083~kA\)</li>
+<li>后面又进入了一个 Series Circuit，有 \(V_{line}=20\cdot 2. 083=41.66 ~kV\)</li>
+<li>根据 KVL，可以得到 \(V_S=V_{line}+V_{load}=500 ~kV\)</li>
+</ul>
+
+
+<h2 class="relative group">Single-Node-Pair Circuits 
+    <div id="single-node-pair-circuits" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#single-node-pair-circuits" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>串联分压，并联分流的原理也可以通过 KVL 进一步验证</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-9_hu12740904169400613560.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-9_hu9871389060397738393.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-9_hu5469130553796919243.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-9_hu12553386262528893520.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-9_hu9871389060397738393.png"
+        alt="EF9.ResistiveCircuits-9.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>对于上面的电路，有</li>
+</ul>
+<p>$$
+i(t) = \frac{v(t)}{R_1} + \frac{v(t)}{R_2}
+= \left( \frac{1}{R_1} + \frac{1}{R_2} \right) v(t)
+= \frac{v(t)}{R_p}
+$$</p>
+<ul>
+<li>能总结出公式为</li>
+</ul>
+<p>$$
+i_1(t) = \frac{v(t)}{R_1}\Rightarrow i_1(t) = \frac{R_2}{R_1 + R_2} i(t)
+$$</p>
+<ul>
+<li>可以用于计算 Parallel Circuit 中的 Current</li>
+</ul>
+
+
+<h2 class="relative group">Multiple-Source/Resistor Networks 
+    <div id="multiple-sourceresistor-networks-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#multiple-sourceresistor-networks-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于具有 n 个 Parallel Resistor 的 Circuit，根据 KVL 可以得出</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-10_hu9004651221173018556.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-10_hu15337698210690019306.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-10_hu10268213410887643511.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-10_hu12312926979350186620.png 2x"
+        src="/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits-10_hu15337698210690019306.png"
+        alt="EF9.ResistiveCircuits-10.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+i_0(t) = i_1(t) + i_2(t) + \ldots + i_N(t) = \left( \frac{1}{R_1} + \frac{1}{R_2} + \ldots + \frac{1}{R_N} \right) v(t)
+$$</p>
+<ul>
+<li>其中每一个 Parallel Circuit 上的 Resistor 可以通过</li>
+</ul>
+<p>$$
+i_j(t) = \frac{v(t)}{R_j} \quad \quad i_j(t) = \frac{R_p}{R_j} i_o(t)
+$$</p>
+<ul>
+<li>得出答案</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef6.currentresistance/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef6.currentresistance/feature_hu16227829981375144347.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef6.currentresistance/">EF 6. Current & Resistance</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-07T00:00:00&#43;00:00">Feb 7 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1060 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef8.inductioninductance/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef8.inductioninductance/feature_hu14611259401529787057.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef8.inductioninductance/">EF 8. Induction & Inductance</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-20T00:00:00&#43;00:00">Feb 20 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1901 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef7.magneticfields/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef7.magneticfields/feature_hu16036220716852272733.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef7.magneticfields/">EF 7. Magnetic Fields</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-08T00:00:00&#43;00:00">Feb 8 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1037 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef5.capacitance/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef5.capacitance/feature_hu17020269803641698938.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef5.capacitance/">EF 5. Capacitance</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-06T00:00:00&#43;00:00">Feb 6 2025</time><span class="px-2 text-primary-500">&middot;</span><span>2574 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef4.electricpotential/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef4.electricpotential/feature_hu9324439945946695999.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef4.electricpotential/">EF 4. Electric Potential</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-23T00:00:00&#43;00:00">Jan 23 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1613 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef3.gausslaw/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef3.gausslaw/feature_hu11256319096438520687.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef3.gausslaw/">EF 3. Gauss' Law</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-20T00:00:00&#43;00:00">Jan 20 2025</time><span class="px-2 text-primary-500">&middot;</span><span>2245 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\Electrical Fundamentals\\EF9.ResistiveCircuits\\index.md"
+        var oid_likes = "likes_docs\\Electrical Fundamentals\\EF9.ResistiveCircuits\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/electrical-fundamentals/ef8.inductioninductance/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >EF 8. Induction & Inductance</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-02-20T00:00:00&#43;00:00">Feb 20 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/electrical-fundamentals/ef7.magneticfields/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >EF 7. Magnetic Fields</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-02-08T00:00:00&#43;00:00">Feb 8 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+
+<footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
+            title="">
+            
+            Credits
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Buezwqwg
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://buezw.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
