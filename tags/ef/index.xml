@@ -9,7 +9,125 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 20 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ef/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ef/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EF 10. Nodal and Loop Analysis</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/7/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Node Analysis 
+    &lt;div id=&#34;node-analysis&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#node-analysis&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在 Kirchhoff&amp;rsquo;s Voltage Law, KVL 中，规定了在一个完整的 Closed loop 中，所有 Voltage rises 和Voltage drops 的代数和必须等于零&lt;/li&gt;
+&lt;li&gt;这是因为电压是势能差，一个完整的回路回到起点后，总能量变化应该为零，这是电荷守恒和能量守恒的直接体现&lt;/li&gt;
+&lt;li&gt;然而，对于 &lt;strong&gt;Partial path&lt;/strong&gt; 或 &lt;strong&gt;Non-closed segment&lt;/strong&gt; 非闭合段，其电压之和不一定为零，而是等于这些局部路径两端 Node 的电压差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu14836653746222108356.png 330w,
+        /docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13701235930078814582.png 660w,
+        /docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13007749878243609150.png 1024w,
+        /docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu2375413442522557764.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13701235930078814582.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png" />
+    </item>
+    
+    <item>
+      <title>Electrical Fundamentals</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>EF 9. Resistive Circuits</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;EF9.ResistiveCircuits 
+    &lt;div id=&#34;ef9resistivecircuits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ef9resistivecircuits&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Last Edit: 3/3/25&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ohm’s Law 
+    &lt;div id=&#34;ohms-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ohms-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ohm’s Law是以德国物理学家 Georg Simon Ohm 的名字命名的，他确立了 Voltage 和 Current 之间的关系，其发现了 Resistor 两端的 Voltage 和通过的 Current 成正比&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Symbol for a Resistor 
+    &lt;div id=&#34;symbol-for-a-resistor&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#symbol-for-a-resistor&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu8924352349811077473.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14812148851474538778.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu7439742641865735479.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png&#34;
+        alt=&#34;EF9.ResistiveCircuits.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/feature.png" />
+    </item>
+    
     <item>
       <title>EF 8. Induction &amp; Inductance</title>
       <link>https://buezw.github.io/docs/electrical-fundamentals/ef8.inductioninductance/</link>
@@ -67,79 +185,6 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef8.inductioninductance/feature.png" />
-    </item>
-    
-    <item>
-      <title>EF 8. Induction &amp; Inductance</title>
-      <link>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</link>
-      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</guid>
-      <description>&lt;h2 class=&#34;relative group&#34;&gt;EF9.ResistiveCircuits 
-    &lt;div id=&#34;ef9resistivecircuits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ef9resistivecircuits&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;Last Edit: 3/3/25&lt;/p&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Ohm’s Law 
-    &lt;div id=&#34;ohms-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ohms-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Ohm’s Law是以德国物理学家 Georg Simon Ohm 的名字命名的，他确立了 Voltage 和 Current 之间的关系，其发现了 Resistor 两端的 Voltage 和通过的 Current 成正比&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Symbol for a Resistor 
-    &lt;div id=&#34;symbol-for-a-resistor&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#symbol-for-a-resistor&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu8924352349811077473.png 330w,
-        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png 660w,
-        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14812148851474538778.png 1024w,
-        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu7439742641865735479.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png&#34;
-        alt=&#34;EF9.ResistiveCircuits.png&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Electrical Fundamentals</title>
-      <link>https://buezw.github.io/docs/electrical-fundamentals/</link>
-      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/electrical-fundamentals/</guid>
-      <description></description>
-      
     </item>
     
     <item>

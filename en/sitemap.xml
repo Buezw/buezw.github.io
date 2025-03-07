@@ -37,6 +37,24 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/tags/ef/</loc>
+    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</loc>
+    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/</loc>
+    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/docs/learning-programming-with-c/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -89,31 +107,19 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</loc>
+    <lastmod>2025-03-03T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc7.arrays/</loc>
     <lastmod>2025-02-22T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/ef/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/electrical-fundamentals/ef8.inductioninductance/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</loc>
-    <lastmod>2025-02-20T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
