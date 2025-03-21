@@ -43,6 +43,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/docs/electrical-fundamentals/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -310,12 +316,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/docs/calculus/calculusa1.polynomialinterpolation/</loc>
-    <lastmod>2025-01-13T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/</loc>
     <lastmod>2025-01-13T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
