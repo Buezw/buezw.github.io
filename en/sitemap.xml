@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -19,37 +19,59 @@
     />
   </url>
   <url>
+    <loc>https://buezw.github.io/tags/docs/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/ef/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/electrical-fundamentals/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/</loc>
+    <lastmod>2025-03-21T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/tags/"
+    />
+  </url>
+  <url>
     <loc>https://buezw.github.io/tags/c/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/ef/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -71,22 +93,6 @@
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/tags/"
-    />
   </url>
   <url>
     <loc>https://buezw.github.io/tags/cal/</loc>
@@ -357,12 +363,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</loc>
-    <lastmod>2025-01-08T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</loc>
     <lastmod>2025-01-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -417,7 +417,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms8.thermodynamics/</loc>
+    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms8.thermodynamics/</loc>
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -459,7 +459,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms7.lightquantum/</loc>
+    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms7.lightquantum/</loc>
     <lastmod>2024-11-18T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -489,7 +489,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms6.plastics/</loc>
+    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms6.plastics/</loc>
     <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -525,7 +525,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</loc>
+    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</loc>
     <lastmod>2024-10-16T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -549,13 +549,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms4.thestructureproperty/</loc>
+    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms4.thestructureproperty/</loc>
     <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
+    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
     <lastmod>2024-09-24T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -567,13 +567,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
+    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/emcs_engineering-chemistry--materials-science/</loc>
+    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>

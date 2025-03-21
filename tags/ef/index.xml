@@ -9,7 +9,61 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Fri, 07 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ef/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ef/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EF 1. Coulomb&#39;s Law Edited</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/21/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Coulomb&amp;rsquo;s Law 库仑定律 
+    &lt;div id=&#34;coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;电荷之间相互作用力遵循的公式&lt;/li&gt;
+&lt;li&gt;Coulomb&amp;rsquo;s Law 描述了两个 Charged Partials 之间的 Electrostatic Force（或Electric Force）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu7098555360533024946.png 330w,
+        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu7648078660818927912.png 660w,
+        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu3052726973708541951.png 1024w,
+        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu8723941724131963656.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/image_hu7648078660818927912.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/feature.png" />
+    </item>
+    
+    <item>
+      <title>Electrical Fundamentals</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>EF 10. Nodal and Loop Analysis</title>
       <link>https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</link>
@@ -53,16 +107,6 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png" />
-    </item>
-    
-    <item>
-      <title>Electrical Fundamentals</title>
-      <link>https://buezw.github.io/docs/electrical-fundamentals/</link>
-      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/electrical-fundamentals/</guid>
-      <description></description>
-      
     </item>
     
     <item>
@@ -443,96 +487,6 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
 &lt;blockquote&gt;
 &lt;p&gt;We want the charge to be small so that it does not disturb the object’s charge distribution&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/feature.png" />
-    </item>
-    
-    <item>
-      <title>EF 1. Coulomb&#39;s Law</title>
-      <link>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</link>
-      <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/8/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;Coulomb&amp;rsquo;s Law 库仑定律 
-    &lt;div id=&#34;coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Charge 电荷 
-    &lt;div id=&#34;charge-%E7%94%B5%E8%8D%B7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#charge-%E7%94%B5%E8%8D%B7&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Particle与周围物体的电相互作用的强度取决于其电荷（通常表示为 q）&lt;/li&gt;
-&lt;li&gt;其可以是Positive的也可以是Negative的&lt;/li&gt;
-&lt;li&gt;具有相同电荷符号的粒子相互排斥，而具有相反电荷符号的粒子相互吸引&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Neutral Charge 中性 
-    &lt;div id=&#34;neutral-charge-%E4%B8%AD%E6%80%A7&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#neutral-charge-%E4%B8%AD%E6%80%A7&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;一个有相同数量的两种Charge的物体是Electrically Neutral的&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Imbalanced Charge 不平衡 
-    &lt;div id=&#34;imbalanced-charge-%E4%B8%8D%E5%B9%B3%E8%A1%A1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#imbalanced-charge-%E4%B8%8D%E5%B9%B3%E8%A1%A1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;当两种Charge的数量不同时，物体是Imbalanced，并且存在Excess Charge&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Conductor &amp;amp; Insulator 导体和绝缘体 
-    &lt;div id=&#34;conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#conductor--insulator-%E5%AF%BC%E4%BD%93%E5%92%8C%E7%BB%9D%E7%BC%98%E4%BD%93&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Conductor 导体是Electrons可以自由移动的材料&lt;/li&gt;
-&lt;li&gt;Insulator 非导体（绝缘体）中的带电粒子不能自由移动&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Conductor&lt;/strong&gt;主要依赖于&lt;strong&gt;电子&lt;/strong&gt;的自由移动，因此强调电子的行为。
-&lt;strong&gt;Insulator&lt;/strong&gt;中的电荷载流子（无论是电子还是离子）都被限制，因此用“带电粒子”更加准确&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/feature.png" />
     </item>
     
   </channel>
