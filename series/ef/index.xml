@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EF on Buezwqwg</title>
+    <link>http://localhost:1313/series/ef/</link>
+    <description>Recent content in EF on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2025 Buezwqwg</copyright>
+    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/series/ef/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EF 1. Coulomb&#39;s Law Edited</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef1.coulombslaw/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef1.coulombslaw/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/21/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Coulomb&amp;rsquo;s Law 库仑定律 
+    &lt;div id=&#34;coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#coulombs-law-%E5%BA%93%E4%BB%91%E5%AE%9A%E5%BE%8B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;电荷之间相互作用力遵循的公式&lt;/li&gt;
+&lt;li&gt;Coulomb&amp;rsquo;s Law 描述了两个 Charged Partials 之间的 Electrostatic Force（或Electric Force）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu7098555360533024946.png 330w,
+        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu7648078660818927912.png 660w,
+        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu3052726973708541951.png 1024w,
+        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu8723941724131963656.png 2x&#34;
+        src=&#34;http://localhost:1313/docs/electrical-fundamentals/ef1.coulombslaw/image_hu7648078660818927912.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef1.coulombslaw/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 2. Electric Field Edited</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef2.electricfield/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef2.electricfield/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/21/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Electric Field 电场 
+    &lt;div id=&#34;electric-field-%E7%94%B5%E5%9C%BA&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-field-%E7%94%B5%E5%9C%BA&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在科学中存在多个 Field的概念，其中包含了 Teperature Field，Pressure Field 等&lt;/li&gt;
+&lt;li&gt;而 Electric Field 则是一个 Vector Field，矢量场，其包含了大小与方向&lt;/li&gt;
+&lt;li&gt;具体来说，定义 Electric Field的方式是在 Electric Field \(\vec{E}\) 的某个点 P 处放置一个 Small Positive Charge 的 \(q_0\)，其为 Test Charge&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We want the charge to be small so that it does not disturb the object’s charge distribution&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef2.electricfield/feature.png" />
+    </item>
+    
+    <item>
+      <title>Electrical Fundamentals</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>EF 10. Nodal and Loop Analysis</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</link>
+      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/7/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Node Analysis 
+    &lt;div id=&#34;node-analysis&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#node-analysis&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在 Kirchhoff&amp;rsquo;s Voltage Law, KVL 中，规定了在一个完整的 Closed loop 中，所有 Voltage rises 和Voltage drops 的代数和必须等于零&lt;/li&gt;
+&lt;li&gt;这是因为电压是势能差，一个完整的回路回到起点后，总能量变化应该为零，这是电荷守恒和能量守恒的直接体现&lt;/li&gt;
+&lt;li&gt;然而，对于 &lt;strong&gt;Partial path&lt;/strong&gt; 或 &lt;strong&gt;Non-closed segment&lt;/strong&gt; 非闭合段，其电压之和不一定为零，而是等于这些局部路径两端 Node 的电压差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu14836653746222108356.png 330w,
+        /docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13701235930078814582.png 660w,
+        /docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13007749878243609150.png 1024w,
+        /docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu2375413442522557764.png 2x&#34;
+        src=&#34;http://localhost:1313/docs/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13701235930078814582.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 9. Resistive Circuits</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef9.resistivecircuits/</link>
+      <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef9.resistivecircuits/</guid>
+      <description>&lt;h2 class=&#34;relative group&#34;&gt;EF9.ResistiveCircuits 
+    &lt;div id=&#34;ef9resistivecircuits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ef9resistivecircuits&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Last Edit: 3/3/25&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ohm’s Law 
+    &lt;div id=&#34;ohms-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ohms-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Ohm’s Law是以德国物理学家 Georg Simon Ohm 的名字命名的，他确立了 Voltage 和 Current 之间的关系，其发现了 Resistor 两端的 Voltage 和通过的 Current 成正比&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Symbol for a Resistor 
+    &lt;div id=&#34;symbol-for-a-resistor&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#symbol-for-a-resistor&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu8924352349811077473.png 330w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png 660w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14812148851474538778.png 1024w,
+        /docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu7439742641865735479.png 2x&#34;
+        src=&#34;http://localhost:1313/docs/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png&#34;
+        alt=&#34;EF9.ResistiveCircuits.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef9.resistivecircuits/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 8. Induction &amp; Inductance</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef8.inductioninductance/</link>
+      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef8.inductioninductance/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Faraday’s Law of Induction 
+    &lt;div id=&#34;faradays-law-of-induction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#faradays-law-of-induction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;任何封闭电路中 Induced Current 大小，等于穿过这一电路 Magnetic Flux 的变化率&lt;/li&gt;
+&lt;li&gt;已知 Magnetic Flux 的定义即为 \(\Phi_B=\int B\cdot dA\)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Experiment on change of Magnetic Flux 
+    &lt;div id=&#34;experiment-on-change-of-magnetic-flux&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#experiment-on-change-of-magnetic-flux&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;如图所示，现在有两个独立闭合电路&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu7387844013605343016.png 330w,
+        /docs/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15348448422353166210.png 660w,
+        /docs/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15379995169890920571.png 1024w,
+        /docs/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu1971224904868116517.png 2x&#34;
+        src=&#34;http://localhost:1313/docs/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15348448422353166210.png&#34;
+        alt=&#34;Img&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef8.inductioninductance/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 7. Magnetic Fields</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef7.magneticfields/</link>
+      <pubDate>Sat, 08 Feb 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef7.magneticfields/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/8/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Magnetic Field 
+    &lt;div id=&#34;magnetic-field&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#magnetic-field&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;与 Electric Field 一般，Magnetic Field 也是由 Magnetic Charge 产生的&lt;/li&gt;
+&lt;li&gt;虽然理论上存在 Individual Magnetic Charges (AKA Magnetic Monopoles) 但是尚未被证实&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Creation of Magnetic Fields 
+    &lt;div id=&#34;creation-of-magnetic-fields&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#creation-of-magnetic-fields&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;通常来说磁场通过两种方式形成，一个是 Electrically Charged Particles 比如导线中的电流形成的 Magnetic Field&lt;/li&gt;
+&lt;li&gt;另一种则是通过 Elementary Particles 基本粒子，如 Electron 等形成的 Intrinsic Magnetic Field 固有磁场&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Magnetic Field Strength 
+    &lt;div id=&#34;magnetic-field-strength&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#magnetic-field-strength&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当 Charged Particle 在 Magnetic Field 中移动的时候，它受到的力为
+$$\vec F_B=q(\vec v\times\vec B)$$&lt;/li&gt;
+&lt;li&gt;其中 \(\vec v\) 为 Velocity Vector&lt;/li&gt;
+&lt;li&gt;Magnetic Field Strength 的力的方向则是 Cross Product 方向，即通过 Right Hard Rule 给出&lt;/li&gt;
+&lt;li&gt;具体来说 Magnitude 为
+$$F_B=|q|v_B\sin\phi$$&lt;/li&gt;
+&lt;li&gt;其中 \(\phi\) 为 Velocity 和 Magnetic Field 之间的夹角&lt;/li&gt;
+&lt;li&gt;Magnetic Field Strength 的单位为 Tesla，有
+$$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\text{meter/second})}$$&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Direction of Magnetic Field 
+    &lt;div id=&#34;direction-of-magnetic-field&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#direction-of-magnetic-field&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;磁场线从磁体的 North Pole 指向 South Pole，和 Charged Particle 一般，同性相斥异性相吸&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;ex. Magnetic Force on a moving charged particle 
+    &lt;div id=&#34;ex-magnetic-force-on-a-moving-charged-particle&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ex-magnetic-force-on-a-moving-charged-particle&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;A uniform magnetic field \(\vec{B}\), with a magnitude of \(1.2 , \text{mT}\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \(5.3 , \text{MeV}\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \(1.67 \times 10^{-27} , \text{kg}\). (Neglect Earth&amp;rsquo;s magnetic field.)&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef7.magneticfields/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 6. Current &amp; Resistance</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef6.currentresistance/</link>
+      <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef6.currentresistance/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/7/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Electric Current 
+    &lt;div id=&#34;electric-current&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-current&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;对于一个铜环，内部每一处都处于同一个 Potential 下，即 In Electrostatic Equilibrium 处于静电平衡，并且内部 Electric Field 均为零
+
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu12897430973313359960.png 330w,
+        /docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu13147796366552973561.png 660w,
+        /docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu4088479549258487442.png 1024w,
+        /docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu7321396153845132530.png 2x&#34;
+        src=&#34;http://localhost:1313/docs/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu13147796366552973561.png&#34;
+        alt=&#34;Img&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef6.currentresistance/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 5. Capacitance</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef5.capacitance/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef5.capacitance/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/6/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Capacitor 电容器是一种储存 Electrical Energy 的装置，由两个相互隔离的导体（即极板）组成，分别带有 +q 和 -q 的电荷&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef5.capacitance/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 4. Electric Potential</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef4.electricpotential/</link>
+      <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef4.electricpotential/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/23/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;4.1 Electric Potential 
+    &lt;div id=&#34;41-electric-potential&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#41-electric-potential&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于一个重力场，其Field Strength为g，而Gravity所做的功则为\(W=mgh\)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu3013009443759680203.png 330w,
+        /docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu10790805179443622640.png 660w,
+        /docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu15032556861933157744.png 1024w,
+        /docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu2476701224367274999.png 2x&#34;
+        src=&#34;http://localhost:1313/docs/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu10790805179443622640.png&#34;
+        alt=&#34;Img&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef4.electricpotential/feature.png" />
+    </item>
+    
+    <item>
+      <title>EF 3. Gauss&#39; Law</title>
+      <link>http://localhost:1313/docs/electrical-fundamentals/ef3.gausslaw/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:1313/docs/electrical-fundamentals/ef3.gausslaw/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;3.1 Electric Flux 电通量 
+    &lt;div id=&#34;31-electric-flux-%E7%94%B5%E9%80%9A%E9%87%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#31-electric-flux-%E7%94%B5%E9%80%9A%E9%87%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;从一个Flat的面积为A的平面开始，其处于一个Electric Field \(\vec E\) 中，其中会有\(E\cos \theta\)个电荷穿过这个平面，而这些个穿过该平面的电荷的数量就叫做Electric Flux，电通量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;EF3.Gauss%27Law.png&#34; alt=&#34;Img&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/electrical-fundamentals/ef3.gausslaw/feature.png" />
+    </item>
+    
+  </channel>
+</rss>

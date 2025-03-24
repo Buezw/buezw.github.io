@@ -9,7 +9,186 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DYN 1. Rectilinear Motion Edited</title>
+      <link>https://buezw.github.io/docs/dynamics/dyn1.rectilinearmotion_edited/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dynamics/dyn1.rectilinearmotion_edited/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;直线运动指的是物体沿着一条直线路径移动。这种运动的特点是，物体的速度和加速度（如果有的话）的方向只在一条直线上&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn1.rectilinearmotion_edited/feature.png" />
+    </item>
+    
+    <item>
+      <title>DYN 2. Plane Curvilinear Motion and Rectangular Coordinate_Edited</title>
+      <link>https://buezw.github.io/docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Plane Curvilinear Motion 
+    &lt;div id=&#34;plane-curvilinear-motion&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#plane-curvilinear-motion&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Plane Curvilinear Motion 是指物体在二维平面内沿曲线路径的运动。这种运动比直线运动复杂，因为物体的速度向量不仅大小可能变化，方向也在不断变&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu13392097281712320818.png 330w,
+        /docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png 660w,
+        /docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu12345705633840858989.png 1024w,
+        /docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu16175045965759161878.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/feature.png" />
+    </item>
+    
+    <item>
+      <title>DYN 3. Projectile Motion Edited</title>
+      <link>https://buezw.github.io/docs/dynamics/dyn3.projectilemotion_edited/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dynamics/dyn3.projectilemotion_edited/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Assumptions 
+    &lt;div id=&#34;assumptions&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#assumptions&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;斜抛运动其实就是在分析物体在两个自由度上的运动&lt;/li&gt;
+&lt;li&gt;现在为了简化问题，做出以下假设，忽略空气阻力，地球自转，并令重力为常数&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Velocity 
+    &lt;div id=&#34;velocity&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#velocity&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;于是有以下两个方向的初速度为&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Axis&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Initial Velocity&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;Acceleration&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;x&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;\(v_0 \cos \theta\)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;y&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;\(v_0 \sin \theta\)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;\(\downarrow g, , -g \uparrow\)&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/dynamics/dyn3.projectilemotion_edited/image_hu13999105778689987923.png 330w,
+        /docs/dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png 660w,
+        /docs/dynamics/dyn3.projectilemotion_edited/image_hu14974553588324427500.png 1024w,
+        /docs/dynamics/dyn3.projectilemotion_edited/image_hu3129130145504408335.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn3.projectilemotion_edited/feature.png" />
+    </item>
+    
+    <item>
+      <title>DYN 4. N-T Coordinates Edited</title>
+      <link>https://buezw.github.io/docs/dynamics/dyn4.n-tcoordinates_edited/</link>
+      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dynamics/dyn4.n-tcoordinates_edited/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Why N-T 
+    &lt;div id=&#34;why-n-t&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#why-n-t&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;当已知了物体运动的轨迹的时候，可以更加简便的通过 Normal 法线，和 Tangential 切线坐标来描述粒子的运动&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/dynamics/dyn4.n-tcoordinates_edited/image_hu7893211967565200209.png 330w,
+        /docs/dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png 660w,
+        /docs/dynamics/dyn4.n-tcoordinates_edited/image_hu8472462913601878249.png 1024w,
+        /docs/dynamics/dyn4.n-tcoordinates_edited/image_hu4297689936235695212.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn4.n-tcoordinates_edited/feature.png" />
+    </item>
+    
     <item>
       <title>EF 1. Coulomb&#39;s Law Edited</title>
       <link>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</link>
@@ -320,49 +499,6 @@ $$&lt;/p&gt;</description>
 &lt;/blockquote&gt;
 &lt;p&gt;上一章中提到的所有有关于 Function 的内容都是关于一个函数的输入以及输出的，本章将讨论如何在不同函数间访问 Variables&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/feature.png" />
-    </item>
-    
-    <item>
-      <title>DYN 4. Coordinate</title>
-      <link>https://buezw.github.io/docs/dynamics/dyn4.coordinate/</link>
-      <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dynamics/dyn4.coordinate/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 2/13/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;Normal and Tangential Coordinates (n-t) – Circular Motion 
-    &lt;div id=&#34;normal-and-tangential-coordinates-n-t--circular-motion&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#normal-and-tangential-coordinates-n-t--circular-motion&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;当已知了物体运动的轨迹的时候，可以更加简便的通过Normal法线，和Tangential切线坐标来描述粒子的运动&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/dynamics/dyn4.coordinate/DYN4.NormalandTangentialCoordinates_hu14839944584691460007.png 330w,
-        /docs/dynamics/dyn4.coordinate/DYN4.NormalandTangentialCoordinates_hu7448766895545966441.png 660w,
-        /docs/dynamics/dyn4.coordinate/DYN4.NormalandTangentialCoordinates_hu1501304354376045305.png 1024w,
-        /docs/dynamics/dyn4.coordinate/DYN4.NormalandTangentialCoordinates_hu1575434364101877089.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/dynamics/dyn4.coordinate/DYN4.NormalandTangentialCoordinates_hu7448766895545966441.png&#34;
-        alt=&#34;Img&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn4.coordinate/feature.png" />
     </item>
     
     <item>
@@ -944,50 +1080,6 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     </item>
     
     <item>
-      <title>DYN 3. Curvilinear Motion</title>
-      <link>https://buezw.github.io/docs/dynamics/dyn3.curvilinearmotion/</link>
-      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dynamics/dyn3.curvilinearmotion/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;曲线运动，主要描述物体的位移速度和加速度&lt;/p&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Plane Curvilinear Motion 平面曲线运动 
-    &lt;div id=&#34;plane-curvilinear-motion-%E5%B9%B3%E9%9D%A2%E6%9B%B2%E7%BA%BF%E8%BF%90%E5%8A%A8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#plane-curvilinear-motion-%E5%B9%B3%E9%9D%A2%E6%9B%B2%E7%BA%BF%E8%BF%90%E5%8A%A8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;已知位置r，速度v和加速度a&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/dynamics/dyn3.curvilinearmotion/DYN3.CurvilinearMotion_hu4409606457859543426.png 330w,
-        /docs/dynamics/dyn3.curvilinearmotion/DYN3.CurvilinearMotion_hu96041044582256950.png 660w,
-        /docs/dynamics/dyn3.curvilinearmotion/DYN3.CurvilinearMotion_hu5149378687093651996.png 1024w,
-        /docs/dynamics/dyn3.curvilinearmotion/DYN3.CurvilinearMotion_hu8566725093979122226.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/dynamics/dyn3.curvilinearmotion/DYN3.CurvilinearMotion_hu96041044582256950.png&#34;
-        alt=&#34;Img&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn3.curvilinearmotion/feature.png" />
-    </item>
-    
-    <item>
       <title>EF 3. Gauss&#39; Law</title>
       <link>https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw/</link>
       <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
@@ -1084,46 +1176,6 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在整体网络中，存在一些不同的层，他们都是专门用来处理不同事件的，这也令自定义层变得有必要&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
-    </item>
-    
-    <item>
-      <title>DYN 2. Rectilinear Motion</title>
-      <link>https://buezw.github.io/docs/dynamics/dyn2.rectilinearmotion/</link>
-      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dynamics/dyn2.rectilinearmotion/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/19/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;2.1 Rectilinear Motion 直线运动 
-    &lt;div id=&#34;21-rectilinear-motion-%E7%9B%B4%E7%BA%BF%E8%BF%90%E5%8A%A8&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#21-rectilinear-motion-%E7%9B%B4%E7%BA%BF%E8%BF%90%E5%8A%A8&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/dynamics/dyn2.rectilinearmotion/DYN2.RectilinearMotion_hu4983377577876070246.png 330w,
-        /docs/dynamics/dyn2.rectilinearmotion/DYN2.RectilinearMotion_hu11782187809402169278.png 660w,
-        /docs/dynamics/dyn2.rectilinearmotion/DYN2.RectilinearMotion_hu7394882687713836707.png 1024w,
-        /docs/dynamics/dyn2.rectilinearmotion/DYN2.RectilinearMotion_hu1418611603489186125.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/dynamics/dyn2.rectilinearmotion/DYN2.RectilinearMotion_hu11782187809402169278.png&#34;
-        alt=&#34;Img&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn2.rectilinearmotion/feature.png" />
     </item>
     
     <item>
@@ -1464,158 +1516,6 @@ $$L_1(x) := \begin{cases}
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/feature.png" />
-    </item>
-    
-    <item>
-      <title>DYN 1. Intoduction to Dynamics</title>
-      <link>https://buezw.github.io/docs/dynamics/dyn1.intoductiontodynamics/</link>
-      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dynamics/dyn1.intoductiontodynamics/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/12/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;1.1 Basic Concepts 
-    &lt;div id=&#34;11-basic-concepts&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#11-basic-concepts&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Concepts&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Definition&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Space&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;The geometric region occupied by bodies&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Time&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;A measure of the succession of events and is considered an absolute quantity in Newtonian mechanics&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Mass&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;The quantitative measure of the inertia or resistance to change in motion of a body&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Force&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;The vector action of one body on another&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Particle&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;A body of negligible dimensions (e.g., mass, size)&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Rigid Body&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;A body whose changes in shape are negligible&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Vector and Scalar&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Their distinction should be perfectly clear&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;1.2 Newton&amp;rsquo;s Laws 
-    &lt;div id=&#34;12-newtons-laws&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#12-newtons-laws&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Law I. A particle remains at rest or continues to move with uniform velocity (in a straight line with a constant speed) if there is no unbalanced force acting on it.&lt;/li&gt;
-&lt;li&gt;Law II. The acceleration of a particle is proportional to the resultant force acting on it and is in the direction of this force.&lt;/li&gt;
-&lt;li&gt;Law III.  The forces of action and reaction between interacting bodies are equal in magnitude, opposite in direction, and collinear.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;1.3 Units 
-    &lt;div id=&#34;13-units&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#13-units&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Dimension&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;SI Unit&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;U.S. Unit&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Conversion Factor&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Mass {M}&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Kg&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Slug&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;1 slug = 14.5939 kg&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Length {L}&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;m&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;ft&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;1 ft = 0.3048 m&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Time {T}&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;s&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;s&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;1 s = 1 s&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Force {F}&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;N&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;lbf&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;1 lbf = 4.44822 N (*g = 32.2 ft/s²)&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;1.4 Gravitation 
-    &lt;div id=&#34;14-gravitation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#14-gravitation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Newton’s Law of Gravitational Attraction 
-    &lt;div id=&#34;newtons-law-of-gravitational-attraction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#newtons-law-of-gravitational-attraction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;p&gt;$$F = \frac{G m_1 m_2}{r^2}$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dynamics/dyn1.intoductiontodynamics/feature.png" />
     </item>
     
     <item>
