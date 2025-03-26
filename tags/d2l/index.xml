@@ -9,15 +9,41 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 28 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/d2l/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/d2l/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D2L 6. ConvolutionNeuronNetwork</title>
       <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</link>
-      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</guid>
       <description></description>
       
+    </item>
+    
+    <item>
+      <title>D2L 6.3 Padding &amp; Stride</title>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;前面提到，输入图像大小为 3x3，kernel 为 2×2，输出的维数是 2×2，则可以判断出输出维度为&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/feature.png" />
+    </item>
+    
+    <item>
+      <title>D2L 6.4 Multiple Input &amp; Output</title>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一张常规的图像通常包含了 RGB 三种颜色，也是就是为互相关运算添加了一个维度&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/feature.png" />
     </item>
     
     <item>

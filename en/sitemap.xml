@@ -19,6 +19,48 @@
     />
   </url>
   <url>
+    <loc>https://buezw.github.io/tags/c/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/computer-science/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/d2l/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/series/d2l/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/tags/docs/</loc>
     <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -47,6 +89,40 @@
     <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/learning-programming-with-c/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/lpc/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/series/</loc>
+    <lastmod>2025-03-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/series/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/series/"
+    />
   </url>
   <url>
     <loc>https://buezw.github.io/tags/</loc>
@@ -113,25 +189,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/c/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/lpc/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -203,30 +261,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/computer-science/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/d2l/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/series/d2l/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</loc>
     <lastmod>2025-01-28T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -237,22 +271,6 @@
     <lastmod>2025-01-28T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/series/</loc>
-    <lastmod>2025-01-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/series/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/series/"
-    />
   </url>
   <url>
     <loc>https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/</loc>

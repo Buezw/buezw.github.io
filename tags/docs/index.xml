@@ -11,6 +11,32 @@
     <copyright>© 2025 Buezwqwg</copyright>
     <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>D2L 6.3 Padding &amp; Stride</title>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;前面提到，输入图像大小为 3x3，kernel 为 2×2，输出的维数是 2×2，则可以判断出输出维度为&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/feature.png" />
+    </item>
+    
+    <item>
+      <title>D2L 6.4 Multiple Input &amp; Output</title>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一张常规的图像通常包含了 RGB 三种颜色，也是就是为互相关运算添加了一个维度&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/feature.png" />
+    </item>
+    
+    <item>
       <title>DYN 5. R-Theta Coordinate Edited</title>
       <link>https://buezw.github.io/docs/dynamics/dyn5.r-thetacoordinate_edited/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
@@ -31,6 +57,29 @@
       <guid>https://buezw.github.io/docs/dynamics/</guid>
       <description></description>
       
+    </item>
+    
+    <item>
+      <title>Learning Programming with C</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>LPC 9. Multi-dimensional Arrays</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/</link>
+      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在之前介绍了 Array 的使用，但那些都是对于 One-Dimensional Arrays 的，但是引入 Multi-Dimension 也非常重要&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/feature.png" />
     </item>
     
     <item>
@@ -340,16 +389,6 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png" />
-    </item>
-    
-    <item>
-      <title>Learning Programming with C</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/</link>
-      <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://learningc.org/cover&#34; target=&#34;_blank&#34;&gt;https://learningc.org/cover&lt;/a&gt;&lt;/p&gt;</description>
-      
     </item>
     
     <item>
