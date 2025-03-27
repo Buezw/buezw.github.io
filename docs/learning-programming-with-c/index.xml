@@ -9,7 +9,20 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/learning-programming-with-c/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/learning-programming-with-c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LPC 10. Strings </title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc10.strings/</link>
+      <pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc10.strings/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 25/3/27&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Throughout this book, we study different data types. None of the data types discussed before stores a word or sentence, because in C programming language there is no data type that stores a word/sentence.&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc10.strings/feature.png" />
+    </item>
+    
     <item>
       <title>LPC 9. Multi-dimensional Arrays</title>
       <link>https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/</link>
