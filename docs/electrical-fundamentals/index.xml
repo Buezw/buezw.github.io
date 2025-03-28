@@ -9,13 +9,56 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/electrical-fundamentals/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/electrical-fundamentals/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EF 3. Gauss&#39; Law Edited</title>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw_edited/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw_edited/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/28/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Electric Flux 
+    &lt;div id=&#34;electric-flux&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-flux&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;穿一个大小为 A 的平面的 Electric Field 个数&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/electrical-fundamentals/ef3.gausslaw_edited/image_hu8802652043434880325.png 330w,
+        /docs/electrical-fundamentals/ef3.gausslaw_edited/image_hu13755665881257866306.png 660w,
+        /docs/electrical-fundamentals/ef3.gausslaw_edited/image_hu3513976184223037978.png 1024w,
+        /docs/electrical-fundamentals/ef3.gausslaw_edited/image_hu3352758712050547112.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw_edited/image_hu13755665881257866306.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw_edited/feature.png" />
+    </item>
+    
     <item>
       <title>EF 1. Coulomb&#39;s Law Edited</title>
-      <link>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</link>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw_edited/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/</guid>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/21/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -41,25 +84,25 @@
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu7098555360533024946.png 330w,
-        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu7648078660818927912.png 660w,
-        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu3052726973708541951.png 1024w,
-        /docs/electrical-fundamentals/ef1.coulombslaw/image_hu8723941724131963656.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/image_hu7648078660818927912.png&#34;
+        /docs/electrical-fundamentals/ef1.coulombslaw_edited/image_hu7098555360533024946.png 330w,
+        /docs/electrical-fundamentals/ef1.coulombslaw_edited/image_hu7648078660818927912.png 660w,
+        /docs/electrical-fundamentals/ef1.coulombslaw_edited/image_hu3052726973708541951.png 1024w,
+        /docs/electrical-fundamentals/ef1.coulombslaw_edited/image_hu8723941724131963656.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw_edited/image_hu7648078660818927912.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw_edited/feature.png" />
     </item>
     
     <item>
       <title>EF 2. Electric Field Edited</title>
-      <link>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/</link>
+      <link>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield_edited/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/</guid>
+      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/21/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -82,7 +125,7 @@
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;We want the charge to be small so that it does not disturb the object’s charge distribution&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield_edited/feature.png" />
     </item>
     
     <item>
@@ -444,39 +487,6 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/feature.png" />
-    </item>
-    
-    <item>
-      <title>EF 3. Gauss&#39; Law</title>
-      <link>https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw/</link>
-      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;3.1 Electric Flux 电通量 
-    &lt;div id=&#34;31-electric-flux-%E7%94%B5%E9%80%9A%E9%87%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#31-electric-flux-%E7%94%B5%E9%80%9A%E9%87%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;从一个Flat的面积为A的平面开始，其处于一个Electric Field \(\vec E\) 中，其中会有\(E\cos \theta\)个电荷穿过这个平面，而这些个穿过该平面的电荷的数量就叫做Electric Flux，电通量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;EF3.Gauss%27Law.png&#34; alt=&#34;Img&#34; /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw/feature.png" />
     </item>
     
   </channel>
