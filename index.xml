@@ -9,7 +9,94 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>D2L 6.5 Pooling Layer</title>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在处理图像的时候，希望逐渐扩大 Layer 的 Receptive Field，这是因为学习任务通常会和全局的图像相关，如“图像是否包含某个物体？”，所以需要逐渐汇集信息到最后一层时包含整个图像&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/feature.png" />
+    </item>
+    
+    <item>
+      <title>D2L 6.6 LeNet</title>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;我们在前面章节已经学习了构建完整 Convolutional Neural Network 卷积神经网络，简称 CNN）所需的基础模块，但是为了把这些模块真正用起来，需要介绍一个完整的、早期的 CNN 架构 LeNet（LeNet-5）&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/feature.png" />
+    </item>
+    
+    <item>
+      <title>LPC 11. Recursion</title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc11.recursion/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc11.recursion/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;11.1 Recursive Functions by Definition 
+    &lt;div id=&#34;111-recursive-functions-by-definition&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#111-recursive-functions-by-definition&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Recursion 递归是一个先解决更小问题实例，后解决整体问题的方法&lt;/li&gt;
+&lt;li&gt;Recursion 这一次特指函数调用自身&lt;/li&gt;
+&lt;li&gt;Recursion 包含饿了 End Case 和 Loop Case，分别代表了循环条件和终止条件，二者缺一不可&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;11.1.1 Euclidean Algorithm for GCD 
+    &lt;div id=&#34;1111-euclidean-algorithm-for-gcd&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1111-euclidean-algorithm-for-gcd&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Euclidean Algorithm 是一种用于求两个整数最大公约数的方法，这个方法是递归定义的&lt;/li&gt;
+&lt;li&gt;该算法的核心为，如果 a 和 b 是两个正整数且 $a &amp;gt; b$，则 a 和 b 的最大公约数等于 $a - b$ 和 b 的 GCD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\text{GCD}(a, b) =\begin{cases}\text{GCD}(b, a - b) &amp;amp; \text{if } a &amp;gt; b \\text{GCD}(b, a) &amp;amp; \text{if } a &amp;lt; b \a &amp;amp; \text{if } a = b\end{cases}
+$$&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc11.recursion/feature.png" />
+    </item>
+    
+    <item>
+      <title>LPC 12. Data Structure </title>
+      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc12.datastructure/</link>
+      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc12.datastructure/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Data Structure，即一种储存数据的方式，不同的结构会有不同的性能优势和劣势，即被运用到不同的工作上&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc12.datastructure/feature.png" />
+    </item>
+    
     <item>
       <title>EF 3. Gauss&#39; Law Edited</title>
       <link>https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw_edited/</link>
