@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta name="generator" content="Hugo 0.135.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>你的主页标题</title>
+  <style>
+     
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url('afterlife.png') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #000;
+      color: #fff;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    a {
+      color: #0ff;
+      text-decoration: none;
+    }
+    
+    a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    
+     
+    .wrapper {
+      width: 100vw;
+      aspect-ratio: 16/9;
+      max-height: 100vh;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      position: relative;
+    }
+    
+     
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 40px 0 20px;
+      height: 50px;
+    }
+    
+    .top-nav a {
+      margin-left: 20px;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    
+     
+    .avatar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      object-fit: cover;
+    }
+    
+     
+    .main-section {
+      display: flex;
+      gap: 30px;
+      padding: 0 30px;
+      margin-top: 260px;  
+      flex-grow: 1;
+      align-items: flex-start;
+    }
+    
+    .left-panel {
+      width: 260px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+    .profile-info {
+      font-size: 0.9rem;
+    }
+    
+    .profile-info h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+    }
+    
+    .profile-info p {
+      margin: 10px 0;
+    }
+    
+    .profile-links {
+      margin-top: 10px;
+    }
+    
+    .profile-links div {
+      margin: 10px 0;
+      font-size: 0.95rem;
+    }
+    
+    .profile-links i {
+      margin-right: 8px;
+    }
+    
+     
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      flex: 1;
+    }
+    
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    
+     
+    .bottom-section {
+      display: flex;
+      gap: 40px;
+      padding: 20px 30px;
+      flex-wrap: wrap;
+    }
+    
+    .timeline {
+      border-left: 3px solid #0ff;
+      padding-left: 20px;
+      flex: 1;
+      min-width: 280px;
+    }
+    
+    .timeline-item {
+      margin-bottom: 20px;
+    }
+    
+    .timeline-item span {
+      font-weight: bold;
+      color: #0ff;
+    }
+    
+    .recent-articles {
+      flex: 2;
+      min-width: 300px;
+    }
+    
+    .recent-articles h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .show-more {
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .show-more button {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    
+    .show-more button:hover {
+      background: #0ff;
+      color: #000;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body>
+  <div class="wrapper">
+    <div class="top-nav">
+      <a href="#">GitHub</a>
+      <a href="mailto:you@example.com">Email</a>
+      <a href="#">博客</a>
+      <a href="#">切换模式</a>
+    </div>
+    
+    
+    <img src="/avatar.png" alt="avatar" class="avatar" />
+    
+    <div class="main-section">
+      <div class="left-panel">
+        <div class="profile-info">
+          <h3>Buezwqwg</h3>
+          <p>University of Toronto</p>
+          <p>The Edward S. Rogers Sr. Department of Electrical & Computer Engineering</p>
+        </div>
+        <div class="profile-links">
+          <div><i class="fas fa-envelope"></i> <a href="mailto:you@example.com">Email</a></div>
+          <div><i class="fab fa-github"></i> <a href="https://github.com/yourusername">GitHub</a></div>
+          <div><i class="fas fa-flask"></i> <a href="https://www.researchgate.net/profile/YourName">ResearchGate</a></div>
+          <div><i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=xxxx">Google Scholar</a></div>
+          <div><i class="fas fa-id-card"></i> <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a></div>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>云盘</h3>
+          <p>存储和共享资料</p>
+        </div>
+        <div class="card">
+          <h3>实验室</h3>
+          <p>收集有趣的 HTML/CSS 实验</p>
+        </div>
+        <div class="card">
+          <h3>技能</h3>
+          <ul>
+            <li>HTML / CSS</li>
+            <li>JavaScript / Python</li>
+            <li>FastAPI / Linux</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="bottom-section">
+      <div class="timeline">
+        <div class="timeline-item"><span>2021.2</span> 出来后流心页面上线</div>
+        <div class="timeline-item"><span>2023.3</span> 注册域名</div>
+        <div class="timeline-item"><span>2023.8</span> ICP 备案成功</div>
+        <div class="timeline-item"><span>2024.1</span> 敬请期待更多内容...</div>
+      </div>
+      <div class="recent-articles">
+        <h2>Recent Articles</h2>
+        
+          
+
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+</section>
+
+        
+        
+          <div class="show-more">
+            <a href="docs">
+              <button>
+                显示更多
+              </button>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
+</html>

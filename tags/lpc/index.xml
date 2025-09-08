@@ -12,10 +12,10 @@
     <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/lpc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LPC 11. Recursion</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc11.recursion/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc11.recursion/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -55,93 +55,93 @@
 &lt;p&gt;$$
 \text{GCD}(a, b) =\begin{cases}\text{GCD}(b, a - b) &amp;amp; \text{if } a &amp;gt; b \\text{GCD}(b, a) &amp;amp; \text{if } a &amp;lt; b \a &amp;amp; \text{if } a = b\end{cases}
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc11.recursion/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/feature.png" />
     </item>
     
     <item>
       <title>LPC 12. Data Structure </title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc12.datastructure/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc12.datastructure/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Data Structure，即一种储存数据的方式，不同的结构会有不同的性能优势和劣势，即被运用到不同的工作上&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc12.datastructure/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/feature.png" />
     </item>
     
     <item>
       <title>LPC 10. Strings </title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc10.strings/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/</link>
       <pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc10.strings/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 25/3/27&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Throughout this book, we study different data types. None of the data types discussed before stores a word or sentence, because in C programming language there is no data type that stores a word/sentence.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc10.strings/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/feature.png" />
     </item>
     
     <item>
       <title>LPC 9. Multi-dimensional Arrays</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在之前介绍了 Array 的使用，但那些都是对于 One-Dimensional Arrays 的，但是引入 Multi-Dimension 也非常重要&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/feature.png" />
     </item>
     
     <item>
       <title>LPC 8. Dynamic Memory Allocation </title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/7/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;前面提到过了 Array 中的 Memory 的分配方式是固定的连续内存，而想要修改 Array 的大小则变得困难，这时候就需要通过 Dynamic Memory Allocation 来动态的分布内存&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/feature.png" />
     </item>
     
     <item>
       <title>LPC 7. Arrays</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc7.arrays/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc7.arrays/</link>
       <pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc7.arrays/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc7.arrays/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 2/22/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;很多情况下，需要连续处理多个值，而分别给他们赋值则显得特别麻烦，于是就需要一种更加高效的数据结构&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc7.arrays/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc7.arrays/feature.png" />
     </item>
     
     <item>
       <title>LPC 6. Pointers</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc6.pointers/</link>
       <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc6.pointers/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 2/20/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;上一章中提到的所有有关于 Function 的内容都是关于一个函数的输入以及输出的，本章将讨论如何在不同函数间访问 Variables&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc6.pointers/feature.png" />
     </item>
     
     <item>
       <title>LPC 5. Functions</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc5.functions/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc5.functions/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/28/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -158,28 +158,28 @@ $$&lt;/p&gt;</description>
     
 &lt;/h1&gt;
 &lt;p&gt;Function是用来执行特定任务的可重复调用恶的代码块，通过Modular Programming将复杂问题分解&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc5.functions/feature.png" />
     </item>
     
     <item>
       <title>LPC 4. Repetition</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc4.repetition/</link>
       <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc4.repetition/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Loops帮助程序节省空间，提高编写效率并减少错误，常见的Loop存在两种，while loop和for loop&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc4.repetition/feature.png" />
     </item>
     
     <item>
       <title>LPC 3. Decision Making Statements</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/</link>
       <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/13/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -435,25 +435,25 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu14771444122089271576.png 330w,
-        /docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png 660w,
-        /docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu9341054436462208839.png 1024w,
-        /docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu13158954285452890454.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png&#34;
+        /docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu14771444122089271576.png 330w,
+        /docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png 660w,
+        /docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu9341054436462208839.png 1024w,
+        /docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu13158954285452890454.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/feature.png" />
     </item>
     
     <item>
       <title>LPC 2. Data &amp; Operations</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/9/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -511,15 +511,15 @@ $$&lt;/p&gt;</description>
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;这样操作将会报错，因为&lt;code&gt;InchesToCm&lt;/code&gt;是一个不可以更改的Constant&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/feature.png" />
     </item>
     
     <item>
       <title>LPC 1. Intro to Programming Computers</title>
-      <link>https://buezw.github.io/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</link>
+      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</link>
       <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/8/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -556,17 +556,17 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu4440032987239514809.png 330w,
-        /docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu15081779412421026257.png 660w,
-        /docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu17787250618502931940.png 1024w,
-        /docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu12766134372818378964.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu15081779412421026257.png&#34;
+        /docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu4440032987239514809.png 330w,
+        /docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu15081779412421026257.png 660w,
+        /docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu17787250618502931940.png 1024w,
+        /docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu12766134372818378964.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu15081779412421026257.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/feature.png" />
     </item>
     
   </channel>

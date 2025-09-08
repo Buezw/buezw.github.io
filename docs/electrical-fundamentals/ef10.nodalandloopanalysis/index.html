@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -16,7 +20,7 @@
   <meta name="keywords" content="Docs, EF, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/" />
+  <link rel="canonical" href="http://localhost:1313/docs/electrical-fundamentals/ef10.nodalandloopanalysis/" />
   
   
   
@@ -64,7 +68,7 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/">
+  <meta property="og:url" content="http://localhost:1313/docs/electrical-fundamentals/ef10.nodalandloopanalysis/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="EF 10. Nodal and Loop Analysis">
   <meta property="og:description" content=" Last Edit: 3/7/25
@@ -72,15 +76,15 @@ Node Analysis #在 Kirchhoff’s Voltage Law, KVL 中，规定了在一个完�
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2025-03-07T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-03-07T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-04-07T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-04-07T00:00:00+00:00">
     <meta property="article:tag" content="Docs">
     <meta property="article:tag" content="EF">
-    <meta property="og:image" content="https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png">
+    <meta property="og:image" content="http://localhost:1313/docs/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png">
+  <meta name="twitter:image" content="http://localhost:1313/docs/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png">
   <meta name="twitter:title" content="EF 10. Nodal and Loop Analysis">
   <meta name="twitter:description" content=" Last Edit: 3/7/25
 Node Analysis #在 Kirchhoff’s Voltage Law, KVL 中，规定了在一个完整的 Closed loop 中，所有 Voltage rises 和Voltage drops 的代数和必须等于零 这是因为电压是势能差，一个完整的回路回到起点后，总能量变化应该为零，这是电荷守恒和能量守恒的直接体现 然而，对于 Partial path 或 Non-closed segment 非闭合段，其电压之和不一定为零，而是等于这些局部路径两端 Node 的电压差 ">
@@ -96,16 +100,16 @@ Node Analysis #在 Kirchhoff’s Voltage Law, KVL 中，规定了在一个完�
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 3\/7\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eNode Analysis \r\n    \u003cdiv id=\u0022node-analysis\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#node-analysis\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e在 Kirchhoff\u0026rsquo;s Voltage Law, KVL 中，规定了在一个完整的 Closed loop 中，所有 Voltage rises 和Voltage drops 的代数和必须等于零\u003c\/li\u003e\n\u003cli\u003e这是因为电压是势能差，一个完整的回路回到起点后，总能量变化应该为零，这是电荷守恒和能量守恒的直接体现\u003c\/li\u003e\n\u003cli\u003e然而，对于 \u003cstrong\u003ePartial path\u003c\/strong\u003e 或 \u003cstrong\u003eNon-closed segment\u003c\/strong\u003e 非闭合段，其电压之和不一定为零，而是等于这些局部路径两端 Node 的电压差\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\r\n    \u003cfigure\u003e\r\n      \u003cimg\r\n        class=\u0022my-0 rounded-md\u0022\r\n        loading=\u0022lazy\u0022\r\n        srcset=\u0022\r\n        \/docs\/electrical-fundamentals\/ef10.nodalandloopanalysis\/image_hu14836653746222108356.png 330w,\r\n        \/docs\/electrical-fundamentals\/ef10.nodalandloopanalysis\/image_hu13701235930078814582.png 660w,\r\n        \/docs\/electrical-fundamentals\/ef10.nodalandloopanalysis\/image_hu13007749878243609150.png 1024w,\r\n        \/docs\/electrical-fundamentals\/ef10.nodalandloopanalysis\/image_hu2375413442522557764.png 2x\u0022\r\n        src=\u0022\/docs\/electrical-fundamentals\/ef10.nodalandloopanalysis\/image_hu13701235930078814582.png\u0022\r\n        alt=\u0022image.png\u0022\r\n      \/\u003e\r\n      \r\n    \u003c\/figure\u003e\r\n\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/electrical-fundamentals\/ef10.nodalandloopanalysis\/",
+    "url" : "http:\/\/localhost:1313\/docs\/electrical-fundamentals\/ef10.nodalandloopanalysis\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-03-07T00:00:00\u002b00:00",
-    "datePublished": "2025-03-07T00:00:00\u002b00:00",
+    "dateCreated": "2025-04-07T00:00:00\u002b00:00",
+    "datePublished": "2025-04-07T00:00:00\u002b00:00",
     
-    "dateModified": "2025-03-07T00:00:00\u002b00:00",
+    "dateModified": "2025-04-07T00:00:00\u002b00:00",
     
     "keywords": ["Docs","EF"],
     
@@ -166,15 +170,27 @@ Node Analysis #在 Kirchhoff’s Voltage Law, KVL 中，规定了在一个完�
   
 </head>
 <body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-8 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
-  <div id="the-top" class="absolute flex self-center">
-    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
-      href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
-  </div>
-  
-  
-  <div class="min-h-[148px]"></div>
+    class="flex flex-col h-screen text-lg leading-7
+           bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral
+           scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400
+           dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600
+           
+             max-w-7xl m-auto px-6 sm:px-14 md:px-24 lg:px-32
+           ">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+      >
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content
+      </a>
+    </div>
+
+    
+    
+      
+      
+        <div class="min-h-[100px]"></div>
 <div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
   <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
   <div class="relative max-w-[64rem] ml-auto mr-auto">
@@ -536,10 +552,12 @@ Node Analysis #在 Kirchhoff’s Voltage Law, KVL 中，规定了在一个完�
   });
 </script>
 
-  
-  <div class="relative flex flex-col grow">
-    <main id="main-content" class="grow ">
       
+    
+
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow ">
+        
 
 
 <article>
@@ -674,7 +692,7 @@ Node Analysis #在 Kirchhoff’s Voltage Law, KVL 中，规定了在一个完�
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2025-03-07T00:00:00&#43;00:00">Mar 7 2025</time><span class="px-2 text-primary-500">&middot;</span><span>850 words</span>
+  <time datetime="2025-04-07T00:00:00&#43;00:00">Apr 7 2025</time><span class="px-2 text-primary-500">&middot;</span><span>850 words</span>
   
 
   
@@ -1016,6 +1034,390 @@ $$</p>
 
 <h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
 <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef3.gausslaw_edited/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef3.gausslaw_edited/feature_hu17563863749955755898.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef3.gausslaw_edited/">EF 3. Gauss' Law Edited</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-28T00:00:00&#43;00:00">Mar 28 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1795 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef1.coulombslaw_edited/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef1.coulombslaw_edited/feature_hu7123994216172457315.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef1.coulombslaw_edited/">EF 1. Coulomb's Law Edited</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-21T00:00:00&#43;00:00">Mar 21 2025</time><span class="px-2 text-primary-500">&middot;</span><span>2085 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/electrical-fundamentals/ef2.electricfield_edited/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef2.electricfield_edited/feature_hu15715007689661418308.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/electrical-fundamentals/ef2.electricfield_edited/">EF 2. Electric Field Edited</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-21T00:00:00&#43;00:00">Mar 21 2025</time><span class="px-2 text-primary-500">&middot;</span><span>760 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
   
   
 
@@ -1401,390 +1803,6 @@ $$</p>
   </a>
 
   
-  
-
-  <a href="/docs/electrical-fundamentals/ef6.currentresistance/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef6.currentresistance/feature_hu16227829981375144347.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/electrical-fundamentals/ef6.currentresistance/">EF 6. Current & Resistance</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-02-07T00:00:00&#43;00:00">Feb 7 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1060 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EF
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/electrical-fundamentals/ef5.capacitance/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef5.capacitance/feature_hu17020269803641698938.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/electrical-fundamentals/ef5.capacitance/">EF 5. Capacitance</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-02-06T00:00:00&#43;00:00">Feb 6 2025</time><span class="px-2 text-primary-500">&middot;</span><span>2574 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EF
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/electrical-fundamentals/ef4.electricpotential/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/electrical-fundamentals/ef4.electricpotential/feature_hu9324439945946695999.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/electrical-fundamentals/ef4.electricpotential/">EF 4. Electric Potential</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-01-23T00:00:00&#43;00:00">Jan 23 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1613 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EF
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
 </section>
 
   
@@ -1822,40 +1840,18 @@ $$</p>
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/electrical-fundamentals/ef2.electricfield_edited/">
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >EF 2. Electric Field Edited</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-03-21T00:00:00&#43;00:00">Mar 21 2025</time>
-                  
-                </span>
-              </span>
-            </a>
-          
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/docs/electrical-fundamentals/ef9.resistivecircuits/">
+            <a class="flex text-right group ml-3" href="/docs/electrical-fundamentals/ef3.gausslaw_edited/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >EF 9. Resistive Circuits</span
+                  >EF 3. Gauss' Law Edited</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-03-03T00:00:00&#43;00:00">Mar 3 2025</time>
+                    <time datetime="2025-03-28T00:00:00&#43;00:00">Mar 28 2025</time>
                   
                 </span>
               </span>
@@ -1879,14 +1875,15 @@ $$</p>
   </footer>
 </article>
 
-      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
     aria-label="Scroll to top" title="Scroll to top">
     &uarr;
   </a>
 </div>
-    </main><script type="text/javascript"
+      </main><script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
@@ -1958,7 +1955,7 @@ $$</p>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div
@@ -2008,7 +2005,8 @@ $$</p>
   </div>
 </div>
 
-  </div>
-</body>
+    </div>
+  </body>
 
+  
 </html>

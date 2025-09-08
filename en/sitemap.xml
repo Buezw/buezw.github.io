@@ -3,8 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>https://buezw.github.io/tags/books/</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -17,6 +23,88 @@
       hreflang="en"
       href="https://buezw.github.io/"
     />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/docs/</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/books/efficientlyinefficient/</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/ei/</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/tags/"
+    />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/books/</loc>
+    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/notes/</loc>
+    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/cfa/</loc>
+    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/chartered-financial-analyst/</loc>
+    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/ef/</loc>
+    <lastmod>2025-04-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/</loc>
+    <lastmod>2025-04-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/</loc>
+    <lastmod>2025-04-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/c/</loc>
@@ -61,19 +149,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/</loc>
     <lastmod>2025-03-31T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -85,13 +161,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc11.recursion/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/</loc>
     <lastmod>2025-03-31T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc12.datastructure/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/</loc>
     <lastmod>2025-03-31T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -113,41 +189,13 @@
     />
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2025-03-31T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/tags/"
-    />
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/ef/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef3.gausslaw_edited/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc10.strings/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/</loc>
     <lastmod>2025-03-27T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -171,67 +219,61 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/dynamics/dyn5.r-thetacoordinate_edited/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/</loc>
     <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/dynamics/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/dynamics/</loc>
     <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc9.multi-dimensionalarrays/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/</loc>
     <lastmod>2025-03-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/dynamics/dyn1.rectilinearmotion_edited/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/</loc>
     <lastmod>2025-03-24T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</loc>
     <lastmod>2025-03-24T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/dynamics/dyn3.projectilemotion_edited/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/</loc>
     <lastmod>2025-03-24T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/dynamics/dyn4.n-tcoordinates_edited/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/</loc>
     <lastmod>2025-03-24T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef1.coulombslaw_edited/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef2.electricfield_edited/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef2.electricfield_edited/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef10.nodalandloopanalysis/</loc>
-    <lastmod>2025-03-07T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc8.dynamicmemoryallocation/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/</loc>
     <lastmod>2025-03-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -243,55 +285,55 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/calculus/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/calculus/</loc>
     <lastmod>2025-03-06T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/calculus/calculus8.methodsofintegration/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/calculus/calculus8.methodsofintegration/</loc>
     <lastmod>2025-03-06T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef9.resistivecircuits/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/</loc>
     <lastmod>2025-03-03T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc7.arrays/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc7.arrays/</loc>
     <lastmod>2025-02-22T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef8.inductioninductance/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc6.pointers/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc6.pointers/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef7.magneticfields/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef7.magneticfields/</loc>
     <lastmod>2025-02-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef6.currentresistance/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef6.currentresistance/</loc>
     <lastmod>2025-02-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef5.capacitance/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef5.capacitance/</loc>
     <lastmod>2025-02-06T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -303,25 +345,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc5.functions/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc5.functions/</loc>
     <lastmod>2025-01-28T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/electrical-fundamentals/ef4.electricpotential/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef4.electricpotential/</loc>
     <lastmod>2025-01-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/calculus/calculus9.series/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/calculus/calculus9.series/</loc>
     <lastmod>2025-01-22T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc4.repetition/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc4.repetition/</loc>
     <lastmod>2025-01-20T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -375,19 +417,19 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/calculus/calculusa1.polynomialinterpolation/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/</loc>
     <lastmod>2025-01-13T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc3.decisionmakingstatements/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/</loc>
     <lastmod>2025-01-13T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/calculus/calculus11.complexnumber/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/calculus/calculus11.complexnumber/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -399,7 +441,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -411,13 +453,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/calculus/calculus10.parametricequationsandpolarcoordinates/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/</loc>
     <lastmod>2025-01-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</loc>
     <lastmod>2025-01-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -471,7 +513,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms8.thermodynamics/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms8.thermodynamics/</loc>
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -483,25 +525,25 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/linearalgebra/la8.diagonalizationandeigenvalues/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</loc>
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/linearalgebra/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/linearalgebra/</loc>
     <lastmod>2024-11-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/linearalgebra/la7.orthogonalprojection/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</loc>
     <lastmod>2024-11-21T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/linearalgebra/leastsquare/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</loc>
     <lastmod>2024-11-19T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -513,7 +555,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms7.lightquantum/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms7.lightquantum/</loc>
     <lastmod>2024-11-18T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -543,7 +585,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms6.plastics/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms6.plastics/</loc>
     <lastmod>2024-11-10T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -555,7 +597,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/linearalgebra/la6.determiants/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</loc>
     <lastmod>2024-10-24T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -579,7 +621,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</loc>
     <lastmod>2024-10-16T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -597,19 +639,19 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/linearalgebra/la1.vectorlineplane/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</loc>
     <lastmod>2024-10-15T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms4.thestructureproperty/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms4.thestructureproperty/</loc>
     <lastmod>2024-09-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms2.elasticbehavior/</loc>
     <lastmod>2024-09-24T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -621,14 +663,26 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms3.plasticdeformation/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/engineering-chemistry--materials-science/</loc>
+    <loc>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/</loc>
     <lastmod>2024-09-23T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/</loc>
+    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/24/</loc>
+    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>

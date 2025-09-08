@@ -1,0 +1,2476 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>LA 8. Diagonalization and Eigenvalues &middot; Buezwqwg</title>
+  <meta name="title" content="LA 8. Diagonalization and Eigenvalues &middot; Buezwqwg" />
+  
+  
+  <meta name="keywords" content="Docs, LA, " />
+  
+  
+  <link rel="canonical" href="https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
+    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.821d421a756ddb6f1c91d41c53d0e2b2afa007b11ade688aa55594a12048893dadc2cbc127bd32da081f77022a40c9e1b73193584db9a34368e9cfd56758e43f.js"
+    integrity="sha512-gh1CGnVt228ckdQcU9Disq&#43;gB7Ea3miKpVWUoSBIiT2twsvBJ70y2ggfdwIqQMnhtzGTWE25o0No6c/VZ1jkPw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/">
+  <meta property="og:site_name" content="Buezwqwg">
+  <meta property="og:title" content="LA 8. Diagonalization and Eigenvalues">
+  <meta property="og:description" content=" Last Edit: 11/25/24
+Eigenvectors and Eigenvalues #考虑Linear Transformation为一种Function，输入x而输出\(Ax\) Eigenvector即对于指定的Vector x，其Ax平行于x，有 $$Ax=\lambda x$$ 其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue 特征向量的定义要求\(x \neq 0\) Zero Eigenvalue #如果0为Matrix的Eigenvalue，则有 $$Ax=0x=0$$ Eigenvalue 0所对应的Vector Span出了Matrix的Null Space 如果矩阵A为不可逆矩阵，则0是其特征值之一 ex. Projection Matrix #对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector ![[LA8.DiagonalizationandEigenvalues.png]]">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2024-11-25T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-11-25T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="LA">
+    <meta property="og:image" content="https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/feature.png">
+  <meta name="twitter:title" content="LA 8. Diagonalization and Eigenvalues">
+  <meta name="twitter:description" content=" Last Edit: 11/25/24
+Eigenvectors and Eigenvalues #考虑Linear Transformation为一种Function，输入x而输出\(Ax\) Eigenvector即对于指定的Vector x，其Ax平行于x，有 $$Ax=\lambda x$$ 其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue 特征向量的定义要求\(x \neq 0\) Zero Eigenvalue #如果0为Matrix的Eigenvalue，则有 $$Ax=0x=0$$ Eigenvalue 0所对应的Vector Span出了Matrix的Null Space 如果矩阵A为不可逆矩阵，则0是其特征值之一 ex. Projection Matrix #对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector ![[LA8.DiagonalizationandEigenvalues.png]]">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "LA 8. Diagonalization and Eigenvalues",
+    "headline": "LA 8. Diagonalization and Eigenvalues",
+    
+    "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 11\/25\/24\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eEigenvectors and Eigenvalues \r\n    \u003cdiv id=\u0022eigenvectors-and-eigenvalues\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#eigenvectors-and-eigenvalues\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e考虑Linear Transformation为一种Function，输入x而输出\\(Ax\\)\u003c\/li\u003e\n\u003cli\u003eEigenvector即对于指定的Vector x，其Ax平行于x，有\n$$Ax=\\lambda x$$\u003c\/li\u003e\n\u003cli\u003e其中x为A的Eigenvector，\\(\\lambda\\)为A的Eigenvalue\u003c\/li\u003e\n\u003cli\u003e特征向量的定义要求\\(x \\neq 0\\)\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eZero Eigenvalue \r\n    \u003cdiv id=\u0022zero-eigenvalue\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#zero-eigenvalue\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e如果0为Matrix的Eigenvalue，则有\n$$Ax=0x=0$$\u003c\/li\u003e\n\u003cli\u003eEigenvalue 0所对应的Vector Span出了Matrix的Null Space\u003c\/li\u003e\n\u003cli\u003e如果矩阵A为不可逆矩阵，则0是其特征值之一\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eex. Projection Matrix \r\n    \u003cdiv id=\u0022ex-projection-matrix\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ex-projection-matrix\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e![[LA8.DiagonalizationandEigenvalues.png]]\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/24\/linearalgebra\/la8.diagonalizationandeigenvalues\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Buezwqwg"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-11-25T00:00:00\u002b00:00",
+    "datePublished": "2024-11-25T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-11-25T00:00:00\u002b00:00",
+    
+    "keywords": ["Docs","LA"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "3669"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Buezwqwg" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEDMYR1V0K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEDMYR1V0K');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen text-lg leading-7
+           bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral
+           scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400
+           dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600
+           
+             max-w-7xl m-auto px-6 sm:px-14 md:px-24 lg:px-32
+           ">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+      >
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content
+      </a>
+    </div>
+
+    
+    
+      
+      
+        <div class="min-h-[100px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Docs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Thoughts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Notes
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Zhihu
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Docs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Thoughts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Notes
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Zhihu
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+      
+    
+
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow ">
+        
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/feature_hu17830827649319231285.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Buezwqwg</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/"
+      >U of T</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/24/"
+      >U of T 24</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/24/linearalgebra/"
+      >Linear Algebra</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/"
+      >LA 8. Diagonalization and Eigenvalues</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      LA 8. Diagonalization and Eigenvalues
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-25T00:00:00&#43;00:00">Nov 25 2024</time><span class="px-2 text-primary-500">&middot;</span><span>3669 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#eigenvectors-and-eigenvalues">Eigenvectors and Eigenvalues</a>
+      <ul>
+        <li><a href="#zero-eigenvalue">Zero Eigenvalue</a></li>
+        <li><a href="#ex-projection-matrix">ex. Projection Matrix</a></li>
+        <li><a href="#ex-permutation-matrix">ex. Permutation Matrix</a></li>
+        <li><a href="#trace-迹">Trace 迹</a></li>
+      </ul>
+    </li>
+    <li><a href="#solve-ax--lambdax">Solve Ax = lambdax</a>
+      <ul>
+        <li><a href="#ex">ex.</a></li>
+      </ul>
+    </li>
+    <li><a href="#trace-equal-to-eigenvalue-summation-矩阵的迹等于特征值之和">Trace Equal to Eigenvalue Summation 矩阵的迹等于特征值之和</a></li>
+    <li><a href="#symmetry-matrixs-eigenvector-orthogonal-对称矩阵的特征向量正交">Symmetry Matrix&rsquo;s Eigenvector Orthogonal 对称矩阵的特征向量正交</a></li>
+    <li><a href="#complex-eigenvalues-复数特征值">Complex eigenvalues 复数特征值</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#antisymmetric-matrices-反对称矩阵">Antisymmetric matrices 反对称矩阵</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#triangular-matrices-and-repeated-eigenvalues-三角阵和重特征值">Triangular matrices and repeated eigenvalues 三角阵和重特征值</a></li>
+    <li><a href="#diagonalization-对角化">Diagonalization 对角化</a>
+      <ul>
+        <li><a href="#power-of-a--矩阵的幂">Power of A  矩阵的幂</a></li>
+        <li><a href="#repeated-eigenvalues-重特征值">Repeated eigenvalues 重特征值</a>
+          <ul>
+            <li><a href="#identity-matrix">Identity Matrix</a></li>
+            <li><a href="#uppertriangular-matrix">UpperTriangular Matrix</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#fibonacci-sequence-斐波那契数列">Fibonacci sequence 斐波那契数列</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#eigenvectors-and-eigenvalues">Eigenvectors and Eigenvalues</a>
+      <ul>
+        <li><a href="#zero-eigenvalue">Zero Eigenvalue</a></li>
+        <li><a href="#ex-projection-matrix">ex. Projection Matrix</a></li>
+        <li><a href="#ex-permutation-matrix">ex. Permutation Matrix</a></li>
+        <li><a href="#trace-迹">Trace 迹</a></li>
+      </ul>
+    </li>
+    <li><a href="#solve-ax--lambdax">Solve Ax = lambdax</a>
+      <ul>
+        <li><a href="#ex">ex.</a></li>
+      </ul>
+    </li>
+    <li><a href="#trace-equal-to-eigenvalue-summation-矩阵的迹等于特征值之和">Trace Equal to Eigenvalue Summation 矩阵的迹等于特征值之和</a></li>
+    <li><a href="#symmetry-matrixs-eigenvector-orthogonal-对称矩阵的特征向量正交">Symmetry Matrix&rsquo;s Eigenvector Orthogonal 对称矩阵的特征向量正交</a></li>
+    <li><a href="#complex-eigenvalues-复数特征值">Complex eigenvalues 复数特征值</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#antisymmetric-matrices-反对称矩阵">Antisymmetric matrices 反对称矩阵</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#triangular-matrices-and-repeated-eigenvalues-三角阵和重特征值">Triangular matrices and repeated eigenvalues 三角阵和重特征值</a></li>
+    <li><a href="#diagonalization-对角化">Diagonalization 对角化</a>
+      <ul>
+        <li><a href="#power-of-a--矩阵的幂">Power of A  矩阵的幂</a></li>
+        <li><a href="#repeated-eigenvalues-重特征值">Repeated eigenvalues 重特征值</a>
+          <ul>
+            <li><a href="#identity-matrix">Identity Matrix</a></li>
+            <li><a href="#uppertriangular-matrix">UpperTriangular Matrix</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#fibonacci-sequence-斐波那契数列">Fibonacci sequence 斐波那契数列</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <blockquote>
+<p>Last Edit: 11/25/24</p>
+</blockquote>
+
+
+<h2 class="relative group">Eigenvectors and Eigenvalues 
+    <div id="eigenvectors-and-eigenvalues" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#eigenvectors-and-eigenvalues" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>考虑Linear Transformation为一种Function，输入x而输出\(Ax\)</li>
+<li>Eigenvector即对于指定的Vector x，其Ax平行于x，有
+$$Ax=\lambda x$$</li>
+<li>其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue</li>
+<li>特征向量的定义要求\(x \neq 0\)</li>
+</ul>
+
+
+<h3 class="relative group">Zero Eigenvalue 
+    <div id="zero-eigenvalue" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#zero-eigenvalue" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>如果0为Matrix的Eigenvalue，则有
+$$Ax=0x=0$$</li>
+<li>Eigenvalue 0所对应的Vector Span出了Matrix的Null Space</li>
+<li>如果矩阵A为不可逆矩阵，则0是其特征值之一</li>
+</ul>
+
+
+<h3 class="relative group">ex. Projection Matrix 
+    <div id="ex-projection-matrix" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-projection-matrix" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector</li>
+</ul>
+<p>![[LA8.DiagonalizationandEigenvalues.png]]</p>
+<ul>
+<li>因为当其投影到Subspace的时候并没有改变</li>
+<li>因此x为Eigenvector，并且Eigenvalue为1</li>
+<li>同时对于Orthogonal于Subspace的Vector，有\(Px=0\)，则这个x也是Eigenvector，其Eigenvalue为0</li>
+</ul>
+
+
+<h3 class="relative group">ex. Permutation Matrix 
+    <div id="ex-permutation-matrix" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-permutation-matrix" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div>
+$$A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$$
+</div>
+<ul>
+<li>对于置换矩阵存在Eigenvector \(x=[1,1]^T\)，Eigenvalue为1</li>
+<li>另一个Eigenvalue为\(x=[-1,1]^T\)，对应Eigenvalue为-1，\(Ax=-x\)</li>
+</ul>
+
+
+<h3 class="relative group">Trace 迹 
+    <div id="trace-%E8%BF%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#trace-%E8%BF%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>\(n\times n\) 的Matrix存在n个Eigenvalue</li>
+<li>并且它们的和，即为Trace，等于矩阵对角线上的元素之和</li>
+<li>对于二阶矩阵，在已知一个特征值的条件下， 可以据此得到另一个特征值</li>
+</ul>
+
+
+<h2 class="relative group">Solve Ax = lambdax 
+    <div id="solve-ax--lambdax" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solve-ax--lambdax" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于\(Ax=\lambda x\)存在两个未知数，下面讨论求解的办法</li>
+<li>Rewrite等式为\((A-\lambda I)x=0\)</li>
+<li>如果系数矩阵\(A - \lambda I\)是<strong>非奇异矩阵</strong>（行列式不为零），那么方程组只有Trivial Solution \(x=0\)</li>
+<li>而如果系数矩阵\(A - \lambda I\)是<strong>奇异矩阵</strong>（行列式为零），那么方程组可能有<strong>非零解\(x \neq 0\)</strong></li>
+<li>于是可以推出\(det(A-\lambda I)=0\)</li>
+<li>在这个没有x的“特征方程”中，可以解得n个特征值，但是有可能方程有Repeated Root，则会得到重复的Eigenvalue</li>
+<li>得到特征值之后，用消元法解\(A-\lambda I\)，这一矩阵零空间中的向量为矩阵 A的特征向量</li>
+</ul>
+
+
+<h3 class="relative group">ex. 
+    <div id="ex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于Matirx</li>
+</ul>
+<div> 
+$$A= \begin{bmatrix}3 & 1 \\1 & 3\end{bmatrix}$$
+</div>
+<div>
+$$\det (A-\lambda I) = \begin{vmatrix} 3-\lambda & 1 \\ 1 & 3-\lambda \end{vmatrix} = (3-\lambda)^2 - 1 = \lambda^2 - 6\lambda + 8$$
+</div>
+<ul>
+<li>在一元二次方程中，6为Trace，8为Determinant</li>
+<li>于是可以总结对于<strong>二阶矩阵的Eigenvalue为该方程的解</strong></li>
+</ul>
+<div>
+$$\lambda^2 - \text{trace}(A) \lambda + \det A = 0$$
+</div>
+<ul>
+<li>对于上面的Matrix则有Eigenvalue = 4 &amp; 2</li>
+</ul>
+<div>
+$$A-4I = \begin{bmatrix} -1 & 1 \\ 1 & -1 \end{bmatrix}, \quad (A-4I)x_1 = 0, \quad x_1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}$$
+$$A-2I = \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}, \quad (A-2I)x_2 = 0, \quad x_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$$
+</div>
+<ul>
+<li>与前面的例子\(A=\begin{bmatrix} 0 &amp; 1 \ 1 &amp; 0 \end{bmatrix}\)的特征值和特征向量相对比，可知两者为一组平移矩阵</li>
+<li>在对角元素上分别加3，改变了特征值但是没有改变特征向量</li>
+</ul>
+ <div>
+ $$Ax = \lambda x, \quad \text{则有} (A+3I)x = \lambda x + 3x = (\lambda + 3)x$$
+ </div>
+<ul>
+<li>所以当两个Matrix有相同的Eigenvectors的时候，他们是可以“相加”的</li>
+<li>当然其中一个为Identity Matrix的情况除外</li>
+</ul>
+
+
+<h2 class="relative group">Trace Equal to Eigenvalue Summation 矩阵的迹等于特征值之和 
+    <div id="trace-equal-to-eigenvalue-summation-%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%B9%E7%AD%89%E4%BA%8E%E7%89%B9%E5%BE%81%E5%80%BC%E4%B9%8B%E5%92%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#trace-equal-to-eigenvalue-summation-%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%B9%E7%AD%89%E4%BA%8E%E7%89%B9%E5%BE%81%E5%80%BC%E4%B9%8B%E5%92%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>将\(det(A-\lambda I)=0\)展开会得到\(\lambda\)的n 阶多项式，多项式的解就是矩阵 A 的特征值</li>
+<li>根据多项式根与系数的关系，解之和即特征值之和等于\(\lambda^{n-1}\)的系数</li>
+<li>而行列式展开式中只有对角线的积这一项包含的\(\lambda^{n-1}\)（其它项最高是n-2次方），而其系数为矩阵A对角线元素之和即矩阵A的Trace，因此特征值之和与矩阵的迹相等</li>
+</ul>
+
+
+<h2 class="relative group">Symmetry Matrix&rsquo;s Eigenvector Orthogonal 对称矩阵的特征向量正交 
+    <div id="symmetry-matrixs-eigenvector-orthogonal-%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E6%AD%A3%E4%BA%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#symmetry-matrixs-eigenvector-orthogonal-%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F%E6%AD%A3%E4%BA%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>\(\lambda_1,\lambda_2\)是对称矩阵的两个不同的特征值，对应的特征向量分别为x1和x2。</li>
+</ul>
+<div>
+$$\text{则有 } A\mathbf{x}_1 = \lambda_1 \mathbf{x}_1, \text{ 左乘 } \mathbf{x}_2^\top \text{ 得 } \mathbf{x}_2^\top A\mathbf{x}_1 = \lambda_1 \mathbf{x}_2^\top \mathbf{x}_1$$
+$$\mathbf{x}_2^\top A\mathbf{x}_1 = (\mathbf{A}^\top \mathbf{x}_2)^\top \mathbf{x}_1 = \lambda_2 \mathbf{x}_2^\top \mathbf{x}_1。\\
+\text{因此有 } (\lambda_1 - \lambda_2) \mathbf{x}_2^\top \mathbf{x}_1 = 0$$
+</div>
+<ul>
+<li>而两特征值不等，所以两特征向量正交</li>
+</ul>
+
+
+<h2 class="relative group">Complex eigenvalues 复数特征值 
+    <div id="complex-eigenvalues-%E5%A4%8D%E6%95%B0%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-eigenvalues-%E5%A4%8D%E6%95%B0%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div>
+$$Q = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} \cos 90^\circ & -\sin 90^\circ \\ \sin 90^\circ & \cos 90^\circ \end{bmatrix}$$
+</div>
+<ul>
+<li>Q是一个是一个90度Rotation Matrix</li>
+<li>从矩阵的Trace和Determinant的值可以得到\(\lambda_1+\lambda_2=0,\lambda_1\lambda_2=1\)</li>
+<li>仅观察Matrix可以发现他的Eigenvector只能是Zero Vector，因为其他Vector乘以Rotation Matrix，其方向将会改变而，不可逆平行于原向量，通过原来的计算可得</li>
+</ul>
+<div>
+$$\det (Q - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} = \lambda^2 + 1 = 0$$
+</div>
+<ul>
+<li>可以解得\(\lambda_1=i,\lambda_2=-i\)</li>
+<li>如果一个矩阵具有复数特征值a+bi则，它的共轭复数a-bi也是矩阵的特征值</li>
+<li><strong>实数特征值让特征向量伸缩而虚数让其旋转</strong></li>
+</ul>
+
+
+<h4 class="relative group">Antisymmetric matrices 反对称矩阵 
+    <div id="antisymmetric-matrices-%E5%8F%8D%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#antisymmetric-matrices-%E5%8F%8D%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>即满足\(A^T=-A\)的矩阵</li>
+<li>对称矩阵永远具有实数的特征值，而，具有纯虚数的特征值</li>
+</ul>
+
+
+<h2 class="relative group">Triangular matrices and repeated eigenvalues 三角阵和重特征值 
+    <div id="triangular-matrices-and-repeated-eigenvalues-%E4%B8%89%E8%A7%92%E9%98%B5%E5%92%8C%E9%87%8D%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#triangular-matrices-and-repeated-eigenvalues-%E4%B8%89%E8%A7%92%E9%98%B5%E5%92%8C%E9%87%8D%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于一个Uppertriangular Matrix</li>
+</ul>
+<div>
+$$A = \begin{bmatrix}3 & 1 \\0 & 3\end{bmatrix}$$
+</div>
+<div>
+$$\det (A - \lambda I) = \begin{vmatrix} 3-\lambda & 1 \\ 0 & 3-\lambda \end{vmatrix} = (3-\lambda)(3-\lambda) = 0
+$$
+</div>
+<ul>
+<li>即\(\lambda_1=\lambda_2=3\)</li>
+</ul>
+<div>
+$$(A-\lambda I)x = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}x = 0, \quad \text{得到} \quad x_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$$
+</div>
+<ul>
+<li>其并没有没有线性无关的x2，说明A是一个退化矩阵，对应相同的特征值，而特征向量短缺</li>
+</ul>
+
+
+<h2 class="relative group">Diagonalization 对角化 
+    <div id="diagonalization-%E5%AF%B9%E8%A7%92%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#diagonalization-%E5%AF%B9%E8%A7%92%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>如果矩阵A具有n个线性无关的特征向量，将它们作为列向量可以组成一个可逆方阵S，并且有</li>
+</ul>
+<div>
+$$AS = A \begin{bmatrix} \mathbf{x}_1 & \mathbf{x}_2 & \cdots & \mathbf{x}_n \end{bmatrix} 
+= \begin{bmatrix} \lambda_1 \mathbf{x}_1 & \lambda_2 \mathbf{x}_2 & \cdots & \lambda_n \mathbf{x}_n \end{bmatrix} 
+= S \begin{bmatrix} 
+\lambda_1 & 0 & \cdots & 0 \\ 
+0 & \lambda_2 & \cdots & 0 \\ 
+\vdots & \vdots & \ddots & \vdots \\ 
+0 & 0 & \cdots & \lambda_n 
+\end{bmatrix} = S D$$
+</div>
+<ul>
+<li>根据上式可写出\(AS=SD\Rightarrow S^{-1}AS=D\)，这就叫Diagonalization</li>
+<li>同理也有\(A=SDS^{-1}\)</li>
+</ul>
+
+
+<h3 class="relative group">Power of A  矩阵的幂 
+    <div id="power-of-a--%E7%9F%A9%E9%98%B5%E7%9A%84%E5%B9%82" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#power-of-a--%E7%9F%A9%E9%98%B5%E7%9A%84%E5%B9%82" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>特征值给矩阵的幂计算提供了方法。</li>
+</ul>
+<div>
+$$\text{如果 } A\mathbf{x} = \lambda \mathbf{x}, \text{ 则有 } A^2\mathbf{x} = \lambda A\mathbf{x} = \lambda^2 \mathbf{x}。$$
+</div>
+<ul>
+<li>这说明了Matrix \(A\)与\(A^2\)拥有相同的Eigenvector</li>
+</ul>
+<div>
+$$A^2 = S D S^{-1} S D S^{-1} = S D^2 S^{-1}$$
+</div>
+<ul>
+<li>同理可以推广到k-th power的情况，有\(A^k = S D^k S^{-1}\)</li>
+<li>这说明\(A^k\)有着和A一样的特征向量，而特征值为\(\lambda^k\)</li>
+<li>如果矩阵A具有n个线性无关的特征向量，并且特征值均满足\(|\lambda_i|&lt;1\)，则k→∞时，Ak→0</li>
+</ul>
+
+
+<h3 class="relative group">Repeated eigenvalues 重特征值 
+    <div id="repeated-eigenvalues-%E9%87%8D%E7%89%B9%E5%BE%81%E5%80%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#repeated-eigenvalues-%E9%87%8D%E7%89%B9%E5%BE%81%E5%80%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>如果矩阵A没有重特征值，则其一定具有n个线性无关的特征向量</strong></li>
+<li><strong>如果矩阵A有重特征值，它有可能具有n个线性无关的特征向量，也可能没有</strong></li>
+</ul>
+
+
+<h4 class="relative group">Identity Matrix 
+    <div id="identity-matrix" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#identity-matrix" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>比如单位阵的特征值为重特征值1，但是其具有n个线性无关的特征向量</li>
+</ul>
+
+
+<h4 class="relative group">UpperTriangular Matrix 
+    <div id="uppertriangular-matrix" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#uppertriangular-matrix" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>参考上面的例子</li>
+<li>对于一个Uppertriangular Matrix</li>
+</ul>
+<div>
+$$A = \begin{bmatrix}3 & 1 \\0 & 3\end{bmatrix}$$
+</div>
+<div>
+$$\det (A - \lambda I) = \begin{vmatrix} 3-\lambda & 1 \\ 0 & 3-\lambda \end{vmatrix} = (3-\lambda)(3-\lambda) = 0$$
+</div>
+<ul>
+<li>即\(\lambda_1=\lambda_2=3\)</li>
+</ul>
+<div>
+$$(A-\lambda I)x = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}x = 0, \quad \text{得到} \quad x_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$$
+</div>
+<ul>
+<li>其存在Repeated Eigenvalue所以可能没有n个Linearly Independent的Eigenvector</li>
+</ul>
+
+
+<h1 class="relative group">Difference equations 差分方程 
+    <div id="difference-equations-%E5%B7%AE%E5%88%86%E6%96%B9%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#difference-equations-%E5%B7%AE%E5%88%86%E6%96%B9%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li><strong>差分方程</strong>描述了<strong>离散变量</strong>之间的递推关系</li>
+<li>简单来说，差分方程是用来研究一系列离散点上的函数值之间的关系</li>
+<li>从给定的一个向量\(u_0\)出发，我们可以通过对前一项乘以矩阵A得到下一项的方式，得到一个向量序列：\(u_{k+1}=Au_k\)</li>
+<li>这里的\(u_k+1=Au_k\)可以是一个一阶差分方程，而\(u_k=A^ku_0\)就是方程的解</li>
+<li>其可以写出Eigenvector的Linear Combination</li>
+</ul>
+<div>
+$$\mathbf{u}_0 = c_1 \mathbf{x}_1 + c_2 \mathbf{x}_2 + \cdots + c_n \mathbf{x}_n = S\mathbf{c}$$
+$$A\mathbf{u}_0 = c_1 \lambda_1 \mathbf{x}_1 + c_2 \lambda_2 \mathbf{x}_2 + \cdots + c_n \lambda_n \mathbf{x}_n$$
+$$\mathbf{u}_k = A^k \mathbf{u}_0 = c_1 \lambda_1^k \mathbf{x}_1 + c_2 \lambda_2^k \mathbf{x}_2 + \cdots + c_n \lambda_n^k \mathbf{x}_n = D^k S\mathbf{c}$$
+</div>
+
+
+<h3 class="relative group">Fibonacci sequence 斐波那契数列 
+    <div id="fibonacci-sequence-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fibonacci-sequence-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>斐波那契数列为0,1,1,2,3,4,8,13……其通项公式为\(F_{k+2}=F_{k+1}+F_k\)</li>
+<li>令</li>
+</ul>
+<div>
+$$\mathbf{u}_k = \begin{bmatrix} F_{k+2} \\ F_{k+1} \end{bmatrix}$$
+</div>
+<div>
+$$F_{k+2} = F_{k+1} + F_k, \quad F_{k+1} = F_{k+1} \\ 
+\text{写成矩阵形式为 } \mathbf{u}_{k+1} = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} \mathbf{u}_k$$
+</div>
+<ul>
+<li>所以现在A就是\(\begin{bmatrix} 1 &amp; 1 \ 1 &amp; 0 \end{bmatrix}\)，求解其Eigenvalues有</li>
+</ul>
+<div>
+$$\det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 1 \\ 1 & -\lambda \end{vmatrix} = \lambda^2 - \lambda - 1 = 0$$
+</div>
+<ul>
+<li>\(\text{解得 } \lambda_1 = \frac{1 + \sqrt{5}}{2}, \quad \lambda_2 = \frac{1 - \sqrt{5}}{2}\)，且\(\mathbf{u}_k = A^k \mathbf{u}_0 = c_1 \lambda_1^k \mathbf{x}_1 + c_2 \lambda_2^k \mathbf{x}_2\)</li>
+<li>由于\(\lambda_1\)大于零，\(\lambda_2\)小于零，则在k趋于无线的时候，\(\lambda_2^k\)趋于零</li>
+<li>从特征值可以求得对应的特征向量\(\mathbf{x}_1 = \begin{bmatrix} \lambda_1 \ 1 \end{bmatrix} \text{ 的和 } \mathbf{x}_2 = \begin{bmatrix} \lambda_2 \ 1 \end{bmatrix}\)</li>
+</ul>
+<blockquote>
+<p>在因为是二阶方程，而且矩阵\(A - \lambda I\)是奇异矩阵，所以只要符合其中一个方程即可，立刻可以看出\(\begin{bmatrix} \lambda_1 \ 1 \end{bmatrix}\)是解</p>
+</blockquote>
+<div>
+$$\text{从 } \mathbf{u}_0 = \begin{bmatrix} F_1 \\ F_0 \end{bmatrix} = c_1 \mathbf{x}_1 + c_2 \mathbf{x}_2, \text{ 可以求得 } c_1 = -c_2 = \frac{1}{\sqrt{5}}$$$$
+\begin{bmatrix} F_{100} \\ F_{99} \end{bmatrix} = A^{99} \begin{bmatrix} F_1 \\ F_0 \end{bmatrix} = 
+\begin{bmatrix} \lambda_1 & \lambda_2 \\ 1 & 1 \end{bmatrix} 
+\begin{bmatrix} \lambda_1^{99} & 0 \\ 0 & \lambda_2^{99} \end{bmatrix} 
+\begin{bmatrix} c_1 \\ c_2 \end{bmatrix} =
+\begin{bmatrix} c_1 \lambda_1^{100} + c_2 \lambda_2^{100} \\ c_1 \lambda_1^{99} + c_2 \lambda_2^{99} \end{bmatrix}. \\
+\text{可知 } F_{100} \approx c_1 \lambda_1^{100}.
+$$
+</div>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/uoft/24/linearalgebra/la1.vectorlineplane/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature_hu6775954676940934288.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/linearalgebra/la1.vectorlineplane/">LA 1. Vector Line & Plane</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-10-15T00:00:00&#43;00:00">Oct 15 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2559 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/linearalgebra/la7.orthogonalprojection/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/linearalgebra/la7.orthogonalprojection/feature_hu2875639789542466424.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/linearalgebra/la7.orthogonalprojection/">LA 7. Orthogonal and Projection</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-21T00:00:00&#43;00:00">Nov 21 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5753 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/linearalgebra/leastsquare/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/linearalgebra/leastsquare/feature_hu8119715986056169394.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/linearalgebra/leastsquare/">LA Least Square</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-19T00:00:00&#43;00:00">Nov 19 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1199 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/linearalgebra/la6.determiants/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/linearalgebra/la6.determiants/feature_hu4082458941292485923.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/linearalgebra/la6.determiants/">LA 6. Determinants</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-10-24T00:00:00&#43;00:00">Oct 24 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5928 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/la/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LA
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/feature_hu3378468437771511713.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/">MCMS 5. Further On Stress Strain</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-10-16T00:00:00&#43;00:00">Oct 16 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2867 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ecms/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ECMS
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/chemistry/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Chemistry
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/engineering-chemistry--materials-science/ecms8.thermodynamics/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/engineering-chemistry--materials-science/ecms8.thermodynamics/feature_hu10258315598459797496.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/engineering-chemistry--materials-science/ecms8.thermodynamics/">ECMS 8. Thermodynamics</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-11-25T00:00:00&#43;00:00">Nov 25 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2743 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ecms/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ECMS
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/chemistry/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Chemistry
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\UofT\\24\\LinearAlgebra\\LA8.DiagonalizationandEigenvalues\\index.md"
+        var oid_likes = "likes_docs\\UofT\\24\\LinearAlgebra\\LA8.DiagonalizationandEigenvalues\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/uoft/24/linearalgebra/la7.orthogonalprojection/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >LA 7. Orthogonal and Projection</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-11-21T00:00:00&#43;00:00">Nov 21 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+      </main><script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+
+<footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
+            title="">
+            
+            Credits
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Buezwqwg
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://buezw.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+
+  
+</html>

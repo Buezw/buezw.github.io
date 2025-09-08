@@ -1,0 +1,3053 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>LPC 10. Strings  &middot; Buezwqwg</title>
+  <meta name="title" content="LPC 10. Strings  &middot; Buezwqwg" />
+  
+  
+  <meta name="keywords" content="Docs, LPC, " />
+  
+  
+  <link rel="canonical" href="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
+    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.821d421a756ddb6f1c91d41c53d0e2b2afa007b11ade688aa55594a12048893dadc2cbc127bd32da081f77022a40c9e1b73193584db9a34368e9cfd56758e43f.js"
+    integrity="sha512-gh1CGnVt228ckdQcU9Disq&#43;gB7Ea3miKpVWUoSBIiT2twsvBJ70y2ggfdwIqQMnhtzGTWE25o0No6c/VZ1jkPw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/">
+  <meta property="og:site_name" content="Buezwqwg">
+  <meta property="og:title" content="LPC 10. Strings ">
+  <meta property="og:description" content=" Last Edit: 25/3/27
+Throughout this book, we study different data types. None of the data types discussed before stores a word or sentence, because in C programming language there is no data type that stores a word/sentence.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-03-27T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-03-27T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="LPC">
+    <meta property="og:image" content="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/feature.png">
+  <meta name="twitter:title" content="LPC 10. Strings ">
+  <meta name="twitter:description" content=" Last Edit: 25/3/27
+Throughout this book, we study different data types. None of the data types discussed before stores a word or sentence, because in C programming language there is no data type that stores a word/sentence.">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "LPC 10. Strings ",
+    "headline": "LPC 10. Strings ",
+    
+    "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 25\/3\/27\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cp\u003eThroughout this book, we study different data types. None of the data types discussed before stores a word or sentence, because in C programming language there is no data type that stores a word\/sentence.\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/24\/learning-programming-with-c\/lpc10.strings\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Buezwqwg"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-03-27T00:00:00\u002b00:00",
+    "datePublished": "2025-03-27T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-03-27T00:00:00\u002b00:00",
+    
+    "keywords": ["Docs","LPC"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "4352"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Buezwqwg" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEDMYR1V0K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEDMYR1V0K');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen text-lg leading-7
+           bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral
+           scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400
+           dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600
+           
+             max-w-7xl m-auto px-6 sm:px-14 md:px-24 lg:px-32
+           ">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+      >
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content
+      </a>
+    </div>
+
+    
+    
+      
+      
+        <div class="min-h-[100px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Docs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Thoughts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Notes
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Zhihu
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Docs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/thoughts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Thoughts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Notes
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Zhihu
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+      
+    
+
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow ">
+        
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc10.strings/feature_hu10703987611304010619.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Buezwqwg</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/"
+      >U of T</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/24/"
+      >U of T 24</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/24/learning-programming-with-c/"
+      >Learning Programming with C</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/24/learning-programming-with-c/lpc10.strings/"
+      >LPC 10. Strings </a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      LPC 10. Strings 
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-27T00:00:00&#43;00:00">Mar 27 2025</time><span class="px-2 text-primary-500">&middot;</span><span>4352 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1011-store-a-string">10.1.1 Store a String</a>
+      <ul>
+        <li><a href="#10111-declare-and-initialize">10.1.1.1 Declare and Initialize</a></li>
+        <li><a href="#10112method-2-declare-now-and-initialize-later"><strong>10.1.1.2. Method 2: Declare now and Initialize later</strong></a></li>
+        <li><a href="#10113method-3-declare-a-pointer-pointing-to-a-constant-string"><strong>10.1.1.3. Method 3: Declare a Pointer Pointing to a Constant String</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#1012what-is-the-usage-of-the0in-a-string"><strong>10.1.2. What is the usage of the <code>'\0'</code> in a string?</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1021-output-strings">10.2.1 Output Strings</a>
+      <ul>
+        <li><a href="#10211-using-pringf">10.2.1.1 Using pringf</a></li>
+        <li><a href="#printing-character-vs-a-string">Printing character vs. a string</a></li>
+        <li><a href="#10212-using-puts">10.2.1.2 Using puts</a></li>
+      </ul>
+    </li>
+    <li><a href="#1022-input-strings">10.2.2 Input Strings</a>
+      <ul>
+        <li><a href="#10221-using-scanf">10.2.2.1 Using scanf</a></li>
+        <li><a href="#how-does-sanf-work">How does sanf work</a></li>
+        <li><a href="#what-if-str-is-longer-than-array">What if str is longer than array</a></li>
+        <li><a href="#buffer-overflow">Buffer Overflow</a></li>
+        <li><a href="#10222usingfgetsto-avoid-buffer-overflow-inscanf"><strong>10.2.2.2. Using <code>fgets</code> to avoid buffer overflow in <code>scanf</code></strong></a></li>
+        <li><a href="#getchar-function">getchar() function</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1031length-of-the-string"><strong>10.3.1. Length of the string</strong></a>
+      <ul>
+        <li><a href="#10311implementation-ofstrlen"><strong>10.3.1.1. Implementation of <code>strlen</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#1032copy-a-string-into-another-string"><strong>10.3.2. Copy a string into another string</strong></a>
+      <ul>
+        <li><a href="#10321strcpy"><strong>10.3.2.1. <code>strcpy</code></strong></a></li>
+        <li><a href="#103211implementation-ofstrcpy"><strong>10.3.2.1.1. Implementation of <code>strcpy</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#10322strncpy"><strong>10.3.2.2. <code>strncpy</code></strong></a>
+      <ul>
+        <li><a href="#if-n-is-same-as-the-size-of-src">If n is same as the size of src</a></li>
+        <li><a href="#if-n-is-larger-than-size-of-src">If n is larger than size of src</a></li>
+      </ul>
+    </li>
+    <li><a href="#1033-concatenating-strings">10.3.3 Concatenating Strings</a>
+      <ul>
+        <li><a href="#10331-strcat">10.3.3.1 <code>strcat</code></a></li>
+        <li><a href="#10332strncat"><strong>10.3.3.2. <code>strncat</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#1034comparing-strings"><strong>10.3.4. Comparing Strings</strong></a>
+      <ul>
+        <li><a href="#10341-strcmp">10.3.4.1 <code>strcmp</code></a></li>
+        <li><a href="#10342-strncmp">10.3.4.2 strncmp</a></li>
+      </ul>
+    </li>
+    <li><a href="#1035-looking-for-in-a-string">10.3.5 Looking for in a string</a>
+      <ul>
+        <li><a href="#10351-strchr">10.3.5.1 <code>strchr</code></a></li>
+        <li><a href="#10352-strstr">10.3.5.2 <code>strstr</code></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1041-2d-array-of-characters">10.4.1 2D Array of Characters</a></li>
+    <li><a href="#10421d-array-ofchar"><strong>10.4.2. 1D array of <code>char*</code></strong></a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1011-store-a-string">10.1.1 Store a String</a>
+      <ul>
+        <li><a href="#10111-declare-and-initialize">10.1.1.1 Declare and Initialize</a></li>
+        <li><a href="#10112method-2-declare-now-and-initialize-later"><strong>10.1.1.2. Method 2: Declare now and Initialize later</strong></a></li>
+        <li><a href="#10113method-3-declare-a-pointer-pointing-to-a-constant-string"><strong>10.1.1.3. Method 3: Declare a Pointer Pointing to a Constant String</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#1012what-is-the-usage-of-the0in-a-string"><strong>10.1.2. What is the usage of the <code>'\0'</code> in a string?</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1021-output-strings">10.2.1 Output Strings</a>
+      <ul>
+        <li><a href="#10211-using-pringf">10.2.1.1 Using pringf</a></li>
+        <li><a href="#printing-character-vs-a-string">Printing character vs. a string</a></li>
+        <li><a href="#10212-using-puts">10.2.1.2 Using puts</a></li>
+      </ul>
+    </li>
+    <li><a href="#1022-input-strings">10.2.2 Input Strings</a>
+      <ul>
+        <li><a href="#10221-using-scanf">10.2.2.1 Using scanf</a></li>
+        <li><a href="#how-does-sanf-work">How does sanf work</a></li>
+        <li><a href="#what-if-str-is-longer-than-array">What if str is longer than array</a></li>
+        <li><a href="#buffer-overflow">Buffer Overflow</a></li>
+        <li><a href="#10222usingfgetsto-avoid-buffer-overflow-inscanf"><strong>10.2.2.2. Using <code>fgets</code> to avoid buffer overflow in <code>scanf</code></strong></a></li>
+        <li><a href="#getchar-function">getchar() function</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1031length-of-the-string"><strong>10.3.1. Length of the string</strong></a>
+      <ul>
+        <li><a href="#10311implementation-ofstrlen"><strong>10.3.1.1. Implementation of <code>strlen</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#1032copy-a-string-into-another-string"><strong>10.3.2. Copy a string into another string</strong></a>
+      <ul>
+        <li><a href="#10321strcpy"><strong>10.3.2.1. <code>strcpy</code></strong></a></li>
+        <li><a href="#103211implementation-ofstrcpy"><strong>10.3.2.1.1. Implementation of <code>strcpy</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#10322strncpy"><strong>10.3.2.2. <code>strncpy</code></strong></a>
+      <ul>
+        <li><a href="#if-n-is-same-as-the-size-of-src">If n is same as the size of src</a></li>
+        <li><a href="#if-n-is-larger-than-size-of-src">If n is larger than size of src</a></li>
+      </ul>
+    </li>
+    <li><a href="#1033-concatenating-strings">10.3.3 Concatenating Strings</a>
+      <ul>
+        <li><a href="#10331-strcat">10.3.3.1 <code>strcat</code></a></li>
+        <li><a href="#10332strncat"><strong>10.3.3.2. <code>strncat</code></strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#1034comparing-strings"><strong>10.3.4. Comparing Strings</strong></a>
+      <ul>
+        <li><a href="#10341-strcmp">10.3.4.1 <code>strcmp</code></a></li>
+        <li><a href="#10342-strncmp">10.3.4.2 strncmp</a></li>
+      </ul>
+    </li>
+    <li><a href="#1035-looking-for-in-a-string">10.3.5 Looking for in a string</a>
+      <ul>
+        <li><a href="#10351-strchr">10.3.5.1 <code>strchr</code></a></li>
+        <li><a href="#10352-strstr">10.3.5.2 <code>strstr</code></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1041-2d-array-of-characters">10.4.1 2D Array of Characters</a></li>
+    <li><a href="#10421d-array-ofchar"><strong>10.4.2. 1D array of <code>char*</code></strong></a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          <blockquote>
+<p>Last Edit: 25/3/27</p>
+</blockquote>
+<p>Throughout this book, we study different data types. None of the data types discussed before stores a word or sentence, because in C programming language there is no data type that stores a word/sentence.</p>
+<p>所以在这里将找到一个储存 String 的解决方案</p>
+
+
+<h1 class="relative group"><strong>10.1. What are strings?</strong> 
+    <div id="101what-are-strings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#101what-are-strings" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>String 被用来储存句子，例如 <code>printf(&quot;Hello world!\n&quot;);</code></li>
+</ul>
+
+
+<h2 class="relative group">10.1.1 Store a String 
+    <div id="1011-store-a-string" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1011-store-a-string" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>C 语言中储存 String 的办法就是通过 Array of Characters 字符数组</li>
+<li>这个 Array 同时也是 Null Terminated 空字符结尾的，这意味着字符串存储在一个特殊的字符数组中，字符串的最后一个字符是 Null character 空字符</li>
+<li>空字符（Null Character）：空字符表示为<code>\0</code>，它的ASCII码（ASCII Code）值是<code>0</code></li>
+<li>存储方式：<code>\0</code>在ASCII编码中对应于主存储器（main memory）中的<code>0</code>值</li>
+<li>例如 String <code>“Hello”</code>  实际上在 Memory 中是 <code>H  e  l  l  o  \0</code></li>
+<li>这个设计是为了防止 C 语言的 String 处理函数知道 String 的边界以防越界</li>
+</ul>
+
+
+<h3 class="relative group">10.1.1.1 Declare and Initialize 
+    <div id="10111-declare-and-initialize" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10111-declare-and-initialize" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在 C 语言中，我们可以声明一个 <strong>1D array of characters</strong>，并将其初始化为一个字符串，例如<code>char myString[] = &quot;Hello&quot;;</code></li>
+<li>这一语句的作用是创建一个名为 <code>myString</code> 的字符数组，该数组包含 <strong>6</strong> 个元素：<code>'H'</code>, <code>'e'</code>, <code>'l'</code>, <code>'l'</code>, <code>'o'</code> 以及 <code>'\0'</code></li>
+<li>这时一般不需要给 Array 它的 Size，但是如果非要加，多出来的部分则会变成</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24/learning-programming-with-c/lpc10.strings/image_hu12808288655937026421.png 330w,
+        /docs/uoft/24/learning-programming-with-c/lpc10.strings/image_hu5753924306186325555.png 660w,
+        /docs/uoft/24/learning-programming-with-c/lpc10.strings/image_hu16178596321583565906.png 1024w,
+        /docs/uoft/24/learning-programming-with-c/lpc10.strings/image_hu9359736618382116832.png 2x"
+        src="/docs/uoft/24/learning-programming-with-c/lpc10.strings/image_hu5753924306186325555.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>同样的 Null Character</li>
+<li>同时和 1D Array 一般，也可以通过 <code>myString[0] = 'h';</code> 的做法修改 Array 中 Index 对应的元素</li>
+</ul>
+
+
+<h3 class="relative group"><strong>10.1.1.2. Method 2: Declare now and Initialize later</strong> 
+    <div id="10112method-2-declare-now-and-initialize-later" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10112method-2-declare-now-and-initialize-later" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>第二种做法就是声明字符数组，但不立即初始化，之后通过单独赋值的方式填充字符数组，并手动添加 <code>'\0'</code> 终止符</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">myString</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">myString</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;T&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">myString</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;h&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">myString</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;e&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">myString</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+</span></span></code></pre></div>
+
+<h3 class="relative group"><strong>10.1.1.3. Method 3: Declare a Pointer Pointing to a Constant String</strong> 
+    <div id="10113method-3-declare-a-pointer-pointing-to-a-constant-string" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10113method-3-declare-a-pointer-pointing-to-a-constant-string" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>第三种方法就是 Pointer，有 <code>char* pStr = &quot;Wow&quot;;</code> ，这种方法中，String Wow 将被储存在 Const + Global Variables 的内存块中，而 pStr pointer 则在 Stack 中指向了第一个字符的地址</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>当尝试修改他的时候，如 <code>pStr[0] = 'R';</code> 会报错，因为 pStr 在尝试修改一个 Constant</li>
+<li>但是是可以修改 pStr 的值，（修改一个 Pointer 的值也就是修改它指向的内存）的，如 <code>pStr = &quot;Cat&quot;;</code>  就将指向另一个 String</li>
+<li>现在举一个具体的 Pointer 换 String 的例子</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>在这里对于字符数组 <code>char str[] = &quot;It&quot;;</code>  来说，它实际上创建了一个可修改的字符数组，即是一个非 Const 的 Declare 方式，所以它会被存在 Stack 上</li>
+<li>而对于字符串常量 <code>&quot;Wow&quot;</code> 来说，定义了一个指针 <code>pStr</code>，指向一个字符串常量，这个常量实际存储在程序的 Const 区</li>
+<li>将 pStr 更换位置后<code>pStr</code> 就被重定向到栈上的 <code>str</code></li>
+<li>下一个场景是给 Array of characters 赋值的操作，这同样也是不合法的，因为在C语言中，数组名被视为常量指针，它自动地指向数组的第一个元素的地址。因此，数组名是固定不变的，不能被重新赋值</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">str</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">str</span> <span class="o">=</span> <span class="s">&#34;APS105&#34;</span><span class="p">;</span>  <span class="c1">// 尝试更改数组标识符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group"><strong>10.1.2. What is the usage of the <code>'\0'</code> in a string?</strong> 
+    <div id="1012what-is-the-usage-of-the0in-a-string" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1012what-is-the-usage-of-the0in-a-string" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>前面提到过在C语言中，<code>\0</code> 作为字符串的终止符，表示字符串的结束</li>
+<li>当字符串作为参数传递给函数时，函数通过检测 <code>\0</code> 来判断何时停止处理字符串，这样可以避免超出字符串的实际内容范围，导致未定义的行为或访问违规</li>
+</ul>
+
+
+<h1 class="relative group">10.2 Input/Output Strings 
+    <div id="102-inputoutput-strings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#102-inputoutput-strings" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">10.2.1 Output Strings 
+    <div id="1021-output-strings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1021-output-strings" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">10.2.1.1 Using pringf 
+    <div id="10211-using-pringf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10211-using-pringf" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于 String 来说，其采用 <code>%s</code> 的 Format Specifier，<code>printf</code>  将从 <code>str[0]</code> 开始一直打印到（但不会打印）第一个非零 Character</li>
+<li>同时作为 Pointer，如果传入 <code>str + 2</code> 来打印，则会输出从 <code>str[2]</code> 开始的剩余 String</li>
+<li>如果想要打印特点个数的 String，可以用 <code>%.*s</code>  并将 * 替换为一个数字</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%.2s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h3 class="relative group">Printing character vs. a string 
+    <div id="printing-character-vs-a-string" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#printing-character-vs-a-string" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Character 打印的是单个字符，而 String 则是一个 Array</li>
+</ul>
+
+
+<h3 class="relative group">10.2.1.2 Using puts 
+    <div id="10212-using-puts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10212-using-puts" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><code>puts</code>  是另一种打印方式，但其不需要一个 Format String</li>
+<li>它只接收一个参数即为 Pointer to the first character</li>
+<li>在打印完后他会自动换行</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">puts</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group">10.2.2 Input Strings 
+    <div id="1022-input-strings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1022-input-strings" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">10.2.2.1 Using scanf 
+    <div id="10221-using-scanf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10221-using-scanf" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>想要用 <code>scanf</code> 从用户那里获取一个 String 的输入，同样使用 <code>%s</code> 的 Format Specifier</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">st</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span></code></pre></div><ul>
+<li>这里 <code>scanf(&quot;%s&quot;, st);</code> 之所以是 <code>st</code> 而不是 <code>&amp;st</code> 是因为 <code>st</code> 本身就是一个 Pointer</li>
+</ul>
+
+
+<h3 class="relative group">How does sanf work 
+    <div id="how-does-sanf-work" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#how-does-sanf-work" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><code>scanf</code> 函数在处理输入的时候，会忽略输入前的所有空白，也叫做 Leading white space</li>
+<li><code>scanf</code> 会读取字符知道遇到 White Space 或者 Endline</li>
+<li>在读取完毕后，<code>scanf</code> 会自动给 String 加上 <code>\0</code> 结尾</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">st</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Enter a string: </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;s is saved as: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;s is now saved as: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>上面的例子展示了当输入为 <code>ABCD  ff</code> 的时候，第一次 <code>scanf</code> 读取的将是 ABCD，第二次是 ff</li>
+</ul>
+
+
+<h3 class="relative group">What if str is longer than array 
+    <div id="what-if-str-is-longer-than-array" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#what-if-str-is-longer-than-array" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">st</span><span class="p">[</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Enter a string: </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;s is saved as: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>当输入为 <code>ABCDEFGHIJ</code> 的时候</li>
+</ul>
+<pre tabindex="0"><code>Enter a string:
+ABCDEFJI
+s is saved as: ABCDEFJI
+</code></pre>
+
+<h3 class="relative group">Buffer Overflow 
+    <div id="buffer-overflow" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#buffer-overflow" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>当把数据写入比他小的数据结构的时候，会就出现的 Buffre Overflow 缓冲区溢出的 Crash</li>
+<li>当输入为  <code>ABCDEFGHIJ</code> 实际上只应该被读出 ABCDEFGH，之所以读出了 I 是因为在 <code>char st[7 + 1];</code> 的时候，默认预留的位置中还加上了一个 <code>\0</code> 的空间，而 I 正是占用了这个空间所以才被打印了出来</li>
+</ul>
+
+
+<h3 class="relative group"><strong>10.2.2.2. Using <code>fgets</code> to avoid buffer overflow in <code>scanf</code></strong> 
+    <div id="10222usingfgetsto-avoid-buffer-overflow-inscanf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10222usingfgetsto-avoid-buffer-overflow-inscanf" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>比起 <code>scanf</code> 来说还存在一种更加安全的函数叫做 <code>fgets</code> 来获取输入</li>
+<li>和 <code>scanf</code> 不同的是，<code>fgets</code> 可以指定最多读取多少个字符</li>
+<li><code>fgets(st, 3, stdin);</code> 就代表了将从输入中读取最多两个 Character（其中一个为 <code>\0</code> ）</li>
+<li>后面的 <code>stdin</code> 则代表了 <code>stdio.h</code> 的标准输入库</li>
+</ul>
+<pre tabindex="0"><code>Enter a string:
+ABCDEFGHI
+st is saved as: AB
+</code></pre><ul>
+<li>当输入小于 <code>fgets</code> 的最大读取数量的时候，后续数组元素会被 Garbage Values 替代</li>
+<li>比如最大读取数量为 3 的时候，只输入一个 A，后续要么是一个空格，要么是一个换行符，反正都是 Garbage Values</li>
+</ul>
+<p><strong>10.2.2.3. Implement a <code>getStringSafely</code> function</strong></p>
+<ul>
+<li>所有的 API 都被规定了，但是他们都大大小小存在一些问题，这时候就需要一个  Function 来规范化所有的输入了</li>
+<li>这个 Function 的目标将是读取 String 并储存到 Array 中</li>
+</ul>
+
+
+<h3 class="relative group">getchar() function 
+    <div id="getchar-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#getchar-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>每一次调用 <code>getchar</code> 都只会接收输入的第一个 <code>char</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">char</span><span class="o">*</span> <span class="nf">getStringSafely</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">st</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Enter string: </span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;User entered: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">getStringSafely</span>
+</span></span><span class="line"><span class="cl"><span class="p">(</span><span class="n">st</span><span class="p">,</span> <span class="mi">7</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;This is what&#39;s left: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">st</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span><span class="o">*</span> <span class="nf">getStringSafely</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">charCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">((</span><span class="n">charCount</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">((</span><span class="n">c</span> <span class="o">=</span> <span class="nf">getchar</span><span class="p">())</span> 
+</span></span><span class="line"><span class="cl"><span class="o">!=</span> <span class="sc">&#39;\n&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="p">[</span><span class="n">charCount</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">charCount</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">s</span><span class="p">[</span><span class="n">charCount</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h1 class="relative group"><strong>10.3. String Functions</strong> 
+    <div id="103string-functions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#103string-functions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>前面的章节中，所有对 String 的处理都是通过 Characters 的 Array 做的，但是 C 语言实际上有一个 String Library <code>#include &lt;string.h&gt;</code>，里面有专门用来处理 String 的 Functions</li>
+</ul>
+
+
+<h2 class="relative group"><strong>10.3.1. Length of the string</strong> 
+    <div id="1031length-of-the-string" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1031length-of-the-string" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>函数 <code>strlen</code> 可以被用来返回 String 长度，其 Prototype 为 <code>size_t strlen(char *str);</code></li>
+<li>其中<code>size_t</code> 是一个 Unsigned integer type 无符号整数类型，可以简单地把它当成 <code>int</code> 来理解</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="nf">strlen</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;String length is %d.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><code>strlen(s)</code> 返回的是字符串 <code>&quot;Hello&quot;</code> 的长度，也就是 <code>5</code>（不包含结尾的 <code>\0</code>）</li>
+</ul>
+
+
+<h3 class="relative group"><strong>10.3.1.1. Implementation of <code>strlen</code></strong> 
+    <div id="10311implementation-ofstrlen" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10311implementation-ofstrlen" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>直接从头构造一个 <code>strlen</code> 函数</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">// 函数声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">stringLength</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>                   <span class="c1">// 定义字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="nf">stringLength</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>           <span class="c1">// 调用自定义的 stringLength 函数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;String length is %d.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span> <span class="c1">// 打印字符串长度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 函数定义
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">stringLength</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">count</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// 遍历直到遇到 \0
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>有的时候为了避免意外造成的修改，可以使用 <code>const</code> 来确保传入的 Str 是<strong>只读</strong>的</li>
+</ul>
+
+
+<h2 class="relative group"><strong>10.3.2. Copy a string into another string</strong> 
+    <div id="1032copy-a-string-into-another-string" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1032copy-a-string-into-another-string" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group"><strong>10.3.2.1. <code>strcpy</code></strong> 
+    <div id="10321strcpy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10321strcpy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><code>strcpy</code> 函数会将一个 String 中的内容复制到另一个 String 中，它的 Prototype 为 char* <code>strcpy(char *dest, char *src);</code></li>
+<li>将一直负值 <code>src</code> 直到碰到 <code>\0</code> ，下面是一个 <code>strcpy</code> 的示例</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">d</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;d after copying has &#39;%s</span><span class="se">\&#39;</span><span class="s">.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="nf">strcpy</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">s</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">-&gt;</span> <span class="n">d</span> <span class="n">after</span> <span class="n">copying</span> <span class="n">has</span> <span class="err">&#39;</span><span class="n">Hello</span><span class="err">&#39;</span>
+</span></span></code></pre></div><ul>
+<li>之所以需要 <code>strcpy</code> 而不是直接赋值一个 str 给另一个，是因为在 C 中，一个 String 被创建的时候是以一个 Characters 的 Array 创建的，而给 Array 赋一个值是非法的</li>
+</ul>
+
+
+<h3 class="relative group"><strong>10.3.2.1.1. Implementation of <code>strcpy</code></strong> 
+    <div id="103211implementation-ofstrcpy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#103211implementation-ofstrcpy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>想要实现一个 <code>strcpy</code> 本质就是一个个赋值直到 <code>\0</code> ，下面是具体实现</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">char</span><span class="o">*</span> <span class="nf">stringCopy</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">src</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello&#34;</span><span class="p">;</span> <span class="c1">// 定义源字符串 s 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">char</span> <span class="n">d</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>          <span class="c1">// 定义目标字符串 d，有 6 个字符空间
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;d after copying has &#39;%s&#39;.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl"><span class="nf">stringCopy</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">s</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">char</span><span class="o">*</span> <span class="nf">stringCopy</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">dest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">src</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">ind</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="n">src</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dest</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">src</span><span class="p">[</span><span class="n">ind</span><span class="p">];</span>  <span class="c1">// 逐个字符复制
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">ind</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">dest</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>        <span class="c1">// 添加结束符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="n">dest</span><span class="p">;</span>             <span class="c1">// 返回目标字符串地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>同样因为 Array 就是 Pointer 的特性，也可以不用 Array 的 Index 实现</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span><span class="o">*</span> <span class="nf">stringCopy</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span> <span class="n">pdest</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">psrc</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span><span class="o">*</span> <span class="n">pdestCopy</span> <span class="o">=</span> <span class="n">pdest</span><span class="p">;</span>         <span class="c1">// 保存目标字符串原始地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">psrc</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span><span class="p">)</span> <span class="p">{</span>          <span class="c1">// 当源字符串未结束
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="o">*</span><span class="n">pdestCopy</span> <span class="o">=</span> <span class="o">*</span><span class="n">psrc</span><span class="p">;</span>          <span class="c1">// 拷贝字符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">pdestCopy</span><span class="o">++</span><span class="p">;</span>                 <span class="c1">// 移动目标指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">psrc</span><span class="o">++</span><span class="p">;</span>                      <span class="c1">// 移动源指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">pdestCopy</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>               <span class="c1">// 添加字符串结束符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="n">pdest</span><span class="p">;</span>                    <span class="c1">// 返回目标字符串起始地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group"><strong>10.3.2.2. <code>strncpy</code></strong> 
+    <div id="10322strncpy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10322strncpy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>另一种更加安全的赋值 String 的办法，现在 <code>strcpy</code> 的问题是如果目标空间不够，会发生 Buffer Overflow 也就是内存越界的问题，而 <code>strncpy</code> 只比 <code>strcpy</code> 多了一个参数，也就是 <code>char* strncpy(char *dest, const char *src, size_t n);</code></li>
+<li>他会复制源字符串中的前 <code>n</code> 个字符，或遇到 <code>\0</code> 结束符为止，或者如果 <code>n</code> 比源字符串长，会在剩下的位置补上 <code>\0</code></li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">If n is same as the size of src 
+    <div id="if-n-is-same-as-the-size-of-src" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#if-n-is-same-as-the-size-of-src" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>但是他目前存在的问题是，如果 n 设置的和 String 一样长，那就会自动忽略 <code>\0</code> ，比如</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">d</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello world!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">strncpy</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s">&#34;Hello&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span></code></pre></div><ul>
+<li>在这个情况中，<code>Hello</code> 的长度和 5 一样，导致了 <code>\0</code> 没有空间，所以当 <code>printf</code> d 的时候，输出变成了 Copied exactly 5 characters: Hello world!，因为 d 没有找到 <code>\0</code> ，就一直打印了下去</li>
+</ul>
+
+
+<h3 class="relative group">If n is larger than size of src 
+    <div id="if-n-is-larger-than-size-of-src" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#if-n-is-larger-than-size-of-src" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>上面的情况是当 n 等于 src 时，现在的是 n 大于 src 时，比如</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">d</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Hello world!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nf">strncpy</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s">&#34;Hello&#34;</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+</span></span></code></pre></div><ul>
+<li>这时候会自动用 <code>\0</code> 补完剩下的，有</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="err">源字符串</span> <span class="n">d</span> <span class="err">原内容：</span> <span class="sc">&#39;H&#39;</span> <span class="sc">&#39;e&#39;</span> <span class="sc">&#39;l&#39;</span> <span class="sc">&#39;l&#39;</span> <span class="sc">&#39;o&#39;</span> <span class="sc">&#39; &#39;</span> <span class="sc">&#39;w&#39;</span> <span class="sc">&#39;o&#39;</span> <span class="sc">&#39;r&#39;</span> <span class="sc">&#39;l&#39;</span> <span class="sc">&#39;d&#39;</span> <span class="sc">&#39;!&#39;</span> <span class="sc">&#39;\0&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="err">复制后变成</span>    <span class="err">：</span> <span class="sc">&#39;H&#39;</span> <span class="sc">&#39;e&#39;</span> <span class="sc">&#39;l&#39;</span> <span class="sc">&#39;l&#39;</span> <span class="sc">&#39;o&#39;</span> <span class="sc">&#39;\0&#39;</span> <span class="sc">&#39;\0&#39;</span> <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="err">字符位置：</span>        <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">3</span>   <span class="mi">4</span>   <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">7</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group">10.3.3 Concatenating Strings 
+    <div id="1033-concatenating-strings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1033-concatenating-strings" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">10.3.3.1 <code>strcat</code> 
+    <div id="10331-strcat" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10331-strcat" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><code>strcat</code> 是用来拼接 String 的，也就是把一个追加到另一个的末尾，他的 Prototype 为 <code>char* strcat(char *dest, const char *src);</code></li>
+<li>它会覆盖 <code>dest</code> 原有的 ****<code>\0</code>（结束符），从 <code>\0</code> 开始写入 <code>src</code> 的内容，最后 <code>strcat</code> 会在拼接后的新字符串结尾添加一个新的 <code>\0</code></li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group"><strong>10.3.3.2. <code>strncat</code></strong> 
+    <div id="10332strncat" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10332strncat" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>同样的也需要一个规定 n 个 String 的用来放置 Buffer Overflow 的函数 <code>strncat</code></li>
+<li><code>strcat</code> 存在的问题是</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">s</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;Oh&#34;</span><span class="p">;</span>   <span class="c1">// s 有 4 个字符空间：&#34;O&#34;, &#34;h&#34;, &#39;\0&#39;, &#39;\0&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">char</span> <span class="n">t</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;No&#34;</span><span class="p">;</span>    <span class="c1">// t 是源字符串：&#34;N&#34;, &#34;o&#34;, &#39;\0&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">strcat</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+</span></span></code></pre></div><ul>
+<li>当两个追加了之后，由于 s 只有 4 个空间，所有位置都满了之后就没地方给 <code>\0</code> 了，也就非法了</li>
+<li>所以就需要使用多一个参数的 <code>strncat</code> ，其 Prototype 为  <code>char* strncat(char *dest, const char *src, size_t n);</code></li>
+</ul>
+
+
+<h2 class="relative group"><strong>10.3.4. Comparing Strings</strong> 
+    <div id="1034comparing-strings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1034comparing-strings" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">10.3.4.1 <code>strcmp</code> 
+    <div id="10341-strcmp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10341-strcmp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>比较两个 String 的办法，prototype 为 <code>int strcmp(const char *s1, const char *s2);</code> ，他的返回值是 大于小于或者等于</li>
+<li>具体来说：</li>
+<li><strong>小于 0</strong>：表示 <code>s1</code> 在字典中<strong>排在 <code>s2</code> 前面</strong></li>
+<li><strong>等于 0</strong>：表示 <code>s1</code> 和 <code>s2</code> <strong>完全相同</strong></li>
+<li><strong>大于 0</strong>：表示 <code>s1</code> 在字典中<strong>排在 <code>s2</code> 后面</strong></li>
+<li>这一个比较的过程是按照 Index 顺序依次过去的，比较的是 ASCII，根据他的 Return 值为 <code>int</code> 的特性，可以写出以下示例代码</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">s1</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">s2</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Enter two strings separated by new line or white space: &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">s1</span><span class="p">);</span>    <span class="c1">// 输入第一个字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">scanf</span><span class="p">(</span><span class="s">&#34;%s&#34;</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>    <span class="c1">// 输入第二个字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;&#39;%s&#39; is before &#39;%s&#39; in dictionary!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;&#39;%s&#39; is after &#39;%s&#39; in dictionary!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nf">strcmp</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;&#39;%s&#39; is identical to &#39;%s&#39;!</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">场景</th>
+          <th style="text-align: left">返回值</th>
+          <th style="text-align: left">示例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>s1 &lt; s2</code></td>
+          <td style="text-align: left">小于 0</td>
+          <td style="text-align: left"><code>&quot;apple&quot;</code> VS <code>&quot;banana&quot;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>s1 &gt; s2</code></td>
+          <td style="text-align: left">大于 0</td>
+          <td style="text-align: left"><code>&quot;zebra&quot;</code> VS <code>&quot;apple&quot;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>s1 等于 s2</code></td>
+          <td style="text-align: left">等于 0</td>
+          <td style="text-align: left"><code>&quot;hello&quot;</code> VS <code>&quot;hello&quot;</code></td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h3 class="relative group">10.3.4.2 strncmp 
+    <div id="10342-strncmp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10342-strncmp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>它同时也存在一个 n 的版本，有 <code>int strncmp(const char *s1, const char *s2, size_t n);</code></li>
+<li><code>strncmp</code> 会从 <code>s1</code> 和 <code>s2</code> 的开头开始，一共最多比较 <code>n</code> 个字符</li>
+<li>如果在前 <code>n</code> 个字符中字符相同但不足 <code>n</code> 个字符，遇到 <code>\0</code> 也会停止</li>
+</ul>
+
+
+<h2 class="relative group">10.3.5 Looking for in a string 
+    <div id="1035-looking-for-in-a-string" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1035-looking-for-in-a-string" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">10.3.5.1 <code>strchr</code> 
+    <div id="10351-strchr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10351-strchr" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在一个 String 中找一个 Character 的第一次出现的 Pointer，有 <code>char* strchr(const char *s, int c);</code> ，可以发现，这个 Character 是以一个 <code>int</code> 的数据类型传入的</li>
+<li>其中如果没找到，返回 <code>Null</code> 并且要求字符串 <code>s</code> 必须是以 <code>\0</code> 结尾的有效 C 字符串</li>
+<li>由于一般想要的都是 Index 而不是 Pointer，可以用减法得到</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="n">s</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&#34;Programming&#34;</span><span class="p">;</span>  <span class="c1">// 原始字符串
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">char</span> <span class="n">c</span> <span class="o">=</span> <span class="sc">&#39;m&#39;</span><span class="p">;</span>              <span class="c1">// 要查找的字符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">dist</span> <span class="o">=</span> <span class="nf">strchr</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="n">s</span><span class="p">;</span>  <span class="c1">// 找到字符后，计算其在字符串中的索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;The first %c is found at index %d in &#39;%s&#39;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h3 class="relative group">10.3.5.2 <code>strstr</code> 
+    <div id="10352-strstr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10352-strstr" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>这个是在一个 String 中找另一个 String，其 Prototype 为 <code>char* strstr(const char *s1, const char *s2);</code> 返回值是指向 <code>s2</code> 第一次出现在 <code>s1</code> 中的位置的指针</li>
+</ul>
+
+
+<h1 class="relative group">10.4 Array of Strings 
+    <div id="104-array-of-strings" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#104-array-of-strings" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>前面提到了，一个 String 会以 <code>\0</code> 作为结尾，但是如果想要在一个 Array 中储存多个 String，有两种方式，1. 2D Array of Characters <code>char arr[12][10]</code>，2. Array of char <code>char* arr[]</code></li>
+</ul>
+
+
+<h2 class="relative group">10.4.1 2D Array of Characters 
+    <div id="1041-2d-array-of-characters" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1041-2d-array-of-characters" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>一个例子是一年的十二个月</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span> <span class="n">months</span><span class="p">[][</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="s">&#34;January&#34;</span><span class="p">,</span> <span class="s">&#34;February&#34;</span><span class="p">,</span> <span class="s">&#34;March&#34;</span><span class="p">,</span> <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>其中每一个行都是一个完整的 String</li>
+</ul>
+<pre tabindex="0"><code>months[0] 是 {&#39;J&#39;, &#39;a&#39;, &#39;n&#39;, &#39;u&#39;, &#39;a&#39;, &#39;r&#39;, &#39;y&#39;, &#39;\0&#39;, &#39;\0&#39;, &#39;\0&#39;}
+months[1] 是 {&#39;F&#39;, &#39;e&#39;, &#39;b&#39;, &#39;r&#39;, &#39;u&#39;, &#39;a&#39;, &#39;r&#39;, &#39;y&#39;, &#39;\0&#39;, &#39;\0&#39;}
+...
+</code></pre><p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group"><strong>10.4.2. 1D array of <code>char*</code></strong> 
+    <div id="10421d-array-ofchar" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10421d-array-ofchar" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>和前面一样，可以通过 Pointer 作为 Array 的内容而不是 character 来储存多个 String，也就是 <code>char* months[12]</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">char</span><span class="o">*</span> <span class="n">months</span><span class="p">[</span><span class="mi">12</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="n">months</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;January&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">months</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#34;February&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span></code></pre></div><ul>
+<li>通过给每一个手动赋值，这里可以是因为每一个 <code>months[i]</code> 都是一个指针</li>
+<li>他会创建 12 个  Pointer 放到 Stack 上，然后 Pointer 再指向 Static 中的 String</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">声明方式</th>
+          <th style="text-align: left">指针变量位置</th>
+          <th style="text-align: left">指向内容位置</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>char* p = &quot;abc&quot;;</code></td>
+          <td style="text-align: left">栈</td>
+          <td style="text-align: left">静态区（只读）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>static char* p = &quot;abc&quot;;</code></td>
+          <td style="text-align: left">静态区</td>
+          <td style="text-align: left">静态区（只读）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>char s[] = &quot;abc&quot;;</code></td>
+          <td style="text-align: left">栈</td>
+          <td style="text-align: left">栈（拷贝内容）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>char* p = malloc(...);</code></td>
+          <td style="text-align: left">栈</td>
+          <td style="text-align: left">堆</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">特性</th>
+          <th style="text-align: left"><code>char months[12][10]</code></th>
+          <th style="text-align: left"><code>char* months[12]</code></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">是否可改内容</td>
+          <td style="text-align: left">✅ 可以修改字符内容</td>
+          <td style="text-align: left">❌ 通常不可以（字符串常量）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">是否可换整行字符串</td>
+          <td style="text-align: left">❌ 不行，不能对数组赋值</td>
+          <td style="text-align: left">✅ 可以 <code>months[0] = &quot;new&quot;</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">每行长度是否一致</td>
+          <td style="text-align: left">是（固定长度）</td>
+          <td style="text-align: left">否（每个字符串长度可以不同）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">字符串存储在哪里</td>
+          <td style="text-align: left">所有内容在栈（stack）</td>
+          <td style="text-align: left">指针在栈，字符串常量在静态区（只读区）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">是否可以初始化时一次性写完</td>
+          <td style="text-align: left">✅ 可以</td>
+          <td style="text-align: left">✅ 也可以</td>
+      </tr>
+  </tbody>
+</table>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/feature_hu13788943859613342582.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/">LPC 9. Multi-dimensional Arrays</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-25T00:00:00&#43;00:00">Mar 25 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1467 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/feature_hu10667201127643669160.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/">LPC 8. Dynamic Memory Allocation </div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-07T00:00:00&#43;00:00">Mar 7 2025</time><span class="px-2 text-primary-500">&middot;</span><span>971 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/learning-programming-with-c/lpc7.arrays/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc7.arrays/feature_hu10944519566679317209.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/learning-programming-with-c/lpc7.arrays/">LPC 7. Arrays</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-22T00:00:00&#43;00:00">Feb 22 2025</time><span class="px-2 text-primary-500">&middot;</span><span>2196 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/learning-programming-with-c/lpc6.pointers/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc6.pointers/feature_hu3152701200236818152.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/learning-programming-with-c/lpc6.pointers/">LPC 6. Pointers</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-20T00:00:00&#43;00:00">Feb 20 2025</time><span class="px-2 text-primary-500">&middot;</span><span>4024 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/learning-programming-with-c/lpc5.functions/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc5.functions/feature_hu696739297283955138.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/learning-programming-with-c/lpc5.functions/">LPC 5. Functions</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-28T00:00:00&#43;00:00">Jan 28 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1744 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/learning-programming-with-c/lpc4.repetition/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc4.repetition/feature_hu12432724682679456260.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/learning-programming-with-c/lpc4.repetition/">LPC 4. Repetition</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-20T00:00:00&#43;00:00">Jan 20 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1300 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\UofT\\24\\Learning Programming with C\\LPC10.Strings\\index.md"
+        var oid_likes = "likes_docs\\UofT\\24\\Learning Programming with C\\LPC10.Strings\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >LPC 12. Data Structure </span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-03-31T00:00:00&#43;00:00">Mar 31 2025</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >LPC 9. Multi-dimensional Arrays</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-03-25T00:00:00&#43;00:00">Mar 25 2025</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+      </main><script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+
+<footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
+            title="">
+            
+            Credits
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Buezwqwg
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://buezw.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+
+  
+</html>

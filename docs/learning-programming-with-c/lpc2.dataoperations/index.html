@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -16,7 +20,7 @@
   <meta name="keywords" content="Docs, LPC, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/" />
+  <link rel="canonical" href="http://localhost:1313/docs/learning-programming-with-c/lpc2.dataoperations/" />
   
   
   
@@ -64,7 +68,7 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/">
+  <meta property="og:url" content="http://localhost:1313/docs/learning-programming-with-c/lpc2.dataoperations/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="LPC 2. Data & Operations">
   <meta property="og:description" content=" Last Edit: 1/9/25
@@ -76,11 +80,11 @@
     <meta property="article:modified_time" content="2025-01-09T00:00:00+00:00">
     <meta property="article:tag" content="Docs">
     <meta property="article:tag" content="LPC">
-    <meta property="og:image" content="https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/feature.png">
+    <meta property="og:image" content="http://localhost:1313/docs/learning-programming-with-c/lpc2.dataoperations/feature.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/learning-programming-with-c/lpc2.dataoperations/feature.png">
+  <meta name="twitter:image" content="http://localhost:1313/docs/learning-programming-with-c/lpc2.dataoperations/feature.png">
   <meta name="twitter:title" content="LPC 2. Data & Operations">
   <meta name="twitter:description" content=" Last Edit: 1/9/25
 2.1 Double data type for real numbers #在程序中用分数代表数字 2.1.1 Convert Inches to Centimeters #// Description: This program convert inches to centimeters #include &lt;stdio.h&gt; int main(void){ // Declare variables const double InchesToCm = 2.54; double inputInches, outputCm; // Prompt user for input printf(&#34;Enter the number of inches to convert to cm: &#34;); scanf(&#34;%lf&#34;, &amp;inputInches); // Convert inches to centimeters outputCm = inputInches * InchesToCm; // Display output in 2 decimal places printf(&#34;The number of centimeters is %.2lf\n&#34;, outputCm); return 0; } const是一个关键字，指示变量是常量。不能在整个代码中更改该变量 int main(void){ const double InchesToCm = 2.54; InchesToCm = 2.51; } 这样操作将会报错，因为InchesToCm是一个不可以更改的Constant">
@@ -96,7 +100,7 @@
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 1\/9\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch1 class=\u0022relative group\u0022\u003e2.1 Double data type for real numbers \r\n    \u003cdiv id=\u002221-double-data-type-for-real-numbers\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#21-double-data-type-for-real-numbers\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h1\u003e\r\n\u003cul\u003e\n\u003cli\u003e在程序中用分数代表数字\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003e2.1.1 Convert Inches to Centimeters \r\n    \u003cdiv id=\u0022211-convert-inches-to-centimeters\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#211-convert-inches-to-centimeters\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-c\u0022 data-lang=\u0022c\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\/\/ Description: This program convert inches to centimeters\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e\u003cspan class=\u0022cp\u0022\u003e#include\u003c\/span\u003e \u003cspan class=\u0022cpf\u0022\u003e\u0026lt;stdio.h\u0026gt;\u003c\/span\u003e\u003cspan class=\u0022cp\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022nf\u0022\u003emain\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022kt\u0022\u003evoid\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e){\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e  \u003cspan class=\u0022c1\u0022\u003e\/\/ Declare variables\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e  \u003cspan class=\u0022k\u0022\u003econst\u003c\/span\u003e \u003cspan class=\u0022kt\u0022\u003edouble\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eInchesToCm\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022mf\u0022\u003e2.54\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e  \u003cspan class=\u0022kt\u0022\u003edouble\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003einputInches\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eoutputCm\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e  \u003cspan class=\u0022c1\u0022\u003e\/\/ Prompt user for input\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e  \u003cspan class=\u0022nf\u0022\u003eprintf\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s\u0022\u003e\u0026#34;Enter the number of inches to convert to cm: \u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e);\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e  \u003cspan class=\u0022nf\u0022\u003escanf\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s\u0022\u003e\u0026#34;%lf\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026amp;\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003einputInches\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e);\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e  \u003cspan class=\u0022c1\u0022\u003e\/\/ Convert inches to centimeters\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e  \u003cspan class=\u0022n\u0022\u003eoutputCm\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003einputInches\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e*\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eInchesToCm\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e \n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e  \u003cspan class=\u0022c1\u0022\u003e\/\/ Display output in 2 decimal places\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e  \u003cspan class=\u0022nf\u0022\u003eprintf\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022s\u0022\u003e\u0026#34;The number of centimeters is %.2lf\u003c\/span\u003e\u003cspan class=\u0022se\u0022\u003e\\n\u003c\/span\u003e\u003cspan class=\u0022s\u0022\u003e\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eoutputCm\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e);\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e  \u003cspan class=\u0022k\u0022\u003ereturn\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e0\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022p\u0022\u003e}\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cul\u003e\n\u003cli\u003e\u003ccode\u003econst\u003c\/code\u003e是一个关键字，指示变量是常量。不能在整个代码中更改该变量\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-c\u0022 data-lang=\u0022c\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022nf\u0022\u003emain\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022kt\u0022\u003evoid\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e){\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\t\u003cspan class=\u0022k\u0022\u003econst\u003c\/span\u003e \u003cspan class=\u0022kt\u0022\u003edouble\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eInchesToCm\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022mf\u0022\u003e2.54\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\t\u003cspan class=\u0022n\u0022\u003eInchesToCm\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022mf\u0022\u003e2.51\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022p\u0022\u003e}\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cblockquote\u003e\n\u003cp\u003e这样操作将会报错，因为\u003ccode\u003eInchesToCm\u003c\/code\u003e是一个不可以更改的Constant\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/learning-programming-with-c\/lpc2.dataoperations\/",
+    "url" : "http:\/\/localhost:1313\/docs\/learning-programming-with-c\/lpc2.dataoperations\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
@@ -166,15 +170,27 @@
   
 </head>
 <body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-8 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
-  <div id="the-top" class="absolute flex self-center">
-    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
-      href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
-  </div>
-  
-  
-  <div class="min-h-[148px]"></div>
+    class="flex flex-col h-screen text-lg leading-7
+           bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral
+           scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400
+           dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600
+           
+             max-w-7xl m-auto px-6 sm:px-14 md:px-24 lg:px-32
+           ">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+      >
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content
+      </a>
+    </div>
+
+    
+    
+      
+      
+        <div class="min-h-[100px]"></div>
 <div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
   <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
   <div class="relative max-w-[64rem] ml-auto mr-auto">
@@ -536,10 +552,12 @@
   });
 </script>
 
-  
-  <div class="relative flex flex-col grow">
-    <main id="main-content" class="grow ">
       
+    
+
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow ">
+        
 
 
 <article>
@@ -2651,14 +2669,15 @@
   </footer>
 </article>
 
-      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
     aria-label="Scroll to top" title="Scroll to top">
     &uarr;
   </a>
 </div>
-    </main><script type="text/javascript"
+      </main><script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
@@ -2730,7 +2749,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div
@@ -2780,7 +2799,8 @@
   </div>
 </div>
 
-  </div>
-</body>
+    </div>
+  </body>
 
+  
 </html>

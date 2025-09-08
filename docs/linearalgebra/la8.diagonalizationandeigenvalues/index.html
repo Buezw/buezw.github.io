@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -16,7 +20,7 @@
   <meta name="keywords" content="Docs, LA, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/linearalgebra/la8.diagonalizationandeigenvalues/" />
+  <link rel="canonical" href="http://localhost:1313/docs/linearalgebra/la8.diagonalizationandeigenvalues/" />
   
   
   
@@ -64,7 +68,7 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/linearalgebra/la8.diagonalizationandeigenvalues/">
+  <meta property="og:url" content="http://localhost:1313/docs/linearalgebra/la8.diagonalizationandeigenvalues/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="LA 8. Diagonalization and Eigenvalues">
   <meta property="og:description" content=" Last Edit: 11/25/24
@@ -76,11 +80,11 @@ Eigenvectors and Eigenvalues #考虑Linear Transformation为一种Function，�
     <meta property="article:modified_time" content="2024-11-25T00:00:00+00:00">
     <meta property="article:tag" content="Docs">
     <meta property="article:tag" content="LA">
-    <meta property="og:image" content="https://buezw.github.io/docs/linearalgebra/la8.diagonalizationandeigenvalues/feature.png">
+    <meta property="og:image" content="http://localhost:1313/docs/linearalgebra/la8.diagonalizationandeigenvalues/feature.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/linearalgebra/la8.diagonalizationandeigenvalues/feature.png">
+  <meta name="twitter:image" content="http://localhost:1313/docs/linearalgebra/la8.diagonalizationandeigenvalues/feature.png">
   <meta name="twitter:title" content="LA 8. Diagonalization and Eigenvalues">
   <meta name="twitter:description" content=" Last Edit: 11/25/24
 Eigenvectors and Eigenvalues #考虑Linear Transformation为一种Function，输入x而输出\(Ax\) Eigenvector即对于指定的Vector x，其Ax平行于x，有 $$Ax=\lambda x$$ 其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue 特征向量的定义要求\(x \neq 0\) Zero Eigenvalue #如果0为Matrix的Eigenvalue，则有 $$Ax=0x=0$$ Eigenvalue 0所对应的Vector Span出了Matrix的Null Space 如果矩阵A为不可逆矩阵，则0是其特征值之一 ex. Projection Matrix #对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector ![[LA8.DiagonalizationandEigenvalues.png]]">
@@ -96,7 +100,7 @@ Eigenvectors and Eigenvalues #考虑Linear Transformation为一种Function，�
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 11\/25\/24\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eEigenvectors and Eigenvalues \r\n    \u003cdiv id=\u0022eigenvectors-and-eigenvalues\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#eigenvectors-and-eigenvalues\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e考虑Linear Transformation为一种Function，输入x而输出\\(Ax\\)\u003c\/li\u003e\n\u003cli\u003eEigenvector即对于指定的Vector x，其Ax平行于x，有\n$$Ax=\\lambda x$$\u003c\/li\u003e\n\u003cli\u003e其中x为A的Eigenvector，\\(\\lambda\\)为A的Eigenvalue\u003c\/li\u003e\n\u003cli\u003e特征向量的定义要求\\(x \\neq 0\\)\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eZero Eigenvalue \r\n    \u003cdiv id=\u0022zero-eigenvalue\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#zero-eigenvalue\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e如果0为Matrix的Eigenvalue，则有\n$$Ax=0x=0$$\u003c\/li\u003e\n\u003cli\u003eEigenvalue 0所对应的Vector Span出了Matrix的Null Space\u003c\/li\u003e\n\u003cli\u003e如果矩阵A为不可逆矩阵，则0是其特征值之一\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eex. Projection Matrix \r\n    \u003cdiv id=\u0022ex-projection-matrix\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ex-projection-matrix\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e![[LA8.DiagonalizationandEigenvalues.png]]\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/linearalgebra\/la8.diagonalizationandeigenvalues\/",
+    "url" : "http:\/\/localhost:1313\/docs\/linearalgebra\/la8.diagonalizationandeigenvalues\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
@@ -166,15 +170,27 @@ Eigenvectors and Eigenvalues #考虑Linear Transformation为一种Function，�
   
 </head>
 <body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-8 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
-  <div id="the-top" class="absolute flex self-center">
-    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
-      href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
-  </div>
-  
-  
-  <div class="min-h-[148px]"></div>
+    class="flex flex-col h-screen text-lg leading-7
+           bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral
+           scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400
+           dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600
+           
+             max-w-7xl m-auto px-6 sm:px-14 md:px-24 lg:px-32
+           ">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+      >
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content
+      </a>
+    </div>
+
+    
+    
+      
+      
+        <div class="min-h-[100px]"></div>
 <div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
   <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
   <div class="relative max-w-[64rem] ml-auto mr-auto">
@@ -536,10 +552,12 @@ Eigenvectors and Eigenvalues #考虑Linear Transformation为一种Function，�
   });
 </script>
 
-  
-  <div class="relative flex flex-col grow">
-    <main id="main-content" class="grow ">
       
+    
+
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow ">
+        
 
 
 <article>
@@ -2299,14 +2317,15 @@ $$
   </footer>
 </article>
 
-      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
   <a href="#the-top"
     class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
     aria-label="Scroll to top" title="Scroll to top">
     &uarr;
   </a>
 </div>
-    </main><script type="text/javascript"
+      </main><script type="text/javascript"
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
@@ -2378,7 +2397,7 @@ $$
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div
@@ -2428,7 +2447,8 @@ $$
   </div>
 </div>
 
-  </div>
-</body>
+    </div>
+  </body>
 
+  
 </html>
