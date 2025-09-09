@@ -9,43 +9,13 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sat, 06 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Efficiently Inefficient</title>
-      <link>https://buezw.github.io/docs/books/efficientlyinefficient/</link>
-      <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/books/efficientlyinefficient/</guid>
-      <description></description>
-      
-    </item>
-    
+    <lastBuildDate>Mon, 01 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Books</title>
-      <link>https://buezw.github.io/docs/books/</link>
+      <link>https://buezw.github.io/docs/reads/</link>
       <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/books/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Books</title>
-      <link>https://buezw.github.io/docs/notes/</link>
-      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/notes/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Chartered Financial Analyst</title>
-      <link>https://buezw.github.io/docs/chartered-financial-analyst/</link>
-      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/chartered-financial-analyst/</guid>
+      <guid>https://buezw.github.io/docs/reads/</guid>
       <description></description>
       
     </item>
@@ -2669,22 +2639,11 @@ class LinearRegression(Scene):
     </item>
     
     <item>
-      <title>Economics</title>
-      <link>https://buezw.github.io/docs/economic/</link>
-      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/economic/</guid>
-      <description>&lt;p&gt;Notes taken from 小Lin说的个人空间-小Lin说个人主页-哔哩哔哩视频. space.bilibili.com/520819684?spm_id_from=333.337.search-card.all.click.
-Requires further completion&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
       <title>Foreign Exchange</title>
-      <link>https://buezw.github.io/docs/economic/foreignexchange/</link>
+      <link>https://buezw.github.io/docs/notes/foreignexchange/</link>
       <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/economic/foreignexchange/</guid>
+      <guid>https://buezw.github.io/docs/notes/foreignexchange/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/13/2024&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2707,7 +2666,7 @@ Requires further completion&lt;/p&gt;</description>
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/economic/foreignexchange/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/foreignexchange/feature.png" />
     </item>
     
     <item>
@@ -3525,16 +3484,6 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     </item>
     
     <item>
-      <title>U of T</title>
-      <link>https://buezw.github.io/docs/uoft/</link>
-      <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>U of T 24</title>
       <link>https://buezw.github.io/docs/uoft/24/</link>
       <pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate>
@@ -3546,10 +3495,10 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     
     <item>
       <title>Inflation 通货膨胀</title>
-      <link>https://buezw.github.io/docs/economic/inflation/</link>
+      <link>https://buezw.github.io/docs/notes/inflation/</link>
       <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/economic/inflation/</guid>
+      <guid>https://buezw.github.io/docs/notes/inflation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 7/4/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3598,7 +3547,7 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/economic/inflation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/inflation/feature.png" />
     </item>
     
     <item>

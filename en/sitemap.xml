@@ -3,14 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://buezw.github.io/tags/books/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -25,32 +19,38 @@
     />
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <loc>https://buezw.github.io/tags/cfa/</loc>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/chartered-financial-analyst/</loc>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/books/efficientlyinefficient/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <loc>https://buezw.github.io/tags/qec/</loc>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/ei/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <loc>https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/</loc>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -65,25 +65,61 @@
     />
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/books/</loc>
+    <loc>https://buezw.github.io/tags/ei/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/reads/efficientlyinefficient/ei1.activeinvesting/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/reads/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/reads/efficientlyinefficient/</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/reads/efficientlyinefficient/ei0.introduction/</loc>
+    <lastmod>2025-09-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/books/</loc>
+    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/reads/</loc>
+    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/docs/</loc>
+    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/notes/</loc>
     <lastmod>2025-09-01T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/docs/notes/</loc>
-    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/cfa/</loc>
-    <lastmod>2025-09-01T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/chartered-financial-analyst/</loc>
     <lastmod>2025-09-01T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -102,6 +138,18 @@
   </url>
   <url>
     <loc>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/</loc>
+    <lastmod>2025-04-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/</loc>
+    <lastmod>2025-04-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/uoft/</loc>
     <lastmod>2025-04-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -573,13 +621,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/economic/</loc>
-    <lastmod>2024-11-13T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/economic/foreignexchange/</loc>
+    <loc>https://buezw.github.io/docs/notes/foreignexchange/</loc>
     <lastmod>2024-11-13T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -627,18 +669,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/notes/thethreebodyproblem/</loc>
-    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/notes/</loc>
-    <lastmod>2024-10-16T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</loc>
     <lastmod>2024-10-15T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -675,19 +705,13 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/uoft/</loc>
-    <lastmod>2024-08-25T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/uoft/24/</loc>
     <lastmod>2024-08-25T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/economic/inflation/</loc>
+    <loc>https://buezw.github.io/docs/notes/inflation/</loc>
     <lastmod>2024-07-04T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -800,16 +824,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/credits/ss/</loc>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/thoughts/thethreebodyproblem/</loc>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/thoughts/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>

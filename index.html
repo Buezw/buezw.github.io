@@ -208,7 +208,7 @@
 }
 
  
-a { color: #0ff; text-decoration: none; }
+a { color: #fff; text-decoration: none; }
 a:hover { color: #fff; text-decoration: underline; }
 
  
@@ -250,8 +250,9 @@ html, body { overflow-x: hidden; }
 .left-panel {
   flex: 1;
   max-width: 320px;
+  max-height: 320px;
   background: rgba(255,255,255,.10);
-  padding: 20px;
+  padding: 40px;
   border-radius: 16px;
   box-shadow: 0 2px 10px rgba(0,0,0,.30);
 }
@@ -275,8 +276,8 @@ html, body { overflow-x: hidden; }
  
 .avatar-abs {
   position: absolute;
-  top: 20px;
-  left: 4rem;                 
+  top: -10px;
+  left: 5rem;                 
   width: 14rem;               
   height: 14rem;              
   border-radius: 9999px;      
@@ -403,6 +404,11 @@ body > .site-footer {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+ 
+.home-bleed .recent-articles {
+  margin-top: -45px !important;   
+}
+
 </style>
 
 
@@ -410,10 +416,11 @@ body > .site-footer {
   <div class="home-bg overflow-x-hidden">
     
     <div class="top-nav text-cyan-300">
-      <a class="hover:underline hover:text-white" href="#">GitHub</a>
-      <a class="hover:underline hover:text-white" href="mailto:you@example.com">Email</a>
-      <a class="hover:underline hover:text-white" href="#">博客</a>
-      <a class="hover:underline hover:text-white" href="#">切换模式</a>
+      <a class="hover:underline hover:text-white" href="docs">Docs</a>
+      <a class="hover:underline hover:text-white" href="https://github.com/Buezw">GitHub</a>
+      <a class="hover:underline hover:text-white" href="https://www.linkedin.com/in/jingnan-huang-438548325/">Linkedin</a>
+      <a class="hover:underline hover:text-white" href="mailto:buezwqwg@outlook.com">Email</a>
+      <a class="hover:underline hover:text-white" href="#">Change Language</a>
     </div>
 
     
@@ -431,13 +438,6 @@ body > .site-footer {
             <p>University of Toronto</p>
             <p>The Edward S. Rogers Sr. Department of Electrical & Computer Engineering</p>
           </div>
-          <div class="profile-links">
-            <div><i class="fas fa-envelope"></i> <a href="mailto:you@example.com">Email</a></div>
-            <div><i class="fab fa-github"></i> <a href="https://github.com/yourusername">GitHub</a></div>
-            <div><i class="fas fa-flask"></i> <a href="https://www.researchgate.net/profile/YourName">ResearchGate</a></div>
-            <div><i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=xxxx">Google Scholar</a></div>
-            <div><i class="fas fa-id-card"></i> <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a></div>
-          </div>
         </aside>
 
         
@@ -445,6 +445,48 @@ body > .site-footer {
           <h2>Recent Articles</h2>
 
           <div class="recent-grid">
+            
+              <a href="/docs/chartered-financial-analyst/qec1.ratesreturns/">
+                <div class="recent-card">
+                  
+                  <img src="/docs/chartered-financial-analyst/qec1.ratesreturns/feature.png" alt="QEC1.Rates&amp;Returns">
+                  <div class="content">
+                    <div class="title">QEC1.Rates&amp;Returns</div>
+                    <div class="meta">Sep 08 2025 · 4747 words</div>
+                    <div class="tags">
+                      <span class="tag">CFA</span><span class="tag">QEC</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            
+              <a href="/docs/reads/efficientlyinefficient/ei1.activeinvesting/">
+                <div class="recent-card">
+                  
+                  <img src="/docs/reads/efficientlyinefficient/ei1.activeinvesting/feature.png" alt="EI1.Active Investing">
+                  <div class="content">
+                    <div class="title">EI1.Active Investing</div>
+                    <div class="meta">Sep 07 2025 · 803 words</div>
+                    <div class="tags">
+                      <span class="tag">Reads</span><span class="tag">EI</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            
+              <a href="/docs/reads/efficientlyinefficient/ei0.introduction/">
+                <div class="recent-card">
+                  
+                  <img src="/docs/reads/efficientlyinefficient/ei0.introduction/feature.png" alt="EI0.Introduction">
+                  <div class="content">
+                    <div class="title">EI0.Introduction</div>
+                    <div class="meta">Sep 06 2025 · 1614 words</div>
+                    <div class="tags">
+                      <span class="tag">Reads</span><span class="tag">EI</span>
+                    </div>
+                  </div>
+                </div>
+              </a>
             
               <a href="/docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/">
                 <div class="recent-card">
@@ -539,48 +581,6 @@ body > .site-footer {
                     <div class="meta">Mar 27 2025 · 4352 words</div>
                     <div class="tags">
                       <span class="tag">Docs</span><span class="tag">LPC</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/feature.png" alt="D2L 6.3 Padding &amp; Stride">
-                  <div class="content">
-                    <div class="title">D2L 6.3 Padding &amp; Stride</div>
-                    <div class="meta">Mar 25 2025 · 500 words</div>
-                    <div class="tags">
-                      <span class="tag">D2L</span><span class="tag">Computer Science</span><span class="tag">Docs</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/feature.png" alt="D2L 6.4 Multiple Input &amp; Output">
-                  <div class="content">
-                    <div class="title">D2L 6.4 Multiple Input &amp; Output</div>
-                    <div class="meta">Mar 25 2025 · 619 words</div>
-                    <div class="tags">
-                      <span class="tag">D2L</span><span class="tag">Computer Science</span><span class="tag">Docs</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/feature.png" alt="DYN 5. R-Theta Coordinate Edited">
-                  <div class="content">
-                    <div class="title">DYN 5. R-Theta Coordinate Edited</div>
-                    <div class="meta">Mar 25 2025 · 609 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">DYN</span>
                     </div>
                   </div>
                 </div>
