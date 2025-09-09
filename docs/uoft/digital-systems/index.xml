@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>U of T on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/uoft/</link>
-    <description>Recent content in U of T on Buezwqwg</description>
+    <title>Digital Systems on Buezwqwg</title>
+    <link>https://buezw.github.io/docs/uoft/digital-systems/</link>
+    <description>Recent content in Digital Systems on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 04 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://buezw.github.io/docs/uoft/digital-systems/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
