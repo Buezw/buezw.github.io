@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -19,6 +19,58 @@
     />
   </url>
   <url>
+    <loc>https://buezw.github.io/docs/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/ie/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/ie2.operationalamplifiers/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/introductory-electronics/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/tags/"
+    />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/uoft/</loc>
+    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/tags/cfa/</loc>
     <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -26,12 +78,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/docs/chartered-financial-analyst/</loc>
-    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/</loc>
     <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -47,22 +93,6 @@
     <lastmod>2025-09-08T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/tags/"
-    />
   </url>
   <url>
     <loc>https://buezw.github.io/tags/ei/</loc>
@@ -95,31 +125,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/ie/</loc>
-    <lastmod>2025-09-04T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/</loc>
-    <lastmod>2025-09-04T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/uoft/introductory-electronics/</loc>
-    <lastmod>2025-09-04T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/uoft/</loc>
-    <lastmod>2025-09-04T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/uoft/</loc>
     <lastmod>2025-09-04T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>

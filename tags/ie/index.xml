@@ -9,7 +9,63 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 04 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ie/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>IE 2. Operational Amplifiers</title>
+      <link>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/ie2.operationalamplifiers/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/ie2.operationalamplifiers/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 9/14/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;2.1 The Ideal Op Amp 
+    &lt;div id=&#34;21-the-ideal-op-amp&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#21-the-ideal-op-amp&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;2.1.1 The Op-Amp Terminal 
+    &lt;div id=&#34;211-the-op-amp-terminal&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#211-the-op-amp-terminal&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;在 IE1 中提到过 Amplifier，这里将要介绍一个更加具体的 Amplifier 叫做 Operational AMP&lt;/li&gt;
+&lt;li&gt;其最大的差别就是接受了两个 Signal 的进入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Introductory Electronics</title>
+      <link>https://buezw.github.io/docs/uoft/introductory-electronics/</link>
+      <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/</guid>
+      <description></description>
+      
+    </item>
+    
     <item>
       <title>IE1.Signals&amp;Amplifiers</title>
       <link>https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/</link>
@@ -94,16 +150,6 @@
     &lt;/figure&gt;
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/feature.png" />
-    </item>
-    
-    <item>
-      <title>Introductory Electronics</title>
-      <link>https://buezw.github.io/docs/uoft/introductory-electronics/</link>
-      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/</guid>
-      <description></description>
-      
     </item>
     
   </channel>
