@@ -13,14 +13,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   
-  <title>IE1.Signals&Amplifiers &middot; Buezwqwg</title>
-  <meta name="title" content="IE1.Signals&Amplifiers &middot; Buezwqwg" />
+  <title>IE 2. Operational Amplifiers &middot; Buezwqwg</title>
+  <meta name="title" content="IE 2. Operational Amplifiers &middot; Buezwqwg" />
   
   
   <meta name="keywords" content="UofT, IE, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/" />
+  <link rel="canonical" href="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/" />
   
   
   
@@ -68,26 +68,26 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/">
+  <meta property="og:url" content="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/">
   <meta property="og:site_name" content="Buezwqwg">
-  <meta property="og:title" content="IE1.Signals&Amplifiers">
-  <meta property="og:description" content="IE1.Signals&amp;Amplifiers #Last Edit: 9/4/25
-1.1 Signals #信号包含了关于物理世界中各种活动和事物的信息 很多的东西都可以归于信号，例如 Temperature, Pressure, Wind Speed 等 Processing Signals #为了从 Signals 中提取有效的信息，则需要进行 Signal Processing 但是在这之前，人需要将其转换为 Voltage 或者 Current Signal Source #信号源同 Source 一样，显示世界中并没有 Ideal Source，即 Zero Resistance 所以这就需要给 Source 添加一个 Resistor，其可以通过Thevenin Form 来表达 ">
+  <meta property="og:title" content="IE 2. Operational Amplifiers">
+  <meta property="og:description" content="IE 2. Operational Amplifiers #Last Edit: 9/14/25
+2.1 The Ideal Op Amp #2.1.1 The Op-Amp Terminal #在 IE1 中提到过 Amplifier，这里将要介绍一个更加具体的 Amplifier 叫做 Operational AMP 其最大的差别就是接受了两个 Signal 的进入 ">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2025-09-04T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-09-04T00:00:00+00:00">
+    <meta property="article:published_time" content="2025-09-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-14T00:00:00+00:00">
     <meta property="article:tag" content="UofT">
     <meta property="article:tag" content="IE">
-    <meta property="og:image" content="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/feature.png">
+    <meta property="og:image" content="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/feature.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/feature.png">
-  <meta name="twitter:title" content="IE1.Signals&Amplifiers">
-  <meta name="twitter:description" content="IE1.Signals&amp;Amplifiers #Last Edit: 9/4/25
-1.1 Signals #信号包含了关于物理世界中各种活动和事物的信息 很多的东西都可以归于信号，例如 Temperature, Pressure, Wind Speed 等 Processing Signals #为了从 Signals 中提取有效的信息，则需要进行 Signal Processing 但是在这之前，人需要将其转换为 Voltage 或者 Current Signal Source #信号源同 Source 一样，显示世界中并没有 Ideal Source，即 Zero Resistance 所以这就需要给 Source 添加一个 Resistor，其可以通过Thevenin Form 来表达 ">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/feature.png">
+  <meta name="twitter:title" content="IE 2. Operational Amplifiers">
+  <meta name="twitter:description" content="IE 2. Operational Amplifiers #Last Edit: 9/14/25
+2.1 The Ideal Op Amp #2.1.1 The Op-Amp Terminal #在 IE1 中提到过 Amplifier，这里将要介绍一个更加具体的 Amplifier 叫做 Operational AMP 其最大的差别就是接受了两个 Signal 的进入 ">
 
   
   <script type="application/ld+json">
@@ -95,26 +95,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Docs",
-    "name": "IE1.Signals\u0026Amplifiers",
-    "headline": "IE1.Signals\u0026Amplifiers",
+    "name": "IE 2. Operational Amplifiers",
+    "headline": "IE 2. Operational Amplifiers",
     
-    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eIE1.Signals\u0026amp;Amplifiers \r\n    \u003cdiv id=\u0022ie1signalsamplifiers\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ie1signalsamplifiers\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h1\u003e\r\n\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 9\/4\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003e1.1 Signals \r\n    \u003cdiv id=\u002211-signals\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#11-signals\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e信号包含了关于物理世界中各种活动和事物的信息\u003c\/li\u003e\n\u003cli\u003e很多的东西都可以归于信号，例如 Temperature, Pressure, Wind Speed 等\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eProcessing Signals \r\n    \u003cdiv id=\u0022processing-signals\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#processing-signals\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e为了从 Signals 中提取有效的信息，则需要进行 Signal Processing\u003c\/li\u003e\n\u003cli\u003e但是在这之前，人需要将其转换为 Voltage 或者 Current\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eSignal Source \r\n    \u003cdiv id=\u0022signal-source\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#signal-source\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e信号源同 Source 一样，显示世界中并没有 Ideal Source，即 Zero Resistance\u003c\/li\u003e\n\u003cli\u003e所以这就需要给 Source 添加一个 Resistor，其可以通过Thevenin Form 来表达\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\r\n    \u003cfigure\u003e\r\n      \u003cimg\r\n        class=\u0022my-0 rounded-md\u0022\r\n        loading=\u0022lazy\u0022\r\n        srcset=\u0022\r\n        \/docs\/uoft\/introductory-electronics\/ie1.signalsamplifiers\/image_hu8871716882946412280.png 330w,\r\n        \/docs\/uoft\/introductory-electronics\/ie1.signalsamplifiers\/image_hu5403466879086397722.png 660w,\r\n        \/docs\/uoft\/introductory-electronics\/ie1.signalsamplifiers\/image_hu8822405479782198350.png 1024w,\r\n        \/docs\/uoft\/introductory-electronics\/ie1.signalsamplifiers\/image_hu3675317255615163572.png 2x\u0022\r\n        src=\u0022\/docs\/uoft\/introductory-electronics\/ie1.signalsamplifiers\/image_hu5403466879086397722.png\u0022\r\n        alt=\u0022image.png\u0022\r\n      \/\u003e\r\n      \r\n    \u003c\/figure\u003e\r\n\u003c\/p\u003e",
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eIE 2. Operational Amplifiers \r\n    \u003cdiv id=\u0022ie-2-operational-amplifiers\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ie-2-operational-amplifiers\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h1\u003e\r\n\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 9\/14\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003e2.1 The Ideal Op Amp \r\n    \u003cdiv id=\u002221-the-ideal-op-amp\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#21-the-ideal-op-amp\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003e2.1.1 The Op-Amp Terminal \r\n    \u003cdiv id=\u0022211-the-op-amp-terminal\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#211-the-op-amp-terminal\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e在 IE1 中提到过 Amplifier，这里将要介绍一个更加具体的 Amplifier 叫做 Operational AMP\u003c\/li\u003e\n\u003cli\u003e其最大的差别就是接受了两个 Signal 的进入\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e\r\n    \u003cfigure\u003e\r\n      \u003cimg\r\n        class=\u0022my-0 rounded-md\u0022\r\n        loading=\u0022lazy\u0022\r\n        srcset=\u0022\r\n        \/docs\/uoft\/introductory-electronics\/ie2.operationalamplifier\/image_hu6707710446908872823.png 330w,\r\n        \/docs\/uoft\/introductory-electronics\/ie2.operationalamplifier\/image_hu18270125127338792539.png 660w,\r\n        \/docs\/uoft\/introductory-electronics\/ie2.operationalamplifier\/image_hu14190371214853685493.png 1024w,\r\n        \/docs\/uoft\/introductory-electronics\/ie2.operationalamplifier\/image_hu7648658950034460969.png 2x\u0022\r\n        src=\u0022\/docs\/uoft\/introductory-electronics\/ie2.operationalamplifier\/image_hu18270125127338792539.png\u0022\r\n        alt=\u0022image.png\u0022\r\n      \/\u003e\r\n      \r\n    \u003c\/figure\u003e\r\n\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/introductory-electronics\/ie1.signalsamplifiers\/",
+    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/introductory-electronics\/ie2.operationalamplifier\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-09-04T00:00:00\u002b00:00",
-    "datePublished": "2025-09-04T00:00:00\u002b00:00",
+    "dateCreated": "2025-09-14T00:00:00\u002b00:00",
+    "datePublished": "2025-09-14T00:00:00\u002b00:00",
     
-    "dateModified": "2025-09-04T00:00:00\u002b00:00",
+    "dateModified": "2025-09-14T00:00:00\u002b00:00",
     
     "keywords": ["UofT","IE"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "4497"
+    "wordCount": "3954"
   }]
   </script>
 
@@ -575,7 +575,7 @@
 
     
     <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/docs/uoft/introductory-electronics/ie1.signalsamplifiers/feature_hu16600870895998338021.png);">
+    style="background-image:url(/docs/uoft/introductory-electronics/ie2.operationalamplifier/feature_hu1542459888371428041.png);">
     
 
 
@@ -650,8 +650,8 @@
   <li class="inline hidden">
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/uoft/introductory-electronics/ie1.signalsamplifiers/"
-      >IE1.Signals&amp;Amplifiers</a
+      href="/docs/uoft/introductory-electronics/ie2.operationalamplifier/"
+      >IE 2. Operational Amplifiers</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -660,7 +660,7 @@
 
     
     <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      IE1.Signals&Amplifiers
+      IE 2. Operational Amplifiers
     </h1>
     <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
@@ -701,7 +701,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <span>4497 words</span>
+  <span>3954 words</span>
   
 
   
@@ -801,65 +801,46 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#11-signals">1.1 Signals</a>
+    <li><a href="#21-the-ideal-op-amp">2.1 The Ideal Op Amp</a>
       <ul>
-        <li><a href="#processing-signals">Processing Signals</a></li>
-        <li><a href="#signal-source">Signal Source</a></li>
+        <li><a href="#211-the-op-amp-terminal">2.1.1 The Op-Amp Terminal</a></li>
+        <li><a href="#ideal-vs-discrete">Ideal v.s. Discrete</a></li>
       </ul>
     </li>
-    <li><a href="#12-frequency-spectrum-of-signals">1.2 Frequency Spectrum of Signals</a>
+    <li><a href="#22-the-inverting-configuration">2.2 The Inverting Configuration</a>
       <ul>
-        <li><a href="#rms-root-mean-value">RMS Root Mean Value</a></li>
-        <li><a href="#fourier-series">Fourier Series</a></li>
-        <li><a href="#line-spectrum">Line Spectrum</a></li>
-      </ul>
-    </li>
-    <li><a href="#representations">Representations</a></li>
-    <li><a href="#13-analog-and-digital-signals">1.3 Analog and Digital Signals</a>
-      <ul>
-        <li><a href="#analog-signal">Analog Signal</a></li>
-        <li><a href="#digital-signal-数字信号">Digital Signal 数字信号</a></li>
-        <li><a href="#type-of-digital-signal">Type of digital signal</a></li>
-        <li><a href="#ad-converter"><strong>A/D converter</strong></a></li>
-      </ul>
-    </li>
-    <li><a href="#14-amplifiers">1.4 Amplifiers</a>
-      <ul>
-        <li><a href="#141-signal-amplification">1.4.1 Signal Amplification</a>
+        <li><a href="#virtual-short">Virtual Short</a></li>
+        <li><a href="#op-amp-configuration">Op AMP Configuration</a></li>
+        <li><a href="#1-non-inverting-op-amp同相放大器">1. <strong>Non-inverting Op Amp（同相放大器）</strong></a></li>
+        <li><a href="#2-inverting-op-amp反相放大器">2. <strong>Inverting Op Amp（反相放大器）</strong></a></li>
+        <li><a href="#3-unit-gain-buffer电压跟随器">3. <strong>Unit-gain Buffer（电压跟随器）</strong></a>
           <ul>
-            <li><a href="#voltage-amplifier-电压放大器">Voltage Amplifier (电压放大器)</a></li>
-            <li><a href="#power-amplifier-功率放大器">Power Amplifier (功率放大器)</a></li>
+            <li><a href="#buffer">Buffer</a></li>
           </ul>
         </li>
-        <li><a href="#142-amplifier-circuit-symbol">1.4.2 Amplifier Circuit Symbol</a></li>
-        <li><a href="#143-voltage-gain">1.4.3 Voltage Gain</a></li>
-        <li><a href="#144-power-gain-and-current-gain">1.4.4 Power Gain and Current Gain</a></li>
-        <li><a href="#145-expressing-gain-in-decibels">1.4.5 Expressing Gain in Decibels</a></li>
-        <li><a href="#146-the-amplifier-power-supplies">1.4.6 The Amplifier Power Supplies</a>
+        <li><a href="#review-of-impedance">Review of Impedance</a>
           <ul>
-            <li><a href="#dc-power-直流功率">DC power 直流功率</a></li>
-            <li><a href="#amplifier-efficiency-放大器效率">Amplifier efficiency 放大器效率</a></li>
+            <li><a href="#resistor-电阻">Resistor 电阻</a></li>
+            <li><a href="#impedance-阻抗">Impedance 阻抗</a></li>
+            <li><a href="#capacitor-电容">Capacitor 电容</a></li>
+            <li><a href="#inductor-电感">Inductor 电感</a></li>
           </ul>
         </li>
-        <li><a href="#147-amplifier-saturation">1.4.7 Amplifier Saturation</a>
+        <li><a href="#4-general-inverting-op-amp-circuit">4. General Inverting Op amp Circuit</a>
           <ul>
-            <li><a href="#to-avoid-distortion">To Avoid Distortion</a></li>
+            <li><a href="#miller-integrator米勒积分器">Miller Integrator（米勒积分器）</a></li>
           </ul>
         </li>
-        <li><a href="#148-symbol-convention">1.4.8 Symbol Convention</a></li>
-      </ul>
-    </li>
-    <li><a href="#15-circuit-models-for-amplifiers">1.5 Circuit Models for Amplifiers</a>
-      <ul>
-        <li><a href="#151-voltage-amplifiers">1.5.1 Voltage Amplifiers</a>
+        <li><a href="#time-domain--frequency-domain">Time Domain &amp; Frequency Domain</a>
           <ul>
-            <li><a href="#voltage-controlled-voltage-source">Voltage-Controlled Voltage Source</a></li>
-            <li><a href="#voltage-source">Voltage Source</a></li>
-            <li><a href="#input-resistance">Input Resistance</a></li>
-            <li><a href="#output-resistance">Output Resistance</a></li>
+            <li><a href="#differentiator">Differentiator</a></li>
+            <li><a href="#summing-circuit">Summing Circuit</a></li>
+            <li><a href="#difference-amplifier">Difference Amplifier</a></li>
           </ul>
         </li>
-        <li><a href="#152-cascaded-amplifiers">1.5.2 Cascaded Amplifiers</a></li>
+        <li><a href="#input-resistance-bin">Input Resistance Bin</a></li>
+        <li><a href="#cascading-op-amp-circuit"><strong>Cascading Op amp circuit</strong></a></li>
+        <li><a href="#instrumentation-amplifier-an-improved-difference-amplifier"><strong>Instrumentation Amplifier (an improved difference amplifier)</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -875,65 +856,46 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#11-signals">1.1 Signals</a>
+    <li><a href="#21-the-ideal-op-amp">2.1 The Ideal Op Amp</a>
       <ul>
-        <li><a href="#processing-signals">Processing Signals</a></li>
-        <li><a href="#signal-source">Signal Source</a></li>
+        <li><a href="#211-the-op-amp-terminal">2.1.1 The Op-Amp Terminal</a></li>
+        <li><a href="#ideal-vs-discrete">Ideal v.s. Discrete</a></li>
       </ul>
     </li>
-    <li><a href="#12-frequency-spectrum-of-signals">1.2 Frequency Spectrum of Signals</a>
+    <li><a href="#22-the-inverting-configuration">2.2 The Inverting Configuration</a>
       <ul>
-        <li><a href="#rms-root-mean-value">RMS Root Mean Value</a></li>
-        <li><a href="#fourier-series">Fourier Series</a></li>
-        <li><a href="#line-spectrum">Line Spectrum</a></li>
-      </ul>
-    </li>
-    <li><a href="#representations">Representations</a></li>
-    <li><a href="#13-analog-and-digital-signals">1.3 Analog and Digital Signals</a>
-      <ul>
-        <li><a href="#analog-signal">Analog Signal</a></li>
-        <li><a href="#digital-signal-数字信号">Digital Signal 数字信号</a></li>
-        <li><a href="#type-of-digital-signal">Type of digital signal</a></li>
-        <li><a href="#ad-converter"><strong>A/D converter</strong></a></li>
-      </ul>
-    </li>
-    <li><a href="#14-amplifiers">1.4 Amplifiers</a>
-      <ul>
-        <li><a href="#141-signal-amplification">1.4.1 Signal Amplification</a>
+        <li><a href="#virtual-short">Virtual Short</a></li>
+        <li><a href="#op-amp-configuration">Op AMP Configuration</a></li>
+        <li><a href="#1-non-inverting-op-amp同相放大器">1. <strong>Non-inverting Op Amp（同相放大器）</strong></a></li>
+        <li><a href="#2-inverting-op-amp反相放大器">2. <strong>Inverting Op Amp（反相放大器）</strong></a></li>
+        <li><a href="#3-unit-gain-buffer电压跟随器">3. <strong>Unit-gain Buffer（电压跟随器）</strong></a>
           <ul>
-            <li><a href="#voltage-amplifier-电压放大器">Voltage Amplifier (电压放大器)</a></li>
-            <li><a href="#power-amplifier-功率放大器">Power Amplifier (功率放大器)</a></li>
+            <li><a href="#buffer">Buffer</a></li>
           </ul>
         </li>
-        <li><a href="#142-amplifier-circuit-symbol">1.4.2 Amplifier Circuit Symbol</a></li>
-        <li><a href="#143-voltage-gain">1.4.3 Voltage Gain</a></li>
-        <li><a href="#144-power-gain-and-current-gain">1.4.4 Power Gain and Current Gain</a></li>
-        <li><a href="#145-expressing-gain-in-decibels">1.4.5 Expressing Gain in Decibels</a></li>
-        <li><a href="#146-the-amplifier-power-supplies">1.4.6 The Amplifier Power Supplies</a>
+        <li><a href="#review-of-impedance">Review of Impedance</a>
           <ul>
-            <li><a href="#dc-power-直流功率">DC power 直流功率</a></li>
-            <li><a href="#amplifier-efficiency-放大器效率">Amplifier efficiency 放大器效率</a></li>
+            <li><a href="#resistor-电阻">Resistor 电阻</a></li>
+            <li><a href="#impedance-阻抗">Impedance 阻抗</a></li>
+            <li><a href="#capacitor-电容">Capacitor 电容</a></li>
+            <li><a href="#inductor-电感">Inductor 电感</a></li>
           </ul>
         </li>
-        <li><a href="#147-amplifier-saturation">1.4.7 Amplifier Saturation</a>
+        <li><a href="#4-general-inverting-op-amp-circuit">4. General Inverting Op amp Circuit</a>
           <ul>
-            <li><a href="#to-avoid-distortion">To Avoid Distortion</a></li>
+            <li><a href="#miller-integrator米勒积分器">Miller Integrator（米勒积分器）</a></li>
           </ul>
         </li>
-        <li><a href="#148-symbol-convention">1.4.8 Symbol Convention</a></li>
-      </ul>
-    </li>
-    <li><a href="#15-circuit-models-for-amplifiers">1.5 Circuit Models for Amplifiers</a>
-      <ul>
-        <li><a href="#151-voltage-amplifiers">1.5.1 Voltage Amplifiers</a>
+        <li><a href="#time-domain--frequency-domain">Time Domain &amp; Frequency Domain</a>
           <ul>
-            <li><a href="#voltage-controlled-voltage-source">Voltage-Controlled Voltage Source</a></li>
-            <li><a href="#voltage-source">Voltage Source</a></li>
-            <li><a href="#input-resistance">Input Resistance</a></li>
-            <li><a href="#output-resistance">Output Resistance</a></li>
+            <li><a href="#differentiator">Differentiator</a></li>
+            <li><a href="#summing-circuit">Summing Circuit</a></li>
+            <li><a href="#difference-amplifier">Difference Amplifier</a></li>
           </ul>
         </li>
-        <li><a href="#152-cascaded-amplifiers">1.5.2 Cascaded Amplifiers</a></li>
+        <li><a href="#input-resistance-bin">Input Resistance Bin</a></li>
+        <li><a href="#cascading-op-amp-circuit"><strong>Cascading Op amp circuit</strong></a></li>
+        <li><a href="#instrumentation-amplifier-an-improved-difference-amplifier"><strong>Instrumentation Amplifier (an improved difference amplifier)</strong></a></li>
       </ul>
     </li>
   </ul>
@@ -1019,66 +981,46 @@
         <div class="article-content max-w-prose mb-20">
           
 
-<h1 class="relative group">IE1.Signals&amp;Amplifiers 
-    <div id="ie1signalsamplifiers" class="anchor"></div>
+<h1 class="relative group">IE 2. Operational Amplifiers 
+    <div id="ie-2-operational-amplifiers" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#ie1signalsamplifiers" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#ie-2-operational-amplifiers" aria-label="Anchor">#</a>
     </span>        
     
 </h1>
 <blockquote>
-<p>Last Edit: 9/4/25</p>
+<p>Last Edit: 9/14/25</p>
 </blockquote>
 
 
-<h2 class="relative group">1.1 Signals 
-    <div id="11-signals" class="anchor"></div>
+<h2 class="relative group">2.1 The Ideal Op Amp 
+    <div id="21-the-ideal-op-amp" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#11-signals" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#21-the-ideal-op-amp" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
-<ul>
-<li>信号包含了关于物理世界中各种活动和事物的信息</li>
-<li>很多的东西都可以归于信号，例如 Temperature, Pressure, Wind Speed 等</li>
-</ul>
 
 
-<h3 class="relative group">Processing Signals 
-    <div id="processing-signals" class="anchor"></div>
+<h3 class="relative group">2.1.1 The Op-Amp Terminal 
+    <div id="211-the-op-amp-terminal" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#processing-signals" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#211-the-op-amp-terminal" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <ul>
-<li>为了从 Signals 中提取有效的信息，则需要进行 Signal Processing</li>
-<li>但是在这之前，人需要将其转换为 Voltage 或者 Current</li>
-</ul>
-
-
-<h3 class="relative group">Signal Source 
-    <div id="signal-source" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#signal-source" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>信号源同 Source 一样，显示世界中并没有 Ideal Source，即 Zero Resistance</li>
-<li>所以这就需要给 Source 添加一个 Resistor，其可以通过Thevenin Form 来表达</li>
+<li>在 IE1 中提到过 Amplifier，这里将要介绍一个更加具体的 Amplifier 叫做 Operational AMP</li>
+<li>其最大的差别就是接受了两个 Signal 的进入</li>
 </ul>
 <p>
     <figure>
@@ -1086,35 +1028,20 @@
         class="my-0 rounded-md"
         loading="lazy"
         srcset="
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu8871716882946412280.png 330w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png 660w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu8822405479782198350.png 1024w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu3675317255615163572.png 2x"
-        src="/docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png"
+        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu6707710446908872823.png 330w,
+        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png 660w,
+        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu14190371214853685493.png 1024w,
+        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu7648658950034460969.png 2x"
+        src="/docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png"
         alt="image.png"
       />
       
     </figure>
 </p>
 <ul>
-<li>上图两种表示方法是等效的</li>
-</ul>
-
-
-<h2 class="relative group">1.2 Frequency Spectrum of Signals 
-    <div id="12-frequency-spectrum-of-signals" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#12-frequency-spectrum-of-signals" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>研究信号时，一个非常重要的方式是用它的 frequency spectrum 来表示</li>
-<li>通过 ****Fourier series（傅里叶级数）和 Fourier transform（傅里叶变换），能把任意信号表示成不同频率和幅度的 sine waves之和</li>
-<li>所以，sinusoid 是电子学里最重要的信号形式之一</li>
+<li>一共有三条线，1 代表了 Inverting Input，2 代表了 Noninverting Input</li>
+<li>而 3 则是输出 Output</li>
+<li>为了让 Op AMP 工作，需要接入两个 DC Power Supply</li>
 </ul>
 <p>
     <figure>
@@ -1123,56 +1050,29 @@
     </figure>
 </p>
 <ul>
-<li>上图是一个 Sine-wave Voltage Signal，其表达式为</li>
+<li>Op AMP 的特点是，其是一个 Semi-custom Design，即它是以一个部分完成的通用放大模块</li>
+<li>可以根据需要来定制它的功能，比如：反向放大，积分器，比较器等</li>
+<li>其最基本的功能就是 Amplifies the Difference in the two inputs，有数学表达式</li>
 </ul>
 <p>$$
-v_a(t) = V_a \sin(\omega t)
+V_o=A(V_2−V_1)
 $$</p>
-<p>其中：</p>
 <ul>
-<li>\(V_a\)：amplitude 振幅 ，单位 V</li>
-<li>\(\omega\)：angular frequency 角频率，单位 rad/s</li>
-<li>f：frequency 频率，单位 Hz，关系为 \(\omega = 2 \pi f\)</li>
-<li>T：period 周期，单位 s，关系为 \(f = 1/T\)</li>
-</ul>
-
-
-<h3 class="relative group">RMS Root Mean Value 
-    <div id="rms-root-mean-value" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#rms-root-mean-value" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
+<li>同时，他还有良好的 Resistance 设计</li>
+<li><strong>Has high input resistance（高输入电阻 \(R_{\text{in}}\)）</strong>
 <ul>
-<li>Sine Wave 常用 R<strong>oot-Mean-Square</strong> 来表示，这是因为 Sine Wave 图像的对称性（奇函数）导致的其在取传统 Mean 的时候正负会相互抵消，而又需要一个能反映它产生的 Energy 或者 Power 的值，于是就有了 RMS</li>
+<li>这样不会“吃掉”前级电路的信号，利于级联连接</li>
 </ul>
-<p>$$
-V_{rms} = \frac{V_a}{\sqrt{2}}
-$$</p>
-<p>举例：</p>
+</li>
+<li><strong>Has low output resistance（低输出电阻 \(R_o\)）</strong>
 <ul>
-<li>家庭电源（wall power supply）标称 <strong>120 V</strong>，实际上是正弦波的 <strong>rms 值</strong>，</li>
-<li>所以峰值电压是  \(120\sqrt{2} \approx 170 V\)</li>
+<li>能驱动后续电路而不失真</li>
 </ul>
-
-
-<h3 class="relative group">Fourier Series 
-    <div id="fourier-series" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#fourier-series" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>然而，就像前面的 Thevenin 一样， 真实情况下的 Signal 一般并不全是 Sine Wave，这导致他们无法被用一个简单的公式直接分析</li>
+</li>
 </ul>
+<blockquote>
+<p>具体原因后面会进一步说明</p>
+</blockquote>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
@@ -1180,42 +1080,10 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>所以 Fourier Series 的思想就是将任意的 Complex Signals 分解成一堆 Sine Waves 的组合</li>
-</ul>
-<blockquote>
-<p>Sine Wave 就可以类比为 Signal 中的 Atoms, they made up everything</p>
-</blockquote>
-<ul>
-<li>对于上面的 Square-Wave 来说，它的傅里叶展开结果为</li>
-</ul>
-<p>$$
-v(t) = \frac{4V}{\pi}\left(\sin \omega_0 t + \frac{1}{3}\sin 3\omega_0 t + \frac{1}{5}\sin 5\omega_0 t + \cdots \right)
-$$</p>
-<ul>
-<li>V：方波幅度</li>
-<li>\(\omega_0 = \frac{2\pi}{T}\)：Fundamental Frequency 基频角频率</li>
-<li>这个公式说明：</li>
-</ul>
-<ol>
-<li>Square Wave 其实是由无穷多个正弦波叠加而成</li>
-<li>其只包含odd harmonics 奇次谐波：\(\omega_0, 3\omega_0, 5\omega_0&hellip;\)</li>
-<li>每个谐波的 Amplitude 随着频率升高而减小（与 1/n 成正比）</li>
-</ol>
-
-
-<h3 class="relative group">Line Spectrum 
-    <div id="line-spectrum" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#line-spectrum" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>一个 Wave 包含了一个基波加上无数个谐波，而对于这个 Square Wave 来说，想要画出它的 Frequency 的成分，就可以通过 Line Spectrum</li>
-<li>其中每一根竖线代表信号在该频率下的一个正弦波分量</li>
+<li>目前的情况下，三个 Signal（两个 Input 和一个 Output）是独立的</li>
+<li>这种情况下由于 \(A_{v0}\) 是一个非常大的值，来到了 \(10e5\) 的级别</li>
+<li>在 V1 和 V2 的数值有一点点细小的变化的时候，Output 会马上来到 Saturation 饱和阶段</li>
+<li>所以在没有 Feedback 之前，这个 Op AMP 只适合做一个 Comparator 比较器</li>
 </ul>
 <p>
     <figure>
@@ -1223,72 +1091,139 @@ $$</p>
       
     </figure>
 </p>
-<ul>
-<li>基频分量（\(\omega_0\)）的幅度是 \(\frac{4V}{\pi}\)</li>
-<li>第三次谐波（\(3\omega_0\)）幅度是 \(\frac{1}{3}\frac{4V}{\pi}\)</li>
-<li>第五次谐波（\(5\omega_0\)）幅度是\(\frac{1}{5}\frac{4V}{\pi}\)， 依此类推</li>
-<li>方波看起来是“方形”的，但它实际上是这些频率分量正弦波叠加的结果。</li>
-</ul>
 
 
-<h2 class="relative group">Representations 
-    <div id="representations" class="anchor"></div>
+<h3 class="relative group">Ideal v.s. Discrete 
+    <div id="ideal-vs-discrete" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#representations" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#ideal-vs-discrete" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">参数</th>
+          <th style="text-align: left">Ideal Op Amp（理想运放）</th>
+          <th style="text-align: left">Discrete OpAmp 741（分立型）</th>
+          <th style="text-align: left">Modern Integrated（现代集成）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">\(A_{v0}\)</td>
+          <td style="text-align: left">∞</td>
+          <td style="text-align: left">10510^5</td>
+          <td style="text-align: left">50 ~ 100</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(R_{in}\)</td>
+          <td style="text-align: left">∞</td>
+          <td style="text-align: left">数兆欧（several MΩ）</td>
+          <td style="text-align: left">数兆欧</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(R_o\)</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">&lt; 100Ω</td>
+          <td style="text-align: left">几欧（several Ω）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">BW（带宽）</td>
+          <td style="text-align: left">∞</td>
+          <td style="text-align: left">1.5 MHz</td>
+          <td style="text-align: left">几 GHz</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">功耗 Power</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">80 mW</td>
+          <td style="text-align: left">5–10 mW</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">成本 Cost</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">&lt;\(1</td>
+          <td style="text-align: left">\)10^{-5}$</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">2.2 The Inverting Configuration 
+    <div id="22-the-inverting-configuration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#22-the-inverting-configuration" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>总的来说，表达 Signals 有两种方式，Time-Domain 和 Frequency-Domain</li>
-<li>时域看信号随时间的波形，频域看信号的频率成分</li>
+<li>如果我们希望用运放构建具有精确可控增益的放大器，我们需要把它连接成 negative feedback 结构</li>
+<li>其中，两个 Input 的 Signal 并不需要改变，只不过在 Output 前，输出 \(v_o\) 通过一个反馈路径回到反相端，形成 Negative Feedback</li>
+</ul>
+<p>![image.png](image 19.png)</p>
+<ul>
+<li>其输出公式仍是：</li>
+</ul>
+<p>$$
+v_o = A_{v0} (v_2 - v_1)
+$$</p>
+<ul>
+<li>本质上来说，由于 \(A_{vo}\) 是一个常数，所以希望控制 v1 和 v2 之间的差值尽可能小是设计 Negative Feedback 的诉求</li>
+<li>只要差值足够小它就可以在 Linear Range 中运行</li>
 </ul>
 
 
-<h2 class="relative group">1.3 Analog and Digital Signals 
-    <div id="13-analog-and-digital-signals" class="anchor"></div>
+<h3 class="relative group">Virtual Short 
+    <div id="virtual-short" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#13-analog-and-digital-signals" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-
-
-<h3 class="relative group">Analog Signal 
-    <div id="analog-signal" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#analog-signal" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#virtual-short" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <ul>
-<li>Analog Signal 模拟信号，指的是这个信号是 Analogous 模拟他所表示的实际信号的</li>
-<li>其中其 Amplitude 可以取任意值，其在图像中是 Continuous Variation 连续变化的</li>
+<li>前面提到了 \(v_2 \approx v_1\)，这边就直接认为它们的 Voltage 是一样的，尽管两个 Node 之间并没有真正的一根连接线，但由于 Voltage 几乎一样，于是就叫他 Virtual Short</li>
 </ul>
 
 
-<h3 class="relative group">Digital Signal 数字信号 
-    <div id="digital-signal-%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7" class="anchor"></div>
+<h3 class="relative group">Op AMP Configuration 
+    <div id="op-amp-configuration" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#digital-signal-%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#op-amp-configuration" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
 <ul>
-<li>通过一系列数字来表示某个时间点的 Signal Amplitude 的叫做 Digital Signal 数字信号</li>
-<li>他就是从 Analog Signal 中 Sampling 得到的</li>
+<li>Op amps with negative feedback 带有负反馈的运放电路，共同满足两个重要前提条件：</li>
 </ul>
+<ol>
+<li><strong>输入电流为 0</strong>：\(i_+ = i_- = 0\)（因为输入阻抗趋近于无穷）</li>
+<li><strong>输入端电压相等</strong>：\(v_+ \approx v_-\)（因为虚短）</li>
+</ol>
+
+
+<h3 class="relative group">1. <strong>Non-inverting Op Amp（同相放大器）</strong> 
+    <div id="1-non-inverting-op-amp%E5%90%8C%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-non-inverting-op-amp%E5%90%8C%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
@@ -1296,24 +1231,31 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>Digital Signal 仅仅在 Sampling 的时候有定义，其不再是一个 Continue Function，而是 Discrete-Time Signal</li>
+<li>输入电压 \(v_i\) 接在 <strong>+ 端</strong>，所以这个 Op AMP 是一个 Noninverting input</li>
+<li>负反馈电阻 \(R_1\) 和 \(R_2\) 组成一个分压器，从输出 \(v_o\) 接回 <strong>– 端</strong></li>
 </ul>
+<blockquote>
+<p>Op AMP 负端的 Voltage 是来自 Output 的，因为它左边是 Ground，其 Voltage 是两个 In Series 的 Resistors 的分压的结果</p>
+</blockquote>
+<ul>
+<li>根据 Virtual Short，\(v_- = v_+ = v_i\)</li>
+<li>输出电压 \(v_o\) 会分压成 \(v_i\)，也就是说：</li>
+</ul>
+<p>$$
+v_i = v_o \cdot \frac{R_1}{R_1 + R_2}\Rightarrow v_o = v_i \left(1 + \frac{R_2}{R_1}\right)\Rightarrow \text{Voltage gain} = \frac{v_o}{v_i} = 1 + \frac{R_2}{R_1}
+$$</p>
 
 
-<h3 class="relative group">Type of digital signal 
-    <div id="type-of-digital-signal" class="anchor"></div>
+<h3 class="relative group">2. <strong>Inverting Op Amp（反相放大器）</strong> 
+    <div id="2-inverting-op-amp%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#type-of-digital-signal" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#2-inverting-op-amp%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
-<ul>
-<li>不同的 Number System 下，Digital Signal 的表示形式也将不一样</li>
-<li>其中 Binary Number System 是最常见的，其只有 0 和 1，也就是高电平和低电平</li>
-</ul>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
@@ -1321,148 +1263,25 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>这张图中，蓝色波形表示一个 binary digital signal 随时间的变化</li>
-<li>如果用 N binary digits, 表示模拟信号的每个采样值，那么数字化后的采样值可以写成：</li>
+<li>在这个例子下，Signal \(v_i\) 从负端进入，即是一个 Inverting</li>
+<li>输入 \(v_i\) 接到 <strong>– 端</strong>，通过电阻 R1</li>
+<li>正端接地（即 \(v_+ = 0\)）</li>
+<li>输出端 \(v_o\) 通过 R2 接回 – 端，形成负反馈</li>
+<li>由于正端接了地，所以 \(v_+ = 0\)，所以 \(v_- \approx 0\)</li>
+<li>计算负端左边的 KCL</li>
 </ul>
 <p>$$
-D = b_0 2^0 + b_1 2^1 + b_2 2^2 + \dots + b_{N-1} 2^{N-1}
+\frac{v_i}{R_1} = \frac{-v_o}{R_2}\Rightarrow v_o = -\frac{R_2}{R_1} v_i\Rightarrow \text{Voltage gain} = \frac{v_o}{v_i} = -\frac{R_2}{R_1}
 $$</p>
-<p>其中：</p>
-<ul>
-<li>\(b_0, b_1, &hellip;, b_{N-1}\) 是 <strong>比特（bits）</strong>，取值只能是 0 或 1</li>
-<li>\(b_0\) 是 LSB least significant bit，最低有效位</li>
-<li><strong>\(b_{N-1}\)</strong> 是 MSB most significant bit，最高有效位</li>
-<li>这个二进制数通常写作 \(b_{N-1} b_{N-2} &hellip; b_0\)</li>
-<li>结果是：一个模拟采样值被量化（quantized）到 \(2^N\) 个可能的等级（levels）中</li>
-</ul>
-<blockquote>
-<p>之所以是 \(2^N\) 是因为整个 Signal 被当做了一个 Binary Number</p>
-</blockquote>
-<ul>
-<li>N 越大，数字结果就越接近真实模拟值，量化误差（quantization error）就越小，但电路更复杂、成本更高</li>
-</ul>
 
 
-<h3 class="relative group"><strong>A/D converter</strong> 
-    <div id="ad-converter" class="anchor"></div>
+<h3 class="relative group">3. <strong>Unit-gain Buffer（电压跟随器）</strong> 
+    <div id="3-unit-gain-buffer%E7%94%B5%E5%8E%8B%E8%B7%9F%E9%9A%8F%E5%99%A8" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#ad-converter" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li><strong>A/D converter</strong> 模数转换器，Analog-to-Digital Converter, ADC</li>
-<li>顾名思义将 Analog Input 转换为 Digital Output</li>
-<li>而中间的模块首先 Sampling，在 Decent 的时间点上读取 Signal</li>
-<li>之后将连续的 Voltage 逼近到 \(2^N\) 个能级中，举例来说有</li>
-<li>假设输入电压范围是 <strong>0 V ~ 5 V</strong></li>
-<li>在这个范围里，电压可能是 <strong>2.53 V</strong>、<strong>3.1415 V</strong>、甚至 <strong>4.00001 V</strong>，理论上是无限多的可能值</li>
-<li>这很合理，因为 Analog Signal 是 continuous 的，而 ADC 不能处理无限多的值，它必须用有限的比特数（二进制位）来表示</li>
-<li>假设是 <strong>3-bit ADC</strong>（N=3）：</li>
-<li>它最多能表示 \(2^3 = 8\) 个等级（levels）</li>
-<li>那么 0~5 V 的输入范围被均匀分成 8 段，每一段宽度是：\(\frac{5}{8} = 0.625 , \text{V}\)</li>
-<li>于是：</li>
-<li>输入 0~0.625 V → 输出 000</li>
-<li>输入 0.625~1.25 V → 输出 001</li>
-<li>输入 1.25~1.875 V → 输出 010</li>
-<li>输入 1.875~2.5 V → 输出 011</li>
-<li>输入 2.5~3.125 V → 输出 100</li>
-<li>输入 3.125~3.75 V → 输出 101</li>
-<li>输入 3.75~4.375 V → 输出 110</li>
-<li>输入 4.375~5.0 V → 输出 111</li>
-<li>将所有的 Binary Number 组合后将其表示出来最终 Encoding 得到结果</li>
-<li>然后就是输出成 Analog Output</li>
-</ul>
-
-
-<h2 class="relative group">1.4 Amplifiers 
-    <div id="14-amplifiers" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#14-amplifiers" aria-label="Anchor">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li>Signal Processing 中，一个最基本的功能就是 Signal Amplification 信号放大</li>
-<li>这就需要研究 Amplifier 的作用</li>
-</ul>
-
-
-<h3 class="relative group">1.4.1 Signal Amplification 
-    <div id="141-signal-amplification" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#141-signal-amplification" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>Signal Amplifier 信号放大器的功能就是把微弱的信号，如 \(\mu V,nV\) 级别的信号放大到足够大，便于后续的处理</li>
-<li>而其关键的需求就是 Linearity 线性</li>
-<li>即在 Signal 被放大后，Wave 因保持不变，只是 Amplitude 更大</li>
-<li>其中如果 Wave 的形状发生了改变，即 Distortion 失真</li>
-<li>Amplifier 的功能用公式表达出来就是</li>
-</ul>
-<p>$$
-v_o(t) = A v_i(t)
-$$</p>
-<ul>
-<li>\(v_i\)：input signal（输入信号）</li>
-<li>\(v_o\)：output signal（输出信号）</li>
-<li>\(A\)：amplifier gain（放大器增益），是常数</li>
-</ul>
-
-
-<h4 class="relative group">Voltage Amplifier (电压放大器) 
-    <div id="voltage-amplifier-%E7%94%B5%E5%8E%8B%E6%94%BE%E5%A4%A7%E5%99%A8" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#voltage-amplifier-%E7%94%B5%E5%8E%8B%E6%94%BE%E5%A4%A7%E5%99%A8" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>主要处理很小的输入电压信</li>
-<li>目的：让信号幅度更大</li>
-<li>示例：<strong>preamplifier（前置放大器）</strong>，在家庭音响系统（home stereo system）中常见</li>
-</ul>
-
-
-<h4 class="relative group">Power Amplifier (功率放大器) 
-    <div id="power-amplifier-%E5%8A%9F%E7%8E%87%E6%94%BE%E5%A4%A7%E5%99%A8" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#power-amplifier-%E5%8A%9F%E7%8E%87%E6%94%BE%E5%A4%A7%E5%99%A8" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>功能：提供足够的功率给负载（例如 loudspeaker 扬声器）</li>
-<li>特点：电压增益可能不大，但功率输出很大</li>
-<li>扬声器是系统的 output transducer（输出换能器），将电信号转换为声音信号</li>
-<li>linear power amplifier（线性功率放大器） 能保证无论大音量还是小音量，音乐都不会失真</li>
-</ul>
-
-
-<h3 class="relative group">1.4.2 Amplifier Circuit Symbol 
-    <div id="142-amplifier-circuit-symbol" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#142-amplifier-circuit-symbol" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#3-unit-gain-buffer%E7%94%B5%E5%8E%8B%E8%B7%9F%E9%9A%8F%E5%99%A8" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
@@ -1473,20 +1292,60 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>一个完整的 Amplifier 应如上图，存在一个 Input 和 Output，同时有 Ground</li>
+<li>输入 \(v_i\) 接在 + 端</li>
+<li>输出端直接连接到 – 端（无电阻）</li>
+<li>它的特性就是 \(R1 → ∞，R2 = 0\)</li>
+<li>是 “Non-Inverting” 的一个特例</li>
 </ul>
+<p>$$
+\frac{v_o}{v_i} = 1 + \frac{R_2}{R_1} = 1 + \frac{0}{\infty} = 1\Rightarrow v_o = v_i
+$$</p>
 
 
-<h3 class="relative group">1.4.3 Voltage Gain 
-    <div id="143-voltage-gain" class="anchor"></div>
+<h4 class="relative group">Buffer 
+    <div id="buffer" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#143-voltage-gain" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#buffer" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
+</h4>
+<ul>
+<li>在一般的 Input Output Circuit 中，Signal 一般都不是 Ideal 的，即其存在一个不可忽视的内阻 \(R_{sig}\)，如果这时候想要输出，整体就会被分压为</li>
+</ul>
+<p>$$
+{\text{out}} = V_{\text{sig}} \cdot \frac{R_L}{R_{\text{sig}} + R_L}
+$$</p>
+<ul>
+<li>如果 \(R_L\) 很小，输出电压就会比原来的 \(V_{\text{sig}}\) 小很多，从而无法实现型号的稳定输出</li>
+<li>这叫做 Attenuation 信号衰减</li>
+<li>想要解决这个问题，就可以通过一个 Buffer，让 Voltage 结构变成 \(Vsig → Buffer → RL\)</li>
+<li>而这个 Buffer 应该有的特性为</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">作用</th>
+          <th style="text-align: left">表现</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>不吃输入信号</strong></td>
+          <td style="text-align: left">输入阻抗极大 \(R_{\text{in}} = \infty\)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>能推得动输出</strong></td>
+          <td style="text-align: left">输出阻抗极小 \(R_{\text{out}} \approx 0\)</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>左边 \(V_{\text{sig}}\) 不会被拉低的同时右边负载 \(R_L\) 也不会拉低输出</li>
+<li>整体结构就来到了这样</li>
+</ul>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
@@ -1494,101 +1353,20 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>负载电阻：\(R_L\) （load resistance 负载电阻）</li>
-<li>放大器把输入信号放大，输出端得到放大的复制品。</li>
-<li>电压增益 (Voltage gain 电压增益) 定义为：</li>
+<li>有 \(V_{\text{out}} \approx V_o \approx V_{\text{sig}}\)</li>
+<li>具体原理如下，由于 Buffer 有一个很大的 \(R_{in}\)，所以有</li>
 </ul>
 <p>$$
-A_v = \frac{v_o}{v_i}
+V_x = V_{\text{sig}} \cdot \frac{\infty}{R_{\text{sig}} + \infty} = V_{\text{sig}}
 $$</p>
 <ul>
-<li>左边：输入电压 \(v_i(t)\)</li>
-<li>三角形：电压放大器 (voltage amplifier 电压放大器)</li>
-<li>右边：负载电阻 \(R_L\)，输出电压  \(v_o(t)\) 在其两端产生</li>
-<li>其中整个 Transfer 过程都将是 Linear 的（理想状态下）</li>
-</ul>
-
-
-<h3 class="relative group">1.4.4 Power Gain and Current Gain 
-    <div id="144-power-gain-and-current-gain" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#144-power-gain-and-current-gain" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>已知 Power = Current \(\times\) Voltage</li>
-<li>所以对于 Power 的增益定义为</li>
+<li>而到了输出的时候，又给出了一个非常小的 \(R_{out}\)，即</li>
 </ul>
 <p>$$
-A_p = \frac{P_L}{P_I}= \frac{v_O i_O}{v_I i_I} = A_v \times A_i
-$$</p>
-
-
-<h3 class="relative group">1.4.5 Expressing Gain in Decibels 
-    <div id="145-expressing-gain-in-decibels" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#145-expressing-gain-in-decibels" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>Decibels 分贝，是一个对数数据，在工程中使用如此对数数据的好处是在多个 Amplifier 相乘的时候，Log 的运算便为 Addition</li>
-<li>同时 Current，Voltage 和 Power 本质上是无纲量，于是有</li>
-</ul>
-<p>$$
-\text{Voltage gain (dB)} = 20 \log |A_v|
-$$</p>
-<p>$$
-\text{Current gain (dB)} = 20 \log |A_i|
-$$</p>
-<p>$$
-\text{Power gain (dB)} = 10 \log A_p
+V_{\text{out}} = V_o \cdot \frac{R_L}{R_{\text{out}} + R_L} \approx V_o
 $$</p>
 <ul>
-<li>这里的系数值得说明一下，首先对于 Decibels 的定义是从 Power 开始的，有</li>
-</ul>
-<p>$$
-G_{dB} = 10 \log_{10} \left( \frac{P_{out}}{P_{in}} \right)
-$$</p>
-<ul>
-<li>这个 “10” 是最原始的定义，和功率的物理意义绑定。</li>
-<li>在相同电阻 R 下：\(P = \frac{V^2}{R}\)，于是有</li>
-</ul>
-<p>$$
-\frac{P_{out}}{P_{in}} = \left(\frac{V_{out}}{V_{in}}\right)^2
-$$</p>
-<p>$$
-G_{dB} = 10 \log \left(\frac{P_{out}}{P_{in}}\right)
-= 10 \log \left(\frac{V_{out}}{V_{in}}\right)^2
-= 20 \log \left(\frac{V_{out}}{V_{in}}\right)
-$$</p>
-<ul>
-<li>所以电压增益、电流增益的 dB 表达式是 <strong>20 log</strong>，完全是从功率的 <strong>10 log 定义</strong> 推出来的。</li>
-<li>拿 Power Gain 举例来说，当 \(A_p\) 为 10 的时候，Power Gain 为 0 dB</li>
-<li>\(A_p\) 为 100 的时候，Power Gain 为 40 dB，\(A_p\) 为 1000 的时候，Power Gain 为 60 dB</li>
-<li>这就说明了 dB 的增加实际上是底数的倍数级上升</li>
-</ul>
-
-
-<h3 class="relative group">1.4.6 The Amplifier Power Supplies 
-    <div id="146-the-amplifier-power-supplies" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#146-the-amplifier-power-supplies" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>已知 Amplifier 送到 Load 的功率比从 Signal Source 获得的功率大，而那一部分多余出来的功率就是从 DC Power Supplies 直流电源 中获取</li>
+<li>在这用情况下，Input 的 Signal 就几乎等同于 Output 的了</li>
 </ul>
 <p>
     <figure>
@@ -1596,71 +1374,185 @@ $$</p>
       
     </figure>
 </p>
-<ul>
-<li>其中正电源为 \(V_{CC}\)，负电源为 \(V_{EE}\)</li>
-<li>对于 Amplifier 来说，其存在两个端子，一个接 \(V_{CC}\)，一个接 \(V_{EE}\) 剩下的接地</li>
-</ul>
+<blockquote>
+<p>不知道这张图在干什么</p>
+</blockquote>
 
 
-<h4 class="relative group">DC power 直流功率 
-    <div id="dc-power-%E7%9B%B4%E6%B5%81%E5%8A%9F%E7%8E%87" class="anchor"></div>
+<h3 class="relative group">Review of Impedance 
+    <div id="review-of-impedance" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#dc-power-%E7%9B%B4%E6%B5%81%E5%8A%9F%E7%8E%87" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>于是就可以得出 DC Power 的 DC 功率为</li>
-</ul>
-<p>$$
-P_{dc} = V_{CC} I_{CC} + V_{EE} I_{EE}
-$$</p>
-<ul>
-<li>
-<p>有 Power-balance equation 功率平衡方程</p>
-<p>$$
-P_{dc} + P_I = P_L + P_{dissipated}
-$$</p>
-<ul>
-<li>\(P_I\)：信号源供给的功率（power from signal source）</li>
-<li>\(P_L\)：负载功率（power delivered to load）</li>
-<li>\(P_{dissipated}\)：放大器内部消耗（功率转为热 dissipated power）</li>
-</ul>
-</li>
-</ul>
-
-
-<h4 class="relative group">Amplifier efficiency 放大器效率 
-    <div id="amplifier-efficiency-%E6%94%BE%E5%A4%A7%E5%99%A8%E6%95%88%E7%8E%87" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#amplifier-efficiency-%E6%94%BE%E5%A4%A7%E5%99%A8%E6%95%88%E7%8E%87" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>因为 \(P_I\) 很小，可以忽略，所以效率定义为：</li>
-</ul>
-<p>$$
-\eta = \frac{P_L}{P_{dc}} \times 100
-$$</p>
-
-
-<h3 class="relative group">1.4.7 Amplifier Saturation 
-    <div id="147-amplifier-saturation" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#147-amplifier-saturation" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#review-of-impedance" aria-label="Anchor">#</a>
     </span>        
     
 </h3>
+<ul>
+<li>在开始接下来的部分前，有必要复习一下 Impedance 和 Resistor 的区别</li>
+</ul>
+
+
+<h4 class="relative group">Resistor 电阻 
+    <div id="resistor-%E7%94%B5%E9%98%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#resistor-%E7%94%B5%E9%98%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>符号</strong>：R</li>
+<li><strong>性质</strong>：只跟材料、几何尺寸有关，不随频率变化</li>
+</ul>
+
+
+<h4 class="relative group">Impedance 阻抗 
+    <div id="impedance-%E9%98%BB%E6%8A%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#impedance-%E9%98%BB%E6%8A%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>
+<p><strong>符号</strong>：Z</p>
+</li>
+<li>
+<p><strong>性质</strong>：是对 交流电（AC） 的综合“阻碍”程度。</p>
+</li>
+<li>
+<p>包含了 Resistance 和 电抗（X） 两部分：</p>
+<p>$$
+Z = R + jX
+$$</p>
+<ul>
+<li>R：电阻部分，消耗能量</li>
+<li>X：电抗部分，来自电容（C）或电感（L），只储能不耗能</li>
+</ul>
+</li>
+<li>
+<p>单位：同样是欧姆（\(\Omega\)）</p>
+</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">对象</th>
+          <th style="text-align: left">符号</th>
+          <th style="text-align: left">是否随频率变</th>
+          <th style="text-align: left">组成</th>
+          <th style="text-align: left">单位</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Resistor 电阻</strong></td>
+          <td style="text-align: left">R</td>
+          <td style="text-align: left">不变</td>
+          <td style="text-align: left">纯电阻</td>
+          <td style="text-align: left">欧姆</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Impedance 阻抗</strong></td>
+          <td style="text-align: left">Z</td>
+          <td style="text-align: left">会变</td>
+          <td style="text-align: left">电阻 + 电抗</td>
+          <td style="text-align: left">欧姆</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>到这一步，可以总结出</li>
+</ul>
+<aside>
+💡
+<ul>
+<li>Resistor 就是 Impedance 的 Real Part</li>
+<li>当只存在 DC Signal 的时候，就 Impedance 就以 Resistor 的形式出现</li>
+</ul>
+</aside>
+<ul>
+<li>接下去就是具体研究 X Reactance 电抗</li>
+<li>Reactance 来自 Inductor（电感）和 Capacitor（电容）</li>
+</ul>
+
+
+<h4 class="relative group">Capacitor 电容 
+    <div id="capacitor-%E7%94%B5%E5%AE%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#capacitor-%E7%94%B5%E5%AE%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Capacitor 只会存储 Electric Field 能量，不消耗：</li>
+</ul>
+<p>$$
+Z_C = \frac{1}{j\omega C}
+$$</p>
+<ul>
+<li>高频时阻抗小（容易导通）</li>
+<li>低频/直流时阻抗大（几乎断路）</li>
+</ul>
+
+
+<h4 class="relative group">Inductor 电感 
+    <div id="inductor-%E7%94%B5%E6%84%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inductor-%E7%94%B5%E6%84%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>电感只会存储 Magnetic Field 能量，不消耗：</li>
+</ul>
+<p>$$
+Z_L = j\omega L
+$$</p>
+<ul>
+<li>总结来说</li>
+</ul>
+<aside>
+💡
+<p>Resistor, Inductor, Capacitor 都能看作是阻抗：\(Z = R + jX\)</p>
+<ul>
+<li><strong>Resistor R</strong> → 实数部分（能量损耗）</li>
+<li><strong>L/C</strong> → 虚数部分 jX（能量存储、相位变化）</li>
+</ul>
+</aside>
+<hr>
+
+
+<h3 class="relative group">4. General Inverting Op amp Circuit 
+    <div id="4-general-inverting-op-amp-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-general-inverting-op-amp-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>现在，在回顾完了 Impedance（阻抗）了之后，就可以进入 AC Signal 的领域</li>
+</ul>
+<aside>
+💡
+<p>已知前面的 Resistor 是 Impedance 的特殊形式，即只有 Real Part 的情况，现在引入完整的 Impedance 作为控制系统，有公式 \(Z = R + jX\)</p>
+</aside>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%209.png" alt="image.png" />
@@ -1668,26 +1560,82 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>Amplifier 在一定范围中是 Linear 的</li>
-<li>但是一旦输出过大或者过小，Output 的 Voltage 就会到达电源的极限，导致其无法再继续增加或减小，Saturation 就出现了</li>
-<li>图中用 \(L_+\) 表示 Positive saturation level 正饱和电平</li>
-<li>用 \(L_-\) 表示 Negative saturation level 负饱和电平</li>
-<li>通常 \(L_+\) 和 \(L_-\) 会比 Power Supply 电源电压）低一点点（几分之一伏），因为电路元件本身有压降</li>
+<li>于是就可以得到这样的一个 Circuit，其和之前的 Op amp 分析起来并没有区别</li>
+<li>可以很容易的看出这是一个 Inverting AMP，其 Gian 为</li>
 </ul>
+<p>$$
+\frac{v_o}{v_i} = -\frac{Z_2}{Z_1}
+$$</p>
+<aside>
+💡
+<p>现在将 Capacitor 和 Inductor 等能形成 Reactance 的原件引入，就可以得到更加复杂的 Op amp</p>
+</aside>
 
 
-<h4 class="relative group">To Avoid Distortion 
-    <div id="to-avoid-distortion" class="anchor"></div>
+<h4 class="relative group">Miller Integrator（米勒积分器） 
+    <div id="miller-integrator%E7%B1%B3%E5%8B%92%E7%A7%AF%E5%88%86%E5%99%A8" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#to-avoid-distortion" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#miller-integrator%E7%B1%B3%E5%8B%92%E7%A7%AF%E5%88%86%E5%99%A8" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
 <ul>
-<li>Distortion 是一个非常宽泛的实践，其会发生在很多种不同的情况下，其中 Clipping 就是其中一种</li>
+<li>在 \(z_2\) 的槽中放入，Capacitor \(C_1\)，保持 Input Resistance 不变为 \(R_1\)</li>
+<li>已知 Capacitor 的 Reactance（Imaginary Part of Impedance）为</li>
+</ul>
+<p>$$
+Z_2 = \frac{1}{C s}, \quad s = j\omega
+$$</p>
+<ul>
+<li>
+<p>可以得到整体 Op amp 的 Gain 为</p>
+<p>$$
+\frac{v_o}{v_i} = -\frac{1}{R_1 C_1 j\omega}
+$$</p>
+</li>
+<li>
+<p>这说明它在频域中表现为一个 Integrator（积分器）</p>
+</li>
+</ul>
+<blockquote>
+<p>具体原因和 s 和 Laplace Transform 有关，这边不做提及</p>
+</blockquote>
+<aside>
+💡
+<p>于是可以总结出：越低频，增益越高；频率越高，增益越低</p>
+</aside>
+<hr>
+
+
+<h3 class="relative group">Time Domain &amp; Frequency Domain 
+    <div id="time-domain--frequency-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#time-domain--frequency-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在进入下一步前，先复习一下 Time Domain 时域，和 Frequency Domain 频域</li>
+<li><strong>Time domain</strong> = 信号随着时间 t 的变化</li>
+<li>横轴是 时间，纵轴是 信号的幅度（电压、电流等）</li>
+<li>它回答的问题是：<strong>在每个时刻，信号值是多少？</strong></li>
+</ul>
+<hr>
+<ul>
+<li><strong>Frequency domain（频域）</strong>：横轴是 <strong>频率</strong>，纵轴是 <strong>信号在各频率上的强度</strong></li>
+<li>它回答的问题是：<strong>信号里包含哪些频率成分？</strong></li>
+<li>例如：一个方波在时域看起来是方形；但在频域，它包含很多正弦波成分</li>
+</ul>
+<hr>
+<ul>
+<li>现在就可以开始分析 Miller Integrator 在 Time Domain 下的表现了</li>
+<li>假设目前先只给了一个 DC 的 \(v_{i}\)（方便展示 Integrate 的效果）</li>
 </ul>
 <p>
     <figure>
@@ -1696,30 +1644,30 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>如图中，直线在途中说明的就是 Amplifier 的数学规律，即 Input 和 Output 的关系</li>
-<li>其在输入到达一定大小的时候会不再变化</li>
-<li>而 Wave 则是 Signal 随 Time 的变化情况，说明了真实信号在时间上运行的时候的行为，即 Clipping</li>
-<li>而为了避免波形被 Clipping 削波，输入电压必须限制在一定范围内：</li>
+<li>可以同步得到 Input Current 为 \(i = v_i / R_1\)</li>
+<li>之后，这个突然出现的冲击 Current 将碰到 Capacitor，最后 \(v_o\)  变化的斜率将由 C 决定</li>
 </ul>
 <p>$$
-\frac{L_-}{A_v} \le v_I \le \frac{L_+}{A_v}
+i = \frac{v_i}{R_1} = C \frac{dv_c}{dt} = C \frac{d(-v_o)}{dt}
 $$</p>
 <ul>
-<li>这里 \(A_v\) 是放大器 voltage gain 电压增益</li>
-<li>意思是：输入信号幅度必须在这个范围，输出才不会超出线性区</li>
+<li>想要算出 \(v_o\)，已知 \(\frac{v_i}{R_1} = C \frac{d(-v_o)}{dt}\)，将其改写为</li>
 </ul>
-
-
-<h3 class="relative group">1.4.8 Symbol Convention 
-    <div id="148-symbol-convention" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#148-symbol-convention" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
+<p>$$
+\frac{dv_o}{dt} = -\frac{1}{R_1 C} v_i
+$$</p>
+<ul>
+<li>两边同时积分，即可以得到</li>
+</ul>
+<p>$$
+v_o = -\frac{1}{R_1 C} \int v_i , dt
+$$</p>
+<ul>
+<li>前面，为了方便展示的清晰，将 \(v_i\) 设定为了 Constant，于是有</li>
+</ul>
+<p>$$
+v_o = -\frac{V_i}{R_1 C} t
+$$</p>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%2011.png" alt="image.png" />
@@ -1727,188 +1675,67 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>
-<p>电流 \(i_C(t)\) = total instantaneous current 总瞬时电流</p>
-</li>
-<li>
-<p>它由两部分组成：</p>
-<ul>
-<li>DC component 直流分量）： \(I_C\)，是一个恒定值</li>
-<li>Signal component 信号分量）： \(i_c(t)\)，随时间变化，一般是正弦波</li>
-</ul>
-</li>
-<li>
-<p>数学式：</p>
-<p>$$
-i_C(t) = I_C + i_c(t)
-$$</p>
-</li>
-<li>
-<p>如果 \(i_c(t)\) 是正弦波则有</p>
-<p>$$
-i_c(t) = I_c \sin \omega t
-$$</p>
-</li>
+<li>于是最终 Time Domain 就长这样</li>
 </ul>
 
 
-<h2 class="relative group">1.5 Circuit Models for Amplifiers 
-    <div id="15-circuit-models-for-amplifiers" class="anchor"></div>
+<h4 class="relative group">Differentiator 
+    <div id="differentiator" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#15-circuit-models-for-amplifiers" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#differentiator" aria-label="Anchor">#</a>
     </span>        
     
-</h2>
-<ul>
-<li>在电路设计里，amplifier 的内部结构可能很复杂，比如有的只用一个 transistor 晶体管，有的要几十个器件</li>
-<li>但是我们在系统中使用放大器时，不需要关心它的内部细节，只需要关心它的 Terminal Behavior，也就是输入端和输出端是怎样的</li>
-</ul>
-
-
-<h3 class="relative group">1.5.1 Voltage Amplifiers 
-    <div id="151-voltage-amplifiers" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#151-voltage-amplifiers" aria-label="Anchor">#</a>
-    </span>        
-    
-</h3>
-<ul>
-<li>一个 Voltage Amplifiers 如下图</li>
-</ul>
+</h4>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%2012.png" alt="image.png" />
       
     </figure>
 </p>
-
-
-<h4 class="relative group">Voltage-Controlled Voltage Source 
-    <div id="voltage-controlled-voltage-source" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#voltage-controlled-voltage-source" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
 <ul>
-<li>首先定义一个 Voltage-Controlled Voltage Source 电压控制电压源的 Gain Factor 增益因子为 \(A_{vo}\)</li>
-<li>这是一个理想化的模型，意思是输出电压完全由输入电压决定</li>
-<li>在这里，它的关系是</li>
+<li>将 Integrator 的 C 的位置换一下就是 Differentiator 了</li>
+<li>能看出这是一个 Inverting Gain，大小为</li>
 </ul>
 <p>$$
-v_{out} = A_{vo} \cdot v_{in}
+\frac{v_o}{v_i} = -\frac{Z_2}{Z_1}=\frac{v_o}{v_i} = -\frac{R_1}{1/(C_1 s)} = -R_1 C_1 s
 $$</p>
 <ul>
-<li>其中 \(A_{vo}\) 就是增益系数（gain factor 增益系数）</li>
-<li>可以理解为：这个“源”相当于一个“自动倍增器”，把输入电压放大 \(A_{vo}\)  倍</li>
+<li>在 Frequency Domain 中为</li>
 </ul>
-
-
-<h4 class="relative group">Voltage Source 
-    <div id="voltage-source" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#voltage-source" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>在介绍任何的 Circuit Element 之前，先来介绍一下 Voltage Source</li>
-<li>一个 Source 并不是 Ideal 的，即其自身也存在一个 内部的 Resistor</li>
-</ul>
+<p>$$
+\frac{v_o}{v_i} = -j \omega R_1 C_1
+$$</p>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%2013.png" alt="image.png" />
       
     </figure>
 </p>
+<aside>
+💡
+<p>增益随频率线性增加</p>
+</aside>
 <ul>
-<li>于是这里就出现了第一个 Resistor \(R_S\)</li>
+<li>Time Domain 中</li>
 </ul>
+<p>$$
+v_o(t) = -R_1 C_1 \frac{dv_i(t)}{dt}
+$$</p>
 
 
-<h4 class="relative group">Input Resistance 
-    <div id="input-resistance" class="anchor"></div>
+<h4 class="relative group">Summing Circuit 
+    <div id="summing-circuit" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#input-resistance" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#summing-circuit" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<ul>
-<li>当 Signal Source 把 Voltage 送入 Amplifier 时，放大器输入会端口“呈现出来”一个 Resistor</li>
-<li>而将这个等效的 Resistor 称为 Input Resistance，其大小即为 \(R_i\)</li>
-<li>到目前为止，已经理通了从 Voltage Source 到 Amplifier 的完整线路，实际的 Input Circuit 如下</li>
-</ul>
-<p>$$
-v_s⟶R_s⟶R_i⟶Amplifier
-$$</p>
-<ul>
-<li>由于整个 Circuit 是一个 Series 的链接，所以 Amplifier 得到的 Voltage 将会被分压，即 \(R_s\) 和 \(R_i\) 构成了一个 Voltage Divider 分压器</li>
-<li>其实际得到的 Voltage 为</li>
-</ul>
-<p>$$
-v_i=v_s⋅\frac{R_i}{R_s+R_i}
-$$</p>
-<ul>
-<li>现在来分析一下 \(R_i\) 和 \(R_s\) 的数值对整体 Amplifier 的影响</li>
-<li>当 \(R_i \gg R_s\)（输入电阻非常大）</li>
-</ul>
-<p>$$
-v_i \approx v_s \cdot \frac{R_i}{R_i} = v_s
-$$</p>
-<ul>
-<li>输入电压几乎等于信号源电压，几乎没有损失</li>
-<li>信号源几乎不用提供电流（因为电流 \(I = v_s / (R_s + R_i)\)，而分母很大）</li>
-<li>这是理想情况</li>
-<li>当 \(R_i \ll R_s\)（输入电阻很小）</li>
-</ul>
-<p>$$
-v_i \approx v_s \cdot \frac{R_i}{R_s} \ll v_s
-$$</p>
-<ul>
-<li>输入电压会被大大削弱。</li>
-<li>电流 \(I \approx v_s / R_s\)，信号源要提供很大的电流</li>
-<li>结果：放大器“吃掉”了信号源的电压，损失严重</li>
-<li>所以，好的电压放大器希望 <strong>Input Resistance</strong> <strong>尽可能大</strong></li>
-</ul>
-
-
-<h4 class="relative group">Output Resistance 
-    <div id="output-resistance" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#output-resistance" aria-label="Anchor">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>Amplifier 本身并不是一个 Ideal 的 Dependent Voltage Source，他也有内部的 Resistance，就是  \(R_o\)</li>
-<li>当 Amplifier 的 Output 想要驱动最终的 Load 的时候，它和 \(R_L\)  形成分压</li>
-</ul>
-<p>$$
-v_o = A_{vo} v_i \cdot \frac{R_L}{R_L + R_o}
-$$</p>
-<ul>
-<li>同理，如果 \(R_o\) 较大，输出电压就会被“吃掉”一部分</li>
-<li>如果 \(R_o\) 越小，输出电压就越接近理想值 \(A_{vo} v_i\)</li>
-<li>所以，好的电压放大器希望 <strong>输出电阻尽可能小</strong></li>
-</ul>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%2014.png" alt="image.png" />
@@ -1916,40 +1743,239 @@ $$</p>
     </figure>
 </p>
 <ul>
-<li>再加上 Source 和 Load，整个 Circuit 就完成了</li>
-<li>接下来将两个 Voltage Divider 乘在一起就得到了完整的 Overall Voltage Gain</li>
+<li>Summing Circuit 中，两个输入电压：\(v_1, v_2\)，分别通过电阻 \(R_1, R_2\) 接到运放反相端</li>
+<li>运放的反馈电阻是 \(R_F\)，所以这是一个 Inverting Op amp</li>
+<li>进入 \(R_F\) 的 Current 为两个支路的 Current Sum，为</li>
 </ul>
 <p>$$
-\frac{v_o}{v_s} = A_{vo} \cdot \frac{R_i}{R_i + R_s} \cdot \frac{R_L}{R_L + R_o}
+i=\frac{v_1}{R_1} + \frac{v_2}{R_2}
 $$</p>
+<ul>
+<li>通过 KCL 可以得到：</li>
+</ul>
+<p>$$
+v_o = - R_F \left( \frac{v_1}{R_1} + \frac{v_2}{R_2} \right)
+$$</p>
+<ul>
+<li>拆一个括号就可以发现</li>
+</ul>
+<p>$$
+v_o = -\left( \frac{R_F}{R_1} v_1 + \frac{R_F}{R_2} v_2 \right)
+$$</p>
+<aside>
+💡
+<p>所以这个电路是一个 <strong>weighted summing circuit（加权求和电路 ）</strong></p>
+</aside>
+<ul>
+<li>输出电压 = 各输入电压 × 权重，再求和</li>
+<li>Summing Circuit 的一个很好的例子就是 Mixer（混音器），其把吉他 (guitar) 和键盘 (keyboard) 信号加在一起，这就是一个实际的 <strong>summing circuit（加法电路）</strong> 的应用</li>
+</ul>
 
 
-<h3 class="relative group">1.5.2 Cascaded Amplifiers 
-    <div id="152-cascaded-amplifiers" class="anchor"></div>
+<h4 class="relative group">Difference Amplifier 
+    <div id="difference-amplifier" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#152-cascaded-amplifiers" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#difference-amplifier" aria-label="Anchor">#</a>
     </span>        
     
-</h3>
-<ul>
-<li>可以同时添加多个 Amplifiers ，计算他们的区别就是多了几个 Voltage Divider</li>
-</ul>
+</h4>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%2015.png" alt="image.png" />
       
     </figure>
 </p>
+<ul>
+<li>同样有两个 Input，不过两个接入的位置为一正一负</li>
+<li>分析两个端口电压，对于 \(v_+\) 端来说，其电压为</li>
+</ul>
+<p>$$
+V^+ = \frac{R_4}{R_3 + R_4} v_2
+$$</p>
+<ul>
+<li>根据 Virtual Short 就可以得到 \(v_-\) 端的电压也为同样的 \(v_+\)，于是可以得到负端的 Current 为</li>
+</ul>
+<p>$$
+i_1 = \frac{V^+ - v_1}{R_1}
+$$</p>
+<ul>
+<li>
+<p>根据 Node  V 可以写出 KVL方程，得到输出电压为</p>
+<p>$$
+v_o = V^+ + i_1 R_2
+$$</p>
+</li>
+<li>
+<p>将两个值带入，有</p>
+</li>
+</ul>
+<p>$$
+v_o = \frac{R_4}{R_3 + R_4} v_2 + \frac{R_4}{R_3+R_4} \cdot \frac{R_2}{R_1}(v_2 - v_1)
+$$</p>
+<ul>
+<li>化简之后可以得</li>
+</ul>
+<p>$$
+v_o = \frac{R_2}{R_1}\left(\frac{R_4}{R_3+R_4}(1+\frac{R_1}{R_2}) v_2 - v_1 \right)
+$$</p>
+<ul>
+<li>在上式中，如果满足电阻匹配条件：</li>
+</ul>
+<p>$$
+\frac{R_4}{R_3} = \frac{R_2}{R_1}
+$$</p>
+<ul>
+<li>
+<p>那么公式大大简化为</p>
+<p>$$
+v_o = \frac{R_2}{R_1}(v_2 - v_1)
+$$</p>
+</li>
+<li>
+<p>想要分析 Difference Op amp 还能通过 Superposition 的办法，分别分析两个 Input Voltage</p>
+</li>
+</ul>
 <p>
     <figure>
       <img class="my-0 rounded-md" loading="lazy" src="image%2016.png" alt="image.png" />
       
     </figure>
 </p>
+<ul>
+<li>可以看出，左边的就是一个 Typical Inverting Op amp</li>
+<li>而右边的则是一个 Typical Noninverting Op amp，不过它的 Input Voltage 有一点不同，是 \(\frac{R_4}{R_3+R_4}v_2\)，是一个被分压后的值</li>
+<li>之后更具 Superposition 的原理，将他们相加就可以得到</li>
+</ul>
+<p>$$
+v_o = \left(1 + \frac{R_2}{R_1}\right)\frac{R_4}{R_3+R_4} v_2 - \frac{R_2}{R_1} v_1
+$$</p>
+<ul>
+<li>和上面的结论一样，当满足</li>
+</ul>
+<p>$$
+\frac{R_4}{R_3} = \frac{R_2}{R_1}
+$$</p>
+<ul>
+<li>的时候，那么表达式化简为：</li>
+</ul>
+<p>$$
+v_o = \frac{R_2}{R_1}(v_2 - v_1)
+$$</p>
 
+
+<h3 class="relative group">Input Resistance Bin 
+    <div id="input-resistance-bin" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#input-resistance-bin" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>总结了一下常见电路类型和输入电阻 \(R_{in}\)</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">电路类型 (Circuit Type)</th>
+          <th style="text-align: left">输入电阻公式 (Input Resistance R_{in})</th>
+          <th style="text-align: left">原因 (Reason)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>反相运放 (Inverting Op Amp)</strong></td>
+          <td style="text-align: left">\(R_{in} = R_1\)</td>
+          <td style="text-align: left">输入电压先经过电阻 \(R_1\)，再到虚短点</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>同相运放 (Non-inverting Op Amp)</strong></td>
+          <td style="text-align: left">\(R_{in} = \infty\)</td>
+          <td style="text-align: left">输入端直接接到 + 端，理想运放输入电流≈0</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>分压输入 (Voltage Divider Input)</strong></td>
+          <td style="text-align: left">\(R_{in} = R_3 + R_4\)</td>
+          <td style="text-align: left">输入电压先通过 \(R_3, R_4\) 串联分压</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>差分放大器 (Difference Amplifier)</strong></td>
+          <td style="text-align: left">\(R_{in} = R_1 + R_3\)</td>
+          <td style="text-align: left">两个电阻 \(R_1, R_3\) 串联到虚短点</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h3 class="relative group"><strong>Cascading Op amp circuit</strong> 
+    <div id="cascading-op-amp-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cascading-op-amp-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>当存在多个 Op amp 串联的情况的时候，将他们的 Gain 乘上就是 Overall Gain</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2017.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group"><strong>Instrumentation Amplifier (an improved difference amplifier)</strong> 
+    <div id="instrumentation-amplifier-an-improved-difference-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#instrumentation-amplifier-an-improved-difference-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2018.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li><strong>Instrumentation Amplifier（仪表放大器）</strong>，它是一种 I<strong>mproved difference amplifier 改进型差分放大器</strong></li>
+<li>其由三个 Op amp 组成，前面有两个 Noninverting 的作为输入</li>
+<li>\(A_3\)：后面是一个 Difference amp</li>
+<li>先从输出部分开始，一开始的两个 Noninverting amp 由于各自的 Virtual Short，有两个 Node 具有不同的 Voltage</li>
+<li>他们的差值则为 \(v_{id} = v_{i2} - v_{i1}\)</li>
+<li>在经过整个电路后得出等效的 Input Voltage 为</li>
+</ul>
+<p>$$
+v_{in} = \frac{v_{id}}{2R_1}(2R_1 + 2R_2) = v_{id}\left(1 + \frac{R_2}{R_1}\right)
+$$</p>
+<ul>
+<li>之后这个 Input Voltage 来到了 Difference amp 的位置，有 Gian 为</li>
+</ul>
+<p>$$
+v_o = \frac{R_4}{R_3} v_{in}
+$$</p>
+<ul>
+<li>根据上面 Cascading Op amp 的结论，把前后两级结合得</li>
+</ul>
+<p>$$
+v_o = \frac{R_4}{R_3} \left(1 + \frac{R_2}{R_1}\right) v_{id}
+$$</p>
+<aside>
+💡
+<p>仪表放大器 = 差分放大器的改进版，输入电阻更高，增益可调，抗干扰能力更强，适合用在传感器信号测量（比如心电图 ECG、压力传感器）</p>
+</aside>
           
           
           
@@ -1965,6 +1991,502 @@ $$</p>
 
 <h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
 <section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/uoft/introductory-electronics/ie1.signalsamplifiers/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/introductory-electronics/ie1.signalsamplifiers/feature_hu13286182623292987437.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/introductory-electronics/ie1.signalsamplifiers/">IE1.Signals&Amplifiers</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>4497 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/uoft/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    UofT
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ie/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    IE
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/chartered-financial-analyst/qec1.ratesreturns/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/chartered-financial-analyst/qec1.ratesreturns/feature_hu6014307288329153775.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/chartered-financial-analyst/qec1.ratesreturns/">QEC1.Rates&Returns</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>4747 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cfa/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    CFA
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/qec/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    QEC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/reads/efficientlyinefficient/ei1.activeinvesting/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/reads/efficientlyinefficient/ei1.activeinvesting/feature_hu16544908298633332750.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/reads/efficientlyinefficient/ei1.activeinvesting/">EI1.Active Investing</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/reads/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Reads
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ei/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EI
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/reads/efficientlyinefficient/ei0.introduction/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/reads/efficientlyinefficient/ei0.introduction/feature_hu17879813911167534696.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/reads/efficientlyinefficient/ei0.introduction/">EI0.Introduction</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/reads/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Reads
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ei/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EI
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
   
   
 
@@ -2228,524 +2750,6 @@ $$</p>
   </a>
 
   
-  
-
-  <a href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/feature_hu16366839720507087679.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">D2L 6.6 LeNet</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>1271 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/d2l/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    D2L
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/computer-science/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Computer Science
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/24/learning-programming-with-c/lpc11.recursion/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc11.recursion/feature_hu13932980154696751212.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/24/learning-programming-with-c/lpc11.recursion/">LPC 11. Recursion</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-03-31T00:00:00&#43;00:00">Mar 31 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1125 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LPC
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/feature_hu2323894238537353500.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/">LPC 12. Data Structure </div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-03-31T00:00:00&#43;00:00">Mar 31 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1335 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LPC
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/feature_hu17563863749955755898.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/">EF 3. Gauss' Law Edited</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-03-28T00:00:00&#43;00:00">Mar 28 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1795 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EF
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
 </section>
 
   
@@ -2759,8 +2763,8 @@ $$</p>
           
         
       <script>
-        var oid = "views_docs\\UofT\\Introductory Electronics\\IE1.Signals\u0026Amplifiers\\index.md"
-        var oid_likes = "likes_docs\\UofT\\Introductory Electronics\\IE1.Signals\u0026Amplifiers\\index.md"
+        var oid = "views_docs\\UofT\\Introductory Electronics\\IE2.OperationalAmplifier\\index.md"
+        var oid_likes = "likes_docs\\UofT\\Introductory Electronics\\IE2.OperationalAmplifier\\index.md"
       </script>
       
       
@@ -2783,28 +2787,28 @@ $$</p>
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/docs/uoft/introductory-electronics/ie2.operationalamplifier/">
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/uoft/introductory-electronics/ie1.signalsamplifiers/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >IE 2. Operational Amplifiers</span
+                  >IE1.Signals&Amplifiers</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
                 </span>
               </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
             </a>
-          
-        </span>
-        <span>
           
         </span>
       </div>
