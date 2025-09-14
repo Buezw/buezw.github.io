@@ -12,10 +12,10 @@
     <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IE 2. Operational Amplifiers</title>
-      <link>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/ie2.operationalamplifiers/</link>
+      <link>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/</link>
       <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/ie2.operationalamplifiers/</guid>
+      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 9/14/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -49,11 +49,21 @@
 &lt;/ul&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/introductory-electronics/ie2.operationalamplifiers/image_hu6707710446908872823.png 330w,
+        /docs/uoft/introductory-electronics/ie2.operationalamplifiers/image_hu18270125127338792539.png 660w,
+        /docs/uoft/introductory-electronics/ie2.operationalamplifiers/image_hu14190371214853685493.png 1024w,
+        /docs/uoft/introductory-electronics/ie2.operationalamplifiers/image_hu7648658950034460969.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/image_hu18270125127338792539.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifiers/feature.png" />
     </item>
     
     <item>
