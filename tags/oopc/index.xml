@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OOPC on Buezwqwg</title>
+    <link>https://buezw.github.io/tags/oopc/</link>
+    <description>Recent content in OOPC on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2025 Buezwqwg</copyright>
+    <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/oopc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Object-Oriented Programming using C&#43;&#43;</title>
+      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>OOPC 0. Introduction</title>
+      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</link>
+      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC0.Introduction 
+    &lt;div id=&#34;oopc0introduction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oopc0introduction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Created: 2025年9月2日 15:35&lt;/p&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;1.1 Computer Systems 
+    &lt;div id=&#34;11-computer-systems&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#11-computer-systems&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Computer Hardware 
+    &lt;div id=&#34;computer-hardware&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#computer-hardware&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;大部分 Computer Hardware 由五个主要部分组成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Input Device&lt;/li&gt;
+&lt;li&gt;Output Device&lt;/li&gt;
+&lt;li&gt;Central Processing unit&lt;/li&gt;
+&lt;li&gt;Main Memory&lt;/li&gt;
+&lt;li&gt;Secondary Memory&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Memory 内存 
+    &lt;div id=&#34;memory-%E5%86%85%E5%AD%98&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#memory-%E5%86%85%E5%AD%98&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;程序在运行的时候，会被放在 Main Memory 中&lt;/li&gt;
+&lt;li&gt;一个 Main Memory 存在很多 Memory Locations，他们根据 Address 进行编号&lt;/li&gt;
+&lt;li&gt;而一个 Memory Location 一般都是一个 8 bits 的组合，即一个 8 位的二进制数&lt;/li&gt;
+&lt;li&gt;现代计算机一般都以 1 个 byte，即 8 bits 作为最基本的存储单位&lt;/li&gt;
+&lt;li&gt;而所有的 Memory Locations 加在一起组合成了 Main Memory&lt;/li&gt;
+&lt;li&gt;当一个 data 超过了一个最基本的储存单位，即一个 bytes 的情况下，就会用到多个 Continuative 的 Memory Locations (bytes)&lt;/li&gt;
+&lt;li&gt;在这种情况下，只需要使用第一个 Memory 的位置作为整个 data 的 Address&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu5452074438150711569.png 330w,
+        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png 660w,
+        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu13969374996867578377.png 1024w,
+        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14559888324638514471.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/feature.png" />
+    </item>
+    
+  </channel>
+</rss>
