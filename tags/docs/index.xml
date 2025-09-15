@@ -11,6 +11,48 @@
     <copyright>© 2025 Buezwqwg</copyright>
     <lastBuildDate>Mon, 15 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>AEM 1. Complex Numbers</title>
+      <link>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;AEM1.ComplexNumbers 
+    &lt;div id=&#34;aem1complexnumbers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#aem1complexnumbers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit：9/15/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Complex Numbers 
+    &lt;div id=&#34;complex-numbers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#complex-numbers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;最早对 Complex Numbers 的接触出现在 Quadratic Equation 中&lt;/li&gt;
+&lt;li&gt;当有 \(ax^2+bx+c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &amp;lt; 0\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\)&lt;/li&gt;
+&lt;li&gt;但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\mathbb C={z|z=a+bi,a,b\in\mathbb R }
+$$&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature.png" />
+    </item>
+    
+    <item>
       <title>OOPC 1. ProgrammingBasics</title>
       <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>

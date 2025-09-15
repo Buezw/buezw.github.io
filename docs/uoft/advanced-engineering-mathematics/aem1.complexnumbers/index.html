@@ -1,0 +1,3848 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>AEM 1. Complex Numbers &middot; Buezwqwg</title>
+  <meta name="title" content="AEM 1. Complex Numbers &middot; Buezwqwg" />
+  
+  
+  <meta name="keywords" content="Docs, AEM, " />
+  
+  
+  <link rel="canonical" href="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
+    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.821d421a756ddb6f1c91d41c53d0e2b2afa007b11ade688aa55594a12048893dadc2cbc127bd32da081f77022a40c9e1b73193584db9a34368e9cfd56758e43f.js"
+    integrity="sha512-gh1CGnVt228ckdQcU9Disq&#43;gB7Ea3miKpVWUoSBIiT2twsvBJ70y2ggfdwIqQMnhtzGTWE25o0No6c/VZ1jkPw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/">
+  <meta property="og:site_name" content="Buezwqwg">
+  <meta property="og:title" content="AEM 1. Complex Numbers">
+  <meta property="og:description" content="AEM1.ComplexNumbers #Last Edit：9/15/25
+Complex Numbers #最早对 Complex Numbers 的接触出现在 Quadratic Equation 中 当有 \(ax^2&#43;bx&#43;c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &lt; 0\) 的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\) 但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的 $$ \mathbb C={z|z=a&#43;bi,a,b\in\mathbb R } $$">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-09-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-15T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="AEM">
+    <meta property="og:image" content="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature.png">
+  <meta name="twitter:title" content="AEM 1. Complex Numbers">
+  <meta name="twitter:description" content="AEM1.ComplexNumbers #Last Edit：9/15/25
+Complex Numbers #最早对 Complex Numbers 的接触出现在 Quadratic Equation 中 当有 \(ax^2&#43;bx&#43;c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &lt; 0\) 的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\) 但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的 $$ \mathbb C={z|z=a&#43;bi,a,b\in\mathbb R } $$">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "AEM 1. Complex Numbers",
+    "headline": "AEM 1. Complex Numbers",
+    
+    "abstract": "\u003ch1 class=\u0022relative group\u0022\u003eAEM1.ComplexNumbers \r\n    \u003cdiv id=\u0022aem1complexnumbers\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#aem1complexnumbers\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h1\u003e\r\n\u003cblockquote\u003e\n\u003cp\u003eLast Edit：9\/15\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eComplex Numbers \r\n    \u003cdiv id=\u0022complex-numbers\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#complex-numbers\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e最早对 Complex Numbers 的接触出现在 Quadratic Equation 中\u003c\/li\u003e\n\u003cli\u003e当有 \\(ax^2\u002bbx\u002bc=d\\) 的时候，如果 Discriminant 判别式 \\(b^2-4ac \u0026lt; 0\\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \\(i^2=-1\\)\u003c\/li\u003e\n\u003cli\u003e但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e$$\n\\mathbb C={z|z=a\u002bbi,a,b\\in\\mathbb R }\n$$\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/advanced-engineering-mathematics\/aem1.complexnumbers\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Buezwqwg"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-15T00:00:00\u002b00:00",
+    "datePublished": "2025-09-15T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-09-15T00:00:00\u002b00:00",
+    
+    "keywords": ["Docs","AEM"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "4808"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Buezwqwg" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEDMYR1V0K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEDMYR1V0K');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen text-lg leading-7
+           bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral
+           scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400
+           dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600
+           
+             max-w-7xl m-auto px-6 sm:px-14 md:px-24 lg:px-32
+           ">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+      >
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content
+      </a>
+    </div>
+
+    
+    
+      
+      
+        <div class="min-h-[100px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Docs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Thoughts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Notes
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Zhihu
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Docs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Thoughts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Notes
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Zhihu
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+      
+    
+
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow ">
+        
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature_hu9858239596738871617.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Buezwqwg</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/"
+      >U of T</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/advanced-engineering-mathematics/"
+      >Advanced Engineering Mathematics</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/"
+      >AEM 1. Complex Numbers</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      AEM 1. Complex Numbers
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>4808 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/aem/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AEM
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#complex-numbers">Complex Numbers</a>
+      <ul>
+        <li><a href="#arithmetic-operations">Arithmetic Operations</a>
+          <ul>
+            <li><a href="#addition"><strong>Addition</strong></a></li>
+            <li><a href="#subtraction"><strong>Subtraction</strong></a></li>
+            <li><a href="#multiplication"><strong>Multiplication</strong></a></li>
+            <li><a href="#division"><strong>Division</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#conjugate">Conjugate</a></li>
+        <li><a href="#polar-form">Polar Form</a></li>
+        <li><a href="#geometric-interpretation">Geometric Interpretation</a>
+          <ul>
+            <li><a href="#multiplication-by-i">Multiplication by i</a></li>
+          </ul>
+        </li>
+        <li><a href="#argument-辐角">Argument 辐角</a>
+          <ul>
+            <li><a href="#principle-argument">Principle Argument</a></li>
+            <li><a href="#ex">Ex.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#complex-exponential">Complex Exponential</a>
+      <ul>
+        <li><a href="#properties"><strong>Properties</strong></a>
+          <ul>
+            <li><a href="#property-1"><strong>Property #1</strong></a></li>
+            <li><a href="#property-2"><strong>Property #2</strong></a></li>
+            <li><a href="#property-3"><strong>Property #3</strong></a></li>
+            <li><a href="#property-4"><strong>Property #4</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#eulers-formula">Euler’s Formula</a>
+      <ul>
+        <li><a href="#geometric-meaning"><strong>Geometric meaning</strong></a></li>
+        <li><a href="#properties-1">Properties</a></li>
+        <li><a href="#polar-representation"><strong>Polar Representation</strong></a></li>
+        <li><a href="#exponential-representation"><strong>Exponential Representation</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#eulers-identity">Euler’s Identity</a></li>
+    <li><a href="#eulers-formula--rectangular-representation">Euler’s Formula + Rectangular Representation</a>
+      <ul>
+        <li><a href="#upshot">Upshot</a>
+          <ul>
+            <li><a href="#modulus">Modulus</a></li>
+            <li><a href="#argument">Argument</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#integer-powers-of-complex-numbers">Integer Powers of Complex Numbers</a>
+      <ul>
+        <li><a href="#multiplication-of-complex-numbers-复数相乘的性质">Multiplication of complex numbers 复数相乘的性质</a></li>
+        <li><a href="#de-moivres-formula棣莫弗公式">De Moivre’s Formula（棣莫弗公式）</a></li>
+        <li><a href="#integer-powers-of-complex-numbers-复数的整数次幂">Integer powers of complex numbers 复数的整数次幂</a></li>
+        <li><a href="#ex-1">Ex.</a></li>
+      </ul>
+    </li>
+    <li><a href="#roots-of-complex-numbers">Roots of Complex Numbers</a>
+      <ul>
+        <li><a href="#geometric-interpretation-1">Geometric Interpretation</a>
+          <ul>
+            <li><a href="#roots-on-a-circle"><strong>Roots on a circle</strong></a></li>
+            <li><a href="#even-spacing"><strong>Even spacing</strong></a></li>
+            <li><a href="#ex-求-sqrti">Ex. 求 \(\sqrt{i}\)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#complex-logarithm">Complex Logarithm</a>
+      <ul>
+        <li><a href="#ln-is-a-multi-valued-function">ln is a Multi-Valued Function</a></li>
+      </ul>
+    </li>
+    <li><a href="#properties-of-ez-and-lnz">Properties of \(e^z\) and \(ln(z)\)</a>
+      <ul>
+        <li><a href="#ex-1-ln3">Ex. 1 ln(3)</a></li>
+        <li><a href="#ex-2-ln3">Ex. 2 ln⁡(−3)</a></li>
+        <li><a href="#求解-ez--1--i">求解 e^z = 1 + i</a></li>
+      </ul>
+    </li>
+    <li><a href="#general-complex-power">General Complex Power</a>
+      <ul>
+        <li><a href="#ex-1-2pi">Ex. 1: \(2^\pi\)</a></li>
+        <li><a href="#ex-2-ii">Ex. 2: \(i^i\)</a></li>
+      </ul>
+    </li>
+    <li><a href="#jacques-hadamard">Jacques Hadamard</a></li>
+    <li><a href="#defining-complex-trigonometric-functions">Defining Complex Trigonometric Functions</a>
+      <ul>
+        <li><a href="#hyperbolic-sine">Hyperbolic Sine</a></li>
+        <li><a href="#summarize">Summarize</a></li>
+      </ul>
+    </li>
+    <li><a href="#properties-of-complex-trig-functions">Properties of Complex Trig Functions</a>
+      <ul>
+        <li><a href="#sinz--cosz-in-rectangular-form">Sin(z) &amp; Cos(z) in Rectangular Form</a></li>
+        <li><a href="#sinz--sinhz">sin(z) &amp; sinh(z)</a></li>
+      </ul>
+    </li>
+    <li><a href="#modulus-of-sin-z-and-cos-z">Modulus of sin z and cos z</a></li>
+    <li><a href="#zeros-of-sinz-and-cosz">Zeros of sin(z) and cos(z)</a></li>
+    <li><a href="#periodicity-of-sinz-cosz-sinhz-and-coshz">Periodicity of sin(z), cos(z), sinh(z) and cosh(z)</a>
+      <ul>
+        <li><a href="#sinz--cosz">Sin(z) &amp; Cos(z)</a></li>
+        <li><a href="#sinhz-and-coshz">sinh(z) and cosh(z)</a></li>
+        <li><a href="#ex-find-z-st-cosz--sinz">Ex. Find Z s.t. Cos(z) = Sin(z)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#complex-numbers">Complex Numbers</a>
+      <ul>
+        <li><a href="#arithmetic-operations">Arithmetic Operations</a>
+          <ul>
+            <li><a href="#addition"><strong>Addition</strong></a></li>
+            <li><a href="#subtraction"><strong>Subtraction</strong></a></li>
+            <li><a href="#multiplication"><strong>Multiplication</strong></a></li>
+            <li><a href="#division"><strong>Division</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#conjugate">Conjugate</a></li>
+        <li><a href="#polar-form">Polar Form</a></li>
+        <li><a href="#geometric-interpretation">Geometric Interpretation</a>
+          <ul>
+            <li><a href="#multiplication-by-i">Multiplication by i</a></li>
+          </ul>
+        </li>
+        <li><a href="#argument-辐角">Argument 辐角</a>
+          <ul>
+            <li><a href="#principle-argument">Principle Argument</a></li>
+            <li><a href="#ex">Ex.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#complex-exponential">Complex Exponential</a>
+      <ul>
+        <li><a href="#properties"><strong>Properties</strong></a>
+          <ul>
+            <li><a href="#property-1"><strong>Property #1</strong></a></li>
+            <li><a href="#property-2"><strong>Property #2</strong></a></li>
+            <li><a href="#property-3"><strong>Property #3</strong></a></li>
+            <li><a href="#property-4"><strong>Property #4</strong></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#eulers-formula">Euler’s Formula</a>
+      <ul>
+        <li><a href="#geometric-meaning"><strong>Geometric meaning</strong></a></li>
+        <li><a href="#properties-1">Properties</a></li>
+        <li><a href="#polar-representation"><strong>Polar Representation</strong></a></li>
+        <li><a href="#exponential-representation"><strong>Exponential Representation</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#eulers-identity">Euler’s Identity</a></li>
+    <li><a href="#eulers-formula--rectangular-representation">Euler’s Formula + Rectangular Representation</a>
+      <ul>
+        <li><a href="#upshot">Upshot</a>
+          <ul>
+            <li><a href="#modulus">Modulus</a></li>
+            <li><a href="#argument">Argument</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#integer-powers-of-complex-numbers">Integer Powers of Complex Numbers</a>
+      <ul>
+        <li><a href="#multiplication-of-complex-numbers-复数相乘的性质">Multiplication of complex numbers 复数相乘的性质</a></li>
+        <li><a href="#de-moivres-formula棣莫弗公式">De Moivre’s Formula（棣莫弗公式）</a></li>
+        <li><a href="#integer-powers-of-complex-numbers-复数的整数次幂">Integer powers of complex numbers 复数的整数次幂</a></li>
+        <li><a href="#ex-1">Ex.</a></li>
+      </ul>
+    </li>
+    <li><a href="#roots-of-complex-numbers">Roots of Complex Numbers</a>
+      <ul>
+        <li><a href="#geometric-interpretation-1">Geometric Interpretation</a>
+          <ul>
+            <li><a href="#roots-on-a-circle"><strong>Roots on a circle</strong></a></li>
+            <li><a href="#even-spacing"><strong>Even spacing</strong></a></li>
+            <li><a href="#ex-求-sqrti">Ex. 求 \(\sqrt{i}\)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#complex-logarithm">Complex Logarithm</a>
+      <ul>
+        <li><a href="#ln-is-a-multi-valued-function">ln is a Multi-Valued Function</a></li>
+      </ul>
+    </li>
+    <li><a href="#properties-of-ez-and-lnz">Properties of \(e^z\) and \(ln(z)\)</a>
+      <ul>
+        <li><a href="#ex-1-ln3">Ex. 1 ln(3)</a></li>
+        <li><a href="#ex-2-ln3">Ex. 2 ln⁡(−3)</a></li>
+        <li><a href="#求解-ez--1--i">求解 e^z = 1 + i</a></li>
+      </ul>
+    </li>
+    <li><a href="#general-complex-power">General Complex Power</a>
+      <ul>
+        <li><a href="#ex-1-2pi">Ex. 1: \(2^\pi\)</a></li>
+        <li><a href="#ex-2-ii">Ex. 2: \(i^i\)</a></li>
+      </ul>
+    </li>
+    <li><a href="#jacques-hadamard">Jacques Hadamard</a></li>
+    <li><a href="#defining-complex-trigonometric-functions">Defining Complex Trigonometric Functions</a>
+      <ul>
+        <li><a href="#hyperbolic-sine">Hyperbolic Sine</a></li>
+        <li><a href="#summarize">Summarize</a></li>
+      </ul>
+    </li>
+    <li><a href="#properties-of-complex-trig-functions">Properties of Complex Trig Functions</a>
+      <ul>
+        <li><a href="#sinz--cosz-in-rectangular-form">Sin(z) &amp; Cos(z) in Rectangular Form</a></li>
+        <li><a href="#sinz--sinhz">sin(z) &amp; sinh(z)</a></li>
+      </ul>
+    </li>
+    <li><a href="#modulus-of-sin-z-and-cos-z">Modulus of sin z and cos z</a></li>
+    <li><a href="#zeros-of-sinz-and-cosz">Zeros of sin(z) and cos(z)</a></li>
+    <li><a href="#periodicity-of-sinz-cosz-sinhz-and-coshz">Periodicity of sin(z), cos(z), sinh(z) and cosh(z)</a>
+      <ul>
+        <li><a href="#sinz--cosz">Sin(z) &amp; Cos(z)</a></li>
+        <li><a href="#sinhz-and-coshz">sinh(z) and cosh(z)</a></li>
+        <li><a href="#ex-find-z-st-cosz--sinz">Ex. Find Z s.t. Cos(z) = Sin(z)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h1 class="relative group">AEM1.ComplexNumbers 
+    <div id="aem1complexnumbers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#aem1complexnumbers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>Last Edit：9/15/25</p>
+</blockquote>
+
+
+<h2 class="relative group">Complex Numbers 
+    <div id="complex-numbers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-numbers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>最早对 Complex Numbers 的接触出现在 Quadratic Equation 中</li>
+<li>当有 \(ax^2+bx+c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &lt; 0\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\)</li>
+<li>但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的</li>
+</ul>
+<p>$$
+\mathbb C={z|z=a+bi,a,b\in\mathbb R }
+$$</p>
+<ul>
+<li>其也有 Polar Form，也称为三角形式，为</li>
+</ul>
+<p>$$
+z=r(\cos \theta+i\sin\theta)
+$$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/image_hu4106092323412754640.png 330w,
+        /docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/image_hu5328658782807095689.png 660w,
+        /docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/image_hu12884890518048418593.png 1024w,
+        /docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/image_hu10161829841846972568.png 2x"
+        src="/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/image_hu5328658782807095689.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Arithmetic Operations 
+    <div id="arithmetic-operations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#arithmetic-operations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Complex Number 的加减乘除如下</li>
+<li>设 \(z_1 = x_1 + iy_1, z_2 = x_2 + iy_2\)：</li>
+</ul>
+
+
+<h4 class="relative group"><strong>Addition</strong> 
+    <div id="addition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#addition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+z_1 + z_2 = (x_1 + x_2) + i(y_1 + y_2)
+$$</p>
+
+
+<h4 class="relative group"><strong>Subtraction</strong> 
+    <div id="subtraction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#subtraction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+z_1 - z_2 = (x_1 - x_2) + i(y_1 - y_2)
+$$</p>
+
+
+<h4 class="relative group"><strong>Multiplication</strong> 
+    <div id="multiplication" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#multiplication" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+z_1 z_2 = (x_1x_2 - y_1y_2) + i(x_1y_2 + x_2y_1)
+$$</p>
+
+
+<h4 class="relative group"><strong>Division</strong> 
+    <div id="division" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#division" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>在计算 Complex Number 的 Division 之前需要先定义 \(z^{-1}\)</li>
+<li>这个数他需要满足的条件为 \(z\times z^{-1} =1\)</li>
+<li>现在已知 \(z=a+bi\)，可以计算出 \(z^{-1}\) 的 Rectangular Form 为#</li>
+</ul>
+<p>$$
+\frac1z= \frac{1}{a+bi}=\frac{1}{a+bi}\times\frac{a-bi}{a-bi}=\frac{a-bi}{a^2+b^2}=\frac{a}{a^2+b^2}-i\cdot\frac{b}{a^2+b^2}
+$$</p>
+
+
+<h3 class="relative group">Conjugate 
+    <div id="conjugate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conjugate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Complex Number 的 Conjugate 的定义就是</li>
+</ul>
+<p>$$
+\overline Z = Re(z)-iIm(z)
+$$</p>
+<ul>
+<li>定义好了 Conjugate 的特性，就会出现很多二级结论</li>
+</ul>
+<p>$$
+\frac{1}{z} = \frac{1}{z} \times \frac{\overline{z}}{\overline{z}}= \frac{\overline{z}}{z \overline{z}}= \frac{\overline{z}}{|z|^2}
+$$</p>
+<p>$$
+\overline{z} |= \sqrt{(\operatorname{Re}(z))^2 + (-\operatorname{Im}(z))^2}= |z|
+$$</p>
+<p>$$
+\left| \frac{1}{z} \right|= \left| \frac{\overline{z}}{|z|^2} \right|= \frac{1}{|z|^2} |\overline{z}|= \frac{1}{|z|^2} |z|= \frac{1}{|z|}
+$$</p>
+<p>$$
+z\overline{z}
+= (\operatorname{Re}(z) + \operatorname{Im}(z) i)(\operatorname{Re}(z) - \operatorname{Im}(z) i)
+= (\operatorname{Re}(z))^2 + (\operatorname{Im}(z))^2
+= |z|^2
+$$</p>
+<p>$$
+\frac{z + \overline{z}}{2} = \operatorname{Re}(z)
+$$</p>
+<p>$$
+\overline{z_1 + z_2} = \overline{z_1} + \overline{z_2}
+$$</p>
+<p>$$
+\overline{z_1 z_2} = \overline{z_1} , \overline{z_2}
+$$</p>
+<p>$$
+\overline{\left(\frac{z_1}{z_2}\right)} = \frac{\overline{z_1}}{\overline{z_2}}
+$$</p>
+
+
+<h3 class="relative group">Polar Form 
+    <div id="polar-form" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#polar-form" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>现在研究几个 Polar Form 下的结论</li>
+<li>假设现在有 \(z=r(\cos\theta+i\sin\theta)\)</li>
+<li>Find Polar Form of \(\overline z\)</li>
+</ul>
+<p>$$
+\overline{Z} = r(\cos\theta - i \sin\theta) = r(\cos(-\theta) + i\sin(-\theta))
+$$</p>
+<ul>
+<li>Find Polar Form of \(\frac1z\)</li>
+</ul>
+<p>$$
+\frac{1}{Z} = \frac{1}{|Z|^2} , \overline{Z} = \frac{1}{r^2} , r(\cos(-\theta) + i \sin(-\theta)) = \frac{1}{r} \left( \cos(-\theta) + i \sin(-\theta) \right)
+$$</p>
+
+
+<h3 class="relative group">Geometric Interpretation 
+    <div id="geometric-interpretation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#geometric-interpretation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>假设有一个 \(z = a + bi\)，What is the geometric interpretation of  \(\overline z\)  and \(\frac1z\)</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>根据上面 Polar Form 中得到的结论可以看出，Conjugate 和 Reciprocal 的 Mod 和 Argument</li>
+</ul>
+
+
+<h4 class="relative group">Multiplication by i 
+    <div id="multiplication-by-i" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#multiplication-by-i" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>当一个 Complex Number 乘上一个 Imaginary Number i 的时候，本质上就是将其 Polar Form 的图案 CCW 移动了 90 Degree</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>同时，当两个 Complex Number 互乘的时候，他们的结果如下</li>
+</ul>
+<p>$$
+Z_1 Z_2 = r_1 \bigl( \cos\theta_1 + i \sin\theta_1 \bigr) \times r_2 \bigl( \cos\theta_2 + i \sin\theta_2 \bigr) \[6pt]= r_1 r_2 \left(    \bigl( \cos\theta_1 \cos\theta_2 - \sin\theta_1 \sin\theta_2 \bigr)    + i \bigl( \cos\theta_1 \sin\theta_2 + \sin\theta_1 \cos\theta_2 \bigr)  \right) \[6pt]= r_1 r_2 \left( \cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2) \right)
+$$</p>
+<ul>
+<li>观察公式可以看出，Multiplication 的结果就是，mod 相乘，Argument 相加</li>
+</ul>
+
+
+<h3 class="relative group">Argument 辐角 
+    <div id="argument-%E8%BE%90%E8%A7%92" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#argument-%E8%BE%90%E8%A7%92" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Complex Number 中，<strong>Argument</strong> 是指复数在复平面上与 正实轴 的夹角</li>
+<li>假设现在有 \(z = (-2.5)\left(\sin\frac{\pi}{7} - i\cos\frac{\pi}{7}\right)\)，要求 Z 的极坐标形式，有</li>
+</ul>
+<p>$$
+z = 2.5\left(-\sin\frac{\pi}{7} + i\cos\frac{\pi}{7}\right)
+$$</p>
+<ul>
+<li>注意到 \(\sin\) 和 \(\cos\) 的位置不对，通过三角公式可以变换求得 \(\theta\)</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">Principle Argument 
+    <div id="principle-argument" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#principle-argument" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Principle Argument 就是最简单的那个 Argument，取值范围是</li>
+</ul>
+<p>$$
+-\pi &lt; \arg(z) \leq \pi
+$$</p>
+
+
+<h4 class="relative group">Ex. 
+    <div id="ex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Complex Exponential 
+    <div id="complex-exponential" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-exponential" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>We define \(e^z\) for any \(z \in \mathbb{C}\) with the same series:</li>
+</ul>
+<p>$$
+e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}
+$$</p>
+<ul>
+<li>上面的公式就是 Definition of exponential function in complex domain（复数域中的指数函数定义）</li>
+</ul>
+
+
+<h3 class="relative group"><strong>Properties</strong> 
+    <div id="properties" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>复数域中指数函数的几个重要性质：</li>
+</ul>
+
+
+<h4 class="relative group"><strong>Property #1</strong> 
+    <div id="property-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+e^{z_1 + z_2} = e^{z_1} \cdot e^{z_2}, \quad \forall z_1, z_2 \in \mathbb{C}
+$$</p>
+<ul>
+<li>指数加法法则，在复数域中依然成立</li>
+</ul>
+
+
+<h4 class="relative group"><strong>Property #2</strong> 
+    <div id="property-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+e^0 = 1
+$$</p>
+<ul>
+<li>零次幂等于 1</li>
+</ul>
+
+
+<h4 class="relative group"><strong>Property #3</strong> 
+    <div id="property-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+e^{-z} = \frac{1}{e^z}, \quad \forall z \in \mathbb{C}
+$$</p>
+<ul>
+<li>负指数等于倒数</li>
+</ul>
+
+
+<h4 class="relative group"><strong>Property #4</strong> 
+    <div id="property-4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+(e^z)^k = e^{kz}, \quad \forall z \in \mathbb{C}, ; k \in \mathbb{Z}
+$$</p>
+<ul>
+<li>整数次幂的性质</li>
+</ul>
+
+
+<h2 class="relative group">Euler’s Formula 
+    <div id="eulers-formula" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#eulers-formula" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>令 \(z = i\theta\)，代入指数函数的定义：</li>
+</ul>
+<p>$$
+e^{i\theta} = \sum_{n=0}^{\infty} \frac{(i\theta)^n}{n!}
+$$</p>
+<ul>
+<li>把各项展开，可以分为：</li>
+<li>实部（Real part）：\(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \dots = \cos \theta\)</li>
+<li>虚部（Imaginary part）： \(i(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \dots) = i\sin \theta\)</li>
+<li>于是就有</li>
+</ul>
+<p>$$
+e^{i\theta} = \cos\theta + i\sin\theta
+$$</p>
+
+
+<h3 class="relative group"><strong>Geometric meaning</strong> 
+    <div id="geometric-meaning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#geometric-meaning" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>前面提到了 Euler&rsquo;s Formula 指出了 \(e^{i\theta} = \cos\theta + i\sin\theta\)，这就说明了 \(e^{i\theta}\) 是在 unit circle 上的一个复数，Arugument 为 \(\theta\)</li>
+</ul>
+
+
+<h3 class="relative group">Properties 
+    <div id="properties-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>\(|e^{i\theta}| = 1\)，因为 \(\cos^2\theta + \sin^2\theta = 1\)</li>
+<li>回忆 mod 的定义 对于 Complex Number \(z = x+iy\) 来说，它的 mod \(|z| = \sqrt{x^2 + y^2}\)</li>
+<li>套用到 \(e^{i\theta}\) 中可以得到 \(|e^{i\theta}| = \sqrt{(\cos\theta)^2 + (\sin\theta)^2}=1\)</li>
+<li>\(\arg(e^{i\theta}) = \theta + 2k\pi, , k \in \mathbb{Z}\)</li>
+</ul>
+
+
+<h3 class="relative group"><strong>Polar Representation</strong> 
+    <div id="polar-representation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#polar-representation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>复数的极坐标表示：</li>
+</ul>
+<p>$$
+Z = r(\cos\theta + i\sin\theta)
+$$</p>
+<ul>
+<li>这里 r 是模（modulus）</li>
+<li>\(\theta\) 是辐角（argument）</li>
+</ul>
+
+
+<h3 class="relative group"><strong>Exponential Representation</strong> 
+    <div id="exponential-representation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#exponential-representation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>利用欧拉公式，可以写成：</li>
+</ul>
+<p>$$
+Z = re^{i\theta}= re^{i(\theta + 2k\pi)}, \quad \forall k \in \mathbb{Z}
+$$</p>
+
+
+<h2 class="relative group">Euler’s Identity 
+    <div id="eulers-identity" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#eulers-identity" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>上面的 Euler’s Formula 写道</li>
+</ul>
+<p>$$
+e^{i\theta} = \cos\theta + i\sin\theta
+$$</p>
+<ul>
+<li>当 \(\theta = \pi\)  时：</li>
+</ul>
+<p>$$
+e^{i\pi} = \cos\pi + i\sin\pi
+$$</p>
+<ul>
+<li>将值代入，有 \(\cos\pi = -1, \quad \sin\pi = 0\)，可以得到</li>
+</ul>
+<p>$$
+e^{i\pi} = -1 + i\cdot 0 = -1
+$$</p>
+<ul>
+<li>于是就得到了 Euler’s Identity</li>
+</ul>
+<p>$$
+e^{i\pi} + 1 = 0
+$$</p>
+
+
+<h2 class="relative group">Euler’s Formula + Rectangular Representation 
+    <div id="eulers-formula--rectangular-representation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#eulers-formula--rectangular-representation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>回顾指数的性质 Recall property #1</li>
+</ul>
+<p>$$
+e^{z_1 + z_2} = e^{z_1} \cdot e^{z_2}
+$$</p>
+<ul>
+<li>把复数写成 Rectangular form，令</li>
+</ul>
+<p>$$
+Z = x + iy, \quad x,y \in \mathbb{R}
+$$</p>
+<ul>
+<li>于是就有</li>
+</ul>
+<p>$$
+e^Z = e^{x+iy}= e^x \cdot e^{iy}
+$$</p>
+<ul>
+<li>根据 Euler’s Formula 可以知道</li>
+</ul>
+<p>$$
+e^{iy} = \cos y + i\sin y
+$$</p>
+<ul>
+<li>再乘上 \(e^x\)  可以得到</li>
+</ul>
+<p>$$
+e^{x+iy} = e^x (\cos y + i\sin y)
+$$</p>
+<ul>
+<li>这就是复数指数函数的 R<strong>ectangular representation</strong> <strong>直角坐标表示</strong></li>
+</ul>
+
+
+<h3 class="relative group">Upshot 
+    <div id="upshot" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#upshot" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>由上式可以得到几个重要结果：</li>
+</ul>
+
+
+<h4 class="relative group">Modulus 
+    <div id="modulus" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#modulus" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+|e^Z| = e^x
+$$</p>
+
+
+<h4 class="relative group">Argument 
+    <div id="argument" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#argument" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+\arg(e^Z) = y + 2k\pi, \quad k \in \mathbb{Z}
+$$</p>
+<ul>
+<li>如果有两个复数 \(Z_1, Z_2\)：</li>
+</ul>
+<p>$$
+\arg(Z_1 Z_2) = \arg(Z_1) + \arg(Z_2)
+$$</p>
+
+
+<h2 class="relative group">Integer Powers of Complex Numbers 
+    <div id="integer-powers-of-complex-numbers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integer-powers-of-complex-numbers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>很多我们用三角函数证明过的复数性质，其实也可以用指数函数来证明</li>
+</ul>
+
+
+<h3 class="relative group">Multiplication of complex numbers 复数相乘的性质 
+    <div id="multiplication-of-complex-numbers-%E5%A4%8D%E6%95%B0%E7%9B%B8%E4%B9%98%E7%9A%84%E6%80%A7%E8%B4%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#multiplication-of-complex-numbers-%E5%A4%8D%E6%95%B0%E7%9B%B8%E4%B9%98%E7%9A%84%E6%80%A7%E8%B4%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>之前提到</li>
+</ul>
+<p>$$
+Z_1 Z_2 = r_1 r_2 \big(\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2)\big)
+$$</p>
+<ul>
+<li>换成指数形式：</li>
+</ul>
+<p>$$
+Z_1 = r_1 e^{i\theta_1}, \quad Z_2 = r_2 e^{i\theta_2}
+$$</p>
+<ul>
+<li>那么：</li>
+</ul>
+<p>$$
+Z_1 Z_2 = r_1 e^{i\theta_1} \cdot r_2 e^{i\theta_2} = r_1 r_2 e^{i(\theta_1 + \theta_2)}
+$$</p>
+<ul>
+<li>再用 Euler’s Formula 可以得到：</li>
+</ul>
+<p>$$
+= r_1 r_2 (\cos(\theta_1 + \theta_2) + i \sin(\theta_1 + \theta_2))
+$$</p>
+<ul>
+<li>这和三角函数的方法一致，但更简洁</li>
+</ul>
+
+
+<h3 class="relative group">De Moivre’s Formula（棣莫弗公式） 
+    <div id="de-moivres-formula%E6%A3%A3%E8%8E%AB%E5%BC%97%E5%85%AC%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#de-moivres-formula%E6%A3%A3%E8%8E%AB%E5%BC%97%E5%85%AC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>由指数函数的性质：</li>
+</ul>
+<p>$$
+(e^{i\theta})^n = e^{in\theta}, \quad n \in \mathbb{Z}
+$$</p>
+<ul>
+<li>于是：</li>
+</ul>
+<p>$$
+(\cos\theta + i\sin\theta)^n = (e^{i\theta})^n=(e^{i n\theta })=\cos(n\theta) + i\sin(n\theta)
+$$</p>
+<ul>
+<li>这就是著名的 <strong>De Moivre’s Formula</strong></li>
+</ul>
+
+
+<h3 class="relative group">Integer powers of complex numbers 复数的整数次幂 
+    <div id="integer-powers-of-complex-numbers-%E5%A4%8D%E6%95%B0%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E5%B9%82" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integer-powers-of-complex-numbers-%E5%A4%8D%E6%95%B0%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E5%B9%82" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>设复数：\(Z = |Z| e^{i\theta}\)</li>
+<li>给定整数 kk：</li>
+</ul>
+<p>$$
+Z^k = (|Z| e^{i\theta})^k = (|Z|)^k e^{ik\theta} = |Z|^k (\cos(k\theta) + i\sin(k\theta))
+$$</p>
+<ul>
+<li>Modulus：被提升到 k 次方，变为 \(|Z|^k\)</li>
+<li>Argument：被放大 k 倍，变为 \(k\theta\)</li>
+<li>也就是说：<strong>复数的幂就是“拉伸模长 + 放大角度”</strong></li>
+</ul>
+
+
+<h3 class="relative group">Ex. 
+    <div id="ex-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>B 和 C 正确没什么特别的，对于 E 来说 \(\frac{3\pi}{4}=-\frac{5\pi}{4}\) 也没问题</li>
+<li>对于 F 来说就是多了一个 \(2\pi\)，也没问题</li>
+</ul>
+
+
+<h2 class="relative group">Roots of Complex Numbers 
+    <div id="roots-of-complex-numbers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#roots-of-complex-numbers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>如果 w 是 Z 的 n 次方根，记作</li>
+</ul>
+<p>$$
+Z^{1/n} = w, \quad \text{if } w^n = Z
+$$</p>
+<ul>
+<li>将他们两个写成 Exponential 的形式，有</li>
+</ul>
+<p>$$
+Z = r_0 e^{i\theta_0}, \quad w = r e^{i\theta}
+$$</p>
+<ul>
+<li>要求 \(w^n = Z\)，即</li>
+</ul>
+<p>$$
+(r e^{i\theta})^n = r^n e^{i n\theta} = r_0 e^{i\theta_0}
+$$</p>
+<ul>
+<li>根据 Complex Exponential 的性质，可以得到</li>
+<li>模长：</li>
+</ul>
+<p>$$
+r^n = r_0 ;;\Rightarrow;; r = (r_0)^{1/n}
+$$</p>
+<ul>
+<li>角度：</li>
+</ul>
+<p>$$
+n\theta = \theta_0 + 2k\pi, \quad k \in \mathbb{Z}\Rightarrow \theta = \frac{\theta_0 + 2k\pi}{n}
+$$</p>
+<ul>
+<li>通得到 General Solution</li>
+</ul>
+<p>$$
+w = r_0^{1/n} e^{i\frac{\theta_0+2k\pi}{n}}, \quad k \in \mathbb{Z}
+$$</p>
+<ul>
+<li>注意：一共有恰好 n 个不同的 Complex Roots</li>
+</ul>
+
+
+<h3 class="relative group">Geometric Interpretation 
+    <div id="geometric-interpretation-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#geometric-interpretation-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group"><strong>Roots on a circle</strong> 
+    <div id="roots-on-a-circle" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#roots-on-a-circle" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>所有根都在一个圆上，其半径为</li>
+</ul>
+<p>$$
+|Z|^{1/n} = r_0^{1/n}
+$$</p>
+
+
+<h4 class="relative group"><strong>Even spacing</strong> 
+    <div id="even-spacing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#even-spacing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>这些根沿着圆 <strong>平均间隔</strong> \(2\pi/n\)，起点在 \(\theta_0/n\)</li>
+</ul>
+<p>$$
+w_k = Z^{1/n} = r_0^{1/n} e^{i\frac{\theta_0+2k\pi}{n}}, \quad k=0,1,2,\dots,(n-1)
+$$</p>
+
+
+<h4 class="relative group">Ex. 求 \(\sqrt{i}\) 
+    <div id="ex-%E6%B1%82-sqrti" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-%E6%B1%82-sqrti" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>先写出 i 作为一个 Complex Number 的 Exponential Form，有 \(i = e^{i\pi/2}\)</li>
+<li>平方根：</li>
+</ul>
+<p>$$
+w = e^{i(\pi/2 + 2k\pi)/2}, \quad k=0,1\Rightarrow w_1 = e^{i\pi/4}, \quad w_2 = e^{i(5\pi/4)}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>在图上，两个根分布在圆上，相隔 \(\pi\)（180°）</li>
+</ul>
+
+
+<h2 class="relative group">Complex Logarithm 
+    <div id="complex-logarithm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-logarithm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>令 \(w = \ln Z \Rightarrow Z = e^w\)</li>
+<li>这是 Complex Logarithm 的定义方式，即如果我们要定义 \(w = \ln Z\)，那就要让 \(Z = e^w\) 成立</li>
+<li>为了找出 w，我们令复数 \(Z = x + iy = re^{i\theta}\)</li>
+</ul>
+<blockquote>
+<p>两个分别是 Rectangular Form 和 Polar Form</p>
+</blockquote>
+<ul>
+<li>假设 \(w(x,y) = U(x,y) + iV(x,y)\)，这里表示将 w 写成 Real + Imaginary 的形式，也就有</li>
+</ul>
+<p>$$
+e^{w(x,y)} = e^{U(x,y) + iV(x,y)} = e^{U(x,y)} \cdot e^{iV(x,y)}
+$$</p>
+<ul>
+<li>这个东西是等于 \(Z = re^{i\theta}\) 的，这就可以将他们一一对应，得到</li>
+</ul>
+<p>$$
+e^{U(x,y)} = r \Rightarrow U(x,y) = \log_e r = \log_e |Z|
+$$</p>
+<ul>
+<li>于是就可以得到 General Solution 形式</li>
+</ul>
+<p>$$
+\ln(Z) = \log_e |Z| + i(\theta + 2\pi k),\quad k \in \mathbb{Z}
+$$</p>
+<aside>
+💡
+<p>这表示复对数是一个multi-valued function（多值函数），因为任意加上 \(2\pi k\) 都是合法的解</p>
+</aside>
+<blockquote>
+<p>上面的意思就是，给定一个 \(Z\in \mathbb C\)，\(\ln(Z)\) 存在无数个 Periodic Solutions</p>
+</blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>其中每一个 Solution 之间间隔 \(2\pi\)</li>
+</ul>
+
+
+<h3 class="relative group">ln is a Multi-Valued Function 
+    <div id="ln-is-a-multi-valued-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ln-is-a-multi-valued-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>由于一个 Complex Number 存在无限个周期性的 Argument，这就是导致 Complex Logarithm 存在无限解的原因，同时 \(\ln Z\) 就可以写成</li>
+</ul>
+<p>$$
+\ln(Z)=\log_e|Z|+i\arg(Z)
+$$</p>
+<ul>
+<li>同时就也会存在一个 Principle Argument Arg(z)，写做</li>
+</ul>
+<p>$$
+Ln(Z)=\log_e|Z|+iArg(Z)
+$$</p>
+
+
+<h2 class="relative group">Properties of \(e^z\) and \(ln(z)\) 
+    <div id="properties-of-ez-and-lnz" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-of-ez-and-lnz" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>设现在有 Complex Number \(z = x + iy\)，可以得到以下性质</li>
+</ul>
+<ol>
+<li>\(|e^z| = e^x\)，模长等于实部的指数</li>
+<li>\(\arg(e^z) = y + 2\pi k，k \in \mathbb{Z}\)，幅角来自虚部</li>
+</ol>
+<hr>
+<ul>
+<li>同时，由于 Complex Logarithm 的 Solution 是一个 Set</li>
+</ul>
+<p>$$
+\ln(z) = { w \mid e^w = z }
+$$</p>
+<ul>
+<li>所以有：</li>
+</ul>
+<ol>
+<li>\(e^{\ln(z)} = z\)，只要 \(z \neq 0\)</li>
+<li>如果 \(w_1 \in \ln(z_1), w_2 \in \ln(z_2)\)，那么 \(w_1 + w_2 \in \ln(z_1 z_2)\)</li>
+</ol>
+<aside>
+💡
+<p>对数相加等于乘积的集合</p>
+</aside>
+<blockquote>
+<p>只在复数对数的多值定义下成立，不适用于 Principal value</p>
+</blockquote>
+<ul>
+<li>其实就是</li>
+</ul>
+<p>$$
+\ln(z_1) + \ln(z_2) = \ln(z_1 z_2)
+$$</p>
+<ul>
+<li>于是可以 Derive 出</li>
+</ul>
+<p>$$
+\ln\left(\frac{1}{z}\right) = -\ln(z), \quad\ln\left(\frac{z_1}{z_2}\right) = \ln(z_1) - \ln(z_2)
+$$</p>
+
+
+<h3 class="relative group">Ex. 1 ln(3) 
+    <div id="ex-1-ln3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-1-ln3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>先说结论，\(ln(3)\) 就是 \(log_e(3)\)</li>
+<li>具体带入公式可以得到 3 的 Mod 为 3，Arg 为 0，于是有</li>
+</ul>
+<p>$$
+\ln(3) = \log_e |3| + i\arg(3) = \log_e 3
+$$</p>
+
+
+<h3 class="relative group">Ex. 2 ln⁡(−3) 
+    <div id="ex-2-ln3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-2-ln3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>\(\ln(-3)\) 就和上面的不一样了，在 Real Analysis 中，Logarithm 中是不允许出现负数的，但是在 Complex Analysis 中，有</li>
+</ul>
+<p>$$
+\ln(-3) = \log_e |-3| + i\arg(-3) = \log_e 3 + i\pi
+$$</p>
+<ul>
+<li>详细来说，-3 的 mod 为 3，Arg 为 \(\pi\)</li>
+</ul>
+
+
+<h3 class="relative group">求解 e^z = 1 + i 
+    <div id="%E6%B1%82%E8%A7%A3-ez--1--i" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%B1%82%E8%A7%A3-ez--1--i" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>两边取对数就可以知道这题在问的是 \(Z = \ln(1 + i)\) 的解，有</li>
+</ul>
+<p>$$
+Z = \ln(1 + i) = \log_e \sqrt{2} + i\left( \frac{\pi}{4} + 2\pi k \right), \quad k \in \mathbb{Z}
+$$</p>
+<ul>
+<li>用图表示这个解就是</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%208.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>用图画出所有解在复平面上的位置就有，将 Real Part 固定：\(\log_e \sqrt{2}\)，将 Imagery Part 周期性上移：\(\frac{\pi}{4} + 2\pi k\)</li>
+<li>最终得到一条沿虚轴等间距排列的点列</li>
+</ul>
+
+
+<h2 class="relative group">General Complex Power 
+    <div id="general-complex-power" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#general-complex-power" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>想要定义 \(Z^α\)，\(\text{其中 } Z, \alpha \in \mathbb{C}\)</li>
+<li>类似于实数域中 \(x^a\)，我们在复数域中定义：</li>
+</ul>
+<p>$$
+Z^\alpha = e^{\alpha \cdot \ln(Z)}
+$$</p>
+<aside>
+💡
+<p>这仍是一个多值函数，因为 \(\ln(Z)\) 是多值的</p>
+</aside>
+
+
+<h3 class="relative group">Ex. 1: \(2^\pi\) 
+    <div id="ex-1-2pi" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-1-2pi" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+2^\pi = e^{\pi \cdot \ln(2)}
+$$</p>
+<ul>
+<li>右边使用公式 \(e^{\alpha \ln Z}\)</li>
+<li>现在分析 Complex logarithm \(\ln 2\)，有</li>
+</ul>
+<p>$$
+\ln(2) = \log_e 2 + i \cdot 2\pi k
+$$</p>
+<blockquote>
+<p>2 的 Arg (Principle Argument) 是 0，但是 arg 不是</p>
+</blockquote>
+<ul>
+<li>乘以 \(\pi\) 得到：</li>
+</ul>
+<p>$$
+\pi \log_e 2 + i \cdot 2\pi^2 k
+$$</p>
+<ul>
+<li>指数展开为：</li>
+</ul>
+<p>$$
+e^{\pi \log_e 2} \cdot e^{i \cdot 2\pi^2 k} = 2^\pi \cdot e^{i \cdot 2\pi^2 k}
+$$</p>
+<ul>
+<li>最后写成：</li>
+</ul>
+<p>$$
+2^\pi = 2^\pi \angle 2\pi^2 k
+$$</p>
+<ul>
+<li>意思是模长为 \(2^\pi\)，虚部会旋转 \(2\pi^2 k\)</li>
+</ul>
+
+
+<h3 class="relative group">Ex. 2: \(i^i\) 
+    <div id="ex-2-ii" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-2-ii" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>已知 \(i^i = e^{\ln(i) \cdot i}\)</li>
+</ul>
+<p>$$
+\ln(i) = \log_e 1 + i \cdot \arg(i) = 0 + i\left( \frac{\pi}{2} + 2\pi k \right)
+$$</p>
+<ul>
+<li>所以：</li>
+</ul>
+<p>$$
+i^i = e^{i \cdot i \cdot \left( \frac{\pi}{2} + 2\pi k \right)} = e^{- \left( \frac{\pi}{2} + 2\pi k \right)}
+$$</p>
+<ul>
+<li>它的 Principle Branch 就是</li>
+</ul>
+<p>$$
+i^i = e^{-\pi/2} \quad \text{(当选择主值 (k = 0) 时)}
+$$</p>
+
+
+<h2 class="relative group">Jacques Hadamard 
+    <div id="jacques-hadamard" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#jacques-hadamard" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p><strong>“The shortest path between two truths in the real domain passes through the complex domain</strong>.“ —— 在实数域中，两条真理之间最短的路径，是通过复数域。</p>
+</blockquote>
+<ul>
+<li>现在需要证明</li>
+</ul>
+<p>$$
+\cos A \cos B = \frac{1}{2} \left[ \cos(A+B) + \cos(A-B) \right]
+$$</p>
+<ul>
+<li>首先用 Euler‘s 表示 cos 和 sin</li>
+</ul>
+<p>$$
+\cos x = \frac{e^{ix} + e^{-ix}}{2}, \quad \sin x = \frac{e^{ix} - e^{-ix}}{2i}
+$$</p>
+<ul>
+<li>把 \(\cos A \cos B\) 用复指数展开：</li>
+</ul>
+<p>$$
+\begin{align*}\cos A \cdot \cos B &amp;= \left( \frac{e^{iA} + e^{-iA}}{2} \right)   \cdot \left( \frac{e^{iB} + e^{-iB}}{2} \right) \&amp;= \tfrac{1}{4} \left( e^{i(A+B)} + e^{i(A-B)} + e^{-i(A-B)} + e^{-i(A+B)} \right)\end{align*}
+$$</p>
+<ul>
+<li>利用对称性重新组合：</li>
+</ul>
+<p>$$
+e^{i(A+B)} + e^{-i(A+B)} = 2\cos(A+B)
+$$</p>
+<p>$$
+e^{i(A-B)} + e^{-i(A-B)} = 2\cos(A-B)
+$$</p>
+<ul>
+<li>最终得到</li>
+</ul>
+<p>$$
+\cos A \cdot \cos B = \frac{1}{2} \left[ \cos(A+B) + \cos(A-B) \right]
+$$</p>
+
+
+<h2 class="relative group">Defining Complex Trigonometric Functions 
+    <div id="defining-complex-trigonometric-functions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#defining-complex-trigonometric-functions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>回顾 Euler&rsquo;s Formula，有</li>
+</ul>
+<p>$$
+e^{i\theta} = \cos\theta + i\sin\theta
+$$</p>
+<ul>
+<li>
+<p>可以得出：</p>
+<p>$$
+\sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}, \quad \cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}
+$$</p>
+</li>
+<li>
+<p>现在想要定义 \(\sin(z),\cos(z)\) 在复数 \(z \in \mathbb{C}\) 中怎么定义</p>
+</li>
+<li>
+<p>Definition 就是直接先把 Complex Number z 替换进去，可以得到</p>
+</li>
+</ul>
+<p>$$
+\sin(z) = \frac{e^{iz} - e^{-iz}}{2i},\quad \cos(z) = \frac{e^{iz} + e^{-iz}}{2}
+$$</p>
+<ul>
+<li>然后对 tan 和 cot 同理</li>
+</ul>
+<p>$$
+\tan(z) = \frac{\sin(z)}{\cos(z)}, \quad \forall z \in \mathbb{C}, \cos(z) \ne 0
+$$</p>
+<p>$$
+\cot(z) = \frac{\cos(z)}{\sin(z)}, \quad \forall z \in \mathbb{C}, \sin(z) \ne 0
+$$</p>
+
+
+<h3 class="relative group">Hyperbolic Sine 
+    <div id="hyperbolic-sine" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hyperbolic-sine" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>双曲正弦函数 \(\sinh x\) 是和单位双曲线 \(x^2-y^2=1\) 有关的正弦函数，定义为</li>
+</ul>
+<p>$$
+\sinh(x) = \frac{e^x - e^{-x}}{2}, \quad\cosh(x) = \frac{e^x + e^{-x}}{2}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%209.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>同理，Complex Number 下的 \(\sinh z\) 就是把 z 先带入</li>
+</ul>
+<p>$$
+\sinh(z) = \frac{e^z - e^{-z}}{2}, \quad \forall z \in \mathbb{C}
+$$</p>
+<p>$$
+\cosh(z) = \frac{e^z + e^{-z}}{2}, \quad \forall z \in \mathbb{C}
+$$</p>
+
+
+<h3 class="relative group">Summarize 
+    <div id="summarize" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summarize" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">函数名</th>
+          <th style="text-align: left">定义公式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">\(\sin(z)\)</td>
+          <td style="text-align: left">\(\frac{e^{iz} - e^{-iz}}{2i}\)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(cos⁡(z)\cos(z)\)</td>
+          <td style="text-align: left">\(\frac{e^{iz} + e^{-iz}}{2}\)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(\tan(z)\)</td>
+          <td style="text-align: left">\(\frac{\sin(z)}{\cos(z)}, 条件：\cos(z) \ne 0\)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(\cot(z)\)</td>
+          <td style="text-align: left">\(c\frac{\cos(z)}{\sin(z)}, 条件：s\sin(z) \ne 0\)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(\sinh(z)\)</td>
+          <td style="text-align: left">\(\frac{e^z - e^{-z}}{2}\)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(\cosh(z)\)</td>
+          <td style="text-align: left">\(\frac{e^z + e^{-z}}{2}\)</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">Properties of Complex Trig Functions 
+    <div id="properties-of-complex-trig-functions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-of-complex-trig-functions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>下面要介绍几个在 Complex Domain 下的 Trig 的 Properties</li>
+</ul>
+
+
+<h3 class="relative group">Sin(z) &amp; Cos(z) in Rectangular Form 
+    <div id="sinz--cosz-in-rectangular-form" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sinz--cosz-in-rectangular-form" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>先定义一个 Complex Number \(z = x + i y\)，其中 \(x, y \in \mathbb R\)</p>
+</li>
+<li>
+<p>已知 Complex sine function 为</p>
+<p>$$
+\sin(z) = \frac{e^{iz} - e^{-iz}}{2i}
+$$</p>
+</li>
+<li>
+<p>将完整的 z 带入，得到</p>
+</li>
+</ul>
+<p>$$
+\sin(z) = \frac{e^{i(x+iy)} - e^{-i(x+iy)}}{2i}
+$$</p>
+<ul>
+<li>已知 Euler’s Formula</li>
+</ul>
+<p>$$
+e^{ix} = \cos x + i \sin x, \quad e^{-ix} = \cos x - i \sin x.
+$$</p>
+<ul>
+<li>代入得到</li>
+</ul>
+<p>$$
+\sin(x+iy) = \frac{e^{-y}(\cos x + i \sin x) - e^{y}(\cos x - i \sin x)}{2i}.
+$$</p>
+<ul>
+<li>展开公式得到</li>
+</ul>
+<p>$$
+= \frac{(e^{-y}\cos x + i e^{-y}\sin x) - (e^{y}\cos x - i e^{y}\sin x)}{2i}
+$$</p>
+<p>$$
+= \frac{(e^{-y}\cos x - e^{y}\cos x) + i(e^{-y}\sin x + e^{y}\sin x)}{2i}
+$$</p>
+<ul>
+<li>将两个分子分离，</li>
+</ul>
+<p>$$
+\frac{e^{-y}\cos x - e^{y}\cos x}{2i} = \frac{- (e^{y}-e^{-y})\cos x}{2i}
+$$</p>
+<p>$$
+\frac{1}{i} = -i, \quad \frac{e^{y} - e^{-y}}{2} = \sinh(y)
+$$</p>
+<ul>
+<li>所以得到：</li>
+</ul>
+<p>$$
+= i \cos(x) \sinh(y)
+$$</p>
+<ul>
+<li>另外一半有</li>
+</ul>
+<p>$$
+\frac{i(e^{-y}\sin x + e^{y}\sin x)}{2i} = \frac{e^{y}+e^{-y}}{2} \sin x.
+$$</p>
+<p>$$
+\frac{e^{y}+e^{-y}}{2} = \cosh(y)
+$$</p>
+<ul>
+<li>所以得到</li>
+</ul>
+<p>$$
+= \sin(x) \cosh(y)
+$$</p>
+<ul>
+<li>最后把两个加一块得到</li>
+</ul>
+<p>$$
+\sin(x+iy) = \sin(x)\cosh(y) + i \cos(x)\sinh(y)
+$$</p>
+<ul>
+<li>cos 有类似的结论</li>
+</ul>
+<p>$$
+\cos(z) = \cos(x)\cosh(y) - i \sin(x)\sinh(y)
+$$</p>
+
+
+<h3 class="relative group">sin(z) &amp; sinh(z) 
+    <div id="sinz--sinhz" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sinz--sinhz" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>已知 sin z 和 sinh z 的 Formula</li>
+</ul>
+<p>$$
+\sin(z) = \frac{e^{iz} - e^{-iz}}{2i}, \quad \sinh(z) = \frac{e^z - e^{-z}}{2}
+$$</p>
+<ul>
+<li>
+<p>代入 \(z \to i z\)：</p>
+<p>$$
+\sinh(i z) = \frac{e^{iz} - e^{-iz}}{2} = i \sin(z)
+$$</p>
+</li>
+<li>
+<p>所以得到关系：</p>
+<ul>
+<li>\(\sinh(z) = i \sin(i z)\)</li>
+<li>\(\sin(z) = -i \sinh(i z)\)</li>
+</ul>
+</li>
+<li>
+<p>对于 Cos 也有类似结论，</p>
+<ul>
+<li>\(\cos(i z) = \cosh(z)\)</li>
+<li>\(\cosh(i z) = \cos(z)\)</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group">Modulus of sin z and cos z 
+    <div id="modulus-of-sin-z-and-cos-z" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#modulus-of-sin-z-and-cos-z" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>根据上面的结论</li>
+</ul>
+<p>$$
+\sin(z) = \sin(x)\cosh(y) + i \cos(x)\sinh(y)
+$$</p>
+<ul>
+<li>所以模平方为</li>
+</ul>
+<p>$$
+|\sin(z)|^2 = (\sin(x)\cosh(y))^2 + (\cos(x)\sinh(y))^2
+$$</p>
+<ul>
+<li>展开得到</li>
+</ul>
+<p>$$
+|\sin(z)|^2 = \sin^2(x)\cosh^2(y) + \cos^2(x)\sinh^2(y)
+$$</p>
+<ul>
+<li>已知</li>
+</ul>
+<p>$$
+\cosh^2(y) = 1 + \sinh^2(y)
+$$</p>
+<ul>
+<li>代入得到</li>
+</ul>
+<p>$$
+|\sin(z)|^2 = \sin^2(x) + \sinh^2(y)
+$$</p>
+<ul>
+<li>cos 也有相同结论</li>
+</ul>
+<p>$$
+|\cos(z)|^2 = \cos^2(x) + \sinh^2(y)
+$$</p>
+<aside>
+💡
+<p>\(|\sin(z)|^2\) 和 \(|\cos(z)|^2\) 不一定小于等于 1，因为 \(\sinh(y)\) 可能非常大</p>
+</aside>
+
+
+<h2 class="relative group">Zeros of sin(z) and cos(z) 
+    <div id="zeros-of-sinz-and-cosz" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#zeros-of-sinz-and-cosz" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>当一个 Complex Trig Function 想要成为 Zero 的时候，Complex number 也有固定值</li>
+</ul>
+<p>$$
+\sin(z) = 0 \iff \sin^2(x) + \sinh^2(y) = 0
+$$</p>
+<ul>
+<li>因为平方和为零，必须同时成立：</li>
+</ul>
+<p>$$
+\sin(x) = 0, \quad \sinh(y) = 0
+$$</p>
+<ul>
+<li>\(\sin(x) = 0 \implies x = k\pi, ; k \in \mathbb{Z}\)</li>
+<li>\(\sinh(y) = 0 \implies y = 0\)</li>
+<li>所以：</li>
+</ul>
+<p>$$
+\sin(z) = 0 \iff z = k\pi, \quad k \in \mathbb{Z}
+$$</p>
+<ul>
+<li>对于 Cos 有着类似结论</li>
+</ul>
+<p>$$
+\cos(z) = 0 \iff \cos^2(x) + \sinh^2(y) = 0
+$$</p>
+<ul>
+<li>同样必须同时成立：</li>
+</ul>
+<p>$$
+\cos(x) = 0, \quad \sinh(y) = 0
+$$</p>
+<ul>
+<li>\(\cos(x) = 0 \implies x = \frac{(k+1)\pi}{2}, ; k \in \mathbb{Z}\)</li>
+<li>\(\sinh(y) = 0 \implies y = 0\)</li>
+</ul>
+<p>$$
+\cos(z) = 0 \iff z = \frac{(k+1)\pi}{2}, \quad k \in \mathbb{Z}
+$$</p>
+
+
+<h2 class="relative group">Periodicity of sin(z), cos(z), sinh(z) and cosh(z) 
+    <div id="periodicity-of-sinz-cosz-sinhz-and-coshz" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#periodicity-of-sinz-cosz-sinhz-and-coshz" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Sin(z) &amp; Cos(z) 
+    <div id="sinz--cosz" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sinz--cosz" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>先说结论，sin(z) 和 cos(z) 的 Period 就是 \(2\pi\)，而 sinh(z) 和 cosh(z) 的 Period 为 \(2\pi i\)</li>
+</ul>
+<p>$$
+\sin(z) = \frac{e^{iz} - e^{-iz}}{2i}, \quad \cos(z) = \frac{e^{iz} + e^{-iz}}{2}.
+$$</p>
+<ul>
+<li>把 \(z \to z + 2\pi\)：</li>
+</ul>
+<p>$$
+\sin(z+2\pi) = \frac{e^{i(z+2\pi)} - e^{-i(z+2\pi)}}{2i}
+$$</p>
+<ul>
+<li>因为</li>
+</ul>
+<p>$$
+e^{i(z+2\pi)} = e^{iz} e^{i2\pi} = e^{iz} \cdot 1 = e^{iz}
+$$</p>
+<p>$$
+e^{-i(z+2\pi)} = e^{-iz} e^{-i2\pi} = e^{-iz} \cdot 1 = e^{-iz}
+$$</p>
+<ul>
+<li>所以：</li>
+</ul>
+<p>$$
+\sin(z+2\pi) = \frac{e^{iz} - e^{-iz}}{2i} = \sin(z)
+$$</p>
+<ul>
+<li>有相同结论</li>
+</ul>
+<p>$$
+\cos(z+2\pi) = \cos(z)
+$$</p>
+<ul>
+<li>所以 \(\sin(z)\) 和 \(\cos(z)\) 的周期是 <strong>\(2\pi\)</strong></li>
+</ul>
+
+
+<h3 class="relative group">sinh(z) and cosh(z) 
+    <div id="sinhz-and-coshz" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sinhz-and-coshz" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\sinh(z) = \frac{e^z - e^{-z}}{2}, \quad \cosh(z) = \frac{e^z + e^{-z}}{2}.
+$$</p>
+<ul>
+<li>把 \(z \to z + 2\pi i\)</li>
+</ul>
+<p>$$
+\sinh(z+2\pi i) = \frac{e^{z+2\pi i} - e^{-(z+2\pi i)}}{2}.
+$$</p>
+<p>$$
+= \frac{e^z e^{2\pi i} - e^{-z} e^{-2\pi i}}{2}.
+$$</p>
+<ul>
+<li>因为 \(e^{2\pi i} = 1, ; e^{-2\pi i} = 1\)，所以：</li>
+</ul>
+<p>$$
+\sinh(z+2\pi i) = \frac{e^z - e^{-z}}{2} = \sinh(z)
+$$</p>
+<p>同理：</p>
+<p>$$
+\cosh(z+2\pi i) = \cosh(z)
+$$</p>
+<ul>
+<li>所以最终得出 \(\sinh(z)\) 和 \(\cosh(z)\)  的周期是 <strong>\(2\pi i\)</strong></li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2010.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>还有很多和 Real Number 中相同的结论</li>
+</ul>
+
+
+<h3 class="relative group">Ex. Find Z s.t. Cos(z) = Sin(z) 
+    <div id="ex-find-z-st-cosz--sinz" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-find-z-st-cosz--sinz" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\frac{e^{iz} + e^{-iz}}{2} = \frac{e^{iz} - e^{-iz}}{2i}
+$$</p>
+<p>$$
+i(e^{iz} + e^{-iz}) = e^{iz} - e^{-iz}\Rightarrow(i-1)e^{iz} = -(i+1)e^{-iz}\Rightarrow e^{2iz} = \frac{-(i+1)}{i-1}
+$$</p>
+<ul>
+<li>化简得到  \(e^{2iz} = i\)，取对数：\(2iz = \ln(i)\)</li>
+<li>得到 \(\ln(i) = i\left(\frac{\pi}{2} + 2k\pi\right), \quad k \in \mathbb{Z}\)</li>
+<li>解出 z 为 \(z = \frac{\pi}{4} + k\pi, \quad k \in \mathbb{Z}\)</li>
+</ul>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/uoft/24/calculus/calculus8.methodsofintegration/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/calculus/calculus8.methodsofintegration/feature_hu13221952812045409006.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/calculus/calculus8.methodsofintegration/">Calculus 8. Methods of Integration</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>1848 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cal/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Cal
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature_hu3137460487742645143.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/">OOPC 1. ProgrammingBasics</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>5886 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/oopcs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    OOPCS
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/feature_hu17563863749955755898.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/">EF 3. Gauss' Law Edited</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-28T00:00:00&#43;00:00">Mar 28 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1795 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/learning-programming-with-c/lpc6.pointers/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc6.pointers/feature_hu3152701200236818152.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/learning-programming-with-c/lpc6.pointers/">LPC 6. Pointers</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-20T00:00:00&#43;00:00">Feb 20 2025</time><span class="px-2 text-primary-500">&middot;</span><span>4024 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/feature_hu5151891579748147741.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/">Calculus A1. Polynomial Interpolation</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>721 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cal/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Cal
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/feature_hu5062659520743426295.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/">LPC 2. Data & Operations</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-01-09T00:00:00&#43;00:00">Jan 9 2025</time><span class="px-2 text-primary-500">&middot;</span><span>4186 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\UofT\\Advanced Engineering Mathematics\\AEM1.ComplexNumbers\\index.md"
+        var oid_likes = "likes_docs\\UofT\\Advanced Engineering Mathematics\\AEM1.ComplexNumbers\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+
+
+    
+  </footer>
+</article>
+
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+      </main><script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+
+<footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
+            title="">
+            
+            Credits
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Buezwqwg
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://buezw.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+
+  
+</html>
