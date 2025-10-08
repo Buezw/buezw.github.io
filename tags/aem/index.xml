@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AEM on Buezwqwg</title>
-    <link>http://localhost:1313/tags/aem/</link>
+    <link>https://buezw.github.io/tags/aem/</link>
     <description>Recent content in AEM on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/aem/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/aem/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Advanced Engineering Mathematics</title>
-      <link>http://localhost:1313/docs/uoft/advanced-engineering-mathematics/</link>
+      <link>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/advanced-engineering-mathematics/</guid>
+      <guid>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>AEM 2. Differential Equations</title>
-      <link>http://localhost:1313/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/</link>
+      <link>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/</guid>
+      <guid>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;AEM2.DifferentialEquations 
     &lt;div id=&#34;aem2differentialequations&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -57,15 +57,15 @@
 &lt;p&gt;$$
 \frac{d^2 y}{dx^2} = -k^2 y
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/feature.png" />
     </item>
     
     <item>
       <title>AEM 1. Complex Numbers</title>
-      <link>http://localhost:1313/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</link>
+      <link>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</guid>
+      <guid>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;AEM1.ComplexNumbers 
     &lt;div id=&#34;aem1complexnumbers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -99,7 +99,7 @@ $$&lt;/p&gt;</description>
 &lt;p&gt;$$
 \mathbb C={z|z=a+bi,a,b\in\mathbb R }
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature.png" />
     </item>
     
   </channel>

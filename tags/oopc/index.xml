@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OOPC on Buezwqwg</title>
-    <link>http://localhost:1313/tags/oopc/</link>
+    <link>https://buezw.github.io/tags/oopc/</link>
     <description>Recent content in OOPC on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/oopc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/oopc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Object-Oriented Programming using C&#43;&#43;</title>
-      <link>http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</link>
+      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</guid>
+      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>OOPC 3. DynamicMemory Allocation &amp; Classes</title>
-      <link>http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</link>
+      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</guid>
+      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC3.DynamicMemoryAllocation&amp;amp;Classes 
     &lt;div id=&#34;oopc3dynamicmemoryallocationclasses&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -117,15 +117,15 @@
     
 &lt;/h3&gt;
 &lt;p&gt;Change &lt;code&gt;main.cpp&lt;/code&gt; into&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/feature.png" />
     </item>
     
     <item>
       <title>OOPC 2. Classes</title>
-      <link>http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</link>
+      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</link>
       <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</guid>
+      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC2.Classes 
     &lt;div id=&#34;oopc2classes&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -166,15 +166,15 @@
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这里只是&lt;strong&gt;定义结构体，不会分配内存&lt;/strong&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/feature.png" />
     </item>
     
     <item>
       <title>OOPC 0. Introduction</title>
-      <link>http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</link>
+      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</link>
       <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</guid>
+      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC0.Introduction 
     &lt;div id=&#34;oopc0introduction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -251,13 +251,13 @@
         /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png 660w,
         /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu13969374996867578377.png 1024w,
         /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14559888324638514471.png 2x&#34;
-        src=&#34;http://localhost:1313/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/feature.png" />
     </item>
     
   </channel>

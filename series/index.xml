@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Buezwqwg</title>
-    <link>http://localhost:1313/series/</link>
+    <link>https://buezw.github.io/series/</link>
     <description>Recent content in Series on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D2L</title>
-      <link>http://localhost:1313/series/d2l/</link>
+      <link>https://buezw.github.io/series/d2l/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/series/d2l/</guid>
+      <guid>https://buezw.github.io/series/d2l/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ECMS</title>
-      <link>http://localhost:1313/series/ecms/</link>
+      <link>https://buezw.github.io/series/ecms/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/series/ecms/</guid>
+      <guid>https://buezw.github.io/series/ecms/</guid>
       <description></description>
       
     </item>

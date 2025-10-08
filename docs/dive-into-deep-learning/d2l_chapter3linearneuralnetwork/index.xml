@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chapter 3. Linear Neural Network on Buezwqwg</title>
-    <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
+    <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
     <description>Recent content in Chapter 3. Linear Neural Network on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D2L 3.1 Linear Regression</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 4/15/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.2 Object-Oriented Design for Implementation</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid>
       <description>&lt;p&gt;从零开始实现整个方法， 包括数据流水线、模型、损失函数和小批量随机梯度下降优化器。 虽然现代的深度学习框架几乎可以自动化地进行所有这些工作，但从零开始实现可以确保我们真正知道自己在做什么。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.3 A concise implementation of linear regression</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid>
       <description>&lt;p&gt;本节将介绍如何通过使用深度学习框架来简洁地实现[[3.2_Object-OrientedDesignforImplementation]]中的线性回归模型&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.4 Softmax Regression</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid>
       <description>&lt;p&gt;回归可以用于预测_多少_的问题。 比如预测房屋被售出价格，或者棒球队可能获得的胜场数，又或者患者住院的天数。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.5 Image classification datasets</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid>
       <description>&lt;p&gt;MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id90&#34;title=&#34;LeCun, Y., Bottou, L., Bengio, Y., Haffner, P., &amp;amp; others. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324.&#34; target=&#34;_blank&#34;&gt;LeCun &lt;em&gt;et al.&lt;/em&gt;, 1998&lt;/a&gt;) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id189&#34;title=&#34;Xiao, H., Rasul, K., &amp;amp; Vollgraf, R. (2017). Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms. arXiv preprint arXiv:1708.07747.&#34; target=&#34;_blank&#34;&gt;Xiao &lt;em&gt;et al.&lt;/em&gt;, 2017&lt;/a&gt;)。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.6 Implementation of softmax regression from scratch</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;3.6.1 初始化模型参数 
     &lt;div id=&#34;361-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -130,7 +130,7 @@ $$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;keepdim=True: 在进行张量操作时，保持原始张量的维度&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png" />
     </item>
     
   </channel>

@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction to Mathematic Physic on Buezwqwg</title>
-    <link>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/</link>
+    <link>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/</link>
     <description>Recent content in Introduction to Mathematic Physic on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IMP 2. Limits</title>
-      <link>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</link>
+      <link>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</guid>
+      <guid>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;IMP2.Limits 
     &lt;div id=&#34;imp2limits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -47,15 +47,15 @@
 &lt;p&gt;$$
 \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp2.limits/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/feature.png" />
     </item>
     
     <item>
       <title>IMP 1. Review of Vector</title>
-      <link>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</link>
+      <link>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</guid>
+      <guid>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;IMP1.ReviewofVector 
     &lt;div id=&#34;imp1reviewofvector&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -98,7 +98,7 @@ $$&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;一个 Scalar 是在任意坐标变换（包括旋转、反射、平移）下保持不变的数量&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/feature.png" />
     </item>
     
   </channel>

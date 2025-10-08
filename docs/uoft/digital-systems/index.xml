@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Digital Systems on Buezwqwg</title>
-    <link>http://localhost:1313/docs/uoft/digital-systems/</link>
+    <link>https://buezw.github.io/docs/uoft/digital-systems/</link>
     <description>Recent content in Digital Systems on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/uoft/digital-systems/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/digital-systems/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DS 2. Circuit Module &amp; Verilog</title>
-      <link>http://localhost:1313/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</link>
+      <link>https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</guid>
+      <guid>https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;DS2.CircuitModule&amp;amp;Verilog 
     &lt;div id=&#34;ds2circuitmoduleverilog&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -67,21 +67,21 @@
         /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png 660w,
         /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu7012519630649372123.png 1024w,
         /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu309876066352639045.png 2x&#34;
-        src=&#34;http://localhost:1313/docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/digital-systems/ds2.circuitmoduleverilog/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/feature.png" />
     </item>
     
     <item>
       <title>DS 1. Introductionto Logic Circuits</title>
-      <link>http://localhost:1313/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</link>
+      <link>https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</link>
       <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</guid>
+      <guid>https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;DS1.IntroductiontoLogicCircuits 
     &lt;div id=&#34;ds1introductiontologiccircuits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -96,7 +96,7 @@
 &lt;p&gt;Last Edit: 10/2/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;计算机中的信息由 Electronic Signals 表示 ，其存在两个 Discrete Values，它们通过 Voltage Levels 电压电平实现，但是称为 Logic Values，0 和 1&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/digital-systems/ds1.introductiontologiccircuits/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/feature.png" />
     </item>
     
   </channel>

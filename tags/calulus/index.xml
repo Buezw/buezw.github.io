@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Calulus on Buezwqwg</title>
-    <link>http://localhost:1313/tags/calulus/</link>
+    <link>https://buezw.github.io/tags/calulus/</link>
     <description>Recent content in Calulus on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/calulus/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/calulus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CAL 11. Complex Number</title>
-      <link>http://localhost:1313/docs/uoft/24/calculus/calculus11.complexnumber/</link>
+      <link>https://buezw.github.io/docs/uoft/24/calculus/calculus11.complexnumber/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/24/calculus/calculus11.complexnumber/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculus11.complexnumber/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/9/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -71,7 +71,7 @@ $$(bi)^2=b^2\cdot i^2=b^2\cdot -1=-b^2$$&lt;/li&gt;
 &lt;p&gt;Solve the equation \(x^2 +2x+2 = 0\). Using the quadratic formula
 $$z_1 = \frac{-2 + \sqrt{4 - 8}}{2} = -1 + i \quad \text{and} \quad z_2 = \frac{-2 - \sqrt{4 - 8}}{2} = -1 - i.
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/calculus/calculus11.complexnumber/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus11.complexnumber/feature.png" />
     </item>
     
   </channel>

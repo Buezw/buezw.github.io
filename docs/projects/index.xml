@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Buezwqwg</title>
-    <link>http://localhost:1313/docs/projects/</link>
+    <link>https://buezw.github.io/docs/projects/</link>
     <description>Recent content in Projects on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 19 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build a personal website by Hugo</title>
-      <link>http://localhost:1313/docs/projects/buildapersonalwebsitebyhugo/</link>
+      <link>https://buezw.github.io/docs/projects/buildapersonalwebsitebyhugo/</link>
       <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/projects/buildapersonalwebsitebyhugo/</guid>
+      <guid>https://buezw.github.io/docs/projects/buildapersonalwebsitebyhugo/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/19/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -41,13 +41,13 @@
         /docs/projects/buildapersonalwebsitebyhugo/BuildapersonalwebsitebyHugo-3_hu5581787319040588473.png 660w,
         /docs/projects/buildapersonalwebsitebyhugo/BuildapersonalwebsitebyHugo-3_hu10522245190111443328.png 1024w,
         /docs/projects/buildapersonalwebsitebyhugo/BuildapersonalwebsitebyHugo-3_hu13328635153818595949.png 2x&#34;
-        src=&#34;http://localhost:1313/docs/projects/buildapersonalwebsitebyhugo/BuildapersonalwebsitebyHugo-3_hu5581787319040588473.png&#34;
+        src=&#34;https://buezw.github.io/docs/projects/buildapersonalwebsitebyhugo/BuildapersonalwebsitebyHugo-3_hu5581787319040588473.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/projects/buildapersonalwebsitebyhugo/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/projects/buildapersonalwebsitebyhugo/feature.png" />
     </item>
     
   </channel>

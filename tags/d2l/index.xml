@@ -2,145 +2,145 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>D2L on Buezwqwg</title>
-    <link>http://localhost:1313/tags/d2l/</link>
+    <link>https://buezw.github.io/tags/d2l/</link>
     <description>Recent content in D2L on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/d2l/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/d2l/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D2L 6. ConvolutionNeuronNetwork</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>D2L 6.5 Pooling Layer</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在处理图像的时候，希望逐渐扩大 Layer 的 Receptive Field，这是因为学习任务通常会和全局的图像相关，如“图像是否包含某个物体？”，所以需要逐渐汇集信息到最后一层时包含整个图像&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/feature.png" />
     </item>
     
     <item>
       <title>D2L 6.6 LeNet</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;我们在前面章节已经学习了构建完整 Convolutional Neural Network 卷积神经网络，简称 CNN）所需的基础模块，但是为了把这些模块真正用起来，需要介绍一个完整的、早期的 CNN 架构 LeNet（LeNet-5）&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/feature.png" />
     </item>
     
     <item>
       <title>D2L 6.3 Padding &amp; Stride</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;前面提到，输入图像大小为 3x3，kernel 为 2×2，输出的维数是 2×2，则可以判断出输出维度为&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/feature.png" />
     </item>
     
     <item>
       <title>D2L 6.4 Multiple Input &amp; Output</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;一张常规的图像通常包含了 RGB 三种颜色，也是就是为互相关运算添加了一个维度&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/feature.png" />
     </item>
     
     <item>
       <title>D2L 6.2 Image Convolution</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/29/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;由于卷积神经网络的设计就是为了处理图像，所以这里直接以图像为例&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/feature.png" />
     </item>
     
     <item>
       <title>D2L 5. Deep Learning Computation</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</link>
       <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>D2L 5.4 Custom Layer</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link>
       <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/19/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在整体网络中，存在一些不同的层，他们都是专门用来处理不同事件的，这也令自定义层变得有必要&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
     </item>
     
     <item>
       <title>D2L 5.3 Deferred Initialization</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</link>
       <pubDate>Sat, 18 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/18/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Deferred Initialization是指模型的某些参数在模型创建时并不会立即被初始化，而是会在第一次接收到输入数据时，根据输入数据的实际形状动态地完成初始化
 需要知道的是延后初始化的&lt;strong&gt;核心目标&lt;/strong&gt; 就是为了解决 &lt;strong&gt;输入维度未知&lt;/strong&gt; 的问题，而模型内部层之间的维度通常是事先定义好的&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png" />
     </item>
     
     <item>
       <title>D2L 5.2 Parameter Management</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</link>
       <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/17/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在训练的过程中，目标是找到使得Cost Function最小化的Parameters，而有些时候需要提取其中一层的参数检查或者移动到其他环境下，这就需要访问参数&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/feature.png" />
     </item>
     
     <item>
       <title>D2 5.1 Layer &amp; Block</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/21/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -186,47 +186,47 @@
         /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png 660w,
         /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu17735818070818276903.png 1024w,
         /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13633986511892309580.png 2x&#34;
-        src=&#34;http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png&#34;
+        src=&#34;https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.1 Multilayer Perceptron</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.2 Example of MLP</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;使用纯MLP参加https://www.kaggle.com/competitions/titanic的Competition&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
     </item>
     
     <item>
       <title>D2L Weierstrass Approximation Theorem</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
       <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/19/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -318,15 +318,15 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
     
     <item>
       <title>Linear Regression</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/linearregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</link>
       <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/linearregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/4/2024&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -688,68 +688,68 @@ class LinearRegression(Scene):
         self.play(Write(main))
 ---
 &lt;/code&gt;&lt;/pre&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/linearregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/linearregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.1 Linear Regression</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 4/15/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.2 Object-Oriented Design for Implementation</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid>
       <description>&lt;p&gt;从零开始实现整个方法， 包括数据流水线、模型、损失函数和小批量随机梯度下降优化器。 虽然现代的深度学习框架几乎可以自动化地进行所有这些工作，但从零开始实现可以确保我们真正知道自己在做什么。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.3 A concise implementation of linear regression</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid>
       <description>&lt;p&gt;本节将介绍如何通过使用深度学习框架来简洁地实现[[3.2_Object-OrientedDesignforImplementation]]中的线性回归模型&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.4 Softmax Regression</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid>
       <description>&lt;p&gt;回归可以用于预测_多少_的问题。 比如预测房屋被售出价格，或者棒球队可能获得的胜场数，又或者患者住院的天数。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.5 Image classification datasets</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid>
       <description>&lt;p&gt;MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id90&#34;title=&#34;LeCun, Y., Bottou, L., Bengio, Y., Haffner, P., &amp;amp; others. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324.&#34; target=&#34;_blank&#34;&gt;LeCun &lt;em&gt;et al.&lt;/em&gt;, 1998&lt;/a&gt;) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id189&#34;title=&#34;Xiao, H., Rasul, K., &amp;amp; Vollgraf, R. (2017). Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms. arXiv preprint arXiv:1708.07747.&#34; target=&#34;_blank&#34;&gt;Xiao &lt;em&gt;et al.&lt;/em&gt;, 2017&lt;/a&gt;)。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.6 Implementation of softmax regression from scratch</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;3.6.1 初始化模型参数 
     &lt;div id=&#34;361-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -811,55 +811,55 @@ $$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;keepdim=True: 在进行张量操作时，保持原始张量的维度&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.1 MultilayerPerceptron</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
       <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.4 Model Selection, Underfitting, and Overfitting</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
       <description>&lt;p&gt;深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
     </item>
     
     <item>
       <title>Chapter 3. Linear Neural Network</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
       <description>&lt;hr&gt;</description>
       
     </item>
     
     <item>
       <title>Chapter 4. Multilayer Perceptron</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</guid>
       <description>&lt;hr&gt;</description>
       
     </item>
     
     <item>
       <title>Dive Into Deep Learning</title>
-      <link>http://localhost:1313/docs/dive-into-deep-learning/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/</link>
       <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/dive-into-deep-learning/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/</guid>
       <description>&lt;p&gt;《动手学深度学习》 — 动手学深度学习 2.0.0 documentation. (2023). Zh-V2.D2l.ai. &lt;a href=&#34;https://zh-v2.d2l.ai/index.html&#34; target=&#34;_blank&#34;&gt;https://zh-v2.d2l.ai/index.html&lt;/a&gt;&lt;/p&gt;
 
 

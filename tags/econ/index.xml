@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Econ on Buezwqwg</title>
-    <link>http://localhost:1313/tags/econ/</link>
+    <link>https://buezw.github.io/tags/econ/</link>
     <description>Recent content in Econ on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/econ/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/econ/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IMP 2. Limits</title>
-      <link>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</link>
+      <link>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</guid>
+      <guid>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;IMP2.Limits 
     &lt;div id=&#34;imp2limits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -47,15 +47,15 @@
 &lt;p&gt;$$
 \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp2.limits/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/feature.png" />
     </item>
     
     <item>
       <title>IMP 1. Review of Vector</title>
-      <link>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</link>
+      <link>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</guid>
+      <guid>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;IMP1.ReviewofVector 
     &lt;div id=&#34;imp1reviewofvector&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -98,15 +98,15 @@ $$&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;一个 Scalar 是在任意坐标变换（包括旋转、反射、平移）下保持不变的数量&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/feature.png" />
     </item>
     
     <item>
       <title>Foreign Exchange</title>
-      <link>http://localhost:1313/docs/notes/foreignexchange/</link>
+      <link>https://buezw.github.io/docs/notes/foreignexchange/</link>
       <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/notes/foreignexchange/</guid>
+      <guid>https://buezw.github.io/docs/notes/foreignexchange/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/13/2024&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -125,19 +125,19 @@ $$&lt;/p&gt;</description>
 &lt;/h1&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/docs/Economic_Static/ForeignExchange/ForeignExchange%E5%A4%96%E6%B1%87.png&#34; alt=&#34;Img&#34; /&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/Economic_Static/ForeignExchange/ForeignExchange%E5%A4%96%E6%B1%87.png&#34; alt=&#34;Img&#34; /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/notes/foreignexchange/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/foreignexchange/feature.png" />
     </item>
     
     <item>
       <title>Inflation 通货膨胀</title>
-      <link>http://localhost:1313/docs/notes/inflation/</link>
+      <link>https://buezw.github.io/docs/notes/inflation/</link>
       <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/notes/inflation/</guid>
+      <guid>https://buezw.github.io/docs/notes/inflation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 7/4/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -182,11 +182,11 @@ $$&lt;/p&gt;</description>
 &lt;/h2&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/docs/Economic_Static/Inflation/Inflation%282%29.png&#34; alt=&#34;Img&#34; /&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/Economic_Static/Inflation/Inflation%282%29.png&#34; alt=&#34;Img&#34; /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/notes/inflation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/inflation/feature.png" />
     </item>
     
   </channel>

@@ -5,7 +5,7 @@
   class="scroll-smooth"
   data-default-appearance="dark"
   data-auto-appearance="false"
-><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+><head>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -20,7 +20,7 @@
   <meta name="keywords" content="Docs, LPC, " />
   
   
-  <link rel="canonical" href="http://localhost:1313/docs/uoft/24/learning-programming-with-c/lpc11.recursion/" />
+  <link rel="canonical" href="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/" />
   
   
   
@@ -68,7 +68,7 @@
   
   
   
-  <meta property="og:url" content="http://localhost:1313/docs/uoft/24/learning-programming-with-c/lpc11.recursion/">
+  <meta property="og:url" content="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="LPC 11. Recursion">
   <meta property="og:description" content=" Last Edit: 3/31/25
@@ -80,11 +80,11 @@
     <meta property="article:modified_time" content="2025-03-31T00:00:00+00:00">
     <meta property="article:tag" content="Docs">
     <meta property="article:tag" content="LPC">
-    <meta property="og:image" content="http://localhost:1313/docs/uoft/24/learning-programming-with-c/lpc11.recursion/feature.png">
+    <meta property="og:image" content="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/feature.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="http://localhost:1313/docs/uoft/24/learning-programming-with-c/lpc11.recursion/feature.png">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/feature.png">
   <meta name="twitter:title" content="LPC 11. Recursion">
   <meta name="twitter:description" content=" Last Edit: 3/31/25
 11.1 Recursive Functions by Definition #Recursion 递归是一个先解决更小问题实例，后解决整体问题的方法 Recursion 这一次特指函数调用自身 Recursion 包含饿了 End Case 和 Loop Case，分别代表了循环条件和终止条件，二者缺一不可 11.1.1 Euclidean Algorithm for GCD #Euclidean Algorithm 是一种用于求两个整数最大公约数的方法，这个方法是递归定义的 该算法的核心为，如果 a 和 b 是两个正整数且 $a &gt; b$，则 a 和 b 的最大公约数等于 $a - b$ 和 b 的 GCD $$ \text{GCD}(a, b) =\begin{cases}\text{GCD}(b, a - b) &amp; \text{if } a &gt; b \\text{GCD}(b, a) &amp; \text{if } a &lt; b \a &amp; \text{if } a = b\end{cases} $$">
@@ -100,7 +100,7 @@
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 3\/31\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch1 class=\u0022relative group\u0022\u003e11.1 Recursive Functions by Definition \r\n    \u003cdiv id=\u0022111-recursive-functions-by-definition\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#111-recursive-functions-by-definition\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h1\u003e\r\n\u003cul\u003e\n\u003cli\u003eRecursion 递归是一个先解决更小问题实例，后解决整体问题的方法\u003c\/li\u003e\n\u003cli\u003eRecursion 这一次特指函数调用自身\u003c\/li\u003e\n\u003cli\u003eRecursion 包含饿了 End Case 和 Loop Case，分别代表了循环条件和终止条件，二者缺一不可\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003e11.1.1 Euclidean Algorithm for GCD \r\n    \u003cdiv id=\u00221111-euclidean-algorithm-for-gcd\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1111-euclidean-algorithm-for-gcd\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003eEuclidean Algorithm 是一种用于求两个整数最大公约数的方法，这个方法是递归定义的\u003c\/li\u003e\n\u003cli\u003e该算法的核心为，如果 a 和 b 是两个正整数且 $a \u0026gt; b$，则 a 和 b 的最大公约数等于 $a - b$ 和 b 的 GCD\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e$$\n\\text{GCD}(a, b) =\\begin{cases}\\text{GCD}(b, a - b) \u0026amp; \\text{if } a \u0026gt; b \\\\text{GCD}(b, a) \u0026amp; \\text{if } a \u0026lt; b \\a \u0026amp; \\text{if } a = b\\end{cases}\n$$\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "http:\/\/localhost:1313\/docs\/uoft\/24\/learning-programming-with-c\/lpc11.recursion\/",
+    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/24\/learning-programming-with-c\/lpc11.recursion\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
@@ -2180,7 +2180,7 @@ $$</p>
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="http://localhost:1313/"
+  data-url="https://buezw.github.io/"
   style="z-index:500"
 >
   <div

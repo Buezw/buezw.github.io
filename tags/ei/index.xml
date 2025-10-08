@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EI on Buezwqwg</title>
-    <link>http://localhost:1313/tags/ei/</link>
+    <link>https://buezw.github.io/tags/ei/</link>
     <description>Recent content in EI on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/ei/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ei/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EI1.Active Investing</title>
-      <link>http://localhost:1313/docs/reads/efficientlyinefficient/ei1.activeinvesting/</link>
+      <link>https://buezw.github.io/docs/reads/efficientlyinefficient/ei1.activeinvesting/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/reads/efficientlyinefficient/ei1.activeinvesting/</guid>
+      <guid>https://buezw.github.io/docs/reads/efficientlyinefficient/ei1.activeinvesting/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;EI1. Active Investing 
     &lt;div id=&#34;ei1-active-investing&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -47,25 +47,25 @@
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Long 指的是多头，仅表示一种“看涨”的立场，而 Long Position 则是具体的持仓，两者存在细小的差别，一个更加口语，一个更加书面的区别&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/reads/efficientlyinefficient/ei1.activeinvesting/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/reads/efficientlyinefficient/ei1.activeinvesting/feature.png" />
     </item>
     
     <item>
       <title>Efficiently Inefficient</title>
-      <link>http://localhost:1313/docs/reads/efficientlyinefficient/</link>
+      <link>https://buezw.github.io/docs/reads/efficientlyinefficient/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/reads/efficientlyinefficient/</guid>
+      <guid>https://buezw.github.io/docs/reads/efficientlyinefficient/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>EI0.Introduction</title>
-      <link>http://localhost:1313/docs/reads/efficientlyinefficient/ei0.introduction/</link>
+      <link>https://buezw.github.io/docs/reads/efficientlyinefficient/ei0.introduction/</link>
       <pubDate>Sat, 06 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>http://localhost:1313/docs/reads/efficientlyinefficient/ei0.introduction/</guid>
+      <guid>https://buezw.github.io/docs/reads/efficientlyinefficient/ei0.introduction/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;Introduction 
     &lt;div id=&#34;introduction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -434,7 +434,7 @@
 &lt;li&gt;意味着理论价值原本就是错误的&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;这些风格（value, trend, liquidity, carry, low-risk, quality）都是&lt;strong&gt;常见的因子投资 (factor investing)&lt;/strong&gt;。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/reads/efficientlyinefficient/ei0.introduction/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/reads/efficientlyinefficient/ei0.introduction/feature.png" />
     </item>
     
   </channel>
