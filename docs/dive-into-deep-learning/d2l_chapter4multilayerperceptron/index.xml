@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chapter 4. Multilayer Perceptron on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
+    <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
     <description>Recent content in Chapter 4. Multilayer Perceptron on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>D2L 4.1 Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
+      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
+      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.2 Example of MLP</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
+      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
+      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;使用纯MLP参加https://www.kaggle.com/competitions/titanic的Competition&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
     </item>
     
     <item>
       <title>D2L Weierstrass Approximation Theorem</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
+      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
       <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
+      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/19/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -133,27 +133,27 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.1 MultilayerPerceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
+      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
+      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
       <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.4 Model Selection, Underfitting, and Overfitting</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
+      <link>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
+      <guid>http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
       <description>&lt;p&gt;深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
     </item>
     
   </channel>

@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cal on Buezwqwg</title>
-    <link>https://buezw.github.io/tags/cal/</link>
+    <link>http://localhost:1313/tags/cal/</link>
     <description>Recent content in Cal on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Thu, 06 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/cal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Calculus</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/</link>
+      <link>http://localhost:1313/docs/uoft/24/calculus/</link>
       <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/calculus/</guid>
       <description>&lt;p&gt;Calculus&lt;/p&gt;</description>
       
     </item>
     
     <item>
       <title>Calculus 8. Methods of Integration</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculus8.methodsofintegration/</link>
+      <link>http://localhost:1313/docs/uoft/24/calculus/calculus8.methodsofintegration/</link>
       <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculus8.methodsofintegration/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/calculus/calculus8.methodsofintegration/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/6/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -48,15 +48,15 @@
 &lt;p&gt;$$
 \left( u(x) v(x) \right)&amp;rsquo; = u&amp;rsquo;(x) v(x) + u(x) v&amp;rsquo;(x)
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus8.methodsofintegration/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/calculus/calculus8.methodsofintegration/feature.png" />
     </item>
     
     <item>
       <title>Calculus 9. Series</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculus9.series/</link>
+      <link>http://localhost:1313/docs/uoft/24/calculus/calculus9.series/</link>
       <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculus9.series/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/calculus/calculus9.series/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/22/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -394,15 +394,15 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;p&gt;$$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p} + \cdots$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus9.series/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/calculus/calculus9.series/feature.png" />
     </item>
     
     <item>
       <title>Calculus A1. Polynomial Interpolation</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/</link>
+      <link>http://localhost:1313/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/</link>
       <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/13/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -433,7 +433,7 @@ $$L_1(x) := \begin{cases}
 1, &amp;amp; \text{if } x = 1 \
 0, &amp;amp; \text{if } x = 2,
 \end{cases}&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/feature.png" />
     </item>
     
   </channel>

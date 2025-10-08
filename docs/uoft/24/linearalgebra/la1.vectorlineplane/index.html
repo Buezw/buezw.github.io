@@ -5,7 +5,7 @@
   class="scroll-smooth"
   data-default-appearance="dark"
   data-auto-appearance="false"
-><head>
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -20,7 +20,7 @@
   <meta name="keywords" content="Docs, LA, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/" />
+  <link rel="canonical" href="http://localhost:1313/docs/uoft/24/linearalgebra/la1.vectorlineplane/" />
   
   
   
@@ -68,7 +68,7 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/">
+  <meta property="og:url" content="http://localhost:1313/docs/uoft/24/linearalgebra/la1.vectorlineplane/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="LA 1. Vector Line & Plane">
   <meta property="og:description" content=" Last Edit: 11/26/24
@@ -80,11 +80,11 @@ Set Notation 集合 #Set is a collection of objects, called elements of the set
     <meta property="article:modified_time" content="2024-10-15T00:00:00+00:00">
     <meta property="article:tag" content="Docs">
     <meta property="article:tag" content="LA">
-    <meta property="og:image" content="https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png">
+    <meta property="og:image" content="http://localhost:1313/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png">
+  <meta name="twitter:image" content="http://localhost:1313/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png">
   <meta name="twitter:title" content="LA 1. Vector Line & Plane">
   <meta name="twitter:description" content=" Last Edit: 11/26/24
 Set Notation 集合 #Set is a collection of objects, called elements of the set $$A={t|t\in R}$$ 这就是一个矩阵，其中A为t，而t可以取任意Real Number 这就是集合的表示方法，用这种方法便可以表示向量，直线和平面 Union of Sets 并集 #对于两个集合，其Union是另一个Set，其元素包含了all elements of A and B $$A \cup B = { x \in X \mid x \in A \text{ or } x \in B }$$ Intersection of Sets 交集 #对于Intersection来说，这个Set包含了任意同时出现在A与B中的元素 $$A \cap B = { x \in X \mid x \in A \text{ and } x \in B }.$$ Vector 向量 #思考一个问题，对于一个坐标轴上的点\((2,1)\)和一个向量\(\vec v =[2,1]^T\)，他们的区别 Point：点是空间中的一个位置，用坐标表示，如P = (x, y, z)表示三维空间中的一个具体位置。点没有方向和大小。 Vector：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\(\mathbf{v} = \overrightarrow{AB}\) 亦可以说Point是绝对位置，而向量是一个点到另外一个的有方向的距离 Norm 模 #对于\(\vec{v} = \begin{bmatrix} v_1 \ v_2 \ \vdots \ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\) 它的Norm，也就是向量长度即为 $$\sqrt{v_1^2 &#43; v_2^2 &#43; \cdots &#43; v_n^2}$$ Dot Product 点积 #Dot Product，用来衡量两个Vector方向相似程度的一个Scalar 其值从-1到1（仅当两个Vector为Unit Vector的情况下），从方向相反，到同方向，在0的时候代表两个Vector Orthogonal 垂直 Definition #$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 &#43; a_2 b_2 &#43; \cdots &#43; a_n b_n = \sum_{i=1}^n a_i b_i$$">
@@ -100,7 +100,7 @@ Set Notation 集合 #Set is a collection of objects, called elements of the set
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 11\/26\/24\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eSet Notation 集合 \r\n    \u003cdiv id=\u0022set-notation-%E9%9B%86%E5%90%88\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#set-notation-%E9%9B%86%E5%90%88\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003eSet is a collection of objects, called elements of the set\n$$A={t|t\\in R}$$\u003c\/li\u003e\n\u003cli\u003e这就是一个矩阵，其中A为t，而t可以取任意Real Number\u003c\/li\u003e\n\u003cli\u003e这就是集合的表示方法，用这种方法便可以表示向量，直线和平面\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eUnion of Sets 并集 \r\n    \u003cdiv id=\u0022union-of-sets-%E5%B9%B6%E9%9B%86\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#union-of-sets-%E5%B9%B6%E9%9B%86\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e对于两个集合，其Union是另一个Set，其元素包含了all elements of A and B\n$$A \\cup B = { x \\in X \\mid x \\in A \\text{ or } x \\in B }$$\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eIntersection of Sets 交集 \r\n    \u003cdiv id=\u0022intersection-of-sets-%E4%BA%A4%E9%9B%86\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#intersection-of-sets-%E4%BA%A4%E9%9B%86\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003e对于Intersection来说，这个Set包含了任意同时出现在A与B中的元素\n$$A \\cap B = { x \\in X \\mid x \\in A \\text{ and } x \\in B }.$$\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eVector 向量 \r\n    \u003cdiv id=\u0022vector-%E5%90%91%E9%87%8F\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#vector-%E5%90%91%E9%87%8F\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e思考一个问题，对于一个坐标轴上的点\\((2,1)\\)和一个向量\\(\\vec v =[2,1]^T\\)，他们的区别\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003ePoint\u003c\/strong\u003e：点是空间中的一个位置，用坐标表示，如P = (x, y, z)表示三维空间中的一个具体位置。点没有方向和大小。\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eVector\u003c\/strong\u003e：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\\(\\mathbf{v} = \\overrightarrow{AB}\\)\u003c\/li\u003e\n\u003cli\u003e亦可以说\u003cstrong\u003ePoint是绝对位置，而向量是一个点到另外一个的有方向的距离\u003c\/strong\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eNorm 模 \r\n    \u003cdiv id=\u0022norm-%E6%A8%A1\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#norm-%E6%A8%A1\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e对于\\(\\vec{v} = \\begin{bmatrix} v_1 \\ v_2 \\ \\vdots \\ v_n \\end{bmatrix} \\text{ be in } \\mathbb{R}^n\\)\u003c\/li\u003e\n\u003cli\u003e它的Norm，也就是向量长度即为\n$$\\sqrt{v_1^2 \u002b v_2^2 \u002b \\cdots \u002b v_n^2}$$\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eDot Product 点积 \r\n    \u003cdiv id=\u0022dot-product-%E7%82%B9%E7%A7%AF\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#dot-product-%E7%82%B9%E7%A7%AF\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cul\u003e\n\u003cli\u003eDot Product，用来衡量两个Vector方向相似程度的一个Scalar\u003c\/li\u003e\n\u003cli\u003e其值从-1到1（仅当两个Vector为Unit Vector的情况下），从方向相反，到同方向，在0的时候代表两个Vector Orthogonal 垂直\u003c\/li\u003e\n\u003c\/ul\u003e\n\r\n\r\n\u003ch3 class=\u0022relative group\u0022\u003eDefinition \r\n    \u003cdiv id=\u0022definition\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#definition\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h3\u003e\r\n\u003cp\u003e$$\\mathbf{a} \\cdot \\mathbf{b} = a_1 b_1 \u002b a_2 b_2 \u002b \\cdots \u002b a_n b_n = \\sum_{i=1}^n a_i b_i$$\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/24\/linearalgebra\/la1.vectorlineplane\/",
+    "url" : "http:\/\/localhost:1313\/docs\/uoft\/24\/linearalgebra\/la1.vectorlineplane\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
@@ -2261,7 +2261,7 @@ $$\vec{v}_2 = \begin{bmatrix} 0 - 0 \\ 0 - 1 \\ 1 - 1 \end{bmatrix} = \begin{bma
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div

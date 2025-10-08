@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linear Algebra on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/uoft/24/linearalgebra/</link>
+    <link>http://localhost:1313/docs/uoft/24/linearalgebra/</link>
     <description>Recent content in Linear Algebra on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/24/linearalgebra/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/uoft/24/linearalgebra/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LA 8. Diagonalization and Eigenvalues</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</link>
+      <link>http://localhost:1313/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/25/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -72,15 +72,15 @@ $$Ax=0x=0$$&lt;/li&gt;
 &lt;li&gt;对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;![[LA8.DiagonalizationandEigenvalues.png]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/feature.png" />
     </item>
     
     <item>
       <title>LA 7. Orthogonal and Projection</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</link>
+      <link>http://localhost:1313/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</link>
       <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 11/21/2024&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -98,19 +98,19 @@ $$Ax=0x=0$$&lt;/li&gt;
 &lt;/h2&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;amp;Projection/LA7.Orthogonal&amp;amp;Projection-3.png&#34; alt=&#34;Img&#34; /&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;amp;Projection/LA7.Orthogonal&amp;amp;Projection-3.png&#34; alt=&#34;Img&#34; /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/linearalgebra/la7.orthogonalprojection/feature.png" />
     </item>
     
     <item>
       <title>LA Least Square</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</link>
+      <link>http://localhost:1313/docs/uoft/24/linearalgebra/leastsquare/</link>
       <pubDate>Tue, 19 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/linearalgebra/leastsquare/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/19/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -133,19 +133,19 @@ $$Ax=0x=0$$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-1.png&#34; alt=&#34;Img&#34; /&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-1.png&#34; alt=&#34;Img&#34; /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/linearalgebra/leastsquare/feature.png" />
     </item>
     
     <item>
       <title>LA 6. Determinants</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</link>
+      <link>http://localhost:1313/docs/uoft/24/linearalgebra/la6.determiants/</link>
       <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/linearalgebra/la6.determiants/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 10/24/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -167,19 +167,19 @@ $$Ax=0x=0$$&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LA6.Determinants/LA6.Determinats.png&#34; alt=&#34;Img&#34; /&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/docs/LinearAlgebra_Static/LA6.Determinants/LA6.Determinats.png&#34; alt=&#34;Img&#34; /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/linearalgebra/la6.determiants/feature.png" />
     </item>
     
     <item>
       <title>LA 1. Vector Line &amp; Plane</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</link>
+      <link>http://localhost:1313/docs/uoft/24/linearalgebra/la1.vectorlineplane/</link>
       <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</guid>
+      <guid>http://localhost:1313/docs/uoft/24/linearalgebra/la1.vectorlineplane/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/26/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -297,7 +297,7 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;p&gt;$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png" />
     </item>
     
   </channel>

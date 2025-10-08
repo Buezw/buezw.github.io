@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dive Into Deep Learning on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/dive-into-deep-learning/</link>
+    <link>http://localhost:1313/docs/dive-into-deep-learning/</link>
     <description>Recent content in Dive Into Deep Learning on Buezwqwg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/dive-into-deep-learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/docs/dive-into-deep-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linear Regression</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</link>
+      <link>http://localhost:1313/docs/dive-into-deep-learning/linearregression/</link>
       <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</guid>
+      <guid>http://localhost:1313/docs/dive-into-deep-learning/linearregression/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/4/2024&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -377,7 +377,7 @@ class LinearRegression(Scene):
         self.play(Write(main))
 ---
 &lt;/code&gt;&lt;/pre&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/linearregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/docs/dive-into-deep-learning/linearregression/feature.png" />
     </item>
     
   </channel>

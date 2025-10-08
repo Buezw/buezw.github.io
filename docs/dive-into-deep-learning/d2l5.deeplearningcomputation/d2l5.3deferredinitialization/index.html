@@ -5,7 +5,7 @@
   class="scroll-smooth"
   data-default-appearance="dark"
   data-auto-appearance="false"
-><head>
+><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8" />
   
   <meta http-equiv="content-language" content="en" />
@@ -20,7 +20,7 @@
   <meta name="keywords" content="D2L, Computer Science, Docs, " />
   
   
-  <link rel="canonical" href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/" />
+  <link rel="canonical" href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/" />
   
   
   
@@ -68,7 +68,7 @@
   
   
   
-  <meta property="og:url" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
+  <meta property="og:url" content="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
   <meta property="og:site_name" content="Buezwqwg">
   <meta property="og:title" content="D2L 5.3 Deferred Initialization">
   <meta property="og:description" content=" Last Edit: 1/18/25
@@ -81,18 +81,18 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     <meta property="article:tag" content="D2L">
     <meta property="article:tag" content="Computer Science">
     <meta property="article:tag" content="Docs">
-    <meta property="og:image" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
-      <meta property="og:see_also" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/">
+    <meta property="og:image" content="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png">
+      <meta property="og:see_also" content="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
+      <meta property="og:see_also" content="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png">
+  <meta name="twitter:image" content="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png">
   <meta name="twitter:title" content="D2L 5.3 Deferred Initialization">
   <meta name="twitter:description" content=" Last Edit: 1/18/25
 Deferred Initialization是指模型的某些参数在模型创建时并不会立即被初始化，而是会在第一次接收到输入数据时，根据输入数据的实际形状动态地完成初始化 需要知道的是延后初始化的核心目标 就是为了解决 输入维度未知 的问题，而模型内部层之间的维度通常是事先定义好的">
@@ -108,7 +108,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 1\/18\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\u003cp\u003eDeferred Initialization是指模型的某些参数在模型创建时并不会立即被初始化，而是会在第一次接收到输入数据时，根据输入数据的实际形状动态地完成初始化\n需要知道的是延后初始化的\u003cstrong\u003e核心目标\u003c\/strong\u003e 就是为了解决 \u003cstrong\u003e输入维度未知\u003c\/strong\u003e 的问题，而模型内部层之间的维度通常是事先定义好的\u003c\/p\u003e",
     "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.3deferredinitialization\/",
+    "url" : "http:\/\/localhost:1313\/docs\/dive-into-deep-learning\/d2l5.deeplearningcomputation\/d2l5.3deferredinitialization\/",
     "author" : {
       "@type": "Person",
       "name": "Buezwqwg"
@@ -819,7 +819,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
             Part : D2L 6.5 Pooling Layer
         </a>
     </div>
@@ -828,7 +828,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
             Part : D2L 6.6 LeNet
         </a>
     </div>
@@ -837,7 +837,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
             Part : D2L 6.3 Padding &amp; Stride
         </a>
     </div>
@@ -846,7 +846,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
             Part : D2L 6.4 Multiple Input &amp; Output
         </a>
     </div>
@@ -855,7 +855,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
             Part : D2L 6.2 Image Convolution
         </a>
     </div>
@@ -864,7 +864,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
             Part : D2L 5.4 Custom Layer
         </a>
     </div>
@@ -880,7 +880,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
             Part : D2L 5.2 Parameter Management
         </a>
     </div>
@@ -889,7 +889,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/">
             Part : D2 5.1 Layer &amp; Block
         </a>
     </div>
@@ -898,7 +898,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
             Part : D2L 4.1 Multilayer Perceptron
         </a>
     </div>
@@ -907,7 +907,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
             Part : D2L 4.2 Example of MLP
         </a>
     </div>
@@ -916,7 +916,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/">
             Part 1: D2L 6. ConvolutionNeuronNetwork
         </a>
     </div>
@@ -925,7 +925,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/">
             Part 1: D2L 5. Deep Learning Computation
         </a>
     </div>
@@ -934,7 +934,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/linearregression/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/linearregression/">
             Part 1: Linear Regression
         </a>
     </div>
@@ -943,7 +943,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
             Part 1: Chapter 3. Linear Neural Network
         </a>
     </div>
@@ -952,7 +952,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
             Part 1: Chapter 4. Multilayer Perceptron
         </a>
     </div>
@@ -961,7 +961,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/">
             Part 1: Dive Into Deep Learning
         </a>
     </div>
@@ -970,7 +970,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
             Part 2: D2L 3.1 Linear Regression
         </a>
     </div>
@@ -979,7 +979,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
             Part 3: D2L 3.2 Object-Oriented Design for Implementation
         </a>
     </div>
@@ -988,7 +988,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
             Part 4: D2L 3.3 A concise implementation of linear regression
         </a>
     </div>
@@ -997,7 +997,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
             Part 5: D2L 3.4 Softmax Regression
         </a>
     </div>
@@ -1006,7 +1006,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
             Part 6: D2L 3.5 Image classification datasets
         </a>
     </div>
@@ -1015,7 +1015,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
     </div>
@@ -1024,7 +1024,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
             Part 9: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1033,7 +1033,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
             Part 10: D2L Weierstrass Approximation Theorem
         </a>
     </div>
@@ -1042,7 +1042,7 @@ Deferred Initialization是指模型的某些参数在模型创建时并不会立
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
             Part 10: D2L 4.4 Model Selection, Underfitting, and Overfitting
         </a>
     </div>
@@ -1120,7 +1120,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
             Part : D2L 6.5 Pooling Layer
         </a>
     </div>
@@ -1129,7 +1129,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
             Part : D2L 6.6 LeNet
         </a>
     </div>
@@ -1138,7 +1138,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
             Part : D2L 6.3 Padding &amp; Stride
         </a>
     </div>
@@ -1147,7 +1147,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
             Part : D2L 6.4 Multiple Input &amp; Output
         </a>
     </div>
@@ -1156,7 +1156,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
             Part : D2L 6.2 Image Convolution
         </a>
     </div>
@@ -1165,7 +1165,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
             Part : D2L 5.4 Custom Layer
         </a>
     </div>
@@ -1181,7 +1181,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
             Part : D2L 5.2 Parameter Management
         </a>
     </div>
@@ -1190,7 +1190,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/">
             Part : D2 5.1 Layer &amp; Block
         </a>
     </div>
@@ -1199,7 +1199,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/">
             Part : D2L 4.1 Multilayer Perceptron
         </a>
     </div>
@@ -1208,7 +1208,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/">
             Part : D2L 4.2 Example of MLP
         </a>
     </div>
@@ -1217,7 +1217,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/">
             Part 1: D2L 6. ConvolutionNeuronNetwork
         </a>
     </div>
@@ -1226,7 +1226,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/">
             Part 1: D2L 5. Deep Learning Computation
         </a>
     </div>
@@ -1235,7 +1235,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/linearregression/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/linearregression/">
             Part 1: Linear Regression
         </a>
     </div>
@@ -1244,7 +1244,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/">
             Part 1: Chapter 3. Linear Neural Network
         </a>
     </div>
@@ -1253,7 +1253,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/">
             Part 1: Chapter 4. Multilayer Perceptron
         </a>
     </div>
@@ -1262,7 +1262,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/">
             Part 1: Dive Into Deep Learning
         </a>
     </div>
@@ -1271,7 +1271,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/">
             Part 2: D2L 3.1 Linear Regression
         </a>
     </div>
@@ -1280,7 +1280,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/">
             Part 3: D2L 3.2 Object-Oriented Design for Implementation
         </a>
     </div>
@@ -1289,7 +1289,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/">
             Part 4: D2L 3.3 A concise implementation of linear regression
         </a>
     </div>
@@ -1298,7 +1298,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/">
             Part 5: D2L 3.4 Softmax Regression
         </a>
     </div>
@@ -1307,7 +1307,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/">
             Part 6: D2L 3.5 Image classification datasets
         </a>
     </div>
@@ -1316,7 +1316,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/">
             Part 7: D2L 3.6 Implementation of softmax regression from scratch
         </a>
     </div>
@@ -1325,7 +1325,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/">
             Part 9: D2L 4.1 MultilayerPerceptron
         </a>
     </div>
@@ -1334,7 +1334,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/">
             Part 10: D2L Weierstrass Approximation Theorem
         </a>
     </div>
@@ -1343,7 +1343,7 @@ Layer 2 weights: torch.Size([10, 256])
     
     <div
         class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-        <a href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
+        <a href="http://localhost:1313/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/">
             Part 10: D2L 4.4 Model Selection, Underfitting, and Overfitting
         </a>
     </div>
@@ -2335,7 +2335,7 @@ Layer 2 weights: torch.Size([10, 256])
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
+  data-url="http://localhost:1313/"
   style="z-index:500"
 >
   <div
