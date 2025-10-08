@@ -1,166 +1,107 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Introductory Electronics on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/uoft/introductory-electronics/</link>
-    <description>Recent content in Introductory Electronics on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/introductory-electronics/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>IE 2. Operational Amplifiers</title>
-      <link>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/</link>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/</guid>
-      <description>&lt;h2 class=&#34;relative group&#34;&gt;IE2. OperationalAmplifiers 
-    &lt;div id=&#34;ie2-operationalamplifiers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ie2-operationalamplifiers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 10/7/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;2.1 The Ideal Op Amp 
-    &lt;div id=&#34;21-the-ideal-op-amp&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#21-the-ideal-op-amp&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;2.1.1 The Op-Amp Terminal 
-    &lt;div id=&#34;211-the-op-amp-terminal&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#211-the-op-amp-terminal&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;在 IE1 中提到过 Amplifier，这里将要介绍一个更加具体的 Amplifier 叫做 Operational AMP&lt;/li&gt;
-&lt;li&gt;其最大的差别就是接受了两个 Signal 的进入&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu6707710446908872823.png 330w,
-        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png 660w,
-        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu14190371214853685493.png 1024w,
-        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu7648658950034460969.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png&#34;
-        alt=&#34;image.png&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/feature.png" />
-    </item>
-    
-    <item>
-      <title>IE1.Signals&amp;Amplifiers</title>
-      <link>https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/</link>
-      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/</guid>
-      <description>&lt;h1 class=&#34;relative group&#34;&gt;IE1.Signals&amp;amp;Amplifiers 
-    &lt;div id=&#34;ie1signalsamplifiers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ie1signalsamplifiers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/4/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;1.1 Signals 
-    &lt;div id=&#34;11-signals&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#11-signals&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;信号包含了关于物理世界中各种活动和事物的信息&lt;/li&gt;
-&lt;li&gt;很多的东西都可以归于信号，例如 Temperature, Pressure, Wind Speed 等&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Processing Signals 
-    &lt;div id=&#34;processing-signals&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#processing-signals&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;为了从 Signals 中提取有效的信息，则需要进行 Signal Processing&lt;/li&gt;
-&lt;li&gt;但是在这之前，人需要将其转换为 Voltage 或者 Current&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Signal Source 
-    &lt;div id=&#34;signal-source&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#signal-source&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;信号源同 Source 一样，显示世界中并没有 Ideal Source，即 Zero Resistance&lt;/li&gt;
-&lt;li&gt;所以这就需要给 Source 添加一个 Resistor，其可以通过Thevenin Form 来表达&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu8871716882946412280.png 330w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png 660w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu8822405479782198350.png 1024w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu3675317255615163572.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png&#34;
-        alt=&#34;image.png&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Introductory Electronics on Buezwqwg</title><link>https://buezw.github.io/docs/uoft/introductory-electronics/</link><description>Recent content in Introductory Electronics on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Tue, 07 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/introductory-electronics/index.xml" rel="self" type="application/rss+xml"/><item><title>IE 2. Operational Amplifiers</title><link>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/</link><pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/</guid><description>&lt;h2 class="relative group">IE2. OperationalAmplifiers
+&lt;div id="ie2-operationalamplifiers" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#ie2-operationalamplifiers" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Last Edit: 10/7/25&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">2.1 The Ideal Op Amp
+&lt;div id="21-the-ideal-op-amp" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#21-the-ideal-op-amp" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;h3 class="relative group">2.1.1 The Op-Amp Terminal
+&lt;div id="211-the-op-amp-terminal" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#211-the-op-amp-terminal" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>在 IE1 中提到过 Amplifier，这里将要介绍一个更加具体的 Amplifier 叫做 Operational AMP&lt;/li>
+&lt;li>其最大的差别就是接受了两个 Signal 的进入&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+srcset="
+/docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu6707710446908872823.png 330w,
+/docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png 660w,
+/docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu14190371214853685493.png 1024w,
+/docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu7648658950034460969.png 2x"
+src="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png"
+alt="image.png"
+/>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/feature.png"/></item><item><title>IE1.Signals&amp;Amplifiers</title><link>https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/</link><pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/</guid><description>&lt;h1 class="relative group">IE1.Signals&amp;amp;Amplifiers
+&lt;div id="ie1signalsamplifiers" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#ie1signalsamplifiers" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;blockquote>
+&lt;p>Last Edit: 9/4/25&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">1.1 Signals
+&lt;div id="11-signals" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#11-signals" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>信号包含了关于物理世界中各种活动和事物的信息&lt;/li>
+&lt;li>很多的东西都可以归于信号，例如 Temperature, Pressure, Wind Speed 等&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Processing Signals
+&lt;div id="processing-signals" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#processing-signals" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>为了从 Signals 中提取有效的信息，则需要进行 Signal Processing&lt;/li>
+&lt;li>但是在这之前，人需要将其转换为 Voltage 或者 Current&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Signal Source
+&lt;div id="signal-source" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#signal-source" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>信号源同 Source 一样，显示世界中并没有 Ideal Source，即 Zero Resistance&lt;/li>
+&lt;li>所以这就需要给 Source 添加一个 Resistor，其可以通过Thevenin Form 来表达&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+srcset="
+/docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu8871716882946412280.png 330w,
+/docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png 660w,
+/docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu8822405479782198350.png 1024w,
+/docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu3675317255615163572.png 2x"
+src="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png"
+alt="image.png"
+/>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/feature.png"/></item></channel></rss>

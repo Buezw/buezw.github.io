@@ -1,160 +1,77 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Chapter 4. Multilayer Perceptron on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
-    <description>Recent content in Chapter 4. Multilayer Perceptron on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>D2L 4.1 Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 4.2 Example of MLP</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;使用纯MLP参加https://www.kaggle.com/competitions/titanic的Competition&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L Weierstrass Approximation Theorem</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
-      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 12/19/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Weierstrass Approximation Theorem 
-    &lt;div id=&#34;weierstrass-approximation-theorem&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#weierstrass-approximation-theorem&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li&gt;
-&lt;li&gt;换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &amp;lt; \epsilon\)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Bernstein&amp;rsquo;s Proof 1912 
-    &lt;div id=&#34;bernsteins-proof-1912&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#bernsteins-proof-1912&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;采用离散的Convolution
-$$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$&lt;/li&gt;
-&lt;li&gt;其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Binomial Distribution 二项分布 
-    &lt;div id=&#34;binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;一种离散概率分布，用于模型在固定次数的独立试验中每次试验成功的次数&lt;/li&gt;
-&lt;li&gt;其质量概率函数为
-$$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$&lt;/li&gt;
-&lt;li&gt;p：单次独立事件的成功概率&lt;/li&gt;
-&lt;li&gt;k：实验中事件成功的次数&lt;/li&gt;
-&lt;li&gt;n：实验的总事件的数量&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Interpretation 
-    &lt;div id=&#34;interpretation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#interpretation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)&lt;/li&gt;
-&lt;li&gt;现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率&lt;/li&gt;
-&lt;li&gt;当\(k=3\)时，概率质量函数为
-$$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$&lt;/li&gt;
-&lt;li&gt;也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)&lt;/li&gt;
-&lt;li&gt;而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
-$$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
-&lt;li&gt;这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Bernstein Polynomial 伯恩斯坦多项式 
-    &lt;div id=&#34;bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 4.1 MultilayerPerceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
-      <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 4.4 Model Selection, Underfitting, and Overfitting</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
-      <description>&lt;p&gt;深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Chapter 4. Multilayer Perceptron on Buezwqwg</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link><description>Recent content in Chapter 4. Multilayer Perceptron on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Tue, 23 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/index.xml" rel="self" type="application/rss+xml"/><item><title>D2L 4.1 Multilayer Perceptron</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 12/20/24&lt;/p>
+&lt;/blockquote>
+&lt;p>“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png"/></item><item><title>D2L 4.2 Example of MLP</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 12/20/24&lt;/p>
+&lt;/blockquote>
+&lt;p>使用纯MLP参加https://www.kaggle.com/competitions/titanic的Competition&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png"/></item><item><title>D2L Weierstrass Approximation Theorem</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 12/19/24&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Weierstrass Approximation Theorem
+&lt;div id="weierstrass-approximation-theorem" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#weierstrass-approximation-theorem" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li>
+&lt;li>换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &amp;lt; \epsilon\)&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">Bernstein&amp;rsquo;s Proof 1912
+&lt;div id="bernsteins-proof-1912" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#bernsteins-proof-1912" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>采用离散的Convolution
+$$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$&lt;/li>
+&lt;li>其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Binomial Distribution 二项分布
+&lt;div id="binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>一种离散概率分布，用于模型在固定次数的独立试验中每次试验成功的次数&lt;/li>
+&lt;li>其质量概率函数为
+$$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$&lt;/li>
+&lt;li>p：单次独立事件的成功概率&lt;/li>
+&lt;li>k：实验中事件成功的次数&lt;/li>
+&lt;li>n：实验的总事件的数量&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Interpretation
+&lt;div id="interpretation" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#interpretation" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)&lt;/li>
+&lt;li>现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率&lt;/li>
+&lt;li>当\(k=3\)时，概率质量函数为
+$$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$&lt;/li>
+&lt;li>也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)&lt;/li>
+&lt;li>而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
+$$123,124,125,134,135,145,234,235,245,345$$&lt;/li>
+&lt;li>这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">Bernstein Polynomial 伯恩斯坦多项式
+&lt;div id="bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png"/></item><item><title>D2L 4.1 MultilayerPerceptron</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid><description>&lt;p>在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png"/></item><item><title>D2L 4.4 Model Selection, Underfitting, and Overfitting</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid><description>&lt;p>深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png"/></item></channel></rss>

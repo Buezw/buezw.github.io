@@ -1,102 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Notes on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/notes/</link>
-    <description>Recent content in Notes on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 01 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/notes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Foreign Exchange</title>
-      <link>https://buezw.github.io/docs/notes/foreignexchange/</link>
-      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/notes/foreignexchange/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 11/13/2024&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;交易量最大的市场&lt;/p&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;货币 
-    &lt;div id=&#34;%E8%B4%A7%E5%B8%81&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E8%B4%A7%E5%B8%81&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/Economic_Static/ForeignExchange/ForeignExchange%E5%A4%96%E6%B1%87.png&#34; alt=&#34;Img&#34; /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/foreignexchange/feature.png" />
-    </item>
-    
-    <item>
-      <title>Inflation 通货膨胀</title>
-      <link>https://buezw.github.io/docs/notes/inflation/</link>
-      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/notes/inflation/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit 7/4/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;通货膨胀 
-    &lt;div id=&#34;%E9%80%9A%E8%B4%A7%E8%86%A8%E8%83%80&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E9%80%9A%E8%B4%A7%E8%86%A8%E8%83%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;钱的贬值&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;CPI Consumer Price Index 消费者物价指数 
-    &lt;div id=&#34;cpi-consumer-price-index-%E6%B6%88%E8%B4%B9%E8%80%85%E7%89%A9%E4%BB%B7%E6%8C%87%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#cpi-consumer-price-index-%E6%B6%88%E8%B4%B9%E8%80%85%E7%89%A9%E4%BB%B7%E6%8C%87%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;美国CPI 
-    &lt;div id=&#34;%E7%BE%8E%E5%9B%BDcpi&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E7%BE%8E%E5%9B%BDcpi&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/Economic_Static/Inflation/Inflation%282%29.png&#34; alt=&#34;Img&#34; /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/inflation/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Notes on Buezwqwg</title><link>https://buezw.github.io/docs/notes/</link><description>Recent content in Notes on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Mon, 01 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/notes/index.xml" rel="self" type="application/rss+xml"/><item><title>Foreign Exchange</title><link>https://buezw.github.io/docs/notes/foreignexchange/</link><pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/notes/foreignexchange/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 11/13/2024&lt;/p>
+&lt;/blockquote>
+&lt;p>交易量最大的市场&lt;/p>
+&lt;h1 class="relative group">货币
+&lt;div id="%E8%B4%A7%E5%B8%81" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%E8%B4%A7%E5%B8%81" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>
+&lt;figure>
+&lt;img class="my-0 rounded-md" loading="lazy" src="https://buezw.github.io/docs/Economic_Static/ForeignExchange/ForeignExchange%E5%A4%96%E6%B1%87.png" alt="Img" />
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/foreignexchange/feature.png"/></item><item><title>Inflation 通货膨胀</title><link>https://buezw.github.io/docs/notes/inflation/</link><pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/notes/inflation/</guid><description>&lt;blockquote>
+&lt;p>Last Edit 7/4/24&lt;/p>
+&lt;/blockquote>
+&lt;h1 class="relative group">通货膨胀
+&lt;div id="%E9%80%9A%E8%B4%A7%E8%86%A8%E8%83%80" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%E9%80%9A%E8%B4%A7%E8%86%A8%E8%83%80" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;ul>
+&lt;li>钱的贬值&lt;/li>
+&lt;/ul>
+&lt;h1 class="relative group">CPI Consumer Price Index 消费者物价指数
+&lt;div id="cpi-consumer-price-index-%E6%B6%88%E8%B4%B9%E8%80%85%E7%89%A9%E4%BB%B7%E6%8C%87%E6%95%B0" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#cpi-consumer-price-index-%E6%B6%88%E8%B4%B9%E8%80%85%E7%89%A9%E4%BB%B7%E6%8C%87%E6%95%B0" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;h2 class="relative group">美国CPI
+&lt;div id="%E7%BE%8E%E5%9B%BDcpi" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%E7%BE%8E%E5%9B%BDcpi" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>
+&lt;figure>
+&lt;img class="my-0 rounded-md" loading="lazy" src="https://buezw.github.io/docs/Economic_Static/Inflation/Inflation%282%29.png" alt="Img" />
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/inflation/feature.png"/></item></channel></rss>

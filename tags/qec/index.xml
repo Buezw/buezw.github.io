@@ -1,99 +1,58 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>QEC on Buezwqwg</title>
-    <link>https://buezw.github.io/tags/qec/</link>
-    <description>Recent content in QEC on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/qec/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>QEC1.Rates&amp;Returns</title>
-      <link>https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/</link>
-      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/</guid>
-      <description>&lt;h2 class=&#34;relative group&#34;&gt;QEC1.Rates&amp;amp;Returns 
-    &lt;div id=&#34;qec1ratesreturns&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#qec1ratesreturns&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/8/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;1.1 Interest Rates &amp;amp; Return Measurement 
-    &lt;div id=&#34;11-interest-rates--return-measurement&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#11-interest-rates--return-measurement&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Interest Rates 利率 
-    &lt;div id=&#34;interest-rates-%E5%88%A9%E7%8E%87&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#interest-rates-%E5%88%A9%E7%8E%87&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Interest Rate measure the time value of money 衡量了货币的时间价值&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Equilibrium Interest Rates 必要的回报率 
-    &lt;div id=&#34;equilibrium-interest-rates-%E5%BF%85%E8%A6%81%E7%9A%84%E5%9B%9E%E6%8A%A5%E7%8E%87&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#equilibrium-interest-rates-%E5%BF%85%E8%A6%81%E7%9A%84%E5%9B%9E%E6%8A%A5%E7%8E%87&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;对于某项投资，Equilibrium Interest Rates 反映了投资人期望的市场回报率&lt;/li&gt;
-&lt;li&gt;也代表了投资人为了出借资金所要求的 Return&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Discount Rate 贴现率 
-    &lt;div id=&#34;discount-rate-%E8%B4%B4%E7%8E%B0%E7%8E%87&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#discount-rate-%E8%B4%B4%E7%8E%B0%E7%8E%87&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Discount Rate 可以被理解为&lt;strong&gt;衡量未来资金的现在价值&lt;/strong&gt;的利率&lt;/li&gt;
-&lt;li&gt;因为有 Interest 的存在，未来的钱会增加，假设当前有 100 元，年利率为 5%，那么一年后 100 元会变成 105元&lt;/li&gt;
-&lt;li&gt;反过来说，如果希望一年后拿到 105 元，今天的价值则是 100 元，而这一比值就是 Discount Rate，把未来的钱转换成今天的价值的比率，有以下公式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>QEC on Buezwqwg</title><link>https://buezw.github.io/tags/qec/</link><description>Recent content in QEC on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/qec/index.xml" rel="self" type="application/rss+xml"/><item><title>QEC1.Rates&amp;Returns</title><link>https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/</link><pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/</guid><description>&lt;h2 class="relative group">QEC1.Rates&amp;amp;Returns
+&lt;div id="qec1ratesreturns" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#qec1ratesreturns" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Last Edit: 9/8/25&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">1.1 Interest Rates &amp;amp; Return Measurement
+&lt;div id="11-interest-rates--return-measurement" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#11-interest-rates--return-measurement" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;h3 class="relative group">Interest Rates 利率
+&lt;div id="interest-rates-%E5%88%A9%E7%8E%87" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#interest-rates-%E5%88%A9%E7%8E%87" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>Interest Rate measure the time value of money 衡量了货币的时间价值&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Equilibrium Interest Rates 必要的回报率
+&lt;div id="equilibrium-interest-rates-%E5%BF%85%E8%A6%81%E7%9A%84%E5%9B%9E%E6%8A%A5%E7%8E%87" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#equilibrium-interest-rates-%E5%BF%85%E8%A6%81%E7%9A%84%E5%9B%9E%E6%8A%A5%E7%8E%87" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>对于某项投资，Equilibrium Interest Rates 反映了投资人期望的市场回报率&lt;/li>
+&lt;li>也代表了投资人为了出借资金所要求的 Return&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Discount Rate 贴现率
+&lt;div id="discount-rate-%E8%B4%B4%E7%8E%B0%E7%8E%87" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#discount-rate-%E8%B4%B4%E7%8E%B0%E7%8E%87" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>Discount Rate 可以被理解为&lt;strong>衡量未来资金的现在价值&lt;/strong>的利率&lt;/li>
+&lt;li>因为有 Interest 的存在，未来的钱会增加，假设当前有 100 元，年利率为 5%，那么一年后 100 元会变成 105元&lt;/li>
+&lt;li>反过来说，如果希望一年后拿到 105 元，今天的价值则是 100 元，而这一比值就是 Discount Rate，把未来的钱转换成今天的价值的比率，有以下公式&lt;/li>
+&lt;/ul>
+&lt;p>$$
 ⁍
-$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+$$&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/feature.png"/></item></channel></rss>

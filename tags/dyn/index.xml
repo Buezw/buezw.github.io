@@ -1,216 +1,124 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>DYN on Buezwqwg</title>
-    <link>https://buezw.github.io/tags/dyn/</link>
-    <description>Recent content in DYN on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/dyn/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>DYN 5. R-Theta Coordinate Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/</link>
-      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;当在通过一个固定点观察物体运动的时候，使用 $R-\theta$ 坐标系描述运动吗会高效很多&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/feature.png" />
-    </item>
-    
-    <item>
-      <title>Dynamics</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/</link>
-      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>DYN 1. Rectilinear Motion Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/</link>
-      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;直线运动指的是物体沿着一条直线路径移动。这种运动的特点是，物体的速度和加速度（如果有的话）的方向只在一条直线上&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/feature.png" />
-    </item>
-    
-    <item>
-      <title>DYN 2. Plane Curvilinear Motion and Rectangular Coordinate Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</link>
-      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Plane Curvilinear Motion 
-    &lt;div id=&#34;plane-curvilinear-motion&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#plane-curvilinear-motion&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Plane Curvilinear Motion 是指物体在二维平面内沿曲线路径的运动。这种运动比直线运动复杂，因为物体的速度向量不仅大小可能变化，方向也在不断变&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu13392097281712320818.png 330w,
-        /docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png 660w,
-        /docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu12345705633840858989.png 1024w,
-        /docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu16175045965759161878.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png&#34;
-        alt=&#34;image.png&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/feature.png" />
-    </item>
-    
-    <item>
-      <title>DYN 3. Projectile Motion Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/</link>
-      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Assumptions 
-    &lt;div id=&#34;assumptions&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#assumptions&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;斜抛运动其实就是在分析物体在两个自由度上的运动&lt;/li&gt;
-&lt;li&gt;现在为了简化问题，做出以下假设，忽略空气阻力，地球自转，并令重力为常数&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Velocity 
-    &lt;div id=&#34;velocity&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#velocity&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;于是有以下两个方向的初速度为&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Axis&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Initial Velocity&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Acceleration&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;x&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;\(v_0 \cos \theta\)&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;y&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;\(v_0 \sin \theta\)&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;\(\downarrow g, , -g \uparrow\)&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu13999105778689987923.png 330w,
-        /docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png 660w,
-        /docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu14974553588324427500.png 1024w,
-        /docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu3129130145504408335.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png&#34;
-        alt=&#34;image.png&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/feature.png" />
-    </item>
-    
-    <item>
-      <title>DYN 4. N-T Coordinates Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/</link>
-      <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Why N-T 
-    &lt;div id=&#34;why-n-t&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#why-n-t&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;当已知了物体运动的轨迹的时候，可以更加简便的通过 Normal 法线，和 Tangential 切线坐标来描述粒子的运动&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu7893211967565200209.png 330w,
-        /docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png 660w,
-        /docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu8472462913601878249.png 1024w,
-        /docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu4297689936235695212.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png&#34;
-        alt=&#34;image.png&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DYN on Buezwqwg</title><link>https://buezw.github.io/tags/dyn/</link><description>Recent content in DYN on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Tue, 25 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/dyn/index.xml" rel="self" type="application/rss+xml"/><item><title>DYN 5. R-Theta Coordinate Edited</title><link>https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/</link><pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/25/25&lt;/p>
+&lt;/blockquote>
+&lt;p>当在通过一个固定点观察物体运动的时候，使用 $R-\theta$ 坐标系描述运动吗会高效很多&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/feature.png"/></item><item><title>Dynamics</title><link>https://buezw.github.io/docs/uoft/24/dynamics/</link><pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/dynamics/</guid><description/></item><item><title>DYN 1. Rectilinear Motion Edited</title><link>https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/</link><pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/24/25&lt;/p>
+&lt;/blockquote>
+&lt;p>直线运动指的是物体沿着一条直线路径移动。这种运动的特点是，物体的速度和加速度（如果有的话）的方向只在一条直线上&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/feature.png"/></item><item><title>DYN 2. Plane Curvilinear Motion and Rectangular Coordinate Edited</title><link>https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</link><pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/24/25&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Plane Curvilinear Motion
+&lt;div id="plane-curvilinear-motion" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#plane-curvilinear-motion" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>Plane Curvilinear Motion 是指物体在二维平面内沿曲线路径的运动。这种运动比直线运动复杂，因为物体的速度向量不仅大小可能变化，方向也在不断变&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+srcset="
+/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu13392097281712320818.png 330w,
+/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png 660w,
+/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu12345705633840858989.png 1024w,
+/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu16175045965759161878.png 2x"
+src="https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png"
+alt="image.png"
+/>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/feature.png"/></item><item><title>DYN 3. Projectile Motion Edited</title><link>https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/</link><pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/24/25&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Assumptions
+&lt;div id="assumptions" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#assumptions" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>斜抛运动其实就是在分析物体在两个自由度上的运动&lt;/li>
+&lt;li>现在为了简化问题，做出以下假设，忽略空气阻力，地球自转，并令重力为常数&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">Velocity
+&lt;div id="velocity" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#velocity" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>于是有以下两个方向的初速度为&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align: left">Axis&lt;/th>
+&lt;th style="text-align: left">Initial Velocity&lt;/th>
+&lt;th style="text-align: left">Acceleration&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align: left">x&lt;/td>
+&lt;td style="text-align: left">\(v_0 \cos \theta\)&lt;/td>
+&lt;td style="text-align: left">0&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align: left">y&lt;/td>
+&lt;td style="text-align: left">\(v_0 \sin \theta\)&lt;/td>
+&lt;td style="text-align: left">\(\downarrow g, , -g \uparrow\)&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+srcset="
+/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu13999105778689987923.png 330w,
+/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png 660w,
+/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu14974553588324427500.png 1024w,
+/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu3129130145504408335.png 2x"
+src="https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png"
+alt="image.png"
+/>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/feature.png"/></item><item><title>DYN 4. N-T Coordinates Edited</title><link>https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/</link><pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/24/25&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Why N-T
+&lt;div id="why-n-t" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#why-n-t" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>当已知了物体运动的轨迹的时候，可以更加简便的通过 Normal 法线，和 Tangential 切线坐标来描述粒子的运动&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+srcset="
+/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu7893211967565200209.png 330w,
+/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png 660w,
+/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu8472462913601878249.png 1024w,
+/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu4297689936235695212.png 2x"
+src="https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png"
+alt="image.png"
+/>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/feature.png"/></item></channel></rss>

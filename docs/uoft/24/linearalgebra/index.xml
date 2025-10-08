@@ -1,304 +1,186 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linear Algebra on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/uoft/24/linearalgebra/</link>
-    <description>Recent content in Linear Algebra on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/24/linearalgebra/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>LA 8. Diagonalization and Eigenvalues</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</link>
-      <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 11/25/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Eigenvectors and Eigenvalues 
-    &lt;div id=&#34;eigenvectors-and-eigenvalues&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#eigenvectors-and-eigenvalues&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;考虑Linear Transformation为一种Function，输入x而输出\(Ax\)&lt;/li&gt;
-&lt;li&gt;Eigenvector即对于指定的Vector x，其Ax平行于x，有
-$$Ax=\lambda x$$&lt;/li&gt;
-&lt;li&gt;其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue&lt;/li&gt;
-&lt;li&gt;特征向量的定义要求\(x \neq 0\)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Zero Eigenvalue 
-    &lt;div id=&#34;zero-eigenvalue&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#zero-eigenvalue&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;如果0为Matrix的Eigenvalue，则有
-$$Ax=0x=0$$&lt;/li&gt;
-&lt;li&gt;Eigenvalue 0所对应的Vector Span出了Matrix的Null Space&lt;/li&gt;
-&lt;li&gt;如果矩阵A为不可逆矩阵，则0是其特征值之一&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;ex. Projection Matrix 
-    &lt;div id=&#34;ex-projection-matrix&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ex-projection-matrix&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;![[LA8.DiagonalizationandEigenvalues.png]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/feature.png" />
-    </item>
-    
-    <item>
-      <title>LA 7. Orthogonal and Projection</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</link>
-      <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit 11/21/2024&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;正交向量Orthogonal vectors 
-    &lt;div id=&#34;%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8Forthogonal-vectors&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8Forthogonal-vectors&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;amp;Projection/LA7.Orthogonal&amp;amp;Projection-3.png&#34; alt=&#34;Img&#34; /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/feature.png" />
-    </item>
-    
-    <item>
-      <title>LA Least Square</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</link>
-      <pubDate>Tue, 19 Nov 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 11/19/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Solution 解 
-    &lt;div id=&#34;solution-%E8%A7%A3&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#solution-%E8%A7%A3&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\)&lt;/li&gt;
-&lt;li&gt;要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution&lt;/li&gt;
-&lt;li&gt;由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-1.png&#34; alt=&#34;Img&#34; /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/feature.png" />
-    </item>
-    
-    <item>
-      <title>LA 6. Determinants</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</link>
-      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 10/24/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Introduction to Determinate 
-    &lt;div id=&#34;introduction-to-determinate&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#introduction-to-determinate&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;行列式是一个每个方阵都具有的数值&lt;/li&gt;
-&lt;li&gt;Determinate measures the factor by which the area of a given region increases or decreases&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LA6.Determinants/LA6.Determinats.png&#34; alt=&#34;Img&#34; /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/feature.png" />
-    </item>
-    
-    <item>
-      <title>LA 1. Vector Line &amp; Plane</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</link>
-      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 11/26/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Set Notation 集合 
-    &lt;div id=&#34;set-notation-%E9%9B%86%E5%90%88&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#set-notation-%E9%9B%86%E5%90%88&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Set is a collection of objects, called elements of the set
-$$A={t|t\in R}$$&lt;/li&gt;
-&lt;li&gt;这就是一个矩阵，其中A为t，而t可以取任意Real Number&lt;/li&gt;
-&lt;li&gt;这就是集合的表示方法，用这种方法便可以表示向量，直线和平面&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Union of Sets 并集 
-    &lt;div id=&#34;union-of-sets-%E5%B9%B6%E9%9B%86&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#union-of-sets-%E5%B9%B6%E9%9B%86&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;对于两个集合，其Union是另一个Set，其元素包含了all elements of A and B
-$$A \cup B = { x \in X \mid x \in A \text{ or } x \in B }$$&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Intersection of Sets 交集 
-    &lt;div id=&#34;intersection-of-sets-%E4%BA%A4%E9%9B%86&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#intersection-of-sets-%E4%BA%A4%E9%9B%86&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;对于Intersection来说，这个Set包含了任意同时出现在A与B中的元素
-$$A \cap B = { x \in X \mid x \in A \text{ and } x \in B }.$$&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Vector 向量 
-    &lt;div id=&#34;vector-%E5%90%91%E9%87%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#vector-%E5%90%91%E9%87%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;思考一个问题，对于一个坐标轴上的点\((2,1)\)和一个向量\(\vec v =[2,1]^T\)，他们的区别&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Point&lt;/strong&gt;：点是空间中的一个位置，用坐标表示，如P = (x, y, z)表示三维空间中的一个具体位置。点没有方向和大小。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Vector&lt;/strong&gt;：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\(\mathbf{v} = \overrightarrow{AB}\)&lt;/li&gt;
-&lt;li&gt;亦可以说&lt;strong&gt;Point是绝对位置，而向量是一个点到另外一个的有方向的距离&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Norm 模 
-    &lt;div id=&#34;norm-%E6%A8%A1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#norm-%E6%A8%A1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;对于\(\vec{v} = \begin{bmatrix} v_1 \ v_2 \ \vdots \ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\)&lt;/li&gt;
-&lt;li&gt;它的Norm，也就是向量长度即为
-$$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Dot Product 点积 
-    &lt;div id=&#34;dot-product-%E7%82%B9%E7%A7%AF&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#dot-product-%E7%82%B9%E7%A7%AF&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Dot Product，用来衡量两个Vector方向相似程度的一个Scalar&lt;/li&gt;
-&lt;li&gt;其值从-1到1（仅当两个Vector为Unit Vector的情况下），从方向相反，到同方向，在0的时候代表两个Vector Orthogonal 垂直&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Definition 
-    &lt;div id=&#34;definition&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#definition&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;p&gt;$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linear Algebra on Buezwqwg</title><link>https://buezw.github.io/docs/uoft/24/linearalgebra/</link><description>Recent content in Linear Algebra on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Mon, 25 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/24/linearalgebra/index.xml" rel="self" type="application/rss+xml"/><item><title>LA 8. Diagonalization and Eigenvalues</title><link>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</link><pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 11/25/24&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Eigenvectors and Eigenvalues
+&lt;div id="eigenvectors-and-eigenvalues" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#eigenvectors-and-eigenvalues" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>考虑Linear Transformation为一种Function，输入x而输出\(Ax\)&lt;/li>
+&lt;li>Eigenvector即对于指定的Vector x，其Ax平行于x，有
+$$Ax=\lambda x$$&lt;/li>
+&lt;li>其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue&lt;/li>
+&lt;li>特征向量的定义要求\(x \neq 0\)&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Zero Eigenvalue
+&lt;div id="zero-eigenvalue" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#zero-eigenvalue" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>如果0为Matrix的Eigenvalue，则有
+$$Ax=0x=0$$&lt;/li>
+&lt;li>Eigenvalue 0所对应的Vector Span出了Matrix的Null Space&lt;/li>
+&lt;li>如果矩阵A为不可逆矩阵，则0是其特征值之一&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">ex. Projection Matrix
+&lt;div id="ex-projection-matrix" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#ex-projection-matrix" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector&lt;/li>
+&lt;/ul>
+&lt;p>![[LA8.DiagonalizationandEigenvalues.png]]&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/feature.png"/></item><item><title>LA 7. Orthogonal and Projection</title><link>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</link><pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</guid><description>&lt;blockquote>
+&lt;p>Last Edit 11/21/2024&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">正交向量Orthogonal vectors
+&lt;div id="%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8Forthogonal-vectors" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8Forthogonal-vectors" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>
+&lt;figure>
+&lt;img class="my-0 rounded-md" loading="lazy" src="https://buezw.github.io/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;amp;Projection/LA7.Orthogonal&amp;amp;Projection-3.png" alt="Img" />
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/feature.png"/></item><item><title>LA Least Square</title><link>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</link><pubDate>Tue, 19 Nov 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 11/19/24&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Solution 解
+&lt;div id="solution-%E8%A7%A3" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#solution-%E8%A7%A3" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\)&lt;/li>
+&lt;li>要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution&lt;/li>
+&lt;li>由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img class="my-0 rounded-md" loading="lazy" src="https://buezw.github.io/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-1.png" alt="Img" />
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/feature.png"/></item><item><title>LA 6. Determinants</title><link>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 10/24/24&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Introduction to Determinate
+&lt;div id="introduction-to-determinate" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#introduction-to-determinate" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>行列式是一个每个方阵都具有的数值&lt;/li>
+&lt;li>Determinate measures the factor by which the area of a given region increases or decreases&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img class="my-0 rounded-md" loading="lazy" src="https://buezw.github.io/docs/LinearAlgebra_Static/LA6.Determinants/LA6.Determinats.png" alt="Img" />
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/feature.png"/></item><item><title>LA 1. Vector Line &amp; Plane</title><link>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</link><pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 11/26/24&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Set Notation 集合
+&lt;div id="set-notation-%E9%9B%86%E5%90%88" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#set-notation-%E9%9B%86%E5%90%88" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>Set is a collection of objects, called elements of the set
+$$A={t|t\in R}$$&lt;/li>
+&lt;li>这就是一个矩阵，其中A为t，而t可以取任意Real Number&lt;/li>
+&lt;li>这就是集合的表示方法，用这种方法便可以表示向量，直线和平面&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Union of Sets 并集
+&lt;div id="union-of-sets-%E5%B9%B6%E9%9B%86" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#union-of-sets-%E5%B9%B6%E9%9B%86" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>对于两个集合，其Union是另一个Set，其元素包含了all elements of A and B
+$$A \cup B = { x \in X \mid x \in A \text{ or } x \in B }$$&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Intersection of Sets 交集
+&lt;div id="intersection-of-sets-%E4%BA%A4%E9%9B%86" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#intersection-of-sets-%E4%BA%A4%E9%9B%86" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>对于Intersection来说，这个Set包含了任意同时出现在A与B中的元素
+$$A \cap B = { x \in X \mid x \in A \text{ and } x \in B }.$$&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">Vector 向量
+&lt;div id="vector-%E5%90%91%E9%87%8F" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#vector-%E5%90%91%E9%87%8F" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>思考一个问题，对于一个坐标轴上的点\((2,1)\)和一个向量\(\vec v =[2,1]^T\)，他们的区别&lt;/li>
+&lt;li>&lt;strong>Point&lt;/strong>：点是空间中的一个位置，用坐标表示，如P = (x, y, z)表示三维空间中的一个具体位置。点没有方向和大小。&lt;/li>
+&lt;li>&lt;strong>Vector&lt;/strong>：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\(\mathbf{v} = \overrightarrow{AB}\)&lt;/li>
+&lt;li>亦可以说&lt;strong>Point是绝对位置，而向量是一个点到另外一个的有方向的距离&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">Norm 模
+&lt;div id="norm-%E6%A8%A1" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#norm-%E6%A8%A1" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>对于\(\vec{v} = \begin{bmatrix} v_1 \ v_2 \ \vdots \ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\)&lt;/li>
+&lt;li>它的Norm，也就是向量长度即为
+$$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Dot Product 点积
+&lt;div id="dot-product-%E7%82%B9%E7%A7%AF" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#dot-product-%E7%82%B9%E7%A7%AF" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>Dot Product，用来衡量两个Vector方向相似程度的一个Scalar&lt;/li>
+&lt;li>其值从-1到1（仅当两个Vector为Unit Vector的情况下），从方向相反，到同方向，在0的时候代表两个Vector Orthogonal 垂直&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Definition
+&lt;div id="definition" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#definition" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;p>$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png"/></item></channel></rss>

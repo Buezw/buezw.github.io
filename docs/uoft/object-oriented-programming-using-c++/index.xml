@@ -1,683 +1,533 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Object-Oriented Programming using C&#43;&#43; on Buezwqwg</title>
-    <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</link>
-    <description>Recent content in Object-Oriented Programming using C&#43;&#43; on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>OOPC 3. DynamicMemory Allocation &amp; Classes</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</link>
-      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</guid>
-      <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC3.DynamicMemoryAllocation&amp;amp;Classes 
-    &lt;div id=&#34;oopc3dynamicmemoryallocationclasses&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oopc3dynamicmemoryallocationclasses&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/28/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;3.1 Freeing an Object from Memory Explicitly 
-    &lt;div id=&#34;31-freeing-an-object-from-memory-explicitly&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#31-freeing-an-object-from-memory-explicitly&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Recall what happened during a program is running&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;3.1.1 Recap: Dynamic Memory Allocation 
-    &lt;div id=&#34;311-recap-dynamic-memory-allocation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#311-recap-dynamic-memory-allocation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;When the program start, computer allocates memory in Random Access Memory (RAM)&lt;/li&gt;
-&lt;li&gt;大概有四种 Segment 出现
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Stack&lt;/strong&gt;: Stores the Local Variables and Objects of a function&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Heap:&lt;/strong&gt; Stores the dynamically allocated memory&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Global + Const&lt;/strong&gt; &lt;strong&gt;Variables&lt;/strong&gt;: Obviously Stores the Variables&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Code&lt;/strong&gt;: Store instruction of the program&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Step 1： Stack Only 
-    &lt;div id=&#34;step-1-stack-only&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#step-1-stack-only&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;首先先有代码 &lt;code&gt;main.cpp&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;// Allocate x in stack with value 10
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// Add a pointer in stack with NULL
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;// Let P point to x
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;// Dereference P and change x&amp;#39;s value
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;So far everything is in stack&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Step 2: Dynamic Memory Allocation 
-    &lt;div id=&#34;step-2-dynamic-memory-allocation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#step-2-dynamic-memory-allocation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;p&gt;Change &lt;code&gt;main.cpp&lt;/code&gt; into&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/feature.png" />
-    </item>
-    
-    <item>
-      <title>OOPC 2. Classes</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</link>
-      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</guid>
-      <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC2.Classes 
-    &lt;div id=&#34;oopc2classes&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oopc2classes&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/28/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;2.1 Structs and Classes 
-    &lt;div id=&#34;21-structs-and-classes&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#21-structs-and-classes&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Struct，通过一个大的模块，将众多 Data Types 储存到其中&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Student&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;struct&lt;/code&gt;（结构体）：用于将多个不同类型的数据组合在一起&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Student&lt;/code&gt; 是结构体的名称（结构体名）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;string name&lt;/code&gt;（字符串类型的 name）：表示学生的名字&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;int ID&lt;/code&gt;（整数类型的 ID）：表示学生的编号&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这里只是&lt;strong&gt;定义结构体，不会分配内存&lt;/strong&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/feature.png" />
-    </item>
-    
-    <item>
-      <title>OOPC 1. ProgrammingBasics</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/</link>
-      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/</guid>
-      <description>&lt;h2 class=&#34;relative group&#34;&gt;OOPC1.ProgrammingBasics 
-    &lt;div id=&#34;oopc1programmingbasics&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oopc1programmingbasics&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/15/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;&lt;strong&gt;1.2. Programming Basics&lt;/strong&gt; 
-    &lt;div id=&#34;12programming-basics&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#12programming-basics&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;1.2.1. Basic Structure of a C++ Program&lt;/strong&gt; 
-    &lt;div id=&#34;121basic-structure-of-a-c-program&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#121basic-structure-of-a-c-program&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;C++ 与 C 的格式几乎相同，导致他们看上去十分类似，实际上他们所做的事大相径庭&lt;/li&gt;
-&lt;li&gt;拿一个简单的 Hello World 代码举例&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;##include &amp;lt;iostream&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello world!&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;iostream (输入输出流库)&lt;/strong&gt;：包含标准的输入输出功能，用于 &lt;strong&gt;cin (输入)&lt;/strong&gt; 和 &lt;strong&gt;cout (输出)&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;在 &lt;strong&gt;C&lt;/strong&gt; 中对应的是 &lt;code&gt;#include &amp;lt;stdio.h&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;using namespace std;&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;使用 &lt;strong&gt;namespace (命名空间)&lt;/strong&gt; 中的 &lt;strong&gt;std (标准命名空间)&lt;/strong&gt;，方便直接调用 &lt;strong&gt;cout&lt;/strong&gt;、&lt;strong&gt;cin&lt;/strong&gt;，而不用写成 &lt;code&gt;std::cout&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;std Standard Library 标准库 
-    &lt;div id=&#34;std-standard-library-%E6%A0%87%E5%87%86%E5%BA%93&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#std-standard-library-%E6%A0%87%E5%87%86%E5%BA%93&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;在 &lt;strong&gt;C++ standard library&lt;/strong&gt; 里，有很多工具，比如 &lt;code&gt;cout&lt;/code&gt;（输出）、&lt;code&gt;cin&lt;/code&gt;（输入）、&lt;code&gt;string&lt;/code&gt;（字符串）、&lt;code&gt;vector&lt;/code&gt;（数组&lt;/li&gt;
-&lt;li&gt;这些东西都被放在一个“文件夹”里，这个文件夹的名字叫 &lt;strong&gt;std&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;当要使用里面的工具的时候，要写 &lt;code&gt;std::cout&lt;/code&gt;、&lt;code&gt;std::cin&lt;/code&gt; ，示例如下&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;##include &amp;lt;iostream&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;而如果用了 &lt;code&gt;using namespace std;&lt;/code&gt;  就直接写名字就行&lt;/li&gt;
-&lt;li&gt;一般来说小程序和初学者推荐这样写，但是到了大项目时，极度容易产生冲突&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;int main()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;main function (主函数)&lt;/strong&gt;：程序从这里开始执行&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;int (整数类型)&lt;/strong&gt; 表示函数返回值类型&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cout &amp;lt;&amp;lt; &amp;quot;Hello world!&amp;quot; &amp;lt;&amp;lt; endl;&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;cout (输出流对象)&lt;/strong&gt;：在屏幕上打印内容&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; 是 &lt;strong&gt;insertion operator (插入运算符/输出运算符)&lt;/strong&gt;，把右边的内容送入输出流&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Hello world!&amp;quot;&lt;/code&gt; 是字符串&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;endl (换行符)&lt;/strong&gt;：让输出内容后换行&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;return 0;&lt;/code&gt;
-&lt;ul&gt;
-&lt;li&gt;表示 &lt;strong&gt;程序正常结束&lt;/strong&gt;，返回值 0 传递给操作系统&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;&lt;strong&gt;1.2.1.1. A program to input a value&lt;/strong&gt; 
-    &lt;div id=&#34;1211a-program-to-input-a-value&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1211a-program-to-input-a-value&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;如果想做一个能 input 的程序，可以通过 &lt;code&gt;std::cin&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;##include &amp;lt;iostream&amp;gt;     &lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 引入输入输出库 iostream
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// 使用标准命名空间 std
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;        &lt;span class=&#34;c1&#34;&gt;// 主函数，程序从这里开始
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;// 定义一个整数变量 value，初始值为 0
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Enter a value: &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// cout (输出) → 在屏幕上打印提示
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;cin&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;                &lt;span class=&#34;c1&#34;&gt;// cin (输入) → 等待用户输入，把值存到 value
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;The value entered is &amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;c1&#34;&gt;// 再次用 cout 打印出刚刚输入的值，并换行
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;// 程序结束，返回 0
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 class=&#34;relative group&#34;&gt;&amp;laquo; &amp;amp; &amp;raquo; 
-    &lt;div id=&#34;--&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#--&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;cout &amp;laquo;&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;cout (输出流，character output stream)&lt;/strong&gt; → 往屏幕输出&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; 箭头朝左，意思是把数据推出去（out of the page，往屏幕方向）&lt;/li&gt;
-&lt;li&gt;可以记成：
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cout &amp;lt;&amp;lt; &amp;quot;Hello&amp;quot;;&lt;/code&gt; = 把 &lt;code&gt;&amp;quot;Hello&amp;quot;&lt;/code&gt; 推到屏幕&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;cin &amp;raquo;&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;cin (输入流，character input stream)&lt;/strong&gt; → 从键盘输入&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt; 箭头朝右，意思是把数据吸进来（into the page，流进变量）&lt;/li&gt;
-&lt;li&gt;可以记成：
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;cin &amp;gt;&amp;gt; value;&lt;/code&gt; = 从键盘读入一个值，放到 &lt;code&gt;value&lt;/code&gt; 变量里&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;&lt;strong&gt;1.2.2. Common Data Representations&lt;/strong&gt; 
-    &lt;div id=&#34;122common-data-representations&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#122common-data-representations&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;在 C 和 C++ 中，定义变量时需要指定 &lt;strong&gt;data type (数据类型)&lt;/strong&gt;，例如&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 声明了两个 int 类型的变量 i 和 j
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 class=&#34;relative group&#34;&gt;&lt;strong&gt;1.2.2.1. Integers&lt;/strong&gt; 
-    &lt;div id=&#34;1221integers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1221integers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Integers (整数类型)&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;整数就是没有小数点的数，比如 0、-23、789，在 C++ 中同样存在多种 Int 类型&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;int (整型，integer)&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;通常占 &lt;strong&gt;32 bits&lt;/strong&gt;，也就是 &lt;strong&gt;4 bytes&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;因为 1 bit 用来存储正负号，所以剩下 &lt;strong&gt;31 bits&lt;/strong&gt; 存数字&lt;/li&gt;
-&lt;li&gt;能表示的范围：\(-2^{31} \quad 到 \quad 2^{31}-1\)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;short (短整型，short integer)&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;通常占 &lt;strong&gt;16 bits&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;1 bit 存符号，剩下 &lt;strong&gt;15 bits&lt;/strong&gt; 存数字。&lt;/li&gt;
-&lt;li&gt;范围：\(−1-2^{15} \quad 到 \quad 2^{15}-1\)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;long (长整型，long integer)&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;占用比 32 bits 更多的空间（通常 64 bits）&lt;/li&gt;
-&lt;li&gt;能表示的数范围比 int 更大&lt;/li&gt;
-&lt;li&gt;范围取决于编译器和机器，但肯定比 int 大&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;在本课程里，推荐使用 &lt;strong&gt;int&lt;/strong&gt; 来存储整数，例如&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;participants&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;60&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 声明一个整型变量 participants，赋值 60
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h4 class=&#34;relative group&#34;&gt;1.2.2.2 Floating-point Numbers 
-    &lt;div id=&#34;1222-floating-point-numbers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1222-floating-point-numbers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;floating-point numbers 浮点数就是带小数点的数，比如 2.9，−118.763&lt;/li&gt;
-&lt;li&gt;在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \(2.89 \times 10^{14}\) 会写成 &lt;code&gt;2.89e14&lt;/code&gt; 或 &lt;code&gt;2.89E14&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;与 Integer 一样，C/C++ 里有几种存储浮点数的数据类型 (data types)：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;float (单精度浮点型)&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;占 32 位 (32 bits)，&lt;/li&gt;
-&lt;li&gt;精度大约 7 decimal digits of precision，包括小数点前和小数点后的总位数&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;double (双精度浮点型)&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;64 bits&lt;/li&gt;
-&lt;li&gt;精度大约 15 位十进制有效数字&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;long double (长双精度浮点型)&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;通常占用比 64 位更多的存储空间&lt;/li&gt;
-&lt;li&gt;精度比 double 更高&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;与 C 语言时一样，推荐使用的还是 Double&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;1.2.2.3. Boolean 
-    &lt;div id=&#34;1223-boolean&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1223-boolean&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;在 C++ 里有 &lt;strong&gt;bool (布尔型)&lt;/strong&gt; 数据类型，用来表示 logical value，即 &lt;code&gt;true (真)&lt;/code&gt; 或 &lt;code&gt;false (假)&lt;/code&gt;，存储时占 8 位 (8 bits)&lt;/li&gt;
-&lt;li&gt;和 C 语言不同，C++ 不需要额外引入 library 就能用 &lt;code&gt;bool&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;1.2.2.4. Characters 
-    &lt;div id=&#34;1224-characters&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1224-characters&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;char&lt;/strong&gt; 数据类型来存储 single character，占 8 bits&lt;/li&gt;
-&lt;li&gt;字符必须放在单引号 &lt;code&gt;&#39; &#39;&lt;/code&gt; 中&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;1.2.2.5. Arrays 
-    &lt;div id=&#34;1225-arrays&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1225-arrays&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Array&lt;/strong&gt; 存储多个 same data type 相同数据结构 的元素，通过一个 Identifier 来统一管理&lt;/li&gt;
-&lt;li&gt;举例来说，一个由 Integers 组成的 Array 为&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;arr&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;arr&lt;/code&gt; 是 Array identifier，表示一个包含 7 个 &lt;code&gt;int (整型)&lt;/code&gt; 元素的数组。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;arr[0]&lt;/code&gt; 表示第一个元素 (存储的是 1)。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;arr[6]&lt;/code&gt; 表示最后一个元素 (存储的是 7)。&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;1.2.2.6. Strings 
-    &lt;div id=&#34;1226-strings&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#1226-strings&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;在 C 语言**中，**string 实际上是一个以 Null character, &lt;strong&gt;&lt;code&gt;&#39;\0&#39;&lt;/code&gt;&lt;/strong&gt; 结尾的 Character array&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;h&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Hello&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;这里 &lt;code&gt;h&lt;/code&gt; 存储 &lt;code&gt;&amp;quot;Hello&amp;quot;&lt;/code&gt;，而 &lt;code&gt;h[5]&lt;/code&gt; 存储的是 &lt;code&gt;&#39;\0&#39;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;想要使用更加方便的 String 管理 Function，需要包含 header file 的 &lt;code&gt;#include &amp;lt;string.h&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;有了 Header File 之后就可以用函数如 &lt;code&gt;strcmp (比较)&lt;/code&gt;, &lt;code&gt;strlen (长度)&lt;/code&gt;, &lt;code&gt;strcpy (拷贝)&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;区分于 C 语言，在 C++ 中，有一个专门的数据类型 string，比 C 的字符数组更方便&lt;/li&gt;
-&lt;li&gt;但是想要调用它，也需要包含 &lt;code&gt;#include &amp;lt;string&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;可以直接用 &lt;code&gt;+&lt;/code&gt; 拼接字符串 (concatenate)，用 &lt;code&gt;==&lt;/code&gt; 比较字符串 (compare)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;##include &amp;lt;iostream&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;##include &amp;lt;string&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prePhrase&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;This course is &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;postPhrase&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34; Programming Fundamentals!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;blank&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;______&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Fill in the blank of the following sentence&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prePhrase&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;blank&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;postPhrase&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;cin&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;blank&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 从用户输入读入 blank
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;blank&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;ECE244&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// 判断输入是否等于 &amp;#34;ECE244&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Correct!&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prePhrase&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;blank&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;postPhrase&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;c1&#34;&gt;// 拼接字符串
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;        &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sentence&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;n&#34;&gt;cout&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;Incorrect!&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;endl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h3 class=&#34;relative group&#34;&gt;1.2.3 Operators 
-    &lt;div id=&#34;123-operators&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#123-operators&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;在 C++ 里，运算符分几类：&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;Arithmetic operators (算术运算符) 
-    &lt;div id=&#34;arithmetic-operators-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#arithmetic-operators-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;+&lt;/code&gt;,&lt;code&gt;-&lt;/code&gt; ,&lt;code&gt;*&lt;/code&gt; , &lt;code&gt;/&lt;/code&gt;, &lt;code&gt;%&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;%&lt;/code&gt; 表示取 Remainder&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;&lt;strong&gt;Assignment operators (赋值运算符)&lt;/strong&gt; 
-    &lt;div id=&#34;assignment-operators-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#assignment-operators-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;=&lt;/code&gt;：把右边的值赋给左边变量&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意它和 &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;  不一样，&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;  专门用在 cont 里，表示把右边的东西送到输出流&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature.png" />
-    </item>
-    
-    <item>
-      <title>OOPC 0. Introduction</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</link>
-      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</guid>
-      <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC0.Introduction 
-    &lt;div id=&#34;oopc0introduction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oopc0introduction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;p&gt;Created: 2025年9月2日 15:35&lt;/p&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;1.1 Computer Systems 
-    &lt;div id=&#34;11-computer-systems&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#11-computer-systems&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Computer Hardware 
-    &lt;div id=&#34;computer-hardware&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#computer-hardware&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;大部分 Computer Hardware 由五个主要部分组成&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;Input Device&lt;/li&gt;
-&lt;li&gt;Output Device&lt;/li&gt;
-&lt;li&gt;Central Processing unit&lt;/li&gt;
-&lt;li&gt;Main Memory&lt;/li&gt;
-&lt;li&gt;Secondary Memory&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Memory 内存 
-    &lt;div id=&#34;memory-%E5%86%85%E5%AD%98&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#memory-%E5%86%85%E5%AD%98&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;程序在运行的时候，会被放在 Main Memory 中&lt;/li&gt;
-&lt;li&gt;一个 Main Memory 存在很多 Memory Locations，他们根据 Address 进行编号&lt;/li&gt;
-&lt;li&gt;而一个 Memory Location 一般都是一个 8 bits 的组合，即一个 8 位的二进制数&lt;/li&gt;
-&lt;li&gt;现代计算机一般都以 1 个 byte，即 8 bits 作为最基本的存储单位&lt;/li&gt;
-&lt;li&gt;而所有的 Memory Locations 加在一起组合成了 Main Memory&lt;/li&gt;
-&lt;li&gt;当一个 data 超过了一个最基本的储存单位，即一个 bytes 的情况下，就会用到多个 Continuative 的 Memory Locations (bytes)&lt;/li&gt;
-&lt;li&gt;在这种情况下，只需要使用第一个 Memory 的位置作为整个 data 的 Address&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu5452074438150711569.png 330w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png 660w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu13969374996867578377.png 1024w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14559888324638514471.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png&#34;
-        alt=&#34;image.png&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Object-Oriented Programming using C++ on Buezwqwg</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/</link><description>Recent content in Object-Oriented Programming using C++ on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/index.xml" rel="self" type="application/rss+xml"/><item><title>OOPC 3. DynamicMemory Allocation &amp; Classes</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc3.dynamicmemoryallocationclasses/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc3.dynamicmemoryallocationclasses/</guid><description>&lt;h1 class="relative group">OOPC3.DynamicMemoryAllocation&amp;amp;Classes
+&lt;div id="oopc3dynamicmemoryallocationclasses" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#oopc3dynamicmemoryallocationclasses" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;blockquote>
+&lt;p>Last Edit: 9/28/25&lt;/p>
+&lt;/blockquote>
+&lt;h1 class="relative group">3.1 Freeing an Object from Memory Explicitly
+&lt;div id="31-freeing-an-object-from-memory-explicitly" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#31-freeing-an-object-from-memory-explicitly" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;ul>
+&lt;li>Recall what happened during a program is running&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">3.1.1 Recap: Dynamic Memory Allocation
+&lt;div id="311-recap-dynamic-memory-allocation" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#311-recap-dynamic-memory-allocation" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>When the program start, computer allocates memory in Random Access Memory (RAM)&lt;/li>
+&lt;li>大概有四种 Segment 出现
+&lt;ul>
+&lt;li>&lt;strong>Stack&lt;/strong>: Stores the Local Variables and Objects of a function&lt;/li>
+&lt;li>&lt;strong>Heap:&lt;/strong> Stores the dynamically allocated memory&lt;/li>
+&lt;li>&lt;strong>Global + Const&lt;/strong> &lt;strong>Variables&lt;/strong>: Obviously Stores the Variables&lt;/li>
+&lt;li>&lt;strong>Code&lt;/strong>: Store instruction of the program&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Step 1： Stack Only
+&lt;div id="step-1-stack-only" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#step-1-stack-only" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>首先先有代码 &lt;code>main.cpp&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="k">using&lt;/span> &lt;span class="k">namespace&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(){&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">int&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// Allocate x in stack with value 10
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">int&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// Add a pointer in stack with NULL
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// Let P point to x
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// Dereference P and change x&amp;#39;s value
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>So far everything is in stack&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Step 2: Dynamic Memory Allocation
+&lt;div id="step-2-dynamic-memory-allocation" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#step-2-dynamic-memory-allocation" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;p>Change &lt;code>main.cpp&lt;/code> into&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc3.dynamicmemoryallocationclasses/feature.png"/></item><item><title>OOPC 2. Classes</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc2.classes/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc2.classes/</guid><description>&lt;h1 class="relative group">OOPC2.Classes
+&lt;div id="oopc2classes" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#oopc2classes" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;blockquote>
+&lt;p>Last Edit: 9/28/25&lt;/p>
+&lt;/blockquote>
+&lt;h1 class="relative group">2.1 Structs and Classes
+&lt;div id="21-structs-and-classes" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#21-structs-and-classes" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;ul>
+&lt;li>Struct，通过一个大的模块，将众多 Data Types 储存到其中&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="k">struct&lt;/span> &lt;span class="nc">Student&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">string&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">int&lt;/span> &lt;span class="n">ID&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>struct&lt;/code>（结构体）：用于将多个不同类型的数据组合在一起&lt;/li>
+&lt;li>&lt;code>Student&lt;/code> 是结构体的名称（结构体名）&lt;/li>
+&lt;li>&lt;code>string name&lt;/code>（字符串类型的 name）：表示学生的名字&lt;/li>
+&lt;li>&lt;code>int ID&lt;/code>（整数类型的 ID）：表示学生的编号&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>这里只是&lt;strong>定义结构体，不会分配内存&lt;/strong>&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc2.classes/feature.png"/></item><item><title>OOPC 1. ProgrammingBasics</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc1.programmingbasics/</link><pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc1.programmingbasics/</guid><description>&lt;h2 class="relative group">OOPC1.ProgrammingBasics
+&lt;div id="oopc1programmingbasics" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#oopc1programmingbasics" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;blockquote>
+&lt;p>Last Edit: 9/15/25&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">&lt;strong>1.2. Programming Basics&lt;/strong>
+&lt;div id="12programming-basics" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#12programming-basics" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;h3 class="relative group">&lt;strong>1.2.1. Basic Structure of a C++ Program&lt;/strong>
+&lt;div id="121basic-structure-of-a-c-program" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#121basic-structure-of-a-c-program" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>C++ 与 C 的格式几乎相同，导致他们看上去十分类似，实际上他们所做的事大相径庭&lt;/li>
+&lt;li>拿一个简单的 Hello World 代码举例&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">##include &amp;lt;iostream&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="k">using&lt;/span> &lt;span class="k">namespace&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;Hello world!&amp;#34;&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>#include &amp;lt;iostream&amp;gt;&lt;/code>
+&lt;ul>
+&lt;li>&lt;strong>iostream (输入输出流库)&lt;/strong>：包含标准的输入输出功能，用于 &lt;strong>cin (输入)&lt;/strong> 和 &lt;strong>cout (输出)&lt;/strong>&lt;/li>
+&lt;li>在 &lt;strong>C&lt;/strong> 中对应的是 &lt;code>#include &amp;lt;stdio.h&amp;gt;&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>using namespace std;&lt;/code>
+&lt;ul>
+&lt;li>使用 &lt;strong>namespace (命名空间)&lt;/strong> 中的 &lt;strong>std (标准命名空间)&lt;/strong>，方便直接调用 &lt;strong>cout&lt;/strong>、&lt;strong>cin&lt;/strong>，而不用写成 &lt;code>std::cout&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">std Standard Library 标准库
+&lt;div id="std-standard-library-%E6%A0%87%E5%87%86%E5%BA%93" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#std-standard-library-%E6%A0%87%E5%87%86%E5%BA%93" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;hr>
+&lt;ul>
+&lt;li>在 &lt;strong>C++ standard library&lt;/strong> 里，有很多工具，比如 &lt;code>cout&lt;/code>（输出）、&lt;code>cin&lt;/code>（输入）、&lt;code>string&lt;/code>（字符串）、&lt;code>vector&lt;/code>（数组&lt;/li>
+&lt;li>这些东西都被放在一个“文件夹”里，这个文件夹的名字叫 &lt;strong>std&lt;/strong>&lt;/li>
+&lt;li>当要使用里面的工具的时候，要写 &lt;code>std::cout&lt;/code>、&lt;code>std::cin&lt;/code> ，示例如下&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">##include &amp;lt;iostream&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">std&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;Hello World!&amp;#34;&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>而如果用了 &lt;code>using namespace std;&lt;/code> 就直接写名字就行&lt;/li>
+&lt;li>一般来说小程序和初学者推荐这样写，但是到了大项目时，极度容易产生冲突&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;ul>
+&lt;li>&lt;code>int main()&lt;/code>&lt;/li>
+&lt;li>&lt;strong>main function (主函数)&lt;/strong>：程序从这里开始执行&lt;/li>
+&lt;li>&lt;strong>int (整数类型)&lt;/strong> 表示函数返回值类型&lt;/li>
+&lt;li>&lt;code>cout &amp;lt;&amp;lt; &amp;quot;Hello world!&amp;quot; &amp;lt;&amp;lt; endl;&lt;/code>
+&lt;ul>
+&lt;li>&lt;strong>cout (输出流对象)&lt;/strong>：在屏幕上打印内容&lt;/li>
+&lt;li>&lt;code>&amp;lt;&amp;lt;&lt;/code> 是 &lt;strong>insertion operator (插入运算符/输出运算符)&lt;/strong>，把右边的内容送入输出流&lt;/li>
+&lt;li>&lt;code>&amp;quot;Hello world!&amp;quot;&lt;/code> 是字符串&lt;/li>
+&lt;li>&lt;strong>endl (换行符)&lt;/strong>：让输出内容后换行&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>return 0;&lt;/code>
+&lt;ul>
+&lt;li>表示 &lt;strong>程序正常结束&lt;/strong>，返回值 0 传递给操作系统&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">&lt;strong>1.2.1.1. A program to input a value&lt;/strong>
+&lt;div id="1211a-program-to-input-a-value" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#1211a-program-to-input-a-value" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>如果想做一个能 input 的程序，可以通过 &lt;code>std::cin&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">##include &amp;lt;iostream&amp;gt; &lt;/span>&lt;span class="c1">// 引入输入输出库 iostream
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">using&lt;/span> &lt;span class="k">namespace&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 使用标准命名空间 std
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="c1">// 主函数，程序从这里开始
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 定义一个整数变量 value，初始值为 0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;Enter a value: &amp;#34;&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// cout (输出) → 在屏幕上打印提示
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">cin&lt;/span> &lt;span class="o">&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">value&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// cin (输入) → 等待用户输入，把值存到 value
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;The value entered is &amp;#34;&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">value&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 再次用 cout 打印出刚刚输入的值，并换行
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 程序结束，返回 0
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h4 class="relative group">&amp;laquo; &amp;amp; &amp;raquo;
+&lt;div id="--" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#--" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ol>
+&lt;li>&lt;strong>cout &amp;laquo;&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>cout (输出流，character output stream)&lt;/strong> → 往屏幕输出&lt;/li>
+&lt;li>&lt;code>&amp;lt;&amp;lt;&lt;/code> 箭头朝左，意思是把数据推出去（out of the page，往屏幕方向）&lt;/li>
+&lt;li>可以记成：
+&lt;ul>
+&lt;li>&lt;code>cout &amp;lt;&amp;lt; &amp;quot;Hello&amp;quot;;&lt;/code> = 把 &lt;code>&amp;quot;Hello&amp;quot;&lt;/code> 推到屏幕&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>cin &amp;raquo;&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>cin (输入流，character input stream)&lt;/strong> → 从键盘输入&lt;/li>
+&lt;li>&lt;code>&amp;gt;&amp;gt;&lt;/code> 箭头朝右，意思是把数据吸进来（into the page，流进变量）&lt;/li>
+&lt;li>可以记成：
+&lt;ul>
+&lt;li>&lt;code>cin &amp;gt;&amp;gt; value;&lt;/code> = 从键盘读入一个值，放到 &lt;code>value&lt;/code> 变量里&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h3 class="relative group">&lt;strong>1.2.2. Common Data Representations&lt;/strong>
+&lt;div id="122common-data-representations" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#122common-data-representations" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>在 C 和 C++ 中，定义变量时需要指定 &lt;strong>data type (数据类型)&lt;/strong>，例如&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="n">i&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">j&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 声明了两个 int 类型的变量 i 和 j
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h4 class="relative group">&lt;strong>1.2.2.1. Integers&lt;/strong>
+&lt;div id="1221integers" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#1221integers" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>Integers (整数类型)&lt;/strong>&lt;/li>
+&lt;li>整数就是没有小数点的数，比如 0、-23、789，在 C++ 中同样存在多种 Int 类型&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>&lt;strong>int (整型，integer)&lt;/strong>
+&lt;ul>
+&lt;li>通常占 &lt;strong>32 bits&lt;/strong>，也就是 &lt;strong>4 bytes&lt;/strong>&lt;/li>
+&lt;li>因为 1 bit 用来存储正负号，所以剩下 &lt;strong>31 bits&lt;/strong> 存数字&lt;/li>
+&lt;li>能表示的范围：\(-2^{31} \quad 到 \quad 2^{31}-1\)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>short (短整型，short integer)&lt;/strong>
+&lt;ul>
+&lt;li>通常占 &lt;strong>16 bits&lt;/strong>&lt;/li>
+&lt;li>1 bit 存符号，剩下 &lt;strong>15 bits&lt;/strong> 存数字。&lt;/li>
+&lt;li>范围：\(−1-2^{15} \quad 到 \quad 2^{15}-1\)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>long (长整型，long integer)&lt;/strong>
+&lt;ul>
+&lt;li>占用比 32 bits 更多的空间（通常 64 bits）&lt;/li>
+&lt;li>能表示的数范围比 int 更大&lt;/li>
+&lt;li>范围取决于编译器和机器，但肯定比 int 大&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>在本课程里，推荐使用 &lt;strong>int&lt;/strong> 来存储整数，例如&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="n">participants&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">60&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 声明一个整型变量 participants，赋值 60
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h4 class="relative group">1.2.2.2 Floating-point Numbers
+&lt;div id="1222-floating-point-numbers" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#1222-floating-point-numbers" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>floating-point numbers 浮点数就是带小数点的数，比如 2.9，−118.763&lt;/li>
+&lt;li>在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \(2.89 \times 10^{14}\) 会写成 &lt;code>2.89e14&lt;/code> 或 &lt;code>2.89E14&lt;/code>&lt;/li>
+&lt;li>与 Integer 一样，C/C++ 里有几种存储浮点数的数据类型 (data types)：&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>&lt;strong>float (单精度浮点型)&lt;/strong>
+&lt;ul>
+&lt;li>占 32 位 (32 bits)，&lt;/li>
+&lt;li>精度大约 7 decimal digits of precision，包括小数点前和小数点后的总位数&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>double (双精度浮点型)&lt;/strong>
+&lt;ul>
+&lt;li>64 bits&lt;/li>
+&lt;li>精度大约 15 位十进制有效数字&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>long double (长双精度浮点型)&lt;/strong>
+&lt;ul>
+&lt;li>通常占用比 64 位更多的存储空间&lt;/li>
+&lt;li>精度比 double 更高&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>与 C 语言时一样，推荐使用的还是 Double&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">1.2.2.3. Boolean
+&lt;div id="1223-boolean" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#1223-boolean" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>在 C++ 里有 &lt;strong>bool (布尔型)&lt;/strong> 数据类型，用来表示 logical value，即 &lt;code>true (真)&lt;/code> 或 &lt;code>false (假)&lt;/code>，存储时占 8 位 (8 bits)&lt;/li>
+&lt;li>和 C 语言不同，C++ 不需要额外引入 library 就能用 &lt;code>bool&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">1.2.2.4. Characters
+&lt;div id="1224-characters" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#1224-characters" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>char&lt;/strong> 数据类型来存储 single character，占 8 bits&lt;/li>
+&lt;li>字符必须放在单引号 &lt;code>' '&lt;/code> 中&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">1.2.2.5. Arrays
+&lt;div id="1225-arrays" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#1225-arrays" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>Array&lt;/strong> 存储多个 same data type 相同数据结构 的元素，通过一个 Identifier 来统一管理&lt;/li>
+&lt;li>举例来说，一个由 Integers 组成的 Array 为&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="n">arr&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">7&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="p">{&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">2&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">3&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">4&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">6&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">7&lt;/span>&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>arr&lt;/code> 是 Array identifier，表示一个包含 7 个 &lt;code>int (整型)&lt;/code> 元素的数组。&lt;/li>
+&lt;li>&lt;code>arr[0]&lt;/code> 表示第一个元素 (存储的是 1)。&lt;/li>
+&lt;li>&lt;code>arr[6]&lt;/code> 表示最后一个元素 (存储的是 7)。&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">1.2.2.6. Strings
+&lt;div id="1226-strings" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#1226-strings" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>在 C 语言**中，**string 实际上是一个以 Null character, &lt;strong>&lt;code>'\0'&lt;/code>&lt;/strong> 结尾的 Character array&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">char&lt;/span> &lt;span class="n">h&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="mi">6&lt;/span>&lt;span class="p">]&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;Hello&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>这里 &lt;code>h&lt;/code> 存储 &lt;code>&amp;quot;Hello&amp;quot;&lt;/code>，而 &lt;code>h[5]&lt;/code> 存储的是 &lt;code>'\0'&lt;/code>&lt;/li>
+&lt;li>想要使用更加方便的 String 管理 Function，需要包含 header file 的 &lt;code>#include &amp;lt;string.h&amp;gt;&lt;/code>&lt;/li>
+&lt;li>有了 Header File 之后就可以用函数如 &lt;code>strcmp (比较)&lt;/code>, &lt;code>strlen (长度)&lt;/code>, &lt;code>strcpy (拷贝)&lt;/code>&lt;/li>
+&lt;li>区分于 C 语言，在 C++ 中，有一个专门的数据类型 string，比 C 的字符数组更方便&lt;/li>
+&lt;li>但是想要调用它，也需要包含 &lt;code>#include &amp;lt;string&amp;gt;&lt;/code>&lt;/li>
+&lt;li>可以直接用 &lt;code>+&lt;/code> 拼接字符串 (concatenate)，用 &lt;code>==&lt;/code> 比较字符串 (compare)&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">##include &amp;lt;iostream&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">##include &amp;lt;string&amp;gt;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="k">using&lt;/span> &lt;span class="k">namespace&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">string&lt;/span> &lt;span class="n">prePhrase&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;This course is &amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">string&lt;/span> &lt;span class="n">postPhrase&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34; Programming Fundamentals!&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="n">blank&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="s">&amp;#34;______&amp;#34;&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;Fill in the blank of the following sentence&amp;#34;&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">prePhrase&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">blank&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">postPhrase&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cin&lt;/span> &lt;span class="o">&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">blank&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 从用户输入读入 blank
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">blank&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s">&amp;#34;ECE244&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="c1">// 判断输入是否等于 &amp;#34;ECE244&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;Correct!&amp;#34;&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">string&lt;/span> &lt;span class="n">sentence&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">prePhrase&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">blank&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">postPhrase&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// 拼接字符串
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">sentence&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">cout&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="s">&amp;#34;Incorrect!&amp;#34;&lt;/span> &lt;span class="o">&amp;lt;&amp;lt;&lt;/span> &lt;span class="n">endl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="mi">0&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h3 class="relative group">1.2.3 Operators
+&lt;div id="123-operators" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#123-operators" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>在 C++ 里，运算符分几类：&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">Arithmetic operators (算术运算符)
+&lt;div id="arithmetic-operators-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#arithmetic-operators-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>+&lt;/code>,&lt;code>-&lt;/code> ,&lt;code>*&lt;/code> , &lt;code>/&lt;/code>, &lt;code>%&lt;/code>&lt;/li>
+&lt;li>&lt;code>%&lt;/code> 表示取 Remainder&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">&lt;strong>Assignment operators (赋值运算符)&lt;/strong>
+&lt;div id="assignment-operators-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#assignment-operators-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;ul>
+&lt;li>&lt;code>=&lt;/code>：把右边的值赋给左边变量&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>注意它和 &lt;code>&amp;lt;&amp;lt;&lt;/code> 不一样，&lt;code>&amp;lt;&amp;lt;&lt;/code> 专门用在 cont 里，表示把右边的东西送到输出流&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc1.programmingbasics/feature.png"/></item><item><title>OOPC 0. Introduction</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc0.introduction/</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc0.introduction/</guid><description>&lt;h1 class="relative group">OOPC0.Introduction
+&lt;div id="oopc0introduction" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#oopc0introduction" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>Created: 2025年9月2日 15:35&lt;/p>
+&lt;h1 class="relative group">1.1 Computer Systems
+&lt;div id="11-computer-systems" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#11-computer-systems" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;h2 class="relative group">Computer Hardware
+&lt;div id="computer-hardware" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#computer-hardware" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>大部分 Computer Hardware 由五个主要部分组成&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Input Device&lt;/li>
+&lt;li>Output Device&lt;/li>
+&lt;li>Central Processing unit&lt;/li>
+&lt;li>Main Memory&lt;/li>
+&lt;li>Secondary Memory&lt;/li>
+&lt;/ol>
+&lt;h3 class="relative group">Memory 内存
+&lt;div id="memory-%E5%86%85%E5%AD%98" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#memory-%E5%86%85%E5%AD%98" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>程序在运行的时候，会被放在 Main Memory 中&lt;/li>
+&lt;li>一个 Main Memory 存在很多 Memory Locations，他们根据 Address 进行编号&lt;/li>
+&lt;li>而一个 Memory Location 一般都是一个 8 bits 的组合，即一个 8 位的二进制数&lt;/li>
+&lt;li>现代计算机一般都以 1 个 byte，即 8 bits 作为最基本的存储单位&lt;/li>
+&lt;li>而所有的 Memory Locations 加在一起组合成了 Main Memory&lt;/li>
+&lt;li>当一个 data 超过了一个最基本的储存单位，即一个 bytes 的情况下，就会用到多个 Continuative 的 Memory Locations (bytes)&lt;/li>
+&lt;li>在这种情况下，只需要使用第一个 Memory 的位置作为整个 data 的 Address&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+srcset="
+/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu5452074438150711569.png 330w,
+/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png 660w,
+/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu13969374996867578377.png 1024w,
+/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14559888324638514471.png 2x"
+src="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png"
+alt="image.png"
+/>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc0.introduction/feature.png"/></item></channel></rss>

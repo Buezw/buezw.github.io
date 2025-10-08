@@ -1,70 +1,35 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Calculus on Buezwqwg</title>
-    <link>https://buezw.github.io/tags/calculus/</link>
-    <description>Recent content in Calculus on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Wed, 08 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/calculus/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Calculus 10. Parametric Equations and Polar Coordinates</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/</link>
-      <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/8/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;10.1 Parametric Equations 
-    &lt;div id=&#34;101-parametric-equations&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#101-parametric-equations&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;If x and y are continuous functions of t on an interval I, then the equations are called parametric equations and t is called the parameter
-$$x=x(t) andy=y(t)$$&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Eliminating the Parameter 化简 
-    &lt;div id=&#34;eliminating-the-parameter-%E5%8C%96%E7%AE%80&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#eliminating-the-parameter-%E5%8C%96%E7%AE%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;通过关系式直接得到x和y之间的函数&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;ex. 
-    &lt;div id=&#34;ex&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ex&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;p&gt;$$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Calculus on Buezwqwg</title><link>https://buezw.github.io/tags/calculus/</link><description>Recent content in Calculus on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Wed, 08 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/calculus/index.xml" rel="self" type="application/rss+xml"/><item><title>Calculus 10. Parametric Equations and Polar Coordinates</title><link>https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/</link><pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 1/8/25&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">10.1 Parametric Equations
+&lt;div id="101-parametric-equations" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#101-parametric-equations" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>If x and y are continuous functions of t on an interval I, then the equations are called parametric equations and t is called the parameter
+$$x=x(t) andy=y(t)$$&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Eliminating the Parameter 化简
+&lt;div id="eliminating-the-parameter-%E5%8C%96%E7%AE%80" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#eliminating-the-parameter-%E5%8C%96%E7%AE%80" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>通过关系式直接得到x和y之间的函数&lt;/li>
+&lt;/ul>
+&lt;h4 class="relative group">ex.
+&lt;div id="ex" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h4>
+&lt;p>$$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/feature.png"/></item></channel></rss>

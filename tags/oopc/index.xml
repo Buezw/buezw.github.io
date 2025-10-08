@@ -1,264 +1,172 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>OOPC on Buezwqwg</title>
-    <link>https://buezw.github.io/tags/oopc/</link>
-    <description>Recent content in OOPC on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/oopc/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Object-Oriented Programming using C&#43;&#43;</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</link>
-      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>OOPC 3. DynamicMemory Allocation &amp; Classes</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</link>
-      <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</guid>
-      <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC3.DynamicMemoryAllocation&amp;amp;Classes 
-    &lt;div id=&#34;oopc3dynamicmemoryallocationclasses&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oopc3dynamicmemoryallocationclasses&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/28/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;3.1 Freeing an Object from Memory Explicitly 
-    &lt;div id=&#34;31-freeing-an-object-from-memory-explicitly&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#31-freeing-an-object-from-memory-explicitly&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Recall what happened during a program is running&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;3.1.1 Recap: Dynamic Memory Allocation 
-    &lt;div id=&#34;311-recap-dynamic-memory-allocation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#311-recap-dynamic-memory-allocation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;When the program start, computer allocates memory in Random Access Memory (RAM)&lt;/li&gt;
-&lt;li&gt;大概有四种 Segment 出现
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Stack&lt;/strong&gt;: Stores the Local Variables and Objects of a function&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Heap:&lt;/strong&gt; Stores the dynamically allocated memory&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Global + Const&lt;/strong&gt; &lt;strong&gt;Variables&lt;/strong&gt;: Obviously Stores the Variables&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Code&lt;/strong&gt;: Store instruction of the program&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Step 1： Stack Only 
-    &lt;div id=&#34;step-1-stack-only&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#step-1-stack-only&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;首先先有代码 &lt;code&gt;main.cpp&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;namespace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;std&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;x&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;      &lt;span class=&#34;c1&#34;&gt;// Allocate x in stack with value 10
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// Add a pointer in stack with NULL
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;// Let P point to x
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;// Dereference P and change x&amp;#39;s value
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;So far everything is in stack&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Step 2: Dynamic Memory Allocation 
-    &lt;div id=&#34;step-2-dynamic-memory-allocation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#step-2-dynamic-memory-allocation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;p&gt;Change &lt;code&gt;main.cpp&lt;/code&gt; into&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/feature.png" />
-    </item>
-    
-    <item>
-      <title>OOPC 2. Classes</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</link>
-      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</guid>
-      <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC2.Classes 
-    &lt;div id=&#34;oopc2classes&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oopc2classes&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/28/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;2.1 Structs and Classes 
-    &lt;div id=&#34;21-structs-and-classes&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#21-structs-and-classes&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;Struct，通过一个大的模块，将众多 Data Types 储存到其中&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Student&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ID&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;};&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;struct&lt;/code&gt;（结构体）：用于将多个不同类型的数据组合在一起&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Student&lt;/code&gt; 是结构体的名称（结构体名）&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;string name&lt;/code&gt;（字符串类型的 name）：表示学生的名字&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;int ID&lt;/code&gt;（整数类型的 ID）：表示学生的编号&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这里只是&lt;strong&gt;定义结构体，不会分配内存&lt;/strong&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/feature.png" />
-    </item>
-    
-    <item>
-      <title>OOPC 0. Introduction</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</link>
-      <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</guid>
-      <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC0.Introduction 
-    &lt;div id=&#34;oopc0introduction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#oopc0introduction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;p&gt;Created: 2025年9月2日 15:35&lt;/p&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;1.1 Computer Systems 
-    &lt;div id=&#34;11-computer-systems&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#11-computer-systems&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Computer Hardware 
-    &lt;div id=&#34;computer-hardware&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#computer-hardware&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;大部分 Computer Hardware 由五个主要部分组成&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;Input Device&lt;/li&gt;
-&lt;li&gt;Output Device&lt;/li&gt;
-&lt;li&gt;Central Processing unit&lt;/li&gt;
-&lt;li&gt;Main Memory&lt;/li&gt;
-&lt;li&gt;Secondary Memory&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Memory 内存 
-    &lt;div id=&#34;memory-%E5%86%85%E5%AD%98&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#memory-%E5%86%85%E5%AD%98&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;程序在运行的时候，会被放在 Main Memory 中&lt;/li&gt;
-&lt;li&gt;一个 Main Memory 存在很多 Memory Locations，他们根据 Address 进行编号&lt;/li&gt;
-&lt;li&gt;而一个 Memory Location 一般都是一个 8 bits 的组合，即一个 8 位的二进制数&lt;/li&gt;
-&lt;li&gt;现代计算机一般都以 1 个 byte，即 8 bits 作为最基本的存储单位&lt;/li&gt;
-&lt;li&gt;而所有的 Memory Locations 加在一起组合成了 Main Memory&lt;/li&gt;
-&lt;li&gt;当一个 data 超过了一个最基本的储存单位，即一个 bytes 的情况下，就会用到多个 Continuative 的 Memory Locations (bytes)&lt;/li&gt;
-&lt;li&gt;在这种情况下，只需要使用第一个 Memory 的位置作为整个 data 的 Address&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu5452074438150711569.png 330w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png 660w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu13969374996867578377.png 1024w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14559888324638514471.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png&#34;
-        alt=&#34;image.png&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/feature.png" />
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OOPC on Buezwqwg</title><link>https://buezw.github.io/tags/oopc/</link><description>Recent content in OOPC on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Sun, 28 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/oopc/index.xml" rel="self" type="application/rss+xml"/><item><title>Object-Oriented Programming using C++</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/</guid><description/></item><item><title>OOPC 3. DynamicMemory Allocation &amp; Classes</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc3.dynamicmemoryallocationclasses/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc3.dynamicmemoryallocationclasses/</guid><description>&lt;h1 class="relative group">OOPC3.DynamicMemoryAllocation&amp;amp;Classes
+&lt;div id="oopc3dynamicmemoryallocationclasses" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#oopc3dynamicmemoryallocationclasses" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;blockquote>
+&lt;p>Last Edit: 9/28/25&lt;/p>
+&lt;/blockquote>
+&lt;h1 class="relative group">3.1 Freeing an Object from Memory Explicitly
+&lt;div id="31-freeing-an-object-from-memory-explicitly" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#31-freeing-an-object-from-memory-explicitly" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;ul>
+&lt;li>Recall what happened during a program is running&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">3.1.1 Recap: Dynamic Memory Allocation
+&lt;div id="311-recap-dynamic-memory-allocation" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#311-recap-dynamic-memory-allocation" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>When the program start, computer allocates memory in Random Access Memory (RAM)&lt;/li>
+&lt;li>大概有四种 Segment 出现
+&lt;ul>
+&lt;li>&lt;strong>Stack&lt;/strong>: Stores the Local Variables and Objects of a function&lt;/li>
+&lt;li>&lt;strong>Heap:&lt;/strong> Stores the dynamically allocated memory&lt;/li>
+&lt;li>&lt;strong>Global + Const&lt;/strong> &lt;strong>Variables&lt;/strong>: Obviously Stores the Variables&lt;/li>
+&lt;li>&lt;strong>Code&lt;/strong>: Store instruction of the program&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Step 1： Stack Only
+&lt;div id="step-1-stack-only" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#step-1-stack-only" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>首先先有代码 &lt;code>main.cpp&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#include&lt;/span> &lt;span class="cpf">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span class="cp">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>&lt;span class="k">using&lt;/span> &lt;span class="k">namespace&lt;/span> &lt;span class="n">std&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">int&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">(){&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">int&lt;/span> &lt;span class="n">x&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">10&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// Allocate x in stack with value 10
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kt">int&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// Add a pointer in stack with NULL
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="n">x&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// Let P point to x
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="n">p&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">5&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1">// Dereference P and change x&amp;#39;s value
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>So far everything is in stack&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Step 2: Dynamic Memory Allocation
+&lt;div id="step-2-dynamic-memory-allocation" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#step-2-dynamic-memory-allocation" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;p>Change &lt;code>main.cpp&lt;/code> into&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc3.dynamicmemoryallocationclasses/feature.png"/></item><item><title>OOPC 2. Classes</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc2.classes/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc2.classes/</guid><description>&lt;h1 class="relative group">OOPC2.Classes
+&lt;div id="oopc2classes" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#oopc2classes" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;blockquote>
+&lt;p>Last Edit: 9/28/25&lt;/p>
+&lt;/blockquote>
+&lt;h1 class="relative group">2.1 Structs and Classes
+&lt;div id="21-structs-and-classes" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#21-structs-and-classes" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;ul>
+&lt;li>Struct，通过一个大的模块，将众多 Data Types 储存到其中&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="k">struct&lt;/span> &lt;span class="nc">Student&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">string&lt;/span> &lt;span class="n">name&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">int&lt;/span> &lt;span class="n">ID&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">};&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>&lt;code>struct&lt;/code>（结构体）：用于将多个不同类型的数据组合在一起&lt;/li>
+&lt;li>&lt;code>Student&lt;/code> 是结构体的名称（结构体名）&lt;/li>
+&lt;li>&lt;code>string name&lt;/code>（字符串类型的 name）：表示学生的名字&lt;/li>
+&lt;li>&lt;code>int ID&lt;/code>（整数类型的 ID）：表示学生的编号&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>这里只是&lt;strong>定义结构体，不会分配内存&lt;/strong>&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc2.classes/feature.png"/></item><item><title>OOPC 0. Introduction</title><link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc0.introduction/</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc0.introduction/</guid><description>&lt;h1 class="relative group">OOPC0.Introduction
+&lt;div id="oopc0introduction" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#oopc0introduction" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;p>Created: 2025年9月2日 15:35&lt;/p>
+&lt;h1 class="relative group">1.1 Computer Systems
+&lt;div id="11-computer-systems" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#11-computer-systems" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;h2 class="relative group">Computer Hardware
+&lt;div id="computer-hardware" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#computer-hardware" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>大部分 Computer Hardware 由五个主要部分组成&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Input Device&lt;/li>
+&lt;li>Output Device&lt;/li>
+&lt;li>Central Processing unit&lt;/li>
+&lt;li>Main Memory&lt;/li>
+&lt;li>Secondary Memory&lt;/li>
+&lt;/ol>
+&lt;h3 class="relative group">Memory 内存
+&lt;div id="memory-%E5%86%85%E5%AD%98" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#memory-%E5%86%85%E5%AD%98" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>程序在运行的时候，会被放在 Main Memory 中&lt;/li>
+&lt;li>一个 Main Memory 存在很多 Memory Locations，他们根据 Address 进行编号&lt;/li>
+&lt;li>而一个 Memory Location 一般都是一个 8 bits 的组合，即一个 8 位的二进制数&lt;/li>
+&lt;li>现代计算机一般都以 1 个 byte，即 8 bits 作为最基本的存储单位&lt;/li>
+&lt;li>而所有的 Memory Locations 加在一起组合成了 Main Memory&lt;/li>
+&lt;li>当一个 data 超过了一个最基本的储存单位，即一个 bytes 的情况下，就会用到多个 Continuative 的 Memory Locations (bytes)&lt;/li>
+&lt;li>在这种情况下，只需要使用第一个 Memory 的位置作为整个 data 的 Address&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+srcset="
+/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu5452074438150711569.png 330w,
+/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png 660w,
+/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu13969374996867578377.png 1024w,
+/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14559888324638514471.png 2x"
+src="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png"
+alt="image.png"
+/>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c++/oopc0.introduction/feature.png"/></item></channel></rss>

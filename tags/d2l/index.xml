@@ -1,880 +1,522 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>D2L on Buezwqwg</title>
-    <link>https://buezw.github.io/tags/d2l/</link>
-    <description>Recent content in D2L on Buezwqwg</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
-    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
-    <copyright>© 2025 Buezwqwg</copyright>
-    <lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/d2l/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>D2L 6. ConvolutionNeuronNetwork</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</link>
-      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>D2L 6.5 Pooling Layer</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</link>
-      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在处理图像的时候，希望逐渐扩大 Layer 的 Receptive Field，这是因为学习任务通常会和全局的图像相关，如“图像是否包含某个物体？”，所以需要逐渐汇集信息到最后一层时包含整个图像&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 6.6 LeNet</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</link>
-      <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我们在前面章节已经学习了构建完整 Convolutional Neural Network 卷积神经网络，简称 CNN）所需的基础模块，但是为了把这些模块真正用起来，需要介绍一个完整的、早期的 CNN 架构 LeNet（LeNet-5）&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 6.3 Padding &amp; Stride</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</link>
-      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;前面提到，输入图像大小为 3x3，kernel 为 2×2，输出的维数是 2×2，则可以判断出输出维度为&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 6.4 Multiple Input &amp; Output</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</link>
-      <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;一张常规的图像通常包含了 RGB 三种颜色，也是就是为互相关运算添加了一个维度&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 6.2 Image Convolution</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</link>
-      <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/29/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;由于卷积神经网络的设计就是为了处理图像，所以这里直接以图像为例&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 5. Deep Learning Computation</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</link>
-      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>D2L 5.4 Custom Layer</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link>
-      <pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/19/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在整体网络中，存在一些不同的层，他们都是专门用来处理不同事件的，这也令自定义层变得有必要&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 5.3 Deferred Initialization</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</link>
-      <pubDate>Sat, 18 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/18/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Deferred Initialization是指模型的某些参数在模型创建时并不会立即被初始化，而是会在第一次接收到输入数据时，根据输入数据的实际形状动态地完成初始化
-需要知道的是延后初始化的&lt;strong&gt;核心目标&lt;/strong&gt; 就是为了解决 &lt;strong&gt;输入维度未知&lt;/strong&gt; 的问题，而模型内部层之间的维度通常是事先定义好的&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 5.2 Parameter Management</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</link>
-      <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 1/17/25&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在训练的过程中，目标是找到使得Cost Function最小化的Parameters，而有些时候需要提取其中一层的参数检查或者移动到其他环境下，这就需要访问参数&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2 5.1 Layer &amp; Block</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</link>
-      <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 12/21/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;Layer 层 
-    &lt;div id=&#34;layer-%E5%B1%82&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#layer-%E5%B1%82&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;对于一个Layer来说，其接受一组输入（通常是矢量化的），通过调整参数后生成相应的输出&lt;/li&gt;
-&lt;li&gt;对于一个Softmax回归，其模型本身就是一个Layer&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;Block 块 
-    &lt;div id=&#34;block-%E5%9D%97&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#block-%E5%9D%97&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;在神经网络中，Block是一种通用的抽象概念，用来描述网络中的组件，可以是一个简单的单层，也可以是由多层组成的模块，甚至是整个模型本身&lt;/li&gt;
-&lt;li&gt;块的主要目的是对神经网络的结构进行分层抽象，方便构建和复用复杂的网络&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img
-        class=&#34;my-0 rounded-md&#34;
-        loading=&#34;lazy&#34;
-        srcset=&#34;
-        /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu399865873791596830.png 330w,
-        /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png 660w,
-        /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu17735818070818276903.png 1024w,
-        /docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13633986511892309580.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png&#34;
-        alt=&#34;Img&#34;
-      /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 4.1 Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 4.2 Example of MLP</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
-      <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;使用纯MLP参加https://www.kaggle.com/competitions/titanic的Competition&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L Weierstrass Approximation Theorem</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
-      <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 12/19/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Weierstrass Approximation Theorem 
-    &lt;div id=&#34;weierstrass-approximation-theorem&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#weierstrass-approximation-theorem&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li&gt;
-&lt;li&gt;换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &amp;lt; \epsilon\)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Bernstein&amp;rsquo;s Proof 1912 
-    &lt;div id=&#34;bernsteins-proof-1912&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#bernsteins-proof-1912&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;采用离散的Convolution
-$$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$&lt;/li&gt;
-&lt;li&gt;其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Binomial Distribution 二项分布 
-    &lt;div id=&#34;binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;一种离散概率分布，用于模型在固定次数的独立试验中每次试验成功的次数&lt;/li&gt;
-&lt;li&gt;其质量概率函数为
-$$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$&lt;/li&gt;
-&lt;li&gt;p：单次独立事件的成功概率&lt;/li&gt;
-&lt;li&gt;k：实验中事件成功的次数&lt;/li&gt;
-&lt;li&gt;n：实验的总事件的数量&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Interpretation 
-    &lt;div id=&#34;interpretation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#interpretation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)&lt;/li&gt;
-&lt;li&gt;现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率&lt;/li&gt;
-&lt;li&gt;当\(k=3\)时，概率质量函数为
-$$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$&lt;/li&gt;
-&lt;li&gt;也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)&lt;/li&gt;
-&lt;li&gt;而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
-$$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
-&lt;li&gt;这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Bernstein Polynomial 伯恩斯坦多项式 
-    &lt;div id=&#34;bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
-    </item>
-    
-    <item>
-      <title>Linear Regression</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</link>
-      <pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 11/4/2024&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;video width=&#34;640&#34; height=&#34;360&#34; controls&gt;
-  &lt;source src=&#34;LinearRegression.mp4&#34; type=&#34;video/mp4&#34;&gt;
-  Your browser does not support the video tag.
-&lt;/video&gt;
-&lt;p&gt;Full Code is Provided&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-from&#34; data-lang=&#34;from&#34;&gt;import numpy as np
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>D2L on Buezwqwg</title><link>https://buezw.github.io/tags/d2l/</link><description>Recent content in D2L on Buezwqwg</description><generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>youremail@example.com (Buezwqwg)</managingEditor><webMaster>youremail@example.com (Buezwqwg)</webMaster><copyright>© 2025 Buezwqwg</copyright><lastBuildDate>Mon, 31 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/d2l/index.xml" rel="self" type="application/rss+xml"/><item><title>D2L 6. ConvolutionNeuronNetwork</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/</guid><description/></item><item><title>D2L 6.5 Pooling Layer</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/31/25&lt;/p>
+&lt;/blockquote>
+&lt;p>在处理图像的时候，希望逐渐扩大 Layer 的 Receptive Field，这是因为学习任务通常会和全局的图像相关，如“图像是否包含某个物体？”，所以需要逐渐汇集信息到最后一层时包含整个图像&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/feature.png"/></item><item><title>D2L 6.6 LeNet</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</link><pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/31/25&lt;/p>
+&lt;/blockquote>
+&lt;p>我们在前面章节已经学习了构建完整 Convolutional Neural Network 卷积神经网络，简称 CNN）所需的基础模块，但是为了把这些模块真正用起来，需要介绍一个完整的、早期的 CNN 架构 LeNet（LeNet-5）&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/feature.png"/></item><item><title>D2L 6.3 Padding &amp; Stride</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</link><pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/25/25&lt;/p>
+&lt;/blockquote>
+&lt;p>前面提到，输入图像大小为 3x3，kernel 为 2×2，输出的维数是 2×2，则可以判断出输出维度为&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/feature.png"/></item><item><title>D2L 6.4 Multiple Input &amp; Output</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</link><pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 3/25/25&lt;/p>
+&lt;/blockquote>
+&lt;p>一张常规的图像通常包含了 RGB 三种颜色，也是就是为互相关运算添加了一个维度&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/feature.png"/></item><item><title>D2L 6.2 Image Convolution</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</link><pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 1/29/25&lt;/p>
+&lt;/blockquote>
+&lt;p>由于卷积神经网络的设计就是为了处理图像，所以这里直接以图像为例&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/feature.png"/></item><item><title>D2L 5. Deep Learning Computation</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</link><pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/</guid><description/></item><item><title>D2L 5.4 Custom Layer</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</link><pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 1/19/25&lt;/p>
+&lt;/blockquote>
+&lt;p>在整体网络中，存在一些不同的层，他们都是专门用来处理不同事件的，这也令自定义层变得有必要&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/feature.png"/></item><item><title>D2L 5.3 Deferred Initialization</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</link><pubDate>Sat, 18 Jan 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 1/18/25&lt;/p>
+&lt;/blockquote>
+&lt;p>Deferred Initialization是指模型的某些参数在模型创建时并不会立即被初始化，而是会在第一次接收到输入数据时，根据输入数据的实际形状动态地完成初始化
+需要知道的是延后初始化的&lt;strong>核心目标&lt;/strong> 就是为了解决 &lt;strong>输入维度未知&lt;/strong> 的问题，而模型内部层之间的维度通常是事先定义好的&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/feature.png"/></item><item><title>D2L 5.2 Parameter Management</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</link><pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 1/17/25&lt;/p>
+&lt;/blockquote>
+&lt;p>在训练的过程中，目标是找到使得Cost Function最小化的Parameters，而有些时候需要提取其中一层的参数检查或者移动到其他环境下，这就需要访问参数&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/feature.png"/></item><item><title>D2 5.1 Layer &amp; Block</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</link><pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 12/21/24&lt;/p>
+&lt;/blockquote>
+&lt;h1 class="relative group">Layer 层
+&lt;div id="layer-%E5%B1%82" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#layer-%E5%B1%82" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;ul>
+&lt;li>对于一个Layer来说，其接受一组输入（通常是矢量化的），通过调整参数后生成相应的输出&lt;/li>
+&lt;li>对于一个Softmax回归，其模型本身就是一个Layer&lt;/li>
+&lt;/ul>
+&lt;h1 class="relative group">Block 块
+&lt;div id="block-%E5%9D%97" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#block-%E5%9D%97" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h1>
+&lt;ul>
+&lt;li>在神经网络中，Block是一种通用的抽象概念，用来描述网络中的组件，可以是一个简单的单层，也可以是由多层组成的模块，甚至是整个模型本身&lt;/li>
+&lt;li>块的主要目的是对神经网络的结构进行分层抽象，方便构建和复用复杂的网络&lt;/li>
+&lt;/ul>
+&lt;p>
+&lt;figure>
+&lt;img
+class="my-0 rounded-md"
+loading="lazy"
+srcset="
+/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu399865873791596830.png 330w,
+/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png 660w,
+/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu17735818070818276903.png 1024w,
+/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13633986511892309580.png 2x"
+src="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/D2L5.1Layer&amp;amp;Block_hu13772976285383848655.png"
+alt="Img"
+/>
+&lt;/figure>
+&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/feature.png"/></item><item><title>D2L 4.1 Multilayer Perceptron</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 12/20/24&lt;/p>
+&lt;/blockquote>
+&lt;p>“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png"/></item><item><title>D2L 4.2 Example of MLP</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link><pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 12/20/24&lt;/p>
+&lt;/blockquote>
+&lt;p>使用纯MLP参加https://www.kaggle.com/competitions/titanic的Competition&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png"/></item><item><title>D2L Weierstrass Approximation Theorem</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link><pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 12/19/24&lt;/p>
+&lt;/blockquote>
+&lt;h2 class="relative group">Weierstrass Approximation Theorem
+&lt;div id="weierstrass-approximation-theorem" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#weierstrass-approximation-theorem" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li>
+&lt;li>换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &amp;lt; \epsilon\)&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">Bernstein&amp;rsquo;s Proof 1912
+&lt;div id="bernsteins-proof-1912" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#bernsteins-proof-1912" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>采用离散的Convolution
+$$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$&lt;/li>
+&lt;li>其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Binomial Distribution 二项分布
+&lt;div id="binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>一种离散概率分布，用于模型在固定次数的独立试验中每次试验成功的次数&lt;/li>
+&lt;li>其质量概率函数为
+$$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$&lt;/li>
+&lt;li>p：单次独立事件的成功概率&lt;/li>
+&lt;li>k：实验中事件成功的次数&lt;/li>
+&lt;li>n：实验的总事件的数量&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">Interpretation
+&lt;div id="interpretation" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#interpretation" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)&lt;/li>
+&lt;li>现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率&lt;/li>
+&lt;li>当\(k=3\)时，概率质量函数为
+$$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$&lt;/li>
+&lt;li>也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)&lt;/li>
+&lt;li>而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
+$$123,124,125,134,135,145,234,235,245,345$$&lt;/li>
+&lt;li>这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10&lt;/li>
+&lt;/ul>
+&lt;h2 class="relative group">Bernstein Polynomial 伯恩斯坦多项式
+&lt;div id="bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;p>$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png"/></item><item><title>Linear Regression</title><link>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</link><pubDate>Mon, 04 Nov 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/linearregression/</guid><description>&lt;blockquote>
+&lt;p>Last Edit: 11/4/2024&lt;/p>
+&lt;/blockquote>
+&lt;video width="640" height="360" controls>
+&lt;source src="LinearRegression.mp4" type="video/mp4">
+Your browser does not support the video tag.
+&lt;/video>
+&lt;p>Full Code is Provided&lt;/p>
+&lt;pre tabindex="0">&lt;code class="language-from" data-lang="from">import numpy as np
 import torch
 import random
-
 class LinearRegression(Scene):
-    def construct(self):
-        def data_generator(w,b,num):
-            X = torch.normal(0, 1, (num, len(w)))
-            y = torch.matmul(X, w) + b
-            y += torch.normal(0, 0.01, y.shape)
-            return X, y.reshape((-1, 1))
-
-        true_w = torch.tensor([2,-3.4])
-        true_b = 4.2
-        features, labels = data_generator(true_w,true_b,1000)
-        normal_data = features[:,[0]].numpy()
-        #plt.hist(normal_data,bins=100,density=True,color=&amp;#39;lightblue&amp;#39;)  
-         
-
-        head = Text(&amp;#34;Linear Regression - Buezwqwg&amp;#34;)
-        head.set_color(BLUE)
-        self.play(Create(head))
-
-        head_0 = Text(&amp;#34;In one process of Linear Regression, there bascially includes 5 steps&amp;#34;,font_size=30)
-        self.play(Uncreate(head),Write(head_0))
-        self.play(head_0.animate.move_to(UP*3.5))
-        head_1 = Text(&amp;#34;1. Initial Parameters&amp;#34;,font_size=30)
-        head_2 = Text(&amp;#34;2. Defining Model and Loss Function&amp;#34;,font_size=30)
-        head_3 = Text(&amp;#34;3. Optimization&amp;#34;,font_size=30)
-        head_4 = Text(&amp;#34;4. Loop&amp;#34;,font_size=30)
-        head = VGroup(head_1,head_2,head_3,head_4)
-        head.arrange(DOWN)
-        self.play(Write(head))
-
-        # --------------------------------------------------------------------------------------------
-
-        head_5 = Text(&amp;#34;In this animate, we start with generating the data&amp;#34;,font_size=30)
-        head_5.move_to(UP*3.5)
-        self.play(Uncreate(head),Uncreate(head_0),Write(head_5))
-        code_text = &amp;#39;&amp;#39;&amp;#39;
-        def data_generator(w, b, num):
-            X = torch.normal(0, 1, (num, len(w)))
-            y = torch.matmul(X, w) + b
-            y += torch.normal(0, 0.01, y.shape)
-            return X, y.reshape((-1, 1))
-            
-        true_w = torch.tensor([2,-3.4])
-        true_b = 4.2
-        features, labels = data_generator(true_w,true_b,1000)
-        &amp;#39;&amp;#39;&amp;#39;
-        code = Code(code=code_text,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
-        self.play(Write(code),Uncreate(head_5),run_time=3)
-        self.wait(3)
-        self.play(Unwrite(code))
-        axes = Axes(
-            x_range=[-4, 4, 1],
-            y_range=[0, 0.5, 0.1],
-            axis_config={&amp;#34;color&amp;#34;: BLUE},
-        ).add_coordinates()
-
-        # 正态分布函数 y = (1/sqrt(2*pi)) * exp(-x^2 / 2)
-        normal_curve = axes.plot(
-            lambda x: (1 / (2 * PI) ** 0.5) * np.exp(-x**2 / 2),
-            color=YELLOW
-        )
-
-        # 绘制均值为0的竖线
-        mean_line = DashedLine(
-            start=axes.c2p(0, 0),
-            end=axes.c2p(0, (1 / (2 * PI) ** 0.5)),
-            color=RED
-        )
-
-        # 添加图形和标注
-        self.play(Create(axes))
-        self.play(Create(normal_curve), Create(mean_line))
-        
-        # 标注均值和标准差
-        mean_label = MathTex(r&amp;#34;\mu=0&amp;#34;).next_to(mean_line, DOWN)
-        std_label = MathTex(r&amp;#34;\sigma=1&amp;#34;).next_to(normal_curve, UP, buff=0.5)
-        self.play(Write(mean_label), Write(std_label))
-
-        # 展示最终效果
-        self.wait(2)
-        self.play(Unwrite(mean_label),Unwrite(std_label),Uncreate(axes),Uncreate(normal_curve),Uncreate(mean_line))
-
-        # --------------------------------------------------------------------------------------------
-
-        head = Text(&amp;#34;Displaying the distribution of features&amp;#34;)
-        feature_one = features[:,[0]].tolist()
-        feature_two = features[:,[1]].tolist()
-        labels = labels.tolist()
-        axes_1 = Axes(
-            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1
-            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1
-            x_length=5,  # x轴的长度
-            y_length=5,  # y轴的长度
-            axis_config={&amp;#34;color&amp;#34;: BLUE},  # 坐标轴的颜色
-        )
-        axes_2 = Axes(
-            x_range=[min(feature_two)[0], max(feature_two)[0], 1],  # x轴范围：从-5到5，步长为1
-            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1
-            x_length=5,  # x轴的长度
-            y_length=5,  # y轴的长度
-            axis_config={&amp;#34;color&amp;#34;: BLUE},  # 坐标轴的颜色
-        )
-        axes = VGroup(axes_1,axes_2)
-        axes.arrange(RIGHT,buff=1)
-        self.play(Create(axes))
-
-        points_1 = []
-        for i in range(len(labels)):
-            dot_position = axes_1.coords_to_point(feature_one[i][0], labels[i][0])
-            points_1.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
-        animations_1 = [Create(dot) for dot in points_1]
-        points_2 = []
-        for i in range(len(labels)):
-            dot_position = axes_2.coords_to_point(feature_two[i][0], labels[i][0])
-            points_2.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
-        animations_2 = [Create(dot) for dot in points_2]
-        self.play(Succession(*animations_1, lag_ratio=0.005),Succession(*animations_2, lag_ratio=0.005))
-
-        # 抽取样本-------------------------------------------------------------------------------------------- 
-
-        head = Text(&amp;#39;Shuffle the data and divided into samples(batches)&amp;#39;,font_size=30)
-        self.play(Uncreate(axes),Write(head),Uncreate(VGroup(*points_1)),Uncreate(VGroup(*points_2)))
-        head.move_to(UP*3.5)
-        code_text = &amp;#39;&amp;#39;&amp;#39;
-        def data_iter(batch_size,features,labels):
-            num = len(features)
-            index = list(range(num))
-            random.shuffle(index)
-            for i in range(0,num,batch_size):
-                batch_index = torch.tensor(index[i:min(i+batch_size,num)])
-                yield features[batch_index], labels[batch_index]
-        &amp;#39;&amp;#39;&amp;#39;
-        code = Code(code=code_text,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
-        self.play(Write(code))
-        self.wait(2)
-        self.play(Uncreate(code),Unwrite(head))
-
-        def data_iter(batch_size,features,labels):
-            num = len(features)
-            index = list(range(num))
-            random.shuffle(index)
-            for i in range(0,num,batch_size):
-                batch_index = torch.tensor(index[i:min(i+batch_size,num)])
-                return batch_index.tolist()
-
-
-
-        axes_1 = Axes(
-            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1
-            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1
-            x_length=2.5,  # x轴的长度
-            y_length=2.5,  # y轴的长度
-            axis_config={&amp;#34;color&amp;#34;: BLUE},  # 坐标轴的颜色
-        )
-        
-
-        axes_2 = Axes(
-            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1
-            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1
-            x_length=2.5,  # x轴的长度
-            y_length=2.5,  # y轴的长度
-            axis_config={&amp;#34;color&amp;#34;: BLUE},  # 坐标轴的颜色
-        )
-        
-        axes_3 = Axes(
-            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1
-            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1
-            x_length=2.5,  # x轴的长度
-            y_length=2.5,  # y轴的长度
-            axis_config={&amp;#34;color&amp;#34;: BLUE},  # 坐标轴的颜色
-        )
-        axes_4 = Axes(
-            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1
-            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1
-            x_length=2.5,  # x轴的长度
-            y_length=2.5,  # y轴的长度
-            axis_config={&amp;#34;color&amp;#34;: BLUE},  # 坐标轴的颜色
-        )
-        axes_5 = Axes(
-            x_range=[min(feature_one)[0], max(feature_one)[0], 1],  # x轴范围：从-5到5，步长为1
-            y_range=[min(labels)[0], max(labels)[0], 5],  # y轴范围：从-3到3，步长为1
-            x_length=2.5,  # x轴的长度
-            y_length=2.5,  # y轴的长度
-            axis_config={&amp;#34;color&amp;#34;: BLUE},  # 坐标轴的颜色
-        )
-        axes = VGroup(axes_1,axes_2,axes_3,axes_4,axes_5)
-        axes.arrange(RIGHT)
-
-        sample_1 = data_iter(10,features,labels)
-        points_1 = []
-        for i in sample_1:
-            dot_position = axes_1.coords_to_point(features[i][0],labels[i][0])
-            points_1.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
-        animations_1 = [Create(dot) for dot in points_1]
-
-        sample_2 = data_iter(10,features,labels)
-        points_2 = []
-        for i in sample_2:
-            dot_position = axes_2.coords_to_point(features[i][0],labels[i][0])
-            points_2.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
-        animations_2 = [Create(dot) for dot in points_2]
-
-        sample_3 = data_iter(10,features,labels)
-        points_3 = []
-        for i in sample_3:
-            dot_position = axes_3.coords_to_point(features[i][0],labels[i][0])
-            points_3.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
-        animations_3 = [Create(dot) for dot in points_3]
-
-        sample_4 = data_iter(10,features,labels)
-        points_4 = []
-        for i in sample_4:
-            dot_position = axes_4.coords_to_point(features[i][0],labels[i][0])
-            points_4.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
-        animations_4 = [Create(dot) for dot in points_4]
-
-        sample_5 = data_iter(10,features,labels)
-        points_5 = []
-        for i in sample_5:
-            dot_position = axes_5.coords_to_point(features[i][0],labels[i][0])
-            points_5.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
-        animations_5 = [Create(dot) for dot in points_5]   
-        head = Text(&amp;#34;Display five of Sample Batches (Batch Size = 10)&amp;#34;,font_size=30)
-        head.set_color(BLUE)
-        head.move_to(UP*2.5)
-        self.play(Write(head))
-        self.play(Create(axes),Succession(*animations_1, lag_ratio=0.05),Succession(*animations_2, lag_ratio=0.05),Succession(*animations_3, lag_ratio=0.05),Succession(*animations_4, lag_ratio=0.05),Succession(*animations_5, lag_ratio=0.05))
-        self.wait(3)
-        self.play(Uncreate(axes),Uncreate(head),Uncreate(VGroup(*points_1)),Uncreate(VGroup(*points_2)),Uncreate(VGroup(*points_3)),Uncreate(VGroup(*points_4)),Uncreate(VGroup(*points_5)))
-
-        # 定义模型-------------------------------------------------------------------------------------------- 
-
-        head_1 = Text(&amp;#39;Define the Function&amp;#39;)
-        head_1.set_color(BLUE)
-        code_text_1 = &amp;#39;&amp;#39;&amp;#39;
-        def linreg(X, w, b):
-            return torch.matmul(X, w) + b
-        &amp;#39;&amp;#39;&amp;#39;
-        code_1 = Code(code=code_text_1,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
-        head_2 = Text(&amp;#39;Define the Loss Function&amp;#39;)
-        head_2.set_color(BLUE)
-        code_text_2 = &amp;#39;&amp;#39;&amp;#39;
-        def squared_loss(y_hat, y):
-            return (y_hat - y.reshape(y_hat.shape)) ** 2 / 2
-        &amp;#39;&amp;#39;&amp;#39;
-
-
-        code_2 = Code(code=code_text_2,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
-        head = VGroup(head_1,code_1,head_2,code_2)
-        head.arrange(DOWN,buff=1)
-        self.play(Write(head))
-        self.wait(2)
-        self.play(Unwrite(head))
-
-        # 展示MSE--------------------------------------------------------------------------------------------    
-        head = MathTex(r&amp;#34;Lose~Function~MSE~:(y_i - \hat{y}_i)^2&amp;#34;)
-        head.set_color(BLUE)
-        head.move_to(UP*3)
-        self.play(Write(head))
-        axes = Axes(
-            x_range=[-10, 10, 2.5],
-            y_range=[0, 100, 20],
-            x_length=10,
-            y_length=5,
-            axis_config={&amp;#34;color&amp;#34;: GREEN},
-        )
-        
-        # 定义MSE函数
-        mse_curve = axes.plot(lambda x: (x**2), color=BLUE, x_range=[-10, 10])
-        mse_der = axes.plot(lambda x: (2*x), color=RED, x_range=[-10, 10])
-        # 将元素添加到场景中
-        self.play(Create(axes),Create(mse_curve))
-        self.wait(2)
-        self.play(Uncreate(head))
-        head = Text(&amp;#34;The MSE Derivative indicates that loss will be increasing as it increase&amp;#34;,font_size=30)
-        head.set_color(BLUE)
-        head.move_to(UP*3)
-        self.play(Write(head),Create(mse_der))
-        self.wait(3)
-        self.play(Uncreate(head),Uncreate(mse_der),Uncreate(mse_curve),Uncreate(axes))
-
-
-        # 展示SGD--------------------------------------------------------------------------------------------
-        head = Text(&amp;#34;Now Conduct the Optimization Method&amp;#34;)
-        head.move_to(UP*3)
-        head.set_color(BLUE)
-        code_text = &amp;#39;&amp;#39;&amp;#39;
-        def sgd(params, lr, batch_size):
-        with torch.no_grad():
-            for param in params:
-                param -= lr * param.grad / batch_size
-                param.grad.zero_()
-        &amp;#39;&amp;#39;&amp;#39;
-        code = Code(code=code_text,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
-        head_2 = Text(&amp;#39;Apply this optimization method for each batch&amp;#39;)
-        head_2.set_color(BLUE)
-        sgd = MathTex(r&amp;#34;(w,b)\leftarrow (w,b)-\eta g&amp;#34;)
-        main = VGroup(head,code,head_2,sgd)
-        main.arrange(DOWN,buff=0.7)
-        self.play(Write(main))
-        self.wait(2)
-        self.play(Uncreate(main),run_time=0.1)
-        
-        # 计算梯度--------------------------------------------------------------------------------------------
-        head = Text(&amp;#34;Now Calculate the Gradient&amp;#34;)
-        head.set_color(BLUE)
-        head.move_to(UP*3)
-        grad = MathTex(r&amp;#34;\frac{\partial \text{MSE}}{\partial w} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial}{\partial w} \left( y_i - (w x_i + b) \right)^2&amp;#34;)
-        grad_1 = MathTex(r&amp;#34;= \frac{1}{n} \sum_{i=1}^{n} 2(y_i - (wx_i + b)) \cdot (-x_i)&amp;#34;)
-        grad_2 = MathTex(r&amp;#34;= -\frac{1}{n} \sum_{i=1}^{n} 2(y_i - \hat{y}_i) \cdot x_i&amp;#34;)
-
-        main = VGroup(head,grad,grad_1,grad_2)
-        main.arrange(DOWN,buff=0.7)
-        self.play(Write(main))
-        self.wait(2)
-        self.play(Uncreate(main),run_time=0.01)
-        head = Text(&amp;#34;Then apllies the formula for 1000/10=100 Times&amp;#34;,font_size=45)
-        head.set_color(BLUE)
-        grad = MathTex(r&amp;#39;w := w + \eta \cdot \frac{1}{n} \sum_{i=1}^{n} 2(y_i - \hat{y}_i) \cdot x_i&amp;#39;)
-        grad_1 = MathTex(r&amp;#34;b := b + \eta \cdot \frac{1}{n} \sum_{i=1}^{n} 2(y_i - \hat{y}_i)&amp;#34;)
-        main = VGroup(head,grad,grad_1)
-        main.arrange(DOWN,buff=0.7)
-        self.play(Write(main))
-        self.wait(3)
-        self.play(Uncreate(main),run_time=0.01)
-
-        # 总结--------------------------------------------------------------------------------------------
-        code_text = &amp;#39;&amp;#39;&amp;#39;
-        lr = 0.03
-        num_epochs = 3
-        net = linreg
-        loss = squared_loss
-
-        for epoch in range(num_epochs):
-            for X, y in data_iter(batch_size, features, labels):
-                l = loss(net(X, w, b), y)
-                l.sum().backward()
-                sgd([w, b], lr, batch_size)
-            with torch.no_grad():
-                train_l = loss(net(features, w, b), labels)
-                print(f&amp;#39;epoch {epoch + 1}, loss {float(train_l.mean()):f}&amp;#39;)
-        &amp;#39;&amp;#39;&amp;#39;
-        code = Code(code=code_text,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
-        head = Text(&amp;#34;Then applies the whole process in epochs and that&amp;#39;s linear regression&amp;#34;,font_size=30)
-        main = VGroup(head,code)
-        main.arrange(DOWN,buff=1)
-        self.play(Write(main))
+def construct(self):
+def data_generator(w,b,num):
+X = torch.normal(0, 1, (num, len(w)))
+y = torch.matmul(X, w) + b
+y += torch.normal(0, 0.01, y.shape)
+return X, y.reshape((-1, 1))
+true_w = torch.tensor([2,-3.4])
+true_b = 4.2
+features, labels = data_generator(true_w,true_b,1000)
+normal_data = features[:,[0]].numpy()
+#plt.hist(normal_data,bins=100,density=True,color=&amp;#39;lightblue&amp;#39;)
+head = Text(&amp;#34;Linear Regression - Buezwqwg&amp;#34;)
+head.set_color(BLUE)
+self.play(Create(head))
+head_0 = Text(&amp;#34;In one process of Linear Regression, there bascially includes 5 steps&amp;#34;,font_size=30)
+self.play(Uncreate(head),Write(head_0))
+self.play(head_0.animate.move_to(UP*3.5))
+head_1 = Text(&amp;#34;1. Initial Parameters&amp;#34;,font_size=30)
+head_2 = Text(&amp;#34;2. Defining Model and Loss Function&amp;#34;,font_size=30)
+head_3 = Text(&amp;#34;3. Optimization&amp;#34;,font_size=30)
+head_4 = Text(&amp;#34;4. Loop&amp;#34;,font_size=30)
+head = VGroup(head_1,head_2,head_3,head_4)
+head.arrange(DOWN)
+self.play(Write(head))
+# --------------------------------------------------------------------------------------------
+head_5 = Text(&amp;#34;In this animate, we start with generating the data&amp;#34;,font_size=30)
+head_5.move_to(UP*3.5)
+self.play(Uncreate(head),Uncreate(head_0),Write(head_5))
+code_text = &amp;#39;&amp;#39;&amp;#39;
+def data_generator(w, b, num):
+X = torch.normal(0, 1, (num, len(w)))
+y = torch.matmul(X, w) + b
+y += torch.normal(0, 0.01, y.shape)
+return X, y.reshape((-1, 1))
+true_w = torch.tensor([2,-3.4])
+true_b = 4.2
+features, labels = data_generator(true_w,true_b,1000)
+&amp;#39;&amp;#39;&amp;#39;
+code = Code(code=code_text,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
+self.play(Write(code),Uncreate(head_5),run_time=3)
+self.wait(3)
+self.play(Unwrite(code))
+axes = Axes(
+x_range=[-4, 4, 1],
+y_range=[0, 0.5, 0.1],
+axis_config={&amp;#34;color&amp;#34;: BLUE},
+).add_coordinates()
+# 正态分布函数 y = (1/sqrt(2*pi)) * exp(-x^2 / 2)
+normal_curve = axes.plot(
+lambda x: (1 / (2 * PI) ** 0.5) * np.exp(-x**2 / 2),
+color=YELLOW
+)
+# 绘制均值为0的竖线
+mean_line = DashedLine(
+start=axes.c2p(0, 0),
+end=axes.c2p(0, (1 / (2 * PI) ** 0.5)),
+color=RED
+)
+# 添加图形和标注
+self.play(Create(axes))
+self.play(Create(normal_curve), Create(mean_line))
+# 标注均值和标准差
+mean_label = MathTex(r&amp;#34;\mu=0&amp;#34;).next_to(mean_line, DOWN)
+std_label = MathTex(r&amp;#34;\sigma=1&amp;#34;).next_to(normal_curve, UP, buff=0.5)
+self.play(Write(mean_label), Write(std_label))
+# 展示最终效果
+self.wait(2)
+self.play(Unwrite(mean_label),Unwrite(std_label),Uncreate(axes),Uncreate(normal_curve),Uncreate(mean_line))
+# --------------------------------------------------------------------------------------------
+head = Text(&amp;#34;Displaying the distribution of features&amp;#34;)
+feature_one = features[:,[0]].tolist()
+feature_two = features[:,[1]].tolist()
+labels = labels.tolist()
+axes_1 = Axes(
+x_range=[min(feature_one)[0], max(feature_one)[0], 1], # x轴范围：从-5到5，步长为1
+y_range=[min(labels)[0], max(labels)[0], 5], # y轴范围：从-3到3，步长为1
+x_length=5, # x轴的长度
+y_length=5, # y轴的长度
+axis_config={&amp;#34;color&amp;#34;: BLUE}, # 坐标轴的颜色
+)
+axes_2 = Axes(
+x_range=[min(feature_two)[0], max(feature_two)[0], 1], # x轴范围：从-5到5，步长为1
+y_range=[min(labels)[0], max(labels)[0], 5], # y轴范围：从-3到3，步长为1
+x_length=5, # x轴的长度
+y_length=5, # y轴的长度
+axis_config={&amp;#34;color&amp;#34;: BLUE}, # 坐标轴的颜色
+)
+axes = VGroup(axes_1,axes_2)
+axes.arrange(RIGHT,buff=1)
+self.play(Create(axes))
+points_1 = []
+for i in range(len(labels)):
+dot_position = axes_1.coords_to_point(feature_one[i][0], labels[i][0])
+points_1.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
+animations_1 = [Create(dot) for dot in points_1]
+points_2 = []
+for i in range(len(labels)):
+dot_position = axes_2.coords_to_point(feature_two[i][0], labels[i][0])
+points_2.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
+animations_2 = [Create(dot) for dot in points_2]
+self.play(Succession(*animations_1, lag_ratio=0.005),Succession(*animations_2, lag_ratio=0.005))
+# 抽取样本--------------------------------------------------------------------------------------------
+head = Text(&amp;#39;Shuffle the data and divided into samples(batches)&amp;#39;,font_size=30)
+self.play(Uncreate(axes),Write(head),Uncreate(VGroup(*points_1)),Uncreate(VGroup(*points_2)))
+head.move_to(UP*3.5)
+code_text = &amp;#39;&amp;#39;&amp;#39;
+def data_iter(batch_size,features,labels):
+num = len(features)
+index = list(range(num))
+random.shuffle(index)
+for i in range(0,num,batch_size):
+batch_index = torch.tensor(index[i:min(i+batch_size,num)])
+yield features[batch_index], labels[batch_index]
+&amp;#39;&amp;#39;&amp;#39;
+code = Code(code=code_text,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
+self.play(Write(code))
+self.wait(2)
+self.play(Uncreate(code),Unwrite(head))
+def data_iter(batch_size,features,labels):
+num = len(features)
+index = list(range(num))
+random.shuffle(index)
+for i in range(0,num,batch_size):
+batch_index = torch.tensor(index[i:min(i+batch_size,num)])
+return batch_index.tolist()
+axes_1 = Axes(
+x_range=[min(feature_one)[0], max(feature_one)[0], 1], # x轴范围：从-5到5，步长为1
+y_range=[min(labels)[0], max(labels)[0], 5], # y轴范围：从-3到3，步长为1
+x_length=2.5, # x轴的长度
+y_length=2.5, # y轴的长度
+axis_config={&amp;#34;color&amp;#34;: BLUE}, # 坐标轴的颜色
+)
+axes_2 = Axes(
+x_range=[min(feature_one)[0], max(feature_one)[0], 1], # x轴范围：从-5到5，步长为1
+y_range=[min(labels)[0], max(labels)[0], 5], # y轴范围：从-3到3，步长为1
+x_length=2.5, # x轴的长度
+y_length=2.5, # y轴的长度
+axis_config={&amp;#34;color&amp;#34;: BLUE}, # 坐标轴的颜色
+)
+axes_3 = Axes(
+x_range=[min(feature_one)[0], max(feature_one)[0], 1], # x轴范围：从-5到5，步长为1
+y_range=[min(labels)[0], max(labels)[0], 5], # y轴范围：从-3到3，步长为1
+x_length=2.5, # x轴的长度
+y_length=2.5, # y轴的长度
+axis_config={&amp;#34;color&amp;#34;: BLUE}, # 坐标轴的颜色
+)
+axes_4 = Axes(
+x_range=[min(feature_one)[0], max(feature_one)[0], 1], # x轴范围：从-5到5，步长为1
+y_range=[min(labels)[0], max(labels)[0], 5], # y轴范围：从-3到3，步长为1
+x_length=2.5, # x轴的长度
+y_length=2.5, # y轴的长度
+axis_config={&amp;#34;color&amp;#34;: BLUE}, # 坐标轴的颜色
+)
+axes_5 = Axes(
+x_range=[min(feature_one)[0], max(feature_one)[0], 1], # x轴范围：从-5到5，步长为1
+y_range=[min(labels)[0], max(labels)[0], 5], # y轴范围：从-3到3，步长为1
+x_length=2.5, # x轴的长度
+y_length=2.5, # y轴的长度
+axis_config={&amp;#34;color&amp;#34;: BLUE}, # 坐标轴的颜色
+)
+axes = VGroup(axes_1,axes_2,axes_3,axes_4,axes_5)
+axes.arrange(RIGHT)
+sample_1 = data_iter(10,features,labels)
+points_1 = []
+for i in sample_1:
+dot_position = axes_1.coords_to_point(features[i][0],labels[i][0])
+points_1.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
+animations_1 = [Create(dot) for dot in points_1]
+sample_2 = data_iter(10,features,labels)
+points_2 = []
+for i in sample_2:
+dot_position = axes_2.coords_to_point(features[i][0],labels[i][0])
+points_2.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
+animations_2 = [Create(dot) for dot in points_2]
+sample_3 = data_iter(10,features,labels)
+points_3 = []
+for i in sample_3:
+dot_position = axes_3.coords_to_point(features[i][0],labels[i][0])
+points_3.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
+animations_3 = [Create(dot) for dot in points_3]
+sample_4 = data_iter(10,features,labels)
+points_4 = []
+for i in sample_4:
+dot_position = axes_4.coords_to_point(features[i][0],labels[i][0])
+points_4.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
+animations_4 = [Create(dot) for dot in points_4]
+sample_5 = data_iter(10,features,labels)
+points_5 = []
+for i in sample_5:
+dot_position = axes_5.coords_to_point(features[i][0],labels[i][0])
+points_5.append(Dot(point=dot_position, radius=0.05, color=YELLOW))
+animations_5 = [Create(dot) for dot in points_5]
+head = Text(&amp;#34;Display five of Sample Batches (Batch Size = 10)&amp;#34;,font_size=30)
+head.set_color(BLUE)
+head.move_to(UP*2.5)
+self.play(Write(head))
+self.play(Create(axes),Succession(*animations_1, lag_ratio=0.05),Succession(*animations_2, lag_ratio=0.05),Succession(*animations_3, lag_ratio=0.05),Succession(*animations_4, lag_ratio=0.05),Succession(*animations_5, lag_ratio=0.05))
+self.wait(3)
+self.play(Uncreate(axes),Uncreate(head),Uncreate(VGroup(*points_1)),Uncreate(VGroup(*points_2)),Uncreate(VGroup(*points_3)),Uncreate(VGroup(*points_4)),Uncreate(VGroup(*points_5)))
+# 定义模型--------------------------------------------------------------------------------------------
+head_1 = Text(&amp;#39;Define the Function&amp;#39;)
+head_1.set_color(BLUE)
+code_text_1 = &amp;#39;&amp;#39;&amp;#39;
+def linreg(X, w, b):
+return torch.matmul(X, w) + b
+&amp;#39;&amp;#39;&amp;#39;
+code_1 = Code(code=code_text_1,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
+head_2 = Text(&amp;#39;Define the Loss Function&amp;#39;)
+head_2.set_color(BLUE)
+code_text_2 = &amp;#39;&amp;#39;&amp;#39;
+def squared_loss(y_hat, y):
+return (y_hat - y.reshape(y_hat.shape)) ** 2 / 2
+&amp;#39;&amp;#39;&amp;#39;
+code_2 = Code(code=code_text_2,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
+head = VGroup(head_1,code_1,head_2,code_2)
+head.arrange(DOWN,buff=1)
+self.play(Write(head))
+self.wait(2)
+self.play(Unwrite(head))
+# 展示MSE--------------------------------------------------------------------------------------------
+head = MathTex(r&amp;#34;Lose~Function~MSE~:(y_i - \hat{y}_i)^2&amp;#34;)
+head.set_color(BLUE)
+head.move_to(UP*3)
+self.play(Write(head))
+axes = Axes(
+x_range=[-10, 10, 2.5],
+y_range=[0, 100, 20],
+x_length=10,
+y_length=5,
+axis_config={&amp;#34;color&amp;#34;: GREEN},
+)
+# 定义MSE函数
+mse_curve = axes.plot(lambda x: (x**2), color=BLUE, x_range=[-10, 10])
+mse_der = axes.plot(lambda x: (2*x), color=RED, x_range=[-10, 10])
+# 将元素添加到场景中
+self.play(Create(axes),Create(mse_curve))
+self.wait(2)
+self.play(Uncreate(head))
+head = Text(&amp;#34;The MSE Derivative indicates that loss will be increasing as it increase&amp;#34;,font_size=30)
+head.set_color(BLUE)
+head.move_to(UP*3)
+self.play(Write(head),Create(mse_der))
+self.wait(3)
+self.play(Uncreate(head),Uncreate(mse_der),Uncreate(mse_curve),Uncreate(axes))
+# 展示SGD--------------------------------------------------------------------------------------------
+head = Text(&amp;#34;Now Conduct the Optimization Method&amp;#34;)
+head.move_to(UP*3)
+head.set_color(BLUE)
+code_text = &amp;#39;&amp;#39;&amp;#39;
+def sgd(params, lr, batch_size):
+with torch.no_grad():
+for param in params:
+param -= lr * param.grad / batch_size
+param.grad.zero_()
+&amp;#39;&amp;#39;&amp;#39;
+code = Code(code=code_text,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
+head_2 = Text(&amp;#39;Apply this optimization method for each batch&amp;#39;)
+head_2.set_color(BLUE)
+sgd = MathTex(r&amp;#34;(w,b)\leftarrow (w,b)-\eta g&amp;#34;)
+main = VGroup(head,code,head_2,sgd)
+main.arrange(DOWN,buff=0.7)
+self.play(Write(main))
+self.wait(2)
+self.play(Uncreate(main),run_time=0.1)
+# 计算梯度--------------------------------------------------------------------------------------------
+head = Text(&amp;#34;Now Calculate the Gradient&amp;#34;)
+head.set_color(BLUE)
+head.move_to(UP*3)
+grad = MathTex(r&amp;#34;\frac{\partial \text{MSE}}{\partial w} = \frac{1}{n} \sum_{i=1}^{n} \frac{\partial}{\partial w} \left( y_i - (w x_i + b) \right)^2&amp;#34;)
+grad_1 = MathTex(r&amp;#34;= \frac{1}{n} \sum_{i=1}^{n} 2(y_i - (wx_i + b)) \cdot (-x_i)&amp;#34;)
+grad_2 = MathTex(r&amp;#34;= -\frac{1}{n} \sum_{i=1}^{n} 2(y_i - \hat{y}_i) \cdot x_i&amp;#34;)
+main = VGroup(head,grad,grad_1,grad_2)
+main.arrange(DOWN,buff=0.7)
+self.play(Write(main))
+self.wait(2)
+self.play(Uncreate(main),run_time=0.01)
+head = Text(&amp;#34;Then apllies the formula for 1000/10=100 Times&amp;#34;,font_size=45)
+head.set_color(BLUE)
+grad = MathTex(r&amp;#39;w := w + \eta \cdot \frac{1}{n} \sum_{i=1}^{n} 2(y_i - \hat{y}_i) \cdot x_i&amp;#39;)
+grad_1 = MathTex(r&amp;#34;b := b + \eta \cdot \frac{1}{n} \sum_{i=1}^{n} 2(y_i - \hat{y}_i)&amp;#34;)
+main = VGroup(head,grad,grad_1)
+main.arrange(DOWN,buff=0.7)
+self.play(Write(main))
+self.wait(3)
+self.play(Uncreate(main),run_time=0.01)
+# 总结--------------------------------------------------------------------------------------------
+code_text = &amp;#39;&amp;#39;&amp;#39;
+lr = 0.03
+num_epochs = 3
+net = linreg
+loss = squared_loss
+for epoch in range(num_epochs):
+for X, y in data_iter(batch_size, features, labels):
+l = loss(net(X, w, b), y)
+l.sum().backward()
+sgd([w, b], lr, batch_size)
+with torch.no_grad():
+train_l = loss(net(features, w, b), labels)
+print(f&amp;#39;epoch {epoch + 1}, loss {float(train_l.mean()):f}&amp;#39;)
+&amp;#39;&amp;#39;&amp;#39;
+code = Code(code=code_text,insert_line_no=False,language=&amp;#34;Python&amp;#34;,font=&amp;#34;Monospace&amp;#34;)
+head = Text(&amp;#34;Then applies the whole process in epochs and that&amp;#39;s linear regression&amp;#34;,font_size=30)
+main = VGroup(head,code)
+main.arrange(DOWN,buff=1)
+self.play(Write(main))
 ---
-&lt;/code&gt;&lt;/pre&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/linearregression/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 3.1 Linear Regression</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit 4/15/24&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 3.2 Object-Oriented Design for Implementation</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid>
-      <description>&lt;p&gt;从零开始实现整个方法， 包括数据流水线、模型、损失函数和小批量随机梯度下降优化器。 虽然现代的深度学习框架几乎可以自动化地进行所有这些工作，但从零开始实现可以确保我们真正知道自己在做什么。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 3.3 A concise implementation of linear regression</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid>
-      <description>&lt;p&gt;本节将介绍如何通过使用深度学习框架来简洁地实现[[3.2_Object-OrientedDesignforImplementation]]中的线性回归模型&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 3.4 Softmax Regression</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid>
-      <description>&lt;p&gt;回归可以用于预测_多少_的问题。 比如预测房屋被售出价格，或者棒球队可能获得的胜场数，又或者患者住院的天数。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 3.5 Image classification datasets</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid>
-      <description>&lt;p&gt;MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id90&#34;title=&#34;LeCun, Y., Bottou, L., Bengio, Y., Haffner, P., &amp;amp; others. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324.&#34; target=&#34;_blank&#34;&gt;LeCun &lt;em&gt;et al.&lt;/em&gt;, 1998&lt;/a&gt;) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id189&#34;title=&#34;Xiao, H., Rasul, K., &amp;amp; Vollgraf, R. (2017). Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms. arXiv preprint arXiv:1708.07747.&#34; target=&#34;_blank&#34;&gt;Xiao &lt;em&gt;et al.&lt;/em&gt;, 2017&lt;/a&gt;)。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 3.6 Implementation of softmax regression from scratch</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid>
-      <description>&lt;h2 class=&#34;relative group&#34;&gt;3.6.1 初始化模型参数 
-    &lt;div id=&#34;361-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#361-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;和之前线性回归的例子一样，这里的每个样本都将用固定长度的向量表示。 原始数据集中的每个样本都是28×28的图像。 本节将展平每个图像，把它们看作长度为784的向量&lt;/li&gt;
-&lt;li&gt;在3.5中，我们选择了一个拥有10个类别的数据集，所以softmax网络的输出维度为10&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;初始化权重w 
-    &lt;div id=&#34;%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%83%E9%87%8Dw&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%83%E9%87%8Dw&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;与线性回归一样，我们使用正态分布初始化权重w，偏置初始化为0&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;num_inputs = 784
+&lt;/code>&lt;/pre></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/linearregression/feature.png"/></item><item><title>D2L 3.1 Linear Regression</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid><description>&lt;blockquote>
+&lt;p>Last Edit 4/15/24&lt;/p>
+&lt;/blockquote>
+&lt;p>Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png"/></item><item><title>D2L 3.2 Object-Oriented Design for Implementation</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid><description>&lt;p>从零开始实现整个方法， 包括数据流水线、模型、损失函数和小批量随机梯度下降优化器。 虽然现代的深度学习框架几乎可以自动化地进行所有这些工作，但从零开始实现可以确保我们真正知道自己在做什么。&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png"/></item><item><title>D2L 3.3 A concise implementation of linear regression</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid><description>&lt;p>本节将介绍如何通过使用深度学习框架来简洁地实现[[3.2_Object-OrientedDesignforImplementation]]中的线性回归模型&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png"/></item><item><title>D2L 3.4 Softmax Regression</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid><description>&lt;p>回归可以用于预测_多少_的问题。 比如预测房屋被售出价格，或者棒球队可能获得的胜场数，又或者患者住院的天数。&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png"/></item><item><title>D2L 3.5 Image classification datasets</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid><description>&lt;p>MNIST数据集 (&lt;a href="https://zh-v2.d2l.ai/chapter_references/zreferences.html#id90"title="LeCun, Y., Bottou, L., Bengio, Y., Haffner, P., &amp;amp; others. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324." target="_blank">LeCun &lt;em>et al.&lt;/em>, 1998&lt;/a>) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (&lt;a href="https://zh-v2.d2l.ai/chapter_references/zreferences.html#id189"title="Xiao, H., Rasul, K., &amp;amp; Vollgraf, R. (2017). Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms. arXiv preprint arXiv:1708.07747." target="_blank">Xiao &lt;em>et al.&lt;/em>, 2017&lt;/a>)。&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png"/></item><item><title>D2L 3.6 Implementation of softmax regression from scratch</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid><description>&lt;h2 class="relative group">3.6.1 初始化模型参数
+&lt;div id="361-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#361-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>和之前线性回归的例子一样，这里的每个样本都将用固定长度的向量表示。 原始数据集中的每个样本都是28×28的图像。 本节将展平每个图像，把它们看作长度为784的向量&lt;/li>
+&lt;li>在3.5中，我们选择了一个拥有10个类别的数据集，所以softmax网络的输出维度为10&lt;/li>
+&lt;/ul>
+&lt;h3 class="relative group">初始化权重w
+&lt;div id="%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%83%E9%87%8Dw" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%83%E9%87%8Dw" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h3>
+&lt;ul>
+&lt;li>与线性回归一样，我们使用正态分布初始化权重w，偏置初始化为0&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>num_inputs = 784
 num_outputs = 10
-
 W = torch.normal(0, 0.01, size=(num_inputs, num_outputs), requires_grad=True)
 b = torch.zeros(num_outputs, requires_grad=True)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 class=&#34;relative group&#34;&gt;3.6.2 定义softmax操作 
-    &lt;div id=&#34;362-%E5%AE%9A%E4%B9%89softmax%E6%93%8D%E4%BD%9C&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#362-%E5%AE%9A%E4%B9%89softmax%E6%93%8D%E4%BD%9C&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;实现softmax操作由三个步骤组成&lt;/li&gt;
-&lt;li&gt;对每个项求幂&lt;/li&gt;
-&lt;li&gt;对每一行求和，得到其规范化常数&lt;/li&gt;
-&lt;li&gt;每一行除以其规范化常数，保持结果的和为1
-$$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
-&lt;li&gt;分母或规范化常数，有时也称为_配分函数_（其对数称为对数-配分函数）。 该名称来自&lt;a href=&#34;https://en.wikipedia.org/wiki/Partition_function_%28statistical_mechanics%29&#34; target=&#34;_blank&#34;&gt;统计物理学&lt;/a&gt;中一个模拟粒子群分布的方程&lt;/li&gt;
-&lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;def softmax(X):
-    X_exp = torch.exp(X)
-    partition = X_exp.sum(1, keepdim=True)
-    return X_exp / partition  # 这里应用了广播机制
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;keepdim=True: 在进行张量操作时，保持原始张量的维度&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 4.1 MultilayerPerceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
-      <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
-    </item>
-    
-    <item>
-      <title>D2L 4.4 Model Selection, Underfitting, and Overfitting</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
-      <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
-      <description>&lt;p&gt;深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
-    </item>
-    
-    <item>
-      <title>Chapter 3. Linear Neural Network</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link>
-      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid>
-      <description>&lt;hr&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Chapter 4. Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link>
-      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</guid>
-      <description>&lt;hr&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Dive Into Deep Learning</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/</link>
-      <pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/</guid>
-      <description>&lt;p&gt;《动手学深度学习》 — 动手学深度学习 2.0.0 documentation. (2023). Zh-V2.D2l.ai. &lt;a href=&#34;https://zh-v2.d2l.ai/index.html&#34; target=&#34;_blank&#34;&gt;https://zh-v2.d2l.ai/index.html&lt;/a&gt;&lt;/p&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;‌ 
-    &lt;div id=&#34;heading&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#heading&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;</description>
-      
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>
+&lt;h2 class="relative group">3.6.2 定义softmax操作
+&lt;div id="362-%E5%AE%9A%E4%B9%89softmax%E6%93%8D%E4%BD%9C" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#362-%E5%AE%9A%E4%B9%89softmax%E6%93%8D%E4%BD%9C" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2>
+&lt;ul>
+&lt;li>实现softmax操作由三个步骤组成&lt;/li>
+&lt;li>对每个项求幂&lt;/li>
+&lt;li>对每一行求和，得到其规范化常数&lt;/li>
+&lt;li>每一行除以其规范化常数，保持结果的和为1
+$$softmax(X)&lt;em>{ij}=\frac{exp(X&lt;/em>{ij})}{\sum_kexp(X_{ik})}$$&lt;/li>
+&lt;li>分母或规范化常数，有时也称为_配分函数_（其对数称为对数-配分函数）。 该名称来自&lt;a href="https://en.wikipedia.org/wiki/Partition_function_%28statistical_mechanics%29" target="_blank">统计物理学&lt;/a>中一个模拟粒子群分布的方程&lt;/li>
+&lt;/ul>
+&lt;pre tabindex="0">&lt;code>def softmax(X):
+X_exp = torch.exp(X)
+partition = X_exp.sum(1, keepdim=True)
+return X_exp / partition # 这里应用了广播机制
+&lt;/code>&lt;/pre>&lt;ul>
+&lt;li>
+&lt;p>keepdim=True: 在进行张量操作时，保持原始张量的维度&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png"/></item><item><title>D2L 4.1 MultilayerPerceptron</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid><description>&lt;p>在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png"/></item><item><title>D2L 4.4 Model Selection, Underfitting, and Overfitting</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link><pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid><description>&lt;p>深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p></description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png"/></item><item><title>Chapter 3. Linear Neural Network</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</link><pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/</guid><description>&lt;hr></description></item><item><title>Chapter 4. Multilayer Perceptron</title><link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</link><pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/</guid><description>&lt;hr></description></item><item><title>Dive Into Deep Learning</title><link>https://buezw.github.io/docs/dive-into-deep-learning/</link><pubDate>Tue, 23 Jan 2024 00:00:00 +0000</pubDate><author>youremail@example.com (Buezwqwg)</author><guid>https://buezw.github.io/docs/dive-into-deep-learning/</guid><description>&lt;p>《动手学深度学习》 — 动手学深度学习 2.0.0 documentation. (2023). Zh-V2.D2l.ai. &lt;a href="https://zh-v2.d2l.ai/index.html" target="_blank">https://zh-v2.d2l.ai/index.html&lt;/a>&lt;/p>
+&lt;h2 class="relative group">‌
+&lt;div id="heading" class="anchor">&lt;/div>
+&lt;span
+class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+&lt;a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+style="text-decoration-line: none !important;" href="#heading" aria-label="Anchor">#&lt;/a>
+&lt;/span>
+&lt;/h2></description></item></channel></rss>
