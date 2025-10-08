@@ -1,0 +1,4244 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"
+><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>AEM 2. Differential Equations &middot; Buezwqwg</title>
+  <meta name="title" content="AEM 2. Differential Equations &middot; Buezwqwg" />
+  
+  
+  <meta name="keywords" content="Docs, AEM, " />
+  
+  
+  <link rel="canonical" href="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
+    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.821d421a756ddb6f1c91d41c53d0e2b2afa007b11ade688aa55594a12048893dadc2cbc127bd32da081f77022a40c9e1b73193584db9a34368e9cfd56758e43f.js"
+    integrity="sha512-gh1CGnVt228ckdQcU9Disq&#43;gB7Ea3miKpVWUoSBIiT2twsvBJ70y2ggfdwIqQMnhtzGTWE25o0No6c/VZ1jkPw==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/">
+  <meta property="og:site_name" content="Buezwqwg">
+  <meta property="og:title" content="AEM 2. Differential Equations">
+  <meta property="og:description" content="AEM2.DifferentialEquations #Last Edit: 10/6/25
+Ordinary Differential Equations 常微分方程 #在 ODE 中，未知函数只依赖于一个 independent variable $$ \frac{d^2 y}{dx^2} = -k^2 y $$">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-10-06T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-06T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="AEM">
+    <meta property="og:image" content="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/feature.png">
+  <meta name="twitter:title" content="AEM 2. Differential Equations">
+  <meta name="twitter:description" content="AEM2.DifferentialEquations #Last Edit: 10/6/25
+Ordinary Differential Equations 常微分方程 #在 ODE 中，未知函数只依赖于一个 independent variable $$ \frac{d^2 y}{dx^2} = -k^2 y $$">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "AEM 2. Differential Equations",
+    "headline": "AEM 2. Differential Equations",
+    
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eAEM2.DifferentialEquations \r\n    \u003cdiv id=\u0022aem2differentialequations\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#aem2differentialequations\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 10\/6\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\r\n\r\n\u003ch2 class=\u0022relative group\u0022\u003eOrdinary Differential Equations 常微分方程 \r\n    \u003cdiv id=\u0022ordinary-differential-equations-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\r\n    \r\n    \u003cspan\r\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\r\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\r\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ordinary-differential-equations-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\r\n    \u003c\/span\u003e        \r\n    \r\n\u003c\/h2\u003e\r\n\u003cul\u003e\n\u003cli\u003e在 ODE 中，未知函数只依赖于一个 independent variable\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e$$\n\\frac{d^2 y}{dx^2} = -k^2 y\n$$\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/advanced-engineering-mathematics\/aem2.differentialequations\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Buezwqwg"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-10-06T00:00:00\u002b00:00",
+    "datePublished": "2025-10-06T00:00:00\u002b00:00",
+    
+    "dateModified": "2025-10-06T00:00:00\u002b00:00",
+    
+    "keywords": ["Docs","AEM"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "6444"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="Buezwqwg" />
+  
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PEDMYR1V0K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-PEDMYR1V0K');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen text-lg leading-7
+           bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral
+           scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400
+           dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600
+           
+             max-w-7xl m-auto px-6 sm:px-14 md:px-24 lg:px-32
+           ">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+      >
+        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content
+      </a>
+    </div>
+
+    
+    
+      
+      
+        <div class="min-h-[100px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Docs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Thoughts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Notes
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Zhihu
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Docs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Thoughts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Notes
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Zhihu
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+      
+    
+
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow ">
+        
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/feature_hu2621249713009970027.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Buezwqwg</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/"
+      >U of T</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/advanced-engineering-mathematics/"
+      >Advanced Engineering Mathematics</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/"
+      >AEM 2. Differential Equations</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      AEM 2. Differential Equations
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>6444 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/aem/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AEM
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#aem2differentialequations">AEM2.DifferentialEquations</a></li>
+    <li><a href="#ordinary-differential-equations-常微分方程">Ordinary Differential Equations 常微分方程</a></li>
+    <li><a href="#classifying-des">Classifying DE’s</a>
+      <ul>
+        <li><a href="#order-of-a-de">Order of a DE</a></li>
+        <li><a href="#general-form-of-de">General form of DE</a></li>
+        <li><a href="#linear-and-non-linear-odes"><strong>Linear and Non-linear ODEs</strong></a></li>
+        <li><a href="#homogeneous-and-non-homogeneous-linear-ode"><strong>Homogeneous and Non-homogeneous Linear ODE</strong></a></li>
+        <li><a href="#constant-vs-variable-coefficient"><strong>Constant vs Variable Coefficient</strong></a></li>
+        <li><a href="#autonomous-ode"><strong>Autonomous ODE</strong></a>
+          <ul>
+            <li><a href="#ex-autonomous-ode">Ex. Autonomous ODE</a></li>
+            <li><a href="#general-form">General Form</a></li>
+          </ul>
+        </li>
+        <li><a href="#ex-identify-the-odes">Ex. Identify the ODEs</a></li>
+      </ul>
+    </li>
+    <li><a href="#solution-of-ode">Solution of ODE</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#ex-verifying-solution">Ex. Verifying Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#existence-of-solutions-general-particular-and-singular">Existence of Solutions, General, Particular and Singular</a></li>
+    <li><a href="#how-to-solve-first-order-ode"><strong>How to solve first-order ODE</strong></a>
+      <ul>
+        <li><a href="#separable-first-order-ode"><strong>Separable First-order ODE</strong></a></li>
+        <li><a href="#integrating-factor-method"><strong>Integrating Factor Method</strong></a></li>
+        <li><a href="#ex">Ex.</a></li>
+      </ul>
+    </li>
+    <li><a href="#existence-and-uniqueness-of-solutions-for-linear-1st-order-ivps">Existence and Uniqueness of Solutions for Linear 1st Order IVPs</a>
+      <ul>
+        <li><a href="#existence-of-a-unique-solution-for-first-order-ivps">Existence of a Unique Solution for First-Order IVPs</a></li>
+        <li><a href="#existence-of-a-unique-solution-for-first-order-linear-ivps"><strong>Existence of a Unique Solution for First-Order Linear IVPs</strong></a></li>
+        <li><a href="#why-linear-follow-from-non-linear">Why Linear Follow From Non-Linear</a>
+          <ul>
+            <li><a href="#ex-applying-non-linear-case">Ex. Applying Non-Linear Case</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#solution-curves-without-solutions-direction-field">Solution Curves without Solutions: Direction Field</a></li>
+    <li><a href="#autonomous-de-and-its-critical-points">Autonomous DE and its Critical Points</a>
+      <ul>
+        <li><a href="#critical-point">Critical Point</a>
+          <ul>
+            <li><a href="#ex-critical-point-of-a-function">Ex. Critical Point of a Function</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#stability-of-critical-points">Stability of Critical Points</a>
+      <ul>
+        <li><a href="#stable-point">Stable Point</a></li>
+        <li><a href="#unstable-point">Unstable Point</a></li>
+        <li><a href="#semi-stable-point">Semi-Stable Point</a></li>
+      </ul>
+    </li>
+    <li><a href="#general-linear-odes-and-linear-differential-operator">General Linear ODE’s and Linear Differential Operator</a>
+      <ul>
+        <li><a href="#linear-differential-operator-l">Linear Differential Operator L</a>
+          <ul>
+            <li><a href="#ex1-find-linear-differential-operator-l">Ex1. Find Linear Differential Operator L</a></li>
+            <li><a href="#ex2-find-linear-differential-operator-l">Ex2. Find Linear Differential Operator L</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#existence-and-uniqueness-of-nth-order-linear-ode">Existence and Uniqueness of nth order Linear ODE</a>
+      <ul>
+        <li><a href="#theorem-existence-of-a-unique-solution"><strong>Theorem: Existence of a Unique Solution</strong></a>
+          <ul>
+            <li><a href="#ex1-existence-of-a-unique-solution">Ex1. Existence of a Unique Solution</a></li>
+            <li><a href="#ex2-existence-of-a-unique-solution">Ex2. Existence of a Unique Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#homogenous-linear-des-general-solutions">Homogenous Linear DE’s: General Solutions</a>
+      <ul>
+        <li><a href="#theorem-general-solutions-for-homogeneous-linear-des">Theorem： General Solutions for Homogeneous Linear DEs</a></li>
+        <li><a href="#definition-linearly-independence-of-functions">Definition: Linearly Independence of Functions</a>
+          <ul>
+            <li><a href="#ex1-finding-the-linear-independency-of-function">Ex1. Finding the Linear Independency of function</a></li>
+            <li><a href="#ex2-finding-the-linear-independency-of-function">Ex2. Finding the Linear Independency of function</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#how-to-check-if-n-functions-are-independent">How to check if n functions are independent?</a>
+      <ul>
+        <li><a href="#case-in-non-polynomial">Case in non Polynomial</a></li>
+        <li><a href="#the-wronskian">The Wronskian</a></li>
+        <li><a href="#the-beauty-of-math-or-how-seemingly-unrelated-mathematical-topics-connect-to-each-other">The beauty of Math (or how seemingly unrelated mathematical topics connect to each other)</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#case-when-w--0-for-all-x-in-i">Case when W = 0 for all x in I</a>
+          <ul>
+            <li><a href="#ex-case-when-w--0-for-all-x-in-i">Ex. Case when W = 0 for all x in I</a></li>
+          </ul>
+        </li>
+        <li><a href="#special-case-of-wronskian">Special Case of Wronskian</a>
+          <ul>
+            <li><a href="#ex-determine-fundamental-set-of-solution">Ex. Determine Fundamental Set of Solution</a></li>
+          </ul>
+        </li>
+        <li><a href="#find-the-second-solution-for-a-2nd-degree-linear-homo-ode">Find the Second Solution for a 2nd Degree Linear Homo ODE</a>
+          <ul>
+            <li><a href="#ex-find-the-second-solution-for-2nd-linear-homo-ode">Ex. Find the second Solution for 2nd Linear Homo ODE</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#find-the-fundamental-set-of-solutions-for-higher-order-homo-linear-de">Find the fundamental set of solutions for Higher Order Homo Linear DE</a>
+      <ul>
+        <li><a href="#types-of-roots-solution-for-de">Types of roots (solution for DE)</a>
+          <ul>
+            <li><a href="#type-1distinct-real-roots"><strong>Type 1：Distinct Real Roots</strong></a></li>
+            <li><a href="#type-2conjugate-complex-roots"><strong>Type 2：Conjugate Complex Roots</strong></a></li>
+            <li><a href="#type-3repeated-real-roots"><strong>Type 3：Repeated Real Roots</strong></a></li>
+            <li><a href="#ex-specify-the-general-class-of-solution-of-function">Ex. Specify the general class of solution of function</a></li>
+            <li><a href="#ex-can-the-auxiliary-equation-have-repeated-complex-roots">Ex. Can the auxiliary equation have repeated complex roots?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#general-solution-of-non-homo-linear-de">General Solution of Non-homo Linear DE</a>
+      <ul>
+        <li><a href="#proving-the-general-solution-is-comp--part">Proving the General Solution is Comp + Part</a>
+          <ul>
+            <li><a href="#ex-finding-the-general-solution">Ex. Finding the General Solution</a></li>
+          </ul>
+        </li>
+        <li><a href="#variation-of-parameters">Variation of Parameters</a>
+          <ul>
+            <li><a href="#ex-finding-the-particular-solution">Ex. Finding the Particular Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#aem2differentialequations">AEM2.DifferentialEquations</a></li>
+    <li><a href="#ordinary-differential-equations-常微分方程">Ordinary Differential Equations 常微分方程</a></li>
+    <li><a href="#classifying-des">Classifying DE’s</a>
+      <ul>
+        <li><a href="#order-of-a-de">Order of a DE</a></li>
+        <li><a href="#general-form-of-de">General form of DE</a></li>
+        <li><a href="#linear-and-non-linear-odes"><strong>Linear and Non-linear ODEs</strong></a></li>
+        <li><a href="#homogeneous-and-non-homogeneous-linear-ode"><strong>Homogeneous and Non-homogeneous Linear ODE</strong></a></li>
+        <li><a href="#constant-vs-variable-coefficient"><strong>Constant vs Variable Coefficient</strong></a></li>
+        <li><a href="#autonomous-ode"><strong>Autonomous ODE</strong></a>
+          <ul>
+            <li><a href="#ex-autonomous-ode">Ex. Autonomous ODE</a></li>
+            <li><a href="#general-form">General Form</a></li>
+          </ul>
+        </li>
+        <li><a href="#ex-identify-the-odes">Ex. Identify the ODEs</a></li>
+      </ul>
+    </li>
+    <li><a href="#solution-of-ode">Solution of ODE</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#ex-verifying-solution">Ex. Verifying Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#existence-of-solutions-general-particular-and-singular">Existence of Solutions, General, Particular and Singular</a></li>
+    <li><a href="#how-to-solve-first-order-ode"><strong>How to solve first-order ODE</strong></a>
+      <ul>
+        <li><a href="#separable-first-order-ode"><strong>Separable First-order ODE</strong></a></li>
+        <li><a href="#integrating-factor-method"><strong>Integrating Factor Method</strong></a></li>
+        <li><a href="#ex">Ex.</a></li>
+      </ul>
+    </li>
+    <li><a href="#existence-and-uniqueness-of-solutions-for-linear-1st-order-ivps">Existence and Uniqueness of Solutions for Linear 1st Order IVPs</a>
+      <ul>
+        <li><a href="#existence-of-a-unique-solution-for-first-order-ivps">Existence of a Unique Solution for First-Order IVPs</a></li>
+        <li><a href="#existence-of-a-unique-solution-for-first-order-linear-ivps"><strong>Existence of a Unique Solution for First-Order Linear IVPs</strong></a></li>
+        <li><a href="#why-linear-follow-from-non-linear">Why Linear Follow From Non-Linear</a>
+          <ul>
+            <li><a href="#ex-applying-non-linear-case">Ex. Applying Non-Linear Case</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#solution-curves-without-solutions-direction-field">Solution Curves without Solutions: Direction Field</a></li>
+    <li><a href="#autonomous-de-and-its-critical-points">Autonomous DE and its Critical Points</a>
+      <ul>
+        <li><a href="#critical-point">Critical Point</a>
+          <ul>
+            <li><a href="#ex-critical-point-of-a-function">Ex. Critical Point of a Function</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#stability-of-critical-points">Stability of Critical Points</a>
+      <ul>
+        <li><a href="#stable-point">Stable Point</a></li>
+        <li><a href="#unstable-point">Unstable Point</a></li>
+        <li><a href="#semi-stable-point">Semi-Stable Point</a></li>
+      </ul>
+    </li>
+    <li><a href="#general-linear-odes-and-linear-differential-operator">General Linear ODE’s and Linear Differential Operator</a>
+      <ul>
+        <li><a href="#linear-differential-operator-l">Linear Differential Operator L</a>
+          <ul>
+            <li><a href="#ex1-find-linear-differential-operator-l">Ex1. Find Linear Differential Operator L</a></li>
+            <li><a href="#ex2-find-linear-differential-operator-l">Ex2. Find Linear Differential Operator L</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#existence-and-uniqueness-of-nth-order-linear-ode">Existence and Uniqueness of nth order Linear ODE</a>
+      <ul>
+        <li><a href="#theorem-existence-of-a-unique-solution"><strong>Theorem: Existence of a Unique Solution</strong></a>
+          <ul>
+            <li><a href="#ex1-existence-of-a-unique-solution">Ex1. Existence of a Unique Solution</a></li>
+            <li><a href="#ex2-existence-of-a-unique-solution">Ex2. Existence of a Unique Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#homogenous-linear-des-general-solutions">Homogenous Linear DE’s: General Solutions</a>
+      <ul>
+        <li><a href="#theorem-general-solutions-for-homogeneous-linear-des">Theorem： General Solutions for Homogeneous Linear DEs</a></li>
+        <li><a href="#definition-linearly-independence-of-functions">Definition: Linearly Independence of Functions</a>
+          <ul>
+            <li><a href="#ex1-finding-the-linear-independency-of-function">Ex1. Finding the Linear Independency of function</a></li>
+            <li><a href="#ex2-finding-the-linear-independency-of-function">Ex2. Finding the Linear Independency of function</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#how-to-check-if-n-functions-are-independent">How to check if n functions are independent?</a>
+      <ul>
+        <li><a href="#case-in-non-polynomial">Case in non Polynomial</a></li>
+        <li><a href="#the-wronskian">The Wronskian</a></li>
+        <li><a href="#the-beauty-of-math-or-how-seemingly-unrelated-mathematical-topics-connect-to-each-other">The beauty of Math (or how seemingly unrelated mathematical topics connect to each other)</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#case-when-w--0-for-all-x-in-i">Case when W = 0 for all x in I</a>
+          <ul>
+            <li><a href="#ex-case-when-w--0-for-all-x-in-i">Ex. Case when W = 0 for all x in I</a></li>
+          </ul>
+        </li>
+        <li><a href="#special-case-of-wronskian">Special Case of Wronskian</a>
+          <ul>
+            <li><a href="#ex-determine-fundamental-set-of-solution">Ex. Determine Fundamental Set of Solution</a></li>
+          </ul>
+        </li>
+        <li><a href="#find-the-second-solution-for-a-2nd-degree-linear-homo-ode">Find the Second Solution for a 2nd Degree Linear Homo ODE</a>
+          <ul>
+            <li><a href="#ex-find-the-second-solution-for-2nd-linear-homo-ode">Ex. Find the second Solution for 2nd Linear Homo ODE</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#find-the-fundamental-set-of-solutions-for-higher-order-homo-linear-de">Find the fundamental set of solutions for Higher Order Homo Linear DE</a>
+      <ul>
+        <li><a href="#types-of-roots-solution-for-de">Types of roots (solution for DE)</a>
+          <ul>
+            <li><a href="#type-1distinct-real-roots"><strong>Type 1：Distinct Real Roots</strong></a></li>
+            <li><a href="#type-2conjugate-complex-roots"><strong>Type 2：Conjugate Complex Roots</strong></a></li>
+            <li><a href="#type-3repeated-real-roots"><strong>Type 3：Repeated Real Roots</strong></a></li>
+            <li><a href="#ex-specify-the-general-class-of-solution-of-function">Ex. Specify the general class of solution of function</a></li>
+            <li><a href="#ex-can-the-auxiliary-equation-have-repeated-complex-roots">Ex. Can the auxiliary equation have repeated complex roots?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#general-solution-of-non-homo-linear-de">General Solution of Non-homo Linear DE</a>
+      <ul>
+        <li><a href="#proving-the-general-solution-is-comp--part">Proving the General Solution is Comp + Part</a>
+          <ul>
+            <li><a href="#ex-finding-the-general-solution">Ex. Finding the General Solution</a></li>
+          </ul>
+        </li>
+        <li><a href="#variation-of-parameters">Variation of Parameters</a>
+          <ul>
+            <li><a href="#ex-finding-the-particular-solution">Ex. Finding the Particular Solution</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h2 class="relative group">AEM2.DifferentialEquations 
+    <div id="aem2differentialequations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#aem2differentialequations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>Last Edit: 10/6/25</p>
+</blockquote>
+
+
+<h2 class="relative group">Ordinary Differential Equations 常微分方程 
+    <div id="ordinary-differential-equations-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ordinary-differential-equations-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>在 ODE 中，未知函数只依赖于一个 independent variable</li>
+</ul>
+<p>$$
+\frac{d^2 y}{dx^2} = -k^2 y
+$$</p>
+<ul>
+<li>
+<p>使用的是 <strong>Leibniz notation（莱布尼茨记号）</strong></p>
+</li>
+<li>
+<p>其中：</p>
+<ul>
+<li>y：<strong>dependent variable（因变量）或函数</strong></li>
+<li>x：<strong>independent variable（自变量）</strong></li>
+</ul>
+</li>
+<li>
+<p>与上式等价的拉格朗日记号写法为 Lagrange Notation</p>
+<p>$$
+y&rsquo;&rsquo; = -k^2 y
+$$</p>
+</li>
+<li>
+<p>通用记法：</p>
+<p>$$
+\frac{d^n y}{d x^n} \equiv y^{(n)}
+$$</p>
+</li>
+</ul>
+
+
+<h2 class="relative group">Classifying DE’s 
+    <div id="classifying-des" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#classifying-des" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Order of a DE 
+    <div id="order-of-a-de" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#order-of-a-de" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>DE 的 order 是方程中出现的最高阶导数的阶数</p>
+</li>
+<li>
+<p>示例：</p>
+<p>$$
+y^{(4)} + 2x^2 + y&rsquo;&rsquo; = \sin x
+$$</p>
+</li>
+<li>
+<p>是一个四阶常微分方程（<strong>4th order ODE</strong>）</p>
+</li>
+</ul>
+
+
+<h3 class="relative group">General form of DE 
+    <div id="general-form-of-de" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#general-form-of-de" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+F(x, y, y&rsquo;, y&rsquo;&rsquo;, &hellip;, y^{(n)}) = 0
+$$</p>
+
+
+<h3 class="relative group"><strong>Linear and Non-linear ODEs</strong> 
+    <div id="linear-and-non-linear-odes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linear-and-non-linear-odes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>一个阶数为 n 的微分方程是 linear 的，当它可以写成：</li>
+</ul>
+<p>$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_0(x)y = f(x)
+$$</p>
+<ul>
+<li>系数 \(a_i(x)\) 只依赖于 \(x\)，不能含有 \(y\)</li>
+<li>示例：
+<ul>
+<li>
+<p><strong>First-order linear DE</strong></p>
+<p>$$
+y&rsquo; + p(x)y = f(x)
+$$</p>
+</li>
+<li>
+<p><strong>Second-order linear DE</strong></p>
+<p>$$
+y&rsquo;&rsquo; + p(x)y&rsquo; + q(x)y = f(x)
+$$</p>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h3 class="relative group"><strong>Homogeneous and Non-homogeneous Linear ODE</strong> 
+    <div id="homogeneous-and-non-homogeneous-linear-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#homogeneous-and-non-homogeneous-linear-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>若 \(f(x) = 0\)，则为 <strong>Homogeneous</strong></li>
+<li>若 \(f(x) \ne 0\)，则为 <strong>Non-homogeneous</strong></li>
+</ul>
+
+
+<h3 class="relative group"><strong>Constant vs Variable Coefficient</strong> 
+    <div id="constant-vs-variable-coefficient" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#constant-vs-variable-coefficient" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>若 \(a_0(x), &hellip;, a_n(x)\) 是 constant，则为 <strong>constant coefficient DE</strong></li>
+<li>否则为 <strong>Variable coefficient DE</strong></li>
+</ul>
+
+
+<h3 class="relative group"><strong>Autonomous ODE</strong> 
+    <div id="autonomous-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#autonomous-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>自治微分方程（Autonomous ODE），又叫 <strong>Time-Invariant</strong></li>
+<li>指的是 Independent variable 不会显式出现在方程中</li>
+</ul>
+
+
+<h4 class="relative group">Ex. Autonomous ODE 
+    <div id="ex-autonomous-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-autonomous-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Population growth equation</li>
+</ul>
+<p>$$
+\frac{dP}{dt} = (\beta - \alpha)P
+$$</p>
+<ul>
+<li>t 没有显式出现</li>
+<li>\(\beta\)：出生率</li>
+<li>\(\alpha\)：死亡率</li>
+</ul>
+
+
+<h4 class="relative group">General Form 
+    <div id="general-form" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#general-form" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+y^{(n)} = F(y^{(n-1)}, y^{(n-2)}, &hellip;, y&rsquo;, y)
+$$</p>
+
+
+<h3 class="relative group">Ex. Identify the ODEs 
+    <div id="ex-identify-the-odes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-identify-the-odes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+y&rsquo;&rsquo; + 3(y&rsquo;)^2 + \cos x = 0
+$$</p>
+<ul>
+<li><strong>non-linear</strong>（因为有 \((y&rsquo;)^2\)）</li>
+<li><strong>non-homogeneous</strong>（有常数项 \(\cos x\)）</li>
+<li><strong>variable coefficient</strong>（\(3(y&rsquo;)^2\) 中的系数依赖 \(y&rsquo;\)，不是常数）</li>
+</ul>
+<blockquote>
+<p>这里是 \(y&rsquo;\) 的平方</p>
+</blockquote>
+<hr>
+<p>$$
+5\sin\left(\frac{dy}{dt}\right) + \tan^2 y = 1
+$$</p>
+<ul>
+<li><strong>non-linear</strong></li>
+<li><strong>non-homogeneous</strong></li>
+</ul>
+<hr>
+<p>$$
+\frac{d^2 y}{dx^2} + x^2 \frac{dy}{dx} + (\sin x) y = e^x
+$$</p>
+<ul>
+<li><strong>linear</strong>（\(y, y&rsquo;, y&rsquo;&rsquo;\) 都是一次）</li>
+<li><strong>non-homogeneous</strong>（右边不是 0）</li>
+<li><strong>variable coefficient</strong>（系数 \(x^2, \sin x\) 都依赖于 \(x\)）</li>
+</ul>
+<hr>
+<p>$$
+x y&rsquo;&rsquo; + 4x^2 y&rsquo; - \frac{2}{1 + x^2} y = 0
+$$</p>
+<ul>
+<li><strong>linear</strong></li>
+<li><strong>homogeneous</strong>（右边是 0）</li>
+<li><strong>variable coefficient</strong>（所有系数依赖 x）</li>
+</ul>
+<hr>
+<p>$$
+y&rsquo;&rsquo; + \sin(y&rsquo;) + x y = x^2
+$$</p>
+<ul>
+<li><strong>non-linear</strong>（因为 \(\sin(y&rsquo;)\) 是非线性项）</li>
+<li><strong>non-homogeneous</strong>（右边为 \(x^2\)）</li>
+<li><strong>variable coefficient</strong>（项 \(x y\) 中系数为 \(x\)）</li>
+</ul>
+<hr>
+
+
+<h2 class="relative group">Solution of ODE 
+    <div id="solution-of-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-of-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Given an ODE of form</li>
+</ul>
+<p>$$
+y^{(n)} = F(y^{(n-1)}, &hellip;, y&rsquo;, y, x)
+$$</p>
+<ul>
+<li>如果一个函数 \(y = \varphi(x)\) 被代入后，使得方程变为 <strong>identity</strong> 恒等式，那么它就是这个微分方程的一个 <strong>solution</strong></li>
+<li>代入后要满足：</li>
+</ul>
+<p>$$
+\varphi^{(n)} \equiv F\left(\varphi^{(n-1)}, &hellip;, \varphi&rsquo;, \varphi, x\right)
+$$</p>
+
+
+<h4 class="relative group">Ex. Verifying Solution 
+    <div id="ex-verifying-solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-verifying-solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>For DE \(y&rsquo; = 6x(y - 1)^{2/3}\)，verify by substitution that  is a solution on interval \((-\infty, +\infty)\)，where C is an arbitrary constant</p>
+<p>$$
+y&rsquo; = 2x \cdot 3(x^2 + C)^2 = 6x(x^2 + C)^2
+$$</p>
+<p>$$
+y - 1 = (x^2 + C)^3 \Rightarrow (y - 1)^{2/3} = [(x^2 + C)^3]^{2/3} = (x^2 + C)^2
+$$</p>
+<p>$$
+6x(y - 1)^{2/3} = 6x(x^2 + C)^2
+$$</p>
+
+
+<h2 class="relative group">Existence of Solutions, General, Particular and Singular 
+    <div id="existence-of-solutions-general-particular-and-singular" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#existence-of-solutions-general-particular-and-singular" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>General Solution 包含一个 C，代表了一个 Solution Set</li>
+<li>Particular Solution 解出了 C 的具体值</li>
+<li>Singular Solution 是不属于 General Solution Set 中的一个解</li>
+</ul>
+
+
+<h2 class="relative group"><strong>How to solve first-order ODE</strong> 
+    <div id="how-to-solve-first-order-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#how-to-solve-first-order-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group"><strong>Separable First-order ODE</strong> 
+    <div id="separable-first-order-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#separable-first-order-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于形如 \(y&rsquo; = g(x)h(y)\) 的 ODE</li>
+<li>解法是将变量 x 和 y 分离，积分两边：</li>
+</ul>
+<p>$$
+\int \frac{1}{h(y)} dy = \int g(x) dx
+$$</p>
+<ul>
+<li>这是标准的 <strong>Separation of Variables</strong></li>
+</ul>
+
+
+<h3 class="relative group"><strong>Integrating Factor Method</strong> 
+    <div id="integrating-factor-method" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integrating-factor-method" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>适用于 linear first-order ODE</p>
+</li>
+<li>
+<p>标准形式为：</p>
+<p>$$
+y&rsquo; + P(x)y = f(x)
+$$</p>
+</li>
+<li>
+<p>有 Integrating Factor</p>
+</li>
+</ul>
+<p>$$
+\mu(x) = e^{\int P(x),dx}
+$$</p>
+<ul>
+<li>将方程两边都乘以 \(\mu(x)\)</li>
+</ul>
+<p>$$
+\mu(x) \cdot y&rsquo; + \mu(x) \cdot P(x) \cdot y = \mu(x) \cdot f(x)
+$$</p>
+<ul>
+<li>左边可以写成一个积的导数：</li>
+</ul>
+<p>$$
+\frac{d}{dx}[\mu(x) \cdot y] = \mu(x) \cdot f(x)
+$$</p>
+<ul>
+<li>两边同时积分</li>
+</ul>
+<p>$$
+\int \frac{d}{dx}[\mu(x) \cdot y], dx = \int \mu(x) \cdot f(x) , dx
+$$</p>
+<ul>
+<li>得到：</li>
+</ul>
+<p>$$
+\mu(x) \cdot y = \int \mu(x) \cdot f(x), dx + C
+$$</p>
+<ul>
+<li>解出 y(x)</li>
+</ul>
+<p>$$
+y(x) = \frac{1}{\mu(x)} \left[ \int \mu(x) \cdot f(x) , dx + C \right]
+$$</p>
+
+
+<h3 class="relative group">Ex. 
+    <div id="ex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+xy&rsquo; - y = 2x^2 \quad \text{with} \quad y(x_0) = y_0
+$$</p>
+<ul>
+<li>将 DE 转换成标准形式，有 \(y&rsquo; - \frac{1}{x} y = 2x\)</li>
+<li>所以 \(P(x) = -\frac{1}{x}，f(x) = 2x\)</li>
+</ul>
+<ol>
+<li>
+<p>计算积分因子（Integrating Factor）：</p>
+<p>$$
+\mu(x) = e^{\int -\frac{1}{x} dx} = e^{-\ln x} = \frac{1}{x}
+$$</p>
+</li>
+<li>
+<p>两边乘以积分因子：</p>
+<p>$$
+\frac{d}{dx} \left( \frac{1}{x} y \right) = 2
+$$</p>
+</li>
+<li>
+<p>积分并解出 y：</p>
+<p>$$
+\frac{1}{x} y = \int 2 dx + C = 2x + C \quad \Rightarrow \quad y = x(2x + C) = 2x^2 + Cx
+$$</p>
+</li>
+<li>
+<p>若 IC 为 \(y(1) = 1\)：</p>
+<ul>
+<li>解代入得：</li>
+</ul>
+<p>$$
+1 = 2(1)^2 + C(1) \Rightarrow C = -1
+$$</p>
+</li>
+<li>
+<p>若 IC 为 y(1) = 0</p>
+<ul>
+<li>解代入得：</li>
+</ul>
+<p>$$
+0 = 2 + C \Rightarrow C = -2
+$$</p>
+</li>
+<li>
+<p>若 IC 为 \(y&rsquo;(1) = 2, y(1) = 2\)</p>
+</li>
+</ol>
+<p>$$
+y = 2x^2 + Cx \Rightarrow y&rsquo; = 4x + C
+$$</p>
+<ul>
+<li>\(y&rsquo;(1) = 4 + C = 2 \Rightarrow C = -2\)</li>
+<li>代入 y(1) 得：</li>
+</ul>
+<p>$$
+y(1) = 2 + (-2) = 0 \ne 2
+$$</p>
+<ul>
+<li>❌ 无解（No solution）</li>
+</ul>
+
+
+<h2 class="relative group">Existence and Uniqueness of Solutions for Linear 1st Order IVPs 
+    <div id="existence-and-uniqueness-of-solutions-for-linear-1st-order-ivps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#existence-and-uniqueness-of-solutions-for-linear-1st-order-ivps" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Existence of a Unique Solution for First-Order IVPs 
+    <div id="existence-of-a-unique-solution-for-first-order-ivps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#existence-of-a-unique-solution-for-first-order-ivps" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p><strong>Initial-value problem (IVP, 初值问题)</strong>：</p>
+<p>$$
+y&rsquo; = f(x,y), \quad y(x_0) = y_0
+$$</p>
+</li>
+</ul>
+<blockquote>
+<p>给到一个 1st Order Differential Equation，并给了某个点 \((x_0, y_0)\) 的初始条件
+去研究解到底存不存在？如果存在，是不是唯一的？</p>
+</blockquote>
+<ul>
+<li>如果 \(f(x,y)\) 和 \(\frac{\partial f}{\partial y}\)（对 y 的偏导）在矩形区域 R (矩形区域) 内连续</li>
+<li>也就是说如果一个微分方程 \(y&rsquo; = f(x,y)\) 里面的函数 \(f(x,y)\) 和它对 y 的偏导数 \(\frac{\partial f}{\partial y}\) 都是“平滑的”（数学上 = 连续）</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/image_hu15255362034667777152.png 330w,
+        /docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/image_hu1759488318615220761.png 660w,
+        /docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/image_hu17703594419084434061.png 1024w,
+        /docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/image_hu10352754188359458062.png 2x"
+        src="/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/image_hu1759488318615220761.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>那么在区间 \(I_0 (a &lt; x_0 &lt; b)\) 内，<strong>Solution Exist 并且是 Unique 的</strong>，存在唯一解 \(y(x)\)，并且这个区间 \(I_0\) 包含在更大的区间 \(I (a \leq x \leq b)\) 中</li>
+</ul>
+<blockquote>
+<p>这种情况下，只保证在 \(x_0\) 附近一个<strong>小区间</strong> \(I_0\) 内，存在唯一解</p>
+</blockquote>
+
+
+<h3 class="relative group"><strong>Existence of a Unique Solution for First-Order Linear IVPs</strong> 
+    <div id="existence-of-a-unique-solution-for-first-order-linear-ivps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#existence-of-a-unique-solution-for-first-order-linear-ivps" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p><strong>Linear IVP (线性初值问题)</strong>：</p>
+<p>$$
+y&rsquo; + P(x)y = f(x), \quad y(x_0) = y_0
+$$</p>
+</li>
+</ul>
+<blockquote>
+<p>多了一个 Linear 的条件</p>
+</blockquote>
+<ul>
+<li>如果函数 P(x) 和 f(x) 在包含 \(x_0\) 的开区间 I (开区间) 上连续，</li>
+<li>那么这个初值问题在整个区间 <strong>I</strong> 上都有唯一解</li>
+</ul>
+<blockquote>
+<p>解不仅唯一，而且在整个区间 <strong>I</strong> 上都成立</p>
+</blockquote>
+
+
+<h3 class="relative group">Why Linear Follow From Non-Linear 
+    <div id="why-linear-follow-from-non-linear" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#why-linear-follow-from-non-linear" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>两个 Theorem，第一个 Non-Linear 下要满足的条件是</li>
+<li>f(x,y) 连续；\(\dfrac{\partial f}{\partial y}\) 在该区域也连续</li>
+<li>而在 Linear 的特殊情况下</li>
+</ul>
+<p>$$
+y&rsquo; + P(x)y = f(x)
+$$</p>
+<ul>
+<li>可以改写成为</li>
+</ul>
+<p>$$
+y&rsquo; = f(x) - P(x)y = \hat{f}(x,y)
+$$</p>
+<ul>
+<li>
+<p>也就来到了 Non-Linear 的第一个条件，想要让 \(\hat{f}(x,y)\) Cont. 在 Linear Function 中只需要 \(f(x)、P(x)\)  在区间 II 上连续就行</p>
+</li>
+<li>
+<p>同时 \(f(x)、P(x)\)  连续的情况下，也满足了 Partial Derivative 连续的条件，这是因为</p>
+<p>$$
+\frac{\partial \hat{f}(x,y)}{\partial y} = -P(x)
+$$</p>
+</li>
+<li>
+<p>所以只要 P(x) 连续，所以这个偏导也连续</p>
+</li>
+</ul>
+
+
+<h4 class="relative group">Ex. Applying Non-Linear Case 
+    <div id="ex-applying-non-linear-case" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-applying-non-linear-case" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>“What is the interval R in this example?”</p>
+<p>$$
+y&rsquo; = 3y^{2/3}, \quad y(2)=0
+$$</p>
+<ul>
+<li>Non-Linear Case，检查 \(f(x,y) = 3y^{2/3}\) 是连续的</li>
+<li>计算偏导：</li>
+</ul>
+<p>$$
+\frac{\partial f}{\partial y} = 2y^{-1/3} = \frac{2}{y^{1/3}}
+$$</p>
+<ul>
+<li>观察可以发现，当 y=0 的时候，\(\dfrac{2}{y^{1/3}}\)  会发散</li>
+</ul>
+<blockquote>
+<p>So, are we guaranteed to have a unique solution?</p>
+<p><strong>Theorem 1.2.1 does not guarantee that. But we don’t know if the solution is unique or not.</strong></p>
+<p>定理 1.2.1 <strong>不能保证</strong>。但是我们也不能直接下结论说解一定不唯一，只是“没有保证”。</p>
+</blockquote>
+
+
+<h2 class="relative group">Solution Curves without Solutions: Direction Field 
+    <div id="solution-curves-without-solutions-direction-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-curves-without-solutions-direction-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于一个微分方程：</li>
+</ul>
+<p>$$
+y&rsquo; = f(x,y),
+$$</p>
+<ul>
+<li>它告诉你：在平面上每一个点 \((x,y)\)，解曲线的斜率是多少</li>
+<li><strong>方向场</strong> 就是：在很多点 \((x,y)\) 上画一条小的斜线，表示解曲线在这里的切线方向</li>
+<li>这样即使你没解出方程，也能大致看到解的走势</li>
+</ul>
+
+
+<h2 class="relative group">Autonomous DE and its Critical Points 
+    <div id="autonomous-de-and-its-critical-points" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#autonomous-de-and-its-critical-points" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>
+<p><strong>Autonomous DE（自治微分方程）</strong> 指的是方程里面 Independent Variable <strong>x</strong> 不显式出现，形式为：</p>
+<p>$$
+\frac{dy}{dx} = f(y)
+$$</p>
+</li>
+<li>
+<p>或者更一般写成 \(F(y,y&rsquo;)=0\)</p>
+</li>
+</ul>
+<p>👉 换句话说：方程的变化只依赖于 y，不依赖于 x</p>
+
+
+<h3 class="relative group">Critical Point 
+    <div id="critical-point" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#critical-point" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>给定：\(y&rsquo; = f(y)\)，如果存在某个 \(y=c\)，使得：\(f(c)=0\)</li>
+<li>那么 y=c 就是 <strong>临界点 (critical point)</strong></li>
+</ul>
+<blockquote>
+<p>也就是导数 \(y&rsquo;=0\) 的点</p>
+</blockquote>
+
+
+<h4 class="relative group">Ex. Critical Point of a Function 
+    <div id="ex-critical-point-of-a-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-critical-point-of-a-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+x&rsquo; = x(4-x)
+$$</p>
+<ul>
+<li>Critical Point 出现在 x = 0 和 4 的位置</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Stability of Critical Points 
+    <div id="stability-of-critical-points" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stability-of-critical-points" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Stable Point 
+    <div id="stable-point" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stable-point" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Unstable Point 
+    <div id="unstable-point" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#unstable-point" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Semi-Stable Point 
+    <div id="semi-stable-point" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#semi-stable-point" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+<hr>
+
+
+<h2 class="relative group">General Linear ODE’s and Linear Differential Operator 
+    <div id="general-linear-odes-and-linear-differential-operator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#general-linear-odes-and-linear-differential-operator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>回顾前面的 Linear ODE，其 Form 为</li>
+</ul>
+<p>$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&rsquo; + a_0(x)y = g(x)
+$$</p>
+<ul>
+<li>这是 n-th order linear ordinary differential equation, ODE 的一般</li>
+<li>其中 \(a_k(x)\) 是系数函数，可能随 \(x\) 变化</li>
+<li>右边的 \(g(x)\) 是非齐次项</li>
+<li>\(y^{(n)}\) 表示对函数 y 的 n 阶导数</li>
+<li>其是 <strong>Linear</strong> 的，当它的所有 Coefficient 都是一次方的</li>
+<li>其是 <strong>Homogeneous</strong> 的，当 g(x) = 0 时</li>
+<li>其是 <strong>Constant coefficient differential equation 常系数微分方程</strong>，当 \(a_k(x)\) 都是 Constant 时</li>
+</ul>
+
+
+<h3 class="relative group">Linear Differential Operator L 
+    <div id="linear-differential-operator-l" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linear-differential-operator-l" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>线性微分的算子 L 可以简化我们写高阶 linear ODE 的方式</li>
+<li>上面提到了，传统的写法是</li>
+</ul>
+<p>$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&rsquo; + a_0(x)y = g(x)
+$$</p>
+<ul>
+<li>这整个东西可以简写为：</li>
+</ul>
+<p>$$
+Ly = g(x)
+$$</p>
+<ul>
+<li>其中 L 是一个“作用在 y”上的线性微分算子</li>
+<li>可以发现 Equation 的左边只有 y，这就说明了 L 不仅包含 Coefficient，还包含对 y 的 Derivative</li>
+</ul>
+<p>$$
+L = a_n(x) \frac{d^n}{dx^n} + a_{n-1}(x) \frac{d^{n-1}}{dx^{n-1}} + \cdots + a_1(x) \frac{d}{dx} + a_0(x)
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">Ex1. Find Linear Differential Operator L 
+    <div id="ex1-find-linear-differential-operator-l" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex1-find-linear-differential-operator-l" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+3\ddot{y} - 4 \dot{y} + 2xy = e^{x} \Rightarrow L = 3 \frac{d^2}{dx^2} - 4 \frac{d}{dx} + 2x
+$$</p>
+
+
+<h4 class="relative group">Ex2. Find Linear Differential Operator L 
+    <div id="ex2-find-linear-differential-operator-l" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex2-find-linear-differential-operator-l" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+y&rsquo;&rsquo; + x \sin(y&rsquo;) - xy = x^2
+$$</p>
+<ul>
+<li>这并不是一个 Linear 的 DE，所以没有整个 Linear Differential Operator L</li>
+</ul>
+
+
+<h2 class="relative group">Existence and Uniqueness of nth order Linear ODE 
+    <div id="existence-and-uniqueness-of-nth-order-linear-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#existence-and-uniqueness-of-nth-order-linear-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>之前提到过 1st Linear ODE 的存在与唯一性定理</li>
+<li>那么对于 <strong>n 阶线性 ODE + 初始条件（initial value problem, IVP）</strong>，是否也存在类似定理？</li>
+<li>要求 nth ODE 形如</li>
+</ul>
+<p>$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&rsquo; + a_0(x)y = g(x)
+$$</p>
+<ul>
+<li>initial conditions 为</li>
+</ul>
+<p>$$
+y(x_0) = y_0,\quad y&rsquo;(x_0) = y_1,\quad \cdots,\quad y^{(n-1)}(x_0) = y_{n-1}
+$$</p>
+
+
+<h3 class="relative group"><strong>Theorem: Existence of a Unique Solution</strong> 
+    <div id="theorem-existence-of-a-unique-solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#theorem-existence-of-a-unique-solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>若函数 \(a_1(x), a_2(x), &hellip;, a_n(x), g(x)\) 在区间 I 上连续（continuous），且 \(a_n(x) \ne 0\)，那么对任意 \(x_0 \in I\)，初值问题：</li>
+</ul>
+<p>$$
+a_n(x)y^{(n)} + \cdots + a_0(x)y = g(x), \quad y(x_0) = y_0, \quad y&rsquo;(x_0) = y_1, \quad \cdots, \quad y^{(n-1)}(x_0) = y_{n-1}
+$$</p>
+<ul>
+<li>在区间 I 上有唯一解</li>
+</ul>
+<blockquote>
+<p>这里的 \(a_n(x)\) 指的是最高项的那个 Coefficient</p>
+</blockquote>
+
+
+<h4 class="relative group">Ex1. Existence of a Unique Solution 
+    <div id="ex1-existence-of-a-unique-solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex1-existence-of-a-unique-solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+y^{(3)} + 3y&rsquo;&rsquo; + 4y&rsquo; + 12y = 0
+$$</p>
+<ul>
+<li>初始条件为：</li>
+</ul>
+<p>$$
+y(1) = y&rsquo;(1) = y&rsquo;&rsquo;(1) = 0
+$$</p>
+<ul>
+<li>系数全是常数，连续</li>
+<li>\(a_3 = 1 \ne 0\)，最高阶导数项系数非零</li>
+<li>所以 Exist Unique Solution</li>
+</ul>
+
+
+<h4 class="relative group">Ex2. Existence of a Unique Solution 
+    <div id="ex2-existence-of-a-unique-solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex2-existence-of-a-unique-solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+(1 - t^2)y&rsquo;&rsquo; - 2ty&rsquo; + 2y = 0
+$$</p>
+<ul>
+<li>初始条件是：</li>
+</ul>
+<p>$$
+y(0) = 1,\quad y&rsquo;(0) = 2
+$$</p>
+<ul>
+<li>问：在哪个区间上存在唯一解？</li>
+</ul>
+<hr>
+<ul>
+<li>总的来说，除了最高次项系数不是常数，其他都是 Constant，连续，</li>
+<li>\(1 - t^2 = 0\) 当且仅当 \(t = \pm 1\)，这些点会使 \(a_2(t) = 0\)，不满足定理条件，所以不能包含 \(t = \pm 1\)</li>
+</ul>
+
+
+<h2 class="relative group">Homogenous Linear DE’s: General Solutions 
+    <div id="homogenous-linear-des-general-solutions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#homogenous-linear-des-general-solutions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Theorem： General Solutions for Homogeneous Linear DEs 
+    <div id="theorem-general-solutions-for-homogeneous-linear-des" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#theorem-general-solutions-for-homogeneous-linear-des" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于一个 nth Order 的 Homogenous Linear DEs</li>
+</ul>
+<p>$$
+L(y) = 0
+$$</p>
+<ul>
+<li>一定有 n 个 linearly independent 的解，这组解被称为：<strong>fundamental set of solutions（基本解组）</strong></li>
+<li>当知道了完整的 Solution Set：</li>
+</ul>
+<p>$$
+y_1(x), y_2(x), &hellip;, y_n(x)
+$$</p>
+<ul>
+<li>那么 <strong>Particular Solution</strong> 就是它们的 <strong>linear combination</strong></li>
+<li>如果 IVP 给了超过 n 个初值条件，会 over-determined，可能无解</li>
+<li>这是因为 L 是线性算子（linear operator）</li>
+</ul>
+<p>$$
+L(\alpha y_1 + \beta y_2) = \alpha L(y_1) + \beta L(y_2)
+$$</p>
+<ul>
+<li>也就是说假设 \(y_1, y_2, &hellip;, y_n\) 是解，那么任意线性组合：</li>
+</ul>
+<p>$$
+c_1 y_1 + c_2 y_2 + \cdots + c_n y_n
+$$</p>
+<ul>
+<li>也一定是解，这就是为什么我们把所有解写成“线性组合”</li>
+</ul>
+
+
+<h3 class="relative group">Definition: Linearly Independence of Functions 
+    <div id="definition-linearly-independence-of-functions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#definition-linearly-independence-of-functions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>回忆线性代数里的定义：向量 \(v_1, &hellip;, v_n\) 是线性无关的意思是：</li>
+</ul>
+<p>$$
+c_1 v_1 + c_2 v_2 + \cdots + c_n v_n = 0
+$$</p>
+<ul>
+<li>仅当所有 \(c_k = 0\) 时才成</li>
+<li>在函数空间中也一样：如果只有 \(c_1 = c_2 = \cdots = c_n = 0\) 才能让 \(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) = 0\) 成立，则函数 \(f_1, &hellip;, f_n\) 是 linearly independent</li>
+</ul>
+
+
+<h4 class="relative group">Ex1. Finding the Linear Independency of function 
+    <div id="ex1-finding-the-linear-independency-of-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex1-finding-the-linear-independency-of-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Are functions \({1 - 3x + 2x², 1 - x + x², 1 + x}\) linearly independent?</p>
+<hr>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">Ex2. Finding the Linear Independency of function 
+    <div id="ex2-finding-the-linear-independency-of-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex2-finding-the-linear-independency-of-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Are functions \({e^x, xe^x, x²e^x}\) linearly independent?\</p>
+<hr>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">How to check if n functions are independent? 
+    <div id="how-to-check-if-n-functions-are-independent" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#how-to-check-if-n-functions-are-independent" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>如果我们有 n 个多项式函数，这种情况是容易判断的</li>
+<li>找到它们的线性组合形式：</li>
+</ul>
+<p>$$
+\sum_{k=1}^{n} c_k y_k
+$$</p>
+<ul>
+<li>也就是形式如 \(c_1 y_1 + c_2 y_2 + \cdots + c_n y_n\)</li>
+<li>观察每一项（例如 \(x^k\)）的系数，如果所有系数都为零，说明这些函数线性无关</li>
+<li>这就是上面的两个例子</li>
+</ul>
+
+
+<h3 class="relative group">Case in non Polynomial 
+    <div id="case-in-non-polynomial" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-in-non-polynomial" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>当函数不是 Polynomial，可以通过 Wronskian 行列式</li>
+</ul>
+
+
+<h3 class="relative group">The Wronskian 
+    <div id="the-wronskian" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-wronskian" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>对于一组函数 \(f_1(x), f_2(x), \dots, f_n(x)\)，如果它们在区间 \([a, b]\) 上有 \(n-1\) 阶导数，则可以构造一个如下的行列式：</p>
+<p>$$
+W(f_1, f_2, \dots, f_n) = \begin{vmatrix}
+f_1 &amp; f_2 &amp; \cdots &amp; f_n \
+f_1&rsquo; &amp; f_2&rsquo; &amp; \cdots &amp; f_n&rsquo; \
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+f_1^{(n-1)} &amp; f_2^{(n-1)} &amp; \cdots &amp; f_n^{(n-1)}
+\end{vmatrix}
+$$</p>
+</li>
+<li>
+<p>假设这组函数在区间 \(I = [a, b]\) 上都有 \(n-1\) 阶导数</p>
+</li>
+<li>
+<p>如果它们的 Wronskian 行列式 在整个区间 I 上不<strong>恒等为零（not identically zero）</strong>，那么这些函数是 <strong>Linearly independent</strong> 的</p>
+</li>
+</ul>
+
+
+<h3 class="relative group">The beauty of Math (or how seemingly unrelated mathematical topics connect to each other) 
+    <div id="the-beauty-of-math-or-how-seemingly-unrelated-mathematical-topics-connect-to-each-other" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-beauty-of-math-or-how-seemingly-unrelated-mathematical-topics-connect-to-each-other" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>考虑一个 Function Set</li>
+</ul>
+<p>$$
+\left{ e^{m_1 x}, e^{m_2 x} \right}, \quad m_1, m_2 \in \mathbb{C}
+$$</p>
+<ul>
+<li>想要找这些函数是否 <strong>linearly independent</strong></li>
+<li>如果通过之前的通过 Polynomial 构造的方式，可以列出 Linear Combination</li>
+</ul>
+<p>$$
+C_1 e^{m_1 x} + C_2 e^{m_2 x} = 0, \quad \forall x \in \mathbb{R} \tag{I}
+$$</p>
+<ul>
+<li>目前这是一个方程、两个未知数，方程不够</li>
+<li>于是可以尝试用 Wronskain，先对 Functions 求导，得到</li>
+</ul>
+<p>$$
+C_1 m_1 e^{m_1 x} + C_2 m_2 e^{m_2 x} = 0, \quad \forall x \in \mathbb{R}
+$$</p>
+<ul>
+<li>将他们写入 Wronskain 可以得到</li>
+</ul>
+
+
+<h1 class="relative group">$$
+\begin{bmatrix}
+e^{m_1 x} &amp; e^{m_2 x} \
+m_1 e^{m_1 x} &amp; m_2 e^{m_2 x}
+\end{bmatrix}
+\begin{bmatrix}
+C_1 \
+C_2
+\end{bmatrix} 
+    <div id="endbmatrix" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#endbmatrix" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>\begin{bmatrix}
+0 \
+0
+\end{bmatrix} \tag{II}
+$$</p>
+<ul>
+<li>令左边的 Matrix 为 \(A(x)\)</li>
+<li>向量为 \(\vec{C} = [C_1, C_2]^T\)</li>
+</ul>
+<aside>
+💡
+<p>想要证明 Wronskian 行列式 在整个区间 I 上不**恒等为零（not identically zero），**就假设它有零解，然后证伪</p>
+</aside>
+<ul>
+<li>也就是寻找一个向量 \(\vec{C}\) 使得：</li>
+</ul>
+<p>$$
+A(x)\vec{C} = \vec{0}, \quad \forall x \in \mathbb{R}
+$$</p>
+<ul>
+<li>如果唯一满足这个条件的是 <strong>\(\vec{C} = \vec{0}\)</strong>，那说明函数是线性无关的</li>
+<li>而要保证这一结论，可以通过证明如果某个点 \(x \in \mathbb{R}\) 使得 \(A(x)\) Invertible，那么系统只有唯一解 \(\vec{C} = \vec{0}\)</li>
+<li>而想要证明 \(A(x_0)\) 可逆，就可以通过 Determinant，即</li>
+</ul>
+<p>$$
+\vec{C} = A(x_0)^{-1} \vec{0} = \vec{0}
+$$</p>
+<ul>
+<li>而这个 \(\det A(x)\) 就是 <strong>Wronskian</strong>，有</li>
+</ul>
+<p>$$
+W(f_1, f_2) =
+\begin{vmatrix}
+e^{m_1 x} &amp; e^{m_2 x} \
+m_1 e^{m_1 x} &amp; m_2 e^{m_2 x}
+\end{vmatrix}
+= e^{(m_1 + m_2)x}(m_2 - m_1)
+$$</p>
+<ul>
+<li>如果 \(m_1 \ne m_2\)，那么 \(W(f_1, f_2) \ne 0\)，Wronskian 不为零</li>
+<li>因此函数集合 \({e^{m_1 x}, e^{m_2 x}}\) Linearly Independent</li>
+</ul>
+
+
+<h3 class="relative group">Case when W = 0 for all x in I 
+    <div id="case-when-w--0-for-all-x-in-i" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-when-w--0-for-all-x-in-i" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>已知一组函数 \({f_1(x), f_2(x), \dots, f_n(x)}\)</li>
+<li>计算得 \(W(f_1, f_2, \dots, f_n) = 0\) 对所有 \(x \in I\) 成立</li>
+<li><strong>不能</strong>否断定这些函数是 **linearly dependent，**这不是定理所说的内容</li>
+</ul>
+<p>$$
+W \not\equiv 0 \quad \Longrightarrow \quad \text{线性无关}
+$$</p>
+<ul>
+<li>但是它的逆命题 <strong>不成立</strong>：</li>
+</ul>
+<p>$$
+W \equiv 0 \quad NOT\Rightarrow \quad \text{线性相关}
+$$</p>
+
+
+<h4 class="relative group">Ex. Case when W = 0 for all x in I 
+    <div id="ex-case-when-w--0-for-all-x-in-i" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-case-when-w--0-for-all-x-in-i" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$
+f_1(x) =
+\begin{cases}
+x^2, &amp; x \geq 0 \
+0, &amp; x &lt; 0
+\end{cases},
+\quad
+f_2(x) =
+\begin{cases}
+0, &amp; x \geq 0 \
+x^2, &amp; x &lt; 0
+\end{cases}
+$$</p>
+<ul>
+<li>这两个函数在各自区域里互补，显然是线性无关的</li>
+<li>但它们的 Wronskian 在整个区间恒为零，所以 Wronskian=0 并不能保证线性相关</li>
+</ul>
+
+
+<h3 class="relative group">Special Case of Wronskian 
+    <div id="special-case-of-wronskian" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#special-case-of-wronskian" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>如果一组函数 \({y_1(x), \dots, y_n(x)}\) 是某个n阶 homogeneous linear ODE 的解</li>
+</ul>
+<p>$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&rsquo; + a_0(x)y = 0
+$$</p>
+<ul>
+<li>会有一个更强的结论，也就是</li>
+<li>这些函数在区间 II 上<strong>线性无关 当且仅当 iff</strong>：</li>
+</ul>
+<p>$$
+W(y_1, y_2, \dots, y_n)(x) \neq 0, \quad \forall x \in I
+$$</p>
+<ul>
+<li>也就是说</li>
+<li>\(W \equiv 0\) ⇒ 必定线性相关</li>
+<li>\(W \neq 0\) ⇒ 必定线性无关</li>
+</ul>
+
+
+<h4 class="relative group">Ex. Determine Fundamental Set of Solution 
+    <div id="ex-determine-fundamental-set-of-solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-determine-fundamental-set-of-solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Is the set \({e^x,e^{-x},\cosh x}\) the Fundamental Set Solution of \(y-y&rsquo;&rsquo;&rsquo;=0\) ?</p>
+<hr>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/542587b4-3626-4b34-a314-ef88b60444bd_hu9252695445406856857.png 330w,
+        /docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/542587b4-3626-4b34-a314-ef88b60444bd_hu10988949206499550760.png 660w,
+        /docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/542587b4-3626-4b34-a314-ef88b60444bd_hu7328280636669356442.png 1024w,
+        /docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/542587b4-3626-4b34-a314-ef88b60444bd_hu6367432636979039495.png 2x"
+        src="/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/542587b4-3626-4b34-a314-ef88b60444bd_hu10988949206499550760.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Find the Second Solution for a 2nd Degree Linear Homo ODE 
+    <div id="find-the-second-solution-for-a-2nd-degree-linear-homo-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#find-the-second-solution-for-a-2nd-degree-linear-homo-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Assume that we already know that \(y_1(x)\) is a solution for this ODE, and consider the ODE</p>
+<p>$$
+y&rsquo;&rsquo;+P(x)y&rsquo;+Q(x)y=0
+$$</p>
+<ul>
+<li>Let the second solution as</li>
+</ul>
+<p>$$
+y_2(x)=U(x)y_1(x)
+$$</p>
+<ul>
+<li>Where \(U(x)\) is an undetermined function</li>
+<li>Take the derivative on both side to get</li>
+</ul>
+<p>$$
+y_2&rsquo; = U&rsquo; y_1 + U y_1&rsquo;
+$$</p>
+<p>$$
+y_2&rsquo;&rsquo; = U&rsquo;&rsquo; y_1 + 2U&rsquo; y_1&rsquo; + U y_1&rsquo;&rsquo;
+$$</p>
+<ul>
+<li>Recall the original function \(y&rsquo;&rsquo; + P(x) y&rsquo; + Q(x) y = 0\)</li>
+<li>Sub in \(y_2\)  to get</li>
+</ul>
+<p>$$
+(U y_1)&rsquo;&rsquo; + P(U y_1)&rsquo; + Q(U y_1) = 0
+$$</p>
+<blockquote>
+<p>Substitution is \(y_2= Uy_1\), since \(y_2\) is also a solution, so it can be sub in the function</p>
+</blockquote>
+<ul>
+<li>Expand to get</li>
+</ul>
+<p>$$
+(Uy_1)&rsquo;&rsquo; = U&rsquo;&lsquo;y_1 + 2U&rsquo;y_1&rsquo; + Uy_1&rsquo;&rsquo;
+$$</p>
+<p>$$
+(Uy_1)&rsquo; = U&rsquo;y_1 + Uy_1&rsquo;
+$$</p>
+<ul>
+<li>Sub in to get</li>
+</ul>
+<p>$$
+(U&rsquo;&lsquo;y_1 + 2U&rsquo;y_1&rsquo; + Uy_1&rsquo;&rsquo;) + P(U&rsquo;y_1 + Uy_1&rsquo;) + Q(Uy_1) = 0
+$$</p>
+<ul>
+<li>Arrange them into order of U</li>
+</ul>
+<p>$$
+y_1U&rsquo;&rsquo;+(2y_1&rsquo; + P y_1)U&rsquo;+(y_1&rsquo;&rsquo; + P y_1&rsquo; + Q y_1)U  = 0\tag{1}
+$$</p>
+<ul>
+<li>We have the original ODE \(y_1&rsquo;&rsquo; + P y_1&rsquo; + Q y_1=0\)</li>
+<li>Thus (1) now become</li>
+</ul>
+<p>$$
+U y_1&rsquo;&rsquo; + (2 y_1&rsquo; + P y_1) U&rsquo; + y_1 U&rsquo;&rsquo; = 0
+$$</p>
+<ul>
+<li>Now let \(w=U&rsquo;\), then</li>
+</ul>
+<p>$$
+y_1 w&rsquo; + (2 y_1&rsquo; + P y_1) w = 0
+$$</p>
+<ul>
+<li>Arrange to get</li>
+</ul>
+<p>$$
+w&rsquo; + \left( 2\frac{y_1&rsquo;}{y_1} + P \right) w = 0
+$$</p>
+<ul>
+<li>Further Arrange to get</li>
+</ul>
+<p>$$
+\frac{w&rsquo;}{w} + 2\frac{y_1&rsquo;}{y_1} + P = 0\Rightarrow \frac{w&rsquo;}{w} + 2\frac{y_1&rsquo;}{y_1} = -P
+$$</p>
+<ul>
+<li>Can see that LHS is a result of Derivative of Products</li>
+<li>Thus have</li>
+</ul>
+<p>$$
+\frac{d}{dx}(\ln(w y_1^2)) = -P
+$$</p>
+<ul>
+<li>Integrate both side to get</li>
+</ul>
+<p>$$
+\ln(w y_1^2) = -\int P(x),dx
+$$</p>
+<p>$$
+w y_1^2 = e^{-\int P(x),dx}\Rightarrow w = \frac{1}{y_1^2} e^{-\int P(x),dx}
+$$</p>
+<ul>
+<li>Recall that we let \(w=U&rsquo;\) before, now sub back to get</li>
+</ul>
+<p>$$
+U&rsquo; = \frac{1}{y_1^2} e^{-\int P(x),dx}
+$$</p>
+<ul>
+<li>Integrate both side to get</li>
+</ul>
+<p>$$
+U = \int \frac{1}{y_1^2} e^{-\int P(x),dx},dx
+$$</p>
+<ul>
+<li>Recall we let \(y_2=y1U(x)\), so the <strong>Final Result</strong> is</li>
+</ul>
+<p>$$
+y_2(x) = y_1(x) \int \frac{e^{-\int P(x),dx}}{y_1(x)^2},dx
+$$</p>
+
+
+<h4 class="relative group">Ex. Find the second Solution for 2nd Linear Homo ODE 
+    <div id="ex-find-the-second-solution-for-2nd-linear-homo-ode" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-find-the-second-solution-for-2nd-linear-homo-ode" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>The function is \(y&rsquo;&rsquo;+4y&rsquo;+4y=0\),  \(y_1(x) = e^{-2x}\)</p>
+<hr>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%208.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Find the fundamental set of solutions for Higher Order Homo Linear DE 
+    <div id="find-the-fundamental-set-of-solutions-for-higher-order-homo-linear-de" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#find-the-fundamental-set-of-solutions-for-higher-order-homo-linear-de" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Consider the function</p>
+<p>$$
+a y&rsquo;&rsquo;&rsquo; + b y&rsquo;&rsquo; + c y&rsquo; + d y = 0\quad a,b,c,d \in \mathbb{R}
+$$</p>
+<ul>
+<li>This is a third-order homogeneous linear ODE with constant coefficients</li>
+<li>Consider \(y(x) = e^{mx}\) as a solution</li>
+<li>Now sub in \(y(x)\) into function</li>
+</ul>
+<p>$$
+y&rsquo; = m e^{mx}, \quad y&rsquo;&rsquo; = m^2 e^{mx}, \quad y&rsquo;&rsquo;&rsquo; = m^3 e^{mx}
+$$</p>
+<p>$$
+a m^3 e^{mx} + b m^2 e^{mx} + c m e^{mx} + d e^{mx} = 0
+$$</p>
+<ul>
+<li>Since \(e^{mx} \neq 0\), then get rid of it to get</li>
+</ul>
+<p>$$
+a m^3 + b m^2 + c m + d = 0
+$$</p>
+<ul>
+<li>This is the Characteristic Equation（特征方程）</li>
+<li>For that Equation above, clearly it has three solutions \(m_1, m_2, m_3\), so the funciton can become</li>
+</ul>
+<p>$$
+a (m - m_1)(m - m_2)(m - m_3) = 0
+$$</p>
+<ul>
+<li>Thus the three solutions are \(e^{m_1 x},\ e^{m_2 x},\ e^{m_3 x}\)</li>
+<li>And clearly if \(m_1\neq m_2\neq m_3\), then they are linearly independent</li>
+<li>Then will get the fundamental solution set of the DE as</li>
+</ul>
+<p>$$
+{e^{m_1 x}, e^{m_2 x}, e^{m_3 x}}
+$$</p>
+
+
+<h3 class="relative group">Types of roots (solution for DE) 
+    <div id="types-of-roots-solution-for-de" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#types-of-roots-solution-for-de" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>In above part, we conclude the fundamental solution set of DE, but there may exist multiple situations for those roots (i.e. May have complex roots)</p>
+<ul>
+<li>Now consider a more general case, for a nth order homo DE</li>
+</ul>
+<p>$$
+a_n y^{(n)} + a_{n-1} y^{(n-1)} + \dots + a_1 y&rsquo; + a_0 y = 0
+$$</p>
+<ul>
+<li>Its Characteristic Equation is</li>
+</ul>
+<p>$$
+a_n m^n + a_{n-1} m^{n-1} + \dots + a_1 m + a_0 = 0
+$$</p>
+<ul>
+<li>The possible roots can be
+<ul>
+<li>Real</li>
+<li>Complex</li>
+<li>Repeated</li>
+</ul>
+</li>
+<li>Now we are going to analysis them one by one</li>
+</ul>
+
+
+<h4 class="relative group"><strong>Type 1：Distinct Real Roots</strong> 
+    <div id="type-1distinct-real-roots" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#type-1distinct-real-roots" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>The most simple case, when all three are <strong>Distinct Real Roots</strong></p>
+<p>$$
+y = c_1 e^{m_1 x} + c_2 e^{m_2 x} + \dots + c_n e^{m_n x}
+$$</p>
+<ul>
+<li>Then the solution is simple</li>
+</ul>
+
+
+<h4 class="relative group"><strong>Type 2：Conjugate Complex Roots</strong> 
+    <div id="type-2conjugate-complex-roots" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#type-2conjugate-complex-roots" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>As Complex Roots need to appear with its <strong>Conjugate,</strong> thus have</p>
+<p>$$
+m_{1,2} = \alpha \pm i\beta
+$$</p>
+<ul>
+<li>Their roots are \(y = e^{(\alpha + i\beta)x}\), expand and get</li>
+</ul>
+<p>$$
+e^{\alpha x} \cos(\beta x), \quad e^{\alpha x} \sin(\beta x)
+$$</p>
+<ul>
+<li>Those two complex solution can be represent as</li>
+</ul>
+<p>$$
+y = e^{\alpha x}(c_1 \cos\beta x + c_2 \sin\beta x)
+$$</p>
+<blockquote>
+<p>Prove that a Complex Number Solution’s Conjugate is also a Solution
+We have the first Complex Number as
+\(A_n m_1^n + A_{n-1} m_1^{n-1} + \cdots + A_1 m_1 + A_0 = 0\), take Conjugate on both side to get
+\(\overline{A_n} , \overline{m_1}^n + \overline{A_{n-1}} , \overline{m_1}^{,n-1} + \cdots + \overline{A_1} , \overline{m_1} + \overline{A_0} = 0\), thus also a solution</p>
+</blockquote>
+
+
+<h4 class="relative group"><strong>Type 3：Repeated Real Roots</strong> 
+    <div id="type-3repeated-real-roots" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#type-3repeated-real-roots" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>If one Real Root has repeated r times \(m_1 = m_2 = \dots = m_r = m\), then the solution is</p>
+<p>$$
+e^{mx},x e^{mx}, x^2 e^{mx}, \dots, x^{r-1} e^{mx}
+$$</p>
+
+
+<h4 class="relative group">Ex. Specify the general class of solution of function 
+    <div id="ex-specify-the-general-class-of-solution-of-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-specify-the-general-class-of-solution-of-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Having the function</p>
+<p>$$
+y^{(6)} - 8y^{(5)} + 23y^{(4)} - 26y^{(3)} - 2y&rsquo;&rsquo; + 32y&rsquo; - 24y = 0
+$$</p>
+<hr>
+<ul>
+<li>First get the Characteristic Function \(m^6 - 8m^5 + 23m^4 - 26m^3 - 2m^2 + 32m - 24 = 0\)</li>
+<li>This function has the following roots</li>
+</ul>
+<p>$$
+(m + 1)(m - 3)(m - 2)^2 (m - (1 + i))(m - (1 - i)) = 0
+$$</p>
+<ul>
+<li>The roots we have above are</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Root</th>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Solution</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">( m = -1 )</td>
+          <td style="text-align: left">Real</td>
+          <td style="text-align: left">( \(e^{-x}\) )</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">( m = 3 )</td>
+          <td style="text-align: left">Real</td>
+          <td style="text-align: left">( \(e^{3x}\) )</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">( m = 2 )（重根）</td>
+          <td style="text-align: left">Repeated Real</td>
+          <td style="text-align: left">( \(e^{2x},\ x e^{2x}\) )</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">( m = 1 \pm i )</td>
+          <td style="text-align: left">Conjugate Complex</td>
+          <td style="text-align: left">( \(e^{x}\cos x,\ e^{x}\sin x\)</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>So the General Solution si</li>
+</ul>
+<p>$$
+{ e^{-x},\ e^{3x},\ e^{2x},\ x e^{2x},\ e^{x}\cos x,\ e^{x}\sin x }
+$$</p>
+<p>$$
+y_c(x) = C_1 e^{-x} + C_2 e^{3x} + C_3 e^{2x} + C_4 x e^{2x} + C_5 e^{x}\cos x + C_6 e^{x}\sin x
+$$</p>
+
+
+<h4 class="relative group">Ex. Can the auxiliary equation have repeated complex roots? 
+    <div id="ex-can-the-auxiliary-equation-have-repeated-complex-roots" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-can-the-auxiliary-equation-have-repeated-complex-roots" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>If we have the Characteristic Function as</p>
+<p>$$
+(m - (1+i))^2 (m - (1-i))^2 = 0
+$$</p>
+<ul>
+<li>Then its a Conjugate Pair of \((1+i)\) and \((1-i)\), their solution is then</li>
+</ul>
+<p>$$
+e^{x}\cos x,\ e^{x}\sin x,\ x e^{x}\cos x,\ x e^{x}\sin x
+$$</p>
+
+
+<h2 class="relative group">General Solution of Non-homo Linear DE 
+    <div id="general-solution-of-non-homo-linear-de" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#general-solution-of-non-homo-linear-de" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Now we are copping with the Non-Homo Case, where there’s non zero on the RHS, so with the function</p>
+<p>$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \dots + a_0(x)y = g(x)
+$$</p>
+<ul>
+<li>So we are trying to find a Particular solution that</li>
+</ul>
+<p>$$
+L(y_p) = g(x)
+$$</p>
+<ul>
+<li>And a Homo Solution where</li>
+</ul>
+<p>$$
+L(y_c) = 0
+$$</p>
+
+
+<h3 class="relative group">Proving the General Solution is Comp + Part 
+    <div id="proving-the-general-solution-is-comp--part" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proving-the-general-solution-is-comp--part" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>So we are trying to prove that \(y = y_c + y_p\)</p>
+<ul>
+<li>So sub it back to get</li>
+</ul>
+<p>$$
+L(y) = L(y_c + y_p)
+$$</p>
+<ul>
+<li>Because L is Linear, then</li>
+</ul>
+<p>$$
+L(y) = L(y_c) + L(y_p)
+$$</p>
+<ul>
+<li>We know that \(L(y_c) = 0\)  and \(L(y_p) = g(x)\), thus</li>
+</ul>
+<p>$$
+L(y) = 0 + g(x) = g(x)
+$$</p>
+<ul>
+<li>This will also work in the converse way that</li>
+</ul>
+<p>$$
+y - y_p
+$$</p>
+<ul>
+<li>has to have the identity that</li>
+</ul>
+<p>$$
+L(y - y_p) = L(y) - L(y_p) = g(x) - g(x) = 0
+$$</p>
+
+
+<h4 class="relative group">Ex. Finding the General Solution 
+    <div id="ex-finding-the-general-solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-finding-the-general-solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Having the function \(y&rsquo;&rsquo; - 3y&rsquo; + 2y = e^{x}\)</p>
+<hr>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%209.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Variation of Parameters 
+    <div id="variation-of-parameters" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#variation-of-parameters" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Finding the Particular Solution of the DE is hard, and this method can help</p>
+<ul>
+<li>Suppose we have the DE</li>
+</ul>
+<p>$$
+y&rsquo;&rsquo; + P(x)y&rsquo; + Q(x)y = f(x)
+$$</p>
+<ul>
+<li>First the Complementary Solution is</li>
+</ul>
+<p>$$
+y_c = C_1 y_1 + C_2 y_2
+$$</p>
+<ul>
+<li>Then Start the Variation of Parameters</li>
+<li>Let all Constant become function</li>
+</ul>
+<p>$$
+y_p = U_1(x) y_1 + U_2(x) y_2
+$$</p>
+<ul>
+<li>Before we taking the derivatives, we found that</li>
+</ul>
+<p>$$
+y_p&rsquo; = U_1&rsquo;y_1 + U_1y_1&rsquo; + U_2&rsquo;y_2 + U_2y_2&rsquo;
+$$</p>
+<ul>
+<li>Is hard to due, so we can smartly setting a restriction that let</li>
+</ul>
+<p>$$
+U_1&rsquo; y_1 + U_2&rsquo; y_2 = 0 \quad \text{(Eq.1)}\Rightarrow y_p&rsquo; =U_1y&rsquo;_1+U_2y&rsquo;_2
+$$</p>
+<blockquote>
+<p>This helps when calculating \(y&rsquo;&rsquo;\)</p>
+</blockquote>
+<ul>
+<li>Now, calculate the \(y&rsquo;&rsquo;\)</li>
+</ul>
+<p>$$
+y_p&rsquo;&rsquo; = U_1&rsquo;y_1&rsquo; + U_1y_1&rsquo;&rsquo; + U_2&rsquo;y_2&rsquo; + U_2y_2&rsquo;&rsquo;
+$$</p>
+<ul>
+<li>Then sub back the \(y_p\) into \(y&rsquo;&rsquo; + P y&rsquo; + Q y = f(x)\),</li>
+</ul>
+<p>$$
+(U_1&rsquo;y_1&rsquo; + U_1y_1&rsquo;&rsquo; + U_2&rsquo;y_2&rsquo; + U_2y_2&rsquo;&rsquo;)+P(U_1y_1&rsquo; + U_2y_2&rsquo;)+Q(U_1y_1 + U_2y_2)= f(x)
+$$</p>
+<ul>
+<li>Rearrange \(U_1,U_2\) to get</li>
+</ul>
+<p>$$
+(U_1&rsquo;y_1&rsquo; + U_2&rsquo;y_2&rsquo;) + U_1(y_1&rsquo;&rsquo; + Py_1&rsquo; + Qy_1) + U_2(y_2&rsquo;&rsquo; + Py_2&rsquo; + Qy_2) = f(x)
+$$</p>
+<ul>
+<li>Cause \(y_1, y_2\) are solution of the Homo Function, thus</li>
+</ul>
+<p>$$
+y_1&rsquo;&rsquo; + Py_1&rsquo; + Qy_1 = 0, \quad y_2&rsquo;&rsquo; + Py_2&rsquo; + Qy_2 = 0
+$$</p>
+<ul>
+<li>Then the part left is</li>
+</ul>
+<p>$$
+U_1&rsquo;y_1&rsquo; + U_2&rsquo;y_2&rsquo; = f(x)
+$$</p>
+<ul>
+<li>So now, we got a function set</li>
+</ul>
+<p>$$
+\begin{cases}
+U_1&rsquo;y_1 + U_2&rsquo;y_2 = 0 &amp; (\text{Eq.1}) \
+U_1&rsquo;y_1&rsquo; + U_2&rsquo;y_2&rsquo; = f(x) &amp; (\text{Eq.2})
+\end{cases}
+$$</p>
+<ul>
+<li>Write them in Matrix Form is</li>
+</ul>
+<p>$$</p>
+<p>\begin{bmatrix}
+y_1 &amp; y_2 \
+y_1&rsquo; &amp; y_2&rsquo;
+\end{bmatrix}
+\begin{bmatrix}
+U_1&rsquo; \
+U_2&rsquo;
+\end{bmatrix}</p>
+<p>\begin{bmatrix}
+0 \
+f(x)
+\end{bmatrix}</p>
+<p>$$</p>
+<ul>
+<li>We can find out that this matrix is just Wronskian, thus use Cramer’s Rule</li>
+</ul>
+<p>$$
+W(y_1, y_2) =
+\begin{vmatrix}
+y_1 &amp; y_2 \
+y_1&rsquo; &amp; y_2&rsquo;
+\end{vmatrix}
+$$</p>
+<ul>
+<li>Thus we got</li>
+</ul>
+<p>$$
+U_1&rsquo; = -\frac{y_2 f}{W(y_1, y_2)}, \quad U_2&rsquo; = \frac{y_1 f}{W(y_1, y_2)}
+$$</p>
+<ul>
+<li>Take integral</li>
+</ul>
+<p>$$
+U_1 = \int -\frac{y_2 f}{W(y_1, y_2)},dx, \quad U_2 = \int \frac{y_1 f}{W(y_1, y_2)},dx
+$$</p>
+<ul>
+<li>Then we will get the <strong>Particular Solution</strong></li>
+</ul>
+
+
+<h4 class="relative group">Ex. Finding the Particular Solution 
+    <div id="ex-finding-the-particular-solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-finding-the-particular-solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>We have the function \(y&rsquo;&rsquo; - 2y&rsquo; + y = \frac{e^t}{1+t^2}\)</p>
+<hr>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2010.png" alt="image.png" />
+      
+    </figure>
+</p>
+<hr>
+<p>5.1</p>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+
+        
+
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature_hu9578550399762844699.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/">AEM 1. Complex Numbers</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>4808 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/aem/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AEM
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/introduction-to-mathematic-physic/imp2.limits/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/introduction-to-mathematic-physic/imp2.limits/feature_hu2531377829145119504.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/introduction-to-mathematic-physic/imp2.limits/">IMP 2. Limits</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>6370 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/econ/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Econ
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature_hu3137460487742645143.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/">OOPC 1. ProgrammingBasics</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>5886 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/oopcs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    OOPCS
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/feature_hu9920419362512656206.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/">IMP 1. Review of Vector</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>2209 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/econ/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Econ
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/feature_hu17563863749955755898.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/">EF 3. Gauss' Law Edited</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-28T00:00:00&#43;00:00">Mar 28 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1795 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24/calculus/calculus8.methodsofintegration/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24/calculus/calculus8.methodsofintegration/feature_hu13221952812045409006.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24/calculus/calculus8.methodsofintegration/">Calculus 8. Methods of Integration</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>1848 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cal/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Cal
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\\UofT\\Advanced Engineering Mathematics\\AEM2.DifferentialEquations\\index.md"
+        var oid_likes = "likes_docs\\UofT\\Advanced Engineering Mathematics\\AEM2.DifferentialEquations\\index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >AEM 1. Complex Numbers</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+      </main><script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+
+<footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
+            title="">
+            
+            Credits
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2025
+      Buezwqwg
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://buezw.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+
+  
+</html>

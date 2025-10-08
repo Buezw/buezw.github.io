@@ -4,7 +4,7 @@
 
   <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
     <xhtml:link
@@ -19,14 +19,102 @@
     />
   </url>
   <url>
-    <loc>https://buezw.github.io/tags/docs/</loc>
-    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    <loc>https://buezw.github.io/docs/</loc>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+    <loc>https://buezw.github.io/tags/ie/</loc>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/</loc>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/introductory-electronics/</loc>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/</loc>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="zh-cn"
+      href="https://buezw.github.io/zh-cn/tags/"
+    />
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://buezw.github.io/tags/"
+    />
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/</loc>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/uoft/</loc>
+    <lastmod>2025-10-07T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/</loc>
+    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/aem/</loc>
+    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/</loc>
+    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/docs/</loc>
+    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/digital-systems/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/tags/ds/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</loc>
+    <lastmod>2025-10-05T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</loc>
+    <lastmod>2025-10-02T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
@@ -44,34 +132,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</loc>
-    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/</loc>
-    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-      rel="alternate"
-      hreflang="zh-cn"
-      href="https://buezw.github.io/zh-cn/tags/"
-    />
-    <xhtml:link
-      rel="alternate"
-      hreflang="en"
-      href="https://buezw.github.io/tags/"
-    />
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/uoft/</loc>
-    <lastmod>2025-09-28T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/uoft/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -107,18 +167,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/</loc>
-    <lastmod>2025-09-15T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/aem/</loc>
-    <lastmod>2025-09-15T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
@@ -133,24 +181,6 @@
   <url>
     <loc>https://buezw.github.io/tags/oopcs/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/ie/</loc>
-    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/</loc>
-    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/uoft/introductory-electronics/</loc>
-    <lastmod>2025-09-14T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
@@ -922,16 +952,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/credits/</loc>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/uoft/digital-systems/</loc>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/tags/ds/</loc>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
