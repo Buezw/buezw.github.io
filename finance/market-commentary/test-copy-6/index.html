@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEM 2. Differential Equations | Stochastic</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --dim: #555555;
+            --accent: #800000;
+            --line: #e0e0e0;
+            --code-bg: #f5f5f5;
+        }
+
+        html {
+            scroll-behavior: smooth;  
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.8;
+            margin: 0; padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; transition: 0.2s; }
+        a:hover { color: var(--accent); }
+
+         
+        .paper-nav {
+            border-bottom: 1px solid var(--text);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            position: sticky; top: 0; background: var(--bg); z-index: 100;
+        }
+        .nav-brand { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; }
+        .nav-links { font-family: 'JetBrains Mono'; font-size: 0.75rem; display: flex; gap: 20px; }
+        .nav-links a:hover { text-decoration: underline; }
+
+         
+        .paper-wrapper {
+            width: 100%;
+            padding: 80px 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+         
+        article {
+            width: 100%;
+             
+            max-width: 1100px; 
+            
+             
+            margin-left: 60px; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            right: 20px;  
+            top: 150px;
+            width: 200px;
+            padding-left: 20px;
+            border-left: 1px dashed var(--line);
+            z-index: 10;
+        }
+
+         
+        .paper-header { margin-bottom: 50px; border-bottom: 1px solid var(--line); padding-bottom: 30px; }
+        
+        h1.paper-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.15;
+            margin: 0 0 20px 0;
+            color: #000;
+        }
+
+        .meta-line {
+            font-family: 'JetBrains Mono'; font-size: 0.75rem; color: var(--accent);
+            text-transform: uppercase; margin-top: 15px; display: flex; gap: 15px; align-items: center;
+        }
+
+        .paper-abstract {
+            font-style: italic; color: var(--dim); font-size: 1.1rem;
+            border-left: 3px solid var(--accent); padding-left: 20px; margin-top: 30px;
+        }
+
+         
+        .paper-content { font-size: 1.1rem; }
+        
+         
+        .paper-content h1, 
+        .paper-content h2, 
+        .paper-content h3, 
+        .paper-content h4 {
+             
+            scroll-margin-top: 80px;
+        }
+
+         
+        .paper-content h1 a, 
+        .paper-content h2 a, 
+        .paper-content h3 a, 
+        .paper-content h4 a {
+            opacity: 0;  
+            pointer-events: none;  
+            position: absolute;  
+        }
+
+        .paper-content h2 { 
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-top: 50px; margin-bottom: 20px; 
+            border-bottom: 1px solid var(--line); padding-bottom: 5px;
+            position: relative;  
+        }
+        .paper-content h3 { 
+            font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-top: 40px; margin-bottom: 15px; font-style: italic; 
+            position: relative;
+        }
+        .paper-content p { margin-bottom: 1.5em; text-align: justify; }
+        .paper-content blockquote {
+            background: #f9f9f9; border-left: 4px solid var(--text);
+            margin: 30px 0; padding: 20px; font-style: italic; color: var(--dim);
+        }
+        .paper-content pre {
+            background: var(--code-bg); padding: 20px; border-radius: 4px; border: 1px solid var(--line);
+            overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;
+        }
+        .paper-content code {
+            font-family: 'JetBrains Mono', monospace; background: var(--code-bg); 
+            padding: 2px 5px; border-radius: 3px; font-size: 0.85em; color: var(--accent);
+        }
+        .paper-content img { max-width: 100%; height: auto; border: 1px solid var(--line); margin: 20px 0; }
+
+         
+        .toc-title { font-family: 'JetBrains Mono'; font-size: 0.7rem; font-weight: bold; color: var(--dim); margin-bottom: 15px; letter-spacing: 1px; }
+        #TableOfContents { font-family: 'Noto Serif SC'; font-size: 0.8rem; }
+        #TableOfContents ul { list-style: none; padding: 0; margin: 0; }
+        #TableOfContents li { margin-bottom: 8px; }
+        #TableOfContents a { color: var(--dim); display: block; line-height: 1.3; transition: 0.2s; }
+        #TableOfContents a:hover { color: var(--accent); transform: translateX(-5px); }
+
+         
+        @media (max-width: 1300px) {
+            article { margin-left: 0; max-width: 90%; } 
+            .toc-sidebar { display: none; } 
+            .paper-wrapper { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="paper-nav">
+        <a href="/finance" class="nav-brand">Stochastic</a>
+        <div class="nav-links">
+            <a href="/finance/#projects">PROJECTS</a>
+            <a href="/finance/#commentary">RESEARCH</a>
+            <a href="/finance">HOME</a>
+        </div>
+    </nav>
+
+    <div class="paper-wrapper">
+        <article>
+            <header class="paper-header">
+                <h1 class="paper-title">AEM 2. Differential Equations</h1>
+                <div class="meta-line">
+                    <span>October 06, 2025</span>
+                    <span>//</span>
+                    
+                        <span>#Finance</span>
+                    
+                        <span>#AEM</span>
+                    
+                    <span>//</span>
+                    <span>1 MIN READ</span>
+                </div>
+                
+                
+                <div class="paper-abstract">
+                    <p>1232123</p>
+                </div>
+                
+            </header>
+
+            <div class="paper-content">
+                <p>1232123</p>
+
+            </div>
+            
+            <div style="margin-top: 80px; border-top: 1px solid #eee; padding-top: 20px; font-family: 'JetBrains Mono'; font-size: 0.8rem; color: #888;">
+                Q.E.D. <br>
+                Unless otherwise noted, this article is for academic discussion.
+            </div>
+        </article>
+
+        <aside class="toc-sidebar">
+            <div class="toc-title">CONTENTS</div>
+            <nav id="TableOfContents"></nav>
+        </aside>
+    </div>
+
+</body>
+</html>

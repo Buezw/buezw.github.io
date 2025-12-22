@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Market Microstructure on Buezwqwg</title>
+    <link>https://buezw.github.io/categories/market-microstructure/</link>
+    <description>Recent content in Market Microstructure on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2025 Buezwqwg</copyright>
+    <lastBuildDate>Sat, 20 Dec 2025 14:00:00 -0500</lastBuildDate><atom:link href="https://buezw.github.io/categories/market-microstructure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantifying Order Flow Toxicity: A Microstructure Perspective</title>
+      <link>https://buezw.github.io/finance/market-commentary/test-copy/</link>
+      <pubDate>Sat, 20 Dec 2025 14:00:00 -0500</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/finance/market-commentary/test-copy/</guid>
+      <description>Implementing the VPIN (Volume-Synchronized Probability of Informed Trading) metric to detect adverse selection risk in high-frequency order books.</description>
+      
+    </item>
+    
+  </channel>
+</rss>
