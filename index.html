@@ -1,742 +1,608 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  dir="ltr"
-  class="scroll-smooth"
-  data-default-appearance="dark"
-  data-auto-appearance="false"
-><head>
+<html lang="zh-CN">
+<head>
 	<meta name="generator" content="Hugo 0.135.0">
-  <meta charset="utf-8" />
-  
-  <meta http-equiv="content-language" content="en" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  
-  <title>Buezwqwg</title>
-  <meta name="title" content="Buezwqwg" />
-  
-  
-  
-  
-  
-  <link rel="canonical" href="https://buezw.github.io/" />
-  
-  <link rel="alternate" type="application/rss+xml" href="/index.xml" title="Buezwqwg" />
-  
-  <link rel="alternate" type="application/json" href="/index.json" title="Buezwqwg" />
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
-    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
-  
-  
-  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
-    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.821d421a756ddb6f1c91d41c53d0e2b2afa007b11ade688aa55594a12048893dadc2cbc127bd32da081f77022a40c9e1b73193584db9a34368e9cfd56758e43f.js"
-    integrity="sha512-gh1CGnVt228ckdQcU9Disq&#43;gB7Ea3miKpVWUoSBIiT2twsvBJ70y2ggfdwIqQMnhtzGTWE25o0No6c/VZ1jkPw==" data-copy="" data-copied=""></script>
-  
-  
-  
-  <script src="/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
-  
-  
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:url" content="https://buezw.github.io/">
-  <meta property="og:site_name" content="Buezwqwg">
-  <meta property="og:title" content="Buezwqwg">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
-
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Buezwqwg">
-
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https:\/\/buezw.github.io\/",
-    "name": "Buezwqwg",
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jingnan Huang | Research & Engineering Archive</title>
     
-    "inLanguage": "en",
-    "url": "https:\/\/buezw.github.io\/",
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
-    "publisher" : {
-      "@type": "Person",
-      "name": "Buezwqwg"
-    }
-  }
-  </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 
+    <style>
+         
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --dim: #666666;
+            --line: #e5e5e5;
+            --accent-mi: #cc0000;
+            --accent-el: #111111;
+            --accent-rl: #0033cc;
+            --font-serif: 'Playfair Display', serif;
+            --font-body: 'Noto Serif SC', 'Georgia', serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
 
-  
-  
-  <meta name="author" content="Buezwqwg" />
-  
-  
-  
+        html { height: 100%; }
 
-<script src="/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+        body {
+            margin: 0; padding: 0;
+            background-color: var(--bg) !important;
+            background-image: none !important;
+            color: var(--text);
+            font-family: var(--font-body);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
+        a { color: inherit; text-decoration: none; transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        a:hover { color: var(--accent-mi); }
 
+         
+        .site-header {
+            text-align: center;
+            padding: 40px 20px 25px;  
+            border-bottom: 3px double var(--text);
+            margin-bottom: 25px;      
+            background: #fff;
+            flex-shrink: 0;
+        }
 
+        .site-title {
+            font-family: var(--font-serif);
+            font-size: 2.8rem; 
+            margin: 0;
+            letter-spacing: -1px;
+            font-weight: 700;
+        }
 
+        .site-subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px; 
+            color: var(--dim);
+        }
 
+         
+        .fluid-wrapper {
+            max-width: none !important;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+            flex: 1;
+        }
 
+        .sidebar { position: sticky; top: 30px; height: fit-content; }  
+        .profile-name { font-family: var(--font-serif); font-size: 2rem; margin: 0 0 15px; }
+        
+        .profile-bio { margin-bottom: 30px; }
+        .bio-role {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            border-left: 2px solid var(--accent-mi);
+            padding-left: 12px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .bio-edu {
+            font-size: 0.9rem;
+            color: var(--dim);
+            line-height: 1.6;
+        }
+        .bio-edu strong { color: var(--text); font-weight: 600; }
 
+        .btn-cv {
+            display: inline-flex;
+            align-items: center; 
+            justify-content: center;
+            background: #111; 
+            color: #fff; 
+            padding: 8px 16px;
+            font-family: var(--font-mono); 
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            text-transform: uppercase; 
+            margin-bottom: 0px;  
+            width: fit-content;
+            transition: all 0.2s ease;
+        }
+        .btn-cv:hover { 
+            background: var(--accent-mi);
+            transform: translateY(-1px);
+        }
 
+        .sidebar-section { margin-top: 35px; }
+        .sidebar-label {
+            font-family: var(--font-mono); font-size: 0.65rem; font-weight: bold;
+            text-transform: uppercase; border-left: 3px solid var(--accent-mi);
+            padding-left: 10px; margin-bottom: 15px; letter-spacing: 1px;
+        }
 
+        .contact-list {
+            list-style: none; padding: 0; margin: 0;
+            font-family: var(--font-mono); font-size: 0.75rem;
+        }
+        .contact-list li {
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-label {
+            font-size: 0.6rem; color: #999; text-transform: uppercase; margin-bottom: 3px; letter-spacing: 0.5px;
+        }
+        .contact-val {
+            color: var(--text);
+            word-break: break-all;
+        }
+        .contact-val a { border-bottom: 1px dotted #ccc; }
+        .contact-val a:hover { border-bottom-color: var(--accent-mi); }
 
+        .comp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag-pill { border: 1px solid var(--line); padding: 4px 10px; font-size: 0.75rem; color: var(--dim); }
 
+         
+        .section-header {
+            font-family: var(--font-serif); font-size: 1.8rem; 
+            border-bottom: 1px solid var(--line); 
+            padding-bottom: 10px; 
+            margin-bottom: 15px;  
+            display: flex; justify-content: space-between; align-items: baseline;
+        }
+        .section-header span { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-mi); letter-spacing: 1.2px; }
 
+         
+        .projects-grid {
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;  
+            margin-bottom: 60px;
+        }
 
+        @media (max-width: 1200px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+        
+         
+        .project-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 15px;  
+            display: flex; flex-direction: column; justify-content: space-between;
+            position: relative;
+            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            text-decoration: none !important;
+            border-radius: 2px;
+            min-height: 130px;  
+        }
+        
+        .project-card:hover { 
+            border-color: var(--accent-mi);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(204, 0, 0, 0.08);
+        }
 
+        .project-card h3 { 
+            font-family: var(--font-serif); 
+            font-size: 1.1rem;  
+            margin: 0 0 6px; 
+            color: var(--text);
+            display: flex; justify-content: space-between; align-items: flex-start;
+        }
+        
+        .project-card p { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 0.8rem;  
+            color: var(--dim); 
+            line-height: 1.5; 
+            margin-bottom: 10px; 
+            margin-top: 0;
+        }
 
+         
+        .project-keypoints {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: #444; 
+            margin-bottom: 8px;  
+            padding-bottom: 8px;  
+            border-bottom: 1px dashed #eee;
+            letter-spacing: -0.3px;
+        }
+        .project-keypoints span {
+            color: var(--accent-mi);
+            margin: 0 4px;
+            font-weight: bold;
+        }
+        
+        .card-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: auto; 
+        }
 
+        .card-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+        
+        .card-tag { 
+            font-family: var(--font-mono); 
+            font-size: 0.6rem; 
+            background: #f4f4f4; 
+            padding: 2px 5px; 
+            border-radius: 2px;
+            color: #333;
+        }
 
+        .icon-link svg {
+            stroke: #ccc;
+            transition: 0.2s;
+            width: 14px; height: 14px;  
+        }
+        .project-card:hover .icon-link svg { stroke: var(--accent-mi); }
 
+         
+        .trinity-grid {
+            display: grid; 
+            grid-template-columns: repeat(3, minmax(0, 1fr)); 
+            gap: 40px;
+        }
 
+        .list-group-header {
+            font-family: var(--font-mono); font-weight: bold; font-size: 0.85rem;
+            text-transform: uppercase; border-bottom: 2px solid #000;
+            padding-bottom: 10px; margin-bottom: 25px; display: flex; justify-content: space-between;
+        }
 
+        .entry-item { display: block; border-bottom: 1px dashed var(--line); padding-bottom: 15px; margin-bottom: 20px; }
+        .entry-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--dim); margin-bottom: 8px; display: flex; align-items: center; }
+        .meta-tag-mi { color: var(--accent-mi); font-weight: bold; margin-left: 8px; }
+        .meta-tag-el { color: var(--accent-el); font-weight: bold; margin-left: 8px; }
+        .meta-tag-rl { color: var(--accent-rl); font-weight: bold; margin-left: 8px; border: 1px solid var(--accent-rl); padding: 0 4px; }
 
+        .entry-title { 
+            font-family: var(--font-serif); font-size: 1.3rem; font-weight: 700; line-height: 1.25; color: #000; margin-bottom: 6px; 
+            overflow-wrap: break-word; word-break: break-word;
+        }
+        .entry-title-mono { 
+            font-family: var(--font-mono); font-size: 1.1rem; font-weight: 700; line-height: 1.3; color: #222; margin-bottom: 6px; 
+            overflow-wrap: break-word; word-break: break-word;
+        }
+        
+        .entry-summary { 
+            color: var(--dim); 
+            font-size: 0.85rem; 
+            line-height: 1.5; 
+            font-family: var(--font-mono); 
+        }
 
-  
-  
+        @media (max-width: 1400px) { .trinity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 1000px) {
+            .fluid-wrapper { grid-template-columns: 1fr; padding: 0 25px; }
+            .trinity-grid { grid-template-columns: minmax(0, 1fr); }
+            .site-title { font-size: 2.2rem; }
+        }
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWY3M67C4S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FWY3M67C4S');
-</script>
-
-
-
-  
-  
-  <meta name="theme-color"/>
-  
-  
+        .site-footer {
+            text-align: center; padding: 40px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 0.7rem; color: var(--dim); background: #fff; flex-shrink: 0;
+        }
+    </style>
 </head>
-<body
-    class="flex flex-col h-screen text-lg leading-7
-           bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral
-           scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400
-           dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600
-           
-             w-screen max-w-none m-0 px-0
-           ">
-    <div id="the-top" class="absolute flex self-center">
-      <a
-        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
-        href="#main-content"
-      >
-        <span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content
-      </a>
-    </div>
+<body>
 
-    
-    
+    <header class="site-header">
+        <h1 class="site-title">Research & Engineering Archive</h1>
+        <div class="site-subtitle">Research & Engineering | Quantitative Systems | Academic Archive</div>
+    </header>
 
-    <div class="relative flex flex-col grow">
-      <main id="main-content" class="grow pt-0 mt-0">
-        
+    <div class="fluid-wrapper">
+        <aside class="sidebar">
+            <h2 class="profile-name">Jingnan Huang</h2>
+            
+            <div class="profile-bio">
+                <div class="bio-role">
+                    <strong>Sales & Trading Analyst</strong><br>
+                    <span style="color: var(--dim)">@ <a href="https://www.utefa.com/" target="_blank">UTEFA</a></span>
+                </div>
 
+                <div class="bio-edu">
+                    University of Toronto<br>
+                    <strong>B.A.Sc Computer Engineering</strong><br>
+                    + PEY Co-op<br>
+                    <span style="font-size: 0.85em; font-style: italic;">Intended Minor: Engineering Business and Entrepreneurship</span><br>
+                    <span style="font-size: 0.85em; color: #999;">Exp. Apr 2029</span>
+                </div>
+            </div>
 
+            <a href="/cv.pdf" class="btn-cv">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white" style="margin-right:8px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download CV
+            </a>
 
-<script>
-  tailwind = { config: { corePlugins: { preflight: false } } }
-</script>
-<script src="https://cdn.tailwindcss.com"></script>
+            <div class="sidebar-section">
+                <div class="sidebar-label">Coordinates</div>
+                <ul class="contact-list">
+                    <li>
+                        <span class="contact-label">Academic Email</span>
+                        <span class="contact-val">
+                            <a href="mailto:jingnan.huang@mail.utoronto.ca">jingnan.huang@mail.utoronto.ca</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="contact-label">Personal Email</span>
+                        <span class="contact-val">
+                            <a href="mailto:buezwqwg@outlook.com">buezwqwg@outlook.com</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="contact-label">Github</span>
+                        <span class="contact-val">
+                            <a href="https://github.com/Buezw" target="_blank">github.com/Buezw</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-val">
+                            <a href="https://linkedin.com/in/jingnan-huang-buezw/" target="_blank">in/jingnan-huang-buezw</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
 
-<style>
- 
-.home-bleed {
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  width: 100vw;
-  max-width: 100vw;
-}
+            <div class="sidebar-section">
+                <div class="sidebar-label">RESEARCH FOCUS</div>
+                <div class="comp-tags">
+                    <span class="tag-pill">Market Microstructure</span>
+                    <span class="tag-pill">Low Latency Systems</span>
+                    <span class="tag-pill">FPGA Acceleration</span>
+                </div>
+            </div>
 
- 
-.home-bleed .home-bg {
-  background: url('images/background.png') no-repeat center center fixed;
-  background-size: cover;
-  background-color: #000;
-  color: #fff;
+            <div class="sidebar-section">
+                <div class="sidebar-label">Skills</div>
+                <div class="comp-tags">
+                    <span class="tag-pill" style="background: #111; color: #fff; border: 1px solid #111;">C++ / Python</span>
+                    <span class="tag-pill" style="background: #111; color: #fff; border: 1px solid #111;">Verilog / FPGA</span>
+                    <span class="tag-pill">HFT Architecture</span>
+                    <span class="tag-pill">Stoch. Calculus</span>
+                </div>
+            </div>
 
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
- 
-a { color: #fff; text-decoration: none; }
-a:hover { color: #fff; text-decoration: underline; }
-
- 
-html, body { overflow-x: hidden; }
-
- 
-.top-nav {
-  display: flex; justify-content: flex-end; align-items: center;
-  height: 50px; padding: 0 40px 0 20px;
-}
-.top-nav a { margin-left: 20px; font-size: 1rem; transition: color .3s; }
-
- 
-.wrapper {
-   
-  width: 100%;
-  height: auto;
-  max-height: none;
-  overflow: visible;
-  aspect-ratio: auto;
-
-  position: relative;
-  display: flex; flex-direction: column; gap: 0;
-  flex: 1 1 auto;             
-  padding-top: 240px;         
-}
-
- 
-.main-section {
-  display: flex;
-  gap: 30px;
-  padding: 0 30px;
-  margin-top: 0;              
-  align-items: stretch;
-  flex: 1 1 auto;
-}
-
- 
-.left-panel {
-  flex: 1;
-  max-width: 320px;
-  max-height: 320px;
-  background: rgba(255,255,255,.10);
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.30);
-}
-.profile-info h3 { margin: 10px 0 5px; font-size: 1.2rem; }
-.profile-info p  { margin: 10px 0; }
-.profile-links div { margin: 10px 0; font-size: .95rem; }
-
- 
-.recent-articles {
-  flex: 3;
-  display: flex;
-  flex-direction: column;
-  transform: none;            
-}
-.recent-articles h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
- 
-.avatar-abs {
-  position: absolute;
-  top: -10px;
-  left: 5rem;                 
-  width: 14rem;               
-  height: 14rem;              
-  border-radius: 9999px;      
-  border: 4px solid #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,.5);
-  object-fit: cover;
-}
-
- 
-.recent-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  
-  gap: 20px;
-  flex-grow: 1;
-}
-@media (min-width: 1536px) {
-  .recent-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-}
-
- 
-.recent-card {
-  border: 2px solid rgba(255,255,255,.30);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,.30);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: rgba(0,0,0,.20);
-  backdrop-filter: blur(2px);
-}
-.recent-card img {
-  width: 100%; height: 180px; object-fit: cover; display: block;
-  filter: brightness(.85) saturate(1);
-  transition: .3s ease;
-}
-.recent-card .content {
-  flex-grow: 1;
-  display: flex; flex-direction: column; justify-content: space-between;
-  padding: 1rem;
-  background: rgba(0,0,0,.30);
-  backdrop-filter: blur(4px);
-  color: #eee;
-  transition: background .3s;
-}
-.recent-card:hover .content { background: rgba(0,0,0,.55); }
-
-.recent-card .content .title { font-weight: 800; font-size: 1.25rem; line-height: 1.3; margin-bottom: .5rem; }
-.recent-card .content .meta  { font-size: .92rem; color: #cbd5e1; margin-bottom: .5rem; }
-
- 
-.recent-card .content .tags { margin-top: .5rem; display: flex; flex-wrap: wrap; gap: .5rem; }
-.recent-card .content .tags .tag {
-  display: inline-block;
-  padding: 2px 8px;
-  border: 1px solid #06b6d4;          
-  color: #67e8f9;                      
-  border-radius: 999px;
-  font-size: .80rem;
-}
-
- 
-.btn-show-more {
-  display: inline-block;
-  margin: 2rem auto 0;
-  padding: 8px 16px;
-  border: 1px solid #67e8f9;
-  color: #67e8f9;
-  font-weight: 700;
-  border-radius: 8px;
-  background: transparent;
-  text-align: center; text-decoration: none;
-  transition: background .2s, color .2s;
-}
-.btn-show-more:hover { background: #67e8f9; color: #0b1220; }
-
- 
-.home-footer {
-  margin: 28px;
-  border-radius: 14px;
-  background: rgba(0,0,0,.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color: #a5f3fc;            
-}
-.home-footer a { color: #5eead4; text-decoration: none; font-weight: 600; }
-.home-footer a:hover { color: #fff; text-decoration: underline; }
-
- 
-.home-bleed ~ footer,
-footer,
-.footer,
-.site-footer,
-#footer,
-.page-footer,
-.layout-footer,
-body > footer,
-body > .footer,
-body > .site-footer {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  border: 0 !important;
-}
-
- 
-@media (max-width: 1024px) {
-   
-  .recent-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-}
-@media (max-width: 640px) {
-  .wrapper { padding-top: 200px; }  
-}
-  
- 
-.home-bleed .container,
-.home-bleed main,
-.home-bleed .prose,
-.home-bleed [class*="max-w-"] {
-  max-width: none !important;
-  width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
- 
-.home-bleed .recent-articles {
-  margin-top: -45px !important;   
-}
-
-</style>
-
-
-<div class="home-bleed">
-  <div class="home-bg overflow-x-hidden">
-    
-    <div class="top-nav text-cyan-300">
-      <a class="hover:underline hover:text-white" href="docs">Docs</a>
-      <a class="hover:underline hover:text-white" href="https://github.com/Buezw">GitHub</a>
-      <a class="hover:underline hover:text-white" href="https://www.linkedin.com/in/jingnan-huang-438548325/">Linkedin</a>
-      <a class="hover:underline hover:text-white" href="mailto:buezwqwg@outlook.com">Email</a>
-      <a class="hover:underline hover:text-white" href="#">Change Language</a>
-    </div>
-
-    
-    <div class="relative">
-      <img src="/avatar.png" alt="avatar" class="avatar-abs" />
-    </div>
-
-    
-    <div class="wrapper">
-      <div class="main-section">
-        
-        <aside class="left-panel">
-          <div class="profile-info">
-            <h3>Buezwqwg</h3>
-            <p>University of Toronto</p>
-            <p>The Edward S. Rogers Sr. Department of Electrical & Computer Engineering</p>
-          </div>
+            <div class="sidebar-section" style="margin-top: 25px;">
+                <div class="sidebar-label">DEV TOOLS</div>
+                <div class="comp-tags">
+                    <span class="tag-pill">Linux / Bash</span>
+                    <span class="tag-pill">Vim / Neovim</span>
+                    <span class="tag-pill">CMake</span>
+                    <span class="tag-pill">Vivado</span>
+                    <span class="tag-pill">Git</span>
+                </div>
+            </div>
         </aside>
 
-        
-        <section class="recent-articles">
-          <h2>Recent Articles</h2>
+        <main>
+            <section id="projects">
+                <h2 class="section-header">Selected Projects <span>ALPHA & SYSTEMS</span></h2>
+                <div class="projects-grid">
+                    
+                    <a href="#" class="project-card">
+                        <div>
+                            <h3>
+                                Option Pricer
+                                <span class="icon-link">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                                </span>
+                            </h3>
+                            <p>High-performance Monte Carlo engine in C++ with variance reduction.</p>
+                            <div class="project-keypoints">
+                                Monte Carlo <span>//</span> AVX2 <span>//</span> Asian Options
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="card-tag">C++17</span>
+                                <span class="card-tag">HPC</span>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="project-card">
+                        <div>
+                            <h3>
+                                FPGA Matching
+                                <span class="icon-link">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                                </span>
+                            </h3>
+                            <p>Low-latency matching engine on Xilinx UltraScale+ with tick-to-trade opt.</p>
+                            <div class="project-keypoints">
+                                Order Book <span>//</span> Xilinx <span>//</span> TCP/IP Offload
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="card-tag">Verilog</span>
+                                <span class="card-tag">HFT</span>
+                            </div>
+                        </div>
+                    </a>
 
-          <div class="recent-grid">
-            
-              <a href="/docs/uoft/introductory-electronics/ie2.operationalamplifier/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/introductory-electronics/ie2.operationalamplifier/feature.png" alt="IE 2. Operational Amplifiers">
-                  <div class="content">
-                    <div class="title">IE 2. Operational Amplifiers</div>
-                    <div class="meta">Oct 07 2025 · 6517 words</div>
-                    <div class="tags">
-                      <span class="tag">UofT</span><span class="tag">IE</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/feature.png" alt="AEM 2. Differential Equations">
-                  <div class="content">
-                    <div class="title">AEM 2. Differential Equations</div>
-                    <div class="meta">Oct 06 2025 · 6444 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">AEM</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/digital-systems/ds2.circuitmoduleverilog/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/digital-systems/ds2.circuitmoduleverilog/feature.png" alt="DS 2. Circuit Module &amp; Verilog">
-                  <div class="content">
-                    <div class="title">DS 2. Circuit Module &amp; Verilog</div>
-                    <div class="meta">Oct 05 2025 · 1207 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">DS</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/digital-systems/ds1.introductiontologiccircuits/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/digital-systems/ds1.introductiontologiccircuits/feature.png" alt="DS 1. Introductionto Logic Circuits">
-                  <div class="content">
-                    <div class="title">DS 1. Introductionto Logic Circuits</div>
-                    <div class="meta">Oct 02 2025 · 2560 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">DS</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/feature.png" alt="OOPC 3. DynamicMemory Allocation &amp; Classes">
-                  <div class="content">
-                    <div class="title">OOPC 3. DynamicMemory Allocation &amp; Classes</div>
-                    <div class="meta">Sep 28 2025 · 1277 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">OOPC</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/feature.png" alt="OOPC 2. Classes">
-                  <div class="content">
-                    <div class="title">OOPC 2. Classes</div>
-                    <div class="meta">Sep 27 2025 · 2060 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">OOPC</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/introduction-to-mathematic-physic/imp2.limits/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/introduction-to-mathematic-physic/imp2.limits/feature.png" alt="IMP 2. Limits">
-                  <div class="content">
-                    <div class="title">IMP 2. Limits</div>
-                    <div class="meta">Sep 22 2025 · 6370 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">Econ</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature.png" alt="AEM 1. Complex Numbers">
-                  <div class="content">
-                    <div class="title">AEM 1. Complex Numbers</div>
-                    <div class="meta">Sep 15 2025 · 4808 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">AEM</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature.png" alt="OOPC 1. ProgrammingBasics">
-                  <div class="content">
-                    <div class="title">OOPC 1. ProgrammingBasics</div>
-                    <div class="meta">Sep 15 2025 · 5886 words</div>
-                    <div class="tags">
-                      <span class="tag">Docs</span><span class="tag">OOPCS</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-              <a href="/docs/chartered-financial-analyst/qec1.ratesreturns/">
-                <div class="recent-card">
-                  
-                  <img src="/docs/chartered-financial-analyst/qec1.ratesreturns/feature.png" alt="QEC1.Rates&amp;Returns">
-                  <div class="content">
-                    <div class="title">QEC1.Rates&amp;Returns</div>
-                    <div class="meta">Sep 08 2025 · 4747 words</div>
-                    <div class="tags">
-                      <span class="tag">CFA</span><span class="tag">QEC</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            
-          </div>
+                    <a href="#" class="project-card">
+                        <div>
+                            <h3>
+                                Market Sim
+                                <span class="icon-link">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                                </span>
+                            </h3>
+                            <p>Event-driven market simulator with realistic latency & queue models.</p>
+                            <div class="project-keypoints">
+                                Event-Driven <span>//</span> L3 Data <span>//</span> Match Engine
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-tags">
+                                <span class="card-tag">Python</span>
+                                <span class="card-tag">Sim</span>
+                            </div>
+                        </div>
+                    </a>
 
-          
-          <div class="text-center">
-            <a href="/docs" class="btn-show-more">Show More</a>
-          </div>
-        </section>
-      </div>
+                </div>
+            </section>
+            <div class="trinity-grid">
+                <div id="mi" class="list-group">
+                    <div class="list-group-header">Market Insights <span>MI</span></div>
+                    
+                    <a href="/finance/market-commentary/test-copy/" class="entry-item">
+                        <div class="entry-meta">Dec 20 <span class="meta-tag-mi">MACRO</span></div>
+                        <div class="entry-title">Quantifying Order Flow Toxicity: A Microstructure Perspective</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                Implementing the VPIN (Volume-Synchronized Probability of Informed Trading) metric to detect adverse …
+                            
+                        </div>
+                    </a>
+                    
+                    <a href="/finance/market-commentary/test/" class="entry-item">
+                        <div class="entry-meta">Dec 18 <span class="meta-tag-mi">MACRO</span></div>
+                        <div class="entry-title">波动率路径下的隐性结构：当前政权转换的随机性分析</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                探讨在当前宏观流动性紧缩背景下，如何通过随机微积分视角观察波动率曲率的异常变化。
+                            
+                        </div>
+                    </a>
+                    
+                    <a href="/finance/market-commentary/test-copy-2/" class="entry-item">
+                        <div class="entry-meta">Oct 06 <span class="meta-tag-mi">MACRO</span></div>
+                        <div class="entry-title">AEM 2. Differential Equations</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                <p>1232123</p>
+                            
+                        </div>
+                    </a>
+                    
+                    <a href="/finance/market-commentary/test-copy-3/" class="entry-item">
+                        <div class="entry-meta">Oct 06 <span class="meta-tag-mi">MACRO</span></div>
+                        <div class="entry-title">AEM 2. Differential Equations</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                <p>1232123</p>
+                            
+                        </div>
+                    </a>
+                    
+                    <a href="/finance/market-commentary/test-copy-4/" class="entry-item">
+                        <div class="entry-meta">Oct 06 <span class="meta-tag-mi">MACRO</span></div>
+                        <div class="entry-title">AEM 2. Differential Equations</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                <p>1232123</p>
+                            
+                        </div>
+                    </a>
+                    
+                </div>
+
+                <div id="el" class="list-group">
+                    <div class="list-group-header">Engineering Logs <span>EL</span></div>
+                    
+                    
+                </div>
+
+                <div id="rl" class="list-group">
+                    <div class="list-group-header">Reading & Learning <span>RL</span></div>
+                    
+                    <a href="/docs/uoft/introductory-electronics/ie2.operationalamplifier/" class="entry-item">
+                        <div class="entry-meta">Oct 07 <span class="meta-tag-rl">NOTE</span></div>
+                        <div class="entry-title">IE 2. Operational Amplifiers</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                Last Edit: 10/7/25
+                            
+                        </div>
+                    </a>
+                    
+                    <a href="/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/" class="entry-item">
+                        <div class="entry-meta">Oct 06 <span class="meta-tag-rl">NOTE</span></div>
+                        <div class="entry-title">AEM 2. Differential Equations</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                Last Edit: 10/6/25
+                            
+                        </div>
+                    </a>
+                    
+                    <a href="/docs/uoft/digital-systems/ds2.circuitmoduleverilog/" class="entry-item">
+                        <div class="entry-meta">Oct 05 <span class="meta-tag-rl">NOTE</span></div>
+                        <div class="entry-title">DS 2. Circuit Module &amp; Verilog</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                Last Edit: 10/5/25
+                            
+                        </div>
+                    </a>
+                    
+                    <a href="/docs/uoft/digital-systems/ds1.introductiontologiccircuits/" class="entry-item">
+                        <div class="entry-meta">Oct 02 <span class="meta-tag-rl">NOTE</span></div>
+                        <div class="entry-title">DS 1. Introductionto Logic Circuits</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                Last Edit: 10/2/25
+                            
+                        </div>
+                    </a>
+                    
+                    <a href="/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/" class="entry-item">
+                        <div class="entry-meta">Sep 28 <span class="meta-tag-rl">NOTE</span></div>
+                        <div class="entry-title">OOPC 3. DynamicMemory Allocation &amp; Classes</div>
+                        <div class="entry-summary">
+                            
+                            
+                            
+                                Last Edit: 9/28/25
+                            
+                        </div>
+                    </a>
+                    
+                </div>
+            </div>
+        </main>
     </div>
 
-    
-    <footer class="home-footer">
-      <div class="max-w-screen-xl mx-auto px-6 py-5 flex items-center justify-between">
-        <nav class="space-x-6">
-          <a href="/credits">Credits</a>
-          <a href="/tags/">Tags</a>
-        </nav>
-        <div class="opacity-80">
-          © 2025 map[email:youremail@example.com headline:Mind the Steps image:img/author.jpg name:Buezwqwg]
-        </div>
-      </div>
+    <footer class="site-footer">
+        © 2026 Jingnan Huang | RESEARCH & ENGINEERING
     </footer>
-  </div>
-</div>
 
-
-        
-      </main><script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
-<script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
-  </script>
-
-<footer id="site-footer" class="py-10 print:hidden">
-  
-  
-    
-    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
-      <ul class="flex flex-col list-none sm:flex-row">
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
-            title="">
-            
-            Credits
-          </a>
-        </li>
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="">
-            
-            Tags
-          </a>
-        </li>
-        
-      </ul>
-    </nav>
-    
-  
-  <div class="flex items-center justify-between">
-
-    
-    
-    <p class="text-sm text-neutral-500 dark:text-neutral-400">
-      &copy;
-      2025
-      Buezwqwg
-    </p>
-    
-
-    
-    
-
-  </div>
-  <script>
-    
-    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
-      margin: 24,
-      background: 'rgba(0,0,0,0.5)',
-      scrollOffset: 0,
-    })
-    
-  </script>
-  
-  
-  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
-  
-  
-</footer>
-<div
-  id="search-wrapper"
-  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
-  style="z-index:500"
->
-  <div
-    id="search-modal"
-    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
-  >
-    <header class="relative z-10 flex items-center justify-between flex-none px-2">
-      <form class="flex items-center flex-auto min-w-0">
-        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
-          
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-        </div>
-        <input
-          type="search"
-          id="search-query"
-          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
-          tabindex="0"
-        />
-      </form>
-      <button
-        id="close-search-button"
-        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
-      >
-        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
-
-  </span>
-
-
-      </button>
-    </header>
-    <section class="flex-auto px-2 overflow-auto">
-      <ul id="search-results">
-        
-      </ul>
-    </section>
-  </div>
-</div>
-
-    </div>
-  </body>
-
-  
+</body>
 </html>
