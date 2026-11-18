@@ -1,273 +1,786 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OOPC 1. ProgrammingBasics | Buezwqwg</title>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>OOPC 1. ProgrammingBasics &middot; Buezwqwg</title>
+  <meta name="title" content="OOPC 1. ProgrammingBasics &middot; Buezwqwg" />
+  
+  
+  <meta name="keywords" content="Docs, OOPCS, " />
+  
+  
+  <link rel="canonical" href="https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
+    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
+  
+  
+  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.a5312a15393b6da77a379acf5b55576cabc85cb09cf0973d143812be82d0810982674c92e8564f3999e456d97305ae6f6269c41612d008359d8b94265a99eec5.js"
+    integrity="sha512-pTEqFTk7bad6N5rPW1VXbKvIXLCc8Jc9FDgSvoLQgQmCZ0yS6FZPOZnkVtlzBa5vYmnEFhLQCDWdi5QmWpnuxQ==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/">
+  <meta property="og:site_name" content="Buezwqwg">
+  <meta property="og:title" content="OOPC 1. ProgrammingBasics">
+  <meta property="og:description" content="OOPC1.ProgrammingBasics # Last Edit: 9/15/25
+1.2. Programming Basics # 1.2.1. Basic Structure of a C&#43;&#43; Program # C&#43;&#43; 与 C 的格式几乎相同，导致他们看上去十分类似，实际上他们所做的事大相径庭 拿一个简单的 Hello World 代码举例 ##include &lt;iostream&gt; using namespace std; int main() { cout &lt;&lt; &#34;Hello world!&#34; &lt;&lt; endl; return 0; } #include &lt;iostream&gt; iostream (输入输出流库)：包含标准的输入输出功能，用于 cin (输入) 和 cout (输出) 在 C 中对应的是 #include &lt;stdio.h&gt; using namespace std; 使用 namespace (命名空间) 中的 std (标准命名空间)，方便直接调用 cout、cin，而不用写成 std::cout std Standard Library 标准库 # 在 C&#43;&#43; standard library 里，有很多工具，比如 cout（输出）、cin（输入）、string（字符串）、vector（数组 这些东西都被放在一个“文件夹”里，这个文件夹的名字叫 std 当要使用里面的工具的时候，要写 std::cout、std::cin ，示例如下 ##include &lt;iostream&gt; int main() { std::cout &lt;&lt; &#34;Hello World!&#34; &lt;&lt; std::endl; return 0; } 而如果用了 using namespace std; 就直接写名字就行 一般来说小程序和初学者推荐这样写，但是到了大项目时，极度容易产生冲突 int main() main function (主函数)：程序从这里开始执行 int (整数类型) 表示函数返回值类型 cout &lt;&lt; &#34;Hello world!&#34; &lt;&lt; endl; cout (输出流对象)：在屏幕上打印内容 &lt;&lt; 是 insertion operator (插入运算符/输出运算符)，把右边的内容送入输出流 &#34;Hello world!&#34; 是字符串 endl (换行符)：让输出内容后换行 return 0; 表示 程序正常结束，返回值 0 传递给操作系统 1.2.1.1. A program to input a value # 如果想做一个能 input 的程序，可以通过 std::cin ##include &lt;iostream&gt; // 引入输入输出库 iostream using namespace std; // 使用标准命名空间 std int main(void) { // 主函数，程序从这里开始 int value = 0; // 定义一个整数变量 value，初始值为 0 cout &lt;&lt; &#34;Enter a value: &#34;; // cout (输出) → 在屏幕上打印提示 cin &gt;&gt; value; // cin (输入) → 等待用户输入，把值存到 value cout &lt;&lt; &#34;The value entered is &#34; &lt;&lt; value &lt;&lt; endl; // 再次用 cout 打印出刚刚输入的值，并换行 return 0; // 程序结束，返回 0 } « &amp; » # cout « cout (输出流，character output stream) → 往屏幕输出 &lt;&lt; 箭头朝左，意思是把数据推出去（out of the page，往屏幕方向） 可以记成： cout &lt;&lt; &#34;Hello&#34;; = 把 &#34;Hello&#34; 推到屏幕 cin » cin (输入流，character input stream) → 从键盘输入 &gt;&gt; 箭头朝右，意思是把数据吸进来（into the page，流进变量） 可以记成： cin &gt;&gt; value; = 从键盘读入一个值，放到 value 变量里 1.2.2. Common Data Representations # 在 C 和 C&#43;&#43; 中，定义变量时需要指定 data type (数据类型)，例如 int i, j; // 声明了两个 int 类型的变量 i 和 j 1.2.2.1. Integers # Integers (整数类型) 整数就是没有小数点的数，比如 0、-23、789，在 C&#43;&#43; 中同样存在多种 Int 类型 int (整型，integer) 通常占 32 bits，也就是 4 bytes 因为 1 bit 用来存储正负号，所以剩下 31 bits 存数字 能表示的范围：\(-2^{31} \quad 到 \quad 2^{31}-1\) short (短整型，short integer) 通常占 16 bits 1 bit 存符号，剩下 15 bits 存数字。 范围：\(−1-2^{15} \quad 到 \quad 2^{15}-1\) long (长整型，long integer) 占用比 32 bits 更多的空间（通常 64 bits） 能表示的数范围比 int 更大 范围取决于编译器和机器，但肯定比 int 大 在本课程里，推荐使用 int 来存储整数，例如 int participants = 60; // 声明一个整型变量 participants，赋值 60 1.2.2.2 Floating-point Numbers # floating-point numbers 浮点数就是带小数点的数，比如 2.9，−118.763 在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \(2.89 \times 10^{14}\) 会写成 2.89e14 或 2.89E14 与 Integer 一样，C/C&#43;&#43; 里有几种存储浮点数的数据类型 (data types)： float (单精度浮点型) 占 32 位 (32 bits)， 精度大约 7 decimal digits of precision，包括小数点前和小数点后的总位数 double (双精度浮点型) 64 bits 精度大约 15 位十进制有效数字 long double (长双精度浮点型) 通常占用比 64 位更多的存储空间 精度比 double 更高 与 C 语言时一样，推荐使用的还是 Double 1.2.2.3. Boolean # 在 C&#43;&#43; 里有 bool (布尔型) 数据类型，用来表示 logical value，即 true (真) 或 false (假)，存储时占 8 位 (8 bits) 和 C 语言不同，C&#43;&#43; 不需要额外引入 library 就能用 bool 1.2.2.4. Characters # char 数据类型来存储 single character，占 8 bits 字符必须放在单引号 &#39; &#39; 中 1.2.2.5. Arrays # Array 存储多个 same data type 相同数据结构 的元素，通过一个 Identifier 来统一管理 举例来说，一个由 Integers 组成的 Array 为 int arr[7] = {1, 2, 3, 4, 5, 6, 7}; arr 是 Array identifier，表示一个包含 7 个 int (整型) 元素的数组。 arr[0] 表示第一个元素 (存储的是 1)。 arr[6] 表示最后一个元素 (存储的是 7)。 1.2.2.6. Strings # 在 C 语言**中，**string 实际上是一个以 Null character, &#39;\0&#39; 结尾的 Character array char h[6] = &#34;Hello&#34;; 这里 h 存储 &#34;Hello&#34;，而 h[5] 存储的是 &#39;\0&#39; 想要使用更加方便的 String 管理 Function，需要包含 header file 的 #include &lt;string.h&gt; 有了 Header File 之后就可以用函数如 strcmp (比较), strlen (长度), strcpy (拷贝) 区分于 C 语言，在 C&#43;&#43; 中，有一个专门的数据类型 string，比 C 的字符数组更方便 但是想要调用它，也需要包含 #include &lt;string&gt; 可以直接用 &#43; 拼接字符串 (concatenate)，用 == 比较字符串 (compare) ##include &lt;iostream&gt; ##include &lt;string&gt; using namespace std; int main(void) { string prePhrase = &#34;This course is &#34;; string postPhrase = &#34; Programming Fundamentals!&#34;, blank = &#34;______&#34;; cout &lt;&lt; &#34;Fill in the blank of the following sentence&#34; &lt;&lt; endl; cout &lt;&lt; prePhrase &lt;&lt; blank &lt;&lt; postPhrase &lt;&lt; endl; cin &gt;&gt; blank; // 从用户输入读入 blank if (blank == &#34;ECE244&#34;) { // 判断输入是否等于 &#34;ECE244&#34; cout &lt;&lt; &#34;Correct!&#34; &lt;&lt; endl; string sentence = prePhrase &#43; blank &#43; postPhrase; // 拼接字符串 cout &lt;&lt; sentence &lt;&lt; endl; } else { cout &lt;&lt; &#34;Incorrect!&#34; &lt;&lt; endl; } return 0; } 1.2.3 Operators # 在 C&#43;&#43; 里，运算符分几类： Arithmetic operators (算术运算符) # &#43;,- ,* , /, % % 表示取 Remainder Assignment operators (赋值运算符) # =：把右边的值赋给左边变量 注意它和 &lt;&lt; 不一样，&lt;&lt; 专门用在 cont 里，表示把右边的东西送到输出流">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-09-15T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-15T00:00:00+00:00">
+    <meta property="article:tag" content="Docs">
+    <meta property="article:tag" content="OOPCS">
+    <meta property="og:image" content="https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature.png">
+  <meta name="twitter:title" content="OOPC 1. ProgrammingBasics">
+  <meta name="twitter:description" content="OOPC1.ProgrammingBasics # Last Edit: 9/15/25
+1.2. Programming Basics # 1.2.1. Basic Structure of a C&#43;&#43; Program # C&#43;&#43; 与 C 的格式几乎相同，导致他们看上去十分类似，实际上他们所做的事大相径庭 拿一个简单的 Hello World 代码举例 ##include &lt;iostream&gt; using namespace std; int main() { cout &lt;&lt; &#34;Hello world!&#34; &lt;&lt; endl; return 0; } #include &lt;iostream&gt; iostream (输入输出流库)：包含标准的输入输出功能，用于 cin (输入) 和 cout (输出) 在 C 中对应的是 #include &lt;stdio.h&gt; using namespace std; 使用 namespace (命名空间) 中的 std (标准命名空间)，方便直接调用 cout、cin，而不用写成 std::cout std Standard Library 标准库 # 在 C&#43;&#43; standard library 里，有很多工具，比如 cout（输出）、cin（输入）、string（字符串）、vector（数组 这些东西都被放在一个“文件夹”里，这个文件夹的名字叫 std 当要使用里面的工具的时候，要写 std::cout、std::cin ，示例如下 ##include &lt;iostream&gt; int main() { std::cout &lt;&lt; &#34;Hello World!&#34; &lt;&lt; std::endl; return 0; } 而如果用了 using namespace std; 就直接写名字就行 一般来说小程序和初学者推荐这样写，但是到了大项目时，极度容易产生冲突 int main() main function (主函数)：程序从这里开始执行 int (整数类型) 表示函数返回值类型 cout &lt;&lt; &#34;Hello world!&#34; &lt;&lt; endl; cout (输出流对象)：在屏幕上打印内容 &lt;&lt; 是 insertion operator (插入运算符/输出运算符)，把右边的内容送入输出流 &#34;Hello world!&#34; 是字符串 endl (换行符)：让输出内容后换行 return 0; 表示 程序正常结束，返回值 0 传递给操作系统 1.2.1.1. A program to input a value # 如果想做一个能 input 的程序，可以通过 std::cin ##include &lt;iostream&gt; // 引入输入输出库 iostream using namespace std; // 使用标准命名空间 std int main(void) { // 主函数，程序从这里开始 int value = 0; // 定义一个整数变量 value，初始值为 0 cout &lt;&lt; &#34;Enter a value: &#34;; // cout (输出) → 在屏幕上打印提示 cin &gt;&gt; value; // cin (输入) → 等待用户输入，把值存到 value cout &lt;&lt; &#34;The value entered is &#34; &lt;&lt; value &lt;&lt; endl; // 再次用 cout 打印出刚刚输入的值，并换行 return 0; // 程序结束，返回 0 } « &amp; » # cout « cout (输出流，character output stream) → 往屏幕输出 &lt;&lt; 箭头朝左，意思是把数据推出去（out of the page，往屏幕方向） 可以记成： cout &lt;&lt; &#34;Hello&#34;; = 把 &#34;Hello&#34; 推到屏幕 cin » cin (输入流，character input stream) → 从键盘输入 &gt;&gt; 箭头朝右，意思是把数据吸进来（into the page，流进变量） 可以记成： cin &gt;&gt; value; = 从键盘读入一个值，放到 value 变量里 1.2.2. Common Data Representations # 在 C 和 C&#43;&#43; 中，定义变量时需要指定 data type (数据类型)，例如 int i, j; // 声明了两个 int 类型的变量 i 和 j 1.2.2.1. Integers # Integers (整数类型) 整数就是没有小数点的数，比如 0、-23、789，在 C&#43;&#43; 中同样存在多种 Int 类型 int (整型，integer) 通常占 32 bits，也就是 4 bytes 因为 1 bit 用来存储正负号，所以剩下 31 bits 存数字 能表示的范围：\(-2^{31} \quad 到 \quad 2^{31}-1\) short (短整型，short integer) 通常占 16 bits 1 bit 存符号，剩下 15 bits 存数字。 范围：\(−1-2^{15} \quad 到 \quad 2^{15}-1\) long (长整型，long integer) 占用比 32 bits 更多的空间（通常 64 bits） 能表示的数范围比 int 更大 范围取决于编译器和机器，但肯定比 int 大 在本课程里，推荐使用 int 来存储整数，例如 int participants = 60; // 声明一个整型变量 participants，赋值 60 1.2.2.2 Floating-point Numbers # floating-point numbers 浮点数就是带小数点的数，比如 2.9，−118.763 在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \(2.89 \times 10^{14}\) 会写成 2.89e14 或 2.89E14 与 Integer 一样，C/C&#43;&#43; 里有几种存储浮点数的数据类型 (data types)： float (单精度浮点型) 占 32 位 (32 bits)， 精度大约 7 decimal digits of precision，包括小数点前和小数点后的总位数 double (双精度浮点型) 64 bits 精度大约 15 位十进制有效数字 long double (长双精度浮点型) 通常占用比 64 位更多的存储空间 精度比 double 更高 与 C 语言时一样，推荐使用的还是 Double 1.2.2.3. Boolean # 在 C&#43;&#43; 里有 bool (布尔型) 数据类型，用来表示 logical value，即 true (真) 或 false (假)，存储时占 8 位 (8 bits) 和 C 语言不同，C&#43;&#43; 不需要额外引入 library 就能用 bool 1.2.2.4. Characters # char 数据类型来存储 single character，占 8 bits 字符必须放在单引号 &#39; &#39; 中 1.2.2.5. Arrays # Array 存储多个 same data type 相同数据结构 的元素，通过一个 Identifier 来统一管理 举例来说，一个由 Integers 组成的 Array 为 int arr[7] = {1, 2, 3, 4, 5, 6, 7}; arr 是 Array identifier，表示一个包含 7 个 int (整型) 元素的数组。 arr[0] 表示第一个元素 (存储的是 1)。 arr[6] 表示最后一个元素 (存储的是 7)。 1.2.2.6. Strings # 在 C 语言**中，**string 实际上是一个以 Null character, &#39;\0&#39; 结尾的 Character array char h[6] = &#34;Hello&#34;; 这里 h 存储 &#34;Hello&#34;，而 h[5] 存储的是 &#39;\0&#39; 想要使用更加方便的 String 管理 Function，需要包含 header file 的 #include &lt;string.h&gt; 有了 Header File 之后就可以用函数如 strcmp (比较), strlen (长度), strcpy (拷贝) 区分于 C 语言，在 C&#43;&#43; 中，有一个专门的数据类型 string，比 C 的字符数组更方便 但是想要调用它，也需要包含 #include &lt;string&gt; 可以直接用 &#43; 拼接字符串 (concatenate)，用 == 比较字符串 (compare) ##include &lt;iostream&gt; ##include &lt;string&gt; using namespace std; int main(void) { string prePhrase = &#34;This course is &#34;; string postPhrase = &#34; Programming Fundamentals!&#34;, blank = &#34;______&#34;; cout &lt;&lt; &#34;Fill in the blank of the following sentence&#34; &lt;&lt; endl; cout &lt;&lt; prePhrase &lt;&lt; blank &lt;&lt; postPhrase &lt;&lt; endl; cin &gt;&gt; blank; // 从用户输入读入 blank if (blank == &#34;ECE244&#34;) { // 判断输入是否等于 &#34;ECE244&#34; cout &lt;&lt; &#34;Correct!&#34; &lt;&lt; endl; string sentence = prePhrase &#43; blank &#43; postPhrase; // 拼接字符串 cout &lt;&lt; sentence &lt;&lt; endl; } else { cout &lt;&lt; &#34;Incorrect!&#34; &lt;&lt; endl; } return 0; } 1.2.3 Operators # 在 C&#43;&#43; 里，运算符分几类： Arithmetic operators (算术运算符) # &#43;,- ,* , /, % % 表示取 Remainder Assignment operators (赋值运算符) # =：把右边的值赋给左边变量 注意它和 &lt;&lt; 不一样，&lt;&lt; 专门用在 cont 里，表示把右边的东西送到输出流">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Docs",
+    "name": "OOPC 1. ProgrammingBasics",
+    "headline": "OOPC 1. ProgrammingBasics",
     
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eOOPC1.ProgrammingBasics \n    \u003cdiv id=\u0022oopc1programmingbasics\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#oopc1programmingbasics\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 9\/15\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003e\u003cstrong\u003e1.2. Programming Basics\u003c\/strong\u003e \n    \u003cdiv id=\u002212programming-basics\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#12programming-basics\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e\u003cstrong\u003e1.2.1. Basic Structure of a C\u002b\u002b Program\u003c\/strong\u003e \n    \u003cdiv id=\u0022121basic-structure-of-a-c-program\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#121basic-structure-of-a-c-program\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003eC\u002b\u002b 与 C 的格式几乎相同，导致他们看上去十分类似，实际上他们所做的事大相径庭\u003c\/li\u003e\n\u003cli\u003e拿一个简单的 Hello World 代码举例\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-cpp\u0022 data-lang=\u0022cpp\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e##include \u0026lt;iostream\u0026gt;\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e\u003c\/span\u003e\u003cspan class=\u0022k\u0022\u003eusing\u003c\/span\u003e \u003cspan class=\u0022k\u0022\u003enamespace\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003estd\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022nf\u0022\u003emain\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e()\u003c\/span\u003e \u003cspan class=\u0022p\u0022\u003e{\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;Hello world!\u0026#34;\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eendl\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022k\u0022\u003ereturn\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e0\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022p\u0022\u003e}\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cul\u003e\n\u003cli\u003e\u003ccode\u003e#include \u0026lt;iostream\u0026gt;\u003c\/code\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eiostream (输入输出流库)\u003c\/strong\u003e：包含标准的输入输出功能，用于 \u003cstrong\u003ecin (输入)\u003c\/strong\u003e 和 \u003cstrong\u003ecout (输出)\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003e在 \u003cstrong\u003eC\u003c\/strong\u003e 中对应的是 \u003ccode\u003e#include \u0026lt;stdio.h\u0026gt;\u003c\/code\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003eusing namespace std;\u003c\/code\u003e\n\u003cul\u003e\n\u003cli\u003e使用 \u003cstrong\u003enamespace (命名空间)\u003c\/strong\u003e 中的 \u003cstrong\u003estd (标准命名空间)\u003c\/strong\u003e，方便直接调用 \u003cstrong\u003ecout\u003c\/strong\u003e、\u003cstrong\u003ecin\u003c\/strong\u003e，而不用写成 \u003ccode\u003estd::cout\u003c\/code\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003estd Standard Library 标准库 \n    \u003cdiv id=\u0022std-standard-library-%E6%A0%87%E5%87%86%E5%BA%93\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#std-standard-library-%E6%A0%87%E5%87%86%E5%BA%93\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003e在 \u003cstrong\u003eC\u002b\u002b standard library\u003c\/strong\u003e 里，有很多工具，比如 \u003ccode\u003ecout\u003c\/code\u003e（输出）、\u003ccode\u003ecin\u003c\/code\u003e（输入）、\u003ccode\u003estring\u003c\/code\u003e（字符串）、\u003ccode\u003evector\u003c\/code\u003e（数组\u003c\/li\u003e\n\u003cli\u003e这些东西都被放在一个“文件夹”里，这个文件夹的名字叫 \u003cstrong\u003estd\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003e当要使用里面的工具的时候，要写 \u003ccode\u003estd::cout\u003c\/code\u003e、\u003ccode\u003estd::cin\u003c\/code\u003e ，示例如下\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-cpp\u0022 data-lang=\u0022cpp\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e##include \u0026lt;iostream\u0026gt;\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022nf\u0022\u003emain\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e()\u003c\/span\u003e \u003cspan class=\u0022p\u0022\u003e{\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003estd\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e::\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;Hello World!\u0026#34;\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003estd\u003c\/span\u003e\u003cspan class=\u0022o\u0022\u003e::\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eendl\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022k\u0022\u003ereturn\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e0\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022p\u0022\u003e}\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cul\u003e\n\u003cli\u003e而如果用了 \u003ccode\u003eusing namespace std;\u003c\/code\u003e  就直接写名字就行\u003c\/li\u003e\n\u003cli\u003e一般来说小程序和初学者推荐这样写，但是到了大项目时，极度容易产生冲突\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003chr\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003eint main()\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003emain function (主函数)\u003c\/strong\u003e：程序从这里开始执行\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eint (整数类型)\u003c\/strong\u003e 表示函数返回值类型\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003ecout \u0026lt;\u0026lt; \u0026quot;Hello world!\u0026quot; \u0026lt;\u0026lt; endl;\u003c\/code\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003ecout (输出流对象)\u003c\/strong\u003e：在屏幕上打印内容\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003e\u0026lt;\u0026lt;\u003c\/code\u003e 是 \u003cstrong\u003einsertion operator (插入运算符\/输出运算符)\u003c\/strong\u003e，把右边的内容送入输出流\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003e\u0026quot;Hello world!\u0026quot;\u003c\/code\u003e 是字符串\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eendl (换行符)\u003c\/strong\u003e：让输出内容后换行\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003ereturn 0;\u003c\/code\u003e\n\u003cul\u003e\n\u003cli\u003e表示 \u003cstrong\u003e程序正常结束\u003c\/strong\u003e，返回值 0 传递给操作系统\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\u003cstrong\u003e1.2.1.1. A program to input a value\u003c\/strong\u003e \n    \u003cdiv id=\u00221211a-program-to-input-a-value\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1211a-program-to-input-a-value\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003e如果想做一个能 input 的程序，可以通过 \u003ccode\u003estd::cin\u003c\/code\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-cpp\u0022 data-lang=\u0022cpp\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e##include \u0026lt;iostream\u0026gt;     \u003c\/span\u003e\u003cspan class=\u0022c1\u0022\u003e\/\/ 引入输入输出库 iostream\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e\u003cspan class=\u0022k\u0022\u003eusing\u003c\/span\u003e \u003cspan class=\u0022k\u0022\u003enamespace\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003estd\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e    \u003cspan class=\u0022c1\u0022\u003e\/\/ 使用标准命名空间 std\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022nf\u0022\u003emain\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022kt\u0022\u003evoid\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e \u003cspan class=\u0022p\u0022\u003e{\u003c\/span\u003e        \u003cspan class=\u0022c1\u0022\u003e\/\/ 主函数，程序从这里开始\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e    \u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003evalue\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e0\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e      \u003cspan class=\u0022c1\u0022\u003e\/\/ 定义一个整数变量 value，初始值为 0\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;Enter a value: \u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e   \u003cspan class=\u0022c1\u0022\u003e\/\/ cout (输出) → 在屏幕上打印提示\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e    \u003cspan class=\u0022n\u0022\u003ecin\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026gt;\u0026gt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003evalue\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e                \u003cspan class=\u0022c1\u0022\u003e\/\/ cin (输入) → 等待用户输入，把值存到 value\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;The value entered is \u0026#34;\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003evalue\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eendl\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e  \n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022c1\u0022\u003e\/\/ 再次用 cout 打印出刚刚输入的值，并换行\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022k\u0022\u003ereturn\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e0\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e          \u003cspan class=\u0022c1\u0022\u003e\/\/ 程序结束，返回 0\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e}\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\n\u003ch4 class=\u0022relative group\u0022\u003e\u0026laquo; \u0026amp; \u0026raquo; \n    \u003cdiv id=\u0022--\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#--\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003ecout \u0026laquo;\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003ecout (输出流，character output stream)\u003c\/strong\u003e → 往屏幕输出\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003e\u0026lt;\u0026lt;\u003c\/code\u003e 箭头朝左，意思是把数据推出去（out of the page，往屏幕方向）\u003c\/li\u003e\n\u003cli\u003e可以记成：\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ecout \u0026lt;\u0026lt; \u0026quot;Hello\u0026quot;;\u003c\/code\u003e = 把 \u003ccode\u003e\u0026quot;Hello\u0026quot;\u003c\/code\u003e 推到屏幕\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003ecin \u0026raquo;\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003ecin (输入流，character input stream)\u003c\/strong\u003e → 从键盘输入\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003e\u0026gt;\u0026gt;\u003c\/code\u003e 箭头朝右，意思是把数据吸进来（into the page，流进变量）\u003c\/li\u003e\n\u003cli\u003e可以记成：\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ecin \u0026gt;\u0026gt; value;\u003c\/code\u003e = 从键盘读入一个值，放到 \u003ccode\u003evalue\u003c\/code\u003e 变量里\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e\u003cstrong\u003e1.2.2. Common Data Representations\u003c\/strong\u003e \n    \u003cdiv id=\u0022122common-data-representations\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#122common-data-representations\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e在 C 和 C\u002b\u002b 中，定义变量时需要指定 \u003cstrong\u003edata type (数据类型)\u003c\/strong\u003e，例如\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-cpp\u0022 data-lang=\u0022cpp\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003ei\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003ej\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e   \u003cspan class=\u0022c1\u0022\u003e\/\/ 声明了两个 int 类型的变量 i 和 j\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\n\u003ch4 class=\u0022relative group\u0022\u003e\u003cstrong\u003e1.2.2.1. Integers\u003c\/strong\u003e \n    \u003cdiv id=\u00221221integers\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1221integers\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eIntegers (整数类型)\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003e整数就是没有小数点的数，比如 0、-23、789，在 C\u002b\u002b 中同样存在多种 Int 类型\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003eint (整型，integer)\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e通常占 \u003cstrong\u003e32 bits\u003c\/strong\u003e，也就是 \u003cstrong\u003e4 bytes\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003e因为 1 bit 用来存储正负号，所以剩下 \u003cstrong\u003e31 bits\u003c\/strong\u003e 存数字\u003c\/li\u003e\n\u003cli\u003e能表示的范围：\\(-2^{31} \\quad 到 \\quad 2^{31}-1\\)\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003eshort (短整型，short integer)\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e通常占 \u003cstrong\u003e16 bits\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003e1 bit 存符号，剩下 \u003cstrong\u003e15 bits\u003c\/strong\u003e 存数字。\u003c\/li\u003e\n\u003cli\u003e范围：\\(−1-2^{15} \\quad 到 \\quad 2^{15}-1\\)\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003elong (长整型，long integer)\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e占用比 32 bits 更多的空间（通常 64 bits）\u003c\/li\u003e\n\u003cli\u003e能表示的数范围比 int 更大\u003c\/li\u003e\n\u003cli\u003e范围取决于编译器和机器，但肯定比 int 大\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cul\u003e\n\u003cli\u003e在本课程里，推荐使用 \u003cstrong\u003eint\u003c\/strong\u003e 来存储整数，例如\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-cpp\u0022 data-lang=\u0022cpp\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eparticipants\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e60\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e   \u003cspan class=\u0022c1\u0022\u003e\/\/ 声明一个整型变量 participants，赋值 60\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\n\u003ch4 class=\u0022relative group\u0022\u003e1.2.2.2 Floating-point Numbers \n    \u003cdiv id=\u00221222-floating-point-numbers\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1222-floating-point-numbers\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003efloating-point numbers 浮点数就是带小数点的数，比如 2.9，−118.763\u003c\/li\u003e\n\u003cli\u003e在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \\(2.89 \\times 10^{14}\\) 会写成 \u003ccode\u003e2.89e14\u003c\/code\u003e 或 \u003ccode\u003e2.89E14\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e与 Integer 一样，C\/C\u002b\u002b 里有几种存储浮点数的数据类型 (data types)：\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003col\u003e\n\u003cli\u003e\u003cstrong\u003efloat (单精度浮点型)\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e占 32 位 (32 bits)，\u003c\/li\u003e\n\u003cli\u003e精度大约 7 decimal digits of precision，包括小数点前和小数点后的总位数\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003edouble (双精度浮点型)\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e64 bits\u003c\/li\u003e\n\u003cli\u003e精度大约 15 位十进制有效数字\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003cli\u003e\u003cstrong\u003elong double (长双精度浮点型)\u003c\/strong\u003e\n\u003cul\u003e\n\u003cli\u003e通常占用比 64 位更多的存储空间\u003c\/li\u003e\n\u003cli\u003e精度比 double 更高\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cul\u003e\n\u003cli\u003e与 C 语言时一样，推荐使用的还是 Double\u003c\/li\u003e\n\u003c\/ul\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e1.2.2.3. Boolean \n    \u003cdiv id=\u00221223-boolean\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1223-boolean\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003e在 C\u002b\u002b 里有 \u003cstrong\u003ebool (布尔型)\u003c\/strong\u003e 数据类型，用来表示 logical value，即 \u003ccode\u003etrue (真)\u003c\/code\u003e 或 \u003ccode\u003efalse (假)\u003c\/code\u003e，存储时占 8 位 (8 bits)\u003c\/li\u003e\n\u003cli\u003e和 C 语言不同，C\u002b\u002b 不需要额外引入 library 就能用 \u003ccode\u003ebool\u003c\/code\u003e\u003c\/li\u003e\n\u003c\/ul\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e1.2.2.4. Characters \n    \u003cdiv id=\u00221224-characters\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1224-characters\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003echar\u003c\/strong\u003e 数据类型来存储 single character，占 8 bits\u003c\/li\u003e\n\u003cli\u003e字符必须放在单引号 \u003ccode\u003e\u0027 \u0027\u003c\/code\u003e 中\u003c\/li\u003e\n\u003c\/ul\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e1.2.2.5. Arrays \n    \u003cdiv id=\u00221225-arrays\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1225-arrays\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eArray\u003c\/strong\u003e 存储多个 same data type 相同数据结构 的元素，通过一个 Identifier 来统一管理\u003c\/li\u003e\n\u003cli\u003e举例来说，一个由 Integers 组成的 Array 为\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-cpp\u0022 data-lang=\u0022cpp\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003earr\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e7\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022p\u0022\u003e{\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e1\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e2\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e3\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e4\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e5\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e6\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e7\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e};\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cul\u003e\n\u003cli\u003e\u003ccode\u003earr\u003c\/code\u003e 是 Array identifier，表示一个包含 7 个 \u003ccode\u003eint (整型)\u003c\/code\u003e 元素的数组。\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003earr[0]\u003c\/code\u003e 表示第一个元素 (存储的是 1)。\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003earr[6]\u003c\/code\u003e 表示最后一个元素 (存储的是 7)。\u003c\/li\u003e\n\u003c\/ul\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e1.2.2.6. Strings \n    \u003cdiv id=\u00221226-strings\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#1226-strings\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003e在 C 语言**中，**string 实际上是一个以 Null character, \u003cstrong\u003e\u003ccode\u003e\u0027\\0\u0027\u003c\/code\u003e\u003c\/strong\u003e 结尾的 Character array\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-cpp\u0022 data-lang=\u0022cpp\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003echar\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eh\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e[\u003c\/span\u003e\u003cspan class=\u0022mi\u0022\u003e6\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e]\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;Hello\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\u003cul\u003e\n\u003cli\u003e这里 \u003ccode\u003eh\u003c\/code\u003e 存储 \u003ccode\u003e\u0026quot;Hello\u0026quot;\u003c\/code\u003e，而 \u003ccode\u003eh[5]\u003c\/code\u003e 存储的是 \u003ccode\u003e\u0027\\0\u0027\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e想要使用更加方便的 String 管理 Function，需要包含 header file 的 \u003ccode\u003e#include \u0026lt;string.h\u0026gt;\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e有了 Header File 之后就可以用函数如 \u003ccode\u003estrcmp (比较)\u003c\/code\u003e, \u003ccode\u003estrlen (长度)\u003c\/code\u003e, \u003ccode\u003estrcpy (拷贝)\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e区分于 C 语言，在 C\u002b\u002b 中，有一个专门的数据类型 string，比 C 的字符数组更方便\u003c\/li\u003e\n\u003cli\u003e但是想要调用它，也需要包含 \u003ccode\u003e#include \u0026lt;string\u0026gt;\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e可以直接用 \u003ccode\u003e\u002b\u003c\/code\u003e 拼接字符串 (concatenate)，用 \u003ccode\u003e==\u003c\/code\u003e 比较字符串 (compare)\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cdiv class=\u0022highlight\u0022\u003e\u003cpre tabindex=\u00220\u0022 class=\u0022chroma\u0022\u003e\u003ccode class=\u0022language-cpp\u0022 data-lang=\u0022cpp\u0022\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e##include \u0026lt;iostream\u0026gt;\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e##include \u0026lt;string\u0026gt;\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022cp\u0022\u003e\u003c\/span\u003e\u003cspan class=\u0022k\u0022\u003eusing\u003c\/span\u003e \u003cspan class=\u0022k\u0022\u003enamespace\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003estd\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022kt\u0022\u003eint\u003c\/span\u003e \u003cspan class=\u0022nf\u0022\u003emain\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022kt\u0022\u003evoid\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e \u003cspan class=\u0022p\u0022\u003e{\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003estring\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eprePhrase\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;This course is \u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003estring\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003epostPhrase\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34; Programming Fundamentals!\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e,\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eblank\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;______\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;Fill in the blank of the following sentence\u0026#34;\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eendl\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eprePhrase\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eblank\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003epostPhrase\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eendl\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022n\u0022\u003ecin\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026gt;\u0026gt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eblank\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e   \u003cspan class=\u0022c1\u0022\u003e\/\/ 从用户输入读入 blank\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022k\u0022\u003eif\u003c\/span\u003e \u003cspan class=\u0022p\u0022\u003e(\u003c\/span\u003e\u003cspan class=\u0022n\u0022\u003eblank\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e==\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;ECE244\u0026#34;\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e)\u003c\/span\u003e \u003cspan class=\u0022p\u0022\u003e{\u003c\/span\u003e   \u003cspan class=\u0022c1\u0022\u003e\/\/ 判断输入是否等于 \u0026#34;ECE244\u0026#34;\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e        \u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;Correct!\u0026#34;\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eendl\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e        \u003cspan class=\u0022n\u0022\u003estring\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003esentence\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e=\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eprePhrase\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u002b\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eblank\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u002b\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003epostPhrase\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e  \u003cspan class=\u0022c1\u0022\u003e\/\/ 拼接字符串\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022c1\u0022\u003e\u003c\/span\u003e        \u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003esentence\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eendl\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022p\u0022\u003e}\u003c\/span\u003e \u003cspan class=\u0022k\u0022\u003eelse\u003c\/span\u003e \u003cspan class=\u0022p\u0022\u003e{\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e        \u003cspan class=\u0022n\u0022\u003ecout\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022s\u0022\u003e\u0026#34;Incorrect!\u0026#34;\u003c\/span\u003e \u003cspan class=\u0022o\u0022\u003e\u0026lt;\u0026lt;\u003c\/span\u003e \u003cspan class=\u0022n\u0022\u003eendl\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022p\u0022\u003e}\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e    \u003cspan class=\u0022k\u0022\u003ereturn\u003c\/span\u003e \u003cspan class=\u0022mi\u0022\u003e0\u003c\/span\u003e\u003cspan class=\u0022p\u0022\u003e;\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003cspan class=\u0022line\u0022\u003e\u003cspan class=\u0022cl\u0022\u003e\u003cspan class=\u0022p\u0022\u003e}\u003c\/span\u003e\n\u003c\/span\u003e\u003c\/span\u003e\u003c\/code\u003e\u003c\/pre\u003e\u003c\/div\u003e\n\n\u003ch3 class=\u0022relative group\u0022\u003e1.2.3 Operators \n    \u003cdiv id=\u0022123-operators\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#123-operators\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e在 C\u002b\u002b 里，运算符分几类：\u003c\/li\u003e\n\u003c\/ul\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003eArithmetic operators (算术运算符) \n    \u003cdiv id=\u0022arithmetic-operators-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#arithmetic-operators-%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003e\u002b\u003c\/code\u003e,\u003ccode\u003e-\u003c\/code\u003e ,\u003ccode\u003e*\u003c\/code\u003e , \u003ccode\u003e\/\u003c\/code\u003e, \u003ccode\u003e%\u003c\/code\u003e\u003c\/li\u003e\n\u003cli\u003e\u003ccode\u003e%\u003c\/code\u003e 表示取 Remainder\u003c\/li\u003e\n\u003c\/ul\u003e\n\n\n\u003ch4 class=\u0022relative group\u0022\u003e\u003cstrong\u003eAssignment operators (赋值运算符)\u003c\/strong\u003e \n    \u003cdiv id=\u0022assignment-operators-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#assignment-operators-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003e=\u003c\/code\u003e：把右边的值赋给左边变量\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cblockquote\u003e\n\u003cp\u003e注意它和 \u003ccode\u003e\u0026lt;\u0026lt;\u003c\/code\u003e  不一样，\u003ccode\u003e\u0026lt;\u0026lt;\u003c\/code\u003e  专门用在 cont 里，表示把右边的东西送到输出流\u003c\/p\u003e",
+    "inLanguage": "en",
+    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/25f\/object-oriented-programming-using-c\u002b\u002b\/oopc1.programmingbasics\/",
+    "author" : {
+      "@type": "Person",
+      "name": "Buezwqwg"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-15T00:00:00\u002b00:00",
+    "datePublished": "2025-09-15T00:00:00\u002b00:00",
     
-    <style>
-        :root {
-            --bg-color: #fdfdfd;
-            --text-color: #1a1a1a;
-            --accent-color: #800000;  
-            --secondary-color: #555;
-            --border-color: #d1d1d1;
-        }
+    "dateModified": "2025-09-15T00:00:00\u002b00:00",
+    
+    "keywords": ["Docs","OOPCS"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "5886"
+  }]
+  </script>
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Noto Serif SC', 'Georgia', serif;
-            line-height: 1.85;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
-        }
 
-         
-        .top-bar {
-            height: 4px;
-            background-color: var(--accent-color);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 100;
-        }
+  
+  
+  <meta name="author" content="Buezwqwg" />
+  
+  
+  
 
-         
-        .home-link {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-family: sans-serif;
-            font-size: 0.8rem;
-            text-decoration: none;
-            color: #999;
-            transition: color 0.2s;
-        }
-        .home-link:hover { color: var(--accent-color); }
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
 
-         
-        .container {
-            max-width: 1000px;       
-            width: 90%;             
-            margin: 30px auto 40px; 
-            padding: 0 15px;
-            box-sizing: border-box; 
-        }
 
-         
-        .toc-sidebar {
-            position: fixed;
-            top: 120px;
-            right: 20px;
-            width: 240px;
-            max-height: 80vh;
-            overflow-y: auto;
-            font-family: 'Noto Serif SC', serif;
-            font-size: 0.85rem;
-            color: #666;
-            border-left: 2px solid #eee;
-            padding-left: 15px;
-            display: none; 
-            z-index: 90;
-        }
 
-        .toc-sidebar h4 {
-            font-family: 'Playfair Display', serif;
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-            font-size: 1rem;
-        }
 
-        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
-        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
-        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
-        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
-        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
 
-        @media (min-width: 1560px) {
-            .toc-sidebar { display: block; }
-        }
 
-         
-        header {
-            text-align: center;
-            margin-bottom: 0px;
-            border-bottom: 1px solid transparent;
-        }
 
-        .journal-meta {
-            font-family: 'Playfair Display', serif;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.75rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
-            display: inline-block;
-            padding-bottom: 5px;
-        }
 
-        h1 {
-            font-family: 'Playfair Display', 'Noto Serif SC', serif;
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin: 10px 0 20px 0;
-            font-weight: 700;
-            color: #000;
-        }
 
-        .author-line {
-            font-family: 'Noto Serif SC', serif;
-            font-style: italic;
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-            padding: 12px 0;
-            margin: 30px 0 10px;
-            font-size: 0.9rem;
-            color: #444;
-        }
 
-         
-        .content {
-            text-align: justify; 
-            hyphens: auto;
-            font-size: 1.05rem;
-        }
 
-        .content p { margin-bottom: 1.6em; }
 
-         
-        .content h2, .content h3 {
-            font-family: 'Playfair Display', serif;
-            color: #000;
-            
-             
-            display: block; 
-            text-align: left;
-            width: 100%;
-            
-            margin-top: 2.5em;
-            margin-bottom: 1em;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.3em;
-        }
-        
-        .content h2 { font-size: 1.6rem; }
-        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
 
-         
-        .content h1 a,
-        .content h2 a,
-        .content h3 a,
-        .content h4 a {
-            display: none !important;  
-        }
 
-         
-        .content h1 a:hover,
-        .content h2 a:hover,
-        .content h3 a:hover {
-            color: var(--accent-color) !important;
-        }
 
-         
-        .content pre {
-            text-align: left; 
-            background: #f4f4f4;
-            padding: 15px;
-            border-radius: 4px;
-            overflow-x: auto;
-            font-size: 0.85rem;
-            border: 1px solid #eee;
-            font-family: 'JetBrains Mono', monospace;
-            margin: 20px auto;
-            max-width: 100%;
-        }
-        
-        .content code {
-            font-family: 'JetBrains Mono', monospace;
-            background: #f4f4f4;
-            padding: 2px 4px;
-            font-size: 0.9em;
-            color: #c7254e;
-        }
-        .content pre code { color: inherit; background: none; padding: 0; }
 
-         
-        blockquote {
-            margin: 40px 0;
-            padding: 0 40px;
-            border-left: none;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: var(--secondary-color);
-            font-style: italic;
-            line-height: 1.4;
-        }
 
-         
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            font-size: 0.9rem;
-            font-family: sans-serif;
-            text-align: left;
-        }
 
-        th {
-            border-bottom: 2px solid var(--text-color);
-            padding: 10px;
-            font-weight: 700;
-        }
 
-        td {
-            border-bottom: 1px solid var(--border-color);
-            padding: 10px;
-            color: #444;
-        }
 
-         
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 30px auto;
-        }
 
-        footer {
-            margin-top: 100px;
-            padding-top: 20px;
-            border-top: 3px double var(--border-color);
-            font-size: 0.75rem;
-            color: #888;
-            font-family: sans-serif;
-            text-align: center;
-        }
 
-        @media print {
-            .container { max-width: 100%; margin: 0; }
-            .top-bar, .home-link, .toc-sidebar { display: none; }
-            body { background: white; }
-        }
-    </style>
+  
+  
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWY3M67C4S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FWY3M67C4S');
+</script>
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
 </head>
-<body>
-
-    <div class="top-bar"></div>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
     
-    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
 
-    <aside class="toc-sidebar">
-        <h4>Contents</h4>
-        <nav id="TableOfContents">
+            
+            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Docs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Blogs
+    </p>
+</a>
+
+
+
+            
+            
+  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Thoughts
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/tags/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Notes
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Zhihu
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Docs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Blogs
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Thoughts
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/tags/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Notes
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Zhihu
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature_hu15568555499639102372.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/"
+      >Buezwqwg</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/"
+      >Docs</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/"
+      >U of T</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/"
+      >Object-Oriented Programming using C&#43;&#43;</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/"
+      >OOPC 1. ProgrammingBasics</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      OOPC 1. ProgrammingBasics
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>5886 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/oopcs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    OOPCS
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+
+      
+
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
   <ul>
     <li><a href="#oopc1programmingbasics">OOPC1.ProgrammingBasics</a></li>
     <li><a href="#12programming-basics"><strong>1.2. Programming Basics</strong></a>
@@ -356,23 +869,184 @@
     </li>
   </ul>
 </nav>
-    </aside>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#oopc1programmingbasics">OOPC1.ProgrammingBasics</a></li>
+    <li><a href="#12programming-basics"><strong>1.2. Programming Basics</strong></a>
+      <ul>
+        <li><a href="#121basic-structure-of-a-c-program"><strong>1.2.1. Basic Structure of a C++ Program</strong></a>
+          <ul>
+            <li><a href="#std-standard-library-标准库">std Standard Library 标准库</a></li>
+            <li><a href="#1211a-program-to-input-a-value"><strong>1.2.1.1. A program to input a value</strong></a></li>
+            <li><a href="#--">&laquo; &amp; &raquo;</a></li>
+          </ul>
+        </li>
+        <li><a href="#122common-data-representations"><strong>1.2.2. Common Data Representations</strong></a>
+          <ul>
+            <li><a href="#1221integers"><strong>1.2.2.1. Integers</strong></a></li>
+            <li><a href="#1222-floating-point-numbers">1.2.2.2 Floating-point Numbers</a></li>
+            <li><a href="#1223-boolean">1.2.2.3. Boolean</a></li>
+            <li><a href="#1224-characters">1.2.2.4. Characters</a></li>
+            <li><a href="#1225-arrays">1.2.2.5. Arrays</a></li>
+            <li><a href="#1226-strings">1.2.2.6. Strings</a></li>
+          </ul>
+        </li>
+        <li><a href="#123-operators">1.2.3 Operators</a>
+          <ul>
+            <li><a href="#arithmetic-operators-算术运算符">Arithmetic operators (算术运算符)</a></li>
+            <li><a href="#assignment-operators-赋值运算符"><strong>Assignment operators (赋值运算符)</strong></a></li>
+            <li><a href="#increment-and-decrement-operators-自增和自减运算符"><strong>Increment and decrement operators (自增和自减运算符)</strong></a></li>
+            <li><a href="#relational-operators-关系运算符"><strong>Relational operators (关系运算符)</strong></a></li>
+            <li><a href="#logical-operators-逻辑运算符"><strong>Logical operators (逻辑运算符)</strong></a></li>
+            <li><a href="#sizeof-operator-求字节数运算符"><strong>sizeof() operator (求字节数运算符)</strong></a></li>
+            <li><a href="#124-control-structures-控制结构">1.2.4. Control Structures (控制结构)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#13-functions">1.3 Functions</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#131-n-choose-k-example-组合数示例">1.3.1. n choose k example (组合数示例)</a></li>
+            <li><a href="#1311-defining-a-function">1.3.1.1 Defining a function</a></li>
+          </ul>
+        </li>
+        <li><a href="#132-pass-by-value">1.3.2 Pass-by-value</a></li>
+      </ul>
+    </li>
+    <li><a href="#14-passing-input-parameters-to-functions">1.4 Passing Input Parameters to Functions</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1411-pass-by-pointer">1.4.1.1 Pass-By-Pointer</a></li>
+            <li><a href="#1412-pass-by-reference-引用传递">1.4.1.2 Pass-By-Reference 引用传递</a></li>
+            <li><a href="#summary">Summary</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#15program-organization-and-separate-compilation"><strong>1.5. Program Organization and Separate Compilation</strong></a>
+      <ul>
+        <li><a href="#151-how-do-we-split-code-into-separate-files">1.5.1 How do we split code into separate files?</a>
+          <ul>
+            <li><a href="#1511-compilation-of-a-single-file">1.5.1.1 Compilation of a single file</a></li>
+            <li><a href="#1512-split-code-into-multiple-files">1.5.1.2 Split Code into Multiple Files</a></li>
+            <li><a href="#hidden-segment">Hidden Segment</a></li>
+          </ul>
+        </li>
+        <li><a href="#152-how-are-multiple-files-compiled">1.5.2 How are multiple files compiled?</a>
+          <ul>
+            <li><a href="#compiler-steps">Compiler Steps</a></li>
+            <li><a href="#1521separate-compilation"><strong>1.5.2.1. Separate Compilation</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#153-why-header-files-">1.5.3 Why header Files ?</a>
+          <ul>
+            <li><a href="#case-without-header-files">Case Without header files</a></li>
+            <li><a href="#case-when-include-cpp-files">Case when #include cpp files</a></li>
+          </ul>
+        </li>
+        <li><a href="#154-what-happens-if-we-include-a-header-file-multiple-times-">1.5.4 What Happens if we include a header file multiple times ?</a>
+          <ul>
+            <li><a href="#header-guards头文件保护">Header Guards（头文件保护）</a></li>
+            <li><a href="#ex">Ex.</a></li>
+            <li><a href="#naming-strategy">Naming Strategy</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
 
-    <article class="container">
-        <header>
-            <div class="journal-meta">Research & Engineering Archive</div>
-            <h1>OOPC 1. ProgrammingBasics</h1>
-            <div class="author-line">
-                By Jingnan Huang 
-                <span style="margin: 0 10px;">&middot;</span> 
-                September 15, 2025
-                <span style="margin: 0 10px;">&middot;</span> 
-                5886 Words
-            </div>
-        </header>
+<script>
 
-        <section class="content">
-            
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+  (function () {
+    var $toc = $('#TableOfContents');
+    if ($toc.length > 0) {
+      var $window = $(window);
+
+      function onScroll() {
+        var currentScroll = $window.scrollTop();
+        var h = $('.anchor');
+        var id = "";
+        h.each(function (i, e) {
+          e = $(e);
+          if (e.offset().top - $(window).height()/3 <= currentScroll) {
+            id = decodeURIComponent(e.attr('id'));
+          }
+        });
+        var active = $toc.find('a.active');      
+        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+        active.each(function (i, e) {
+          
+            $(e).removeClass('active');
+          
+        });
+        $toc.find('a[href="#' + id + '"]').addClass('active')
+        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+          $(e).children('a').parents('ul').show();          
+        });
+      }
+
+      $window.on('scroll', onScroll);
+      $(document).ready(function () {
+        
+        onScroll();
+      });
+    }
+  })();
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
 
 <h2 class="relative group">OOPC1.ProgrammingBasics 
     <div id="oopc1programmingbasics" class="anchor"></div>
@@ -1638,24 +2312,1002 @@ g++ main.o print.o input.o -o main
 <li><code>b.h</code> → <code>B_H</code></li>
 </ul>
 
-        </section>
+          
+          
+          
+        </div>
+        
+        
 
-        <footer>
-            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
-            <p>&copy; 2025 Buezwqwg. All rights reserved. Generated via Hugo.</p>
-        </footer>
-    </article>
+        
+        
 
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
-        delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\\(', right: '\\)', display: false},
-            {left: '\\[', right: '\\]', display: true}
-        ]
-    });"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+        
 
+
+<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
+<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+  
+  
+
+  <a href="/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/feature_hu13221952812045409006.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/">Calculus 8. Methods of Integration</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>1848 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cal/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Cal
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/feature_hu9578550399762844699.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/">AEM 1. Complex Numbers</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>4808 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/aem/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AEM
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/feature_hu9920419362512656206.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/">IMP 1. Review of Vector</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>2209 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/econ/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Econ
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/feature_hu17563863749955755898.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/">EF 3. Gauss' Law Edited</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-03-28T00:00:00&#43;00:00">Mar 28 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1795 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    EF
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24f/mie100---dynamics/dyn1.rectilinearmotion_edited/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/mie100---dynamics/dyn1.rectilinearmotion_edited/feature_hu13166112407240685669.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24f/mie100---dynamics/dyn1.rectilinearmotion_edited/">DYN 1. Rectilinear Motion Edited</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <span>776 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/dyn/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    DYN
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+  
+
+  <a href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/" class="min-w-full">
+    
+    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
+        
+        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/feature_hu3152701200236818152.png);"></div>
+        
+      
+
+      <div class="px-6 py-4">
+
+        
+        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
+          href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/">LPC 6. Pointers</div>
+        
+
+        <div class="text-sm text-neutral-500 dark:text-neutral-400">
+          
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2025-02-20T00:00:00&#43;00:00">Feb 20 2025</time><span class="px-2 text-primary-500">&middot;</span><span>4024 words</span>
+  
+
+  
+  
+</div>
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Docs
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    LPC
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+        </div>
+
+        
+      </div>
+      <div class="px-6 pt-4 pb-2">
+
+      </div>
+    </div>
+  </a>
+
+  
+</section>
+
+  
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_docs\/UofT\/25F\/Object-Oriented Programming using C\u002b\u002b\/OOPC1.ProgrammingBasics\/index.md"
+        var oid_likes = "likes_docs\/UofT\/25F\/Object-Oriented Programming using C\u002b\u002b\/OOPC1.ProgrammingBasics\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+      
+      
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >OOPC 2. Classes</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >OOPC 0. Introduction</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+  </script>
+
+<footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
+            title="">
+            
+            Credits
+          </a>
+        </li>
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2026
+      Buezwqwg
+    </p>
+    
+
+    
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="https://buezw.github.io/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
 </body>
+
 </html>

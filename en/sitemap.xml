@@ -483,19 +483,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://buezw.github.io/docs/uoft/26w/software-design/</loc>
-    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/</loc>
-    <lastmod>2025-10-06T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/uoft/26w/software-design/aem2.differentialequations/</loc>
     <lastmod>2025-10-06T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
@@ -574,12 +562,6 @@
   </url>
   <url>
     <loc>https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/</loc>
-    <lastmod>2025-09-15T00:00:00+00:00</lastmod>
-    <changefreq>always</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://buezw.github.io/docs/uoft/26w/software-design/aem1.complexnumbers/</loc>
     <lastmod>2025-09-15T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
