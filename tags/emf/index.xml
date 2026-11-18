@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EMF on Buezwqwg</title>
+    <link>https://buezw.github.io/tags/emf/</link>
+    <description>Recent content in EMF on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2026 Buezwqwg</copyright>
+    <lastBuildDate>Mon, 20 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/emf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EMF 10. Time-VaryingFields</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 4/20/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Faraday’s Law 
+    &lt;div id=&#34;faradays-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#faradays-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;$$
+\Psi = \iint \vec{B} \cdot d\vec{s}
+$$&lt;/p&gt;
+&lt;p&gt;Magnetic Flux is the integral of Magnetic Strength $B$ in area $s$&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 9. MagneticMaterials,BC&amp;Inductance</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf9.magneticmaterialsbcinductance/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf9.magneticmaterialsbcinductance/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/9/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Magnetic Dipole 
+    &lt;div id=&#34;magnetic-dipole&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#magnetic-dipole&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;As Magnetic Field is created by Current, the Magnetic Dipole is thus a Closed Loop Current&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 8. MagnetostaticsForces&amp;Fields</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Magnetic Force 
+    &lt;div id=&#34;magnetic-force&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#magnetic-force&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Lorentz Force 
+    &lt;div id=&#34;lorentz-force&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#lorentz-force&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;$$
+\vec{F}_m = q \vec{u} \times \vec{B}
+$$&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 7. BoundaryConditions, Capacitance&amp; ElectrostaticEnergy</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf7.boundaryconditionscapacitanceelectrostaticenergy/</link>
+      <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf7.boundaryconditionscapacitanceelectrostaticenergy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/6/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Electric Field Boundary Conditions 
+    &lt;div id=&#34;electric-field-boundary-conditions&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-field-boundary-conditions&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Dielectric – Dielectric Interface – Tangential Components 
+    &lt;div id=&#34;dielectric--dielectric-interface--tangential-components&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#dielectric--dielectric-interface--tangential-components&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Known that Electric Field has the Conservative Property, that is&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 6. Conductor&amp;Dielectrics</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf6.conductordielectrics/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf6.conductordielectrics/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Current and Current Densities 
+    &lt;div id=&#34;current-and-current-densities&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#current-and-current-densities&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;This unit is about Displacement Current, Convection Current and Conduction Current&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 5. ElectricPotential</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/27/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 23/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Electric Potential (Scalar) 
+    &lt;div id=&#34;electric-potential-scalar&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-potential-scalar&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;The definition for &lt;strong&gt;Electric Potential&lt;/strong&gt; is the &lt;strong&gt;work required to move a unit positive charge from A to B&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 4. Gauss’sLaw</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf4.gaussslaw/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf4.gaussslaw/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/21/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 23/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Recall Gauss’s Law in Integral Form: &lt;strong&gt;The Electric Flux pass through a surface only depends on the charges enclosed by this surface&lt;/strong&gt;, in the form of&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 3. Coulomb’sLaw&amp;ElectricField</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf3.coulombslawelectricfield/</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf3.coulombslawelectricfield/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/19/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 23/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Coulomb’s Law 
+    &lt;div id=&#34;coulombs-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#coulombs-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Coulomb’s Law&lt;/strong&gt; reveals the &lt;strong&gt;Force between two point Charges&lt;/strong&gt;, it can be written in vector form&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 1. VectorCalculus</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/</link>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Scalar Field 
+    &lt;div id=&#34;scalar-field&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#scalar-field&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;$$
+f: \mathbb{R}^n \to \mathbb{R}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scalar Field is used to describe the distribution of Scalar in space $\mathbb R^n$&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Gradient of Scalar Field 
+    &lt;div id=&#34;gradient-of-scalar-field&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#gradient-of-scalar-field&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;$$
+\nabla f(p) = \frac{\partial f(x, y, z)}{\partial x} \hat{x} + \frac{\partial f(x, y, z)}{\partial y} \hat{y} + \frac{\partial f(x, y, z)}{\partial z} \hat{z}
+$$&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 2. Maxwell’sEquations</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf2.maxwellsequations/</link>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf2.maxwellsequations/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 23/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Maxwell’s Equations described how Charge and Current form Electric and Magnetic Field, while indicate how Electric and Magnetic Field transfer into each other and how they propagate&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

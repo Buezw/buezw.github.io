@@ -90,7 +90,7 @@
         .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
         .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
 
-        @media (min-width: 1250px) {
+        @media (min-width: 1560px) {
             .toc-sidebar { display: block; }
         }
 
@@ -162,6 +162,7 @@
         .content h3 { font-size: 1.2rem; color: var(--accent-color); }
 
          
+        .content h1 a,
         .content h2 a,
         .content h3 a,
         .content h4 a {
@@ -169,6 +170,7 @@
         }
 
          
+        .content h1 a:hover,
         .content h2 a:hover,
         .content h3 a:hover {
             color: var(--accent-color) !important;
@@ -373,7 +375,17 @@ $$</p>
 </ul>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/image1_hu16034674223164978246.png 330w,
+        /docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/image1_hu11086545323463181867.png 660w,
+        /docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/image1_hu8778464739908579111.png 1024w,
+        /docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/image1_hu15727112291251081161.png 2x"
+        src="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/image1_hu11086545323463181867.png"
+        alt="image.png"
+      />
       
     </figure>
 </p>
@@ -391,7 +403,14 @@ $$</p>
     </article>
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
 
 </body>

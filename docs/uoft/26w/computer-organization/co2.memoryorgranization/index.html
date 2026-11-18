@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=8888&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO 2. MemoryOrgranization | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:8888/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#byte-addressable">Byte Addressable</a></li>
+    <li><a href="#ex-a-program-that-add-three-numbers-from-memory">Ex. A program that add three numbers from Memory</a>
+      <ul>
+        <li><a href="#executable-statements">Executable Statements</a></li>
+        <li><a href="#assembler-directive">Assembler Directive</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#sign-extension">Sign Extension</a></li>
+    <li><a href="#store-data-from-register-to-memory">Store Data from Register to Memory</a>
+      <ul>
+        <li><a href="#address-for-data-in-memory">Address for Data in Memory</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#move-instruction-1">Move Instruction</a></li>
+    <li><a href="#store-constant">Store Constant</a></li>
+    <li><a href="#immediate-constant">Immediate Constant</a></li>
+    <li><a href="#load-instruction">Load Instruction</a></li>
+    <li><a href="#storing-a-register">Storing a Register</a></li>
+    <li><a href="#logic-instruction">Logic Instruction</a>
+      <ul>
+        <li><a href="#ex-logic-and-instruction">Ex. Logic AND Instruction</a></li>
+        <li><a href="#ex-2-logic-or-instruction">Ex 2. Logic OR Instruction</a></li>
+      </ul>
+    </li>
+    <li><a href="#shift-instruction">Shift Instruction</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CO 2. MemoryOrgranization</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 13, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                1343 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 1/13/26</p>
+</blockquote>
+<blockquote>
+<p>Last Edit: 1/13/26</p>
+</blockquote>
+<p>The Processor we are working with is called Nios V Processor</p>
+
+
+<h1 class="relative group">Nios V Processor 
+    <div id="nios-v-processor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nios-v-processor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>This is a processor from Intel with RISC-V Architecture</p>
+<ul>
+<li>This is a 32 bit processor, that’s because it’s 32 bits wide</li>
+<li>Thus the address sent to memory is also 32 bits, this means that there are $2^{32}$ address locations</li>
+</ul>
+<blockquote>
+<p>We said that the <strong>word size</strong> of processor is 32 bits</p>
+</blockquote>
+<ul>
+<li>In this case, the most information can be accessed is 32 bits, but we can access 16 bits (Halfword), or 8 bits</li>
+</ul>
+
+
+<h2 class="relative group">Byte Addressable 
+    <div id="byte-addressable" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#byte-addressable" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In modern Computer, we give <strong>one Byte one Address</strong></p>
+<ul>
+<li>Image Memory as a lot of boxes, each box’s size is 8 bits, 1 Byte, in this case, each box will be given one unique <strong>Index (Address)</strong></li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/14b22972-bd13-448e-90ac-c30c899f1267_hu17411928240470304459.png 330w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/14b22972-bd13-448e-90ac-c30c899f1267_hu4126794318842825137.png 660w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/14b22972-bd13-448e-90ac-c30c899f1267_hu4368113201341165460.png 1024w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/14b22972-bd13-448e-90ac-c30c899f1267_hu16558946235693636000.png 2x"
+        src="/docs/uoft/26w/computer-organization/co2.memoryorgranization/14b22972-bd13-448e-90ac-c30c899f1267_hu4126794318842825137.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<hr>
+<p>As mentioned, the processor we are using are 32 bits wide, that means each time it’s going to get 4 bytes, that is $4\times 8 =32$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/image_hu8356233499606032485.png 330w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/image_hu16208599662394260558.png 660w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/image_hu2480701284898362907.png 1024w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/image_hu12331080902436410880.png 2x"
+        src="/docs/uoft/26w/computer-organization/co2.memoryorgranization/image_hu16208599662394260558.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>So each time we access memory, we will get this 32 bits (4 Bytes) Bar,</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/image1_hu5726087204309488070.png 330w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/image1_hu7210885416126237985.png 660w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/image1_hu4504205708790358204.png 1024w,
+        /docs/uoft/26w/computer-organization/co2.memoryorgranization/image1_hu15361571675267287180.png 2x"
+        src="/docs/uoft/26w/computer-organization/co2.memoryorgranization/image1_hu7210885416126237985.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Ex. A program that add three numbers from Memory 
+    <div id="ex-a-program-that-add-three-numbers-from-memory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-a-program-that-add-three-numbers-from-memory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Now we have three numbers on Memory, that are <code>10,20,30</code> on <code>(0x2C),(0x30),(0x34)</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="nf">.data</span>
+</span></span><span class="line"><span class="cl"><span class="nl">list:</span>   <span class="nf">.word</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span>      <span class="err">#</span> <span class="nv">Define</span> <span class="nv">an</span> <span class="nv">array</span> <span class="nv">of</span> <span class="mi">3</span> <span class="kt">word</span><span class="nv">s</span> <span class="p">(</span><span class="mi">4</span> <span class="kt">byte</span><span class="nv">s</span> <span class="nv">each</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nl">answer:</span> <span class="nf">.word</span> <span class="mi">0</span>               <span class="err">#</span> <span class="nv">Reserve</span> <span class="nb">sp</span><span class="nv">ace</span> <span class="nv">for</span> <span class="nv">the</span> <span class="nv">final</span> <span class="nv">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">.text</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.globl</span> <span class="nv">_start</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">_start:</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">---</span> <span class="nf">PHASE</span> <span class="mi">1</span><span class="p">:</span> <span class="nv">LOAD</span> <span class="nv">DATA</span> <span class="nv">FROM</span> <span class="nv">MEMORY</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span> <span class="nv">t0</span><span class="p">,</span> <span class="nv">list</span>               <span class="err">#</span> <span class="nv">Load</span> <span class="nv">base</span> <span class="nv">address</span> <span class="nv">of</span> <span class="s">&#39;list&#39;</span> <span class="nv">into</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span> <span class="nv">t1</span><span class="p">,</span> <span class="mi">0</span><span class="p">(</span><span class="nv">t0</span><span class="p">)</span>              <span class="err">#</span> <span class="nv">Load</span> <span class="mi">1</span><span class="nv">st</span> <span class="nv">element</span> <span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="nv">into</span> <span class="nv">t1</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span> <span class="nv">t2</span><span class="p">,</span> <span class="mi">4</span><span class="p">(</span><span class="nv">t0</span><span class="p">)</span>              <span class="err">#</span> <span class="nv">Load</span> <span class="mi">2</span><span class="nv">nd</span> <span class="nv">element</span> <span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="nv">into</span> <span class="nv">t2</span> <span class="nv">via</span> <span class="nv">offset</span> <span class="mi">4</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span> <span class="nv">t3</span><span class="p">,</span> <span class="mi">8</span><span class="p">(</span><span class="nv">t0</span><span class="p">)</span>              <span class="err">#</span> <span class="nv">Load</span> <span class="mi">3</span><span class="nv">rd</span> <span class="nv">element</span> <span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="nv">into</span> <span class="nv">t3</span> <span class="nv">via</span> <span class="nv">offset</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">---</span> <span class="nf">PHASE</span> <span class="mi">2</span><span class="p">:</span> <span class="nv">PERFORM</span> <span class="nv">CALCULATIONS</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">add</span> <span class="nv">t2</span><span class="p">,</span> <span class="nv">t2</span><span class="p">,</span> <span class="nv">t1</span>            <span class="err">#</span> <span class="nv">t2</span> <span class="err">=</span> <span class="nv">t2</span> <span class="o">+</span> <span class="nv">t1</span> <span class="p">(</span><span class="mi">20</span> <span class="o">+</span> <span class="mi">10</span> <span class="err">=</span> <span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">add</span> <span class="nv">t2</span><span class="p">,</span> <span class="nv">t2</span><span class="p">,</span> <span class="nv">t3</span>            <span class="err">#</span> <span class="nv">t2</span> <span class="err">=</span> <span class="nv">t2</span> <span class="o">+</span> <span class="nv">t3</span> <span class="p">(</span><span class="mi">30</span> <span class="o">+</span> <span class="mi">30</span> <span class="err">=</span> <span class="mi">60</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">---</span> <span class="nf">PHASE</span> <span class="mi">3</span><span class="p">:</span> <span class="nv">STORE</span> <span class="nv">RESULT</span> <span class="nv">BACK</span> <span class="nv">TO</span> <span class="nv">MEMORY</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span> <span class="nv">t0</span><span class="p">,</span> <span class="nv">answer</span>             <span class="err">#</span> <span class="nv">Load</span> <span class="nv">address</span> <span class="nv">of</span> <span class="s">&#39;answer&#39;</span> <span class="nv">into</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span> <span class="nv">t2</span><span class="p">,</span> <span class="mi">0</span><span class="p">(</span><span class="nv">t0</span><span class="p">)</span>              <span class="err">#</span> <span class="nv">Store</span> <span class="nv">the</span> <span class="nv">final</span> <span class="nv">sum</span> <span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="nv">into</span> <span class="nv">memory</span> <span class="nv">at</span> <span class="s">&#39;answer&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">done:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">j</span> <span class="nv">done</span>                    <span class="err">#</span> <span class="nv">Infinite</span> <span class="nv">loop</span> <span class="nv">to</span> <span class="nv">terminate</span> <span class="nv">execution</span> <span class="nv">flow</span>
+</span></span></code></pre></div><ul>
+<li>The <code>la</code> and <code>lw</code> Instructions are called Executable Statements</li>
+<li>The <code>.word 10</code> , is Assembler Directive</li>
+</ul>
+
+
+<h3 class="relative group">Executable Statements 
+    <div id="executable-statements" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#executable-statements" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Those are the instructions CPU will do when the program is running</p>
+
+
+<h3 class="relative group">Assembler Directive 
+    <div id="assembler-directive" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#assembler-directive" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Assembler Directive are the things to show to Assembler, it means to <strong>Put Constant into memory</strong> into 32 bits at the next available location</p>
+<hr>
+<p>In this case, we have</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><code>0x2C</code></th>
+          <th style="text-align: left"><code>list =</code></th>
+          <th style="text-align: left"><code>.word 10</code></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>0x30</code></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>.word 20</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>0x34</code></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>.word 30</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>0x38</code></td>
+          <td style="text-align: left"><code>answer:</code></td>
+          <td style="text-align: left"><code>.word 0</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<ul>
+<li><code>la t0,list</code> : Load Address (<code>t0 &lt;- list = 0x2c</code> )
+<ul>
+<li>The <code>la</code> instruction actually include <strong>two encoded instructions</strong>, that is because both the <strong>instruction and the address are 32 bits</strong>, that makes we can’t give the 32 bits address and instruction at once, so we need two encoded instead</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Imagine this scenario, you ask a guy to take you to an address with 32 bits, however you only got 32 bits length of word to tell him, in this case you can’t give the <strong>Instruction of “Take me there” + “Address”</strong> at once</p>
+</blockquote>
+<ul>
+<li><code>lw t1,(t0)</code>: Load the word from memory beginning at address given by <code>t0</code>
+<ul>
+<li>So <code>t1 &lt;- (t0) = (0x2c) = 10</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><code>()</code> is just like Dereferencing a Pointer</p>
+</blockquote>
+<ul>
+<li><code>lw t2,4(t0)</code> : When we use <code>4(t0)</code> , this is like a <strong>Index Offset,</strong> similar to the concept of array in C, <code>t0</code> stores an address, and <code>4(t0)</code> is then just referencing the word in <code>0x2c + 4</code>
+<ul>
+<li>So <code>t2 &lt;- (0x30) = 20</code></li>
+</ul>
+</li>
+<li><code>lw t2,8(t0)</code> : The same <code>t3 &lt;- (0x34) = 30</code></li>
+</ul>
+<hr>
+<p>Now we are going to add those</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="nf">add</span> <span class="nv">t2</span><span class="p">,</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">t2</span>   <span class="err">#</span> <span class="nv">t2</span> <span class="err">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">20</span> <span class="err">=</span> <span class="mi">30</span>
+</span></span><span class="line"><span class="cl"><span class="nf">add</span> <span class="nv">t2</span><span class="p">,</span> <span class="nv">t2</span><span class="p">,</span> <span class="nv">t3</span>   <span class="err">#</span> <span class="nv">t2</span> <span class="err">=</span> <span class="mi">30</span> <span class="o">+</span> <span class="mi">30</span> <span class="err">=</span> <span class="mi">60</span>
+</span></span><span class="line"><span class="cl"><span class="nf">la</span> <span class="nv">t0</span><span class="p">,</span><span class="nv">answer</span>
+</span></span><span class="line"><span class="cl"><span class="nf">sw</span> <span class="nv">t2</span><span class="p">,(</span><span class="nv">t0</span><span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li><code>la t0,answer</code> : load the Address of <code>answer</code> in Memory to Register <code>t0</code> in Processor</li>
+<li>Then Store Word in <code>t2</code> to the “Dereferenced Pointer” <code>(t0)</code></li>
+</ul>
+<blockquote>
+<p>The reason why we can’t use <code>sw t2,(answer)</code> is because RISC-V only allows Register in brackets</p>
+</blockquote>
+
+
+<h1 class="relative group">Accessing Half Words &amp; Bytes 
+    <div id="accessing-half-words--bytes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#accessing-half-words--bytes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>As NIOS-V are byte accessible processor, that means we need to at least get one byte once</p>
+<ul>
+<li>However, the fact that processors are all 4 bytes (32 bits) makes it hard to store more than one Half Word (2 Bytes) or Byte (1 Byte) into a Register</li>
+<li>So that means no matter the length of data we are choosing, i.e. Full Word, Half Word, or Byte, it’s gonna take the whole Register</li>
+</ul>
+<hr>
+<p>Recall that we Load Word using <code>lw t2,(t3)</code> , that is load the word <code>t3</code> register is pointing to in the memory to register <code>t2</code></p>
+<ul>
+<li>We can do the same with Half Word using <code>lh t2,(t3)</code></li>
+<li>Though as indicated, a Register is 32 bits, with only 16 bits stored, that makes the rest 16 bits left empty, so that we need to use <strong>Sign Extension</strong> to deal with the rest</li>
+</ul>
+
+
+<h2 class="relative group">Sign Extension 
+    <div id="sign-extension" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sign-extension" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When we want to increase the digit of a Binary Number without changing its value and Sign</p>
+<ul>
+<li>Looked at the old Binary’s highest digit (Sign Digit)</li>
+<li>Change all before to the same value</li>
+</ul>
+<p>For example having <code>0000 0101</code> , that’s +5, if we want to extent it to 16 bits, it should be <code>0000 0000 0000 0101</code></p>
+<hr>
+<p>So that’s what we do when storing Half Word into a Register</p>
+<ul>
+<li>Though there are also method to leave the rest of Register unsigned, using <code>lhu A,(B)</code></li>
+</ul>
+
+
+<h2 class="relative group">Store Data from Register to Memory 
+    <div id="store-data-from-register-to-memory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#store-data-from-register-to-memory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The way storing Word, Half Word, and Byte into memory is kind of the same, which is using <code>sw</code> , <code>sh</code> ,and <code>sb</code></p>
+
+
+<h3 class="relative group">Address for Data in Memory 
+    <div id="address-for-data-in-memory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#address-for-data-in-memory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>If needed to store a word in memory, then its address need to be divisible by 4</p>
+<ul>
+<li>Assume having a Memory with Address 0,1,2,3</li>
+<li>If we want to store a word, then it’s address has to start on 0, 4, 8, 12, and <strong>can’t</strong> start with 1,2,3</li>
+<li>The same apply for Half Word and Byte, Half Word has to start on 0,2,4,6, but Byte can be on any</li>
+</ul>
+
+
+<h1 class="relative group">Move Instruction 
+    <div id="move-instruction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#move-instruction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Move Instruction 
+    <div id="move-instruction-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#move-instruction-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><code>mv t3,t2</code>  allows us to move the data in one Register <code>t2</code>  to <code>t3</code></p>
+<ul>
+<li>Having the General Form of <code>mv rd,rs #rd &lt;- rs</code></li>
+</ul>
+
+
+<h2 class="relative group">Store Constant 
+    <div id="store-constant" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#store-constant" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If we want to store a constant for example <code>44</code> into Register, the we should use command <code>li s3,44 #s3 &lt;- 44</code></p>
+<ul>
+<li>This constant <code>44</code> will be Encoded by assembler into 32 bit number and store into Register</li>
+<li>While this <code>44</code> is called Immediate Constant</li>
+</ul>
+
+
+<h2 class="relative group">Immediate Constant 
+    <div id="immediate-constant" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#immediate-constant" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When dealing with constants, the command usually ends with a <code>i</code></p>
+<ul>
+<li>For example <code>addi rd,rs,const #td &lt;- ts + const</code></li>
+</ul>
+
+
+<h2 class="relative group">Load Instruction 
+    <div id="load-instruction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#load-instruction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><code>lw rd,D(rs1) #rd &lt;- (rs1+D)</code></p>
+<ul>
+<li>This load a 32 bit number into <code>rd</code> from memory address @ <code>rs1+D</code></li>
+<li><code>D</code> is also a 12 bit signed Immediate Constant encoded &amp; Sign Extension</li>
+</ul>
+
+
+<h2 class="relative group">Storing a Register 
+    <div id="storing-a-register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#storing-a-register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><code>sw rs2,D(rs1)</code></p>
+<ul>
+<li>Copy <code>rs2</code> into Memory at address <code>D+rs1</code></li>
+</ul>
+
+
+<h2 class="relative group">Logic Instruction 
+    <div id="logic-instruction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#logic-instruction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Logic &amp; Shift Instruction are bitwise, they compare each bit one by one for the result</p>
+<p><code>xxx rd,rs1,rs2</code> , <code>xxxi rd,rs,Immed</code></p>
+<ul>
+<li><code>xxx</code> : one of AND, OR, XOR</li>
+</ul>
+
+
+<h3 class="relative group">Ex. Logic AND Instruction 
+    <div id="ex-logic-and-instruction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-logic-and-instruction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\begin{aligned}
+&amp;\text{and} \quad t_3, t_1, t_2 \ \
+&amp;001 \quad 011 \quad (t_1) \
+\text{AND} \quad &amp;001 \quad 101 \quad (t_2) \
+\hline
+&amp;001 \quad 001 \quad (t_3)
+\end{aligned}
+$$</p>
+<hr>
+
+
+<h3 class="relative group">Ex 2. Logic OR Instruction 
+    <div id="ex-2-logic-or-instruction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-2-logic-or-instruction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\begin{aligned}
+&amp;\text{ori} \quad t_2, t_1, 0x7 \ \
+&amp;010 \quad 101 \quad (t_1) \
+\text{OR} \quad &amp;000 \quad 111 \quad (0x7) \
+\hline
+&amp;010 \quad 111 \quad (t_2)
+\end{aligned}
+$$</p>
+
+
+<h2 class="relative group">Shift Instruction 
+    <div id="shift-instruction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shift-instruction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Shift Instruction are just like the <code>&gt;&gt;</code>  in c++</p>
+<p><code>srli t2,t1,3</code></p>
+<ul>
+<li>Shift right <code>t1</code> by Immediate Constant of digits</li>
+<li>i.e. if <code>t1</code> is <code>110...110</code> , then it becomes <code>000110...</code> , which means that the last three bits has been discarded after</li>
+</ul>
+<p><code>sll rd,rs1,rs2</code></p>
+<ul>
+<li>There’s also a Shift Left Command</li>
+</ul>
+<p><code>sra rd,rs1,rs2</code></p>
+<ul>
+<li>Keep the highest digit when shifting right</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

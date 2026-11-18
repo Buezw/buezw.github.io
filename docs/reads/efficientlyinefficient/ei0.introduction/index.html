@@ -90,7 +90,7 @@
         .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
         .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
 
-        @media (min-width: 1250px) {
+        @media (min-width: 1560px) {
             .toc-sidebar { display: block; }
         }
 
@@ -162,6 +162,7 @@
         .content h3 { font-size: 1.2rem; color: var(--accent-color); }
 
          
+        .content h1 a,
         .content h2 a,
         .content h3 a,
         .content h4 a {
@@ -169,6 +170,7 @@
         }
 
          
+        .content h1 a:hover,
         .content h2 a:hover,
         .content h3 a:hover {
             color: var(--accent-color) !important;
@@ -696,7 +698,14 @@
     </article>
 
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
 
 </body>

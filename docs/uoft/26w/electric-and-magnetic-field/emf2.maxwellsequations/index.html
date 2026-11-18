@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMF 2. Maxwell’sEquations | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1st-gausss-law">1st: Gauss’s Law</a></li>
+    <li><a href="#2nd-gausss-law-for-magnetism">2nd: Gauss&rsquo;s Law for Magnetism</a></li>
+    <li><a href="#3rd-faradays-law-of-induction">3rd: Faraday&rsquo;s Law of Induction</a></li>
+    <li><a href="#4th-ampere-maxwell-law">4th: Ampere-Maxwell Law</a></li>
+    <li><a href="#maxwell-equation-under-static-case">Maxwell Equation under Static Case</a>
+      <ul>
+        <li><a href="#electrostatic">Electrostatic</a></li>
+        <li><a href="#magnetostatic">Magnetostatic</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#integral-form">Integral Form</a>
+      <ul>
+        <li><a href="#ex-charge-distribution-problem">Ex. Charge Distribution Problem</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#integral-from">Integral From</a></li>
+    <li><a href="#current-density">Current Density</a>
+      <ul>
+        <li><a href="#conduction-current">Conduction Current</a></li>
+        <li><a href="#convection-current">Convection Current</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EMF 2. Maxwell’sEquations</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 13, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                948 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 1/13/26</p>
+</blockquote>
+<blockquote>
+<p>Last Edit: 23/3/26</p>
+</blockquote>
+<p><strong>Maxwell’s Equations described how Charge and Current form Electric and Magnetic Field, while indicate how Electric and Magnetic Field transfer into each other and how they propagate</strong></p>
+
+
+<h1 class="relative group">Maxwell’s Equations 
+    <div id="maxwells-equations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#maxwells-equations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Maxwell’s Equations are actually the combination of four equations, each have their own name</p>
+
+
+<h2 class="relative group">1st: Gauss’s Law 
+    <div id="1st-gausss-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1st-gausss-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<aside>
+❗
+<p><strong>Gauss’s Law: Charge forms Electric Field</strong></p>
+</aside>
+<p>$$
+\nabla \cdot \vec{D} = \rho_v, \quad \nabla \cdot E = \frac{\rho_{v}}{\varepsilon_0}
+$$</p>
+<ul>
+<li>$D$: Electric Flux Density $(c\cdot m^{-2})$</li>
+<li>$\rho_v$: Volumetric Charge Density ($c\cdot m^{-3}$)</li>
+</ul>
+<hr>
+<p><strong>Important Concept:</strong> $\vec D$ is the Electric Flux Density, it’s the real Field created, whereas $\vec E$ is the actual forced applied, they have the relationship of</p>
+<p>$$
+D = \varepsilon_0 E + P
+$$</p>
+<ul>
+<li>In this formula, we treat the Displacement as the addition of two terms</li>
+</ul>
+<hr>
+<p>$$
+\vec D = \varepsilon_0 \varepsilon_r \vec{E}
+$$</p>
+<ul>
+<li>$\varepsilon_0$ : Free space Permittivity, a constant</li>
+<li>$\varepsilon_r$: Relative Permittivity, varies in different materials</li>
+<li>In this formula, we treat Displacement as the scaling of E after entering a material</li>
+</ul>
+
+
+<h2 class="relative group">2nd: Gauss&rsquo;s Law for Magnetism 
+    <div id="2nd-gausss-law-for-magnetism" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2nd-gausss-law-for-magnetism" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<aside>
+❗
+<p><strong>Gauss&rsquo;s Law for Magnetism: There’s no signal Magnetic Pole</strong></p>
+</aside>
+<p>$$
+\nabla \cdot \vec{B} = 0
+$$</p>
+<ul>
+<li>This law states that Magnetic Field Line is always a <strong>closed contour</strong></li>
+</ul>
+<hr>
+<p><strong>Important Concept</strong>: $\vec H$ is the Magnetic Field Strength, and $\vec B$ is the Magnetic Flux Density they are just same with the $\vec D$ and $\vec E$, having the relationship of</p>
+<p>$$
+\vec{B} = \mu_0 (\vec{H} + \vec{M})
+$$</p>
+<ul>
+<li>Treat $\vec B$ (Total Magnetic Field) = $\mu_0\vec H$ (Magnetic Field in vacuum) + $\mu_0\vec M$ (The contribution of material after being magnitized)</li>
+</ul>
+<hr>
+<p>$$
+\vec B = \mu_0 \mu_r \vec H
+$$</p>
+<ul>
+<li>$\mu_r$: Relative Permeability</li>
+<li>Or the Scaling of Magnetic Field after entering the material</li>
+</ul>
+
+
+<h2 class="relative group">3rd: Faraday&rsquo;s Law of Induction 
+    <div id="3rd-faradays-law-of-induction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3rd-faradays-law-of-induction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<aside>
+❗
+<p>Faraday&rsquo;s Law of Induction: <strong>Changing Magnetic Field will create Electric Field</strong></p>
+</aside>
+<p>$$
+\nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t}
+$$</p>
+<ul>
+<li>$\vec B$: Magnetic Flux Density ($T$)</li>
+</ul>
+
+
+<h2 class="relative group">4th: Ampere-Maxwell Law 
+    <div id="4th-ampere-maxwell-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4th-ampere-maxwell-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<aside>
+❗
+<p>Ampere-Maxwell Law: <strong>Changing Electric Field will create Magnetic Field</strong></p>
+</aside>
+<p>$$
+\nabla \times \mathbf{H} = \mathbf{J_f} + \frac{\partial \mathbf{D}}{\partial t}
+$$</p>
+<ul>
+<li>$\vec J_F$: Free Current</li>
+<li>$\frac{\partial \mathbf{D}}{\partial t}$: Displacement Current</li>
+</ul>
+<hr>
+<p><strong>Important Concept</strong>: Here there’s two kind of current, knowing their difference is crucial for understanding this law</p>
+<ul>
+<li>Starting with $\vec J_F$: this is formed by the <strong>free charges flowing inside wires</strong>, this will obviously creates a Magnetic Field around it</li>
+<li>Secondly, the $\frac{\partial \mathbf{D}}{\partial t}$, this is the <strong>Electric Field Changed due to time</strong>, as this will <strong>also creates a Magnetic Field</strong>, we manually <strong>define this as the Displacement Current</strong>, where it’s actually a changed of the Electric Field</li>
+</ul>
+
+
+<h2 class="relative group">Maxwell Equation under Static Case 
+    <div id="maxwell-equation-under-static-case" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#maxwell-equation-under-static-case" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This static means all terms with $\frac{\partial}{\partial t} = 0$ is now zero, and the <strong>Equations will be simplified into two separate fields: Electrostatic and Magnetrostatic</strong></p>
+
+
+<h3 class="relative group">Electrostatic 
+    <div id="electrostatic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electrostatic" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\nabla \cdot \mathbf{D} = \rho_v
+$$</p>
+<ul>
+<li>The same</li>
+</ul>
+<hr>
+<p>$$
+\nabla \times \mathbf{E} = 0
+$$</p>
+<aside>
+❗
+<p>Static Electric Field is Irrational Field</p>
+</aside>
+<hr>
+
+
+<h3 class="relative group">Magnetostatic 
+    <div id="magnetostatic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetostatic" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\nabla \cdot \mathbf{B} = 0
+$$</p>
+<ul>
+<li>The same</li>
+</ul>
+<hr>
+<p>$$
+\nabla \times \mathbf{H} = \mathbf{J_F}
+$$</p>
+<ul>
+<li>As there’s no Electric Field change anymore, only current creating Magnetic Field is then the Free Current</li>
+</ul>
+<hr>
+<p><strong>So under the assumption of Static, we can start with Electrostatic and Magnetostatic</strong></p>
+
+
+<h1 class="relative group">Electrostatics 
+    <div id="electrostatics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electrostatics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Now recall the <strong>1st: Gauss’s Law: $\nabla \cdot \mathbf{D} = \rho_v$</strong>, this is the <strong>Differential Form</strong> of Gauss’s Law</p>
+
+
+<h2 class="relative group">Integral Form 
+    <div id="integral-form" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integral-form" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Starting from the formula $\nabla \cdot \vec{D} = \rho_v$, take integral on both side to get</p>
+<p>$$
+\iiint_V (\nabla \cdot \vec{D}) dV = \iiint_V \rho_v dV
+$$</p>
+<ul>
+<li>We known that the <strong>Divergence Theorem</strong> states that $\iiint_V (\nabla \cdot \vec{D}) dV = \iint_S \vec{D} \cdot d\mathbf{s}$, thus</li>
+</ul>
+<p>$$
+\iint_S \vec{D} \cdot d\mathbf{s}=Q_{enclosed}\Rightarrow \iint \mathbf{E} \cdot d\mathbf{s} = \frac{Q_{enclosed}}{\varepsilon_r \varepsilon_0}
+$$</p>
+<ul>
+<li>That is just the <strong>Most Common form of Gauss’s Law</strong></li>
+</ul>
+<aside>
+❗
+<p><strong>Gauss’ s Law (Integral Form): The Electric Flux pass through a surface only depends on the charges enclosed by this surface</strong></p>
+</aside>
+<hr>
+<p>Before applying this Integral Form of Gauss’s Law, we first need to figure out the Charge Distribution problem on the RHS, that’s $Q_{enclosed}$, we can apply integral to solve it</p>
+
+
+<h3 class="relative group">Ex. Charge Distribution Problem 
+    <div id="ex-charge-distribution-problem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-charge-distribution-problem" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>An electron beam has a volumetric charge density described by $\rho_v = -5 \times 10^{-6} \exp(-10^{-5} \rho) \text{ C/m}^3$ over the region $0&lt; \rho &lt; 1$ and $0 &lt; z &lt; 4$</p>
+<hr>
+<hr>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Magnetostatics 
+    <div id="magnetostatics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetostatics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Starting from the <strong>Ampère&rsquo;s Circuital Law with Maxwell&rsquo;s Correction</strong> $\nabla \times \vec{H} = \vec{J}$</p>
+
+
+<h2 class="relative group">Integral From 
+    <div id="integral-from" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integral-from" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Apply the same methodology, take the integral on both side of $\nabla \times \vec{H} = \vec{J}$ to get</p>
+<p>$$
+\iint_S (\nabla \times \vec{H}) \cdot d\vec{s} = \iint_S \vec{J} \cdot d\vec{s}
+$$</p>
+<ul>
+<li>Notice the LHS can be substitute by <strong>Stokes’ Theorem</strong> into $\oint_L \vec{H} \cdot d\vec{l}$, thus</li>
+</ul>
+<p>$$
+\oint_L \vec{H} \cdot d\vec{l} = I
+$$</p>
+<ul>
+<li>And this is just <strong>Ampere’s Law</strong>, meaning that <strong>Current forms Magnetic Field surrounding it</strong></li>
+</ul>
+
+
+<h2 class="relative group">Current Density 
+    <div id="current-density" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#current-density" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Here we are still under the <strong>Static Maxwell’s Equation</strong> that the <strong>Ampère&rsquo;s Circuital Law with Maxwell&rsquo;s Correction</strong></p>
+<p>$$
+\nabla \times \mathbf{H} = \underbrace{\mathbf{J}<em>{cond} + \mathbf{J}</em>{conv}}_{\mathbf{J}<em>f (\text{Real Charge Movement})} + \underbrace{\frac{\partial \mathbf{D}}{\partial t}}</em>{\text{Changing Electric Field}}
+$$</p>
+<p>can be simplified into $\nabla \times \mathbf{H} = \mathbf{J}<em>f=\mathbf{J}</em>{cond} + \mathbf{J}_{conv}$</p>
+<ul>
+<li>Here the <strong>$\vec J_f$
+is actually the addition of two kinds of currents</strong>, <strong>Conduction and Convection Current</strong></li>
+</ul>
+
+
+<h3 class="relative group">Conduction Current 
+    <div id="conduction-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conduction-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>This current occurring <strong>inside conductor,</strong> <strong>it’s like elevator transferring charges</strong></p>
+<p>$$
+\vec J =\sigma \vec E
+$$</p>
+<ul>
+<li>The key point is that the <strong>Conduction Current Magnitude</strong> is depending on the $\sigma$, which is the <strong>Conductivity of material</strong></li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+<hr>
+
+
+<h3 class="relative group">Convection Current 
+    <div id="convection-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#convection-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>This Current is the <strong>movement of Charged Partial through vacuum space</strong></p>
+<p>$$
+\vec{J}_{convection} =\frac{dQ}{dt}=\frac{\rho_vdx}{dt}= \rho_v \vec{v}
+$$</p>
+<ul>
+<li>It follows the <strong>Kinetic Rules</strong>, that’s <strong>related to speed and density</strong></li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

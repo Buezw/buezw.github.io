@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMF 8. MagnetostaticsForces&amp;Fields | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#lorentz-force">Lorentz Force</a></li>
+    <li><a href="#work-done-by-magnetic-force">Work Done by Magnetic Force</a></li>
+    <li><a href="#magnetic-force-on-a-straight-current-carrying-wire">Magnetic Force on a Straight Current Carrying Wire</a></li>
+    <li><a href="#magnetic-force-on-a-current-carrying-wire">Magnetic Force on a Current Carrying Wire</a>
+      <ul>
+        <li><a href="#any-counter">Any Counter</a></li>
+        <li><a href="#closed-loop">Closed Loop</a></li>
+        <li><a href="#ex-lorentz-foce-on-a-semicircle">Ex. Lorentz Foce on a Semicircle</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#line-current">Line Current</a></li>
+    <li><a href="#surface-current">Surface Current</a></li>
+    <li><a href="#volume-current-density">Volume Current Density</a></li>
+    <li><a href="#linear-integrals-to-calculate-magnetic-force">Linear Integrals to Calculate Magnetic Force</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#total-magnetic-force-on-a-closed-current---case-1">Total Magnetic Force on a Closed Current - Case 1</a></li>
+    <li><a href="#total-magnetic-force-on-a-closed-current---case-2">Total Magnetic Force on a Closed Current - Case 2</a></li>
+    <li><a href="#total-magnetic-force-on-a-closed-current---general-case">Total Magnetic Force on a Closed Current - General Case</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#magnetic-filed-of-an-infinite-current-line">Magnetic Filed of an Infinite Current Line</a></li>
+    <li><a href="#ex-magnetic-field-of-a-finite-current-line">Ex. Magnetic Field of a Finite Current Line</a></li>
+    <li><a href="#ex-magnetic-field-of-two-semi-infinite-current-traces">Ex. Magnetic Field of two Semi-Infinite Current Traces</a></li>
+    <li><a href="#ex-magnetic-field-of-circular-current-loop-on-its-axis">Ex. Magnetic Field of Circular Current Loop on Its Axis</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#gausss-law-for-magnetism">Gauss’s Law for Magnetism</a></li>
+    <li><a href="#ampheres-law-for-magnetism">Amphere’s Law for Magnetism</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#amperes-law-contour-choice">Ampere’s Law Contour Choice</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#biot-savart">Biot-Savart</a></li>
+    <li><a href="#amperes-circuital-law">Ampere’s Circuital Law</a></li>
+    <li><a href="#magnetic-field-of-infinite-thick-wire-with-uniform-j">Magnetic Field of Infinite thick wire with uniform J</a></li>
+    <li><a href="#magnetic-field-of-infinite-thick-wire-with-non-uniform-j">Magnetic Field of Infinite thick wire with non-uniform J</a></li>
+    <li><a href="#magnetic-field-of-an-infinite-current-sheet">Magnetic Field of an Infinite Current Sheet</a></li>
+    <li><a href="#magnetic-field-of-toroidal-coil-in-xy-plane">Magnetic Field of Toroidal Coil in xy-Plane</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EMF 8. MagnetostaticsForces&amp;Fields</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                February 23, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                995 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 2/23/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Magnetic Force 
+    <div id="magnetic-force" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-force" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Lorentz Force 
+    <div id="lorentz-force" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#lorentz-force" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\vec{F}_m = q \vec{u} \times \vec{B}
+$$</p>
+<p>$\vec u$: The Velocity Vector of the charge</p>
+<ul>
+<li>Recall that Cross Product’s magnitude is $|\vec{a} \times \vec{b}| = |\vec{a}| |\vec{b}| \sin(\theta)$</li>
+</ul>
+
+
+<h2 class="relative group">Work Done by Magnetic Force 
+    <div id="work-done-by-magnetic-force" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#work-done-by-magnetic-force" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Start with reviewing the work done by Electric Force first</p>
+<p>$$
+W_e = \int \vec{F}_e \cdot d\vec{l} = q\int \vec{E} \cdot d\vec{l}
+$$</p>
+<p>Apply the same to Magnetic Field</p>
+<p>$$
+W_m = \int \vec{F}_m \cdot d\vec{l} = \int q(\vec{u} \times \vec{B}) \cdot (\vec{u} dt)
+$$</p>
+<p>Known that the Crossed Vector $\vec{u} \times \vec{B}$ has to be perpendicular to $\vec{u}$</p>
+<ul>
+<li>Thus the Work Done by Magnetic Field is ALWAYS zero</li>
+</ul>
+
+
+<h2 class="relative group">Magnetic Force on a Straight Current Carrying Wire 
+    <div id="magnetic-force-on-a-straight-current-carrying-wire" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-force-on-a-straight-current-carrying-wire" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In a Current Carrying Wire, there’s Current $I = \frac{dq}{dt}$, as the speed is $\vec{u} = \frac{d\vec{l}}{dt}$, thus we can get $I d\vec{l} = dq \vec{u}$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Thus there will be a curve for those Current Carrying Wire then</p>
+
+
+<h2 class="relative group">Magnetic Force on a Current Carrying Wire 
+    <div id="magnetic-force-on-a-current-carrying-wire" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-force-on-a-current-carrying-wire" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Starting from Lorentz Force Equation $d\vec{F}_m = dq (\vec{u} \times \vec{B})$, use the equation mentioned above $dq \vec{u} = I d\vec{l}$, we can get $d\vec{F}_m = I d\vec{l} \times \vec{B}$</p>
+<p>Thus if we want to know the total Lorentz Force on the wire, we just need to take the integral</p>
+
+
+<h3 class="relative group">Any Counter 
+    <div id="any-counter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#any-counter" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\vec{F}<em>m = \int</em>{a}^{b} I d\vec{l} \times \vec{B}
+$$</p>
+<p>Under an uniform Magnetic Field, the integral is path independent, meaning the Integral only depends on the starting and ending point</p>
+
+
+<h3 class="relative group">Closed Loop 
+    <div id="closed-loop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#closed-loop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\vec{F}_m = \oint_C I d\vec{l} \times \vec{B}
+$$</p>
+<p>Under a uniform Magnetic Field, the total force will always be zero</p>
+<blockquote>
+<p>But it will create a Torque, this will be cover later</p>
+</blockquote>
+
+
+<h3 class="relative group">Ex. Lorentz Foce on a Semicircle 
+    <div id="ex-lorentz-foce-on-a-semicircle" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-lorentz-foce-on-a-semicircle" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>Note: In a uniform Magnetic Field, the total Lorentz Force should be zero in a Closed Contour</p>
+</blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-74.jpg" alt="Note-74.jpg" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="8f6c4e70-0213-4be3-9bf1-46b517472536.png" alt="Note-75.jpg" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Types of Current Distributions 
+    <div id="types-of-current-distributions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#types-of-current-distributions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Line Current 
+    <div id="line-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#line-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>$$
+I d\vec{l}
+$$</p>
+
+
+<h2 class="relative group">Surface Current 
+    <div id="surface-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#surface-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>$$
+I d\vec{l} = \left( \int \vec{J_s} \cdot d\vec{w} \right) d\vec{l}
+$$</p>
+
+
+<h2 class="relative group">Volume Current Density 
+    <div id="volume-current-density" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#volume-current-density" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>$$
+I d\vec{l} = \left( \iint_S \vec{J} \cdot d\vec{s} \right) d\vec{l}
+$$</p>
+
+
+<h2 class="relative group">Linear Integrals to Calculate Magnetic Force 
+    <div id="linear-integrals-to-calculate-magnetic-force" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linear-integrals-to-calculate-magnetic-force" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Known that the basic Magnetic Force current have inside magnetic field is $\vec{F}_m = \int I d\vec{l} \times \vec{B}$</p>
+<ul>
+<li>This formula will be $\vec{F}_m = I \left( \int d\vec{l} \right) \times \vec{B}$ if B is a uniform field</li>
+<li>Whereas $\int_a^b d\vec{l} = \vec{L}$, thus we then get</li>
+</ul>
+<p>$$
+\vec{F}_m = I \vec{L} \times \vec{B}
+$$</p>
+
+
+<h1 class="relative group">Magnetic Force in a System 
+    <div id="magnetic-force-in-a-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-force-in-a-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Total Magnetic Force on a Closed Current - Case 1 
+    <div id="total-magnetic-force-on-a-closed-current---case-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#total-magnetic-force-on-a-closed-current---case-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-76.jpg" alt="Note-76.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Total Magnetic Force on a Closed Current - Case 2 
+    <div id="total-magnetic-force-on-a-closed-current---case-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#total-magnetic-force-on-a-closed-current---case-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-77.jpg" alt="Note-77.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Total Magnetic Force on a Closed Current - General Case 
+    <div id="total-magnetic-force-on-a-closed-current---general-case" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#total-magnetic-force-on-a-closed-current---general-case" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When we put a Closed Current inside the Magnetic Field, it usually created a Torque that make itself spin inside the Magnetic Field</p>
+<p>$$
+\vec{\tau}_m = \vec{m} \times \vec{B}
+$$</p>
+<ul>
+<li>$m$: Normal Vector of the Closed Current plane, $m=I\cdot A$</li>
+<li>$B$: External Magnetic Field</li>
+</ul>
+<p>Thus the Magnetic Torque can be represented by</p>
+<p>$$
+|\tau| = Iab \cdot B_0 \sin\theta
+$$</p>
+<aside>
+❗
+<p>All things above are about how Closed Current response under the Magnetic Field, whereas things below will describe how Current Create Magnetic Field</p>
+</aside>
+
+
+<h1 class="relative group">Biot-Savart’s Law 
+    <div id="biot-savarts-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#biot-savarts-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>In Coulomb’s Law, it describe how Charges creates the Electric Field, whereas the Biot-Savart’s Law describe how Current creates the Magnetic Field</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">Electric Field</th>
+          <th style="text-align: left">Magnetic Field</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Source</td>
+          <td style="text-align: left"><strong>Point Charge Q</strong></td>
+          <td style="text-align: left"><strong>Small Current I$d\vec{l}$</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Filed Equation</td>
+          <td style="text-align: left">$\vec{E} = \frac{Q \hat{R}}{4\pi\epsilon R^2} = \frac{Q \vec{R}}{4\pi\epsilon R^3}$</td>
+          <td style="text-align: left">$d\vec{H} = \frac{Id\vec{l} \times \hat{R}}{4\pi R^2} = \frac{Id\vec{l} \times \vec{R}}{4\pi R^3}$</td>
+      </tr>
+  </tbody>
+</table>
+<aside>
+❗
+<p>This indicate that Magnetic Field is formed by moving charge, and it’s a curl shape from current</p>
+</aside>
+<p>Thus having the formula of</p>
+<p>$$
+d\vec{H} = \frac{Id\vec{l} \times \hat{R}}{4\pi R^2} = \frac{Id\vec{l} \times \vec{R}}{4\pi R^3}
+$$</p>
+
+
+<h2 class="relative group">Magnetic Filed of an Infinite Current Line 
+    <div id="magnetic-filed-of-an-infinite-current-line" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-filed-of-an-infinite-current-line" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-78.jpg" alt="Note-78.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Ex. Magnetic Field of a Finite Current Line 
+    <div id="ex-magnetic-field-of-a-finite-current-line" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-magnetic-field-of-a-finite-current-line" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="bbac981c-37ab-460f-b214-818d853e0b86.png" alt="Note-79.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Ex. Magnetic Field of two Semi-Infinite Current Traces 
+    <div id="ex-magnetic-field-of-two-semi-infinite-current-traces" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-magnetic-field-of-two-semi-infinite-current-traces" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-82.jpg" alt="Note-82.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Ex. Magnetic Field of Circular Current Loop on Its Axis 
+    <div id="ex-magnetic-field-of-circular-current-loop-on-its-axis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-magnetic-field-of-circular-current-loop-on-its-axis" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h1 class="relative group">Magnetostatic Maxwell’s Equations 
+    <div id="magnetostatic-maxwells-equations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetostatic-maxwells-equations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>There’s two basic physic principle for Magnetic Field</p>
+
+
+<h2 class="relative group">Gauss’s Law for Magnetism 
+    <div id="gausss-law-for-magnetism" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gausss-law-for-magnetism" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\nabla \cdot \vec{B} = 0
+$$</p>
+<p>This states that the divergency of Magnetic Field is zero, thus by Divergency Theorem we knows that any closed Integral’s Magnetic Field will be zero $\oint_S \vec{B} \cdot d\vec{s} = 0$</p>
+<blockquote>
+<p>This reflect that the magnetic equivalence of an electric point charge doesn’t exist in nature</p>
+</blockquote>
+
+
+<h2 class="relative group">Amphere’s Law for Magnetism 
+    <div id="ampheres-law-for-magnetism" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ampheres-law-for-magnetism" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\nabla \times \vec{H} = \vec{J}
+$$</p>
+<p>This indicates that the Magnetic Field’s strength is formed by the Current Density $\vec J$, thus current is the source that produce Magnetic Field</p>
+<p>By Stokes’ Theorem, we can get that</p>
+<p>$$
+\oint_C \vec{H} \cdot d\vec{l} = \iint_S \vec{J} \cdot d\vec{s} = I_{enc}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Which means that the Line Integral along Magnetic Field is equal to the Net Current $I_{enc}$ crossed the surface</p>
+
+
+<h1 class="relative group">Ampere’s Law 
+    <div id="amperes-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amperes-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>$$
+\oint_C \vec{H} \cdot d\vec{l} = \iint_S \vec{J} \cdot d\vec{s} = I_{enc}
+$$</p>
+
+
+<h2 class="relative group">Ampere’s Law Contour Choice 
+    <div id="amperes-law-contour-choice" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amperes-law-contour-choice" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>To make the calculation simple, there’s four suggestion on choosing the Contour</p>
+<ol>
+<li>Choose Contour parallel to Magnetic Field H that makes $H\cdot dl=1$</li>
+<li>If parallel is not possible, then choose perpendicular ones to make it zero</li>
+<li>Make sure the Magnetic Field $H$ is Equivalent among the contour, so the H can be get out of the Integral</li>
+<li>Use RHR to get directions</li>
+</ol>
+
+
+<h1 class="relative group">Magnetic Field Calculation Summary 
+    <div id="magnetic-field-calculation-summary" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-calculation-summary" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Biot-Savart 
+    <div id="biot-savart" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#biot-savart" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Similar to Colomb’s Law, where there’s no symmertry</p>
+<p>$$
+\vec{H} = \int_{\vec{r}&rsquo;_{source}} \frac{I d\vec{l} \times \vec{R}}{4\pi R^3}
+$$</p>
+
+
+<h2 class="relative group">Ampere’s Circuital Law 
+    <div id="amperes-circuital-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amperes-circuital-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Similar to Gauss’s Law</p>
+<p>$$
+\oint_C \vec{H} \cdot d\vec{l} = I_{enc} = \int \vec{J} \cdot d\vec{s}
+$$</p>
+<ul>
+<li>The key of this Law is to use Symmetry to get $H$ out of the integral</li>
+</ul>
+
+
+<h2 class="relative group">Magnetic Field of Infinite thick wire with uniform J 
+    <div id="magnetic-field-of-infinite-thick-wire-with-uniform-j" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-of-infinite-thick-wire-with-uniform-j" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-84.jpg" alt="Note-84.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Magnetic Field of Infinite thick wire with non-uniform J 
+    <div id="magnetic-field-of-infinite-thick-wire-with-non-uniform-j" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-of-infinite-thick-wire-with-non-uniform-j" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-85.jpg" alt="Note-85.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Magnetic Field of an Infinite Current Sheet 
+    <div id="magnetic-field-of-an-infinite-current-sheet" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-of-an-infinite-current-sheet" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Magnetic Field of Toroidal Coil in xy-Plane 
+    <div id="magnetic-field-of-toroidal-coil-in-xy-plane" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-of-toroidal-coil-in-xy-plane" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-75.jpg" alt="Note-75.jpg" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-78%201.jpg" alt="Note-78.jpg" />
+      
+    </figure>
+</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

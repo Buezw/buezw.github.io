@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO 6. Low-levelGraphicsinSoftware | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#coordinate-system">Coordinate System</a></li>
+    <li><a href="#pixel-encoding---rgb565">Pixel Encoding - RGB565</a></li>
+    <li><a href="#address-mapping">Address Mapping</a>
+      <ul>
+        <li><a href="#ex-calculating-the-pixel-address">Ex. Calculating the Pixel Address</a></li>
+      </ul>
+    </li>
+    <li><a href="#code-example">Code Example</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#buffer-register">Buffer Register</a></li>
+    <li><a href="#flickering">Flickering</a></li>
+    <li><a href="#vertical-synch">Vertical Synch</a></li>
+    <li><a href="#double-buffering">Double Buffering</a></li>
+    <li><a href="#vga-controller-memory-mapped-registers">VGA Controller Memory Mapped Registers</a></li>
+    <li><a href="#process-of-swapping-to-avoid-flickering">Process of swapping to avoid Flickering</a>
+      <ul>
+        <li><a href="#initiate">Initiate</a></li>
+        <li><a href="#wait-for-v-sync">Wait for V-Sync</a></li>
+      </ul>
+    </li>
+    <li><a href="#c-language-code-for-wait_for_vsync">C Language Code for <code>wait_for_vsync()</code></a>
+      <ul>
+        <li><a href="#poll">Poll</a></li>
+      </ul>
+    </li>
+    <li><a href="#frame-per-second">Frame Per Second</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CO 6. Low-levelGraphicsinSoftware</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 09, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                1089 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/9/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Intro to Low-Level Graphics 
+    <div id="intro-to-low-level-graphics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#intro-to-low-level-graphics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu15234567419980076524.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu11320103388789212494.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu17128458278778623679.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu3728884395623859223.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu11320103388789212494.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Starting from the structure of the De1-SoC, different parts have own role on Graphics</p>
+<ul>
+<li>Processor: Take and decided where and which to show on each pixel</li>
+<li>Memory (Frame Buffer): A specific space in Memory to store the value of each pixel</li>
+<li>VGA: Continuously read from the <strong>Frame Buffer</strong> and send it to screen</li>
+</ul>
+
+
+<h2 class="relative group">Coordinate System 
+    <div id="coordinate-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#coordinate-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The screen has been divided into boxes with 320 x 240 pixels</p>
+<p>And the origin is at the left top, this means that the right down corner is then $(319,239)$</p>
+
+
+<h2 class="relative group">Pixel Encoding - RGB565 
+    <div id="pixel-encoding---rgb565" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pixel-encoding---rgb565" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>On the screen, each box is representing one pixel, while each pixel is encoded using 16 bits</p>
+<ul>
+<li>The 16 bits components are R: 5 bits, G: 6 bits, B: 5 bits</li>
+</ul>
+<blockquote>
+<p>This is because human are more sensitive to green</p>
+</blockquote>
+
+
+<h2 class="relative group">Address Mapping 
+    <div id="address-mapping" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#address-mapping" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As memory is 1 Dimension but Screen is 2D, so we’ve design a way to representing 2D</p>
+<p>So as the De1-SoC is a 32 bit system, we will divided this 32 bits into</p>
+<ul>
+<li>Base: 14 bits</li>
+<li>Y Coordinate: 8 bits, cause $2^8=256$</li>
+<li>X Coordinate: 9 bits, cause $2^9=512$</li>
+<li>Ending 0: 1 bit, this 0 is always here, as there’s 2 bytes representing one pixel, this means that the starting address of each pixel has to be an even number
+<ul>
+<li>By leaving a 0 in the end of the bit is equivalent to timing a 2 in decimal number</li>
+</ul>
+</li>
+</ul>
+<p>Thus overall we can conclude the formula for calculating the Address’s corresponding pixel</p>
+<p>$$
+\text{address} = \text{base} + (y \ll 10) + (x \ll 1)
+$$</p>
+
+
+<h3 class="relative group">Ex. Calculating the Pixel Address 
+    <div id="ex-calculating-the-pixel-address" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-calculating-the-pixel-address" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>$(0,0)$: Origin, is the base address <code>0x08000000</code></li>
+<li>$(1,0)$: One pixel to the right, that’s x =1, which is <code>0x08000002</code></li>
+<li>$(1,1)$: One pixel to the right, then down, is <code>0x08000402</code> (1024 = <code>0x400</code> )</li>
+<li>$(319,239)$: Right Down Corner, is <code>0x0803be73</code></li>
+</ul>
+
+
+<h2 class="relative group">Code Example 
+    <div id="code-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#code-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cm">/* program to draw four green pixels into the middle of the screen */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">plot_pixel</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">short</span> <span class="kt">int</span> <span class="n">line_color</span><span class="p">);</span> <span class="c1">// plots one pixel
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">clear_screen</span><span class="p">();</span>                                <span class="c1">// clears whole screen
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="n">pixel_buffer_start</span><span class="p">;</span> <span class="c1">// global variable location of frame buffer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">volatile</span> <span class="kt">int</span> <span class="o">*</span> <span class="n">pixel_ctrl_ptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="mh">0xFF203020</span><span class="p">;</span>  <span class="c1">// pointer to the base register of controller
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* The default base of the frame buffer is int VGA controller */</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* That default address is stored in the base register of the VGA controller port/interface */</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* so the next statement gets it, leaving pixel_buffer_start = 0x08000000 */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">pixel_buffer_start</span> <span class="o">=</span> <span class="o">*</span><span class="n">pixel_ctrl_ptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">clear_screen</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">plot_pixel</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mh">0x07E0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">plot_pixel</span><span class="p">(</span><span class="mi">161</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mh">0x07E0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">plot_pixel</span><span class="p">(</span><span class="mi">162</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mh">0x07E0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">plot_pixel</span><span class="p">(</span><span class="mi">163</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mh">0x07E0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// code not shown for clear_screen() and draw_line() subroutines
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">plot_pixel</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">short</span> <span class="kt">int</span> <span class="n">line_color</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">volatile</span> <span class="kt">short</span> <span class="kt">int</span> <span class="o">*</span><span class="n">one_pixel_address</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">one_pixel_address</span> <span class="o">=</span> <span class="n">pixel_buffer_start</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">one_pixel_address</span> <span class="o">=</span> <span class="n">line_color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">clear_screen</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">320</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">240</span><span class="p">;</span> <span class="n">y</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="nf">plot_pixel</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h1 class="relative group">Drawing Lines on Screen 
+    <div id="drawing-lines-on-screen" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#drawing-lines-on-screen" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Known that the boxes one screen are discrete, thus drawing a straight lines are hard</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image1_hu9850755820828643092.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image1_hu10315815254507372864.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image1_hu9469967931283104840.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image1_hu17810569566097615370.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image1_hu10315815254507372864.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Things like this case will occur which is called aliasing, but that’s already the best approximation</p>
+<p>The way we calculate it is by the slope $slope = \frac{y_2 - y_1}{x_2 - x_1}$</p>
+<ul>
+<li>This method best work for steep lines with slope less than 1</li>
+</ul>
+
+
+<h1 class="relative group">Animation 
+    <div id="animation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#animation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The animation is just 1. Draw lines, 2. Erase Lines, 3. Repeat, here’s more detail of approach</p>
+
+
+<h2 class="relative group">Buffer Register 
+    <div id="buffer-register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#buffer-register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Front Buffer stores the starting address of the current image</p>
+<ul>
+<li>The Screen’s image can be changed immediately by changing Buffer Register</li>
+</ul>
+
+
+<h2 class="relative group">Flickering 
+    <div id="flickering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#flickering" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If there’s no new image after the old one has been removed, then flickering will occur that there’s a blank or broken image</p>
+
+
+<h2 class="relative group">Vertical Synch 
+    <div id="vertical-synch" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vertical-synch" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The VGA controller will scan the screen from left to right, up to down</p>
+<ul>
+<li>Vertical Retrace: While there’s a delay after the whole progress was done and return to origin</li>
+<li>Thus the updates can be done during the Vertical Retrace period, and there’ll be a register called <code>status register</code> in charge of the state</li>
+</ul>
+
+
+<h2 class="relative group">Double Buffering 
+    <div id="double-buffering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#double-buffering" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The ultimate solution for animation, thus set two buffer regions, <code>Front Buffer</code>  and <code>Back Buffer</code> , and the update steps will be</p>
+<ol>
+<li>Remove and draw the new shape inside <code>Back Buffer</code></li>
+<li>Wait for the Vertical Synch Signal</li>
+<li>Swap</li>
+</ol>
+
+
+<h2 class="relative group">VGA Controller Memory Mapped Registers 
+    <div id="vga-controller-memory-mapped-registers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vga-controller-memory-mapped-registers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image2_hu3148617277156468302.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image2_hu12320257711041078019.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image2_hu2507215092103230270.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image2_hu8179975591060206600.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image2_hu12320257711041078019.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li><strong>Front Buffer Address Register</strong>: Storing the current image’s starting address
+<ul>
+<li>It’s a read-only reg that only change when there’s a <code>swap</code> instruction</li>
+</ul>
+</li>
+<li><strong>Back Buffer Address Register:</strong> Storing the starting address of back buffer
+<ul>
+<li>Its a write reg</li>
+</ul>
+</li>
+<li><strong>Status Register</strong>: The lowest bit is S (Status Bit)
+<ul>
+<li>When we write a 1 into the <code>Front Buffer Reg</code> , a swap will occur and this Status Bit will be set to 1 representing the change is in progress</li>
+<li>Whereas after the swap is finished, then <code>S</code> bit will return to 0 again</li>
+</ul>
+</li>
+<li>Note that the De1-SoC’s VGA controller can only access the <code>SDRAM</code> address staring with <code>0x00</code> , while can’t access the <code>DDR3</code> starting with <code>0x04</code></li>
+</ul>
+<hr>
+
+
+<h2 class="relative group">Process of swapping to avoid Flickering 
+    <div id="process-of-swapping-to-avoid-flickering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#process-of-swapping-to-avoid-flickering" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Initiate 
+    <div id="initiate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#initiate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>At the beginning, the processor will send a 1 into the <code>Front Buffer Reg</code> that tells <code>VGA</code> controller to swap when ready</p>
+<p>While in this case, the <code>S</code> bit in <code>Status Reg</code> will swap to 1, meaning the swapping is in progress</p>
+
+
+<h3 class="relative group">Wait for V-Sync 
+    <div id="wait-for-v-sync" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#wait-for-v-sync" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The swap won’t happen immediately, that’s because if the screen is at its middle of scanning, the upper and lower part of the screen will occur flickering</p>
+<p>Thus only run swap when V-Sync is ready</p>
+
+
+<h2 class="relative group">C Language Code for <code>wait_for_vsync()</code> 
+    <div id="c-language-code-for-wait_for_vsync" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#c-language-code-for-wait_for_vsync" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">wait_for_vsync</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Base Address for VGA Controller
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">volatile</span> <span class="kt">int</span> <span class="o">*</span> <span class="n">pixel_ctrl_ptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="mh">0xff203020</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">status</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Wrtite a 1 into the Front Reg
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">pixel_ctrl_ptr</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Read the status Reg
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">status</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">pixel_ctrl_ptr</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Polling until the last bit becomes 1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">while</span> <span class="p">((</span><span class="n">status</span> <span class="o">&amp;</span> <span class="mh">0x01</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">status</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">pixel_ctrl_ptr</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// If it goes to 0, auto break
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h3 class="relative group">Poll 
+    <div id="poll" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#poll" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The processor will then use polling to check the bit <code>S</code> to see when the swapping is finished, so it can start drawing the next frame</p>
+
+
+<h2 class="relative group">Frame Per Second 
+    <div id="frame-per-second" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#frame-per-second" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>So 60 FPS means the processor can render one frame less than $1/60$ s, if something went wrong that it requires more than $1/60$  s to render a frame, then we want to keep the frame frequency lower but keep the overall animation contingence</p>
+
+
+<h1 class="relative group">Bouncing Boxes 
+    <div id="bouncing-boxes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bouncing-boxes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

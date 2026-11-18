@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS 8. FundamentalsofDiscrete-Time Systems | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#properties-of-dt-systems-linearity-and-causality">Properties of DT systems: Linearity and Causality</a>
+      <ul>
+        <li><a href="#linearity">Linearity</a></li>
+        <li><a href="#causality">Causality</a></li>
+      </ul>
+    </li>
+    <li><a href="#property-of-dt-systems-time-invariance">Property of DT systems: Time-Invariance</a>
+      <ul>
+        <li><a href="#ex-time-invariance-of-reversal-system">Ex. Time-invariance of reversal system</a></li>
+      </ul>
+    </li>
+    <li><a href="#properties-of-dt-systems-memory-and-invertibility">Properties of DT systems: memory and invertibility</a>
+      <ul>
+        <li><a href="#memoryless">Memoryless</a></li>
+        <li><a href="#invertible">Invertible</a></li>
+      </ul>
+    </li>
+    <li><a href="#property-of-dt-system-stability-linear-systems">Property of DT system Stability (linear systems)</a>
+      <ul>
+        <li><a href="#bounded-input-bounded-output-stable">Bounded-Input Bounded-Output Stable</a></li>
+      </ul>
+    </li>
+    <li><a href="#properties-of-dt-systems-lti">Properties of DT systems: LTI</a>
+      <ul>
+        <li><a href="#the-impulse-response-of-a-lti-system">The Impulse response of a LTI system</a></li>
+        <li><a href="#response-of-a-dt-lti-system">Response of a DT LTI system</a></li>
+      </ul>
+    </li>
+    <li><a href="#properties-of-dt-convolution">Properties of DT convolution</a>
+      <ul>
+        <li><a href="#ex-dt-convolution-and-polynomial-multiplication">Ex. DT convolution and polynomial multiplication</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ex-bank-account-model">Ex. Bank Account Model</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#impulse-response-of-fir-system">Impulse response of FIR system</a></li>
+    <li><a href="#properties-of-lti-fir-system">Properties of LTI FIR system</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#licc-des-define-lti-dt-systems">LICC-DEs define LTI DT systems</a>
+      <ul>
+        <li><a href="#ex-discretised-rc-circuit">Ex. Discretised RC circuit</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>SS 8. FundamentalsofDiscrete-Time Systems</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 26, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                973 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/26/26</p>
+</blockquote>
+
+
+<h1 class="relative group">DT System 
+    <div id="dt-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dt-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The DT system gets in a DT input and <strong>produces exactly one DT output</strong></p>
+<ul>
+<li>$T{x}[n]$ is the value of the output signal at time $n\in \mathbb Z$</li>
+</ul>
+<p>While CT systems is more align to <strong>physics</strong>, DT system tend to come from <strong>engineering processes</strong>, such as</p>
+<ol>
+<li>Discretisation of CT systems</li>
+<li>Digital filtering or signal processing</li>
+<li>Economic/ Financial models</li>
+</ol>
+
+
+<h2 class="relative group">Properties of DT systems: Linearity and Causality 
+    <div id="properties-of-dt-systems-linearity-and-causality" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-of-dt-systems-linearity-and-causality" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Linearity 
+    <div id="linearity" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linearity" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A DT system $T$ is <strong>linear</strong> if for any two input signals $x, \tilde{x}$ and any two constants $\alpha, \tilde{\alpha} \in \mathbb{C}$ it holds that <strong>$T{\alpha x + \tilde{\alpha}\tilde{x}} = \alpha T{x} + \tilde{\alpha} T{\tilde{x}}$</strong></p>
+
+
+<h3 class="relative group">Causality 
+    <div id="causality" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#causality" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A DT system $T$ is <strong>causal</strong> if for all $n \in \mathbb{Z}$, the output value $y[n]$ depends only on the present and previous input values ${ \dots, x[n-2], x[n-1], x[n] }$</p>
+
+
+<h2 class="relative group">Property of DT systems: Time-Invariance 
+    <div id="property-of-dt-systems-time-invariance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-of-dt-systems-time-invariance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A DT system T is <strong>time-invariant</strong> if for any input signal $x$ with output signal $y = T{x}$, it holds that $y_k = T{xk}$ for all possible time shifts $k \in \mathbb{Z}$</p>
+<aside>
+❗
+<p><strong>Physical meaning:</strong> <strong>an experiment on the system tomorrow will produce the same
+results as an experiment on the system today</strong></p>
+</aside>
+
+
+<h3 class="relative group">Ex. Time-invariance of reversal system 
+    <div id="ex-time-invariance-of-reversal-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-time-invariance-of-reversal-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Properties of DT systems: memory and invertibility 
+    <div id="properties-of-dt-systems-memory-and-invertibility" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-of-dt-systems-memory-and-invertibility" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Memoryless 
+    <div id="memoryless" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#memoryless" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<aside>
+❗
+<p><strong>Only depends on current value</strong></p>
+</aside>
+<p>A DT system T is <strong>memoryless</strong> if for all times $n \in \mathbb{Z}$, the output value $y[n]$ depends only on the input value $x[n]$</p>
+
+
+<h3 class="relative group">Invertible 
+    <div id="invertible" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#invertible" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A DT system T is <strong>invertible</strong> if there exists another DT system $T_{inv}$ such that <strong>$T_{inv}{T{x}} = T{T_{inv}{x}} = x$</strong> for all inputs $x$</p>
+
+
+<h2 class="relative group">Property of DT system Stability (linear systems) 
+    <div id="property-of-dt-system-stability-linear-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-of-dt-system-stability-linear-systems" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A signal is <strong>Bounded</strong> or having <strong>Finite Amplitude</strong> if $||x||<em>\infty = \max</em>{n \in \mathbb{Z}} |x[n]|$, i.e. the amplitude of the signal has a maximum over the whole period</p>
+
+
+<h3 class="relative group">Bounded-Input Bounded-Output Stable 
+    <div id="bounded-input-bounded-output-stable" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bounded-input-bounded-output-stable" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>If there’s a constant $K\geq 0$ s.t. $||y||<em>\infty \le K||x||</em>\infty$ for all $y = T{x}$</p>
+
+
+<h2 class="relative group">Properties of DT systems: LTI 
+    <div id="properties-of-dt-systems-lti" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-of-dt-systems-lti" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">The Impulse response of a LTI system 
+    <div id="the-impulse-response-of-a-lti-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-impulse-response-of-a-lti-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>Impulse response $h$</strong> of a <strong>DT LTI system $T$</strong> is the response $T{δ}$ to a unit impulse δ input applied at $n = 0$, i.e., $h = T{δ}$</p>
+<ul>
+<li>Get the Impulse Response by simply <strong>substitute the function</strong> into <strong>Impulse Function $\delta (t)$</strong></li>
+</ul>
+
+
+<h3 class="relative group">Response of a DT LTI system 
+    <div id="response-of-a-dt-lti-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#response-of-a-dt-lti-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Known the input $x$ can be expressed in <strong>DT as $x = \sum_{k=-\infty}^{\infty} x[k]\delta_k$</strong>, known its output is <strong>$y=T{x}$</strong>, thus we can sub in the input to get</p>
+<p>$$
+y = T{x} = T \left{ \sum_{k=-\infty}^{\infty} x[k]\delta_k \right} = \sum_{k=-\infty}^{\infty} x[k]T{\delta_k}
+$$</p>
+<p>and as this is a <strong>Time-Invariant System</strong>, we can get</p>
+<p>$$
+y[n]=\sum_{k=-\infty}^{\infty} h[n - k]x[k]
+$$</p>
+
+
+<h2 class="relative group">Properties of DT convolution 
+    <div id="properties-of-dt-convolution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-of-dt-convolution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. DT convolution and polynomial multiplication 
+    <div id="ex-dt-convolution-and-polynomial-multiplication" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-dt-convolution-and-polynomial-multiplication" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">LTI System Properties and the Impulse Response 
+    <div id="lti-system-properties-and-the-impulse-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#lti-system-properties-and-the-impulse-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Overall, to summarise, the output of <strong>DT LTI system</strong> is the <strong>convolution of impulse response with input signal $y = h * x$</strong></p>
+<p>$$
+y[n] = \sum_{k=-\infty}^{\infty} h[n - k]x[k]
+$$</p>
+<p>And the Impulse Response $h$ actually determines a lot of properties for System</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. Bank Account Model 
+    <div id="ex-bank-account-model" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-bank-account-model" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Finite impulse response (FIR) systems 
+    <div id="finite-impulse-response-fir-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#finite-impulse-response-fir-systems" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Finite Impulse Response is a DT LTI system of the form</p>
+<p>$$
+y[n] = \sum_{k=0}^{M} b_k x[n - k] = b_0 x[n] + b_1 x[n - 1] + \dots + b_M x[n - M]
+$$</p>
+<ul>
+<li>$x[n]$: Present output</li>
+<li>$x[n-k]$: Past outputs</li>
+</ul>
+<p>This means that the <strong>current output value is a finite linear combination of past and present input values</strong></p>
+
+
+<h2 class="relative group">Impulse response of FIR system 
+    <div id="impulse-response-of-fir-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#impulse-response-of-fir-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The impulse response of an FIR system is calculated to be</p>
+<p>$$
+h[n] = \sum_{k=0}^{M} b_k \delta[n-k] = \begin{cases} b_n &amp; \text{if } 0 \le n \le M \ 0 &amp; \text{otherwise} \end{cases}
+$$</p>
+<p>Conclusion: the <strong>number of nonzero terms for FIR system is limited</strong>, thus named <strong>Finite Impulse Response</strong></p>
+
+
+<h2 class="relative group">Properties of LTI FIR system 
+    <div id="properties-of-lti-fir-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-of-lti-fir-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Thus we can conclude this system is</p>
+<ol>
+<li>Causal: As $h[n]=0$ for all $n&lt;0$</li>
+<li>BIBO stable: since</li>
+</ol>
+<p>$$
+\sum_{k=-\infty}^{\infty} |h[n]| = \sum_{k=0}^{M} |b_k|&lt;\infty
+$$</p>
+
+
+<h1 class="relative group">Difference Equations and DT systems 
+    <div id="difference-equations-and-dt-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#difference-equations-and-dt-systems" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>In the following part, we are going to analysis the case of <strong>linear, inhomogeneous, constant-coefficient difference equations</strong></p>
+<hr>
+<p>We now called this long difference equation the LICC-DE, having the form</p>
+<p>$$
+a_0y[k] + a_1y[k-1] + \dots + a_ny[k-n] = b_0x[k] + \dots + b_mx[k-m]
+$$</p>
+<ul>
+<li>$x$: Input Signal</li>
+<li>$y$: Output Signal</li>
+<li>$n,m$: Nonnegative Int</li>
+<li>$a_i,b_j$: Real Constant Coefficient</li>
+<li>we assume $a_0=1$ for <strong>not losing generality</strong></li>
+</ul>
+<aside>
+❗
+<p><strong>This system is depending on both past input and output</strong></p>
+</aside>
+<hr>
+<p>Now we define a operator $D^\ell y[k] = y[k - \ell]$, the power of $D$ is just the number of step $D$ going backwards, thus we can get two equation of left and right side</p>
+<p>$$
+Q(D) = 1 + a_1D + a_2D^2 + \dots + a_nD^n
+$$</p>
+<p>$$
+P(D) = b_0 + b_1D + b_2D^2 + \dots + b_mD^m
+$$</p>
+<p>Now the LICC-DE then becomes</p>
+<p>$$
+Q(D)y[k] = P(D)x[k]
+$$</p>
+
+
+<h2 class="relative group">LICC-DEs define LTI DT systems 
+    <div id="licc-des-define-lti-dt-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#licc-des-define-lti-dt-systems" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As LICC-ODEs for CT systems, we only consider right-sided inputs and outputs</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%208.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. Discretised RC circuit 
+    <div id="ex-discretised-rc-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-discretised-rc-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%209.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">DT LTI system with complex exponential inputs 
+    <div id="dt-lti-system-with-complex-exponential-inputs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dt-lti-system-with-complex-exponential-inputs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Setting the input to be $x[n] = e^{j\omega_0 n}$, then</p>
+<p>$$
+y[n] = \sum_{k=-\infty}^{\infty} h[k]e^{j\omega_0 (n-k)} = \left[ \sum_{k=-\infty}^{\infty} h[k]e^{-j\omega_0 k} \right] e^{j\omega_0 n}
+$$</p>
+<p>We can see the output of this Complex Exponential is</p>
+<ul>
+<li>Also a complex Exponential</li>
+<li>Same Frequency</li>
+<li>Scaled by the DTFT of $h$</li>
+</ul>
+<p>Here we define the DTFT as the frequency response of system, that $H(e^{j\omega}) = \sum_{n=-\infty}^{\infty} h[n]e^{-j\omega n}$</p>
+<aside>
+❗
+<p><strong>Recall Frequency Response, that’s how system dealing with different system’s frequency scales</strong></p>
+</aside>
+<p>When the input is a Complex Exponential Signal $x[n] = e^{j\omega_0 n}$, the output will be</p>
+<p>$$
+y[n] = |H(e^{j\omega_0})| e^{j(\angle H(e^{j\omega_0}))} e^{j\omega_0 n}
+$$</p>
+<p>Thus the conclusion is</p>
+<aside>
+❗
+<p><strong>A LTI system will Scale the Amplitude and Shift the Phase for any Complex Exponential input</strong></p>
+</aside>
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

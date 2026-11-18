@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECMS 3. Plastic Deformation | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#plastice-deformation-permanent-deformation">Plastice Deformation (Permanent Deformation)</a></li>
+            <li><a href="#different-between-elastic-and-plastic-deformation">Different between Elastic and Plastic Deformation</a></li>
+            <li><a href="#beyond-elastic-region">Beyond Elastic Region</a></li>
+            <li><a href="#stress-strain-curve-for-different-materials">Stress-Strain Curve for different materials</a></li>
+            <li><a href="#three-point-blending-test">Three-Point-Blending Test</a></li>
+            <li><a href="#tempered-glass-钢化玻璃">Tempered Glass 钢化玻璃</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>ECMS 3. Plastic Deformation</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                September 23, 2024
+                <span style="margin: 0 10px;">&middot;</span> 
+                1217 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 9/23/24</p>
+</blockquote>
+
+
+<h4 class="relative group">Plastice Deformation (Permanent Deformation) 
+    <div id="plastice-deformation-permanent-deformation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#plastice-deformation-permanent-deformation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>we use the term <strong>plastic</strong> to describe permanent deformation</li>
+<li>之所以是Plastic，是因为它derives from the Greek <strong>plastikos</strong> meaning to sculpt</li>
+</ul>
+
+
+<h5 class="relative group">Changes After Plastic Deformation 
+    <div id="changes-after-plastic-deformation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#changes-after-plastic-deformation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<ul>
+<li>在Plastic Deformation后，Atomic Spacing将保持\(r=r_0\)</li>
+<li>但是Sequence of atoms将进入一个New Equilibrium</li>
+<li>即在Marcro Perspective上发生Shape的Deform</li>
+<li>Tensile Strain将会保持一定非零大小</li>
+</ul>
+
+
+<h5 class="relative group">Micro Perspective of Plastic Deformation 
+    <div id="micro-perspective-of-plastic-deformation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#micro-perspective-of-plastic-deformation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations.png" alt="" />
+      
+    </figure>
+
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-1.png" alt="" />
+      
+    </figure>
+
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-2.png" alt="" />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">Different between Elastic and Plastic Deformation 
+    <div id="different-between-elastic-and-plastic-deformation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#different-between-elastic-and-plastic-deformation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h6 class="relative group">Elastic 
+    <div id="elastic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#elastic" aria-label="Anchor">#</a>
+    </span>        
+    
+</h6>
+<ul>
+<li>对于Elastic Deformation，开始前物理Atom之间间距应为\(r_0\)</li>
+<li>泄力后仍应该是\(r_0\)，并且Atom将会到他们原有的Equilibrium</li>
+<li>并且物体从Marco Perspective上并不发生Deformation</li>
+</ul>
+
+
+<h5 class="relative group">Plastic 
+    <div id="plastic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#plastic" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<ul>
+<li>结束后Atom之间间距仍应该是\(r_0\)</li>
+<li>泄力后Atom将进入一个<strong>新的Equilibrium</strong></li>
+<li>物体在泄力后，他的<strong>Tensile Strain</strong>将不会便为0而是保持在一定数</li>
+<li>即Shape已经发生了Perminant Change</li>
+</ul>
+
+
+<h4 class="relative group">Beyond Elastic Region 
+    <div id="beyond-elastic-region" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#beyond-elastic-region" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>在Elastic Region外，便是完整的[[ECMS 2. Elastic Behavior#Young&rsquo;s Modulus 杨氏模量]]的模型</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-3.png" alt="" />
+      
+    </figure>
+</p>
+<ul>
+<li>Yield Strength: 屈服强度是指材料在发生永久变形之前，能够承受的最大应力。</li>
+<li>当Strain到达Yield Strength之后，材料会从Elastic Deformation转变为Plastic Deformation，即Material发生Permanent Deformation</li>
+<li>在过了Yield Strength之后Strain再增加后到了一定程度之后便会产生Fracture(Broken into pieces)</li>
+</ul>
+
+
+<h4 class="relative group">Stress-Strain Curve for different materials 
+    <div id="stress-strain-curve-for-different-materials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stress-strain-curve-for-different-materials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-4.png" alt="" />
+      
+    </figure>
+</p>
+
+
+<h5 class="relative group">Metals 
+    <div id="metals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#metals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<ul>
+<li>图中的绿色曲线</li>
+<li>其特点有在一定位置之后开始产生Permanent Deformation</li>
+<li>之后在持续的施加Stress之后其Strain变化率降低最后产生Fracture</li>
+<li>相比于Ceramic和Polymer，其Young&rsquo;s Modulus处于中间位置，高于Polymer但小于没有Permanent Deformation阶段的Ceramic</li>
+</ul>
+
+
+<h5 class="relative group">Polymer 
+    <div id="polymer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#polymer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<ul>
+<li>相对来说没有什么特点</li>
+<li>具有较低的Young&rsquo;s Modulus和Permanent Deformation区间</li>
+</ul>
+
+
+<h5 class="relative group">Ceramic 
+    <div id="ceramic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ceramic" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<ul>
+<li>对于陶瓷类的物质，其没有Permanent Deformation的区间</li>
+<li>对于他来说也存在Elastic Region</li>
+<li>但可以看出整体Young&rsquo;s Modulus非常高，并且呈现线性</li>
+<li>在施加了一定的Stress后会直接Load enough and fracture</li>
+</ul>
+
+
+<h4 class="relative group">Three-Point-Blending Test 
+    <div id="three-point-blending-test" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#three-point-blending-test" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-5.png" alt="" />
+      
+    </figure>
+</p>
+<ul>
+<li>底部两个点用作支撑，上方一个力将物体往下压</li>
+</ul>
+<p>$$Stress(\sigma)=\frac{3FL}{2wh^2}$$</p>
+
+
+<h4 class="relative group">Tempered Glass 钢化玻璃 
+    <div id="tempered-glass-%E9%92%A2%E5%8C%96%E7%8E%BB%E7%92%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tempered-glass-%E9%92%A2%E5%8C%96%E7%8E%BB%E7%92%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>![[ECMS 3. Plastic Deformations-5.png]]</p>
+<ul>
+<li>再高温下迅速向表面喷冷凝液将其降温</li>
+<li>冷却将使玻璃表面收缩的比内部更快，产生了向心的Compress Stress</li>
+<li>而内部由于受力将产生反作用力，向外产生张应力</li>
+<li>整体的结构处于一个向内部收缩的趋势，导致当其受到了外力的时候，尝试使其Fracture的导致分子之间结构被破坏的力将被抵消</li>
+<li>并且由于其内部存在Residual Stress（残余应力）导致了整体结构破坏的时候其Residual Stress将破坏结构至非常小的结构</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/EMCS_Static/ECMS3.PlasticDeformations/ECMS3.PlasticDeformations-6.png" alt="" />
+      
+    </figure>
+</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2024 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

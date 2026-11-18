@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2L Weierstrass Approximation Theorem | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#weierstrass-approximation-theorem">Weierstrass Approximation Theorem</a></li>
+    <li><a href="#bernsteins-proof-1912">Bernstein&rsquo;s Proof 1912</a>
+      <ul>
+        <li><a href="#binomial-distribution-二项分布">Binomial Distribution 二项分布</a></li>
+        <li><a href="#interpretation">Interpretation</a></li>
+      </ul>
+    </li>
+    <li><a href="#bernstein-polynomial-伯恩斯坦多项式">Bernstein Polynomial 伯恩斯坦多项式</a>
+      <ul>
+        <li><a href="#similarity-to-convolution">Similarity to Convolution</a></li>
+        <li><a href="#expectation">Expectation</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>D2L Weierstrass Approximation Theorem</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                December 19, 2024
+                <span style="margin: 0 10px;">&middot;</span> 
+                915 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 12/19/24</p>
+</blockquote>
+
+
+<h2 class="relative group">Weierstrass Approximation Theorem 
+    <div id="weierstrass-approximation-theorem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#weierstrass-approximation-theorem" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。</li>
+<li>换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &lt; \epsilon\)</li>
+</ul>
+
+
+<h2 class="relative group">Bernstein&rsquo;s Proof 1912 
+    <div id="bernsteins-proof-1912" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bernsteins-proof-1912" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>采用离散的Convolution
+$$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$</li>
+<li>其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大</li>
+</ul>
+
+
+<h3 class="relative group">Binomial Distribution 二项分布 
+    <div id="binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#binomial-distribution-%E4%BA%8C%E9%A1%B9%E5%88%86%E5%B8%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>一种离散概率分布，用于模型在固定次数的独立试验中每次试验成功的次数</li>
+<li>其质量概率函数为
+$$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$</li>
+<li>p：单次独立事件的成功概率</li>
+<li>k：实验中事件成功的次数</li>
+<li>n：实验的总事件的数量</li>
+</ul>
+
+
+<h3 class="relative group">Interpretation 
+    <div id="interpretation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#interpretation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)</li>
+<li>现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率</li>
+<li>当\(k=3\)时，概率质量函数为
+$$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$</li>
+<li>也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)</li>
+<li>而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
+$$123,124,125,134,135,145,234,235,245,345$$</li>
+<li>这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10</li>
+</ul>
+
+
+<h2 class="relative group">Bernstein Polynomial 伯恩斯坦多项式 
+    <div id="bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bernstein-polynomial-%E4%BC%AF%E6%81%A9%E6%96%AF%E5%9D%A6%E5%A4%9A%E9%A1%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$</p>
+<ul>
+<li>用加权平均的方式（基于二项分布）生成新的多项式\(B_n(x)\)，作为\(f(x)\)的近似，实际上就是一个离散的Convolution</li>
+</ul>
+
+
+<h3 class="relative group">Similarity to Convolution 
+    <div id="similarity-to-convolution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#similarity-to-convolution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$(f * g)(x) = \sum_{k} f(k) g(x-k)$$</p>
+<ul>
+<li>可以发现两者的区别就在于Bernstein Poly的Weight是基于Binomial Distribution的</li>
+<li>并且采样点不再是连续的输入而是离散且固定的值</li>
+</ul>
+
+
+<h3 class="relative group">Expectation 
+    <div id="expectation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#expectation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$B_n(x) = \mathbb{E}\left[f\left(\frac{X}{n}\right)\right]$$</p>
+<ul>
+<li>最终可以得到Bernstein Polynomial的期望值在\(n\rightarrow \infty\)的情况下是就是\(f(x)\)</li>
+<li>也就是说可以通过一致收敛性，说明\(B_n(f, x)\)在区间\([0, 1]\)上以任意精度逼近\(f(x)\)</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2024 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

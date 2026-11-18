@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtual Cell on Buezwqwg</title>
+    <link>https://buezw.github.io/tags/virtual-cell/</link>
+    <description>Recent content in Virtual Cell on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2026 Buezwqwg</copyright>
+    <lastBuildDate>Thu, 27 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/virtual-cell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Virtual Cell Research — Coming Soon</title>
+      <link>https://buezw.github.io/vepe/coming-soon/</link>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/vepe/coming-soon/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Placeholder entry. Replace with real research notes once the VEPE virtual cell work is underway.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This section will hold notes and progress updates from virtual cell modeling research at VEPE.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

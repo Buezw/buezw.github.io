@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMF 1. VectorCalculus | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#gradient-of-scalar-field">Gradient of Scalar Field</a>
+      <ul>
+        <li><a href="#ex-finding-the-gradient-of-a-scalar-field">Ex. Finding the Gradient of a Scalar Field</a></li>
+      </ul>
+    </li>
+    <li><a href="#electric-field--electric-potential">Electric Field &amp; Electric Potential</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#gauss-divergence-theorem">Gauss’ Divergence Theorem</a>
+      <ul>
+        <li><a href="#divergency-theorem-example">Divergency Theorem Example</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#curl-of-a-electric-field">Curl of a Electric Field</a></li>
+    <li><a href="#stokes-theorem">Stokes’ Theorem</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EMF 1. VectorCalculus</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 13, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                407 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 1/13/26</p>
+</blockquote>
+<blockquote>
+<p>Last Edit: 3/23/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Scalar Field 
+    <div id="scalar-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#scalar-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>$$
+f: \mathbb{R}^n \to \mathbb{R}
+$$</p>
+<ul>
+<li>Scalar Field is used to describe the distribution of Scalar in space $\mathbb R^n$</li>
+</ul>
+
+
+<h2 class="relative group">Gradient of Scalar Field 
+    <div id="gradient-of-scalar-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gradient-of-scalar-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\nabla f(p) = \frac{\partial f(x, y, z)}{\partial x} \hat{x} + \frac{\partial f(x, y, z)}{\partial y} \hat{y} + \frac{\partial f(x, y, z)}{\partial z} \hat{z}
+$$</p>
+<ul>
+<li>Taking the Gradient turns the Scalar Field into a Vector Field $\nabla f: \mathbb{R}^n \to \mathbb{R}^n$</li>
+<li>Then the vector is pointing to the direction <strong>Having the largest rate of change</strong></li>
+</ul>
+
+
+<h3 class="relative group">Ex. Finding the Gradient of a Scalar Field 
+    <div id="ex-finding-the-gradient-of-a-scalar-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-finding-the-gradient-of-a-scalar-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Electric Field &amp; Electric Potential 
+    <div id="electric-field--electric-potential" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-field--electric-potential" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\vec{E} = -\nabla V
+$$</p>
+<ul>
+<li>$V$ (Electric Potential): Scalar Field</li>
+<li>$\vec E$ (Electric Field): Vector Field</li>
+</ul>
+
+
+<h1 class="relative group">Divergency of a Vector Field 
+    <div id="divergency-of-a-vector-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#divergency-of-a-vector-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Divergency is a scalar representing the strength of Divergency or Convergency at a given point</p>
+<p>$$
+\text{div } \vec{F} = \nabla \cdot \vec{F} = \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z}
+$$</p>
+<ul>
+<li>$\nabla \cdot \vec{F}: \mathbb{R}^n \rightarrow \mathbb{R}$: Process of finding Divergency is finding a Scalar Field</li>
+<li>$\nabla \cdot \vec{F} &gt; 0$: Source are going out at this point</li>
+<li>$\nabla \cdot \vec{F}&lt; 0$: Sources are coming in at this point</li>
+</ul>
+
+
+<h2 class="relative group">Gauss’ Divergence Theorem 
+    <div id="gauss-divergence-theorem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gauss-divergence-theorem" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\iiint_V \text{div } \vec{F} , dv = \oiint_S \vec{F} \cdot d\vec{S}
+$$</p>
+<aside>
+❗
+<p>Divergence Theorem connect the <strong>Source inside the volume &amp; Flux passing through the surface</strong></p>
+</aside>
+
+
+<h3 class="relative group">Divergency Theorem Example 
+    <div id="divergency-theorem-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#divergency-theorem-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Evaluate $\iint \vec{F} \cdot d\vec{S}$  where $\vec{F} = xy\hat{x} - \frac{1}{2}y^2\hat{y} + z\hat{z}$ and the surface consists of the three surfaces of cylinder defined by $0 \le \rho \le 1, 0 \le \phi \le 2\pi, 0 \le z \le 1$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Curl of a Vector Field 
+    <div id="curl-of-a-vector-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#curl-of-a-vector-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>$$
+\nabla \times \vec{B} = \left( \frac{\partial B_z}{\partial y} - \frac{\partial B_y}{\partial z} \right) \hat{x} + \left( \frac{\partial B_x}{\partial z} - \frac{\partial B_z}{\partial x} \right) \hat{y} + \left( \frac{\partial B_y}{\partial x} - \frac{\partial B_x}{\partial y} \right) \hat{z}
+$$</p>
+<aside>
+❗
+<p>Curl is a Vector, <strong>it represent the Strength and the Direction of Circulation at a point</strong></p>
+</aside>
+
+
+<h2 class="relative group">Curl of a Electric Field 
+    <div id="curl-of-a-electric-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#curl-of-a-electric-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\nabla \times \vec{E} = 0
+$$</p>
+<ul>
+<li>Electric Field‘s Direction is either point to or away from the source, thus it doesn’t have any Circulation, thus having a Curl of zero</li>
+</ul>
+
+
+<h2 class="relative group">Stokes’ Theorem 
+    <div id="stokes-theorem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stokes-theorem" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\iint_S (\nabla \times \vec{B}) \cdot d\vec{S} = \oint_C \vec{B} \cdot d\vec{l}
+$$</p>
+<aside>
+❗
+<p>Stokes’ Theorem connect <strong>every point’s Curl and total Circulation around the boundary of the Surface</strong></p>
+</aside>
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

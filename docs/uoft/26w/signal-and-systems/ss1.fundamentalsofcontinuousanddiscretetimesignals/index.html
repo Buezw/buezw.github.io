@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS 1. FundamentalsofContinuousandDiscreteTimeSignals | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#continuous-time-signals">Continuous-Time Signals</a></li>
+    <li><a href="#discrete-time-signals">Discrete-Time Signals</a></li>
+    <li><a href="#time-shift">Time Shift</a>
+      <ul>
+        <li><a href="#signal-convention">Signal Convention</a></li>
+      </ul>
+    </li>
+    <li><a href="#scaling-of-signal">Scaling of Signal</a>
+      <ul>
+        <li><a href="#compressing-in-dt-signal">Compressing in DT Signal</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#periodic-ct-signals">Periodic CT Signals</a>
+      <ul>
+        <li><a href="#fundamental-period">Fundamental Period</a></li>
+        <li><a href="#period-of-a-constant-ct-signal">Period of a Constant CT Signal</a></li>
+        <li><a href="#period-parameters">Period Parameters</a></li>
+      </ul>
+    </li>
+    <li><a href="#periodic-dt-signals">Periodic DT Signals</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#support-of-dt-signal">Support of DT Signal</a></li>
+    <li><a href="#support-of-ct-signal">Support of CT Signal</a>
+      <ul>
+        <li><a href="#ex-support-of-ct-signal">Ex. Support of CT Signal</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#right-sided-signals">Right-Sided Signals</a>
+      <ul>
+        <li><a href="#right-sided-ct-signals">Right Sided CT Signals</a></li>
+        <li><a href="#right-sided-dt-signals">Right Sided DT Signals</a></li>
+      </ul>
+    </li>
+    <li><a href="#periodic--sampling">Periodic &amp; Sampling</a></li>
+    <li><a href="#finite-signal">Finite Signal</a></li>
+    <li><a href="#sampling-from-periodic-signal-to-finite-signal">Sampling from Periodic Signal to Finite Signal</a></li>
+    <li><a href="#calculate-the-fundamental-period-of-periodic-signal">Calculate the Fundamental Period of Periodic Signal</a>
+      <ul>
+        <li><a href="#ex-calculate-the-fp">Ex. Calculate the FP</a></li>
+      </ul>
+    </li>
+    <li><a href="#periodic-extension">Periodic Extension</a></li>
+    <li><a href="#odd--even-signal">Odd &amp; Even Signal</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#size-of-signal">Size of Signal</a>
+      <ul>
+        <li><a href="#action--l1-norm">Action / L1 Norm</a></li>
+        <li><a href="#energy--l2-norm">Energy / L2 Norm</a></li>
+        <li><a href="#amplitude--l_infinite-norm">Amplitude / L_Infinite Norm</a></li>
+        <li><a href="#supremum">Supremum</a></li>
+      </ul>
+    </li>
+    <li><a href="#ex-calculate-the-norms">Ex. Calculate the Norms</a></li>
+    <li><a href="#size-of-periodic-signals">Size of Periodic Signals</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#unit-step-function">Unit Step Function</a>
+      <ul>
+        <li><a href="#1-form-right-sided-signal">1. Form Right-Sided Signal</a></li>
+        <li><a href="#2-build-square-signals">2. Build Square Signals</a></li>
+      </ul>
+    </li>
+    <li><a href="#dt-unit-impulse-function">DT Unit Impulse Function</a>
+      <ul>
+        <li><a href="#sampling-using-impulse-function">Sampling using Impulse Function</a></li>
+      </ul>
+    </li>
+    <li><a href="#ct-unit-impulse-function">CT Unit Impulse Function</a>
+      <ul>
+        <li><a href="#shifting-in-ct-signal">Shifting in CT Signal</a></li>
+        <li><a href="#integral-and-derivative-of-ct-impulse-function">Integral and Derivative of CT Impulse Function</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#phase-shift">Phase Shift</a></li>
+    <li><a href="#complex-number">Complex Number</a></li>
+    <li><a href="#complex-exponential-signal">Complex Exponential Signal</a></li>
+    <li><a href="#complex-exponential-dt-signals">Complex Exponential DT Signals</a>
+      <ul>
+        <li><a href="#ex-finding-the-periodicity-of-complex-exponential-dt-signals">Ex. Finding the periodicity of Complex Exponential DT Signals</a></li>
+        <li><a href="#ex2-finding-the-periodicity-of-complex-exponential-dt-signals">Ex2. Finding the periodicity of Complex Exponential DT Signals</a></li>
+        <li><a href="#ex3-finding-the-periodicity-of-complex-exponential-dt-signals">Ex3. Finding the periodicity of Complex Exponential DT Signals</a></li>
+      </ul>
+    </li>
+    <li><a href="#frequency-periodicity-of-dt-complex-exponentials">Frequency-periodicity of DT Complex Exponentials</a></li>
+    <li><a href="#aliasing">Aliasing</a></li>
+    <li><a href="#nyquist-criterion">Nyquist Criterion</a></li>
+    <li><a href="#periodicity-of-discrete-time-frequency">Periodicity of Discrete-Time Frequency</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>SS 1. FundamentalsofContinuousandDiscreteTimeSignals</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 12, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                1962 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 1/12/26</p>
+</blockquote>
+<blockquote>
+<p>Last Edit: 1/15/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Signals 
+    <div id="signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Continuous-Time Signals 
+    <div id="continuous-time-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#continuous-time-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A continuous-time signal is a function of one (or more) independent variables which range over the real numbers $\mathbb R$</p>
+
+
+<h2 class="relative group">Discrete-Time Signals 
+    <div id="discrete-time-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#discrete-time-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A discrete-time signal is a function of one (or more) independent variables which range over the integers $\mathbb Z$</p>
+
+
+<h2 class="relative group">Time Shift 
+    <div id="time-shift" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#time-shift" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>We can time-shift a CT signal x by $t_0\in \mathbb R$ to obtain $x(t − t_0)$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>The same applies on DT signals</li>
+</ul>
+
+
+<h3 class="relative group">Signal Convention 
+    <div id="signal-convention" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#signal-convention" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>In time shift formula $x(t-t_0)$, or speicifcally for $t_0$</li>
+</ul>
+<blockquote>
+<p>This means that the sign before $t_0$ is being kept as $-$</p>
+</blockquote>
+<ul>
+<li>$x(t-t_0),t_0&gt;0$ represent <strong>Right Shift</strong>, it’s a <strong>Delay</strong> in time</li>
+<li>$x(t-t_0),t_0&lt;0$ represent <strong>Left Shift</strong>, it’s a <strong>Advance</strong> in time</li>
+</ul>
+
+
+<h2 class="relative group">Scaling of Signal 
+    <div id="scaling-of-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#scaling-of-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>we can time-scale a CT signal x by $\alpha \in \mathbb R$ to obtain $x(\alpha t)$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>If $\alpha &gt;0$, then its a Compress</li>
+<li>Otherwise its a Scaling</li>
+</ul>
+
+
+<h3 class="relative group">Compressing in DT Signal 
+    <div id="compressing-in-dt-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#compressing-in-dt-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A issue of Compressing DT signal is that DT signal are only being sampling at $n\in \mathbb Z$</p>
+<ul>
+<li>Thus if we Compress n by $\alpha$, this will create a fraction that no longer works</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Period 
+    <div id="period" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#period" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Periodic CT Signals 
+    <div id="periodic-ct-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#periodic-ct-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A CT signal $x$ is <strong>periodic</strong> if $x(t) = x(t + T)$ for some value $T &gt; 0$ and all $t\in \mathbb R$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Fundamental Period 
+    <div id="fundamental-period" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fundamental-period" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The smallest such value of T, denoted by $T_0$, is called the fundamental period of x</p>
+
+
+<h3 class="relative group">Period of a Constant CT Signal 
+    <div id="period-of-a-constant-ct-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#period-of-a-constant-ct-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>As for a CT signal that stays constant, we would like to define it as <strong>periodic</strong>, but not with the period of 0, instead, it should have a period of $T_0=0^+$, that’s the limit approaching 0 from RHS</li>
+</ul>
+
+
+<h3 class="relative group">Period Parameters 
+    <div id="period-parameters" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#period-parameters" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Other than period T, we still got other parameters that describe the Period</p>
+<ul>
+<li>Frequency: $f_0(Hz)=\frac{1}{T_0}$, tells us how fast the signal repeats</li>
+<li>Angular Frequency: $w_0(rad\cdot sec^{-1})=2\pi f_0=\frac{2\pi}{T_0}$</li>
+</ul>
+
+
+<h2 class="relative group">Periodic DT Signals 
+    <div id="periodic-dt-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#periodic-dt-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A DT signal x is <strong>periodic</strong> if $x[n] = x[n + N]$ for some integer N ≥ 1 and all $n\in \mathbb Z$</p>
+<p>The smallest such value of N, denoted by $N_0$, is called the <strong>Fundamental Period</strong> of x</p>
+<hr>
+<aside>
+❗
+<p>The addition of Periodic Signals <strong>does not guarantee</strong> a Periodic Signal</p>
+</aside>
+
+
+<h1 class="relative group">Support 
+    <div id="support" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#support" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Support of DT Signal 
+    <div id="support-of-dt-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#support-of-dt-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+supp(x) = {n \in \mathbb z~|~x[n] \neq 0}
+$$</p>
+<p>The support tells you where the signal is non-zero</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Support of CT Signal 
+    <div id="support-of-ct-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#support-of-ct-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+supp(x) = closure({t ∈ R | x(t) \neq 0})
+$$</p>
+<p>That is the smallest closed set containing the set ${t ∈ R | x(t) \neq 0}$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. Support of CT Signal 
+    <div id="ex-support-of-ct-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-support-of-ct-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>If we a continuous function that is nonzero at $[0,1],[2,3]$, then its support is then</li>
+</ul>
+<p>$$
+[0, 1] \cup [2, 3]
+$$</p>
+<hr>
+<p>Notice that in this case</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>This function’s zero points are support, as setting them not support will break the continuity of the whole function</li>
+</ul>
+
+
+<h1 class="relative group">Duration 
+    <div id="duration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#duration" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>In many applications, signals begin at some time and then continue</p>
+
+
+<h2 class="relative group">Right-Sided Signals 
+    <div id="right-sided-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#right-sided-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Right Sided CT Signals 
+    <div id="right-sided-ct-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#right-sided-ct-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Right-sided from time $T$ if $x(t) = 0$ for all $t &lt; T$</p>
+
+
+<h3 class="relative group">Right Sided DT Signals 
+    <div id="right-sided-dt-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#right-sided-dt-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Right-sided from time $N$ if $x[n] = 0$ for all $n &lt; N$</p>
+<hr>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Periodic &amp; Sampling 
+    <div id="periodic--sampling" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#periodic--sampling" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There’s two kind of signals, finite and infinite ones, as indicated,</p>
+
+
+<h2 class="relative group">Finite Signal 
+    <div id="finite-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#finite-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Finite Signals equals zero outside some bounded time interval</p>
+<p>Or equivalently, we can say that $supp(x)$ is contained in a bounded interval</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%208.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Sampling from Periodic Signal to Finite Signal 
+    <div id="sampling-from-periodic-signal-to-finite-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sampling-from-periodic-signal-to-finite-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Periodic Signals are Infinite Signals that repeat itself, by sampling one period from it, we can get the Finite Signal</p>
+<p>$$
+x_{\mathrm{fin}}(t)=\begin{cases}x_{\mathrm{per}}(t), &amp; 0 \le t &lt; T_0 \0, &amp; \text{otherwise}\end{cases}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%209.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Calculate the Fundamental Period of Periodic Signal 
+    <div id="calculate-the-fundamental-period-of-periodic-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#calculate-the-fundamental-period-of-periodic-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Ex. Calculate the FP 
+    <div id="ex-calculate-the-fp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-calculate-the-fp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2010.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Periodic Extension 
+    <div id="periodic-extension" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#periodic-extension" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In the previous part, we’ve discussed about the basic definition of “Periodic”, but actually, we can tread “Periodic” as the concept of addition of <strong>Infinite Finite Signals</strong></p>
+<p>$$
+x_{\mathrm{per}}(t)=\sum_{k=-\infty}^{\infty} x!\left(t-kT_0\right)=x(t+T_0)+x(t)+x(t-T_0)+\cdots
+$$</p>
+
+
+<h2 class="relative group">Odd &amp; Even Signal 
+    <div id="odd--even-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#odd--even-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Odd &amp; Even Signal’s definition is as same as the definition for odd &amp; even functions</p>
+<p>$$
+x_{\text{even}}(t)=\frac{x(t)+x(-t)}{2},\quad{\text{odd}}(t)=\frac{x(t)-x(-t)}{2}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2011.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Any signal can be decompose into the form of</p>
+<p>$$
+x =x_{even}+x_{odd}=\frac{x(t)+x(-t)}{2}+\frac{x(t)-x(-t)}{2}
+$$</p>
+
+
+<h1 class="relative group">Measurement 
+    <div id="measurement" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#measurement" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Based on the perspective we treat a signal, we can Measure it in different ways</p>
+
+
+<h2 class="relative group">Size of Signal 
+    <div id="size-of-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#size-of-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In terms of Size, we can treat signal in Action, Energy and Amplitude</p>
+
+
+<h3 class="relative group">Action / L1 Norm 
+    <div id="action--l1-norm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#action--l1-norm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+|x|<em>1 = \int</em>{-\infty}^{\infty} |x(t)| dt
+$$</p>
+<ul>
+<li>By inspection, this is the Integral of the absolute value of the signal</li>
+</ul>
+
+
+<h3 class="relative group">Energy / L2 Norm 
+    <div id="energy--l2-norm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#energy--l2-norm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+|x|<em>2^2 = \int</em>{-\infty}^{\infty} |x(t)|^2 dt
+$$</p>
+
+
+<h3 class="relative group">Amplitude / L_Infinite Norm 
+    <div id="amplitude--l_infinite-norm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amplitude--l_infinite-norm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+|x|<em>\infty = \sup</em>{t \in \mathbb{R}} |x(t)|
+$$</p>
+
+
+<h3 class="relative group">Supremum 
+    <div id="supremum" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#supremum" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Inside a set, there could be infinite Local Maximum, whereas the smallest Local Maximum is Supremum</p>
+
+
+<h2 class="relative group">Ex. Calculate the Norms 
+    <div id="ex-calculate-the-norms" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-calculate-the-norms" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Given the signal</p>
+<p>$$
+i(t) = \frac{R_2}{R_1 + R_2}, I_0(t), \qquad I_0(t) = e^{-2t}, \quad t \ge 0
+$$</p>
+<p>$$
+| i |_1= \int_0^{\infty} \frac{R_2}{R_1 + R_2} e^{-2t}, dt= \frac{R_2}{R_1 + R_2} \left[ -\frac{1}{2} e^{-2t} \right]_0^{\infty}= \frac{1}{2},\frac{R_2}{R_1 + R_2}
+$$</p>
+<p>$$
+| i |_2^2= \int_0^{\infty} \left( \frac{R_2}{R_1 + R_2} e^{-2t} \right)^2 dt= \left( \frac{R_2}{R_1 + R_2} \right)^2\left[ -\frac{1}{4} e^{-4t} \right]_0^{\infty}= \frac{1}{4} \left( \frac{R_2}{R_1 + R_2} \right)^2
+$$</p>
+<p>$$
+| i |<em>\infty= \max</em>{t \ge 0} \frac{R_2}{R_1 + R_2} e^{-2t}= \frac{R_2}{R_1 + R_2}
+$$</p>
+
+
+<h2 class="relative group">Size of Periodic Signals 
+    <div id="size-of-periodic-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#size-of-periodic-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Periodic Signals have infinite length, so when we measure its length, we would like to take only one period and measure</p>
+
+
+<h1 class="relative group">Unit Step &amp; Delta Function 
+    <div id="unit-step--delta-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#unit-step--delta-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Unit Step Function 
+    <div id="unit-step-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#unit-step-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+u(t) = \begin{cases} 1, &amp; t \geq 0 \ 0, &amp; t &lt; 0 \end{cases}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2012.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>The main usage for Unit Step Function are</p>
+
+
+<h3 class="relative group">1. Form Right-Sided Signal 
+    <div id="1-form-right-sided-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-form-right-sided-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>By multiplying a signal with Unit Signal, this makes it become Right-Sided Signal</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2013.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">2. Build Square Signals 
+    <div id="2-build-square-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-build-square-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>By using two Unit Signals and minus them, it form a Square Signal in a given time</p>
+<p>$$
+u(t - k) - u(t - 1 - k)
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2014.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">DT Unit Impulse Function 
+    <div id="dt-unit-impulse-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dt-unit-impulse-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\delta[n] = \begin{cases} 1, &amp; n = 0 \ 0, &amp; n \neq 0 \end{cases}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2015.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>As indicated, this function’s value is being define with 1 at time $t=0$, while 0 all other times</p>
+<ul>
+<li>This can be shifted by the shift by Time Shift method</li>
+</ul>
+<p>Any DT signal can be treated as the addition of scaling Impulse functions</p>
+
+
+<h3 class="relative group">Sampling using Impulse Function 
+    <div id="sampling-using-impulse-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sampling-using-impulse-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Impulse Function can be apply on signals to sample the value of signal in a given time</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2016.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">CT Unit Impulse Function 
+    <div id="ct-unit-impulse-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ct-unit-impulse-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In continuous case, the Impulse Function is unlike DT signal that has a given value of 1 at time t, instead, it’s actually a rectangle with area of 1</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2017.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>In this given area, first regard the value of $\Delta$, this rectangle’s area is given by</li>
+</ul>
+<p>$$
+\text{Height} \times \text{Width} = (1/\Delta) \times \Delta = 1
+$$</p>
+<ul>
+<li>So we are now sure that under CT signal, this Impulse is just a rectangle with area of 1</li>
+</ul>
+<hr>
+<ul>
+<li>Now check out the Height, in CT we <strong>don’t define the function to have a infinite height</strong></li>
+<li>Instead, we define it as <strong>A Undefined Value</strong></li>
+</ul>
+
+
+<h3 class="relative group">Shifting in CT Signal 
+    <div id="shifting-in-ct-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shifting-in-ct-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>In DT, we say Sampling, cause sampling is a discrete behaviour, while in CT we use Shifting as its related to Integral and continuous, but they basically means the same</p>
+<p>$$
+\int_{-\infty}^{\infty} x(t)\delta(t - t_0) dt = x(t_0)
+$$</p>
+<ul>
+<li>That is, when we use a signal $x(t)$  to times a Impulse Function at $t_0$ that is $\delta (t-t_0)$, the result will then be $x(t_0)$</li>
+</ul>
+
+
+<h3 class="relative group">Integral and Derivative of CT Impulse Function 
+    <div id="integral-and-derivative-of-ct-impulse-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integral-and-derivative-of-ct-impulse-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Unit Step function, which looks like</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2018.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>is just the integral of Unit Impulse function that after $t=0$, the area suddenly becomes 1 and stay at one for the rest</p>
+
+
+<h1 class="relative group">Complex Signals 
+    <div id="complex-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>When learning about Complex Signals, we always want to start with the unit circle</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2019.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>The Sinusoidal Signal is being created when spinning around the Unit Circle, and the only variable is $\theta$, where as it’s equal $\omega_0t$, so that the x and y values can also being defined by that $\omega_0t$, thus we have</li>
+</ul>
+<p>$$
+\theta(t) = \omega_0 t, \quad x(t) = \cos(\omega_0 t), \quad y(t) = \sin(\omega_0 t)
+$$</p>
+<ul>
+<li>Whereas $\omega_0=2\pi f_0=\frac{2\pi}{T_0}$</li>
+</ul>
+
+
+<h2 class="relative group">Phase Shift 
+    <div id="phase-shift" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#phase-shift" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When the input is a AC Voltage, Capacitor will create a Phase Shift on its Current and Volatge</p>
+<ul>
+<li>That being said, in this circuit</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2020.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>$$
+i(t) = \cos(\omega_0 t),\quad v(t)=\cos(\omega_0 t+\frac{\pi}{2})
+$$</p>
+<ul>
+<li>That is Current leads the Voltage</li>
+</ul>
+
+
+<h2 class="relative group">Complex Number 
+    <div id="complex-number" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-number" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Skipping the basic property for Complex Number, two formula needed are</p>
+<p>$$
+Re{z}=\frac{z+z^*}{z},\quad Im{z}=\frac{z-z^*}{zj}
+$$</p>
+
+
+<h2 class="relative group">Complex Exponential Signal 
+    <div id="complex-exponential-signal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-exponential-signal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The Euler&rsquo;s Formula indicated that</p>
+<p>$$
+e^{j\theta}=\cos\theta+j\sin\theta
+$$</p>
+<ul>
+<li>Substitue $\theta$  to $\omega_0 t$ to get</li>
+</ul>
+<p>$$
+z(t) = e^{j\omega_0 t} = \cos(\omega_0 t) + j\sin(\omega_0 t)
+$$</p>
+<ul>
+<li>This give the way to express sin and cos by Complex Exponential</li>
+</ul>
+<p>$$
+\sin(\omega_0 t) = \frac{e^{j\omega_0 t} - e^{-j\omega_0 t}}{2j},\quad \cos(\omega_0 t) = \frac{e^{j\omega_0 t} + e^{-j\omega_0 t}}{2}
+$$</p>
+
+
+<h2 class="relative group">Complex Exponential DT Signals 
+    <div id="complex-exponential-dt-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-exponential-dt-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>For Complex Exponential CT Signals, they are always <strong>Periodic,</strong> but for DT signals this doesn’t always hold, consider Signal</p>
+<p>$$
+x[n] = e^{j\omega n}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2021.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>This signal is periodic when $\omega$ and $2\pi$’s ratio is a <strong>Rational Number</strong></li>
+<li>See above image, the left signal has Angular Frequency of $\frac2\pi$, and the right’s is $\frac{5\pi}{6}$</li>
+<li>The left side has the ratio of $\frac{\omega}{2\pi} = \frac{\pi/2}{2\pi} = \frac{1}{4}$, and the right is $\frac{\omega}{2\pi} = \frac{5\pi/6}{2\pi} = \frac{5}{12}$</li>
+</ul>
+<hr>
+<p>Whereas in this case</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2022.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>The Angular Frequency is $\omega =1$, thus $\frac{\omega}{2\pi} = \frac{1}{2\pi}$</li>
+</ul>
+<hr>
+<p>A more formal definition for any DT signal  $x[n] = e^{j\omega n}$ to be periodic would be</p>
+<p>$$
+e^{j\omega n} = e^{j\omega (n+N)}\quad for ~all ~n\in\mathbb Z
+$$</p>
+<ul>
+<li>Expand to get</li>
+</ul>
+<p>$$
+e^{j\omega n} = e^{j\omega (n+N)}=e^{j\omega n}\cdot e^{j\omega N}
+$$</p>
+<ul>
+<li>Known that $e^{j2\pi k} = 1$, thus divided both side by $e^{j\omega n}$ to get</li>
+</ul>
+<p>$$
+1=e^{j2\pi k} =  e^{j\omega N}\Rightarrow 2\pi k=\omega N\Rightarrow k=\frac{2\pi}{N}
+$$</p>
+<ul>
+<li>$k$: Cycles needed in one period</li>
+<li>$N$: Sampled Points in one period</li>
+</ul>
+
+
+<h3 class="relative group">Ex. Finding the periodicity of Complex Exponential DT Signals 
+    <div id="ex-finding-the-periodicity-of-complex-exponential-dt-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-finding-the-periodicity-of-complex-exponential-dt-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2023.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex2. Finding the periodicity of Complex Exponential DT Signals 
+    <div id="ex2-finding-the-periodicity-of-complex-exponential-dt-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex2-finding-the-periodicity-of-complex-exponential-dt-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="e2f23a49-c6f0-4a17-a7b7-d9d608b2f8d3.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex3. Finding the periodicity of Complex Exponential DT Signals 
+    <div id="ex3-finding-the-periodicity-of-complex-exponential-dt-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex3-finding-the-periodicity-of-complex-exponential-dt-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="b448c0c3-6c3b-4af5-b1fb-faad4587d9cc.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Frequency-periodicity of DT Complex Exponentials 
+    <div id="frequency-periodicity-of-dt-complex-exponentials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#frequency-periodicity-of-dt-complex-exponentials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Above section discussed about the Periodicity of DT Complex Exponential $e^{j\omega n}$’s n, $n$ is the way we describe <strong>time</strong> in DT Complex Exponential</p>
+<p>Now the Angular Frequency $\omega$ also has that Periodicity, which is</p>
+<p>$$
+e^{j(\omega + 2\pi)n} = e^{j\omega n} \cdot e^{j2\pi n} = e^{j\omega n}
+$$</p>
+<ul>
+<li>This is because no matter what $n$ is, $e^{j2\pi n}$ is always 1</li>
+<li>This states that DT Complex Exponential Signals’ Frequency are periodic with period of $2\pi$</li>
+<li>i.e. $e^{j\frac{5}{6}\pi n} = e^{j\frac{17}{6}\pi n}$</li>
+</ul>
+
+
+<h2 class="relative group">Aliasing 
+    <div id="aliasing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#aliasing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Different continuous-time signals, when sampled, can produce the exact same discrete-time signal; this phenomenon is called <strong>aliasing</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2024.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>Notice that the sampled signal are the same from three different CT signals</li>
+</ul>
+
+
+<h2 class="relative group">Nyquist Criterion 
+    <div id="nyquist-criterion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nyquist-criterion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Aliasing is a problem when we are trying to sample CT signals, thus Nyquist Criterion states the way to sampling while avoiding Aliasing, and the statement is that to</p>
+<ul>
+<li>Sampling <strong>minimum</strong> <strong>2</strong> <strong>times</strong> in one <strong>period</strong> can guarantee <strong>no aliasing</strong></li>
+<li>That is $f_s &gt; 2f_{max}$, e.x. If CT signal is T = 1 sec, that is f = 1Hz, so $f_{sam}=2Hz$</li>
+</ul>
+
+
+<h2 class="relative group">Periodicity of Discrete-Time Frequency 
+    <div id="periodicity-of-discrete-time-frequency" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#periodicity-of-discrete-time-frequency" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The Discrete Time Frequency is also periodic, that being said</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">k</th>
+          <th style="text-align: left">Formula</th>
+          <th style="text-align: left">Sequence</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>$k=0$</strong></td>
+          <td style="text-align: left">$e^{j0}$</td>
+          <td style="text-align: left">$[1, 1, 1, 1]$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>$k=1$</strong></td>
+          <td style="text-align: left">$e^{j\frac{\pi}{2}n}$</td>
+          <td style="text-align: left">$[1, j, -1, -j]$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>$k=2$</strong></td>
+          <td style="text-align: left">$e^{j\pi n}$</td>
+          <td style="text-align: left">$[1, -1, 1, -1]$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>$k=3$</strong></td>
+          <td style="text-align: left">$e^{j\frac{3\pi}{2}n}$</td>
+          <td style="text-align: left">$[1, -j, -1, j]$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>$k=4$</strong></td>
+          <td style="text-align: left">$e^{j2\pi n}$</td>
+          <td style="text-align: left">$[1, 1, 1, 1]$</td>
+      </tr>
+  </tbody>
+</table>
+<p>Discrete-time complex exponential signals are periodic in frequency with a period of $2\pi$, which means that for a signal with a time-domain period of $N_0$, there are exactly $N_0$ distinct frequencies before the patterns begin to repeat</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

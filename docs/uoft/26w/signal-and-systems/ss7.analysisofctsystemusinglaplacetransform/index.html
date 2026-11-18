@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS 7. AnalysisofCTSystemusingLaplaceTransform | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-right-sided-laplace-transform">The right-sided Laplace Transform</a></li>
+    <li><a href="#existence-of-the-laplace-transform">Existence of the Laplace Transform</a>
+      <ul>
+        <li><a href="#ex-lt-of-right-sided-exponentials">Ex. LT of right-sided exponentials</a></li>
+      </ul>
+    </li>
+    <li><a href="#connection-between-lt-and-the-ctft">Connection between LT and the CTFT</a></li>
+    <li><a href="#important-laplace-transforms">Important Laplace transforms</a></li>
+    <li><a href="#properties-of-the-laplace-transform">Properties of the Laplace transform</a></li>
+    <li><a href="#response-of-a-causal-lti-system-and-the-lt">Response of a causal LTI System and the LT</a>
+      <ul>
+        <li><a href="#ex-use-lt-to-find-the-response-for-rc-circuit">Ex. Use LT to find the response for RC circuit</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#ex-the-series-rlc-circuit">Ex. The Series RLC circuit</a></li>
+      </ul>
+    </li>
+    <li><a href="#steady-state-interpretation-of-the-frequency-response">Steady-State Interpretation of the frequency response</a>
+      <ul>
+        <li><a href="#the-convergence-of-ft">The convergence of F(t)</a></li>
+        <li><a href="#ex-steady-state-response-of-rc-circuit">Ex. Steady-state response of RC circuit</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>SS 7. AnalysisofCTSystemusingLaplaceTransform</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 24, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                1006 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/24/26</p>
+</blockquote>
+
+
+<h1 class="relative group">LTI System with Complex Exponential Inputs 
+    <div id="lti-system-with-complex-exponential-inputs" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#lti-system-with-complex-exponential-inputs" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall a LTI System with <strong>Impulse Response of $h$</strong>, its output in <strong>Time Domain</strong> is</p>
+<p>$$
+y(t) = \int_{-\infty}^{\infty} h(t-\tau)x(\tau) , d\tau\quad or\quad y(t) = \int_{-\infty}^{\infty} h(\tau)x(t-\tau) , d\tau
+$$</p>
+<p>Now if the input $x(t)$ is a <strong>Complex Exponential Signal $e^{st}$</strong>, then the output is</p>
+<p>$$
+y(t) = \int_{-\infty}^{\infty} h(\tau)e^{s(t-\tau)} , d\tau = \left[ \int_{-\infty}^{\infty} h(\tau)e^{-s\tau} , d\tau \right] e^{st}=H(s)e^{st}
+$$</p>
+<p>Whereas the $H(s)$ is being defined as the <strong>Transfer Function</strong></p>
+
+
+<h1 class="relative group">Motivation for transfer function methods 
+    <div id="motivation-for-transfer-function-methods" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#motivation-for-transfer-function-methods" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The Transfer Function we just defined is in the form <strong>$H(s) = \int_{-\infty}^{\infty} h(t)e^{-st} , dt$</strong></p>
+<p>Comparing it to the original <strong>CTFT</strong> one $H(j\omega)$ what’s the difference?</p>
+<hr>
+<p>Mainly, the <strong>CTFT is not always well-defined</strong> (Case when the integral diverge), but $H(s)$ turns out can be existed in many situations where $H(j\omega)$ doesn’t</p>
+<p>Although the Transfer Function can be developed, <strong>here we only analysis cases when</strong></p>
+<ol>
+<li>CT Signals that are <strong>Right-Sided</strong></li>
+<li>CT Signals that are <strong>LTI and Causal</strong></li>
+</ol>
+
+
+<h1 class="relative group">Signals of Exponential Class 
+    <div id="signals-of-exponential-class" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#signals-of-exponential-class" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>A Right Sided CT signal $x$ is of Exponential Class if $|x(t)| \le Me^{\sigma t}$ for $t\geq 0$, $M&gt;0$, $\sigma\in \mathbb R$, where the smaller $\sigma$ is labelled $\sigma^*(x)$</p>
+
+
+<h2 class="relative group">The right-sided Laplace Transform 
+    <div id="the-right-sided-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-right-sided-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Suppose x is of exponential class, and let $\mathcal{R}_x = {s \in \mathbb{C} \mid \text{Re}(s) &gt; \sigma^\star(x)}$. The Laplace Transform of $x$ is the complex-valued function</p>
+<p>$$
+X(s) = \int_{0^-}^{\infty} x(t)e^{-st} , dt
+$$</p>
+<ul>
+<li>We used $0^-$ to include <strong>CT impulse at $t=0$</strong></li>
+<li><strong>$X(s)$ is only defined for $s \in \mathcal{R}_x$,</strong> the <strong>Region of Convergence</strong></li>
+</ul>
+
+
+<h2 class="relative group">Existence of the Laplace Transform 
+    <div id="existence-of-the-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#existence-of-the-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. LT of right-sided exponentials 
+    <div id="ex-lt-of-right-sided-exponentials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-lt-of-right-sided-exponentials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>For $a&gt;0$, consider two signals $x_1(t) = e^{-at}u(t)$ and $x_2(t) = e^{at}u(t)$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Connection between LT and the CTFT 
+    <div id="connection-between-lt-and-the-ctft" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#connection-between-lt-and-the-ctft" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>CTFT is the special case of LT in Imaginary Axis</strong>, only when system’s <strong>ROC</strong> contains the I<strong>maginary Axis of Complex Domain</strong>, we can then use the <strong>algebric substitution</strong> to <strong>change LT into CTFT</strong></p>
+<p>Recall the previous example signal $x_1$, the <strong>ROC</strong> of that signal <strong>contains the whole Imaginary Axis</strong>, thus its legal to <strong>directly sub in the $s=j\omega$ into $X_1(s)$</strong></p>
+<p>$$
+X_1(s) \Big|<em>{s=j\omega} = \frac{1}{s+a} \Big|</em>{s=j\omega} = \frac{1}{j\omega + a}=X_1(j\omega)
+$$</p>
+
+
+<h2 class="relative group">Important Laplace transforms 
+    <div id="important-laplace-transforms" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#important-laplace-transforms" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Properties of the Laplace transform 
+    <div id="properties-of-the-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#properties-of-the-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Response of a causal LTI System and the LT 
+    <div id="response-of-a-causal-lti-system-and-the-lt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#response-of-a-causal-lti-system-and-the-lt" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The Response of a causal <strong>LTI System under LT</strong> is just the same as the case in <strong>CTFT</strong> in <strong>mathematic form</strong>, however <strong>there do exist some differences</strong></p>
+<hr>
+<p>If $T$ is a <strong>causal</strong> LTI, with <strong>impulse response</strong> $h$ and LT $H(s)$ and <strong>RoC</strong> $\mathcal R_h$, and $x$ is a <strong>right-sided</strong> signal with LT $X(s)$ and RoC $\mathcal R_x$, <strong>then the Response of the system is</strong></p>
+<p>$$
+Y(s) = H(s)X(s), \quad s \in \mathcal{R}_y \supseteq \mathcal{R}_h \cap \mathcal{R}_x
+$$</p>
+<p>And it’s <strong>Time-Domain</strong> Expression would <strong>then be a Convolution</strong></p>
+<p>$$
+y(t) = \int_{0^-}^{t} h(t - \tau)x(\tau) , d\tau, \quad t \geq 0
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. Use LT to find the response for RC circuit 
+    <div id="ex-use-lt-to-find-the-response-for-rc-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-use-lt-to-find-the-response-for-rc-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%208.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Analysis of LICC-ODEs via Laplace Transform 
+    <div id="analysis-of-licc-odes-via-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#analysis-of-licc-odes-via-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall the <strong>LICC-ODE</strong></p>
+<p>$$
+Q(D)y(t) = P(D)x(t)
+$$</p>
+<p>For every unique input $x(t)$ it will give a unique output $y(t)$, whereas the <strong>$Q(D)$ and $P(D)$ are two Linear Differential Operators</strong> $Q(D) = D^n + a_{n-1}D^{n-1} + \dots + a_1D + a_0$ and $P(D) = b_mD^m + b_{m-1}D^{m-1} + \dots + b_1D + b_0$</p>
+<p>Here we also defined $D\xi(t) = \frac{d\xi(t)}{dt}$ as the <strong>dervative operation</strong></p>
+<hr>
+<p>We are going to use <strong>Laplace Transform</strong> to <strong>compute the Impulse Response</strong> of this causal LTI System, and the key idea is to take the LT of both sides, thus we get</p>
+<p>$$
+(s^n + a_{n-1}s^{n-1} + \dots + a_1s + a_0)Y(s)=(b_ms^m + b_{m-1}s^{m-1} + \dots + b_1s + b_0)X(s)
+$$</p>
+<p>Rearrange them to get</p>
+<p>$$
+H(s) = \frac{Y(s)}{X(s)} = \frac{b_ms^m + b_{m-1}s^{m-1} + \dots + b_1s + b_0}{s^n + a_{n-1}s^{n-1} + \dots + a_1s + a_0} = \frac{P(s)}{Q(s)}
+$$</p>
+<p>Thus we can conclude that the transfer function of an LTI system defined by a <strong>LICC-ODE</strong> is <strong>very easy to find</strong>, and is often the preferred way for us</p>
+<p>Furthermore, we want to translate this $H(s)$ back to <strong>Time Domain</strong>, as the $H(s)$ is now in rational form, we need to</p>
+<ol>
+<li>Factoring the denominator</li>
+<li>Partial Fraction Expansion</li>
+<li>Inverse Laplace Transform term by term</li>
+</ol>
+<p>If $m\leq n$, then we will get the Impulse Response in the form of</p>
+<p>$$
+h(t) = b_0\delta(t) + \left[ \sum_{k=1}^{n} b_k t^{m_k} e^{p_k t} \sin(\omega_k t + \phi_k) \right] u(t)
+$$</p>
+
+
+<h3 class="relative group">Ex. The Series RLC circuit 
+    <div id="ex-the-series-rlc-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-the-series-rlc-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%209.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Steady-State Interpretation of the frequency response 
+    <div id="steady-state-interpretation-of-the-frequency-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#steady-state-interpretation-of-the-frequency-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In the previous part, we defined <strong>Frequency Response $H(j\omega)$</strong> as the response of a LTI System to two-sided Complex Exponential, i.e. $x(t) = e^{j\omega_0 t}$ is a two sided signal and its resposne is $y(t) = H(j\omega_0)e^{j\omega_0 t}$</p>
+<p>But now the input has become <strong>right-sided and causal</strong>, like $x(t) = e^{j\omega_0 t}u(t)$</p>
+<hr>
+<p>Here we first assume impulse response $h$ has finite action, so $T$  is BIBO stable ($x(t) = e^{j\omega_0 t}u(t)$), and <strong>its result would be</strong></p>
+<p>$$
+y(t) = H(j\omega_0)x(t) - F(t)x(t)
+$$</p>
+<ul>
+<li>$H(j\omega_0)x(t)$: <strong>The Steady-State Response</strong>, indicates that if the system has runed for enough time, then the output will be a signal with <strong>same frequency, amplitude scalling $|H(j\omega_0)|$ and Phasor shifting $\angle H(j\omega_0)$</strong></li>
+<li>$F(t)x(t)$: <strong>The Transient Response</strong>, as our signal <strong>is right-sided and causal</strong>, thus there need to be a <strong>transient feedback for system</strong> then it first get the input, and this term <strong>$F(t) \to 0$ as $t\rightarrow \infty$</strong></li>
+</ul>
+
+
+<h3 class="relative group">The convergence of F(t) 
+    <div id="the-convergence-of-ft" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-convergence-of-ft" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>As long as the system is <strong>BIBO Stable</strong>, we can <strong>prove that $F(t)$ will eventually become zero</strong></p>
+
+
+<h3 class="relative group">Ex. Steady-state response of RC circuit 
+    <div id="ex-steady-state-response-of-rc-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-steady-state-response-of-rc-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2010.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Steady-state interpretation of the frequency response 
+    <div id="steady-state-interpretation-of-the-frequency-response-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#steady-state-interpretation-of-the-frequency-response-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>For a causal and BIBO stable CT LTI system</p>
+<ol>
+<li>The response to a sinusoidal input is sinusoidal in steady-state</li>
+<li>the s.s. response has the same frequency as the input</li>
+<li>the s.s. response amplitude is the input amplitude times $|H(j\omega_0)|$</li>
+<li>the s.s. response phase is the input phase plus a shift of $\angle H(j\omega_0)$</li>
+</ol>
+<p>To measure that BIBO steady system, we can apply a sinusoidal input and record the output</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

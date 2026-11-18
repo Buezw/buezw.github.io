@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMF 6. Conductor&amp;Dielectrics | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#displacement-current">Displacement Current</a></li>
+    <li><a href="#convection-current">Convection Current</a></li>
+    <li><a href="#conduction-current">Conduction Current</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#conductor">Conductor</a>
+      <ul>
+        <li><a href="#perfect-conductor">Perfect Conductor</a></li>
+      </ul>
+    </li>
+    <li><a href="#dielectric">Dielectric</a>
+      <ul>
+        <li><a href="#perfect-dielectric">Perfect Dielectric</a></li>
+        <li><a href="#dielectric-breakdown">Dielectric Breakdown</a></li>
+      </ul>
+    </li>
+    <li><a href="#semiconductors">Semiconductors</a></li>
+    <li><a href="#ex">Ex.</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#perfect-conductor-under-external-electric-field">Perfect Conductor under external Electric Field</a></li>
+    <li><a href="#conductor-under-external-electric-field">Conductor under external Electric Field</a></li>
+    <li><a href="#resistance">Resistance</a></li>
+    <li><a href="#conductance">Conductance</a></li>
+    <li><a href="#joules-law">Joule&rsquo;s Law</a></li>
+    <li><a href="#behavior-of-dielectrics">Behavior of Dielectrics</a>
+      <ul>
+        <li><a href="#polar-molecules">Polar Molecules</a></li>
+        <li><a href="#non-polar-molecules">Non-Polar Molecules</a></li>
+        <li><a href="#polar-molecules-1">Polar Molecules</a></li>
+      </ul>
+    </li>
+    <li><a href="#dielectric-constant">Dielectric Constant</a></li>
+    <li><a href="#dielectric-breakdown-1">Dielectric Breakdown</a></li>
+    <li><a href="#energy">Energy</a>
+      <ul>
+        <li><a href="#dissipation">Dissipation</a></li>
+        <li><a href="#storage">Storage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EMF 6. Conductor&amp;Dielectrics</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                February 03, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                894 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 2/3/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Current and Current Densities 
+    <div id="current-and-current-densities" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#current-and-current-densities" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>This unit is about Displacement Current, Convection Current and Conduction Current</p>
+
+
+<h2 class="relative group">Displacement Current 
+    <div id="displacement-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#displacement-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This is the current under <strong>Insulator</strong>, it is caused by the <strong>rate of change of the Electric Field</strong></p>
+<p>$$
+\vec{J}_D = \frac{\partial \vec{D}}{\partial t}
+$$</p>
+
+
+<h2 class="relative group">Convection Current 
+    <div id="convection-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#convection-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Current cause by the movement of Free Charges in space</p>
+<p>$$
+\vec J_{con}=\frac{\rho_v\Delta S\cdot \Delta l/\Delta t}{\Delta S}= \rho_v\cdot \vec u _v
+$$</p>
+<ul>
+<li>$\rho_v$
+: Charge Density</li>
+<li>$u_v$: Charge Drifting Speed</li>
+<li>This means $Current <del>Density = Charge</del>Density * Velocity$</li>
+</ul>
+
+
+<h2 class="relative group">Conduction Current 
+    <div id="conduction-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conduction-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The Current cause by the <strong>moving Charge Carriers in conductor</strong></p>
+<p>$$
+\vec{J}<em>{conduction} = \rho</em>{ve} \vec{u}<em>e + \rho</em>{vh} \vec{u}<em>h=\rho</em>{ve} (-\mu_e \vec{E}) + \rho_{vh} (\mu_h \vec{E}) = (-\rho_{ve} \mu_e + \rho_{vh} \mu_h) \vec{E}
+$$</p>
+<p>That’s the <strong>movement of Electron and Holes</strong>, we can simplify this into</p>
+<p>$$
+\vec{J} = \sigma \vec{E}
+$$</p>
+<p>Whereas <strong>$\sigma$  is Conductivity, $\vec E$ is Electric Field</strong></p>
+
+
+<h1 class="relative group">Property of Materials 
+    <div id="property-of-materials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-of-materials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>We characterise material by <strong>Conductivity $\sigma$</strong>: <strong>The ability for material to conduct current</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Conductor 
+    <div id="conductor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conductor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Conductor is the material having <strong>$\sigma &raquo;1$</strong></p>
+
+
+<h3 class="relative group">Perfect Conductor 
+    <div id="perfect-conductor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#perfect-conductor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Perfect Conductor have $\sigma \rightarrow \infty$</p>
+<p>As $\vec{J} = \sigma \vec{E}$, as <strong>Current Density</strong> <strong>has to be some finite number</strong> (Because the Energy need to be finite), thus as <strong>$\sigma \rightarrow \infty$, $\vec E \rightarrow 0$</strong></p>
+<ul>
+<li>This concludes that inside <strong>Perfect Conductor</strong>, <strong>there’s no Electric Field inside</strong>, while all <strong>Net Charges are on the surface</strong></li>
+</ul>
+
+
+<h2 class="relative group">Dielectric 
+    <div id="dielectric" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dielectric" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Dielectric  is the material having <strong>$\sigma &laquo;1$</strong></p>
+
+
+<h3 class="relative group">Perfect Dielectric 
+    <div id="perfect-dielectric" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#perfect-dielectric" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Perfect Dielectric having $\sigma =0 \Rightarrow \vec J = 0$</p>
+<ul>
+<li>This concludes that <strong>Ideal Dielectric’s Electric Field is zero</strong></li>
+</ul>
+
+
+<h3 class="relative group">Dielectric Breakdown 
+    <div id="dielectric-breakdown" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dielectric-breakdown" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The material will have a <strong>Electric Field Threshold</strong> that <strong>when external Electric Field exceed it, the breakdown in material will occur</strong></p>
+
+
+<h2 class="relative group">Semiconductors 
+    <div id="semiconductors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#semiconductors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\sigma = (N_e \mu_e + N_h \mu_h) e
+$$</p>
+<p>This means that the Semiconductor’s conductivity is depend on the <strong>density of Electric and Hole</strong>, and the N</p>
+
+
+<h2 class="relative group">Ex. 
+    <div id="ex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Behavior of materials under external Electric Field 
+    <div id="behavior-of-materials-under-external-electric-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#behavior-of-materials-under-external-electric-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p><strong>Different material</strong> will present different behavior <strong>under an external Electric Field</strong></p>
+
+
+<h2 class="relative group">Perfect Conductor under external Electric Field 
+    <div id="perfect-conductor-under-external-electric-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#perfect-conductor-under-external-electric-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p><strong>Perfect Conductor</strong> has the <strong>property of $\sigma =\infty$</strong>, thus under Electric Field, this will creates <strong>two Electric Field</strong> in this case, <strong>an Internal one and a External one</strong></p>
+<ul>
+<li>The first $\vec E$ is pointing to the right, this will create a $-\vec F_E$ for <strong>Electrons in conductor</strong></li>
+<li>As all the <strong>Electrons</strong> has <strong>been moved to the left side of conductor</strong>, this creates a second <strong>Internal</strong> $-\vec E$, thus the <strong>$\vec E_{net}$ is now zero</strong></li>
+</ul>
+<p>And all the charges will distributed on the <strong>surface of the conductor</strong></p>
+
+
+<h2 class="relative group">Conductor under external Electric Field 
+    <div id="conductor-under-external-electric-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conductor-under-external-electric-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Unlike perfect conductor, we now <strong>only have finite $\sigma$</strong> , the first thing to notice is that <strong>Internal Electric Field is no longer zero</strong></p>
+<p>As not all the Electrons can be pushed to the other side, <strong>this will cause $|\vec{E}<em>{int}| &lt; |\vec{E}</em>{ext}|$</strong>, in order to measure the ability of this conductor blocking Electrons, we introduce <strong>Resistance</strong></p>
+
+
+<h2 class="relative group">Resistance 
+    <div id="resistance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#resistance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The basic definition of <strong>Resistance is $R = \frac{V}{I}$</strong>, whereas</p>
+<ul>
+<li>$V$: is the <strong>potential difference between two points</strong>, is the integral of two points</li>
+</ul>
+<p>$$
+V = V_{P_+} - V_{P_-} = -\int_{P_-}^{P_+} \vec{E} \cdot d\vec{l}
+$$</p>
+<ul>
+<li>$I$: is the <strong>integral of current density across conductor cross area A</strong></li>
+</ul>
+<p>$$
+I = \iint_A \sigma\vec{E} \cdot d\vec{s}
+$$</p>
+
+
+<h2 class="relative group">Conductance 
+    <div id="conductance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conductance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Conductance is just the <strong>reciprocal of Resistance</strong></p>
+<p>$$
+G=\frac{1}{R}=\frac{I}{V}
+$$</p>
+<ul>
+<li>Unit Conductance: Use <strong>Conductance to divided by length</strong> to get Unit Conductance</li>
+</ul>
+<p>$$
+G&rsquo; = \frac{G}{l} = \frac{I}{V_{ab} \cdot l}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Joule&rsquo;s Law 
+    <div id="joules-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#joules-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Joule’s Law indicate how Power dissipated in a conducting medium in the presence of
+an electrostatic field</p>
+<p>$$
+P = \iiint \sigma |\vec{E}|^2 dV
+$$</p>
+
+
+<h2 class="relative group">Behavior of Dielectrics 
+    <div id="behavior-of-dielectrics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#behavior-of-dielectrics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Inside Dielectrics, charges don’t move, but under the External Electric Field, it will cause a displacement, which is called Polarization</p>
+<p>While there are two kinds of Molecules, Polar and Non-Polar ones, they also have different behavior under Electric Field</p>
+
+
+<h3 class="relative group">Polar Molecules 
+    <div id="polar-molecules" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#polar-molecules" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Non-Polar Molecules 
+    <div id="non-polar-molecules" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#non-polar-molecules" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>When Non-Polar Molecule in under Electric Field, it will be extract into a Dipole</p>
+<ul>
+<li>Notice that this $\vec P$ is parallel to the Electric Field $\vec E$</li>
+</ul>
+
+
+<h3 class="relative group">Polar Molecules 
+    <div id="polar-molecules-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#polar-molecules-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>At the begining, there’s already a $\vec P$ in present, while after the effect of the Electric Field, there will be a Torque that spin the $\vec P$ to be parallel to the Electric Field</p>
+
+
+<h2 class="relative group">Dielectric Constant 
+    <div id="dielectric-constant" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dielectric-constant" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Inside a conductor, the charges inside will be canceled out, where as the edges doesn’t, which forms the Bounded Charges $Q'$</p>
+<p>This Bounded Charges can be further defined as Unit Bounded Charges $P$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%208.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Dielectric Breakdown 
+    <div id="dielectric-breakdown-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dielectric-breakdown-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\vec{P} = \varepsilon_0 \chi_e \vec{E}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%209.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Energy 
+    <div id="energy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#energy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When Electric Field is applying on a material, is the energy stored or lost?</p>
+
+
+<h3 class="relative group">Dissipation 
+    <div id="dissipation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dissipation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>For <strong>Conductors</strong>, under the collision of free electrons (that is the movement of them to form the current), this will transform electric potential into heat and deplete</p>
+<p>$$
+P = \iiint_V \sigma |E|^2 , dv
+$$</p>
+<ul>
+<li>Thus the Electric Field will loss energy inside Conductor</li>
+</ul>
+
+
+<h3 class="relative group">Storage 
+    <div id="storage" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#storage" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>For <strong>Dielectrics</strong>, there’s no free electrons that the present of Electric Field only makes the molecules polarized, which after the disappear of Electric Field will retain balance</p>
+<p>$$
+W = \frac{1}{2} \iiint_V \vec{E} \cdot \vec{D} , dv
+$$</p>
+<ul>
+<li>Thus energy will be stored inside Dielectrics</li>
+</ul>
+<aside>
+❗
+<p>Notice this is similar to the Hook’s Law</p>
+</aside>
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

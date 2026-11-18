@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMF 5. ElectricPotential | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#electric-potential-by-point-charge">Electric Potential by Point Charge</a>
+      <ul>
+        <li><a href="#absolute-electric-potential">Absolute Electric Potential</a></li>
+      </ul>
+    </li>
+    <li><a href="#relation-between-electric-field--the-electric-potential">Relation between Electric Field &amp; the Electric Potential</a></li>
+    <li><a href="#conservation-property-of-the-electrostatic-field">Conservation Property of the Electrostatic Field</a></li>
+    <li><a href="#equipotential-lines--surfaces">Equipotential Lines &amp; Surfaces</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#electric-potential-of-a-point-charge">Electric Potential of a Point Charge</a></li>
+    <li><a href="#electric-potential-of-an-electric-dipole">Electric Potential of an Electric Dipole</a></li>
+    <li><a href="#electric-potential-of-continuous-charge-distributions">Electric Potential of Continuous Charge Distributions</a></li>
+    <li><a href="#electric-potential-of-a-conducting-shell-surface">Electric Potential of a Conducting Shell (Surface)</a></li>
+    <li><a href="#gradient-operator-in-different-coordinate-systems">Gradient Operator in Different Coordinate Systems</a>
+      <ul>
+        <li><a href="#cartesian-coordinate">Cartesian Coordinate</a></li>
+        <li><a href="#cylindrical-coordinate">Cylindrical Coordinate</a></li>
+        <li><a href="#spherical-coordinate">Spherical Coordinate</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-coulombs-law">1. Coulomb’s Law</a></li>
+    <li><a href="#2-gausss-law">2. Gauss’s Law</a></li>
+    <li><a href="#3-gradient-of-electric-potential">3. Gradient of Electric Potential</a></li>
+    <li><a href="#4-boundary-conditions">4. Boundary Conditions</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#poissons-equation">Poisson’s Equation</a></li>
+    <li><a href="#laplaces-equation">Laplace’s Equation</a></li>
+    <li><a href="#laplacian-operator-in-different-coordinate-systems">Laplacian Operator in Different Coordinate Systems</a>
+      <ul>
+        <li><a href="#cartesian">Cartesian</a></li>
+        <li><a href="#cylindrical">Cylindrical</a></li>
+        <li><a href="#spherical">Spherical</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#parallel-plate-capacitor">Parallel-Plate Capacitor</a></li>
+    <li><a href="#two-concentric-shells">Two Concentric Shells</a></li>
+    <li><a href="#two-planes">Two Planes</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EMF 5. ElectricPotential</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 27, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                1134 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 1/27/26</p>
+</blockquote>
+<blockquote>
+<p>Last Edit: 23/3/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Electric Potential (Scalar) 
+    <div id="electric-potential-scalar" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-potential-scalar" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The definition for <strong>Electric Potential</strong> is the <strong>work required to move a unit positive charge from A to B</strong></p>
+<p>$$
+V_B - V_A = -\int_A^B \vec{E} \cdot d\vec{l}
+$$</p>
+
+
+<h2 class="relative group">Electric Potential by Point Charge 
+    <div id="electric-potential-by-point-charge" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-potential-by-point-charge" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As Electric Potential is a work, we start with <strong>Work Done formula</strong></p>
+<p>$$
+W = \int_{r_A}^{r_B} -q \vec{E} \cdot d\vec{l}=\int_{r_A}^{r_B}-qE(r)\hat rdr\hat r
+$$</p>
+<ul>
+<li>Known that the <strong>Electric Field</strong> created by <strong>Point Charge</strong> is $\vec{E} = \frac{Q}{4\pi\epsilon_0 r^2} \hat{r}$</li>
+</ul>
+<p>$$
+W = -\int_{r_A}^{r_B} \frac{qQ}{4\pi\epsilon_0 r^2} dr=-\frac{qQ}{4\pi\epsilon_0 }\int_{r_A}^{r_B}  \frac{1}{r^2}dr= \frac{qQ}{4\pi\epsilon_0} \left( \frac{1}{r_B} - \frac{1}{r_A} \right)
+$$</p>
+<ul>
+<li>And the <strong>Potential Difference</strong> is the <strong>Work Done by Unit Charge</strong>, which is</li>
+</ul>
+<p>$$
+V_{AB} = V_B - V_A = \frac{W}{q}=\frac{qQ}{4\pi\epsilon_0} \left( \frac{1}{r_B} - \frac{1}{r_A} \right)/q
+$$</p>
+<ul>
+<li>Thus we can get the <strong>Potential Difference</strong> between <strong>two Point Charge</strong> is</li>
+</ul>
+<p>$$
+V_B - V_A = \frac{Q}{4\pi\epsilon_0} \left( \frac{1}{r_B} - \frac{1}{r_A} \right)
+$$</p>
+
+
+<h3 class="relative group">Absolute Electric Potential 
+    <div id="absolute-electric-potential" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#absolute-electric-potential" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Just like the GND in circuit, we always want to set up <strong>a reference point for Potential</strong>, that could be the point when $V_A =0$, which is $r_A\rightarrow \infty$</p>
+<p>In such case, we will get the <strong>Potential Difference at a point</strong> as</p>
+<p>$$
+V(r) = \frac{Q}{4\pi\epsilon_0 r}
+$$</p>
+
+
+<h2 class="relative group">Relation between Electric Field &amp; the Electric Potential 
+    <div id="relation-between-electric-field--the-electric-potential" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#relation-between-electric-field--the-electric-potential" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>Electric Field is a Vector Field</strong>, which is defined as the the <strong>opposite direction of gradient</strong> of <strong>Electric Potential Field</strong></p>
+<p>$$
+\vec{E} = -\nabla V
+$$</p>
+<p>So if we want to <strong>find the Electric Field of Point Charge</strong> what we should do is</p>
+<ul>
+<li>Start with the <strong>Electric Potential of Point Charge</strong> $V(r) = \frac{Q}{4\pi\epsilon_0 r}$, then find its Gradient</li>
+</ul>
+<p>$$
+\vec{E} = -\nabla \left( \frac{Q}{4\pi\epsilon_0 r} \right)=-\frac{Q}{4\pi\epsilon_0}\nabla \left( \frac{1}{r} \right) =-\frac{Q}{4\pi\epsilon_0} \left( -\frac{1}{r^2} \hat{r} \right) = \frac{Q}{4\pi\epsilon_0 r^2} \hat{r}
+$$</p>
+<aside>
+❗
+<p>The property $\vec{E} = -\nabla V$ connects <strong>Electric Field</strong> and <strong>Electric Potential</strong></p>
+</aside>
+
+
+<h2 class="relative group">Conservation Property of the Electrostatic Field 
+    <div id="conservation-property-of-the-electrostatic-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conservation-property-of-the-electrostatic-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<aside>
+❗
+<p><strong>Voltage difference is the same regardless of the integration path</strong></p>
+</aside>
+
+
+<h2 class="relative group">Equipotential Lines &amp; Surfaces 
+    <div id="equipotential-lines--surfaces" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#equipotential-lines--surfaces" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Based on the property that</p>
+<p>$$
+V=\frac{Q}{4\pi\epsilon_0r}\hat r
+$$</p>
+<ul>
+<li>We know that as long as $r$ is the same, then $V$ remains constant, <strong>which is then a Equipotential Line &amp; Surface</strong></li>
+</ul>
+
+
+<h1 class="relative group">Electric Potential of Different Model 
+    <div id="electric-potential-of-different-model" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-potential-of-different-model" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Electric Potential of a Point Charge 
+    <div id="electric-potential-of-a-point-charge" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-potential-of-a-point-charge" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Known from above that</p>
+<p>$$
+V(r) = \frac{Q}{4\pi\epsilon_0 r}
+$$</p>
+<p>Electric Potential of <strong>Point Charges</strong>, is the <strong>Scalar Addition of Point Charges</strong></p>
+<p>$$
+V(\vec{r}) = \sum_{i=1}^{N} \frac{Q_i}{4\pi\epsilon_0 |\vec{r} - \vec{r}&rsquo;_i|}
+$$</p>
+
+
+<h2 class="relative group">Electric Potential of an Electric Dipole 
+    <div id="electric-potential-of-an-electric-dipole" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-potential-of-an-electric-dipole" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-15.jpg" alt="Note-15.jpg" />
+      
+    </figure>
+</p>
+<p>Notice there’s a Equation about $\nabla$ in <strong>Spherical Coordinate</strong>, which is</p>
+<p>$$
+\nabla f = \frac{\partial f}{\partial r} \hat{r} + \frac{1}{r} \frac{\partial f}{\partial \theta} \hat{\theta} + \frac{1}{r \sin \theta} \frac{\partial f}{\partial \phi} \hat{\phi}
+$$</p>
+<ul>
+<li>This <strong>Jacobian term</strong> will be mentioned again later</li>
+</ul>
+
+
+<h2 class="relative group">Electric Potential of Continuous Charge Distributions 
+    <div id="electric-potential-of-continuous-charge-distributions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-potential-of-continuous-charge-distributions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>By using Integral, we can deal with <strong>more complicated Charge Distribution models</strong></p>
+<p>$$
+V = \iiint \frac{\rho_v(\vec{r}&rsquo;) , }{4\pi\epsilon_0 |\vec{r} - \vec{r}&rsquo;|}dv'
+$$</p>
+<p>$$
+V = \iint \frac{\rho_s(\vec{r}&rsquo;) , }{4\pi\epsilon_0 |\vec{r} - \vec{r}&rsquo;|}ds'
+$$</p>
+<p>$$
+V = \int \frac{\rho_l(\vec{r}&rsquo;) , }{4\pi\epsilon_0 |\vec{r} - \vec{r}&rsquo;|}dl'
+$$</p>
+
+
+<h2 class="relative group">Electric Potential of a Conducting Shell (Surface) 
+    <div id="electric-potential-of-a-conducting-shell-surface" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-potential-of-a-conducting-shell-surface" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-16.jpg" alt="Note-16.jpg" />
+      
+    </figure>
+</p>
+<p>The result can be verified by the <strong>Gauss’s Law</strong> that</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Gradient Operator in Different Coordinate Systems 
+    <div id="gradient-operator-in-different-coordinate-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gradient-operator-in-different-coordinate-systems" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<aside>
+❗
+<p>In <strong>Cylindrical</strong> or <strong>Spherical</strong> Coordinates, the <strong>Unit Vector’s Direction</strong> depends on the <strong>current position</strong>, which is not identical as Cartesian, <strong>the axis itself is changing</strong>. Under this case, <strong>we need to include extra term to fix this directional change, and that’s why there’s difference in Gradient (and other) Operator in different Coordinate Systems</strong></p>
+</aside>
+
+
+<h3 class="relative group">Cartesian Coordinate 
+    <div id="cartesian-coordinate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cartesian-coordinate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\nabla f = \frac{\partial f}{\partial x} \hat{x} + \frac{\partial f}{\partial y} \hat{y} + \frac{\partial f}{\partial z} \hat{z}
+$$</p>
+
+
+<h3 class="relative group">Cylindrical Coordinate 
+    <div id="cylindrical-coordinate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cylindrical-coordinate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\nabla f = \frac{\partial f}{\partial r} \hat{r} + \frac{1}{r} \frac{\partial f}{\partial \phi} \hat{\phi} + \frac{\partial f}{\partial z} \hat{z}
+$$</p>
+
+
+<h3 class="relative group">Spherical Coordinate 
+    <div id="spherical-coordinate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#spherical-coordinate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\nabla f = \frac{\partial f}{\partial r} \hat{r} + \frac{1}{r} \frac{\partial f}{\partial \theta} \hat{\theta} + \frac{1}{r \sin \theta} \frac{\partial f}{\partial \phi} \hat{\phi}
+$$</p>
+
+
+<h1 class="relative group">Electrical Field 
+    <div id="electrical-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electrical-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>There’s <strong>several ways we define Electrical Field</strong> so far</p>
+
+
+<h2 class="relative group">1. Coulomb’s Law 
+    <div id="1-coulombs-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-coulombs-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Using the <strong>Charge Density Distribution</strong> $\rho_v$, while there’s <strong>no Symmetry</strong> for <strong>Gauss’s Law</strong></p>
+<p>$$
+\vec{E} = \iiint \frac{\rho_v(\vec{r}&rsquo;)(\vec{r} - \vec{r}&rsquo;)}{4\pi\epsilon_0 |\vec{r} - \vec{r}&rsquo;|^3} d v'
+$$</p>
+
+
+<h2 class="relative group">2. Gauss’s Law 
+    <div id="2-gausss-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-gausss-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When there’s a Symmetry, the <strong>Coulomb’s Law will be simplified into</strong></p>
+<p>$$
+\oint_S \vec{D} \cdot d\vec{s} = Q_{enc}
+$$</p>
+<ul>
+<li>We first know the Charge Enclosed $Q_{enc}$</li>
+<li>Then we find a Symmetry to <strong>simplify the integral $\oint_S \vec{D} \cdot d\vec{s}$ into $D_{\hat{u}} \cdot A_{Gauss}$</strong></li>
+<li>Then we can use $D = \frac{Q_{enc}}{A}$ to get the value of D, and <strong>Electric Field</strong> $\vec E$</li>
+</ul>
+
+
+<h2 class="relative group">3. Gradient of Electric Potential 
+    <div id="3-gradient-of-electric-potential" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-gradient-of-electric-potential" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This method start with <strong>Electric Potential</strong> and find its Gradient to find the <strong>Vector Field</strong> $\vec E$</p>
+<p>$$
+\vec{E} = -\nabla V
+$$</p>
+<p>Whereas the <strong>Electric Potential</strong> can be find by</p>
+<p>$$
+V = \iiint \frac{\rho_v(\vec{r}&rsquo;) dv&rsquo;}{4\pi\epsilon_0 |\vec{r} - \vec{r}&rsquo;|}
+$$</p>
+
+
+<h2 class="relative group">4. Boundary Conditions 
+    <div id="4-boundary-conditions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-boundary-conditions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If we know the <strong>Boundary Conditions</strong>, <strong>then we can use the $\nabla^2 V$  to find V, then $\vec E$</strong></p>
+
+
+<h1 class="relative group">Poisson’s &amp; Laplace’s Equations 
+    <div id="poissons--laplaces-equations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#poissons--laplaces-equations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Starting from the <strong>Electrostatic Functions</strong> in <strong>Maxwell’s Equation</strong></p>
+<p>$$
+\nabla \times \vec{E} = 0,\quad \nabla \cdot \vec{E} = \frac{\rho_v}{\varepsilon_0 \varepsilon_r}
+$$</p>
+<p>The first equations $\nabla \times \vec{E} = 0$ indicates that <strong>Electric Field is a Conversation (Irrational) Field</strong>, that its independent of the Path C, so that</p>
+<p>$$
+-\int _C\vec E\cdot \vec{dl}=\Delta V\Rightarrow \vec E= -\nabla V
+$$</p>
+<p>Whereas for the second equation $\vec{E} = \frac{\rho_v}{\varepsilon_0 \varepsilon_r}$, if we <strong>plug in</strong> $\vec E= -\nabla V$ , we get</p>
+<p>$$
+\nabla \cdot (-\nabla V) = \frac{\rho_v}{\varepsilon_0 \varepsilon_r}\Rightarrow \nabla^2 V = -\frac{\rho_v}{\varepsilon_0 \varepsilon_r}
+$$</p>
+
+
+<h2 class="relative group">Poisson’s Equation 
+    <div id="poissons-equation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#poissons-equation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\nabla^2 V = -\frac{\rho_v}{\varepsilon_0 \varepsilon_r}
+$$</p>
+<p><strong>Poisson’s Equations</strong> tells us that <strong>if there exist Free Charges $(\rho_v \neq 0)$,</strong> then <strong>the Rate of Change of Rate of Change of Electric Potential is depend on them</strong></p>
+
+
+<h2 class="relative group">Laplace’s Equation 
+    <div id="laplaces-equation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#laplaces-equation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Whereas if there’s <strong>no Free Charges</strong> $(\rho_v=0)$, then Poisson’s Equation simplified into</p>
+<p>$$
+\nabla^2 V = 0
+$$</p>
+<p>Then the <strong>Electric Potential</strong> is then <strong>smooth over this region</strong> that the vacuum place’s Electric Potential Value equals to its Boundary’s average</p>
+
+
+<h2 class="relative group">Laplacian Operator in Different Coordinate Systems 
+    <div id="laplacian-operator-in-different-coordinate-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#laplacian-operator-in-different-coordinate-systems" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Same as Gradient, <strong>Laplacian Operator</strong> has the same <strong>Jacobian terms</strong></p>
+
+
+<h3 class="relative group">Cartesian 
+    <div id="cartesian" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cartesian" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\nabla^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}
+$$</p>
+
+
+<h3 class="relative group">Cylindrical 
+    <div id="cylindrical" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cylindrical" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\nabla^2 f = \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial f}{\partial r} \right) + \frac{1}{r^2} \frac{\partial^2 f}{\partial \phi^2} + \frac{\partial^2 f}{\partial z^2}
+$$</p>
+
+
+<h3 class="relative group">Spherical 
+    <div id="spherical" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#spherical" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$
+\nabla^2 f = \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial f}{\partial r} \right) + \frac{1}{r^2 \sin \theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial f}{\partial \theta} \right) + \frac{1}{r^2 \sin^2 \theta} \frac{\partial^2 f}{\partial \phi^2}
+$$</p>
+
+
+<h1 class="relative group">Electric Field calculated by Laplacian Operator 
+    <div id="electric-field-calculated-by-laplacian-operator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-field-calculated-by-laplacian-operator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Here are some example model’s Electric Field calculated by using <strong>Laplacian Operator</strong></p>
+
+
+<h2 class="relative group">Parallel-Plate Capacitor 
+    <div id="parallel-plate-capacitor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#parallel-plate-capacitor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="2759caf6-e66b-45f5-a334-2f1dd3adf059.png" alt="Note-17.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Two Concentric Shells 
+    <div id="two-concentric-shells" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#two-concentric-shells" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-18.jpg" alt="Note-18.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Two Planes 
+    <div id="two-planes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#two-planes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-18%201.jpg" alt="Note-18.jpg" />
+      
+    </figure>
+</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

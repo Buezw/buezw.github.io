@@ -9,7 +9,1038 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2026 Buezwqwg</copyright>
-    <lastBuildDate>Sat, 20 Dec 2025 14:00:00 -0500</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Demo 1. Article Typography</title>
+      <link>https://buezw.github.io/docs/sample/demo1-articletypography/</link>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/sample/demo1-articletypography/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 9/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Headings and Body Text 
+    &lt;div id=&#34;headings-and-body-text&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#headings-and-body-text&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;这是一段普通正文，用来看看衬线体在长段落里的排版效果。Order flow toxicity is a measure of adverse selection risk faced by market makers — when the counterparty is more informed, fills skew against the quoter.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Demo 2. Code &amp; Math</title>
+      <link>https://buezw.github.io/docs/sample/demo2-codeandmath/</link>
+      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/sample/demo2-codeandmath/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 9/10/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Inline &amp;amp; Block Math 
+    &lt;div id=&#34;inline--block-math&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#inline--block-math&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Black-Scholes 定价公式，用来检查行内公式 \(C = S_0 N(d_1) - K e^{-rT} N(d_2)\) 和块级公式的渲染：&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Demo 3. Long-form Notes with a Table</title>
+      <link>https://buezw.github.io/docs/sample/demo3-longformnotes/</link>
+      <pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/sample/demo3-longformnotes/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 9/5/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Summary 
+    &lt;div id=&#34;summary&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#summary&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;这篇用来检查稍长一点的正文结构，混合标题、表格、列表。假设我们比较几种做市策略的关键指标：&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>Virtual Cell Research — Coming Soon</title>
+      <link>https://buezw.github.io/vepe/coming-soon/</link>
+      <pubDate>Thu, 27 Aug 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/vepe/coming-soon/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Placeholder entry. Replace with real research notes once the VEPE virtual cell work is underway.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This section will hold notes and progress updates from virtual cell modeling research at VEPE.&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 8. Cache</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co8.cache/</link>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co8.cache/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 4/25/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Physics of Memory 
+    &lt;div id=&#34;physics-of-memory&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#physics-of-memory&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;存储容量越大，访问速度越慢&lt;/li&gt;
+&lt;li&gt;进行一次主存访问大约需要消耗 &lt;strong&gt;300 个处理器时钟周期&lt;/strong&gt;。这意味着如果没有优化，处理器在执行一条加载指令（如 &lt;code&gt;lw&lt;/code&gt;）后需要闲置等待 300 个周期，软件运行将极其缓慢&lt;/li&gt;
+&lt;li&gt;为了解决上述矛盾，课件提出了核心洞察：&lt;strong&gt;小容量存储器比大容量存储器快。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决方案：&lt;/strong&gt; 在处理器和主内存之间放置一个“小而快”的存储器，即 &lt;strong&gt;Cache&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工作机制：&lt;/strong&gt; 将**当前活跃（currently active）**的内存位置保留在 Cache 中，从而确保处理器发出的内存请求能得到快速响应。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Cache Memory 
+    &lt;div id=&#34;cache-memory&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#cache-memory&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/ece243---computer-organization/co8.cache/image_hu919539970637125229.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co8.cache/image_hu16488558446007447742.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co8.cache/image_hu8217247360323923298.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co8.cache/image_hu13139247176593910498.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co8.cache/image_hu16488558446007447742.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 10. Time-VaryingFields</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/</link>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 4/20/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Faraday’s Law 
+    &lt;div id=&#34;faradays-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#faradays-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;$$
+\Psi = \iint \vec{B} \cdot d\vec{s}
+$$&lt;/p&gt;
+&lt;p&gt;Magnetic Flux is the integral of Magnetic Strength $B$ in area $s$&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 8. FundamentalsofDiscrete-Time Systems</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/</link>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/26/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;DT System 
+    &lt;div id=&#34;dt-system&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#dt-system&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;The DT system gets in a DT input and &lt;strong&gt;produces exactly one DT output&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 7. AnalysisofCTSystemusingLaplaceTransform</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/</link>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/24/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;LTI System with Complex Exponential Inputs 
+    &lt;div id=&#34;lti-system-with-complex-exponential-inputs&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#lti-system-with-complex-exponential-inputs&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Recall a LTI System with &lt;strong&gt;Impulse Response of $h$&lt;/strong&gt;, its output in &lt;strong&gt;Time Domain&lt;/strong&gt; is&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 7. FrequencyDomainAnalysis</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca7.frequencydomainanalysis/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca7.frequencydomainanalysis/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Network function, Transfer function 
+    &lt;div id=&#34;network-function-transfer-function&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#network-function-transfer-function&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Under Zero Initial Condition, the Network function is being defined as the ratio between input and output Laplace Transform&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 6. Laplace</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca6.laplace/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca6.laplace/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/18/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In the previous cases, we used transfer from Time Domain to Phasor Domains to analyze circuit with &lt;strong&gt;Sinusoidal Steady-State&lt;/strong&gt;, but we suggest this method is too limited. To use Laplace Transform, we are able to deal with more general ones&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 5. Transformer&amp;Power</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/11/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Self Inductance 
+    &lt;div id=&#34;self-inductance&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#self-inductance&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;When the Coil has a current change, it will create a induced emf and induced current&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 6. AnalysisofCTSusingForierTransform</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/11/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;LTI systems with Complex Exponential Inputs 
+    &lt;div id=&#34;lti-systems-with-complex-exponential-inputs&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#lti-systems-with-complex-exponential-inputs&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Known that a for a LTI system $T$, its output is the Convolution of input and Impulse Response&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 7. DesignofProcessor</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co7.designofprocessor/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co7.designofprocessor/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/10/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The former course is about to use Assembly and C language to view the processor in terms of a programmer, now the course has been switched into view processor hardware using digital design knowledge&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 6. Low-levelGraphicsinSoftware</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/9/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Intro to Low-Level Graphics 
+    &lt;div id=&#34;intro-to-low-level-graphics&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#intro-to-low-level-graphics&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu15234567419980076524.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu11320103388789212494.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu17128458278778623679.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu3728884395623859223.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/image_hu11320103388789212494.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 9. MagneticMaterials,BC&amp;Inductance</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf9.magneticmaterialsbcinductance/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf9.magneticmaterialsbcinductance/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/9/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Magnetic Dipole 
+    &lt;div id=&#34;magnetic-dipole&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#magnetic-dipole&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;As Magnetic Field is created by Current, the Magnetic Dipole is thus a Closed Loop Current&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 5. Continuous-Time System</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/</link>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/8/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Continuous-Time System 
+    &lt;div id=&#34;continuous-time-system&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#continuous-time-system&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;A CT system takes a CT input and produces a CT output&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 5. CLanguage</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co5.clanguage/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co5.clanguage/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Learning Assembly is about to know what happens underneath, while C Language is more readable and faster&lt;/p&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Compilation of C 
+    &lt;div id=&#34;compilation-of-c&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#compilation-of-c&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Starting from C Language, it have the file type of &lt;code&gt;.c&lt;/code&gt; , we use &lt;code&gt;gcc&lt;/code&gt; to compile it into Assembly&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 8. MagnetostaticsForces&amp;Fields</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Magnetic Force 
+    &lt;div id=&#34;magnetic-force&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#magnetic-force&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Lorentz Force 
+    &lt;div id=&#34;lorentz-force&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#lorentz-force&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;$$
+\vec{F}_m = q \vec{u} \times \vec{B}
+$$&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 4. Sample</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss4.sample/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss4.sample/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Sampling 
+    &lt;div id=&#34;sampling&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#sampling&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Sampling means to collect a measurement of a signal&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If there’s too few samples, then there’s a little we can learn&lt;/li&gt;
+&lt;li&gt;If there’s “enough”, then we may be able to figure out the original one&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;The sampling function 
+    &lt;div id=&#34;the-sampling-function&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#the-sampling-function&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;The sampling function is defined as&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 4. PhasorAnalysis</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca4.-phasoranalysis/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca4.-phasoranalysis/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/22/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In a linear circuit, a sinusoidal input with frequency $\omega$ always produces sinusoidal steady-state outputs with the same frequency&lt;/p&gt;
+&lt;p&gt;Thus we can only analyze the Amplitude an Phase of elements, and the key of it is&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 3. RLCCircuit</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca3.rlccircuit/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca3.rlccircuit/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/9/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Linear Ordinary Differential Equation, ODE 
+    &lt;div id=&#34;linear-ordinary-differential-equation-ode&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#linear-ordinary-differential-equation-ode&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;$$
+a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 x^{(1)} + a_0 x = g(t)
+$$&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 7. BoundaryConditions, Capacitance&amp; ElectrostaticEnergy</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf7.boundaryconditionscapacitanceelectrostaticenergy/</link>
+      <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf7.boundaryconditionscapacitanceelectrostaticenergy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/6/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Electric Field Boundary Conditions 
+    &lt;div id=&#34;electric-field-boundary-conditions&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-field-boundary-conditions&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Dielectric – Dielectric Interface – Tangential Components 
+    &lt;div id=&#34;dielectric--dielectric-interface--tangential-components&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#dielectric--dielectric-interface--tangential-components&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;Known that Electric Field has the Conservative Property, that is&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 4. Input/Output</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co4.input/output/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co4.input/output/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/5/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Input and Output are the connection between the virtual world and the physical world&lt;/p&gt;
+&lt;p&gt;Recall on DE1-Soc Board, we have I/Os&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;10 LEDs&lt;/li&gt;
+&lt;li&gt;10 Slider Switches&lt;/li&gt;
+&lt;li&gt;4 Buttons&lt;/li&gt;
+&lt;li&gt;6 Seven Segment Displays&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Memory Mapped I/O 
+    &lt;div id=&#34;memory-mapped-io&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#memory-mapped-io&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Recall the Computer Structure&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 6. Conductor&amp;Dielectrics</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf6.conductordielectrics/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf6.conductordielectrics/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Current and Current Densities 
+    &lt;div id=&#34;current-and-current-densities&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#current-and-current-densities&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;This unit is about Displacement Current, Convection Current and Conduction Current&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 3. FourierTransform</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss3.fouriertransform/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss3.fouriertransform/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We have already know how to use Fourier Series to analyze periodic signals by extract it into frequency domain&lt;/p&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;But what if the signal is aperiodic?&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 5. ElectricPotential</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/</link>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/27/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 23/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Electric Potential (Scalar) 
+    &lt;div id=&#34;electric-potential-scalar&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#electric-potential-scalar&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;The definition for &lt;strong&gt;Electric Potential&lt;/strong&gt; is the &lt;strong&gt;work required to move a unit positive charge from A to B&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 1. DC Circuit Analysis</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca1.dccircuitanalysis/</link>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca1.dccircuitanalysis/</guid>
+      <description>Linear circuit analysis techniques</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 2. OPAMP</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/</link>
+      <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/22/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Amplifier transfer characteristics 
+    &lt;div id=&#34;amplifier-transfer-characteristics&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#amplifier-transfer-characteristics&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu2420036342384123286.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu1158483708773899495.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu2742288437485137689.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu8601981890611016428.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu1158483708773899495.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 4. Gauss’sLaw</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf4.gaussslaw/</link>
+      <pubDate>Wed, 21 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf4.gaussslaw/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/21/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 23/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Recall Gauss’s Law in Integral Form: &lt;strong&gt;The Electric Flux pass through a surface only depends on the charges enclosed by this surface&lt;/strong&gt;, in the form of&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 3. Subroutines</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co3.subroutines/</link>
+      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co3.subroutines/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/20/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Directives 
+    &lt;div id=&#34;directives&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#directives&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Directives are not the code for CPU to run, instead, its a guidance for Assembler to order code&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 3. Coulomb’sLaw&amp;ElectricField</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf3.coulombslawelectricfield/</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf3.coulombslawelectricfield/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/19/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 23/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Coulomb’s Law 
+    &lt;div id=&#34;coulombs-law&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#coulombs-law&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Coulomb’s Law&lt;/strong&gt; reveals the &lt;strong&gt;Force between two point Charges&lt;/strong&gt;, it can be written in vector form&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 2. FourierSeries</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss2.fourierseries/</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss2.fourierseries/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/19/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Fourier Series 
+    &lt;div id=&#34;fourier-series&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#fourier-series&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Now consider this case&lt;/p&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;we have being given an oscillation signal of an object after collision&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 2. MemoryOrgranization</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co2.memoryorgranization/</link>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co2.memoryorgranization/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Processor we are working with is called Nios V Processor&lt;/p&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Nios V Processor 
+    &lt;div id=&#34;nios-v-processor&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#nios-v-processor&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;This is a processor from Intel with RISC-V Architecture&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 1. VectorCalculus</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/</link>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Scalar Field 
+    &lt;div id=&#34;scalar-field&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#scalar-field&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;$$
+f: \mathbb{R}^n \to \mathbb{R}
+$$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Scalar Field is used to describe the distribution of Scalar in space $\mathbb R^n$&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Gradient of Scalar Field 
+    &lt;div id=&#34;gradient-of-scalar-field&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#gradient-of-scalar-field&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;$$
+\nabla f(p) = \frac{\partial f(x, y, z)}{\partial x} \hat{x} + \frac{\partial f(x, y, z)}{\partial y} \hat{y} + \frac{\partial f(x, y, z)}{\partial z} \hat{z}
+$$&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>EMF 2. Maxwell’sEquations</title>
+      <link>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf2.maxwellsequations/</link>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf2.maxwellsequations/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 23/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Maxwell’s Equations described how Charge and Current form Electric and Magnetic Field, while indicate how Electric and Magnetic Field transfer into each other and how they propagate&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 1. PartsofComputer</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co1.partsofcomputer/</link>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co1.partsofcomputer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/12/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/12/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Parts of Computer 
+    &lt;div id=&#34;parts-of-computer&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#parts-of-computer&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Modern Computer contains three parts, &lt;strong&gt;CPU, Memory and Input/Output&lt;/strong&gt;, they are connecting by the System Bus&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 1. FundamentalsofContinuousandDiscreteTimeSignals</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss1.fundamentalsofcontinuousanddiscretetimesignals/</link>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss1.fundamentalsofcontinuousanddiscretetimesignals/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/12/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/15/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Signals 
+    &lt;div id=&#34;signals&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#signals&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Continuous-Time Signals 
+    &lt;div id=&#34;continuous-time-signals&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#continuous-time-signals&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;A continuous-time signal is a function of one (or more) independent variables which range over the real numbers $\mathbb R$&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>Quantifying Order Flow Toxicity: A Microstructure Perspective</title>
       <link>https://buezw.github.io/finance/market-commentary/test-copy/</link>
@@ -32,10 +1063,10 @@
     
     <item>
       <title>IE 2. Operational Amplifiers</title>
-      <link>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/</link>
       <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 10/7/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -73,25 +1104,25 @@
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu6707710446908872823.png 330w,
-        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png 660w,
-        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu14190371214853685493.png 1024w,
-        /docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu7648658950034460969.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png&#34;
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu6707710446908872823.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu14190371214853685493.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu7648658950034460969.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introductory-electronics/ie2.operationalamplifier/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/feature.png" />
     </item>
     
     <item>
       <title>AEM 2. Differential Equations</title>
-      <link>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 10/6/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -113,75 +1144,45 @@
 &lt;p&gt;$$
 \frac{d^2 y}{dx^2} = -k^2 y
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem2.differentialequations/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/feature.png" />
     </item>
     
     <item>
       <title>AEM 2. Differential Equations</title>
-      <link>https://buezw.github.io/finance/market-commentary/test-copy-2/</link>
+      <link>https://buezw.github.io/docs/uoft/26w/software-design/aem2.differentialequations/</link>
       <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/finance/market-commentary/test-copy-2/</guid>
-      <description>&lt;p&gt;1232123&lt;/p&gt;</description>
-      
-    </item>
+      <guid>https://buezw.github.io/docs/uoft/26w/software-design/aem2.differentialequations/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 10/6/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Ordinary Differential Equations 常微分方程 
+    &lt;div id=&#34;ordinary-differential-equations-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
-    <item>
-      <title>AEM 2. Differential Equations</title>
-      <link>https://buezw.github.io/finance/market-commentary/test-copy-3/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/finance/market-commentary/test-copy-3/</guid>
-      <description>&lt;p&gt;1232123&lt;/p&gt;</description>
-      
-    </item>
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ordinary-differential-equations-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
     
-    <item>
-      <title>AEM 2. Differential Equations</title>
-      <link>https://buezw.github.io/finance/market-commentary/test-copy-4/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/finance/market-commentary/test-copy-4/</guid>
-      <description>&lt;p&gt;1232123&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>AEM 2. Differential Equations</title>
-      <link>https://buezw.github.io/finance/market-commentary/test-copy-5/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/finance/market-commentary/test-copy-5/</guid>
-      <description>&lt;p&gt;1232123&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>AEM 2. Differential Equations</title>
-      <link>https://buezw.github.io/finance/market-commentary/test-copy-6/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/finance/market-commentary/test-copy-6/</guid>
-      <description>&lt;p&gt;1232123&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>AEM 2. Differential Equations</title>
-      <link>https://buezw.github.io/finance/market-commentary/test-copy-7/</link>
-      <pubDate>Mon, 06 Oct 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/finance/market-commentary/test-copy-7/</guid>
-      <description>&lt;p&gt;1232123&lt;/p&gt;</description>
-      
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在 ODE 中，未知函数只依赖于一个 independent variable&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\frac{d^2 y}{dx^2} = -k^2 y
+$$&lt;/p&gt;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/26w/software-design/aem2.differentialequations/feature.png" />
     </item>
     
     <item>
       <title>DS 2. Circuit Module &amp; Verilog</title>
-      <link>https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 10/5/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -221,25 +1222,25 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu4140601952310014763.png 330w,
-        /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png 660w,
-        /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu7012519630649372123.png 1024w,
-        /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu309876066352639045.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png&#34;
+        /docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu4140601952310014763.png 330w,
+        /docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png 660w,
+        /docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu7012519630649372123.png 1024w,
+        /docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu309876066352639045.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/feature.png" />
     </item>
     
     <item>
       <title>DS 1. Introductionto Logic Circuits</title>
-      <link>https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/digital-systems/ds1.introductiontologiccircuits/</link>
       <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/digital-systems/ds1.introductiontologiccircuits/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;DS1.IntroductiontoLogicCircuits 
     &lt;div id=&#34;ds1introductiontologiccircuits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -254,15 +1255,15 @@ $$&lt;/p&gt;</description>
 &lt;p&gt;Last Edit: 10/2/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;计算机中的信息由 Electronic Signals 表示 ，其存在两个 Discrete Values，它们通过 Voltage Levels 电压电平实现，但是称为 Logic Values，0 和 1&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/digital-systems/ds1.introductiontologiccircuits/feature.png" />
     </item>
     
     <item>
       <title>OOPC 3. DynamicMemory Allocation &amp; Classes</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</link>
       <pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC3.DynamicMemoryAllocation&amp;amp;Classes 
     &lt;div id=&#34;oopc3dynamicmemoryallocationclasses&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -354,15 +1355,15 @@ $$&lt;/p&gt;</description>
     
 &lt;/h3&gt;
 &lt;p&gt;Change &lt;code&gt;main.cpp&lt;/code&gt; into&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/feature.png" />
     </item>
     
     <item>
       <title>OOPC 2. Classes</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</link>
       <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC2.Classes 
     &lt;div id=&#34;oopc2classes&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -403,15 +1404,15 @@ $$&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这里只是&lt;strong&gt;定义结构体，不会分配内存&lt;/strong&gt;&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/feature.png" />
     </item>
     
     <item>
       <title>IMP 2. Limits</title>
-      <link>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/</link>
       <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;IMP2.Limits 
     &lt;div id=&#34;imp2limits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -443,15 +1444,15 @@ $$&lt;/p&gt;</description>
 &lt;p&gt;$$
 \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp2.limits/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/feature.png" />
     </item>
     
     <item>
       <title>AEM 1. Complex Numbers</title>
-      <link>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;AEM1.ComplexNumbers 
     &lt;div id=&#34;aem1complexnumbers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -485,15 +1486,57 @@ $$&lt;/p&gt;</description>
 &lt;p&gt;$$
 \mathbb C={z|z=a+bi,a,b\in\mathbb R }
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/advanced-engineering-mathematics/aem1.complexnumbers/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/feature.png" />
+    </item>
+    
+    <item>
+      <title>AEM 1. Complex Numbers</title>
+      <link>https://buezw.github.io/docs/uoft/26w/software-design/aem1.complexnumbers/</link>
+      <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/software-design/aem1.complexnumbers/</guid>
+      <description>&lt;h1 class=&#34;relative group&#34;&gt;AEM1.ComplexNumbers 
+    &lt;div id=&#34;aem1complexnumbers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#aem1complexnumbers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit：9/15/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Complex Numbers 
+    &lt;div id=&#34;complex-numbers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#complex-numbers&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;最早对 Complex Numbers 的接触出现在 Quadratic Equation 中&lt;/li&gt;
+&lt;li&gt;当有 \(ax^2+bx+c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &amp;lt; 0\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\)&lt;/li&gt;
+&lt;li&gt;但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;$$
+\mathbb C={z|z=a+bi,a,b\in\mathbb R }
+$$&lt;/p&gt;</description>
+      
     </item>
     
     <item>
       <title>OOPC 1. ProgrammingBasics</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/</link>
       <pubDate>Mon, 15 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;OOPC1.ProgrammingBasics 
     &lt;div id=&#34;oopc1programmingbasics&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -914,92 +1957,7 @@ $$&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;注意它和 &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;  不一样，&lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;  专门用在 cont 里，表示把右边的东西送到输出流&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature.png" />
-    </item>
-    
-    <item>
-      <title>QEC1.Rates&amp;Returns</title>
-      <link>https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/</link>
-      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/</guid>
-      <description>&lt;h2 class=&#34;relative group&#34;&gt;QEC1.Rates&amp;amp;Returns 
-    &lt;div id=&#34;qec1ratesreturns&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#qec1ratesreturns&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/8/25&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;1.1 Interest Rates &amp;amp; Return Measurement 
-    &lt;div id=&#34;11-interest-rates--return-measurement&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#11-interest-rates--return-measurement&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Interest Rates 利率 
-    &lt;div id=&#34;interest-rates-%E5%88%A9%E7%8E%87&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#interest-rates-%E5%88%A9%E7%8E%87&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Interest Rate measure the time value of money 衡量了货币的时间价值&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Equilibrium Interest Rates 必要的回报率 
-    &lt;div id=&#34;equilibrium-interest-rates-%E5%BF%85%E8%A6%81%E7%9A%84%E5%9B%9E%E6%8A%A5%E7%8E%87&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#equilibrium-interest-rates-%E5%BF%85%E8%A6%81%E7%9A%84%E5%9B%9E%E6%8A%A5%E7%8E%87&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;对于某项投资，Equilibrium Interest Rates 反映了投资人期望的市场回报率&lt;/li&gt;
-&lt;li&gt;也代表了投资人为了出借资金所要求的 Return&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Discount Rate 贴现率 
-    &lt;div id=&#34;discount-rate-%E8%B4%B4%E7%8E%B0%E7%8E%87&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#discount-rate-%E8%B4%B4%E7%8E%B0%E7%8E%87&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Discount Rate 可以被理解为&lt;strong&gt;衡量未来资金的现在价值&lt;/strong&gt;的利率&lt;/li&gt;
-&lt;li&gt;因为有 Interest 的存在，未来的钱会增加，假设当前有 100 元，年利率为 5%，那么一年后 100 元会变成 105元&lt;/li&gt;
-&lt;li&gt;反过来说，如果希望一年后拿到 105 元，今天的价值则是 100 元，而这一比值就是 Discount Rate，把未来的钱转换成今天的价值的比率，有以下公式&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;$$
-⁍
-$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/chartered-financial-analyst/qec1.ratesreturns/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature.png" />
     </item>
     
     <item>
@@ -1044,10 +2002,10 @@ $$&lt;/p&gt;</description>
     
     <item>
       <title>IMP 1. Review of Vector</title>
-      <link>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/</link>
       <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;IMP1.ReviewofVector 
     &lt;div id=&#34;imp1reviewofvector&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1090,7 +2048,7 @@ $$&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;一个 Scalar 是在任意坐标变换（包括旋转、反射、平移）下保持不变的数量&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introduction-to-mathematic-physic/imp1.reviewofvector/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/feature.png" />
     </item>
     
     <item>
@@ -1472,10 +2430,10 @@ $$&lt;/p&gt;</description>
     
     <item>
       <title>IE1.Signals&amp;Amplifiers</title>
-      <link>https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/</link>
       <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;IE1.Signals&amp;amp;Amplifiers 
     &lt;div id=&#34;ie1signalsamplifiers&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1543,25 +2501,25 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu8871716882946412280.png 330w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png 660w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu8822405479782198350.png 1024w,
-        /docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu3675317255615163572.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png&#34;
+        /docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/image_hu8871716882946412280.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/image_hu8822405479782198350.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/image_hu3675317255615163572.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/image_hu5403466879086397722.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/introductory-electronics/ie1.signalsamplifiers/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/feature.png" />
     </item>
     
     <item>
       <title>OOPC 0. Introduction</title>
-      <link>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</link>
       <pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;OOPC0.Introduction 
     &lt;div id=&#34;oopc0introduction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -1634,25 +2592,25 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu5452074438150711569.png 330w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png 660w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu13969374996867578377.png 1024w,
-        /docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14559888324638514471.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png&#34;
+        /docs/uoft/25f/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu5452074438150711569.png 330w,
+        /docs/uoft/25f/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png 660w,
+        /docs/uoft/25f/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu13969374996867578377.png 1024w,
+        /docs/uoft/25f/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14559888324638514471.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&amp;#43;&amp;#43;/oopc0.introduction/image_hu14218205880936442757.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/feature.png" />
     </item>
     
     <item>
       <title>EF 10. Nodal and Loop Analysis</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/</link>
       <pubDate>Mon, 07 Apr 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/7/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1679,17 +2637,17 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu14836653746222108356.png 330w,
-        /docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13701235930078814582.png 660w,
-        /docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13007749878243609150.png 1024w,
-        /docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu2375413442522557764.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13701235930078814582.png&#34;
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/image_hu14836653746222108356.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13701235930078814582.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13007749878243609150.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/image_hu2375413442522557764.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/image_hu13701235930078814582.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef10.nodalandloopanalysis/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/feature.png" />
     </item>
     
     <item>
@@ -1720,10 +2678,10 @@ $$&lt;/p&gt;</description>
     
     <item>
       <title>LPC 11. Recursion</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc11.recursion/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc11.recursion/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1763,28 +2721,28 @@ $$&lt;/p&gt;</description>
 &lt;p&gt;$$
 \text{GCD}(a, b) =\begin{cases}\text{GCD}(b, a - b) &amp;amp; \text{if } a &amp;gt; b \\text{GCD}(b, a) &amp;amp; \text{if } a &amp;lt; b \a &amp;amp; \text{if } a = b\end{cases}
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc11.recursion/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc11.recursion/feature.png" />
     </item>
     
     <item>
       <title>LPC 12. Data Structure </title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc12.datastructure/</link>
       <pubDate>Mon, 31 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc12.datastructure/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/31/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Data Structure，即一种储存数据的方式，不同的结构会有不同的性能优势和劣势，即被运用到不同的工作上&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc12.datastructure/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc12.datastructure/feature.png" />
     </item>
     
     <item>
       <title>EF 3. Gauss&#39; Law Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/28/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1809,30 +2767,30 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/image_hu8802652043434880325.png 330w,
-        /docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/image_hu13755665881257866306.png 660w,
-        /docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/image_hu3513976184223037978.png 1024w,
-        /docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/image_hu3352758712050547112.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/image_hu13755665881257866306.png&#34;
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/image_hu8802652043434880325.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/image_hu13755665881257866306.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/image_hu3513976184223037978.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/image_hu3352758712050547112.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/image_hu13755665881257866306.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef3.gausslaw_edited/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/feature.png" />
     </item>
     
     <item>
       <title>LPC 10. Strings </title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc10.strings/</link>
       <pubDate>Thu, 27 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc10.strings/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 25/3/27&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Throughout this book, we study different data types. None of the data types discussed before stores a word or sentence, because in C programming language there is no data type that stores a word/sentence.&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc10.strings/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc10.strings/feature.png" />
     </item>
     
     <item>
@@ -1863,49 +2821,49 @@ $$&lt;/p&gt;</description>
     
     <item>
       <title>DYN 5. R-Theta Coordinate Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn5.r-thetacoordinate_edited/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn5.r-thetacoordinate_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;当在通过一个固定点观察物体运动的时候，使用 $R-\theta$ 坐标系描述运动吗会高效很多&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn5.r-thetacoordinate_edited/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn5.r-thetacoordinate_edited/feature.png" />
     </item>
     
     <item>
       <title>LPC 9. Multi-dimensional Arrays</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc9.multi-dimensionalarrays/</link>
       <pubDate>Tue, 25 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc9.multi-dimensionalarrays/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/25/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;在之前介绍了 Array 的使用，但那些都是对于 One-Dimensional Arrays 的，但是引入 Multi-Dimension 也非常重要&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc9.multi-dimensionalarrays/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc9.multi-dimensionalarrays/feature.png" />
     </item>
     
     <item>
       <title>DYN 1. Rectilinear Motion Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn1.rectilinearmotion_edited/</link>
       <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn1.rectilinearmotion_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;直线运动指的是物体沿着一条直线路径移动。这种运动的特点是，物体的速度和加速度（如果有的话）的方向只在一条直线上&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn1.rectilinearmotion_edited/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn1.rectilinearmotion_edited/feature.png" />
     </item>
     
     <item>
       <title>DYN 2. Plane Curvilinear Motion and Rectangular Coordinate Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</link>
       <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -1930,25 +2888,25 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu13392097281712320818.png 330w,
-        /docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png 660w,
-        /docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu12345705633840858989.png 1024w,
-        /docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu16175045965759161878.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png&#34;
+        /docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu13392097281712320818.png 330w,
+        /docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png 660w,
+        /docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu12345705633840858989.png 1024w,
+        /docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu16175045965759161878.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/image_hu1633320577644258215.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/feature.png" />
     </item>
     
     <item>
       <title>DYN 3. Projectile Motion Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/</link>
       <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2010,25 +2968,25 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu13999105778689987923.png 330w,
-        /docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png 660w,
-        /docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu14974553588324427500.png 1024w,
-        /docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu3129130145504408335.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png&#34;
+        /docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/image_hu13999105778689987923.png 330w,
+        /docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png 660w,
+        /docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/image_hu14974553588324427500.png 1024w,
+        /docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/image_hu3129130145504408335.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/image_hu12538984780851019553.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn3.projectilemotion_edited/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/feature.png" />
     </item>
     
     <item>
       <title>DYN 4. N-T Coordinates Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/</link>
       <pubDate>Mon, 24 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/24/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2053,25 +3011,25 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu7893211967565200209.png 330w,
-        /docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png 660w,
-        /docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu8472462913601878249.png 1024w,
-        /docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu4297689936235695212.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png&#34;
+        /docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/image_hu7893211967565200209.png 330w,
+        /docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png 660w,
+        /docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/image_hu8472462913601878249.png 1024w,
+        /docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/image_hu4297689936235695212.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/image_hu11422299664533672993.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/dynamics/dyn4.n-tcoordinates_edited/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/feature.png" />
     </item>
     
     <item>
       <title>EF 1. Coulomb&#39;s Law Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/21/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2097,25 +3055,25 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/image_hu7098555360533024946.png 330w,
-        /docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/image_hu7648078660818927912.png 660w,
-        /docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/image_hu3052726973708541951.png 1024w,
-        /docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/image_hu8723941724131963656.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/image_hu7648078660818927912.png&#34;
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/image_hu7098555360533024946.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/image_hu7648078660818927912.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/image_hu3052726973708541951.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/image_hu8723941724131963656.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/image_hu7648078660818927912.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef1.coulombslaw_edited/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/feature.png" />
     </item>
     
     <item>
       <title>EF 2. Electric Field Edited</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef2.electricfield_edited/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef2.electricfield_edited/</link>
       <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef2.electricfield_edited/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef2.electricfield_edited/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/21/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2138,28 +3096,28 @@ $$&lt;/p&gt;</description>
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;We want the charge to be small so that it does not disturb the object’s charge distribution&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef2.electricfield_edited/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef2.electricfield_edited/feature.png" />
     </item>
     
     <item>
       <title>LPC 8. Dynamic Memory Allocation </title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc8.dynamicmemoryallocation/</link>
       <pubDate>Fri, 07 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc8.dynamicmemoryallocation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/7/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;前面提到过了 Array 中的 Memory 的分配方式是固定的连续内存，而想要修改 Array 的大小则变得困难，这时候就需要通过 Dynamic Memory Allocation 来动态的分布内存&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc8.dynamicmemoryallocation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc8.dynamicmemoryallocation/feature.png" />
     </item>
     
     <item>
       <title>Calculus 8. Methods of Integration</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculus8.methodsofintegration/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/</link>
       <pubDate>Thu, 06 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculus8.methodsofintegration/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 3/6/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2182,15 +3140,15 @@ $$&lt;/p&gt;</description>
 &lt;p&gt;$$
 \left( u(x) v(x) \right)&amp;rsquo; = u&amp;rsquo;(x) v(x) + u(x) v&amp;rsquo;(x)
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus8.methodsofintegration/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/feature.png" />
     </item>
     
     <item>
       <title>EF 9. Resistive Circuits</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/</link>
       <pubDate>Mon, 03 Mar 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;EF9.ResistiveCircuits 
     &lt;div id=&#34;ef9resistivecircuits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -2235,38 +3193,38 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu8924352349811077473.png 330w,
-        /docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png 660w,
-        /docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14812148851474538778.png 1024w,
-        /docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu7439742641865735479.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png&#34;
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu8924352349811077473.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14812148851474538778.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu7439742641865735479.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/EF9.ResistiveCircuits_hu14817147965503634486.png&#34;
         alt=&#34;EF9.ResistiveCircuits.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef9.resistivecircuits/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/feature.png" />
     </item>
     
     <item>
       <title>LPC 7. Arrays</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc7.arrays/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/</link>
       <pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc7.arrays/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 2/22/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;很多情况下，需要连续处理多个值，而分别给他们赋值则显得特别麻烦，于是就需要一种更加高效的数据结构&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc7.arrays/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/feature.png" />
     </item>
     
     <item>
       <title>EF 8. Induction &amp; Inductance</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/</link>
       <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 2/20/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2307,38 +3265,38 @@ $$&lt;/p&gt;</description>
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu7387844013605343016.png 330w,
-        /docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15348448422353166210.png 660w,
-        /docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15379995169890920571.png 1024w,
-        /docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu1971224904868116517.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15348448422353166210.png&#34;
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu7387844013605343016.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15348448422353166210.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15379995169890920571.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu1971224904868116517.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/EF8.Induction&amp;amp;Inductance-1_hu15348448422353166210.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef8.inductioninductance/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/feature.png" />
     </item>
     
     <item>
       <title>LPC 6. Pointers</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc6.pointers/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/</link>
       <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc6.pointers/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 2/20/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;上一章中提到的所有有关于 Function 的内容都是关于一个函数的输入以及输出的，本章将讨论如何在不同函数间访问 Variables&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc6.pointers/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/feature.png" />
     </item>
     
     <item>
       <title>EF 7. Magnetic Fields</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef7.magneticfields/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/</link>
       <pubDate>Sat, 08 Feb 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef7.magneticfields/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 2/8/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2425,15 +3383,15 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
     
 &lt;/h3&gt;
 &lt;p&gt;A uniform magnetic field \(\vec{B}\), with a magnitude of \(1.2 , \text{mT}\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \(5.3 , \text{MeV}\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \(1.67 \times 10^{-27} , \text{kg}\). (Neglect Earth&amp;rsquo;s magnetic field.)&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef7.magneticfields/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/feature.png" />
     </item>
     
     <item>
       <title>EF 6. Current &amp; Resistance</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef6.currentresistance/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/</link>
       <pubDate>Fri, 07 Feb 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef6.currentresistance/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 2/7/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2458,30 +3416,30 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu12897430973313359960.png 330w,
-        /docs/uoft/24/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu13147796366552973561.png 660w,
-        /docs/uoft/24/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu4088479549258487442.png 1024w,
-        /docs/uoft/24/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu7321396153845132530.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu13147796366552973561.png&#34;
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu12897430973313359960.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu13147796366552973561.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu4088479549258487442.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu7321396153845132530.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/EF6.Current&amp;amp;Resistance_hu13147796366552973561.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef6.currentresistance/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/feature.png" />
     </item>
     
     <item>
       <title>EF 5. Capacitance</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef5.capacitance/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef5.capacitance/</link>
       <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef5.capacitance/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef5.capacitance/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 2/6/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Capacitor 电容器是一种储存 Electrical Energy 的装置，由两个相互隔离的导体（即极板）组成，分别带有 +q 和 -q 的电荷&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef5.capacitance/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef5.capacitance/feature.png" />
     </item>
     
     <item>
@@ -2499,10 +3457,10 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
     
     <item>
       <title>LPC 5. Functions</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc5.functions/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc5.functions/</link>
       <pubDate>Tue, 28 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc5.functions/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc5.functions/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/28/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2519,15 +3477,15 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
     
 &lt;/h1&gt;
 &lt;p&gt;Function是用来执行特定任务的可重复调用恶的代码块，通过Modular Programming将复杂问题分解&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc5.functions/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc5.functions/feature.png" />
     </item>
     
     <item>
       <title>EF 4. Electric Potential</title>
-      <link>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef4.electricpotential/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/</link>
       <pubDate>Thu, 23 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef4.electricpotential/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/23/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2552,25 +3510,25 @@ $$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\t
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu3013009443759680203.png 330w,
-        /docs/uoft/24/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu10790805179443622640.png 660w,
-        /docs/uoft/24/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu15032556861933157744.png 1024w,
-        /docs/uoft/24/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu2476701224367274999.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu10790805179443622640.png&#34;
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu3013009443759680203.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu10790805179443622640.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu15032556861933157744.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu2476701224367274999.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/EF4.ElectricPotential_hu10790805179443622640.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/electrical-fundamentals/ef4.electricpotential/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/feature.png" />
     </item>
     
     <item>
       <title>Calculus 9. Series</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculus9.series/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus9.series/</link>
       <pubDate>Wed, 22 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculus9.series/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus9.series/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/22/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -2908,20 +3866,20 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;p&gt;$$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p} + \cdots$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus9.series/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus9.series/feature.png" />
     </item>
     
     <item>
       <title>LPC 4. Repetition</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc4.repetition/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc4.repetition/</link>
       <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc4.repetition/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc4.repetition/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Loops帮助程序节省空间，提高编写效率并减少错误，常见的Loop存在两种，while loop和for loop&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc4.repetition/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc4.repetition/feature.png" />
     </item>
     
     <item>
@@ -3006,10 +3964,10 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     
     <item>
       <title>Calculus A1. Polynomial Interpolation</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculusa1.polynomialinterpolation/</link>
       <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculusa1.polynomialinterpolation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/13/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3040,15 +3998,15 @@ $$L_1(x) := \begin{cases}
 1, &amp;amp; \text{if } x = 1 \
 0, &amp;amp; \text{if } x = 2,
 \end{cases}&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculusa1.polynomialinterpolation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculusa1.polynomialinterpolation/feature.png" />
     </item>
     
     <item>
       <title>LPC 3. Decision Making Statements</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/</link>
       <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/13/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3304,25 +4262,25 @@ $$L_1(x) := \begin{cases}
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu14771444122089271576.png 330w,
-        /docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png 660w,
-        /docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu9341054436462208839.png 1024w,
-        /docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu13158954285452890454.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png&#34;
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu14771444122089271576.png 330w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png 660w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu9341054436462208839.png 1024w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu13158954285452890454.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/LPC3.DecisionMakingStatements_hu3266321974582059814.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc3.decisionmakingstatements/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/feature.png" />
     </item>
     
     <item>
       <title>CAL 11. Complex Number</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculus11.complexnumber/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus11.complexnumber/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculus11.complexnumber/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus11.complexnumber/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/9/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3378,15 +4336,15 @@ $$(bi)^2=b^2\cdot i^2=b^2\cdot -1=-b^2$$&lt;/li&gt;
 &lt;p&gt;Solve the equation \(x^2 +2x+2 = 0\). Using the quadratic formula
 $$z_1 = \frac{-2 + \sqrt{4 - 8}}{2} = -1 + i \quad \text{and} \quad z_2 = \frac{-2 - \sqrt{4 - 8}}{2} = -1 - i.
 $$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus11.complexnumber/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus11.complexnumber/feature.png" />
     </item>
     
     <item>
       <title>LPC 2. Data &amp; Operations</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc2.dataoperations/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc2.dataoperations/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/9/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3444,15 +4402,15 @@ $$&lt;/p&gt;</description>
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;这样操作将会报错，因为&lt;code&gt;InchesToCm&lt;/code&gt;是一个不可以更改的Constant&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc2.dataoperations/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc2.dataoperations/feature.png" />
     </item>
     
     <item>
       <title>Calculus 10. Parametric Equations and Polar Coordinates</title>
-      <link>https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus10.parametricequationsandpolarcoordinates/</link>
       <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus10.parametricequationsandpolarcoordinates/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/8/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3500,15 +4458,15 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
     
 &lt;/h4&gt;
 &lt;p&gt;$$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/calculus/calculus10.parametricequationsandpolarcoordinates/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus10.parametricequationsandpolarcoordinates/feature.png" />
     </item>
     
     <item>
       <title>LPC 1. Intro to Programming Computers</title>
-      <link>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/</link>
       <pubDate>Wed, 08 Jan 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 1/8/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3545,17 +4503,17 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu4440032987239514809.png 330w,
-        /docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu15081779412421026257.png 660w,
-        /docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu17787250618502931940.png 1024w,
-        /docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu12766134372818378964.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu15081779412421026257.png&#34;
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu4440032987239514809.png 330w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu15081779412421026257.png 660w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu17787250618502931940.png 1024w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu12766134372818378964.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/LPC1.IntrotoProgrammingComputers_hu15081779412421026257.png&#34;
         alt=&#34;Img&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/learning-programming-with-c/lpc1.introtoprogrammingcomputers/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/feature.png" />
     </item>
     
     <item>
@@ -3620,36 +4578,36 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
     
     <item>
       <title>D2L 4.1 Multilayer Perceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.1multilayerperceptron/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.1multilayerperceptron/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;“如果微妙的边界条件很重要，我们很可能是在研究数学而非工程”&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.1multilayerperceptron/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.1multilayerperceptron/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.2 Example of MLP</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.2exampleofmlp/</link>
       <pubDate>Fri, 20 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.2exampleofmlp/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/20/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;使用纯MLP参加https://www.kaggle.com/competitions/titanic的Competition&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.2exampleofmlp/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.2exampleofmlp/feature.png" />
     </item>
     
     <item>
       <title>D2L Weierstrass Approximation Theorem</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/weierstrassapproximation/</link>
       <pubDate>Thu, 19 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/weierstrassapproximation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 12/19/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3741,151 +4699,15 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/weierstrassapproximation/feature.png" />
-    </item>
-    
-    <item>
-      <title>MA 2. RealNumber</title>
-      <link>https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/</link>
-      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 12/15/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Real Number 实数 
-    &lt;div id=&#34;real-number-%E5%AE%9E%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#real-number-%E5%AE%9E%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Rational Number 有理数 
-    &lt;div id=&#34;rational-number-%E6%9C%89%E7%90%86%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#rational-number-%E6%9C%89%E7%90%86%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;整数，有限位小数，无限循环小数，分数&lt;/li&gt;
-&lt;li&gt;只要是能被表达为
-$$\frac{p}{q},p,q\in \mathbb z,q\neq 0$$&lt;/li&gt;
-&lt;li&gt;的数都叫做Rational Number&lt;/li&gt;
-&lt;li&gt;也就是说可以被任意两个Nature Number通过加减乘除所得到的数都被称为Rational Number（做除法的时候分母不能为零）&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Irrational Number 无理数 
-    &lt;div id=&#34;irrational-number-%E6%97%A0%E7%90%86%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#irrational-number-%E6%97%A0%E7%90%86%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;Pythagoras Theorem 毕达哥拉斯定理 
-    &lt;div id=&#34;pythagoras-theorem-%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#pythagoras-theorem-%E6%AF%95%E8%BE%BE%E5%93%A5%E6%8B%89%E6%96%AF%E5%AE%9A%E7%90%86&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;在一个直角三角形中，直角边对面的斜边（最长边）的平方等于两个直角边的平方和&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;Contradiction 
-    &lt;div id=&#34;contradiction&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#contradiction&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;在当时并没有Irrational Number的定义，但是表示一个两个直角边长度为一的直角三角形的斜边的时候却出现了问题，即\(1^2+1^2=x^2\)，无法通过一个Rational Number，也就是两个Nature Number的任意四则运算求出这个x&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h4 class=&#34;relative group&#34;&gt;Proof that sqrt 2 isn&amp;rsquo;t Rational Number 
-    &lt;div id=&#34;proof-that-sqrt-2-isnt-rational-number&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#proof-that-sqrt-2-isnt-rational-number&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;Proof By Contradiction&lt;/li&gt;
-&lt;li&gt;假设\(\sqrt 2\)是一个Rational Number，则有\(2=(\frac{p}{q})^2\)，其中p和q是互素的&lt;/li&gt;
-&lt;li&gt;即\(p^2=2q^2\)，已知\(2q^2\)为一个Even Number，则等号另一边的\(p\)也必为一个Even Number（Odd Number的平方为Odd Number）&lt;/li&gt;
-&lt;li&gt;既然p是一个Even Number，则他可以被2整除，即\(p^2\)可以被4整除，同理可以得到\(2|q^2\)&lt;/li&gt;
-&lt;li&gt;那既然p和q都是偶数，很明显他们不可能互素，Contradict，故假设不成立&lt;/li&gt;
-&lt;li&gt;于是证明了Irrational Number的存在&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Define Real Number 
-    &lt;div id=&#34;define-real-number&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#define-real-number&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;首先要知道的是，根号的本质是一个服务幂而创造出的代数运算，其能表达出的Irrational Number的个数几乎可以忽略不计&lt;/li&gt;
-&lt;li&gt;所以定义实数的第一步就是构造出所有Irrational Number，第二步则是定义全序列关系，第三步为定义代数运算，第四步研究拓扑结构（稠密性）&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3 class=&#34;relative group&#34;&gt;Dedekind Cut 
-    &lt;div id=&#34;dedekind-cut&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#dedekind-cut&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;设数集的一个划分\({\alpha,\beta }\)，其中&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/mathematicalanalysis/ma2.realnumber/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
     
     <item>
       <title>ECMS 8. Thermodynamics</title>
-      <link>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms8.thermodynamics/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms8.thermodynamics/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms8.thermodynamics/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms8.thermodynamics/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/25/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -3975,15 +4797,15 @@ $$\Delta S = \frac{q_{REV}}{T}$$&lt;/li&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms8.thermodynamics/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms8.thermodynamics/feature.png" />
     </item>
     
     <item>
       <title>LA 8. Diagonalization and Eigenvalues</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la8.diagonalizationandeigenvalues/</link>
       <pubDate>Mon, 25 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la8.diagonalizationandeigenvalues/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/25/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4040,15 +4862,15 @@ $$Ax=0x=0$$&lt;/li&gt;
 &lt;li&gt;对于Projection Matrix P，其Column Space中的任意Vector都会是一个Eigenvector&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;![[LA8.DiagonalizationandEigenvalues.png]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la8.diagonalizationandeigenvalues/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la8.diagonalizationandeigenvalues/feature.png" />
     </item>
     
     <item>
       <title>LA 7. Orthogonal and Projection</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la7.orthogonalprojection/</link>
       <pubDate>Thu, 21 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la7.orthogonalprojection/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 11/21/2024&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4070,15 +4892,15 @@ $$Ax=0x=0$$&lt;/li&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la7.orthogonalprojection/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la7.orthogonalprojection/feature.png" />
     </item>
     
     <item>
       <title>LA Least Square</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/leastsquare/</link>
       <pubDate>Tue, 19 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/leastsquare/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/19/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4105,15 +4927,15 @@ $$Ax=0x=0$$&lt;/li&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/leastsquare/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/leastsquare/feature.png" />
     </item>
     
     <item>
       <title>ECMS 7. Light and Quantum</title>
-      <link>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms7.lightquantum/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms7.lightquantum/</link>
       <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms7.lightquantum/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms7.lightquantum/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 18/11/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4154,7 +4976,7 @@ $$Ax=0x=0$$&lt;/li&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms7.lightquantum/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms7.lightquantum/feature.png" />
     </item>
     
     <item>
@@ -4326,42 +5148,11 @@ class LinearRegression(Scene):
     </item>
     
     <item>
-      <title>Foreign Exchange</title>
-      <link>https://buezw.github.io/docs/notes/foreignexchange/</link>
-      <pubDate>Wed, 13 Nov 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/notes/foreignexchange/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 11/13/2024&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;交易量最大的市场&lt;/p&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;货币 
-    &lt;div id=&#34;%E8%B4%A7%E5%B8%81&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E8%B4%A7%E5%B8%81&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/Economic_Static/ForeignExchange/ForeignExchange%E5%A4%96%E6%B1%87.png&#34; alt=&#34;Img&#34; /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/foreignexchange/feature.png" />
-    </item>
-    
-    <item>
       <title>MCMS 6. Plastics</title>
-      <link>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms6.plastics/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms6.plastics/</link>
       <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms6.plastics/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms6.plastics/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/10/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4403,7 +5194,7 @@ class LinearRegression(Scene):
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms6.plastics/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms6.plastics/feature.png" />
     </item>
     
     <item>
@@ -4778,10 +5569,10 @@ class LinearRegression(Scene):
     
     <item>
       <title>LA 6. Determinants</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la6.determiants/</link>
       <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la6.determiants/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 10/24/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4807,7 +5598,7 @@ class LinearRegression(Scene):
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la6.determiants/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la6.determiants/feature.png" />
     </item>
     
     <item>
@@ -4836,10 +5627,10 @@ class LinearRegression(Scene):
     
     <item>
       <title>MCMS 5. Further On Stress Strain</title>
-      <link>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</link>
       <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms5.furtheronstressstrain/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 10/16/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -4900,15 +5691,15 @@ class LinearRegression(Scene):
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms5.furtheronstressstrain/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms5.furtheronstressstrain/feature.png" />
     </item>
     
     <item>
       <title>LA 1. Vector Line &amp; Plane</title>
-      <link>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la1.vectorlineplane/</link>
       <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la1.vectorlineplane/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 11/26/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5026,15 +5817,15 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;p&gt;$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/linearalgebra/la1.vectorlineplane/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la1.vectorlineplane/feature.png" />
     </item>
     
     <item>
       <title>ECMS 4. The Structure Property</title>
-      <link>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms4.thestructureproperty/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms4.thestructureproperty/</link>
       <pubDate>Wed, 25 Sep 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms4.thestructureproperty/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms4.thestructureproperty/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 9/25/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5056,15 +5847,15 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms4.thestructureproperty/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms4.thestructureproperty/feature.png" />
     </item>
     
     <item>
       <title>ECMS 2. Elastic Behavior</title>
-      <link>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms2.elasticbehavior/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms2.elasticbehavior/</link>
       <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms2.elasticbehavior/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms2.elasticbehavior/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 9/24/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5081,15 +5872,15 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;p&gt;$$F=kx$$&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms2.elasticbehavior/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms2.elasticbehavior/feature.png" />
     </item>
     
     <item>
       <title>ECMS 3. Plastic Deformation</title>
-      <link>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms3.plasticdeformation/</link>
+      <link>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms3.plasticdeformation/</link>
       <pubDate>Mon, 23 Sep 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms3.plasticdeformation/</guid>
+      <guid>https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms3.plasticdeformation/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 9/23/24&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -5157,125 +5948,68 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24/engineering-chemistry--materials-science/ecms3.plasticdeformation/feature.png" />
-    </item>
-    
-    <item>
-      <title>Inflation 通货膨胀</title>
-      <link>https://buezw.github.io/docs/notes/inflation/</link>
-      <pubDate>Thu, 04 Jul 2024 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/notes/inflation/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit 7/4/24&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;通货膨胀 
-    &lt;div id=&#34;%E9%80%9A%E8%B4%A7%E8%86%A8%E8%83%80&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E9%80%9A%E8%B4%A7%E8%86%A8%E8%83%80&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;钱的贬值&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h1 class=&#34;relative group&#34;&gt;CPI Consumer Price Index 消费者物价指数 
-    &lt;div id=&#34;cpi-consumer-price-index-%E6%B6%88%E8%B4%B9%E8%80%85%E7%89%A9%E4%BB%B7%E6%8C%87%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#cpi-consumer-price-index-%E6%B6%88%E8%B4%B9%E8%80%85%E7%89%A9%E4%BB%B7%E6%8C%87%E6%95%B0&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h1&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;美国CPI 
-    &lt;div id=&#34;%E7%BE%8E%E5%9B%BDcpi&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E7%BE%8E%E5%9B%BDcpi&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;
-    &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/Economic_Static/Inflation/Inflation%282%29.png&#34; alt=&#34;Img&#34; /&gt;
-      
-    &lt;/figure&gt;
-&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/notes/inflation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms3.plasticdeformation/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.1 Linear Regression</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.1linearregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.1linearregression/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit 4/15/24&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.1_linearregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.1linearregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.2 Object-Oriented Design for Implementation</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.2object-orienteddesignforimplementation/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.2object-orienteddesignforimplementation/</guid>
       <description>&lt;p&gt;从零开始实现整个方法， 包括数据流水线、模型、损失函数和小批量随机梯度下降优化器。 虽然现代的深度学习框架几乎可以自动化地进行所有这些工作，但从零开始实现可以确保我们真正知道自己在做什么。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.2_object-orienteddesignforimplementation/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.2object-orienteddesignforimplementation/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.3 A concise implementation of linear regression</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.3syntheticregressiondat/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.3syntheticregressiondat/</guid>
       <description>&lt;p&gt;本节将介绍如何通过使用深度学习框架来简洁地实现[[3.2_Object-OrientedDesignforImplementation]]中的线性回归模型&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.3_syntheticregressiondat/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.3syntheticregressiondat/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.4 Softmax Regression</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.4softmaxregression/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.4softmaxregression/</guid>
       <description>&lt;p&gt;回归可以用于预测_多少_的问题。 比如预测房屋被售出价格，或者棒球队可能获得的胜场数，又或者患者住院的天数。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.4_softmaxregression/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.4softmaxregression/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.5 Image classification datasets</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.5imageclassificationdatasets/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.5imageclassificationdatasets/</guid>
       <description>&lt;p&gt;MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id90&#34;title=&#34;LeCun, Y., Bottou, L., Bengio, Y., Haffner, P., &amp;amp; others. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324.&#34; target=&#34;_blank&#34;&gt;LeCun &lt;em&gt;et al.&lt;/em&gt;, 1998&lt;/a&gt;) 是图像分类中广泛使用的数据集之一，但作为基准数据集过于简单。 我们将使用类似但更复杂的Fashion-MNIST数据集 (&lt;a href=&#34;https://zh-v2.d2l.ai/chapter_references/zreferences.html#id189&#34;title=&#34;Xiao, H., Rasul, K., &amp;amp; Vollgraf, R. (2017). Fashion-mnist: a novel image dataset for benchmarking machine learning algorithms. arXiv preprint arXiv:1708.07747.&#34; target=&#34;_blank&#34;&gt;Xiao &lt;em&gt;et al.&lt;/em&gt;, 2017&lt;/a&gt;)。&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.5_imageclassificationdatasets/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.5imageclassificationdatasets/feature.png" />
     </item>
     
     <item>
       <title>D2L 3.6 Implementation of softmax regression from scratch</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.6implementationofsoftmaxregressionfromscratch/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.6implementationofsoftmaxregressionfromscratch/</guid>
       <description>&lt;h2 class=&#34;relative group&#34;&gt;3.6.1 初始化模型参数 
     &lt;div id=&#34;361-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -5337,27 +6071,27 @@ $$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;
 &lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;keepdim=True: 在进行张量操作时，保持原始张量的维度&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter3linearneuralnetwork/3.6_implementationofsoftmaxregressionfromscratch/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.6implementationofsoftmaxregressionfromscratch/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.1 MultilayerPerceptron</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/</guid>
       <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.3_simpleimplementationofmultilayerperceptron/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/feature.png" />
     </item>
     
     <item>
       <title>D2L 4.4 Model Selection, Underfitting, and Overfitting</title>
-      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</link>
+      <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.4modelselectionunderfittingandoverfitting/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/</guid>
+      <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.4modelselectionunderfittingandoverfitting/</guid>
       <description>&lt;p&gt;深度学习的目的是发现Pattern，即做到模型的Generalization 泛化&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l_chapter4multilayerperceptron/4.4_modelselectionunderfittingandoverfitting/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.4modelselectionunderfittingandoverfitting/feature.png" />
     </item>
     
     <item>

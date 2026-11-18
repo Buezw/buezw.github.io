@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPC 7. Arrays | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ex-find-avg-of-an-array">ex. Find Avg of an array</a>
+      <ul>
+        <li><a href="#array-index-range-error">Array Index Range Error</a></li>
+      </ul>
+    </li>
+    <li><a href="#711-ex-reverse-the-elements-in-an-array">7.1.1 ex. Reverse the Elements in an Array</a></li>
+    <li><a href="#712-summary-of-important-features-of-arrays">7.1.2 Summary of Important Features of Arrays</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#721-pointer-arithmetic">7.2.1 Pointer Arithmetic</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#731-size-of-array-in-a-function-is-unknown">7.3.1 Size of array in a function is unknown</a></li>
+    <li><a href="#732-can-i-use-the-pointer-syntax-too-">7.3.2 Can I use the pointer syntax too ?</a></li>
+    <li><a href="#733-are-we-passing-the-array-by-value-or-by-pointers-">7.3.3 Are we passing the array by value or by pointers ?</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>LPC 7. Arrays</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                February 22, 2025
+                <span style="margin: 0 10px;">&middot;</span> 
+                2196 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 2/22/25</p>
+</blockquote>
+<p>很多情况下，需要连续处理多个值，而分别给他们赋值则显得特别麻烦，于是就需要一种更加高效的数据结构</p>
+
+
+<h1 class="relative group">7.1 Why and how to use arrays ? 
+    <div id="71-why-and-how-to-use-arrays-" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#71-why-and-how-to-use-arrays-" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>假设现在需要统计全班 400 个人的成绩，不可能创建 400 个 Varibale 将成绩和名称一一赋值，更高效的做法是创建一个 Array</li>
+<li>通过 <code>int grades[7]</code> 就可以 Declare 一个 Array</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays_hu6416909897954107768.png 330w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays_hu16234569667681322905.png 660w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays_hu17353925654232079680.png 1024w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays_hu453781727144915796.png 2x"
+        src="/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays_hu16234569667681322905.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>想要挨个指定 Array 内 Element 的值，则需要挨个指定</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">grades</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">grades</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">95</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">grades</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">67</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">grades</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">grades</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="mi">72</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">grades</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">101</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">grades</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>在 C 语言中，访问 Array 的第一个值，需要用 0 作为 Index</li>
+<li>如果不想要一一赋值，可以直接 Initialize Array，直接 `int grades[7] = {100,95,67,99,72,101,200}  就可以完成定义并赋值</li>
+<li>对于 Array 来说，他的 Size 在整个程序中都是固定的，定义他的大小的方式有很多种</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define SIZE 7
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="n">SIZE</span><span class="p">];</span>  <span class="c1">// 等价于 int arr[7];
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">SIZE</span><span class="p">;</span>   <span class="c1">// 等价于 int x = 7;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>使用 Macro <code>#define</code> 作为宏定义，他的作用是给 7 取了个 Alias 别名 叫做 <code>SIZE</code>，这样在运行的时候，所有 <code>SIZE</code> 都会被替换成 7</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="kt">int</span> <span class="n">Size</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="n">Size</span><span class="p">];</span>  <span class="c1">// 在某些编译器中可能不合法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Size</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>或者常规的使用 <code>const</code> 来定义</li>
+</ul>
+
+
+<h2 class="relative group">ex. Find Avg of an array 
+    <div id="ex-find-avg-of-an-array" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-find-avg-of-an-array" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>整体思路就是累加 Array 的每一个元素，后将和处以元素个数</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define SIZE 7 
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">grades</span><span class="p">[</span><span class="n">SIZE</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">100</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">200</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">avg</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">grades</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">avg</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">sum</span> <span class="o">/</span> <span class="n">SIZE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Average is %.2lf&#34;</span><span class="p">,</span> <span class="n">avg</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>对于上面的常规遍历操作，会出现以下常见问题</li>
+</ul>
+
+
+<h3 class="relative group">Array Index Range Error 
+    <div id="array-index-range-error" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#array-index-range-error" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>想要遍历整个 Array，正确的 index 应该是 <code>0</code> 到 <code>SIZE - 1</code>，也就是说 Array 的最后一个元素是 <code>SIZE - 1</code>，若遍历为 <code>index &lt;= SIZE</code> 则会出现越界错误</li>
+<li>同样的，Array 的 start point 也是 <code>index = 0</code>，要从 0 开始不然无法访问到第一个元素</li>
+<li>还有就是要将 <code>sum</code> 定义成 <code>double</code> 类型以确保除法不会出现精度问题</li>
+</ul>
+
+
+<h2 class="relative group">7.1.1 ex. Reverse the Elements in an Array 
+    <div id="711-ex-reverse-the-elements-in-an-array" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#711-ex-reverse-the-elements-in-an-array" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-1_hu8361909463790427356.png 330w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-1_hu18268983265032949979.png 660w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-1_hu1830986938539322733.png 1024w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-1_hu11644948335096504897.png 2x"
+        src="/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-1_hu18268983265032949979.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>这里有很多种方法，书中采取了 Swap 的办法，即把 Low 和 High 配对然后 Swap</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define SIZE 6
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">arr</span><span class="p">[</span><span class="n">SIZE</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">      <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d, &#34;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">high</span> <span class="o">=</span> <span class="n">SIZE</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">low</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">;</span> <span class="n">low</span><span class="o">++</span><span class="p">,</span> <span class="n">high</span><span class="o">--</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">low</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">[</span><span class="n">low</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">high</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="p">[</span><span class="n">high</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">SIZE</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d, &#34;</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">  <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group">7.1.2 Summary of Important Features of Arrays 
+    <div id="712-summary-of-important-features-of-arrays" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#712-summary-of-important-features-of-arrays" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>以下总结了一些重要的 Array 的注意事项</li>
+<li>第一个元素从 Index = 0 开始</li>
+<li>当 Declaring Array 的时候，不是一定需要将 <code>SIZE</code> 给到 <code>[]</code> 中，因为 Compiler 编译器会自动计算 Array 中的元素个数</li>
+<li>当 SIZE 大小大于实际元素的时候，如 <code>int array [5] = {1,2}</code> 的情况下，实际上它相当于 <code>int array [5] = {1,2,0,0,0}</code> 的效果，不会报错</li>
+<li>同样的，当 SIZE 小于实际元素的时候，如 <code>int array [5] = {1,2,3,4,5,6}</code> 的情况下，程序会提示 <code>warning: excess elements in array initializer</code></li>
+<li>当访问的 index 超出 Array 有的 Elements 个数的时候，会得到 Segmentation Fault</li>
+</ul>
+
+
+<h1 class="relative group">7.2 What are arrays, and how are they stored ? 
+    <div id="72-what-are-arrays-and-how-are-they-stored-" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#72-what-are-arrays-and-how-are-they-stored-" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>当使用 Array 的时候，所有元素会被 Contiguously Stored in the main memory</li>
+<li>假设有 <code>int x[3] = {1,7,3}</code>，首先这是一个 <code>int</code> Array，而一个 <code>int</code> 在 Memory 中会占用 4 Bytes，所以从 Array 的第一个 Element 开始，每一个 Element 都会间隔 4 个 Bytes</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-2_hu5954164754075201812.png 330w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-2_hu15019530488903507414.png 660w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-2_hu8290459038783935134.png 1024w,
+        /docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-2_hu10540631729405651127.png 2x"
+        src="/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/LPC7.Arrays-2_hu15019530488903507414.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>既然 Elements 之间是 Contiguously 的，那么可以发现，Array 自身的名字本质上就是一个指向 Array 中第一个元素的 Pointer，即 <code>x == &amp;x[0]</code></li>
+<li>既然 Array 的本质就是 Pointer，那么就有 <code>x+1</code> 等价于 <code>&amp;x[1]</code>，总结就是</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">==</span> <span class="o">*</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+</span></span></code></pre></div><ul>
+<li>Array 的第 i 个元素等价于 <code>x+i</code> 的解引用等价于 Array 的 index 为 i 的元素的 Address 的解引用</li>
+</ul>
+
+
+<h2 class="relative group">7.2.1 Pointer Arithmetic 
+    <div id="721-pointer-arithmetic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#721-pointer-arithmetic" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>明白了 Array Identifier 是一个指向第一个 Element 的 Pointer 后，Pointer Arithmetic 在理解 Array 中的 Elements 是如何连 Contiguously Stored 在 Memory 中有很重要的作用</li>
+</ul>
+<blockquote>
+<p>简单来说，Pointer 和正常的 Variable 不一样，它有着自己的加减乘除方法</p>
+</blockquote>
+<ul>
+<li>假设有一个 <code>int x[] = {1,7,3}</code>，现在有如下代码</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>  <span class="c1">// 定义数组 x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>           <span class="c1">// 指针 q 指向 x[2]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">dist</span> <span class="o">=</span> <span class="n">q</span> <span class="o">-</span> <span class="n">x</span><span class="p">;</span>         <span class="c1">// 计算指针之间的偏移量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Dist is %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">dist</span><span class="p">);</span> <span class="c1">// 输出偏移量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>注意这里的 dist 是两个 Pointer 之间的差而不再是普通的值运算，他的值为
+$$Dist =\frac{80-72}{4}$$</li>
+<li>这是因为 Pointer 之间的加减运算以 Data Type 作为单位，而不是 Bytes，或者说 Pointer 之间计算的差值为 Number of Elements 而不是 Address 的 Bytes Difference</li>
+<li>这里由于一个 <code>int</code> 为 4 Bytes，所以需要处以 4 作为单位长度</li>
+</ul>
+
+
+<h1 class="relative group">7.3 How do we pass an Array to a function ? 
+    <div id="73-how-do-we-pass-an-array-to-a-function-" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#73-how-do-we-pass-an-array-to-a-function-" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>在 C 语言中，将 Array 传递给 Function 实际上是传递 Array 第一个 Element 的 Pointer 给到 Function 中，这意味着，Array 本身并不会被复制，因为 Function 接收到的是 Pointer 指向的 Address，Function 内部对 Array 的修改会影响到原 Array，因为他们用的是同一块 Memory</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">double</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="p">[]);</span> <span class="c1">// 声明函数，接受一个整数数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>  <span class="c1">// 定义一个数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">double</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>  <span class="c1">// 传递数组 x 给函数 f
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">double</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="n">list</span><span class="p">[]){</span>  <span class="c1">// 这里 list[] 实际上是指针
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// statements;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group">7.3.1 Size of array in a function is unknown 
+    <div id="731-size-of-array-in-a-function-is-unknown" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#731-size-of-array-in-a-function-is-unknown" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>前面提到了，Array 作为一个参数被传入的时候，本质上是传入了指向 First Element 的 Address 的 Pointer，这导致了 Function 并不知道 Array 的实际大小</li>
+<li>这就使得想要让 Function 知道 Array 的 Size，必须将 Size 也作为参数传入</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">sumData</span><span class="p">(</span><span class="kt">int</span><span class="p">[],</span> <span class="k">const</span> <span class="kt">int</span><span class="p">);</span> <span class="c1">// 函数声明
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>  <span class="c1">// 定义数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">sumData</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>  <span class="c1">// 传递数组和大小
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Sum of elements in the array: %d.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sumData</span><span class="p">(</span><span class="kt">int</span> <span class="n">list</span><span class="p">[],</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">list</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>  <span class="c1">// 累加数组元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>可以发现在 <code>int sumData(int[], const int);</code> 部分，指定了 Size 作为参数的传入</li>
+</ul>
+
+
+<h2 class="relative group">7.3.2 Can I use the pointer syntax too ? 
+    <div id="732-can-i-use-the-pointer-syntax-too-" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#732-can-i-use-the-pointer-syntax-too-" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>因为 Array Identifiers 本质上是 Pointer，所以在 Function 内部，<code>*(list + index)</code> 也和 <code>list[index]</code> 等效</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">sumData</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span> <span class="c1">// 使用指针表示数组参数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">sumData</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>  <span class="c1">// 传递数组 x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Sum of elements in the array: %d.</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">sumData</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">list</span><span class="p">,</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>  
+</span></span><span class="line"><span class="cl">        <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="o">*</span><span class="p">(</span><span class="n">list</span> <span class="o">+</span> <span class="n">index</span><span class="p">);</span>  <span class="c1">// 使用指针偏移代替数组索引
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>可以看到 <code>sumData(int*, int);</code> 直接声明了接受 Pointer，而在 Function 内部则通过偏移量来遍历 Array</li>
+<li>这也说明了 <code>int list[]</code> 和 <code>int* list</code> 的等效，无论用这两个的其中哪一个，他们都指向的是 <code>x[0]</code> 所对应的 Address</li>
+</ul>
+
+
+<h2 class="relative group">7.3.3 Are we passing the array by value or by pointers ? 
+    <div id="733-are-we-passing-the-array-by-value-or-by-pointers-" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#733-are-we-passing-the-array-by-value-or-by-pointers-" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>下面的例子在其强调了对 Array 的操作都是基于 Address 的特殊性</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span><span class="p">[],</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>  <span class="c1">// 交换数组中两个元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span><span class="p">[],</span> <span class="k">const</span> <span class="kt">int</span><span class="p">);</span> <span class="c1">// 打印数组元素
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">};</span>  
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;Before swapping: &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printArray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nf">swap</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span> <span class="c1">// 交换 x[0] 和 x[4]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;After swapping: &#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printArray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 交换 list[i] 和 list[j]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span><span class="kt">int</span> <span class="n">list</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">int</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 遍历并打印数组
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="kt">int</span> <span class="n">list</span><span class="p">[],</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">;</span> <span class="n">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d &#34;</span><span class="p">,</span> <span class="n">list</span><span class="p">[</span><span class="n">index</span><span class="p">]);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>这就说明了代码中，无论是 <code>x</code> 还是 <code>list</code>，拿到的都是同一个 Array 的同一系列地址</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2025 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

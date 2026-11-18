@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA 7. Orthogonal and Projection | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1250px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:1313/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#正交向量orthogonal-vectors">正交向量Orthogonal vectors</a></li>
+    <li><a href="#orthogonal-subspaces-正交子空间">Orthogonal Subspaces 正交子空间</a>
+      <ul>
+        <li><a href="#nullspace-is-perpendicular-to-row-space-零空间与行空间正交">Nullspace is perpendicular to row space 零空间与行空间正交</a></li>
+        <li><a href="#orthogonal-complements-正交补">Orthogonal complements 正交补</a></li>
+      </ul>
+    </li>
+    <li><a href="#orthonormal">Orthonormal</a></li>
+    <li><a href="#ata">ATA</a></li>
+    <li><a href="#projections-in-2d-2d中的投影">Projections in 2D 2D中的投影</a></li>
+    <li><a href="#projection-matrix-in-2d">Projection Matrix in 2D</a>
+      <ul>
+        <li><a href="#property-of-projection-投影的性质">Property of projection 投影的性质</a></li>
+        <li><a href="#symmetry-对称性">Symmetry 对称性</a></li>
+        <li><a href="#apply-twice">Apply Twice</a></li>
+      </ul>
+    </li>
+    <li><a href="#closest-vector-最短向量">Closest vector 最短向量</a>
+      <ul>
+        <li><a href="#closest-vector-theorem">Closest Vector Theorem</a></li>
+        <li><a href="#proof">Proof</a></li>
+      </ul>
+    </li>
+    <li><a href="#orthogonal-projection-正交投影">Orthogonal projection 正交投影</a>
+      <ul>
+        <li><a href="#orthogonal-projection-formula-正交投影公式">Orthogonal Projection Formula 正交投影公式</a></li>
+        <li><a href="#projection-matrix-正交投影矩阵">Projection Matrix 正交投影矩阵</a></li>
+        <li><a href="#case-when-b-is-in-column-space-a">Case when b is in column Space A</a></li>
+        <li><a href="#case-when-b-orthorgal-to-column-space-a">Case when b orthorgal to column Space A</a></li>
+        <li><a href="#orthogonal-projection-matrix-in-orthogonal-basis-矩阵为正交矩阵的正交投影矩阵">Orthogonal Projection Matrix in Orthogonal Basis 矩阵为正交矩阵的正交投影矩阵</a></li>
+      </ul>
+    </li>
+    <li><a href="#orthogonal-matrix-正交矩阵">Orthogonal Matrix 正交矩阵</a>
+      <ul>
+        <li><a href="#orthogonal-matrix-正交矩阵-1">Orthogonal Matrix 正交矩阵</a></li>
+        <li><a href="#orthogonal-transformations-preserve-orthogonality-角度不变性">Orthogonal transformations preserve orthogonality 角度不变性</a>
+          <ul>
+            <li><a href="#proof-1">Proof</a></li>
+          </ul>
+        </li>
+        <li><a href="#orthogonal-linear-transformations-preserves-dot-product-点积不变性">Orthogonal linear transformations preserves dot product 点积不变性</a>
+          <ul>
+            <li><a href="#proof-2">Proof</a></li>
+          </ul>
+        </li>
+        <li><a href="#converse-statement-of-orthogonal-linear-transformation-逆命题的成立">Converse statement of orthogonal linear transformation 逆命题的成立</a></li>
+        <li><a href="#orthogonal-transformations-and-orthonormal-bases-正交基底保证正交变换">Orthogonal transformations and orthonormal bases 正交基底保证正交变换</a>
+          <ul>
+            <li><a href="#proof-3">Proof</a></li>
+          </ul>
+        </li>
+        <li><a href="#hadamard-matrix">Hadamard Matrix</a></li>
+      </ul>
+    </li>
+    <li><a href="#gram-schmidt-施密特正交化">Gram-Schmidt 施密特正交化</a>
+      <ul>
+        <li><a href="#third-vector">Third Vector</a></li>
+        <li><a href="#ex-two-vectors">ex. Two Vectors</a></li>
+      </ul>
+    </li>
+    <li><a href="#least-squares-最小二乘">Least Squares 最小二乘</a></li>
+    <li><a href="#矩阵ata">矩阵ATA</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>LA 7. Orthogonal and Projection</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                November 21, 2024
+                <span style="margin: 0 10px;">&middot;</span> 
+                5753 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit 11/21/2024</p>
+</blockquote>
+
+
+<h2 class="relative group">正交向量Orthogonal vectors 
+    <div id="%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8Forthogonal-vectors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%AD%A3%E4%BA%A4%E5%90%91%E9%87%8Forthogonal-vectors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection-3.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>正交就是垂直（perpendicular）的另一种说法</li>
+<li>两向量正交的判据之一是其点 积\(x^Ty=y^Tx\)=0</li>
+<li>当两个向量的夹角为90度时，按照勾股定理（毕达哥拉斯定理 Pythagorean theorem）x，y满足</li>
+</ul>
+<div>
+$$\|\mathbf{x}\|^2 + \|\mathbf{y}\|^2 = \|\mathbf{x} + \mathbf{y}\|^2 ,||\mathbf{x}\|^2 = \mathbf{x}^T \mathbf{x}$$
+</div>
+<ul>
+<li>零向量与所有向量都正交</li>
+</ul>
+
+
+<h2 class="relative group">Orthogonal Subspaces 正交子空间 
+    <div id="orthogonal-subspaces-%E6%AD%A3%E4%BA%A4%E5%AD%90%E7%A9%BA%E9%97%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-subspaces-%E6%AD%A3%E4%BA%A4%E5%AD%90%E7%A9%BA%E9%97%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection-2.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>图中绘制空间成90度角，这是表示这两个空间正交</li>
+<li>子空间S与子空间T正交，则S中的任意一个向量都和T中的任意向量正交</li>
+</ul>
+
+
+<h3 class="relative group">Nullspace is perpendicular to row space 零空间与行空间正交 
+    <div id="nullspace-is-perpendicular-to-row-space-%E9%9B%B6%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%A1%8C%E7%A9%BA%E9%97%B4%E6%AD%A3%E4%BA%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nullspace-is-perpendicular-to-row-space-%E9%9B%B6%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%A1%8C%E7%A9%BA%E9%97%B4%E6%AD%A3%E4%BA%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>矩阵A的行空间和它的零空间正交。若x在零空间内，则有Ax=0</li>
+</ul>
+<div>
+$$\begin{bmatrix}
+\text{row}_1 \\
+\text{row}_2 \\
+\vdots \\
+\text{row}_m
+\end{bmatrix} \times \mathbf{x} = \begin{bmatrix}
+\text{row}_1 \cdot \mathbf{x} \\
+\text{row}_2 \cdot \mathbf{x} \\
+\vdots \\
+\text{row}_m \cdot \mathbf{x}
+\end{bmatrix} = \begin{bmatrix}
+0 \\
+0 \\
+\vdots \\
+0
+\end{bmatrix}
+$$
+</div>
+<ul>
+<li>x与矩阵A的行向量点积都等于0，则它和矩阵A行向量的线性组合进行点积也为0，所以x与A的行空间正交</li>
+<li>同理可以证明列空间与左零空间正交</li>
+</ul>
+
+
+<h3 class="relative group">Orthogonal complements 正交补 
+    <div id="orthogonal-complements-%E6%AD%A3%E4%BA%A4%E8%A1%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-complements-%E6%AD%A3%E4%BA%A4%E8%A1%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>行空间和零空间不仅仅是正交，并且其维数之和等于n，我们称行空间和零空间为\(R^n\)空间内的正交补 Orthogonal complements</li>
+</ul>
+
+
+<h2 class="relative group">Orthonormal 
+    <div id="orthonormal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthonormal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>如果矩阵的列向量是互相垂直的单位向量，则它们一定是线性无关的</li>
+<li>我们将这种向量称之为标准正交（orthonormal）</li>
+</ul>
+<div>
+$$例如\begin{bmatrix}
+1 \\
+0 \\
+0 
+\end{bmatrix}
+,
+\begin{bmatrix}
+0 \\
+1\\
+0 
+\end{bmatrix},
+\begin{bmatrix}
+0 \\
+0 \\
+1 
+\end{bmatrix}
+还有
+\begin{bmatrix}
+\cos \theta \\
+\sin \theta
+\end{bmatrix}
+,
+\begin{bmatrix}
+\cos \theta \\
+\sin \theta
+\end{bmatrix}$$
+## Orthonormal Vectors 标准正交向量
+$$q_i^T q_j = 
+\begin{cases} 
+0 & \text{若 } i \neq j \\
+1 & \text{若 } i = j 
+\end{cases}$$
+</div>
+<ul>
+<li>指的是单位长度为1的（Unit Vector）</li>
+</ul>
+
+
+<h2 class="relative group">ATA 
+    <div id="ata" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ata" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>下面讨论如何求解一个无解方程组Ax=b的解</li>
+<li>它是一个\(n\times n\)方阵，并且是对称阵\((A^TA)^T=(A^TA)\)</li>
+<li>本章的核心内容就是当Ax=b无解的时候，求解\(A^TAx\)=\(A^Tb\)得到最优解</li>
+</ul>
+<div>
+$$例：A = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 5 \end{bmatrix}, \quad \text{则} \ A^T A = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 5 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 5 \end{bmatrix} = \begin{bmatrix} 3 & 8 \\ 8 & 30 \end{bmatrix} \text{是可逆的矩阵。}
+$$
+</div>
+<ul>
+<li>但是矩阵\(A^TA\)并不总是可逆</li>
+</ul>
+<div>
+$$例：A = \begin{bmatrix} 1 & 3 \\ 1 & 3 \\ 1 & 3 \end{bmatrix}, \quad \text{则} \ A^T A = \begin{bmatrix} 1 & 1 & 1 \\ 3 & 3 & 3 \end{bmatrix} \begin{bmatrix} 1 & 3 \\ 1 & 3 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 3 & 9 \\ 9 & 27 \end{bmatrix} \text{是不可逆矩阵。}
+$$
+</div>
+
+
+<h2 class="relative group">Projections in 2D 2D中的投影 
+    <div id="projections-in-2d-2d%E4%B8%AD%E7%9A%84%E6%8A%95%E5%BD%B1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#projections-in-2d-2d%E4%B8%AD%E7%9A%84%E6%8A%95%E5%BD%B1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>投影的几何解释便是：在向量a的方向上寻找与向量b距离最近的一 点</li>
+<li>这个距离最近的点p就位于穿过b点并与向量a正交的直线 与向量a所在直线的交点上</li>
+<li>则p就是b在a上的投影</li>
+<li>如果我们将向量p视为b 的一种近似，则长度e=b-p就是这一近似的误差</li>
+<li>于是便有方程\(a^T(b-xa)=0\)</li>
+</ul>
+<blockquote>
+<p>因为向量a和b是列向量，在计算它们的点积（即内积）时，通常需要将其中一个向量转置成行向量，这样才能进行矩阵乘法并得到标量</p>
+</blockquote>
+<ul>
+<li>解得</li>
+</ul>
+<div>
+$$\begin{equation}
+x = \frac{\mathbf{a}^T \mathbf{b}}{\mathbf{a}^T \mathbf{a}}, \quad p = a x = \mathbf{a} \frac{\mathbf{a}^T \mathbf{b}}{\mathbf{a}^T \mathbf{a}}.
+\end{equation}
+$$
+</div>
+<ul>
+<li>如果方程的自变量发生改变，p的改变量</li>
+<li>如果b变为原来的2倍，则p也变为原来的2倍</li>
+<li>而如果a变为原来的2倍， p不发生变化 （从几何角度考虑也很合理）</li>
+</ul>
+
+
+<h2 class="relative group">Projection Matrix in 2D 
+    <div id="projection-matrix-in-2d" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#projection-matrix-in-2d" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div>
+$$proj_p=Pb$$
+</div>
+<ul>
+<li>其中P为投影矩阵</li>
+</ul>
+<div>
+$$\begin{equation}
+p = a x = a \frac{\mathbf{a}^T \mathbf{b}}{\mathbf{a}^T \mathbf{a}}. \quad \text{则有} \quad P = \frac{\mathbf{a} \mathbf{a}^T}{\mathbf{a}^T \mathbf{a}}.
+\end{equation}
+$$
+</div>
+<ul>
+<li><strong>其分子\(aa^T\)是一个矩阵，而分母\(a^Ta\)是一个数</strong></li>
+<li>观察这个矩阵可知，矩阵P的列空间就是向量a所在的直线</li>
+<li>矩阵的秩是1 (直线)</li>
+</ul>
+
+
+<h3 class="relative group">Property of projection 投影的性质 
+    <div id="property-of-projection-%E6%8A%95%E5%BD%B1%E7%9A%84%E6%80%A7%E8%B4%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-of-projection-%E6%8A%95%E5%BD%B1%E7%9A%84%E6%80%A7%E8%B4%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">Symmetry 对称性 
+    <div id="symmetry-%E5%AF%B9%E7%A7%B0%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#symmetry-%E5%AF%B9%E7%A7%B0%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对P做一次转置，其还是P</li>
+<li>则P是对称矩阵</li>
+</ul>
+
+
+<h3 class="relative group">Apply Twice 
+    <div id="apply-twice" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#apply-twice" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>如果做两次投影则有P2b=Pb，这是因为 第二次投影还在原来的位置。</li>
+<li>因此矩阵P有如下性质：<strong>\(P^T=P,P^2=P\)</strong></li>
+</ul>
+
+
+<h2 class="relative group">Closest vector 最短向量 
+    <div id="closest-vector-%E6%9C%80%E7%9F%AD%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#closest-vector-%E6%9C%80%E7%9F%AD%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>方程Ax=b有可能无解</li>
+<li>当出现比Unknown更多的Equations的时候，只能求解最优解</li>
+<li>Ax一定在矩阵A的列空间之内，但是b不一定，</li>
+<li>p是b在Colunm Space上的Projection，所以其是最优解</li>
+<li>将问题转化为求解\(A\hat x=p\)</li>
+</ul>
+
+
+<h3 class="relative group">Closest Vector Theorem 
+    <div id="closest-vector-theorem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#closest-vector-theorem" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Suppose V is a subspace of Rn and \(\vec x ∈ R^n\). The closest vector in V to \(\vec x\) is given by \(ProjV (\vec x )\)</li>
+<li>In other words, \(|\text{Proj}_V(\vec{x}) - \vec{x}| \leq |\vec{v} - \vec{x}|~\text{for any } \vec{v} \in V\)</li>
+</ul>
+<blockquote>
+<p>投影的方向到向量上最短的点就是其在改方向上的投影到向量的距离</p>
+</blockquote>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection-8.png" alt="Img" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Proof 
+    <div id="proof" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div>
+$$\|\vec{v} - \vec{x}\|^2 = \|\vec{v} + \text{Proj}_V(\vec{x}) - \text{Proj}_V(\vec{x}) - \vec{x}\|^2 \\
+= \|\vec{v} - \text{Proj}_V(\vec{x}) + \text{Proj}_V(\vec{x}) - \vec{x}\|^2$$
+$$\|\vec{v} - \vec{x}\|^2 = \|\vec{v} - \vec{x}^\parallel + \vec{x}^\parallel - \vec{x}\|^2 \\
+= \|\vec{v} - \vec{x}^\parallel - \vec{x}^\perp\|^2$$
+$$\|\vec{v} - \vec{x}\|^2 = \|\vec{v} - \vec{x}^\parallel\|^2 + \|-\vec{x}^\perp\|^2 \\
+= \|\vec{v} - \vec{x}^\parallel\|^2 + \|\vec{x}^\perp\|^2$$
+</div>
+<ul>
+<li>可以发现\(|\vec{v} - \vec{x}|^2\)最小的值出现在\(\vec{v} = \vec{x}^\parallel\)的时候</li>
+</ul>
+
+
+<h2 class="relative group">Orthogonal projection 正交投影 
+    <div id="orthogonal-projection-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-projection-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>注意Orthogonal Projection和Orthogonal Linear Transformation是完全不同的东西
+之所以叫Orthogonal Projection指的是这个Projection就是最一般的情况，就是一般所理解的正交于一个Subspace的投影</p>
+</blockquote>
+<ul>
+<li>在上面的\(P = A (A^T A)^{-1} A^T\)中，之所以不拆成\(P=AA^{-1}(A^T)^{-1}A^T=I\)，是因为A并不是Square Matrix，即不存在Inverse</li>
+<li>当A为Square Matrix的时候，即m=n，Input dim = Output dim，这个Projection也就变成了Identity Matrix，即将自身Project Into自己的空间</li>
+<li>但是即使是Projecct到自己的Space，其中仍会包含Linear Transformation</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection-4.png" alt="Img" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Orthogonal Projection Formula 正交投影公式 
+    <div id="orthogonal-projection-formula-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E5%85%AC%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-projection-formula-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E5%85%AC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>正交投影公式是通过<strong>公式</strong>计算一个正交的投影向量在目标子空间的投影，和Orthogonal Linear Transformation无关</p>
+</blockquote>
+<ul>
+<li>对于一组Orthogonal的Basis，将Vector投影到改Space的公式为</li>
+</ul>
+<div>
+$$\text{Proj}_V(\vec{x}) = \vec{u}_1 (\vec{u}_1 \cdot \vec{x}) + \vec{u}_2 (\vec{u}_2 \cdot \vec{x})$$
+</div>
+<ul>
+<li>举例来说，对于一组Orthonormal Vector $$u = {\begin{bmatrix}\frac{1}{\sqrt{2}} \0 \\frac{1}{\sqrt{2}}\end{bmatrix},\begin{bmatrix}-\frac{1}{\sqrt{2}} \0 \\frac{1}{\sqrt{2}}\end{bmatrix}$$</li>
+<li>\([2,2,2]^T\)的Projection为</li>
+</ul>
+<div>
+$$\begin{align*}
+&= \begin{bmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix}
+\left( \begin{bmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix} \cdot
+\begin{bmatrix}
+\sqrt{2} \\
+0 \\
+\sqrt{2}
+\end{bmatrix} \right)
++
+\begin{bmatrix}
+-\frac{1}{\sqrt{2}} \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix}
+\left( \begin{bmatrix}
+-\frac{1}{\sqrt{2}} \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix} \cdot
+\begin{bmatrix}
+\sqrt{2} \\
+0 \\
+\sqrt{2}
+\end{bmatrix} \right) \\
+&= 2 \begin{bmatrix}
+\frac{1}{\sqrt{2}} \\
+0 \\
+\frac{1}{\sqrt{2}}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sqrt{2} \\
+0 \\
+\sqrt{2}
+\end{bmatrix}
+\end{align*}$$
+</div>
+
+
+<h3 class="relative group">Projection Matrix 正交投影矩阵 
+    <div id="projection-matrix-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#projection-matrix-%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection-1.png" alt="Img" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>正交投影矩阵，将向量正交投影到Subspace上的一个<strong>矩阵</strong>，A可以是任意矩阵，不是非得是Orthogonal Matrix，其和正交投影公式干的是一样的事，不过用了不同的表达方式</p>
+</blockquote>
+<ul>
+<li>在\(R^3\)空间内，如何将向量b投影到它距离平面最近的一点p？</li>
+<li>如果a1和a2构成了平面的一组基，则平面就是矩阵\(A=[a1,a2]\)的列空间</li>
+<li>\(e=b-p\)是垂直于平面的</li>
+<li>已知p在平面内，于是有\(p=\hat x_1a_1+\hat x_2a_2=A\hat x\)</li>
+<li>而\(e=b-p=b- A\hat x\)正交于平面，因此e与\(a_1\),\(a_2\)均正交</li>
+<li>因此可以得到：\(a_1^T(b-A\hat x  )=0\)并且\(a_2^T(b-A\hat x  )=0\)</li>
+<li>因为a1和a2分别为矩阵A的列向量，即\(a1^T\)和\(a2^T\)为矩阵\(A^T\)的行向量</li>
+<li>\(A^T(b-A\hat x)=0\)</li>
+<li>由于\(b-A\hat x\)在于矩阵AT的零空间\(N(A^T)\)里，从上一讲讨论子空间的正交性可知，向量e与矩阵A的列空间正交，这也正是方程的意义</li>
+</ul>
+<div>
+$$\begin{align}
+\hat{x} &= (A^T A)^{-1} A^T b \\
+p &= A \hat{x} = A (A^T A)^{-1} A^T b \\
+P &= A (A^T A)^{-1} A^T=\frac{AA^T}{A^TA}
+\end{align}$$
+</div>
+<blockquote>
+<p>注意区别大小写P</p>
+</blockquote>
+<ul>
+<li>对于上面的等式在dim = 1中则是\(\frac{\mathbf{a} \mathbf{a}^T}{\mathbf{a}^T \mathbf{a}}\)</li>
+<li>投影矩阵\(P=A(A^TA)^{-1}A^T\)，当它作用于向量b，相当于把b投影到矩阵A的列空间</li>
+</ul>
+
+
+<h3 class="relative group">Case when b is in column Space A 
+    <div id="case-when-b-is-in-column-space-a" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-when-b-is-in-column-space-a" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>当b已经在A的列空间之中，有\(Ax=b\)</li>
+</ul>
+<div>
+$$\begin{align*}
+\mathbf{Pb} &= \mathbf{A}(\mathbf{A}^\top \mathbf{A})^{-1} \mathbf{A}^\top \mathbf{b} \\
+&= \mathbf{A}(\mathbf{A}^\top \mathbf{A})^{-1} \mathbf{A}^\top \mathbf{Ax} \\
+&= \mathbf{A}((\mathbf{A}^\top \mathbf{A})^{-1} \mathbf{A}^\top \mathbf{A}) \mathbf{x} \\
+&= \mathbf{Ax} = \mathbf{b}
+\end{align*}$$
+</div>
+
+
+<h3 class="relative group">Case when b orthorgal to column Space A 
+    <div id="case-when-b-orthorgal-to-column-space-a" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-when-b-orthorgal-to-column-space-a" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>如果向量b与A的列空间正交，即向量b在矩阵A的左零空间N(A)中</li>
+<li>在Left Null Space的意义在于\(A^Tb=0\)，所以\(Pb=0\)</li>
+</ul>
+<div>
+$$\mathbf{Pb} = \mathbf{A}(\mathbf{A}^\top \mathbf{A})^{-1} \mathbf{A}^\top \mathbf{b} = \mathbf{A}(\mathbf{A}^\top \mathbf{A})^{-1} (\mathbf{A}^\top \mathbf{b}) = \mathbf{A}(\mathbf{A}^\top \mathbf{A})^{-1} 0 = 0$$
+</div>
+<ul>
+<li><strong>I−P 的效果</strong>: I - P 则是从向量x中移除其在A的列空间上的分量，留下的部分即为x在A的列空间的正交补上的分量</li>
+<li>这表明I - P将向量x投影到A的列空间的正交补空间上</li>
+</ul>
+
+
+<h3 class="relative group">Orthogonal Projection Matrix in Orthogonal Basis 矩阵为正交矩阵的正交投影矩阵 
+    <div id="orthogonal-projection-matrix-in-orthogonal-basis-%E7%9F%A9%E9%98%B5%E4%B8%BA%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E7%9A%84%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-projection-matrix-in-orthogonal-basis-%E7%9F%A9%E9%98%B5%E4%B8%BA%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E7%9A%84%E6%AD%A3%E4%BA%A4%E6%8A%95%E5%BD%B1%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p>正交矩阵的正交投影矩阵的正确读法是，当正交投影矩阵的矩阵为正交矩阵的情况下的正交投影，即改投影矩阵的A为Q的情况下，改投影将不体现“投影”的作用，而是在原空间中做Orthogonal Linear Transformation</p>
+</blockquote>
+<ul>
+<li><strong>Orthogonal Projection Matrix必须是Square Matrix</strong></li>
+</ul>
+<div>
+$$\mathbf{P} = \mathbf{Q} (\mathbf{Q}^\top \mathbf{Q})^{-1} \mathbf{Q}^\top$$
+- 因为\\(Q^TQ=I\Rightarrow P=QQ^T\\)
+</div>
+<ul>
+<li>如果Q为Square Matrix，则是一个投影到自身空间的Matrix，即\(P=I\)，因为Q的列向量张成了整个空间，投影过程不会对向量有任何改变</li>
+<li>就上面的例子来说，其Projection在用了Matrix后可以得到</li>
+</ul>
+
+
+<h2 class="relative group">Orthogonal Matrix 正交矩阵 
+    <div id="orthogonal-matrix-%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-matrix-%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>注意这里定义的不再是投影了，而是前面提到的矩阵为正交矩阵的正交投影矩阵，是一个东西</p>
+</blockquote>
+
+
+<h3 class="relative group">Orthogonal Matrix 正交矩阵 
+    <div id="orthogonal-matrix-%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-matrix-%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Consider an n × n matrix A The matrix A is orthogonal <strong>if and only if</strong>  \(A^TA = I\) or, equivalently, if \(A^{−1} = A^T\)</li>
+<li>Orthogonal Matrix的Column Vector需要Norm = 1</li>
+</ul>
+<div>
+$$\mathbf{Q} = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}, \quad
+\text{则有 } \mathbf{Q}^\top = \begin{bmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{bmatrix}
+$$
+</div>
+<ul>
+<li>再比如\(\begin{bmatrix} 1 &amp; 1 \ 1 &amp; -1 \end{bmatrix} \text{ 并不是正交矩阵}.\)</li>
+<li>因为其Norm为2，\(\mathbf{Q} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 &amp; 1 \ 1 &amp; -1 \end{bmatrix}\)，调整后便可以了</li>
+<li>一个例子便是Rotation Matrix</li>
+</ul>
+<div>
+$$T(\vec{x}) = \begin{bmatrix}
+\cos(\theta) & -\sin(\theta) \\
+\sin(\theta) & \cos(\theta)
+\end{bmatrix} \vec{x}$$
+</div>
+<ul>
+<li>对于Orthogonal Matrix来说，\(Q^TQ=I\)</li>
+</ul>
+<div>
+$$\mathbf{Q} = \begin{bmatrix} \mathbf{q}_1 & \cdots & \mathbf{q}_n \end{bmatrix}, \quad 
+\mathbf{Q}^\top \mathbf{Q} = \begin{bmatrix} \mathbf{q}_1^\top \\ \vdots \\ \mathbf{q}_n^\top \end{bmatrix} 
+\begin{bmatrix} \mathbf{q}_1 & \cdots & \mathbf{q}_n \end{bmatrix} = \mathbf{I}$$
+</div>
+
+
+<h3 class="relative group">Orthogonal transformations preserve orthogonality 角度不变性 
+    <div id="orthogonal-transformations-preserve-orthogonality-%E8%A7%92%E5%BA%A6%E4%B8%8D%E5%8F%98%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-transformations-preserve-orthogonality-%E8%A7%92%E5%BA%A6%E4%B8%8D%E5%8F%98%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Orthogonal linear transformations不仅保持向量的长度，也保持向量间的角度和orthogonality 正交性</li>
+</ul>
+<blockquote>
+<p>变换前后角度不变的变换是Orthogonal transformation</p>
+</blockquote>
+
+
+<h4 class="relative group">Proof 
+    <div id="proof-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>根据Pythoarorian Theorm</li>
+</ul>
+<div>
+$$||\vec x^2+\vec y^2||=||\vec x^2||+||\vec y^2||$$
+</div>
+<ul>
+<li>需要证明\(|T(\vec{v}) + T(\vec{w})|^2 = |T(\vec{v})|^2 + |T(\vec{w})|^2\)</li>
+<li>对于两个Orthogonal Vector \(\vec v ~&amp; ~\vec w\)，T是Linear Transformation，有</li>
+</ul>
+<div>
+$$\|T(\vec{v}) + T(\vec{w})\|^2 = \|T(\vec{v} + \vec{w})\|^2$$
+</div>
+<ul>
+<li>由于Orthogonal Linear Transformation <strong>preserves the norm</strong> of vector</li>
+</ul>
+<div>
+$$\|T(\vec{v} + \vec{w})\|^2=||\vec v+\vec w||^2$$
+</div>
+<ul>
+<li>根据Pythoarorian Theorm</li>
+</ul>
+<div>
+$$||\vec v+\vec w||^2=||\vec v^2||+||\vec w||^2$$
+</div>
+<ul>
+<li>同理</li>
+</ul>
+<div>
+$$||\vec v^2||+||\vec w||^2= \|T(\vec{v})\|^2 + \|T(\vec{w})\|^2$$
+</div>
+
+
+<h3 class="relative group">Orthogonal linear transformations preserves dot product 点积不变性 
+    <div id="orthogonal-linear-transformations-preserves-dot-product-%E7%82%B9%E7%A7%AF%E4%B8%8D%E5%8F%98%E6%80%A7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-linear-transformations-preserves-dot-product-%E7%82%B9%E7%A7%AF%E4%B8%8D%E5%8F%98%E6%80%A7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>T : \(\mathbb{R}^n \to \mathbb{R}^n\)  is an orthogonal transformation if and only if</li>
+</ul>
+<div>
+$$ T(\vec{v}) \cdot T(\vec{w}) = \vec{v} \cdot \vec{w} \text{ for all } \vec{v}, \vec{w} \in \mathbb{R}^n$$
+</div>
+<ul>
+<li>if \(\vec{u}\) and \(\vec{v}\) are orthogonal, then \(T(\vec{u})\) and \(T(\vec{v})\) are also orthogonal</li>
+</ul>
+<blockquote>
+<p>变换前后dot product不变的变换就是Orthogonal Transformation</p>
+</blockquote>
+
+
+<h4 class="relative group">Proof 
+    <div id="proof-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>T : \(R^n → R^n\) is an orthogonal linear transformation</li>
+</ul>
+<div>
+$$T(\vec{u}) \cdot T(\vec{v}) = (u_1 T(\vec{e}_1) + \dots + u_n T(\vec{e}_n)) \cdot (v_1 T(\vec{e}_1) + \dots + v_n T(\vec{e}_n))$$
+</div>
+<ul>
+<li>根据\(q_i^T q_j = \begin{cases} 0 &amp; \text{若 } i \neq j \1 &amp; \text{若 } i = j \end{cases}\)</li>
+</ul>
+<div>
+$$T(\vec{u}) \cdot T(\vec{v}) = u_1 v_1 T(\vec{e}_1) \cdot T(\vec{e}_1) + \ldots + u_n v_n T(\vec{e}_n) \cdot T(\vec{e}_n)$$
+$$= u_1 v_1 \|T(\vec{e}_1)\|^2 + \ldots + u_n v_n \|T(\vec{e}_n)\|^2 \\
+= u_1 v_1 + \ldots + u_n v_n 
+= \vec{u} \cdot \vec{v}$$
+</div>
+
+
+<h3 class="relative group">Converse statement of orthogonal linear transformation 逆命题的成立 
+    <div id="converse-statement-of-orthogonal-linear-transformation-%E9%80%86%E5%91%BD%E9%A2%98%E7%9A%84%E6%88%90%E7%AB%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#converse-statement-of-orthogonal-linear-transformation-%E9%80%86%E5%91%BD%E9%A2%98%E7%9A%84%E6%88%90%E7%AB%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>if a linear map <strong>preserves orthonormality</strong>, it should preserve length and hence is an orthogonal  map</li>
+</ul>
+
+
+<h3 class="relative group">Orthogonal transformations and orthonormal bases 正交基底保证正交变换 
+    <div id="orthogonal-transformations-and-orthonormal-bases-%E6%AD%A3%E4%BA%A4%E5%9F%BA%E5%BA%95%E4%BF%9D%E8%AF%81%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#orthogonal-transformations-and-orthonormal-bases-%E6%AD%A3%E4%BA%A4%E5%9F%BA%E5%BA%95%E4%BF%9D%E8%AF%81%E6%AD%A3%E4%BA%A4%E5%8F%98%E6%8D%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>A linear transformation T : \(R^n → R^n\)  is an orthogonal transformation if and only if the vectors \(T (\vec e_1), T(\vec e_2), . . . , T (\vec e_n)\) form an orthonormal basis for \(R^n\)</li>
+</ul>
+<blockquote>
+<p>当Column Space为Orthogonal Vector的时候，Matrix为Orthogonal Transformation</p>
+</blockquote>
+
+
+<h4 class="relative group">Proof 
+    <div id="proof-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof-3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<div>
+$$\|T(\vec{x})\|^2 = \|T(x_1 \vec{e}_1 + x_2 \vec{e}_2 + x_3 \vec{e}_3)\|^2$$
+$$=\|T(x_1 \vec{e}_1) + T(x_2 \vec{e}_2) + T(x_3 \vec{e}_3)\|^2 \quad (\text{by linearity of } T)$$
+$$= \|T(x_1 \vec{e}_1)\|^2 + \|T(x_2 \vec{e}_2)\|^2 + \|T(x_3 \vec{e}_3)\|^2 \quad (\text{by Pythagoras})$$
+$$= x_1^2 \|T(\vec{e}_1)\|^2 + x_2^2 \|T(\vec{e}_2)\|^2 + x_3^2 \|T(\vec{e}_3)\|^2 \quad (\text{by linearity of } T)$$
+$$= x_1^2 + x_2^2 + x_3^2 =||\vec x||^2~(\text{since columns are length } 1)$$
+$$\mathbf{Q} = \frac{1}{3} \begin{bmatrix} 
+1 & -2\\ 
+2 & -1 \\ 
+2 &  2
+\end{bmatrix}, \text{ 我们可以拓展其成为正交矩阵 } \frac{1}{3} \begin{bmatrix} 
+1 & -2 & 2 \\ 
+2 & -1 & -2 \\  
+2 & 2 & 1 
+\end{bmatrix}$$
+</div>
+
+
+<h3 class="relative group">Hadamard Matrix 
+    <div id="hadamard-matrix" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hadamard-matrix" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div>
+$$\mathbf{Q} = \frac{1}{2} \begin{bmatrix} 
+1 & 1 & 1 & 1 \\ 
+1 & -1 & 1 & -1 \\ 
+1 & 1 & -1 & -1 \\ 
+1 & -1 & -1 & 1 
+\end{bmatrix}$$
+</div>
+<ul>
+<li>仅包含-1和1的Orthogonal Matrix</li>
+</ul>
+<div>
+$$\text{Proj}_V(\vec{x}) = Q Q^T \vec{x} =
+\begin{bmatrix}
+\frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{2}} \\
+0 & 0 \\
+\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+\end{bmatrix}
+\begin{bmatrix}
+\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}} \\
+-\frac{1}{\sqrt{2}} & 0 & \frac{1}{\sqrt{2}}
+\end{bmatrix}
+\begin{bmatrix}
+\sqrt{2} \\
+\sqrt{2} \\
+\sqrt{2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 0 & 0 \\
+1 & 0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+\sqrt{2} \\
+\sqrt{2} \\
+\sqrt{2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sqrt{2} \\
+0 \\
+\sqrt{2}
+\end{bmatrix}
+$$
+</div>
+
+
+<h2 class="relative group">Gram-Schmidt 施密特正交化 
+    <div id="gram-schmidt-%E6%96%BD%E5%AF%86%E7%89%B9%E6%AD%A3%E4%BA%A4%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gram-schmidt-%E6%96%BD%E5%AF%86%E7%89%B9%E6%AD%A3%E4%BA%A4%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>一般来说，要获得Orthogonal Matrix，先要做一步化简到该形式，这一步的名字就 Gram-Schmidt</li>
+<li>从两个线性无关的向量a和b开始，它们张成了一个空间</li>
+<li>我们的目标是找到两个标准正交的向量q1，q2能张成同样的空间</li>
+<li>Schmidt给出的结论是如果 我们有一组正交基A和B，那么我们令它们除以自己的长度就得到标准正交基</li>
+</ul>
+<div>
+$$\mathbf{q}_1 = \frac{\mathbf{A}}{\|\mathbf{A}\|}, \quad \mathbf{q}_1 = \frac{\mathbf{A}}{\|\mathbf{A}\|}
+$$
+</div>
+<ul>
+<li>当确认了一个方向后，要求出orthogonal于改方向的Vector则就是将b投影到a的方向，取B=b-p（e）</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection-7.png" alt="Img" />
+      
+    </figure>
+</p>
+<div>
+$$\mathbf{B} = \mathbf{b} - \frac{\mathbf{A}^\top \mathbf{b}}{\mathbf{A}^\top \mathbf{A}} \mathbf{A}$$
+</div>
+<ul>
+<li>通过两边乘上\(A^T\)证明其Orthogonal性质</li>
+</ul>
+<div>
+$$A^T\mathbf{B} = A^T(\mathbf{b} - \frac{\mathbf{A}^\top \mathbf{b}}{\mathbf{A}^\top \mathbf{A}} \mathbf{A})=0$$
+</div>
+
+
+<h3 class="relative group">Third Vector 
+    <div id="third-vector" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#third-vector" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>同理，由ABC三个Vector为</li>
+</ul>
+<div>
+$$\mathbf{q}_1 = \frac{\mathbf{A}}{\|\mathbf{A}\|}, \quad \mathbf{q}_1 = \frac{\mathbf{A}}{\|\mathbf{A}\|}\quad \mathbf{q}_3 = \frac{\mathbf{C}}{\|\mathbf{C}\|}$$
+$$\mathbf{C} = \mathbf{c} - \frac{\mathbf{A}^\top \mathbf{c}}{\mathbf{A}^\top \mathbf{A}} \mathbf{A} - \frac{\mathbf{B}^\top \mathbf{c}}{\mathbf{B}^\top \mathbf{B}} \mathbf{B}
+$$
+</div>
+
+
+<h3 class="relative group">ex. Two Vectors 
+    <div id="ex-two-vectors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-two-vectors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div>
+$$\mathbf{a} = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}, \quad 
+\mathbf{b} = \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix}, \quad 
+\text{则有 } \mathbf{A} = \mathbf{a}, \quad 
+\mathbf{B} = \begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix} - \frac{3}{3} \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ -1 \\ 1 \end{bmatrix}$$
+- 则有Orthonormal Matrix Q
+$$\mathbf{Q} = \begin{bmatrix} \mathbf{q}_1 & \mathbf{q}_2 \end{bmatrix} = 
+\begin{bmatrix} 
+1 / \sqrt{3} & 0 \\ 
+1 / \sqrt{3} & -1 / \sqrt{2} \\ 
+1 / \sqrt{3} & 1 / \sqrt{2} 
+\end{bmatrix}$$
+</div>
+
+
+<h2 class="relative group">Least Squares 最小二乘 
+    <div id="least-squares-%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#least-squares-%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Fitting a line，拟合曲线</li>
+<li>假设有三个数据点{(1,1), (2,2), (3,2)}</li>
+<li>假设直线方程 \(b=Dt+C\)</li>
+<li>将三个点带入方程就有\(C+D=1,C+2D=2,C+3D=2\)</li>
+</ul>
+<div>
+$$\left[
+\begin{array}{cc}
+1 & 1 \\
+1 & 2 \\
+1 & 3 \\
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+C \\
+D \\
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+1 \\
+2 \\
+2 \\
+\end{array}
+\right]
+$$
+</div>
+<ul>
+<li>可以发现这个Equation是无解的，但目的在于找到最优解</li>
+<li>即方程\(A^TA\hat x =A^Tb\)的解</li>
+<li>在这之前需要定义一个Error来判断那条直线为最优解，定义为\(||e^2||=||Ax-b||^2={e_1}^2+{e_2}^2+{e_3}^2\)</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection-5.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>在不存在Outlier 离群值的时候是一种非常好的Regression way</li>
+<li>\(C+Dt分别为p1，p2和p3\)，它们是满足方程并最接近于b的结果</li>
+<li>现在需要求解\(\hat x= \left[\begin{array}{c}C \D \\end{array}\right]\)和p</li>
+<li>\(A^TA\hat x=A^Tb\)</li>
+</ul>
+<blockquote>
+<p>因为\(A^T(b-A\hat x)=0\)</p>
+</blockquote>
+<div>
+$$A^TA=\left[
+\begin{array}{ccc}
+1 & 1 & 1 \\
+1 & 2 & 3 \\
+\end{array}
+\right]
+\left[
+\begin{array}{ccc}
+1 & 1\\
+1 & 2 \\
+1 & 3\\
+\end{array}
+\right]
+=
+\left[
+\begin{array}{ccc}
+3 & 6\\
+6 & 14\\
+\end{array}
+\right], A^Tb=\left[
+\begin{array}{ccc}
+1 & 1 & 1 \\
+1 & 2 & 3 \\
+\end{array}
+\right]
+\left[
+\begin{array}{ccc}
+1\\
+2\\
+2\\
+\end{array}
+\right]
+=\left[
+\begin{array}{cc}
+5 \\
+11 \\
+\end{array}
+\right]$$
+$$\quad \text{则有}
+\left[
+\begin{array}{cc}
+3 & 6 \\
+6 & 14 \\
+\end{array}
+\right]
+\left[
+\begin{array}{c}
+\hat{C} \\
+\hat{D} \\
+\end{array}
+\right]
+=
+\left[
+\begin{array}{c}
+5 \\
+11 \\
+\end{array}
+\right]$$
+</div>
+<ul>
+<li>解得\(\hat C=2/3,\hat D=1/2\)</li>
+<li>亦可以通过求Partical Derivative的方法
+$$e1^2 + e2^2 + e3^2 = (C + D - 1)^2 + (C + 2D - 2)^2 + (C + 3D - 2)^2$$
+$$展开结果为2 e =3C2+14D2+9-10C-22D+12CD$$
+$$求偏导为12C-20+24D=0； 28D-22+12C=0。与A^TA\hat x=A^Tb相同$$</li>
+<li>于是得到结果</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA7.Orthogonal&amp;Projection/LA7.Orthogonal&amp;Projection-6.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>可以验证p与e与A的Column Space Orthogonal</li>
+</ul>
+
+
+<h2 class="relative group">矩阵ATA 
+    <div id="%E7%9F%A9%E9%98%B5ata" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A9%E9%98%B5ata" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>证明：若A的列向量线性无关时，矩阵\(A^TA\)为可逆矩阵</li>
+<li>要证明此，假设存在x使得\(A^TAx=0\)，后证明x只能是Zero Vector</li>
+<li>第一步将灯饰两边同时乘以\(x^T\)，有\(x^TA^TAx=0\)</li>
+<li>可以重写成\((Ax)^T(Ax)=0\Rightarrow Ax=0\)</li>
+<li>由于A的Column Vector是Linearly Independent的，所以只有\(x=0时有A^TAx=0\)</li>
+<li>即\(A^TAx\) is invertible</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2024 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

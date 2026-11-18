@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA 1. DC Circuit Analysis | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1250px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:1313/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#element-kcl-kvl-nodal-analysis">Element, KCL, KVL, Nodal analysis</a>
+          <ul>
+            <li><a href="#kcl">KCL</a></li>
+            <li><a href="#kvl">KVL</a></li>
+            <li><a href="#super-node">Super Node</a></li>
+            <li><a href="#super-mesh">Super Mesh</a></li>
+            <li><a href="#superposition">Superposition</a></li>
+            <li><a href="#equivalent-resistance">Equivalent resistance</a></li>
+            <li><a href="#voltage-division-for-resistors-connected-in-series">Voltage division (for resistors connected in series)</a></li>
+            <li><a href="#current-division-for-resistors-connected-in-parallel">Current division (for resistors connected in parallel)</a></li>
+          </ul>
+        </li>
+        <li><a href="#theveninnorton-equivalent-circuit">Thevenin/Norton equivalent circuit</a>
+          <ul>
+            <li><a href="#thevenin">Thevenin</a></li>
+            <li><a href="#norton">Norton</a></li>
+            <li><a href="#maximum-power-transfer">Maximum power transfer</a></li>
+          </ul>
+        </li>
+        <li><a href="#circuit-analysis-with-controlled-source">Circuit analysis with controlled source</a>
+          <ul>
+            <li><a href="#circuit-with-only-dependent-source">Circuit with only dependent source</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CA 1. DC Circuit Analysis</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 23, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                497 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Linear circuit analysis techniques</p>
+</blockquote>
+
+
+<h3 class="relative group">Element, KCL, KVL, Nodal analysis 
+    <div id="element-kcl-kvl-nodal-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#element-kcl-kvl-nodal-analysis" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h4 class="relative group">KCL 
+    <div id="kcl" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kcl" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image_hu4987170529974061237.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image_hu3254970668879800700.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image_hu11458384957763780410.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image_hu1124244533322738456.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image_hu3254970668879800700.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>The algebraic sum of all currents entering and leaving a node is equal to zero</p>
+
+
+<h4 class="relative group">KVL 
+    <div id="kvl" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#kvl" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>The algebraic sum of all voltages around any closed loop in a circuit is equal to zero</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image1_hu5193017062612470128.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image1_hu12871828173100808411.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image1_hu6019202594182230648.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image1_hu9915338018294511796.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image1_hu12871828173100808411.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">Super Node 
+    <div id="super-node" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#super-node" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>When applying Nodal Analysis, if there’s a Voltage Source between two Nodes, then the current inside can’t be written, thus we need Super Node</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/ba04946e-b0de-4507-9d27-f82c62d3c4c0_hu1924245413948223915.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/ba04946e-b0de-4507-9d27-f82c62d3c4c0_hu14014641768225288892.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/ba04946e-b0de-4507-9d27-f82c62d3c4c0_hu14659221966730708962.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/ba04946e-b0de-4507-9d27-f82c62d3c4c0_hu12176917155562033322.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/ba04946e-b0de-4507-9d27-f82c62d3c4c0_hu14014641768225288892.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>We treat Two Nodes linked by Voltage Source as a Super Node</li>
+</ul>
+
+
+<h4 class="relative group">Super Mesh 
+    <div id="super-mesh" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#super-mesh" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>The same applies on Mesh Analysis, when having two Mesh sharing one Current Source, then a Super Mesh is needed</p>
+<ul>
+<li>We discard the wire with the Current Source and treat the rest as one Mesh</li>
+</ul>
+
+
+<h4 class="relative group">Superposition 
+    <div id="superposition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#superposition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>The circuit we deal with are Linear, thus each Source can be analysis individually</p>
+<ul>
+<li>Voltage Source: Short Circuit</li>
+<li>Current Source: Open Circuit</li>
+</ul>
+
+
+<h4 class="relative group">Equivalent resistance 
+    <div id="equivalent-resistance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#equivalent-resistance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Any complicated circuit can be treated as one Resistance, and to find that Resistance, we have three methods</p>
+
+
+<h5 class="relative group">Inject Voltage Source 
+    <div id="inject-voltage-source" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inject-voltage-source" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<ul>
+<li>Discard the Source inside the circuit, i.e. short or open</li>
+<li>Apply a Voltage Source at AB</li>
+<li>Write out the current inside and thus find \(R=\frac vi\)</li>
+</ul>
+
+
+<h5 class="relative group">Inject Current Source 
+    <div id="inject-current-source" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inject-current-source" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<ul>
+<li>The same with Above, but instead put a Current Source inside</li>
+</ul>
+
+
+<h5 class="relative group">Direct Analysis 
+    <div id="direct-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#direct-analysis" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<ul>
+<li>This <strong>Doesn’t</strong> work for circuit with Dependent Source</li>
+</ul>
+
+
+<h4 class="relative group">Voltage division (for resistors connected in series) 
+    <div id="voltage-division-for-resistors-connected-in-series" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#voltage-division-for-resistors-connected-in-series" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image2_hu11219401186969750414.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image2_hu12049087936932776654.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image2_hu8764293997883426959.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image2_hu16239826763905929986.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image2_hu12049087936932776654.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+v_1 = \frac{R_1}{R_1 + R_2} v,\quad v_2 = \frac{R_2}{R_1 + R_2} v</p>
+<p>$$</p>
+
+
+<h4 class="relative group">Current division (for resistors connected in parallel) 
+    <div id="current-division-for-resistors-connected-in-parallel" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#current-division-for-resistors-connected-in-parallel" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image3_hu9818378468347798682.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image3_hu4390826208752921058.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image3_hu16135571927069671496.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image3_hu15711384184859979067.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image3_hu4390826208752921058.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+i_1 = \frac{R_2}{R_1 + R_2} i,\quad i_2 = \frac{R_1}{R_1 + R_2} i
+$$</p>
+
+
+<h3 class="relative group">Thevenin/Norton equivalent circuit 
+    <div id="theveninnorton-equivalent-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#theveninnorton-equivalent-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The key concept of those two are, no matter how difficult the circuit is, when looking inside, it can always be simplified as a few elements</p>
+
+
+<h4 class="relative group">Thevenin 
+    <div id="thevenin" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#thevenin" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image4_hu6669875555238019269.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image4_hu8637181879107576843.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image4_hu5616780714646460689.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image4_hu18298357490817051810.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image4_hu8637181879107576843.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Thevenin simply the circuit into a Resistor and a Voltage Source, thus</p>
+<p>$$
+v=V_s+R_si
+$$</p>
+
+
+<h4 class="relative group">Norton 
+    <div id="norton" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#norton" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/e4692113-4e11-434d-ac86-fe67dc8af983_hu9004393184982976829.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/e4692113-4e11-434d-ac86-fe67dc8af983_hu11172104051966128478.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/e4692113-4e11-434d-ac86-fe67dc8af983_hu6505003625836443570.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/e4692113-4e11-434d-ac86-fe67dc8af983_hu5883597701234011048.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/e4692113-4e11-434d-ac86-fe67dc8af983_hu11172104051966128478.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Norton simply the circuit into a Resistor Parallel a Current Source, thus</p>
+<p>$$
+i = \frac{v}{R_s} - i_s
+$$</p>
+
+
+<h5 class="relative group">Ex. Finding Equivalent Circuit 
+    <div id="ex-finding-equivalent-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-finding-equivalent-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image5_hu6513393390880654167.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image5_hu936964548758950886.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image5_hu14062858876506971155.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image5_hu16574410252964116313.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image5_hu936964548758950886.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image6_hu9640914304001997269.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image6_hu1772445524143953869.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image6_hu5244387521389708013.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image6_hu1127740844427355712.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image6_hu1772445524143953869.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">Maximum power transfer 
+    <div id="maximum-power-transfer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#maximum-power-transfer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>As what’s being indicated in Thevenin, the whole circuit can be transfer into two elements</p>
+<ul>
+<li>In such case, we would like to further investigate what should the Load Resistance \(R_L\) be to gain the maximum power from the circuit</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image7_hu15167475995734266647.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image7_hu9217452986075981510.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image7_hu12474518912740638513.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image7_hu7183408280982742251.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image7_hu9217452986075981510.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Knowing that \(i_L = \frac{V_s}{R_s + R_L}\), we can find the formula of Power is</li>
+</ul>
+<p>$$
+P = R_L \cdot i_L^2 = R_L \left( \frac{V_s}{R_s + R_L} \right)^2
+$$</p>
+<ul>
+<li>This equation have the curve of</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image8_hu5806897725512920314.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image8_hu7200587363359205827.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image8_hu9732510234689154513.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image8_hu16572547723018270476.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image8_hu7200587363359205827.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Thus the Power gain its maximum when \(R_L=R_s\), thus</li>
+</ul>
+<p>$$
+P_{max} = R_s \left( \frac{V_s}{2R_s} \right)^2 = \frac{V_s^2}{4R_s}
+$$</p>
+
+
+<h3 class="relative group">Circuit analysis with controlled source 
+    <div id="circuit-analysis-with-controlled-source" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#circuit-analysis-with-controlled-source" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image9_hu3494358340096406983.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image9_hu10996640149814781590.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image9_hu11397175319270186291.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image9_hu7378142742388784412.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image9_hu10996640149814781590.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h4 class="relative group">Circuit with only dependent source 
+    <div id="circuit-with-only-dependent-source" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#circuit-with-only-dependent-source" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image10_hu13449036907052622418.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image10_hu5472956259205672678.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image10_hu4736307352643579749.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image10_hu3182899700578998781.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image10_hu5472956259205672678.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Those Circuit only have dependent sources, that they can be treated as a simple Resistor R, with no Voltage or Current Source inside</p>
+<ul>
+<li>If we want to find the Value of the Resistor, we can</li>
+</ul>
+<p>A. Inject a Test Current \(i_{test}\)</p>
+<p>B. Inject a Test Voltage \(v_{test}\)</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image11_hu9836142892790633537.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image11_hu7547422859546239981.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image11_hu7108654368218149748.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image11_hu9275562871864650344.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca1.dccircuitanalysis/image11_hu7547422859546239981.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=8888&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO 7. DesignofProcessor | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:8888/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#instruction-set">Instruction Set</a></li>
+    <li><a href="#condition-flags">Condition Flags</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#data-flows">Data Flows</a>
+      <ul>
+        <li><a href="#fetch-path">Fetch Path</a></li>
+        <li><a href="#execution-path">Execution Path</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#reg---reg-ones">Reg - Reg ones</a></li>
+    <li><a href="#immediate-ones">Immediate ones</a></li>
+    <li><a href="#semantics">Semantics</a>
+      <ul>
+        <li><a href="#arithmetic-operation">Arithmetic Operation</a></li>
+        <li><a href="#flags">Flags</a></li>
+      </ul>
+    </li>
+    <li><a href="#encoding-of-machine-code">Encoding of Machine Code</a></li>
+    <li><a href="#or-immediate-operation">Or immediate Operation</a>
+      <ul>
+        <li><a href="#execution-steps">Execution Steps</a></li>
+        <li><a href="#ex-ori-0x7">Ex. ori 0x7</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#load-operation">Load Operation</a></li>
+    <li><a href="#store-operation">Store Operation</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#register">Register</a>
+      <ul>
+        <li><a href="#d-flip-flop">D Flip-Flop</a></li>
+      </ul>
+    </li>
+    <li><a href="#multiplexer">Multiplexer</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#add">add</a></li>
+    <li><a href="#sub">sub</a></li>
+    <li><a href="#or-immediate">OR Immediate</a></li>
+    <li><a href="#load">Load</a></li>
+    <li><a href="#store">Store</a></li>
+    <li><a href="#bnz">BNZ</a></li>
+    <li><a href="#shift-lr-ra-imm2">Shift L/R Ra, Imm2</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#load-1">Load</a></li>
+    <li><a href="#bnz-imm4">BNZ Imm4</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#register-file">Register File</a></li>
+    <li><a href="#alu">ALU</a></li>
+    <li><a href="#fsm--memory">FSM &amp; Memory</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CO 7. DesignofProcessor</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 10, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                2042 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/10/26</p>
+</blockquote>
+<p>The former course is about to use Assembly and C language to view the processor in terms of a programmer, now the course has been switched into view processor hardware using digital design knowledge</p>
+
+
+<h1 class="relative group">Computer Architecture 
+    <div id="computer-architecture" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#computer-architecture" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image_hu12936633024251537485.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image_hu17525756762038042953.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image_hu5804237090826396211.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image_hu1813131510576545335.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image_hu17525756762038042953.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Recall the architecture we have, what the processor does is</p>
+<ol>
+<li>Fetch from the memory to get Machine Code instructions</li>
+<li>Execute the instructions</li>
+<li>Interact with memory</li>
+</ol>
+<hr>
+<p>Now we are going to use logic gates to rebuild this</p>
+
+
+<h1 class="relative group">Simple Processor Design 
+    <div id="simple-processor-design" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#simple-processor-design" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The processor we are working on will be a 8 bit one, with one 4 Registers, <code>R0 - R3</code></p>
+<ul>
+<li>By setting the processor to 8 bit, it means that its word size is 8 bits</li>
+<li>As the memory address also only have 8 bits, thus there’ll be $2^8=256$ memories</li>
+<li>The same applies to <code>pc</code></li>
+</ul>
+
+
+<h2 class="relative group">Instruction Set 
+    <div id="instruction-set" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#instruction-set" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There’s gonna be 10 kinds of instruction, with also fixed size of 8 bits</p>
+<ul>
+<li>And the instruction is going to look like <code>add R1, R2 # R1 = R1 + R2</code></li>
+</ul>
+
+
+<h2 class="relative group">Condition Flags 
+    <div id="condition-flags" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#condition-flags" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There’s going to be two 1 bits flag</p>
+<ul>
+<li><strong>Z Bit (Zero)</strong>: If the last instruction result is zero, <code>z = 1</code> , else is <code>z = 0</code></li>
+<li><strong>N Bit (Negative)</strong>: If the last instruction result is negative, <code>N = 1</code> , else <code>N = 0</code></li>
+</ul>
+<blockquote>
+<p>Nios V doesn’t use this method</p>
+</blockquote>
+
+
+<h1 class="relative group">Datapath 
+    <div id="datapath" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#datapath" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Before starting, here’s some part of the processor that we have to get</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image1_hu6444927448226048891.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image1_hu7544863074815606042.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image1_hu15891726648563488595.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image1_hu9155965550004820722.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image1_hu7544863074815606042.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>PC</li>
+<li>Memory</li>
+<li>Register</li>
+<li>ALU</li>
+</ul>
+
+
+<h2 class="relative group">Data Flows 
+    <div id="data-flows" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#data-flows" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Fetch Path 
+    <div id="fetch-path" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fetch-path" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Starting from <code>pc</code> , it send the required address to <code>memory</code></li>
+<li>Then <code>memory</code> output the Instruction to <code>Instruction Register</code>  and <code>Memory Data Register</code></li>
+</ul>
+
+
+<h3 class="relative group">Execution Path 
+    <div id="execution-path" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#execution-path" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Then <code>Register File</code> will choose to read one of <code>regA</code> and <code>regB</code></li>
+<li>Then using <code>Multiplexers</code> to decided which data to pass through</li>
+<li>Lastly use <code>ALU</code> to get the final result</li>
+</ul>
+
+
+<h1 class="relative group">Instruction Formats 
+    <div id="instruction-formats" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#instruction-formats" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>As indicated, there’s 8 kinds of instructions, where they can be extracted into two types</p>
+
+
+<h2 class="relative group">Reg - Reg ones 
+    <div id="reg---reg-ones" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#reg---reg-ones" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The operation between two Registers, i.e. <code>add R1, R2</code> , inside the instruction, there will be</p>
+<ul>
+<li><code>Opcode</code> (4 bits): Choosing operation</li>
+<li><code>regA</code> (2 bits): Target Register</li>
+<li><code>regB</code> (2 bits): Source Register</li>
+</ul>
+
+
+<h2 class="relative group">Immediate ones 
+    <div id="immediate-ones" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#immediate-ones" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The operation between Register and Constants, i.e. <code>addi R1, 5</code></p>
+<ul>
+<li><code>Opcode</code> (4 bits): Choosing Operation</li>
+<li><code>regA</code> (2 bits): Target Register</li>
+<li><code>regB</code> (2 bits): Immediate Number (Notice the range is $2^2$  which is $0-4$</li>
+</ul>
+
+
+<h2 class="relative group">Semantics 
+    <div id="semantics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#semantics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Regardless of <code>add Ra, Rb</code>  or <code>sub Ra, Rb</code> , they are having similar operations</p>
+
+
+<h3 class="relative group">Arithmetic Operation 
+    <div id="arithmetic-operation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#arithmetic-operation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Calculate the operation result first</p>
+
+
+<h3 class="relative group">Flags 
+    <div id="flags" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#flags" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Then update two status bits, <code>Zero</code>  and <code>Negative</code></p>
+<hr>
+<p>Then update <code>pc = pc + 1</code></p>
+
+
+<h2 class="relative group">Encoding of Machine Code 
+    <div id="encoding-of-machine-code" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#encoding-of-machine-code" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>One instruction</strong> will be extract into <strong>three parts in a 8 bit Register</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image2_hu9542461568780947807.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image2_hu12039898010228798374.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image2_hu6320257698584344954.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image2_hu12336702667722327902.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image2_hu12039898010228798374.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Or immediate Operation 
+    <div id="or-immediate-operation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#or-immediate-operation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The General Form of Or Immediate Operation is <code>ori imm5</code> , notice</p>
+<ul>
+<li>There’s <strong>NO Given Register</strong> for this command</li>
+<li>There’s <strong>5 bits on immediate number</strong></li>
+</ul>
+<hr>
+<p>Firstly the <strong>Register issue</strong>, we fix the Register of this operation to <code>R1</code> to <strong>save two 2 bit of space</strong></p>
+<p>Secondly, as there’s <strong>only 3 bits for Opcode</strong> and it’s <code>111</code> ,thus we have <strong>5 bits for this constant</strong></p>
+<hr>
+
+
+<h3 class="relative group">Execution Steps 
+    <div id="execution-steps" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#execution-steps" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>$R1 \leftarrow R1 \ OR \ ZE(Imm5)$
+<ul>
+<li>Here <code>ZE</code> means Zero Extend, <strong>add three zero in front of 5 immediate to make it 8 bits</strong></li>
+</ul>
+</li>
+<li>Update the <code>Z</code> and <code>N</code> bit</li>
+<li>Update <code>PC</code> : $PC \leftarrow PC + 1$</li>
+</ol>
+
+
+<h3 class="relative group">Ex. ori 0x7 
+    <div id="ex-ori-0x7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-ori-0x7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image3_hu17115352755010563686.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image3_hu11411337814410195105.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image3_hu10680689219801572054.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image3_hu16102971753566376909.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image3_hu11411337814410195105.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Memory Instructions 
+    <div id="memory-instructions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#memory-instructions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>There’s two Memory Instructions used <code>load</code> and <code>store</code> , it’s similar to <code>lw</code> and <code>sw</code> , but notice for the Memory Instructions, the <code>Z</code> and <code>N</code> bit won’t be set <strong>as there’s no ALU logic</strong></p>
+
+
+<h2 class="relative group">Load Operation 
+    <div id="load-operation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#load-operation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The general form of <strong>Load Operation</strong> is <code>load Ra, (Rb)</code> , and will be encoded in the form of</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image4_hu2333310289275534735.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image4_hu7257009311275031604.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image4_hu13085405602064741828.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image4_hu5072635083390269336.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image4_hu7257009311275031604.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Store Operation 
+    <div id="store-operation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#store-operation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The general form of Store Operations is <code>store Ra, (Rb)</code> , will be encoded in the form of</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image5_hu1411758551394087896.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image5_hu9932504977795347846.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image5_hu16555686139865542826.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image5_hu13118085349207760117.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image5_hu9932504977795347846.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Conditional Branches 
+    <div id="conditional-branches" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conditional-branches" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall the instruction <code>bne r5, r0, loop</code> , this is a <strong>branch if not zero instruction</strong>, that branch to a different address (other than <code>pc+1</code>) if result of <strong>last operation in ALU is not zero</strong></p>
+<p>In this Simple Processor, we can tell this by using the <code>Z</code> bit, thus here’s the full step for Branch</p>
+<hr>
+<p>Running the instruction <code>bnz Imm4</code></p>
+<ol>
+<li>Check the <code>Z</code> bit, if <code>Z == 0</code> (The result is not zero), then <strong>JUMP</strong>
+<ol>
+<li>If <code>Z == 1</code> (The result is zero), then <code>PC &lt;- PC + 1</code></li>
+</ol>
+</li>
+<li>Jumping process is <strong>using an offset</strong> that <code>PC &lt;- PC + SE(Imm4)</code> , here <code>SE</code> is Sign Extension</li>
+<li>Here we are using Relative Addressing</li>
+</ol>
+<hr>
+<p>This having the Encoding of</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image6_hu6124517064226517740.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image6_hu1656126594114809453.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image6_hu11802992578585596137.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image6_hu14449960695815617903.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image6_hu1656126594114809453.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>There’s up four bits for <code>Imm4</code> - <strong>4 bits constant</strong>, and lower 4 bits <code>Opcode</code> with <code>bnz = 1001</code></p>
+<p>While there’s also an Instruction <code>bpz imm4</code> which is Branch if Positive with <code>Opcode</code> of <code>1101</code></p>
+
+
+<h1 class="relative group">Design Example 
+    <div id="design-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#design-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Here’s a full code <strong>comparing two value in Memory and see if they subtract to zero</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>Address</strong></th>
+          <th style="text-align: left"><strong>Label</strong></th>
+          <th style="text-align: left"><strong>Instruction</strong></th>
+          <th style="text-align: left"><strong>Comment</strong></th>
+          <th style="text-align: left"><strong>Encoding</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>0</strong></td>
+          <td style="text-align: left">loop:</td>
+          <td style="text-align: left"><code>load R2,(R0)</code></td>
+          <td style="text-align: left"><code>R2 &lt;- [R0]</code></td>
+          <td style="text-align: left"><code>0x80</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>1</strong></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>load R3,(R1)</code></td>
+          <td style="text-align: left"><code>R3 &lt;- [R1]</code></td>
+          <td style="text-align: left"><code>0xd0</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>2</strong></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>sub R2, R3</code></td>
+          <td style="text-align: left"><code>R2 &lt;- R2 - R3</code></td>
+          <td style="text-align: left"><code>0xb6</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>3</strong></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>bnz loop</code></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>0xd9</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>The hardest thing here is to calculate <code>Imm4</code> for Encoding <code>bnz</code> , notice <code>loop</code> is at address <code>0</code> , when running til <code>bnz loop</code> , <code>PC</code> is already <code>3</code> m thus we want</p>
+<p>$$
+PC + Imm4 = Target\rightarrow3 + Imm4 = 0
+$$</p>
+<p>Thus we get $Imm4 = -3$, in <strong>2’s Complement,</strong> -3 is just <code>1101</code> , thus this Encoding code will be <code>1101 1001 = 0xd9</code></p>
+<aside>
+❗
+<p><strong>Notice in this part, PC is pointing to current Instruction address instead of next instruction’s</strong></p>
+</aside>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image7_hu1774085419106482811.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image7_hu18407629724790415713.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image7_hu17488073359656550082.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image7_hu4553380934892594520.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image7_hu18407629724790415713.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Register 
+    <div id="register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Recall the implementation of a <strong>Register</strong>, its fundamental unit is a <strong>D</strong> <strong>Flip-Flop</strong></p>
+
+
+<h3 class="relative group">D Flip-Flop 
+    <div id="d-flip-flop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#d-flip-flop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image8_hu3226378407517163173.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image8_hu17565433000127638963.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image8_hu3173577054228598683.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image8_hu8510170659970321638.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image8_hu17565433000127638963.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>This Flip-Flop contains an <code>input D</code>, <code>output Q</code>, <code>clock</code> and a <code>Enable</code> , this Flip-Flop will update when there’s a positive edge of clock, then check if <code>Enable = 1</code> , then <code>Q &lt;- D</code> , otherwise the <code>output Q</code> will remains the same</p>
+<p>In this Processor, as we indicated is a 8 bit register, there’s gonna be 8 Flip-Flops together, sharing the same <code>Enable</code>  and <code>Clock</code></p>
+<p>The <code>Clock</code> ’s frequency depends on the device we are running at, its $50MHz$ for Nios V, and $2GHz$ for normal computers</p>
+
+
+<h2 class="relative group">Multiplexer 
+    <div id="multiplexer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#multiplexer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/52bc0b2a-1099-4c2b-b4b9-4e32d1b3cd96_hu6093850642720640686.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/52bc0b2a-1099-4c2b-b4b9-4e32d1b3cd96_hu13761646596884061951.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/52bc0b2a-1099-4c2b-b4b9-4e32d1b3cd96_hu6142105126447573461.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/52bc0b2a-1099-4c2b-b4b9-4e32d1b3cd96_hu5969919702510611489.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/52bc0b2a-1099-4c2b-b4b9-4e32d1b3cd96_hu13761646596884061951.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Instructions 
+    <div id="instructions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#instructions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">add 
+    <div id="add" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#add" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Recall the execution of the add instruction <code>add Ra, Rb # Ra &lt;- Ra + Rb</code> , with the encoding of</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image9_hu10425476562310226840.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image9_hu2998692536126116829.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image9_hu7282477880814510042.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image9_hu2305467381818631281.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image9_hu2998692536126116829.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Suppose the <code>add R1, R2</code> is being coded into <code>01 10 0100</code> , which is <code>0x64</code> in HEX, and this instruction is stored at address <code>0x05</code> , there’ll be six steps for this instruction</p>
+<ol>
+<li>Fetch: Read from memory of what <code>PC</code> is pointing to, then activate <code>MemRead</code> and <code>IRLoad</code></li>
+<li>Decode: Recognise which instruction is inside</li>
+<li>Read: Read the value of <code>R1</code> and <code>R2</code> , turn on <code>ABld</code></li>
+<li>Compute: Set the <code>ALUop</code> into additional mode, and calculate <code>ALUout = R1 + R2</code> , the signals are <code>ALU_A = 1</code> , <code>ALU_B = 0</code> , <code>ALULoad = 1</code> . After computed, set the <code>Z</code> and <code>N</code> bit based on the result (need to enable <code>Flagwrite = 1</code> )</li>
+<li>Write: Write back the result of <code>ALUout</code> back to <code>Ra</code> (<code>RFwrite = 1</code> )</li>
+<li>Compute PC: Update the <code>PC</code></li>
+</ol>
+
+
+<h2 class="relative group">sub 
+    <div id="sub" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sub" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image10_hu3574657450273241176.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image10_hu10497153531823490581.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image10_hu11674286996530396165.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image10_hu5990661160274384305.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image10_hu10497153531823490581.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ol>
+<li><strong>Fetch</strong> and Increment PC: <code>MemRead=1</code> , <code>PCwrite=1</code></li>
+<li><strong>Decode</strong> &amp; register fetch</li>
+<li><strong>Compute</strong>: Use <code>ALU_Op=001</code> to tell ALU to do subtraction, and store it in <code>ALUOut</code> , at the same time, it will update the <code>Flags</code> ( zero or negative)</li>
+<li><strong>Write</strong>: <code>RFWrite=1</code></li>
+</ol>
+
+
+<h2 class="relative group">OR Immediate 
+    <div id="or-immediate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#or-immediate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Unlike <code>sub</code> , there’s a <code>Immediate Value</code> now, and it requires one more period than <code>sub</code></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image11_hu4253055431577665615.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image11_hu5854684380019096395.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image11_hu7010475168897580064.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image11_hu4511147633249561495.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image11_hu5854684380019096395.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ol>
+<li>Fetch: Then same, active <code>MemRead</code> , <code>IRload</code>  <code>PC &lt;- PC + 1 ALU_A=0, ALU_B=1, ALU_Op = add = 001 PCwrite=1</code></li>
+<li><strong>Decode &amp; register fetch</strong>:  Read <code>Ra</code> and <code>Rb</code> from the Register File</li>
+</ol>
+<ul>
+<li>这次读取是<strong>浪费的 (Wasted)</strong></li>
+<li>对于 <code>ori</code> 指令，我们需要读的是寄存器 <code>R1</code>（通常对应编码中的某个位置），而硬件逻辑在这一步还没准备好。</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image12_hu13575994344633555603.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image12_hu9630032636692655613.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image12_hu3910798016020087522.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image12_hu231730810056420989.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image12_hu9630032636692655613.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Load 
+    <div id="load" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#load" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image13_hu3886878685039542886.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image13_hu11475974795794362891.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image13_hu17600947731418499854.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image13_hu1963838576180550143.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image13_hu11475974795794362891.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Store 
+    <div id="store" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#store" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image14_hu9276368173147716456.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image14_hu17685238150583308899.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image14_hu9093322944987623675.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image14_hu13905400268619652832.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image14_hu17685238150583308899.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">BNZ 
+    <div id="bnz" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bnz" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image15_hu1459114271783358327.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image15_hu7598451481056867610.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image15_hu2255133351355672411.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image15_hu9296076977045002544.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image15_hu7598451481056867610.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Shift L/R Ra, Imm2 
+    <div id="shift-lr-ra-imm2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#shift-lr-ra-imm2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image16_hu9977468582103738685.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image16_hu16300841382705822382.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image16_hu17773718271979272436.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image16_hu14584714872476455343.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image16_hu16300841382705822382.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">FSM Cycles 
+    <div id="fsm-cycles" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fsm-cycles" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Load 
+    <div id="load-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#load-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image17_hu3652299914772411089.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image17_hu18338190568471812278.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image17_hu14608909886823817352.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image17_hu6686226771521553824.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image17_hu18338190568471812278.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">BNZ Imm4 
+    <div id="bnz-imm4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bnz-imm4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image18_hu9282599357683153278.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image18_hu11626769600030618157.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image18_hu7621214888222324353.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image18_hu17674738400704297666.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image18_hu11626769600030618157.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Processor elements 
+    <div id="processor-elements" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#processor-elements" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Register File 
+    <div id="register-file" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#register-file" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image19_hu11129440215912799040.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image19_hu14824725203439016168.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image19_hu16013290321373599090.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image19_hu10772193160068810145.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image19_hu14824725203439016168.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>通过 <code>regA</code> 和 <code>regB</code> 两个 2-bit 输入信号，分别从 <code>dataA</code> 和 <code>dataB</code> 端口同时输出两个 8-bit 数据</li>
+<li>通过 <code>regw</code>（2-bit）选择目标寄存器，在 <code>RFWrite</code> 信号有效且时钟 <code>CLK</code> 到达时，将 <code>dataw</code>（8-bit）的数据写入</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image20_hu7930681287197314292.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image20_hu13245695772857339423.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image20_hu16327480829290592842.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image20_hu17253359505509376858.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image20_hu13245695772857339423.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li><code>regA</code> 信号作为上方 Mux 的选择端，决定 <code>dataA</code> 输出哪个寄存器的值</li>
+<li><code>regB</code> 信号作为下方 Mux 的选择端，决定 <code>dataB</code> 输出哪个寄存器的值</li>
+<li>左侧的 2-bit 输入 <code>regw</code> 连接到一个译码器，将其转换为四条选通线（00, 01, 10, 11）。</li>
+<li>每条选通线与 <code>RFWrite</code> 全局信号通过一个 <strong>AND 门</strong> 相连。</li>
+<li><strong>使能控制</strong>：只有当 <code>RFWrite</code> 为 1 且译码器选中该寄存器时，对应寄存器的 <strong>Enable（使能）</strong> 端才会被激活。</li>
+<li><strong>数据输入</strong>：<code>dataw</code>（橙色线）连接到所有四个寄存器的输入端，但只有被使能的那个寄存器会在时钟触发时保存该值</li>
+</ul>
+
+
+<h2 class="relative group">ALU 
+    <div id="alu" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#alu" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image21_hu18076457007316505653.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image21_hu12178975017225993490.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image21_hu14907004147657206648.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image21_hu16703285515953735901.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image21_hu12178975017225993490.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li><strong>输入输出</strong>：拥有两个 8-bit 输入端口（<strong>A</strong> 和 <strong>B</strong>），一个 8-bit 输出端口（<strong>ALUout</strong>）。</li>
+<li><strong>控制信号</strong>：<code>ALUop</code> 是一个 3-bit 的选择信号，决定当前的运算类型</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image22_hu10181730047923325097.png 330w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image22_hu724659604010422876.png 660w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image22_hu9306160728164246317.png 1024w,
+        /docs/uoft/26w/computer-organization/co7.designofprocessor/image22_hu7063325621759334428.png 2x"
+        src="/docs/uoft/26w/computer-organization/co7.designofprocessor/image22_hu724659604010422876.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li><strong>并行运算层</strong>：输入 A 和 B 同时进入所有的运算模块（加法器、减法器、或门、与非门、移位器）。这意味着<strong>所有运算是同时发生的。</strong></li>
+<li><code>ALUop</code> 信号连接到 Mux 的选择端。它的作用是从上方所有运算模块的结果中，<strong>只选出一个</strong>作为最终的 <code>ALUout</code> 输出</li>
+</ul>
+
+
+<h2 class="relative group">FSM &amp; Memory 
+    <div id="fsm--memory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fsm--memory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><strong>读 (<code>Memread = 1</code>)</strong>：地址输入后，数据在<strong>同一个时钟周期</strong>内从 <code>DATAout</code> 输出。</li>
+<li><strong>写 (<code>MemWrite = 1</code>)</strong>：地址和 <code>DATAin</code> 输入后，数据在<strong>时钟周期结束时</strong>完成更改。</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

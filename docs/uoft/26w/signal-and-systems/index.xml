@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced Engineering Mathematics on Buezwqwg</title>
+    <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/</link>
+    <description>Recent content in Advanced Engineering Mathematics on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2026 Buezwqwg</copyright>
+    <lastBuildDate>Thu, 26 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/26w/signal-and-systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SS 8. FundamentalsofDiscrete-Time Systems</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/</link>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/26/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;DT System 
+    &lt;div id=&#34;dt-system&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#dt-system&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;The DT system gets in a DT input and &lt;strong&gt;produces exactly one DT output&lt;/strong&gt;&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 7. AnalysisofCTSystemusingLaplaceTransform</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/</link>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/24/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;LTI System with Complex Exponential Inputs 
+    &lt;div id=&#34;lti-system-with-complex-exponential-inputs&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#lti-system-with-complex-exponential-inputs&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Recall a LTI System with &lt;strong&gt;Impulse Response of $h$&lt;/strong&gt;, its output in &lt;strong&gt;Time Domain&lt;/strong&gt; is&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 6. AnalysisofCTSusingForierTransform</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/11/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;LTI systems with Complex Exponential Inputs 
+    &lt;div id=&#34;lti-systems-with-complex-exponential-inputs&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#lti-systems-with-complex-exponential-inputs&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Known that a for a LTI system $T$, its output is the Convolution of input and Impulse Response&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 5. Continuous-Time System</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/</link>
+      <pubDate>Sun, 08 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/8/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Continuous-Time System 
+    &lt;div id=&#34;continuous-time-system&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#continuous-time-system&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;A CT system takes a CT input and produces a CT output&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 4. Sample</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss4.sample/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss4.sample/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Sampling 
+    &lt;div id=&#34;sampling&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#sampling&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Sampling means to collect a measurement of a signal&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If there’s too few samples, then there’s a little we can learn&lt;/li&gt;
+&lt;li&gt;If there’s “enough”, then we may be able to figure out the original one&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;The sampling function 
+    &lt;div id=&#34;the-sampling-function&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#the-sampling-function&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;The sampling function is defined as&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 3. FourierTransform</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss3.fouriertransform/</link>
+      <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss3.fouriertransform/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/3/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We have already know how to use Fourier Series to analyze periodic signals by extract it into frequency domain&lt;/p&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;But what if the signal is aperiodic?&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 2. FourierSeries</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss2.fourierseries/</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss2.fourierseries/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/19/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Fourier Series 
+    &lt;div id=&#34;fourier-series&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#fourier-series&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Now consider this case&lt;/p&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;we have being given an oscillation signal of an object after collision&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>SS 1. FundamentalsofContinuousandDiscreteTimeSignals</title>
+      <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss1.fundamentalsofcontinuousanddiscretetimesignals/</link>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss1.fundamentalsofcontinuousanddiscretetimesignals/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/12/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/15/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Signals 
+    &lt;div id=&#34;signals&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#signals&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Continuous-Time Signals 
+    &lt;div id=&#34;continuous-time-signals&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#continuous-time-signals&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;p&gt;A continuous-time signal is a function of one (or more) independent variables which range over the real numbers $\mathbb R$&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

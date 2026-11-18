@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=8888&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO 3. Subroutines | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:8888/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#text">.text</a></li>
+    <li><a href="#data">.data</a></li>
+    <li><a href="#align">.align</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#program-counter-pc">Program Counter PC</a></li>
+    <li><a href="#subroutines-1">Subroutines</a></li>
+    <li><a href="#return-address">Return Address</a></li>
+    <li><a href="#stack---data-structure">Stack - Data Structure</a></li>
+    <li><a href="#stack-pointer---implementation-of-stack">Stack Pointer - Implementation of Stack</a>
+      <ul>
+        <li><a href="#push-in-sp">Push in SP</a></li>
+        <li><a href="#pop-in-sp">Pop in SP</a></li>
+      </ul>
+    </li>
+    <li><a href="#code-example-nested-subroutine-calls">Code Example: Nested Subroutine Calls</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CO 3. Subroutines</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 20, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                795 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 1/20/26</p>
+</blockquote>
+<blockquote>
+<p>Last Edit: 1/20/25</p>
+</blockquote>
+
+
+<h1 class="relative group">Directives 
+    <div id="directives" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#directives" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Directives are not the code for CPU to run, instead, its a guidance for Assembler to order code</p>
+<ul>
+<li>Directives start with an <code>.</code></li>
+<li>Commonly seen Directive are <code>.text</code> , <code>.data</code> ,<code>.align</code></li>
+</ul>
+
+
+<h2 class="relative group">.text 
+    <div id="text" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#text" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Text Segment tells the Assembler that the following are runnable code that are read only</p>
+
+
+<h2 class="relative group">.data 
+    <div id="data" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#data" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Data Segment tells the Assembler that following code are data, like constant, and so on</p>
+
+
+<h2 class="relative group">.align 
+    <div id="align" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#align" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Alignment make sure the following code or data start with specific address, i.e. 4 or 8</p>
+
+
+<h1 class="relative group">Subroutines 
+    <div id="subroutines" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#subroutines" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Program Counter PC 
+    <div id="program-counter-pc" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#program-counter-pc" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Inside Processor, there’s a specific Register called PC, that is pointing to the next instruction’s address</p>
+<ul>
+<li>Normally, PC increase by 4 each time, because the Processor we use is 32 bits</li>
+<li>Though we can manually change PC to address the instruction we want to call next, and that will be the case in Conditional Branch, or Subroutines</li>
+</ul>
+
+
+<h2 class="relative group">Subroutines 
+    <div id="subroutines-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#subroutines-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Subroutines can also being interpreted by Functions, that can be reused for several times, consider this C program</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="nf">mysub</span><span class="p">(</span><span class="kt">int</span> <span class="n">p</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">		<span class="k">return</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">p</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">	<span class="n">x</span> <span class="o">=</span> <span class="nf">mysub</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">	<span class="n">y</span> <span class="o">=</span> <span class="nf">mysub</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span></span></code></pre></div><p>The above section indicated how PC works, while there’s a second Register tells the PC the original address to return to before calling the Subroutine (Function)</p>
+<p>Now we can write the Assembly Code for the above C program</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="nl">my_sub:</span> <span class="nf">add</span> <span class="nv">a0</span><span class="p">,</span><span class="nv">a0</span><span class="p">,</span><span class="nv">a0</span>
+</span></span><span class="line"><span class="cl">				<span class="nf">ret</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">li</span> <span class="nv">a0</span><span class="p">,</span><span class="mi">3</span>
+</span></span><span class="line"><span class="cl"><span class="nf">call</span> <span class="nv">my</span><span class="o">-</span><span class="nv">sub</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">next:</span> <span class="nf">li</span> <span class="nv">a0</span><span class="p">,</span><span class="mi">4</span>
+</span></span><span class="line"><span class="cl">			<span class="nf">call</span> <span class="nv">my</span><span class="o">-</span><span class="nv">sub</span>
+</span></span><span class="line"><span class="cl">			
+</span></span><span class="line"><span class="cl"><span class="nl">done:</span> <span class="nf">j</span> <span class="nv">done</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group">Return Address 
+    <div id="return-address" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#return-address" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In Subroutines, they need to deal with he Return Address <code>ra</code> , that is the return address</p>
+<p>The case is that, if <code>A</code> is calling <code>B</code> , then <code>B</code>  return directly, everything is fine</p>
+<p>But if <code>A</code> is calling <code>B</code> , and <code>B</code>  is calling <code>C</code> , then the address of <code>A</code> will be overwrite</p>
+
+
+<h2 class="relative group">Stack - Data Structure 
+    <div id="stack---data-structure" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stack---data-structure" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Thus we can use the Stack Data Structure to fix this problem</p>
+<p>Having the property of $LIFO, Last In First Out$, Stack have two operations</p>
+<ul>
+<li><strong>Push</strong>: Put on top</li>
+<li><strong>Pop</strong>: Remove from top</li>
+</ul>
+
+
+<h2 class="relative group">Stack Pointer - Implementation of Stack 
+    <div id="stack-pointer---implementation-of-stack" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stack-pointer---implementation-of-stack" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In NIOS V, A special Register <code>x2</code>  is designed as the top of a stack pointer</p>
+<ul>
+<li>It is pointing to the address of the top word on the stack</li>
+<li>And we call it <strong>Stack Pointer</strong> or <code>sp</code></li>
+</ul>
+<p>The Stack Pointer has the property of growing downwards (towards smaller addresses) in memory, so we init it in a <strong>higher memory address</strong></p>
+<ul>
+<li>In this course, we init <code>sp</code> at <code>0x20000</code></li>
+<li>Notice that if <code>sp</code> is at <code>0x20000</code> , then it means the stack is empty</li>
+</ul>
+<hr>
+
+
+<h3 class="relative group">Push in SP 
+    <div id="push-in-sp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#push-in-sp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Now let’s try to push a word <code>0x1234f678</code> into stack, that will be <code>li t0, 0x1234f678</code></p>
+<ul>
+<li>First we change the <code>sp</code> and allocate a memory for a word (4 Bytes)</li>
+<li><code>addi sp,sp,-4</code></li>
+<li>Then we push the value into stack</li>
+<li><code>sw t0,(sp)</code></li>
+</ul>
+
+
+<h3 class="relative group">Pop in SP 
+    <div id="pop-in-sp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#pop-in-sp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Now we are going to try to pop a word out, we basically do the reverse of push</p>
+<ul>
+<li>First get the value of current <code>sp</code></li>
+<li><code>lw t1,(sp)</code></li>
+<li>Then put <code>sp</code> back, notice that the value is not being deleted, but <code>sp</code> has been mov</li>
+<li><code>addi sp,sp,4</code></li>
+</ul>
+
+
+<h2 class="relative group">Code Example: Nested Subroutine Calls 
+    <div id="code-example-nested-subroutine-calls" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#code-example-nested-subroutine-calls" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="err">#</span> <span class="err">---</span> <span class="nf">Initialization</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="nf">la</span> <span class="nb">sp</span><span class="p">,</span> <span class="mh">0x20000</span>        <span class="err">#</span> <span class="nv">Initialize</span> <span class="nv">stack</span> <span class="nv">pointer</span> <span class="nv">high</span> <span class="nv">in</span> <span class="nv">memory</span>
+</span></span><span class="line"><span class="cl"><span class="nf">li</span> <span class="nv">a0</span><span class="p">,</span> <span class="mi">1</span>              <span class="err">#</span> <span class="nv">Load</span> <span class="nv">immediate</span> <span class="nv">value</span> <span class="mi">1</span> <span class="nv">into</span> <span class="nv">register</span> <span class="nv">a0</span>
+</span></span><span class="line"><span class="cl"><span class="nf">call</span> <span class="nv">sub_1</span>            <span class="err">#</span> <span class="nv">Jump</span> <span class="nv">to</span> <span class="nv">sub_1</span><span class="c1">; ra is set to &#39;done&#39; address</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">done:</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">j</span> <span class="nv">done</span>            <span class="err">#</span> <span class="nv">Infinite</span> <span class="nv">loop</span> <span class="nv">once</span> <span class="nv">the</span> <span class="nv">program</span> <span class="nv">is</span> <span class="nv">finished</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="err">---</span> <span class="nf">Subroutine</span> <span class="mi">1</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="nl">sub_1:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">addi</span> <span class="nb">sp</span><span class="p">,</span> <span class="nb">sp</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span>   <span class="err">#</span> <span class="nv">Push</span> <span class="nv">ra</span> <span class="nv">onto</span> <span class="nv">stack</span><span class="p">:</span> <span class="nv">decrement</span> <span class="nv">stack</span> <span class="nv">pointer</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>   <span class="nv">ra</span><span class="p">,</span> <span class="p">(</span><span class="nb">sp</span><span class="p">)</span>     <span class="err">#</span> <span class="nv">Save</span> <span class="nv">the</span> <span class="nv">return</span> <span class="nv">address</span> <span class="p">(</span><span class="nv">pointing</span> <span class="nv">to</span> <span class="s">&#39;done&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">...</span> <span class="nv">logic</span> <span class="nv">for</span> <span class="nv">sub_1</span> <span class="nv">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">call</span> <span class="nv">sub_2</span>        <span class="err">#</span> <span class="nv">Call</span> <span class="nv">sub_2</span><span class="c1">; ra is now overwritten with address in sub_1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">...</span> <span class="nv">execution</span> <span class="nv">continues</span> <span class="nv">here</span> <span class="nv">after</span> <span class="nv">sub_2</span> <span class="nv">returns</span> <span class="nv">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span>   <span class="nv">ra</span><span class="p">,</span> <span class="p">(</span><span class="nb">sp</span><span class="p">)</span>     <span class="err">#</span> <span class="nv">Pop</span> <span class="nv">top</span> <span class="nv">of</span> <span class="nv">stack</span> <span class="nv">into</span> <span class="nv">ra</span> <span class="nv">just</span> <span class="nv">before</span> <span class="nv">returning</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">addi</span> <span class="nb">sp</span><span class="p">,</span> <span class="nb">sp</span><span class="p">,</span> <span class="mi">4</span>    <span class="err">#</span> <span class="nv">Increment</span> <span class="nv">stack</span> <span class="nv">pointer</span> <span class="nv">to</span> <span class="s">&#34;remove&#34;</span> <span class="nv">item</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">ret</span>               <span class="err">#</span> <span class="nv">Return</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">caller</span> <span class="p">(</span><span class="nv">PC</span> <span class="o">&lt;-</span> <span class="nv">ra</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="err">---</span> <span class="nf">Subroutine</span> <span class="mi">2</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="nl">sub_2:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">addi</span> <span class="nb">sp</span><span class="p">,</span> <span class="nb">sp</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span>   <span class="err">#</span> <span class="nv">Push</span> <span class="nv">ra</span> <span class="nv">onto</span> <span class="nv">stack</span> <span class="nv">so</span> <span class="nv">we</span> <span class="nv">can</span> <span class="nv">call</span> <span class="nv">other</span> <span class="nv">subroutines</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>   <span class="nv">ra</span><span class="p">,</span> <span class="p">(</span><span class="nb">sp</span><span class="p">)</span>     <span class="err">#</span> <span class="nv">Save</span> <span class="nv">ra</span> <span class="p">(</span><span class="nv">which</span> <span class="nv">currently</span> <span class="nv">points</span> <span class="nv">back</span> <span class="nv">to</span> <span class="nv">sub_1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">...</span> <span class="nv">logic</span> <span class="nv">for</span> <span class="nv">sub_2</span> <span class="nv">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">call</span> <span class="nv">sub_3</span>        <span class="err">#</span> <span class="nv">Go</span> <span class="nv">off</span> <span class="nv">to</span> <span class="nv">sub_3</span><span class="p">,</span> <span class="nv">then</span> <span class="nv">come</span> <span class="nv">back</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">...</span> <span class="nv">execution</span> <span class="nv">continues</span> <span class="nv">here</span> <span class="nv">after</span> <span class="nv">sub_3</span> <span class="nv">returns</span> <span class="nv">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span>   <span class="nv">ra</span><span class="p">,</span> <span class="p">(</span><span class="nb">sp</span><span class="p">)</span>     <span class="err">#</span> <span class="nv">Pop</span> <span class="nv">top</span> <span class="nv">of</span> <span class="nv">stack</span> <span class="nv">into</span> <span class="nv">ra</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">addi</span> <span class="nb">sp</span><span class="p">,</span> <span class="nb">sp</span><span class="p">,</span> <span class="mi">4</span>    <span class="err">#</span> <span class="nv">Restore</span> <span class="nv">the</span> <span class="nv">stack</span> <span class="nv">pointer</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">ret</span>               <span class="err">#</span> <span class="nv">Return</span> <span class="nv">to</span> <span class="nv">sub_1</span> <span class="p">(</span><span class="nv">PC</span> <span class="o">&lt;-</span> <span class="nv">ra</span> <span class="o">-</span> <span class="nv">the</span> <span class="nv">correct</span> <span class="nv">one</span><span class="err">!</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="err">---</span> <span class="nf">Subroutine</span> <span class="mi">3</span> <span class="o">---</span>
+</span></span><span class="line"><span class="cl"><span class="nl">sub_3:</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">sub_3</span> <span class="nv">would</span> <span class="nv">look</span> <span class="nb">si</span><span class="nv">milar</span> <span class="nv">if</span> <span class="nv">it</span> <span class="nv">called</span> <span class="nv">more</span> <span class="nv">functions</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">If</span> <span class="nv">it</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">leaf</span> <span class="nv">function</span> <span class="p">(</span><span class="nv">calls</span> <span class="nv">no</span> <span class="nv">one</span><span class="p">),</span> <span class="nv">it</span> <span class="nv">may</span> <span class="nv">not</span> <span class="nv">need</span> <span class="nv">to</span> <span class="nv">save</span> <span class="nv">ra</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">ret</span>               <span class="err">#</span> <span class="nv">Return</span> <span class="nv">to</span> <span class="nv">sub_2</span>
+</span></span></code></pre></div>
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

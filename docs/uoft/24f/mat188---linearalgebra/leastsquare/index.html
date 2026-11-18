@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA Least Square | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#solution-解">Solution 解</a>
+      <ul>
+        <li><a href="#least-error-solution-optimization-最优解">Least Error Solution (Optimization) 最优解</a></li>
+        <li><a href="#r3-case">R^3 Case</a></li>
+      </ul>
+    </li>
+    <li><a href="#projection-投影">Projection 投影</a></li>
+    <li><a href="#least-squares-最小二乘">Least Squares 最小二乘</a>
+      <ul>
+        <li><a href="#几何角度">几何角度</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>LA Least Square</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                November 19, 2024
+                <span style="margin: 0 10px;">&middot;</span> 
+                1199 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 11/19/24</p>
+</blockquote>
+
+
+<h2 class="relative group">Solution 解 
+    <div id="solution-%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution-%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\)</li>
+<li>要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution</li>
+<li>由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-1.png" alt="Img" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Least Error Solution (Optimization) 最优解 
+    <div id="least-error-solution-optimization-%E6%9C%80%E4%BC%98%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#least-error-solution-optimization-%E6%9C%80%E4%BC%98%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>但是对于a到直线的距离仍存在Optimized Solution</li>
+<li>最优解出现在\([1,2]^T\)的终点在\([1,0]\)方向上最短的情况，即一个Error最小的情况</li>
+<li>可以从a出发找到无数个到达向量\([1,0]^T\)方向的向量</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-2.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>而其中最短的则是\(\vec {e}\)</li>
+<li>也可以说\(\vec e\)是Equation Error最小的Solution</li>
+</ul>
+
+
+<h3 class="relative group">R^3 Case 
+    <div id="r3-case" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#r3-case" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于向量\([1,1,3]^T\)来说，要计算其到达平面\(x+y-2z=0\)的最短距离</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>\(\vec e\) 则代表了这一个距离</li>
+<li>则e的起点在Plane\(x+y-2z=0\)上的位置就是这一个最优解</li>
+</ul>
+
+
+<h2 class="relative group">Projection 投影 
+    <div id="projection-%E6%8A%95%E5%BD%B1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#projection-%E6%8A%95%E5%BD%B1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>可以发现，要找到最优解，一个合理的办法是从Projection开始</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-3.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>在上图中p就是a在\([1,0]^T\)方向上的投影</li>
+<li>则有\(e=b-p\)</li>
+<li>而最小化这个e就是目标，这个目标通过Orthogonal 正交实现</li>
+<li>具体来说从A出发的orthogonal to p的vector e就是这个Optimized Solution</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-4.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>\(R^3\)中同理，只不过是将投影的改为了Plane</li>
+<li>于是便有\(e=(b-A\hat x)\)</li>
+<li>要让e垂直于Plane \(A=[a1,a2]\)</li>
+<li>有\(a_1^T(b-A\hat x  )=0\)并且\(a_2^T(b-A\hat x  )=0\)</li>
+<li>于是可以得到公式
+$$A^T(b-A\hat x)=0\Rightarrow A^TA\hat x=A^Tb$$</li>
+</ul>
+
+
+<h2 class="relative group">Least Squares 最小二乘 
+    <div id="least-squares-%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#least-squares-%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>直接进入例子</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-6.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>对于三个点{(1,1), (2,2), (3,2)}</li>
+<li>构建方程\(y=wx\)</li>
+<li>带入点后得到\(1=w,2=2w,2=3w\)</li>
+<li>通过\(A^TA\hat x=A^Tb\)</li>
+</ul>
+<div>
+$$A^T A = \begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}
+= 1^2 + 2^2 + 3^2
+= 1 + 4 + 9
+= 14$$
+$$A^T b = \begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}
+\begin{bmatrix}
+1 \\
+2 \\
+2
+\end{bmatrix}
+= 1 \cdot 1 + 2 \cdot 2 + 3 \cdot 2
+= 1 + 4 + 6
+= 11
+$$
+</div>
+<ul>
+<li>便有\(14w=11\Rightarrow w=\frac{11}{14}\)</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-7.png" alt="Img" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">几何角度 
+    <div id="%E5%87%A0%E4%BD%95%E8%A7%92%E5%BA%A6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%87%A0%E4%BD%95%E8%A7%92%E5%BA%A6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>那么上面的公式在几何空间中干的事就是</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-8.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>找到了这个红色的Vector，也就是最小的e</li>
+<li>同理运用到最经典的\(y=wx+b\)也是一样</li>
+<li>\(1=w+b,2=2w+b,2=3w+b\)</li>
+</ul>
+<div>
+$$A^T A = \begin{bmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 2 & 1 \\ 3 & 1 \end{bmatrix} = \begin{bmatrix} 1^2 + 2^2 + 3^2 & 1 + 2 + 3 \\ 1 + 2 + 3 & 3 \end{bmatrix} = \begin{bmatrix} 14 & 6 \\ 6 & 3 \end{bmatrix}$$
+$$A^T \mathbf{b} = \begin{bmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 2 \\ 2 \end{bmatrix} = \begin{bmatrix} 1 \cdot 1 + 2 \cdot 2 + 3 \cdot 2 \\ 1 \cdot 1 + 1 \cdot 2 + 1 \cdot 2 \end{bmatrix} = \begin{bmatrix} 11 \\ 5 \end{bmatrix}$$
+$$\begin{bmatrix} 14 & 6 \\ 6 & 3 \end{bmatrix} \begin{bmatrix} w \\ b \end{bmatrix} = \begin{bmatrix} 11 \\ 5 \end{bmatrix} $$
+</div>
+<ul>
+<li>于是有\(w=\frac{1}{2},b=\frac{2}{3}\)</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-10.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>同理几何上找到了向量在Plane上的投影之间的最小Error</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LeastSquare/LeastSquare-9.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>所以这就是\(A^TA\hat x=A^Tb\) 在Linear Regression的作用</li>
+<li>需要知道的是这个方法（Normal Equation）求得的是解析解，在一般在feature &lt; 10000的时候采用，但是过程可能不可逆</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2024 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

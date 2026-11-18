@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMF 9. MagneticMaterials,BC&amp;Inductance | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#case-1-point-at-center-of-loop">Case 1: Point at center of Loop</a></li>
+    <li><a href="#case-2-point-thats-far-away-on-z-axis">Case 2: Point that’s far away on Z-Axis</a></li>
+    <li><a href="#case-3-any-point-in-the-space">Case 3: Any point in the space</a></li>
+    <li><a href="#duality-between-magnetic-dipole--electric-dipole">Duality Between Magnetic Dipole &amp; Electric Dipole</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#nature-of-magnetic-materials">Nature of Magnetic Materials</a></li>
+    <li><a href="#magnetization">Magnetization</a>
+      <ul>
+        <li><a href="#magnetization-1">Magnetization</a></li>
+      </ul>
+    </li>
+    <li><a href="#magnetization-of-magnetic-materials">Magnetization of Magnetic Materials</a></li>
+    <li><a href="#types-of-magnetic-materials">Types of Magnetic Materials</a></li>
+    <li><a href="#magnetic-domains">Magnetic Domains</a></li>
+    <li><a href="#magnetic-hysteresis-of-ferromagnetic-materials">Magnetic Hysteresis of Ferromagnetic materials</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#magnetic-field-boundary-condition---normal-components">Magnetic Field Boundary Condition - Normal Components</a></li>
+    <li><a href="#magnetic-field-boundary-condition---tangential-components">Magnetic Field Boundary Condition - Tangential Components</a></li>
+    <li><a href="#magnetic-field-boundary-condition-when-having-surface-current">Magnetic Field Boundary Condition when having Surface Current</a></li>
+    <li><a href="#revisiting-toroidal-magnetic-field">Revisiting Toroidal Magnetic Field</a>
+      <ul>
+        <li><a href="#ex-calculating-the-magnetic-field-in-boundary-condition">Ex. Calculating the Magnetic Field in Boundary Condition</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#self-inductance-of-a-toroid">Self Inductance of a Toroid</a></li>
+    <li><a href="#effect-if-air-gap-in-toroid">Effect if Air Gap in Toroid</a></li>
+    <li><a href="#self-inductance-of-a-solenoid">Self Inductance of a Solenoid</a></li>
+    <li><a href="#self-inductance-of-a-solenoid--special-case">Self-inductance of a Solenoid – Special Case</a></li>
+    <li><a href="#inductance-of-a-parallel-wire-transmission-line">Inductance of a Parallel-wire Transmission Line</a></li>
+    <li><a href="#self-inductance-of-infinitely-long-coaxial-cable">Self-inductance of Infinitely Long Coaxial Cable</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#mutual-inductance-between-wire-and-loop">Mutual-Inductance between Wire and Loop</a></li>
+        <li><a href="#mutual-inductance-in-solenoid-with-two-solenoids">Mutual-inductance in Solenoid with Two Solenoids</a></li>
+        <li><a href="#mutual-inductance-in-solenoid-with-two-discrete-loops">Mutual-inductance in Solenoid with Two Discrete Loops</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EMF 9. MagneticMaterials,BC&amp;Inductance</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 09, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                1159 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/9/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Magnetic Dipole 
+    <div id="magnetic-dipole" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-dipole" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>As Magnetic Field is created by Current, the Magnetic Dipole is thus a Closed Loop Current</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>This is equivalent to a Magnetic as the $+z$ direction is N, $-z$ direction is S</p>
+<ul>
+<li>While ideally, we assume the radius of Loop to be infinite small thus it becomes a point</li>
+<li>By setting the radius of the loop to $a$, we can get</li>
+</ul>
+<p>$$
+\vec{H} = \frac{I \pi a^2 \hat{z}}{2 \pi (\sqrt{a^2 + z^2})^3} = \frac{\vec{m}}{2 \pi (a^2 + z^2)^{3/2}}
+$$</p>
+<p>Whereas the $\vec m$ is Magnetic Dipole Moment having $\vec m = IS\hat n$</p>
+<ul>
+<li>This moment indicate the Normal direction of Loop, and the Magnitude of the Field</li>
+</ul>
+<p>There’s basically two kinds of Magnetic Field we have</p>
+
+
+<h2 class="relative group">Case 1: Point at center of Loop 
+    <div id="case-1-point-at-center-of-loop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-1-point-at-center-of-loop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\vec{H}(0) = \frac{I}{2a} \hat{z}
+$$</p>
+
+
+<h2 class="relative group">Case 2: Point that’s far away on Z-Axis 
+    <div id="case-2-point-thats-far-away-on-z-axis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-2-point-thats-far-away-on-z-axis" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\vec{H}(z \gg a) \approx \frac{\vec{m}}{2 \pi z^3} = \frac{I a^2}{2 z^3} \hat{z}
+$$</p>
+
+
+<h2 class="relative group">Case 3: Any point in the space 
+    <div id="case-3-any-point-in-the-space" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-3-any-point-in-the-space" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Now consider the point at any point of the space, start with Biot-Sacart too</p>
+<p>$$
+\vec{H} = \int \frac{I d\vec{l} \times \vec{R}}{4\pi |\vec{R}|^3}
+$$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Duality Between Magnetic Dipole &amp; Electric Dipole 
+    <div id="duality-between-magnetic-dipole--electric-dipole" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#duality-between-magnetic-dipole--electric-dipole" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Magnetic Materials 
+    <div id="magnetic-materials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-materials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Nature of Magnetic Materials 
+    <div id="nature-of-magnetic-materials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nature-of-magnetic-materials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There’s two kinds of movement for electrons in atoms</p>
+<ol>
+<li>Orbiting Electron: That’s electron spinning around Core and create $m_o$</li>
+<li>Spinning Electron: The self spin of the electron, creating $m_s$</li>
+</ol>
+<hr>
+<p>As the magnetic Moment is $m_o = IA_{loop}$, for a circular orbit with radius $r$, it have $A= \pi r ^2$</p>
+<p>Whereas the current is the Charge’s rate of change of time, electron has the charge of $-e$, and the time spinning one circle is $\Delta t = \frac{2\pi r}{u}$, that will be $I = \frac{-e}{\Delta t} = \frac{-eu}{2\pi r}$, so we can get</p>
+<p>$$
+m_o = \frac{-eu}{2\pi r} \cdot \pi r^2 = -\frac{eur}{2}
+$$</p>
+<p>Having the Plank Constant and Angular Momentum sub in, our finial conclusion will be</p>
+<p>$$
+|m_s| = |m_o| \approx 9 \times 10^{-24} , \text{A} \cdot \text{m}^2
+$$</p>
+<aside>
+❗
+<p>This indicates that the Magnetic from material is from the Orbiting and Spinning of electrons which creates current</p>
+</aside>
+
+
+<h2 class="relative group">Magnetization 
+    <div id="magnetization" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetization" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Now we are viewing Magnetism under macro perspective</p>
+<p>Firstly recall the two kinds of current we have, 1. Free Current and 2. Bounding Current</p>
+<ul>
+<li>Free Current is the charges moving inside wires</li>
+<li>Bounding Currents are then the Spinning ones inside atom</li>
+</ul>
+<p>When we are analysing a material with $\Delta V$ as the volume, we assume there’s N Dipoles inside , thus the $m_{total}$ will then be</p>
+<p>$$
+\vec{m}<em>{total} = \sum</em>{i=1}^{N\Delta V} \vec{m}_i
+$$</p>
+
+
+<h3 class="relative group">Magnetization 
+    <div id="magnetization-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetization-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>This is used to describe the extend how material has been Magnetized</p>
+<p>$$
+\vec{M} = \lim_{\Delta V \to 0} \frac{1}{\Delta V} \sum_{i=1}^{N\Delta V} \vec{m}_i
+$$</p>
+<p>It’s definition is the net Magnetic Dipole in unit volume</p>
+
+
+<h2 class="relative group">Magnetization of Magnetic Materials 
+    <div id="magnetization-of-magnetic-materials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetization-of-magnetic-materials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Before describing the Magnetic Field inside a Magnetic Material, we shall summarize all things first</p>
+<ul>
+<li>$M$: Magnetization, describe the magnetic field created by the material own</li>
+<li>$H$: External Magnetic Field</li>
+</ul>
+<p>Now we define $\chi_m$ to be the Magnetic Susceptibility, which is the response of material under magnetic field</p>
+<p>So the total Magnetic Flux Density inside the material will be</p>
+<p>$$
+\vec{B} = \mu_0 (\vec{H} + \vec{M})
+$$</p>
+<p>This means that the total Flux will be the External plus Internal, now sub in $\vec{M} = \chi_m \vec{H}$ to get</p>
+<p>$$
+\vec{B} = \mu_0 (\vec{H} + \chi_m \vec{H}) = \mu_0 (1 + \chi_m) \vec{H}
+$$</p>
+<p>Now we define $(1 + \chi_m)$ to be $\mu_r$, Relative Permeability, now we can get</p>
+<p>$$
+\vec{B} = \mu_0 \mu_r \vec{H}
+$$</p>
+<p>This means that the existence of Magnetic Material changed the distribution of Magnetic Field</p>
+
+
+<h2 class="relative group">Types of Magnetic Materials 
+    <div id="types-of-magnetic-materials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#types-of-magnetic-materials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Magnetic Domains 
+    <div id="magnetic-domains" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-domains" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Imagine the internal structure of material is formed by numbers of chambers which are called <strong>Domains</strong></p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>When the Domains are having different Magnetic Force directions, externally the $M=0$</p>
+<p>Whereas then Domains are aligned, this creates a Magnetic Field</p>
+
+
+<h2 class="relative group">Magnetic Hysteresis of Ferromagnetic materials 
+    <div id="magnetic-hysteresis-of-ferromagnetic-materials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-hysteresis-of-ferromagnetic-materials" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Basically, the Magnetic Material’s Internal magnetic Field has the property of Hysteresis which is like FSM that the current stage depends on previous stage</p>
+
+
+<h1 class="relative group">Magnetic Field Boundary Conditions 
+    <div id="magnetic-field-boundary-conditions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-boundary-conditions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>When Magnetic Field coming across two materials, here analyze how it change</p>
+
+
+<h2 class="relative group">Magnetic Field Boundary Condition - Normal Components 
+    <div id="magnetic-field-boundary-condition---normal-components" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-boundary-condition---normal-components" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Based on a long derivation, we get that Normal Component of Magnetic Flux is continuous, but the Magnetic Field is not as</p>
+<p>$$
+\mu_1 H_{n1} = \mu_2 H_{n2}
+$$</p>
+
+
+<h2 class="relative group">Magnetic Field Boundary Condition - Tangential Components 
+    <div id="magnetic-field-boundary-condition---tangential-components" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-boundary-condition---tangential-components" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Based on derivation, we get the Magnetic Field is continuous, but Magnetic Flux isn’t</p>
+<p>$$
+\frac{B_{t1}}{\mu_1} = \frac{B_{t2}}{\mu_2}
+$$</p>
+
+
+<h2 class="relative group">Magnetic Field Boundary Condition when having Surface Current 
+    <div id="magnetic-field-boundary-condition-when-having-surface-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-boundary-condition-when-having-surface-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This occur when there’s a perfect conductor that makes</p>
+<p>$$
+H_{t1} - H_{t2} = J_s
+$$</p>
+<p>Thus the Magnetic Flux will have</p>
+<p>$$
+\frac{B_{t1}}{\mu_1} - \frac{B_{t2}}{\mu_2} = J_s
+$$</p>
+
+
+<h2 class="relative group">Revisiting Toroidal Magnetic Field 
+    <div id="revisiting-toroidal-magnetic-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#revisiting-toroidal-magnetic-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>For a Toroid with radius r, it’s Magnetic Field $H$ will distribute in</p>
+<ul>
+<li>$r&lt;a$: 0 as no current is passing</li>
+<li>$a&lt;r&lt;b$: $\vec{H} = \frac{NI}{2\pi r} \hat{\phi}$</li>
+<li>$r&gt;b$: 0 as the current into is same as out of</li>
+</ul>
+<hr>
+<p>Now use the B.C. to calculate that again, starting from $H_{t1} - H_{t2} = J_s$, we can get there’s two interfaces, $r=a$ and $r=b$</p>
+<ul>
+<li>$r=a$: $H_{air}=0$, $H_{core} = \frac{NI}{2\pi a}$, and Surface Charge is $J_s = \frac{NI}{l}$</li>
+<li>$r=b$: $H_{core} = \frac{NI}{2\pi b}$, $H_{air}=0$</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%208.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. Calculating the Magnetic Field in Boundary Condition 
+    <div id="ex-calculating-the-magnetic-field-in-boundary-condition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-calculating-the-magnetic-field-in-boundary-condition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="448f78e3-29ba-4bf0-a668-2b0ceeceab7a.png" alt="Note-88.jpg" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Magnetic Flux 
+    <div id="magnetic-flux" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-flux" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The Magnetic strength is $\vec{H} = \frac{NI}{2\pi r} \hat{\phi}$, whereas the Magnetic Flux Density will be $\vec{B} = \frac{\mu NI}{2\pi r} \hat{\phi}$, thus the Magnetic Flux will be the integral of B, which is</p>
+<p>$$
+\Psi = \iint \vec{B} \cdot d\vec{s} = \iint \frac{\mu NI}{2\pi r} \hat{\phi} \cdot d s \hat{\phi} = \frac{\mu NI}{2\pi} \iint \frac{ds}{r}
+$$</p>
+
+
+<h1 class="relative group">Self-Inductance 
+    <div id="self-inductance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#self-inductance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall that Capacitor stores Energy inside Electric Field, whereas Inductor stores Energy in Magnetic Field</p>
+<p>The Self-Inductance Coefficient is being defined as</p>
+<p>$$
+L = \frac{\Lambda}{I} = \frac{N\Psi}{I}
+$$</p>
+<ul>
+<li>$\Lambda=N\Psi$: Flux Linage, is the Flux through all Turns</li>
+</ul>
+<p>We can extract this formula into</p>
+<p>$$
+L = \frac{N \iint \vec{B} \cdot d\vec{s}}{I}=\frac{N \iint \mu \vec{H} \cdot d\vec{s}}{I}
+$$</p>
+
+
+<h2 class="relative group">Self Inductance of a Toroid 
+    <div id="self-inductance-of-a-toroid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#self-inductance-of-a-toroid" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>First we need to use Amperes Law to get the Magnetic Field Strength in Toroid, which is</p>
+<p>$$
+\vec{H} = \frac{NI}{2\pi r} \hat{\phi}
+$$</p>
+<p>Then sub this into the integral to get</p>
+<p>$$
+\Psi = \int_a^b \frac{\mu NI}{2\pi r} \cdot h , dr = \frac{\mu NIh}{2\pi} \ln\left(\frac{b}{a}\right)\Rightarrow L = \frac{\mu N^2 h \ln(b/a)}{2\pi}
+$$</p>
+
+
+<h2 class="relative group">Effect if Air Gap in Toroid 
+    <div id="effect-if-air-gap-in-toroid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#effect-if-air-gap-in-toroid" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%209.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Self Inductance of a Solenoid 
+    <div id="self-inductance-of-a-solenoid" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#self-inductance-of-a-solenoid" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2010.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li><input disabled="" type="checkbox"> </li>
+</ul>
+
+
+<h2 class="relative group">Self-inductance of a Solenoid – Special Case 
+    <div id="self-inductance-of-a-solenoid--special-case" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#self-inductance-of-a-solenoid--special-case" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><input disabled="" type="checkbox"> </li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2011.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Inductance of a Parallel-wire Transmission Line 
+    <div id="inductance-of-a-parallel-wire-transmission-line" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inductance-of-a-parallel-wire-transmission-line" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-90.jpg" alt="Note-90.jpg" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Self-inductance of Infinitely Long Coaxial Cable 
+    <div id="self-inductance-of-infinitely-long-coaxial-cable" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#self-inductance-of-infinitely-long-coaxial-cable" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="4c686d99-39ae-49f8-93e2-08dd6d761eee.png" alt="Note-91.jpg" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Mutual-Inductance 
+    <div id="mutual-inductance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mutual-inductance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Mutual inductance describes the <strong>magnetic coupling between two coils</strong></p>
+<p>$$
+M = L_{12} = \frac{\Lambda_{12}}{I_1}
+$$</p>
+
+
+<h3 class="relative group">Mutual-Inductance between Wire and Loop 
+    <div id="mutual-inductance-between-wire-and-loop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mutual-inductance-between-wire-and-loop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="Note-92.jpg" alt="Note-92.jpg" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Mutual-inductance in Solenoid with Two Solenoids 
+    <div id="mutual-inductance-in-solenoid-with-two-solenoids" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mutual-inductance-in-solenoid-with-two-solenoids" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2012.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Mutual-inductance in Solenoid with Two Discrete Loops 
+    <div id="mutual-inductance-in-solenoid-with-two-discrete-loops" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mutual-inductance-in-solenoid-with-two-discrete-loops" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2013.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Magnetic Energy 
+    <div id="magnetic-energy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-energy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%2014.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

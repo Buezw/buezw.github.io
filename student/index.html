@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jingnan Huang | UofT Student</title>
+    
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+    delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false},
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true}
+    ]
+});"></script>
+
+<style>
+     
+    :root {
+        --bg: #ffffff;
+        --text: #111111;
+        --dim: #666666;
+        --line: #e5e5e5;
+        --accent: #0033cc;
+        --accent-mi: #cc0000;
+        --accent-el: #111111;
+        --accent-rl: #0033cc;
+        --font-serif: 'Playfair Display', serif;
+        --font-body: 'Noto Serif SC', 'Georgia', serif;
+        --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { height: 100%; }
+
+    body {
+        margin: 0; padding: 0;
+        background-color: var(--bg) !important;
+        background-image: none !important;
+        color: var(--text);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    a:hover { color: var(--accent); }
+
+     
+    .site-header {
+        border-bottom: 3px double var(--text);
+        margin-bottom: 14px;
+        background: #fff;
+    }
+
+    .site-header-inner {
+        max-width: 1800px;
+        margin: 0 auto;
+        padding: 12px 48px;
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .header-titles {
+        min-width: 0;
+        text-align: left;
+    }
+
+    .site-title {
+        font-family: var(--font-serif);
+        font-size: 2.6rem;
+        margin: 0;
+        letter-spacing: -1px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    .site-title a { color: inherit; }
+
+    .site-subtitle {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 7px;
+        color: var(--dim);
+    }
+
+    .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .site-nav-link {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--text);
+        padding-bottom: 2px;
+        border-bottom: 1px solid transparent;
+        white-space: nowrap;
+    }
+    .site-nav-link.is-active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+    .site-nav-link:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+    }
+
+    @media (max-width: 960px) {
+        .site-title { white-space: normal; }
+    }
+    @media (max-width: 640px) {
+        .site-header-inner { flex-direction: column; align-items: flex-start; }
+        .site-title { font-size: 1.8rem; }
+    }
+
+     
+    .fluid-wrapper {
+        max-width: 1800px;
+        margin: 0 auto 16px;
+        padding: 0 48px;
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 48px;
+    }
+
+    .sidebar { position: sticky; top: 24px; height: fit-content; }
+    .profile-name { font-family: var(--font-serif); font-size: 1.9rem; margin: 0 0 24px; }
+
+    .profile-bio { margin-bottom: 22px; }
+    .bio-role {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        border-left: 2px solid var(--accent);
+        padding-left: 12px;
+        margin-bottom: 12px;
+        line-height: 1.45;
+    }
+    .bio-edu {
+        font-size: 1.0rem;
+        color: var(--dim);
+        line-height: 1.6;
+    }
+    .bio-edu strong { color: var(--text); font-weight: 600; }
+
+    .btn-cv, .btn-back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #111;
+        color: #fff;
+        padding: 8px 16px;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 0px;
+        width: fit-content;
+        transition: all 0.2s ease;
+    }
+    .btn-cv:hover, .btn-back:hover {
+        background: var(--accent);
+        transform: translateY(-1px);
+        color: #fff;
+    }
+    .btn-back {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--text);
+        margin-bottom: 16px;
+    }
+    .btn-back:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
+
+    .sidebar-section { margin-top: 24px; }
+    .sidebar-label {
+        font-family: var(--font-mono); font-size: 0.75rem; font-weight: bold;
+        text-transform: uppercase; border-left: 3px solid var(--accent);
+        padding-left: 10px; margin-bottom: 15px; letter-spacing: 1px;
+    }
+
+    .contact-list {
+        list-style: none; padding: 0; margin: 0;
+        font-family: var(--font-mono); font-size: 0.85rem;
+    }
+    .contact-list li {
+        margin-bottom: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+    .contact-label {
+        font-size: 0.7rem; color: #999; text-transform: uppercase; margin-bottom: 3px; letter-spacing: 0.5px;
+    }
+    .contact-val {
+        color: var(--text);
+        word-break: break-all;
+    }
+    .contact-val a { border-bottom: 1px dotted #ccc; }
+    .contact-val a:hover { border-bottom-color: var(--accent); }
+
+    .comp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-pill { border: 1px solid var(--line); padding: 4px 10px; font-size: 0.85rem; color: var(--dim); }
+
+     
+    .section-header {
+        font-family: var(--font-serif); font-size: 1.7rem;
+        border-bottom: 1px solid var(--line);
+        margin-top: 0;
+        padding-bottom: 8px;
+        margin-bottom: 12px;
+        display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .section-header span { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); letter-spacing: 1.2px; }
+
+    .persona-intro {
+        font-size: 1.05rem;
+        line-height: 1.75;
+        color: var(--text);
+        max-width: 68ch;
+        margin-bottom: 36px;
+    }
+
+    .see-all-link {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--accent);
+        border-bottom: 1px dotted var(--accent);
+    }
+
+    .empty-state {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        color: var(--dim);
+        border: 1px dashed var(--line);
+        padding: 24px;
+        text-align: center;
+    }
+
+     
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-bottom: 36px;
+    }
+
+    @media (max-width: 1200px) {
+        .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+        .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    .project-card {
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        padding: 14px;
+        display: flex; flex-direction: column; justify-content: space-between;
+        position: relative;
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        text-decoration: none !important;
+        border-radius: 2px;
+        min-height: 118px;
+    }
+
+    .project-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-card h3 {
+        font-family: var(--font-serif);
+        font-size: 1.2rem;
+        margin: 0 0 6px;
+        color: var(--text);
+        display: flex; justify-content: space-between; align-items: flex-start;
+    }
+
+    .project-card p {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 0.9rem;
+        color: var(--dim);
+        line-height: 1.5;
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+
+    .project-keypoints {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: #444;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px dashed #eee;
+        letter-spacing: -0.3px;
+    }
+    .project-keypoints span {
+        color: var(--accent);
+        margin: 0 4px;
+        font-weight: bold;
+    }
+
+    .card-footer {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-top: auto;
+    }
+
+    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .card-tag {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        background: #f4f4f4;
+        padding: 2px 5px;
+        border-radius: 2px;
+        color: #333;
+    }
+
+    .icon-link svg {
+        stroke: #ccc;
+        transition: 0.2s;
+        width: 14px; height: 14px;
+    }
+    .project-card:hover .icon-link svg { stroke: var(--accent); }
+
+     
+    .entry-list { display: block; }
+    .entry-list .entry-item:last-child { border-bottom: none; }
+
+     
+    .trinity-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px;
+    }
+
+    .list-group-header {
+        font-family: var(--font-mono); font-weight: bold; font-size: 0.95rem;
+        text-transform: uppercase; border-bottom: 2px solid #000;
+        padding-bottom: 8px; margin-bottom: 16px; display: flex; justify-content: space-between;
+    }
+
+    .entry-item { display: block; border-bottom: 1px dashed var(--line); padding-bottom: 12px; margin-bottom: 14px; }
+    .entry-meta { font-family: var(--font-mono); font-size: 0.85rem; color: var(--dim); margin-bottom: 8px; display: flex; align-items: center; }
+    .meta-tag-mi { color: var(--accent-mi); font-weight: bold; margin-left: 8px; }
+    .meta-tag-el { color: var(--accent-el); font-weight: bold; margin-left: 8px; }
+    .meta-tag-rl { color: var(--accent-rl); font-weight: bold; margin-left: 8px; border: 1px solid var(--accent-rl); padding: 0 4px; }
+
+    .entry-title {
+        font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; line-height: 1.25; color: #000; margin-bottom: 5px;
+        overflow-wrap: break-word; word-break: break-word;
+    }
+    .entry-title-mono {
+        font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; line-height: 1.3; color: #222; margin-bottom: 5px;
+        overflow-wrap: break-word; word-break: break-word;
+    }
+
+    .entry-summary {
+        color: var(--dim);
+        font-size: 0.88rem;
+        line-height: 1.45;
+        font-family: var(--font-mono);
+    }
+
+     
+    .role-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    @media (max-width: 900px) {
+        .role-grid { grid-template-columns: 1fr; }
+    }
+    .role-card {
+        border: 1px solid var(--line);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        text-decoration: none !important;
+    }
+    .role-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .role-card-tag {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+    }
+    .role-card-title {
+        font-family: var(--font-serif);
+        font-size: 1.7rem;
+        color: var(--text);
+        margin: 0 0 10px;
+    }
+    .role-card-desc {
+        font-size: 0.95rem;
+        color: var(--dim);
+        line-height: 1.6;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin-bottom: 16px;
+        flex: 1;
+    }
+    .role-card-enter {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text);
+    }
+    .role-card:hover .role-card-enter { color: var(--accent); }
+
+    @media (max-width: 1400px) {
+        .trinity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .trinity-col:last-child { grid-column: 1 / -1; }
+    }
+    @media (max-width: 1000px) {
+        .fluid-wrapper { grid-template-columns: 1fr; padding: 0 25px; }
+        .sidebar { position: static; }
+        .trinity-grid { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    .site-footer {
+        text-align: center; padding: 14px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 0.8rem; color: var(--dim); background: #fff;
+    }
+
+     
+    body.theme-utefa {
+        --accent: #7a2430;
+    }
+    body.theme-utefa::before { content: ''; display: block; height: 4px; background: var(--accent); }
+    body.theme-utefa .fluid-wrapper { grid-template-columns: 1fr; max-width: 1000px; padding: 0 32px; margin-bottom: 8px; margin-top: 20px; }
+    body.theme-utefa .site-header { border-bottom: 3px double var(--accent); margin-bottom: 8px; }
+    body.theme-utefa .site-header-inner {
+        padding: 9px 32px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 12px;
+    }
+    body.theme-utefa .site-header-inner .site-nav { justify-self: start; }
+    body.theme-utefa .site-header-inner .header-titles { justify-self: center; text-align: center; }
+    body.theme-utefa .header-spacer { justify-self: end; }
+    body.theme-utefa .site-title { font-size: 1.7rem; }
+    @media (max-width: 640px) {
+        body.theme-utefa .site-header-inner { grid-template-columns: 1fr; text-align: center; }
+        body.theme-utefa .site-header-inner .site-nav { justify-self: center; }
+        body.theme-utefa .header-spacer { display: none; }
+    }
+    body.theme-utefa .site-title,
+    body.theme-utefa .section-header {
+        font-family: var(--font-mono);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    body.theme-utefa .section-header { font-size: 1.3rem; padding-bottom: 5px; margin-bottom: 4px; }
+    body.theme-utefa .site-nav-link.is-active,
+    body.theme-utefa .site-nav-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+     
+    .table-scroll { overflow-x: auto; margin-bottom: 16px; }
+    .ledger-table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.82rem; }
+    .ledger-table th {
+        text-align: left; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px;
+        color: var(--dim); border-bottom: 2px solid var(--text); padding: 5px 10px; white-space: nowrap;
+        border-right: 1px solid var(--line);
+    }
+    .ledger-table th:last-child { border-right: none; }
+    .ledger-table td { padding: 10px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); vertical-align: top; }
+    .ledger-table td:last-child { border-right: none; }
+    .ledger-table tbody tr:nth-child(even) td { background: #fafafa; }
+    .ledger-table tbody tr:hover td { background: #faf5f6; }
+    .ledger-table tfoot td { border-right: none; border-bottom: none; }
+    .ledger-summary td {
+        font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px;
+        color: var(--dim); border-top: 2px solid var(--text); padding-top: 8px;
+    }
+    .ledger-idx { color: var(--accent); font-weight: 700; white-space: nowrap; }
+    .ledger-date { color: var(--dim); white-space: nowrap; }
+    .ledger-name { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--text); }
+    .ledger-desc { font-family: var(--font-body); font-weight: 400; font-size: 0.82rem; color: var(--dim); margin-top: 4px; line-height: 1.4; }
+    .ledger-stack { color: var(--dim); font-size: 0.75rem; white-space: nowrap; }
+    .ledger-status { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px; padding: 3px 7px; border: 1px solid currentColor; white-space: nowrap; }
+    .status-live { color: #1e7a45; }
+    .status-wip { color: var(--accent); }
+    .ledger-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.5px; color: var(--accent); }
+    .ledger-table .ledger-name a { text-decoration: none; }
+    .ledger-table .ledger-name a:hover { text-decoration: underline; }
+</style>
+
+</head>
+<body>
+
+    
+<header class="site-header">
+    <div class="site-header-inner">
+        
+        <nav class="site-nav">
+            
+                
+                <a href="/docs/" class="site-nav-link">Docs</a>
+                
+            
+                
+                <a href="" class="site-nav-link">Blogs</a>
+                
+            
+                
+                <a href="" class="site-nav-link">Thoughts</a>
+                
+            
+                
+                <a href="/tags/notes/" class="site-nav-link">Notes</a>
+                
+            
+                
+                <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" class="site-nav-link">Zhihu</a>
+                
+            
+                
+                <a href="https://github.com/Buezw" class="site-nav-link"></a>
+                
+            
+        </nav>
+        <div class="header-titles">
+            <h1 class="site-title"><a href="/">Research & Engineering Archive</a></h1>
+            <div class="site-subtitle">Research & Engineering | Quantitative Systems | Academic Archive</div>
+        </div>
+        
+    </div>
+</header>
+
+
+    <div class="fluid-wrapper">
+        <aside class="sidebar">
+            <a href="/" class="btn-back">← All Roles</a>
+            <h2 class="profile-name">Jingnan Huang</h2>
+
+            <div class="profile-bio">
+                <div class="bio-role">
+                    <strong>B.A.Sc Computer Engineering</strong><br>
+                    <span style="color: var(--dim)">University of Toronto</span>
+                </div>
+
+                <div class="bio-edu">
+                    + PEY Co-op<br>
+                    <span style="font-size: 0.85em; font-style: italic;">Intended Minor: Engineering Business and Entrepreneurship</span><br>
+                    <span style="font-size: 0.85em; color: #999;">Exp. Apr 2029</span>
+                </div>
+            </div>
+
+            <a href="/cv.pdf" class="btn-cv">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="white" style="margin-right:8px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                Download CV
+            </a>
+
+            <div class="sidebar-section">
+                <div class="sidebar-label">Coordinates</div>
+                <ul class="contact-list">
+                    <li>
+                        <span class="contact-label">Academic Email</span>
+                        <span class="contact-val">
+                            <a href="mailto:jingnan.huang@mail.utoronto.ca">jingnan.huang@mail.utoronto.ca</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="contact-label">Github</span>
+                        <span class="contact-val">
+                            <a href="https://github.com/Buezw" target="_blank">github.com/Buezw</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-label">Coursework Focus</div>
+                <div class="comp-tags">
+                    <span class="tag-pill">Circuits & Systems</span>
+                    <span class="tag-pill">Math & Physics</span>
+                    <span class="tag-pill">OOP / C++</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-label">DEV TOOLS</div>
+                <div class="comp-tags">
+                    <span class="tag-pill">Linux / Bash</span>
+                    <span class="tag-pill">Vim / Neovim</span>
+                    <span class="tag-pill">CMake</span>
+                    <span class="tag-pill">Git</span>
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <h2 class="section-header">UofT Coursework <span>STUDENT</span></h2>
+            <p class="persona-intro">
+                Lecture notes, lab writeups, and problem sets from the B.A.Sc Computer Engineering program at the University of Toronto — spanning circuits, digital systems, math, and programming courses.
+            </p>
+
+            
+            
+            
+                
+            
+
+            
+            <div class="entry-list">
+                
+                <a href="/docs/uoft/26w/ece243---computer-organization/co8.cache/" class="entry-item">
+                    <div class="entry-meta">Apr 25, 2026
+                        <span class="meta-tag-rl">CO</span>
+                    </div>
+                    <div class="entry-title-mono">CO 8. Cache</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 4/25/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/" class="entry-item">
+                    <div class="entry-meta">Apr 20, 2026
+                        <span class="meta-tag-rl">EMF</span>
+                    </div>
+                    <div class="entry-title-mono">EMF 10. Time-VaryingFields</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 4/20/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/" class="entry-item">
+                    <div class="entry-meta">Mar 26, 2026
+                        <span class="meta-tag-rl">SS</span>
+                    </div>
+                    <div class="entry-title-mono">SS 8. FundamentalsofDiscrete-Time Systems</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 3/26/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/" class="entry-item">
+                    <div class="entry-meta">Mar 24, 2026
+                        <span class="meta-tag-rl">SS</span>
+                    </div>
+                    <div class="entry-title-mono">SS 7. AnalysisofCTSystemusingLaplaceTransform</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 3/24/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/ece221---circuit-analysis/ca7.frequencydomainanalysis/" class="entry-item">
+                    <div class="entry-meta">Mar 23, 2026
+                        <span class="meta-tag-rl">CA</span>
+                    </div>
+                    <div class="entry-title-mono">CA 7. FrequencyDomainAnalysis</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 3/23/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/ece221---circuit-analysis/ca6.laplace/" class="entry-item">
+                    <div class="entry-meta">Mar 18, 2026
+                        <span class="meta-tag-rl">CA</span>
+                    </div>
+                    <div class="entry-title-mono">CA 6. Laplace</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 3/18/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/" class="entry-item">
+                    <div class="entry-meta">Mar 11, 2026
+                        <span class="meta-tag-rl">CA</span>
+                    </div>
+                    <div class="entry-title-mono">CA 5. Transformer&amp;Power</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 3/11/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/" class="entry-item">
+                    <div class="entry-meta">Mar 11, 2026
+                        <span class="meta-tag-rl">SS</span>
+                    </div>
+                    <div class="entry-title-mono">SS 6. AnalysisofCTSusingForierTransform</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 3/11/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/ece243---computer-organization/co7.designofprocessor/" class="entry-item">
+                    <div class="entry-meta">Mar 10, 2026
+                        <span class="meta-tag-rl">CO</span>
+                    </div>
+                    <div class="entry-title-mono">CO 7. DesignofProcessor</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 3/10/26
+                        
+                    </div>
+                </a>
+                
+                <a href="/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/" class="entry-item">
+                    <div class="entry-meta">Mar 09, 2026
+                        <span class="meta-tag-rl">CO</span>
+                    </div>
+                    <div class="entry-title-mono">CO 6. Low-levelGraphicsinSoftware</div>
+                    <div class="entry-summary">
+                        
+                        
+                        
+                            Last Edit: 3/9/26
+                        
+                    </div>
+                </a>
+                
+            </div>
+            <p><a href="/docs/uoft/" class="see-all-link">See all coursework →</a></p>
+            
+        </main>
+    </div>
+
+    <footer class="site-footer">
+    © 2026 Jingnan Huang | RESEARCH & ENGINEERING
+</footer>
+
+
+</body>
+</html>

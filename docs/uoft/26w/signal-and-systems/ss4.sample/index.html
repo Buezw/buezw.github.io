@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SS 4. Sample | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-sampling-function">The sampling function</a></li>
+    <li><a href="#ctfs-of-the-sampling-function">CTFS of the Sampling Function</a></li>
+    <li><a href="#ctft-of-the-sampling-function">CTFT of the sampling function</a></li>
+    <li><a href="#picket-fence-miracle">Picket Fence Miracle</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#definition">Definition</a></li>
+    <li><a href="#sampling-of-band-limited-signals">Sampling of Band-Limited Signals</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#nyquist-frequency">Nyquist Frequency</a></li>
+    <li><a href="#aliasing">Aliasing</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>SS 4. Sample</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                February 23, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                592 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 2/23/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Sampling 
+    <div id="sampling" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sampling" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Sampling means to collect a measurement of a signal</p>
+<ul>
+<li>If there’s too few samples, then there’s a little we can learn</li>
+<li>If there’s “enough”, then we may be able to figure out the original one</li>
+</ul>
+
+
+<h2 class="relative group">The sampling function 
+    <div id="the-sampling-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-sampling-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The sampling function is defined as</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>$$
+s(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT_s)
+$$</p>
+<p>Where $T_s&gt;0$ is the Sampling Period</p>
+<p>Mathematically, sampling is done by multiplying the original signal and the sampling function</p>
+<p>$$
+s(t)x(t) = \sum_{n=-\infty}^{\infty} \delta(t - nT_s)x(nT_s)
+$$</p>
+<p>This will give a product of a <strong>weighted sum of impulses</strong></p>
+
+
+<h2 class="relative group">CTFS of the Sampling Function 
+    <div id="ctfs-of-the-sampling-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ctfs-of-the-sampling-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Firstly having $s(t)$ as a Impulse Train, with the period of $T_s$, we can get its harmonic angular frequency as $\omega_s=\frac{2\pi}{T_s}$, then we can get CTFS Coefficient to be</p>
+<p>$$
+\alpha_k = \frac{1}{T_s} \int_{-T_s/2}^{T_s/2} s(t)e^{-j k \omega_s t} dt
+$$</p>
+<p>Where as here $s(t)$ is $\sum_{n=-\infty}^{\infty} \delta(t - nT_s)$, that is</p>
+<p>$$
+\alpha_k = \frac{1}{T_s} \int_{-T_s/2}^{T_s/2} \sum_{n=-\infty}^{\infty} \delta(t - nT_s)e^{-j k \omega_s t} dt
+$$</p>
+<p>As the outer Integral only contains the period from $T_s/2$ to $-T_s/2$, the inner n can only be zero, in such way, the CTFS Coefficient will be simplified into</p>
+<p>$$
+\alpha_k =\frac{1}{T_s}  \int_{-T_s/2}^{T_s/2} \delta(t) e^{-j k \omega_s t} dt\Rightarrow a_k = \frac{1}{T_s}e^{-jk\omega_s(0)} =\frac{1}{T_s}
+$$</p>
+<p>Notice this Coefficient is no long depend on k, thus every harmonic will have the same amplitude, and such the $s(t)$ can be represented by</p>
+<p>$$
+s(t) = \frac{1}{T_s} \sum_{k=-\infty}^{\infty} e^{j k \omega_s t}
+$$</p>
+
+
+<h2 class="relative group">CTFT of the sampling function 
+    <div id="ctft-of-the-sampling-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ctft-of-the-sampling-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Known before that CTFT of a periodic signal is</p>
+<p>$$
+x(t) = \sum_{k=-\infty}^{\infty} \alpha_k e^{\mathbf{j} k \omega_0 t} \implies X(\mathbf{j}\omega) = 2\pi \sum_{k=-\infty}^{\infty} \alpha_k \delta(\omega - k \omega_0
+$$</p>
+<p>Therefor we can get the same for $s(t)$</p>
+<p>$$
+s(t) = \frac{1}{T_{\mathrm{s}}} \sum_{k=-\infty}^{\infty} e^{\mathbf{j} k \omega_{\mathrm{s}} t} \implies S(\mathbf{j} \omega) = \frac{2\pi}{T_{\mathrm{s}}} \sum_{k=-\infty}^{\infty} \delta(\omega - k \omega_{\mathrm{s}})
+$$</p>
+<aside>
+❗
+<p>Notice the CTFT of the Sampling Function is also a Sampling Function</p>
+</aside>
+<p>This is then called Picket Fence Miracl</p>
+
+
+<h2 class="relative group">Picket Fence Miracle 
+    <div id="picket-fence-miracle" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#picket-fence-miracle" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Band-Limited Signals 
+    <div id="band-limited-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#band-limited-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Definition 
+    <div id="definition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#definition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A CT signal is band limited with bandwidth B &gt; 0 if its CTFT Spectrum satisfies $X(j\omega)=0$ for all $|\frac{\omega}{2\pi}|\geq B$</p>
+<p>This $|\frac{\omega}{2\pi}|\geq B$ requirement also means that the Spectrum is zero outside $[-2\pi B,2\pi B]$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Now if we sampled this Band_Limited siganal</p>
+
+
+<h2 class="relative group">Sampling of Band-Limited Signals 
+    <div id="sampling-of-band-limited-signals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sampling-of-band-limited-signals" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As we have use mathematic ways to describe Sampling Function, and we interoperate the action of “sampling” as multiplication, in such way, recall the property that <strong>Multiplication in time-domain is convolution in frequency-domain</strong></p>
+<p>Thus the Spectrum of Sampled Signal $x_s(t)=x(t)s(t)$ is then</p>
+<p>$$
+\begin{aligned} X_{\mathrm{s}}(\mathbf{j}\omega) &amp;= \frac{1}{2\pi} \int_{-\infty}^{\infty} S(\mathbf{j}\nu) X(\mathbf{j}(\omega - \nu)) ,\mathrm{d}\nu \ &amp;= \frac{1}{2\pi} \int_{-\infty}^{\infty} \left[ \frac{2\pi}{T_{\mathrm{s}}} \sum_{k=-\infty}^{\infty} \delta(\nu - k \omega_{\mathrm{s}}) \right] X(\mathbf{j}(\omega - \nu)) ,\mathrm{d}\nu \ &amp;= \frac{1}{T_{\mathrm{s}}} \sum_{k=-\infty}^{\infty} X(\mathbf{j}(\omega - k \omega_{\mathrm{s}})) \end{aligned}
+$$</p>
+<ul>
+<li>the spectrum of the sampled signal is a periodised version of the spectrum of original signal, with period ωs in the frequency domain</li>
+</ul>
+<hr>
+<p>Thus if $\omega_s \geq 4\pi B$, then there won’t be overlapping in frequency domain to make the signal aliasing</p>
+
+
+<h1 class="relative group">Nyquist-Shannon Sampling Theorem 
+    <div id="nyquist-shannon-sampling-theorem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nyquist-shannon-sampling-theorem" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Let $x$ be a bandlimited CT signal with bandwidth B. If $x$ is sampled with sampling period of $T_s$ satisfying $T_S&lt;\frac{1}{2B}$, then $x$  can be exacly recoved from the samples in the way of</p>
+<p>$$
+X(j\omega) = T_s \cdot X_s(j\omega) \cdot [u(\omega + 2\pi B) - u(\omega - 2\pi B)]
+$$</p>
+
+
+<h2 class="relative group">Nyquist Frequency 
+    <div id="nyquist-frequency" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#nyquist-frequency" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The sampling frequency satisfied Nyquist-Shannon is then</p>
+<p>$$
+\omega=4\pi B
+$$</p>
+
+
+<h2 class="relative group">Aliasing 
+    <div id="aliasing" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#aliasing" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As the Sampling Frequency is too slow, it no longer recovers the original spectrum</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

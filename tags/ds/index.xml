@@ -12,20 +12,20 @@
     <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/tags/ds/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Digital Systems</title>
-      <link>https://buezw.github.io/docs/uoft/digital-systems/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/digital-systems/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/digital-systems/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/digital-systems/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>DS 2. Circuit Module &amp; Verilog</title>
-      <link>https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;Last Edit: 10/5/25&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -65,25 +65,25 @@
         class=&#34;my-0 rounded-md&#34;
         loading=&#34;lazy&#34;
         srcset=&#34;
-        /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu4140601952310014763.png 330w,
-        /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png 660w,
-        /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu7012519630649372123.png 1024w,
-        /docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu309876066352639045.png 2x&#34;
-        src=&#34;https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png&#34;
+        /docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu4140601952310014763.png 330w,
+        /docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png 660w,
+        /docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu7012519630649372123.png 1024w,
+        /docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu309876066352639045.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/image_hu1692580872938088718.png&#34;
         alt=&#34;image.png&#34;
       /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/digital-systems/ds2.circuitmoduleverilog/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/feature.png" />
     </item>
     
     <item>
       <title>DS 1. Introductionto Logic Circuits</title>
-      <link>https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</link>
+      <link>https://buezw.github.io/docs/uoft/25f/digital-systems/ds1.introductiontologiccircuits/</link>
       <pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/</guid>
+      <guid>https://buezw.github.io/docs/uoft/25f/digital-systems/ds1.introductiontologiccircuits/</guid>
       <description>&lt;h1 class=&#34;relative group&#34;&gt;DS1.IntroductiontoLogicCircuits 
     &lt;div id=&#34;ds1introductiontologiccircuits&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
     
@@ -98,7 +98,7 @@
 &lt;p&gt;Last Edit: 10/2/25&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;计算机中的信息由 Electronic Signals 表示 ，其存在两个 Discrete Values，它们通过 Voltage Levels 电压电平实现，但是称为 Logic Values，0 和 1&lt;/p&gt;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/digital-systems/ds1.introductiontologiccircuits/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/digital-systems/ds1.introductiontologiccircuits/feature.png" />
     </item>
     
   </channel>

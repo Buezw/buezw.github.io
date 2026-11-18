@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA 7. FrequencyDomainAnalysis | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1250px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:1313/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#observations">Observations</a>
+      <ul>
+        <li><a href="#forced-response--steady-state">Forced Response &amp; Steady-State</a></li>
+        <li><a href="#ex-find-the-zero-state-response-for-rc-circuit">Ex. Find the Zero-State Response for RC circuit</a></li>
+      </ul>
+    </li>
+    <li><a href="#transfer-function">Transfer Function</a>
+      <ul>
+        <li><a href="#one-port-network">One-port Network</a></li>
+        <li><a href="#two-port-network">Two-port Network</a></li>
+      </ul>
+    </li>
+    <li><a href="#forward-and-reverse-transfer-function">Forward and Reverse Transfer Function</a>
+      <ul>
+        <li><a href="#forward-transfer-function">Forward Transfer Function</a></li>
+        <li><a href="#reverse-transfer-function">Reverse Transfer Function</a></li>
+      </ul>
+    </li>
+    <li><a href="#examples-of-transfer-functions">Examples of Transfer Functions</a>
+      <ul>
+        <li><a href="#voltage-divider-circuit">Voltage Divider Circuit</a></li>
+        <li><a href="#current-divider-circuit">Current Divider Circuit</a></li>
+        <li><a href="#op-amp-circuits">Op-amp Circuits</a></li>
+        <li><a href="#inverting-amplifier">Inverting Amplifier</a></li>
+        <li><a href="#non-inverting-amplifier">Non-Inverting Amplifier</a></li>
+        <li><a href="#ex-finding-transfer-function-for-a-circuit">Ex. Finding Transfer Function for a Circuit</a></li>
+      </ul>
+    </li>
+    <li><a href="#cascade-connection">Cascade Connection</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#definition-of-impulse-function">Definition of Impulse Function</a></li>
+    <li><a href="#sifting-property-of-impulse-function">Sifting Property of Impulse Function</a></li>
+    <li><a href="#laplace-transform-of-impulse-function">Laplace Transform of Impulse Function</a></li>
+    <li><a href="#impulse-response-of-a-circuit">Impulse response of a circuit</a>
+      <ul>
+        <li><a href="#circuit-response-in-s-domain">Circuit response in S-domain</a></li>
+        <li><a href="#circuit-response-in-time-domain">Circuit response in Time-domain</a></li>
+        <li><a href="#ex-finding-the-time-domain-output-of-lti-system-using-laplace-transform">Ex. Finding the Time Domain output of LTI System using Laplace Transform</a></li>
+      </ul>
+    </li>
+    <li><a href="#direct-time-domain-solution">Direct time-domain solution</a></li>
+    <li><a href="#convolution-integral">Convolution Integral</a>
+      <ul>
+        <li><a href="#property-of-convolution">Property of convolution</a></li>
+        <li><a href="#ex-finding-the-time-domain-output-of-lti-system-using-convolution">Ex. Finding the time domain output of LTI System using Convolution</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-meaning-of-convolution">The meaning of convolution</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#stable-system">Stable System</a></li>
+      </ul>
+    </li>
+    <li><a href="#relationship-between-step-response-and-impulse-response">Relationship between Step response and Impulse response</a>
+      <ul>
+        <li><a href="#ex-find-the-step-response">Ex. Find the Step Response</a></li>
+        <li><a href="#ex">Ex.</a></li>
+      </ul>
+    </li>
+    <li><a href="#sinusoidal-response">Sinusoidal Response</a>
+      <ul>
+        <li><a href="#ex-1">Ex.</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#low-pass-filter">Low Pass Filter</a></li>
+    <li><a href="#the-bode-diagrams">The Bode Diagrams</a></li>
+    <li><a href="#cascaded-systems">Cascaded Systems</a>
+      <ul>
+        <li><a href="#advantage-of-db-scale">Advantage of dB Scale</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#general-form-of-first-order-low-pass-response">General form of First-order low pass response</a></li>
+    <li><a href="#frequency-response-of-first-order-low-pass-response">Frequency Response of First order low pass response</a></li>
+    <li><a href="#bode-plot-of-the-magnitude">Bode Plot of the Magnitude</a></li>
+    <li><a href="#plot-of-the-phase-angle">Plot of the phase angle</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#gain-bandwidth-product-gbw">Gain-Bandwidth Product (GBW)</a></li>
+    <li><a href="#op-amps-bandwidth">Op Amp’s Bandwidth</a>
+      <ul>
+        <li><a href="#open-loop">Open-loop</a></li>
+        <li><a href="#closed-loop">Closed-loop</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#magnitude-response">Magnitude Response</a></li>
+    <li><a href="#phase-response">Phase Response</a></li>
+    <li><a href="#frequency-response-1">Frequency Response</a>
+      <ul>
+        <li><a href="#high-pass-circuit-example">High-pass circuit example</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#magnitude-response-of-the-cascade-transfer-function">Magnitude Response of the Cascade Transfer function</a></li>
+    <li><a href="#circuit-realization-of-band-pass-filter">Circuit Realization of Band-pass filter</a>
+      <ul>
+        <li><a href="#high-pass-part">High-pass part</a></li>
+        <li><a href="#low-pass-part">Low-pass part</a></li>
+        <li><a href="#ex-band-pass-filter-example">Ex. Band-pass Filter Example</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#circuit-realization-for-band-stop-response">Circuit Realization for Band-stop Response</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CA 7. FrequencyDomainAnalysis</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 23, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                2874 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/23/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Network function, Transfer function 
+    <div id="network-function-transfer-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#network-function-transfer-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Under Zero Initial Condition, the Network function is being defined as the ratio between input and output Laplace Transform</p>
+<p>$$
+T(s) = \frac{Y(s)}{X(s)}
+$$</p>
+<p>This function can be extract into two parts, Natural Poles and Forced Poles</p>
+<ul>
+<li>Natural Poles: Natural Response due to poles of $T(s)$</li>
+<li>Forced Poles: Forced Response due to poles of $X(s)$</li>
+</ul>
+
+
+<h2 class="relative group">Observations 
+    <div id="observations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#observations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Stable Circuit: If a circuit’s Natural Response dies down to zero as time pass, then it’s a Stable Circuit</li>
+<li>This is equivalent to all the poles of $T(s)$ is on the Left-Half Plane of S-domain
+<ul>
+<li>This is because $p = \sigma + j\omega$ is equivalent to $e^{pt} = e^{\sigma t}e^{j\omega t}$ in time domain, thus only a negative real part make this to zero eventually</li>
+</ul>
+</li>
+</ul>
+
+
+<h3 class="relative group">Forced Response &amp; Steady-State 
+    <div id="forced-response--steady-state" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#forced-response--steady-state" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>If the input signal $X(s)$’s poles is also on the left-half plane, then its Forced Response will also goes to zero</p>
+<ul>
+<li>Otherwise, this will form a Steady-State Response for those Forced Poles</li>
+</ul>
+
+
+<h3 class="relative group">Ex. Find the Zero-State Response for RC circuit 
+    <div id="ex-find-the-zero-state-response-for-rc-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-find-the-zero-state-response-for-rc-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f0d65cad-f649-4a0c-b47a-5fd3d920cc16_hu7749063459796988705.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f0d65cad-f649-4a0c-b47a-5fd3d920cc16_hu13975303414724850656.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f0d65cad-f649-4a0c-b47a-5fd3d920cc16_hu1709967785631636475.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f0d65cad-f649-4a0c-b47a-5fd3d920cc16_hu4350944591394784947.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f0d65cad-f649-4a0c-b47a-5fd3d920cc16_hu13975303414724850656.png"
+        alt="ECE212 Final Review -55.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Transfer Function 
+    <div id="transfer-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#transfer-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">One-port Network 
+    <div id="one-port-network" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#one-port-network" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image_hu9953150828186363458.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image_hu15005444499381409163.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image_hu17123594774933206923.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image_hu1451487800879087149.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image_hu15005444499381409163.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>This Port’s Transfer Function is normally a Impedance, as there’s only one port, thus no transfer inside, instead all we get is a element by itself</p>
+
+
+<h3 class="relative group">Two-port Network 
+    <div id="two-port-network" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#two-port-network" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image1_hu1790195749420079208.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image1_hu1778840604520965554.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image1_hu1703594732275318679.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image1_hu2707890308849152766.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image1_hu1778840604520965554.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>For Two-port Network, there’s an input and an output, based on the type for in and output, there could be four types of Transfer Function</p>
+<ol>
+<li>Voltage Transfer Function: $T_V(s) = \frac{V_2(s)}{V_1(s)}$</li>
+<li>Current Transfer Function: $T_I(s) = \frac{I_2(s)}{I_1(s)}$</li>
+<li>Transfer Admittance: $T_Y(s) = \frac{I_2(s)}{V_1(s)}$</li>
+<li>Transfer Impedance: $T_Z(s) = \frac{V_2(s)}{I_1(s)}$</li>
+</ol>
+
+
+<h2 class="relative group">Forward and Reverse Transfer Function 
+    <div id="forward-and-reverse-transfer-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#forward-and-reverse-transfer-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image2_hu2888005488886139346.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image2_hu2243260000916930449.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image2_hu335033472032772832.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image2_hu7223563678017109389.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image2_hu2243260000916930449.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<aside>
+❗
+<p>The logic is that, where ever the input source is, the element beside it will be neglect</p>
+</aside>
+
+
+<h3 class="relative group">Forward Transfer Function 
+    <div id="forward-transfer-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#forward-transfer-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>If we use $v_1(s)$ as input, then $C_1$ is neglectable in this case, what’s remaining is then only a series circuit between R and C</p>
+<p>$$
+T(s) = \frac{V_2(s)}{V_1(s)} = \frac{\frac{1}{C_2 s}}{R + \frac{1}{C_2 s}} = \frac{1/RC_2}{s + 1/RC_2}
+$$</p>
+
+
+<h3 class="relative group">Reverse Transfer Function 
+    <div id="reverse-transfer-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#reverse-transfer-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Now we take $v_2(s)$ as the input, then $C_2$  is being discarded, thus</p>
+<p>$$
+T&rsquo;(s) = \frac{\frac{1}{C_1s}}{R + \frac{1}{C_1s}} = \frac{1/RC_1}{s + 1/RC_1}
+$$</p>
+<hr>
+<aside>
+❗
+<p>Generally Speaking: $T(s) \neq T&rsquo;(s)$</p>
+</aside>
+
+
+<h2 class="relative group">Examples of Transfer Functions 
+    <div id="examples-of-transfer-functions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#examples-of-transfer-functions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Voltage Divider Circuit 
+    <div id="voltage-divider-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#voltage-divider-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image3_hu14232953395552478369.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image3_hu6948960672363766439.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image3_hu10458167879839207621.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image3_hu13912643237523862536.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image3_hu6948960672363766439.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Its Voltage Transfer Function is: $T_V(s) = \frac{V_2(s)}{V_1(s)} = \frac{Z_2}{Z_1 + Z_2}$</p>
+<p>Its Driving Point Admittance is then: $Z_{eq} = Z_1 + Z_2$</p>
+
+
+<h3 class="relative group">Current Divider Circuit 
+    <div id="current-divider-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#current-divider-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image4_hu15713252104246570387.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image4_hu5940615276713542878.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image4_hu4470887356805450369.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image4_hu17395017417714148114.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image4_hu5940615276713542878.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Its Current Transfer Function is $T_I(s) = \frac{I_2(s)}{I_1(s)} = \frac{Y_2}{Y_1 + Y_2}$</p>
+<p>Its Driving-Point Admittance is $Y_{eq} = Y_1 + Y_2$</p>
+
+
+<h3 class="relative group">Op-amp Circuits 
+    <div id="op-amp-circuits" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#op-amp-circuits" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>There’s a lot kind of Op-amp, here we only analysis Inverting and Non-Inverting ones, but the key to analysis both of them is by Virtual Short that $(V_p=V_n, i_p=i_n=0)$</p>
+<hr>
+
+
+<h3 class="relative group">Inverting Amplifier 
+    <div id="inverting-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverting-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image5_hu17099373643182375689.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image5_hu5155335893246318275.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image5_hu8189341342776014608.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image5_hu15532142410106335360.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image5_hu5155335893246318275.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Known the closed gain for Inverting Amplifier is $T_V(s) = \frac{V_2(s)}{V_1(s)} = -\frac{Z_2}{Z_1}$</p>
+<p>Whereas the Driving Impedance is $Z_{eq} = Z_1$</p>
+
+
+<h3 class="relative group">Non-Inverting Amplifier 
+    <div id="non-inverting-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#non-inverting-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image6_hu17255663773431362285.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image6_hu3627556617141212919.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image6_hu11798207497847239410.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image6_hu9924303679159002927.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image6_hu3627556617141212919.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Its Transfer function is $V_1 = \frac{Z_1}{Z_1 + Z_2} V_2 \implies T_V(s) = \frac{Z_1 + Z_2}{Z_1} = 1 + \frac{Z_2}{Z_1}$</p>
+
+
+<h3 class="relative group">Ex. Finding Transfer Function for a Circuit 
+    <div id="ex-finding-transfer-function-for-a-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-finding-transfer-function-for-a-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-56_hu17943383240684709600.jpg 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-56_hu14526960106862634036.jpg 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-56_hu719990525051732064.jpg 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-56_hu850116604214618764.jpg 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-56_hu14526960106862634036.jpg"
+        alt="ECE212 Final Review -56.jpg"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f633dd5f-97b7-4d4e-97fe-cedf30739e2d_hu3743829584238631456.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f633dd5f-97b7-4d4e-97fe-cedf30739e2d_hu15670586402408803591.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f633dd5f-97b7-4d4e-97fe-cedf30739e2d_hu12957376240002825264.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f633dd5f-97b7-4d4e-97fe-cedf30739e2d_hu8427310945846820111.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/f633dd5f-97b7-4d4e-97fe-cedf30739e2d_hu15670586402408803591.png"
+        alt="ECE212 Final Review -57.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Cascade Connection 
+    <div id="cascade-connection" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cascade-connection" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Known that a Two-port Network has the Transfer Function of $V_2(s) = T_V(s) V_1(s)$, however, this is under a open circuit configuration, if there’s a Load on the output port, it will created a divider port then</p>
+<p>$$
+V_2(s) = \underbrace{V_1(s) T_V(s)}<em>{\text{Open Response}} \times \underbrace{\frac{Z_L}{Z_T + Z_L}}</em>{\text{Divider Factor}}
+$$</p>
+<p>This can be solved by adding a Buffer</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image7_hu28915850906936435.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image7_hu496306864968697323.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image7_hu12893066868679273444.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image7_hu6097755484746301294.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image7_hu496306864968697323.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Impulse Response, Convolution 
+    <div id="impulse-response-convolution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#impulse-response-convolution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Definition of Impulse Function 
+    <div id="definition-of-impulse-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#definition-of-impulse-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Impulse function has the following property</p>
+<ul>
+<li>When <strong>$t\neq 0$, $\delta(t)=0$</strong></li>
+<li>Integral <strong>containing origin is always 1</strong></li>
+</ul>
+
+
+<h2 class="relative group">Sifting Property of Impulse Function 
+    <div id="sifting-property-of-impulse-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sifting-property-of-impulse-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Impulse function can <strong>sifting</strong> a point’s value of a function at given time $t_0$</p>
+<p>$$
+\int_{-\infty}^{\infty} f(t) \delta(t-t_0) dt = f(t_0)
+$$</p>
+
+
+<h2 class="relative group">Laplace Transform of Impulse Function 
+    <div id="laplace-transform-of-impulse-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#laplace-transform-of-impulse-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+D(s) = \mathcal{L}{\delta(t)} = \int_0^\infty \delta(t) e^{-st} dt=1
+$$</p>
+<p>Notice this integral is just the <strong>Sifting of function $e^{-st}$ at $t=0$</strong>, thus is equal to <strong>one</strong></p>
+<p>Thus we can also get <strong>$\mathcal{L}^{-1}{1} = \delta(t)$</strong></p>
+
+
+<h2 class="relative group">Impulse response of a circuit 
+    <div id="impulse-response-of-a-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#impulse-response-of-a-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Known in a circuit, with <strong>$\delta (t)$ as the input, the output $h(t)$</strong> shall be the <strong>Impulse Response</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image8_hu10570612888964902477.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image8_hu6455153798786339206.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image8_hu3563595471884126203.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image8_hu13474526190511214593.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image8_hu6455153798786339206.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Then take both side for Laplace, we get the two S-domain function $D(s)$ and $H(s)$, notice $\mathcal L{\delta (t)} = D(s)=1$, thus we have the output as</p>
+<p>$$
+H(s) = T(s) \cdot D(s)=T(s)\cdot 1\Rightarrow H(s)=T(s)
+$$</p>
+<aside>
+❗
+<p><strong>The circuit transfer function is just the impulse response in S-domain</strong></p>
+</aside>
+
+
+<h3 class="relative group">Circuit response in S-domain 
+    <div id="circuit-response-in-s-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#circuit-response-in-s-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image9_hu10270820973585870762.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image9_hu15356512031430314662.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image9_hu11923815353387383815.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image9_hu9774362615798329213.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image9_hu15356512031430314662.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Based on the property $H(s)=T(s)$, we get $Y(s) = T(s)X(s) = H(s)X(s)$</p>
+
+
+<h3 class="relative group">Circuit response in Time-domain 
+    <div id="circuit-response-in-time-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#circuit-response-in-time-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Taking the <strong>Inverse Laplace</strong> on both side to get</p>
+<p>$$
+y(t) = \mathcal{L}^{-1}{Y(s)} = \mathcal{L}^{-1}{H(s)X(s)}
+$$</p>
+
+
+<h3 class="relative group">Ex. Finding the Time Domain output of LTI System using Laplace Transform 
+    <div id="ex-finding-the-time-domain-output-of-lti-system-using-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-finding-the-time-domain-output-of-lti-system-using-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-58_hu9711627918772302104.jpg 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-58_hu13955857196690473268.jpg 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-58_hu1823716657106438644.jpg 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-58_hu6470496043585964409.jpg 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-58_hu13955857196690473268.jpg"
+        alt="ECE212 Final Review -58.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Direct time-domain solution 
+    <div id="direct-time-domain-solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#direct-time-domain-solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This part contains a derivation, and its final claim is</p>
+<p>$$
+Y(s) = H(s)X(s) \iff y(t) = h(t) * x(t)
+$$</p>
+
+
+<h2 class="relative group">Convolution Integral 
+    <div id="convolution-integral" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#convolution-integral" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+h(t) * x(t) = \int_{0}^{t} h(t-\tau) x(\tau) d\tau
+$$</p>
+
+
+<h3 class="relative group">Property of convolution 
+    <div id="property-of-convolution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-of-convolution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li><strong>Commutative</strong>: $f(t) * g(t) = g(t) * f(t)$</li>
+<li><strong>Associative</strong>: $f(t) * [g(t) * w(t)] = [f(t) * g(t)] * w(t)$</li>
+<li><strong>Distributive</strong>: $f(t) * [g(t) + w(t)] = [f(t) * g(t)] + [f(t) * w(t)]$</li>
+<li><strong>Convolution</strong> with an <strong>impulse</strong>: $f(t) * \delta(t-t_0) = f(t-t_0)$</li>
+</ol>
+
+
+<h3 class="relative group">Ex. Finding the time domain output of LTI System using Convolution 
+    <div id="ex-finding-the-time-domain-output-of-lti-system-using-convolution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-finding-the-time-domain-output-of-lti-system-using-convolution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/28637c43-744b-4949-902a-fac308d2f539_hu9385871024042058062.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/28637c43-744b-4949-902a-fac308d2f539_hu11976272516044987238.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/28637c43-744b-4949-902a-fac308d2f539_hu9236398038395278323.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/28637c43-744b-4949-902a-fac308d2f539_hu1640575752197184240.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/28637c43-744b-4949-902a-fac308d2f539_hu11976272516044987238.png"
+        alt="ECE212 Final Review -59.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">The meaning of convolution 
+    <div id="the-meaning-of-convolution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-meaning-of-convolution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Result of convolution is an <strong>addition of weighted function sampled points</strong></p>
+
+
+<h1 class="relative group">Step Response 
+    <div id="step-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The $u(t)$  is a kind of <strong>classic step function</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image10_hu8365871450195035267.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image10_hu8542945671179128876.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image10_hu7349119196967481326.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image10_hu6243135394897618642.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image10_hu8542945671179128876.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+G(s) = T(s) \cdot \mathcal{L}{u(t)} = T(s) \cdot \frac{1}{s}
+$$</p>
+<p>Known that $T(s)$ is normally a fraction with Poles $p_1,p_2,\dots,p_n$m, that can be extract into</p>
+<p>$$
+G(s) = \frac{k_0}{s} + \frac{k_1}{s-p_1} + \dots + \frac{k_n}{s-p_n}
+$$</p>
+<p>Taking the inverse Laplace Transform to get</p>
+<p>$$
+g(t) = k_0 u(t) + (k_1 e^{p_1 t} + \dots + k_n e^{p_n t}) u(t)
+$$</p>
+<p>This Time domain output contains two parts, <strong>Forced Response</strong> and <strong>Natural Response</strong></p>
+<ul>
+<li><strong>Forced Respons</strong>e: $k_0 u(t)$, caused by the <strong>input signal</strong></li>
+<li><strong>Natural Response</strong>: $(k_1 e^{p_1 t} + \dots + k_n e^{p_n t}) u(t)$, determined by the <strong>poles of Transfer Function</strong></li>
+</ul>
+
+
+<h3 class="relative group">Stable System 
+    <div id="stable-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stable-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>For a Stable System, the <strong>Natural Response</strong> will <strong>decay to zero</strong> as time passes, so that means as time $t\rightarrow \infty$, $g(\infty)\rightarrow k_0$</p>
+<p>And $k_0$ can be found using the <strong>Cover-up Algorithm</strong> <strong>$k_0 = s G(s) \big|<em>{s=0} = T(s) \big|</em>{s=0} = T(0)$</strong>, thus eventually the Step Response can be represented by</p>
+<p>$$
+g(t) = T(0) u(t) + (k_1 e^{p_1 t} + \dots + k_n e^{p_n t}) u(t)
+$$</p>
+
+
+<h2 class="relative group">Relationship between Step response and Impulse response 
+    <div id="relationship-between-step-response-and-impulse-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#relationship-between-step-response-and-impulse-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<aside>
+❗
+<p><strong>In Time Domain, Step Function is the integral of Impulse Function, and Impulse Function is the derivative of Step Function</strong></p>
+<p><strong>In Frequency Domain, there’s a s term difference between Impulse and Step Function</strong></p>
+</aside>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image11_hu3493297753896014769.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image11_hu13357607498205836521.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image11_hu3836943459357365537.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image11_hu13614074483916779422.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image11_hu13357607498205836521.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>By this relationship, we can get that, if we want the <strong>Impulse Response $h(t)$ of the System</strong> which can <strong>reveal the behavior of the System</strong>, we can</p>
+<ul>
+<li>Start with a <strong>Step Function</strong> input to get the <strong>Step</strong> <strong>Response</strong> of the System</li>
+<li>Then use a <strong>Differentiator</strong> <strong>Circuit</strong> to <strong>get the Impulse Response $h(t)$</strong></li>
+</ul>
+
+
+<h3 class="relative group">Ex. Find the Step Response 
+    <div id="ex-find-the-step-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-find-the-step-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-60_hu6023627590976215566.jpg 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-60_hu10820086648974073358.jpg 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-60_hu5955495747163524762.jpg 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-60_hu4942996590669378625.jpg 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/ECE212_Final_Review_-60_hu10820086648974073358.jpg"
+        alt="ECE212 Final Review -60.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. 
+    <div id="ex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image12_hu12993333857641252144.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image12_hu14048727615391962738.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image12_hu9727496283310023732.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image12_hu12988746618628492816.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image12_hu14048727615391962738.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Sinusoidal Response 
+    <div id="sinusoidal-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sinusoidal-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Here we are trying to analysis when the input is a <strong>Sinusoidal Signal</strong>, in the <strong>form of $x(t) = X_A \cos(\omega t + \phi)$,</strong> base on the <strong>Laplace Transform pair,</strong> we can get $X(s)$</p>
+<p>$$
+X(s) = X_A \left[ \frac{s \cos \phi - \omega \sin \phi}{(s - j\omega)(s + j\omega)} \right]
+$$</p>
+<p>Notice the poles are <strong>$(s - j\omega)(s + j\omega)$ on Complex Plane</strong></p>
+<p>Recall the Response <strong>contains Forced Poles and natural Poles</strong></p>
+<ul>
+<li><strong>Forced Poles</strong>: $s = j\omega$ and $s = -j\omega$, in the form of <strong>$\frac{k}{s - j\omega} + \frac{k^*}{s + j\omega}$,</strong> taking the <strong>Inverse Lapalce</strong> will give us $y(t) = k e^{j\omega t} + k^* e^{-j\omega t}$</li>
+<li><strong>Natural Poles</strong>: Due to the System itself</li>
+<li><strong>Steady-State Response</strong>: When <strong>Natural Response decay to zero</strong>, then we get</li>
+</ul>
+<p>$$
+y_{ss}(t) = k e^{j\omega t} + k^* e^{-j\omega t}
+$$</p>
+<p>Then we shall we Cover-up Algorithm to calculate $k$, that will be $k = (s - j\omega) Y(s) \big|_{s = j\omega}$, and the result will be</p>
+<p>$$
+y_{ss}(t) = X_A |T(j\omega)| \cos(\omega t + \phi + \theta)
+$$</p>
+<ul>
+<li><strong>$X_A |T(j\omega)|$, Amplitude:</strong> Determine by <strong>Input Amplitude</strong> and <strong>System Gain</strong></li>
+<li><strong>$\phi + \theta$, Phase Angle:</strong> Determine by <strong>Input Phase</strong> and <strong>System Shifting</strong></li>
+</ul>
+<aside>
+❗
+<p><strong>Recall, a System only have a Scaling of Amplitude and Shifting of Phase on input</strong></p>
+</aside>
+
+
+<h3 class="relative group">Ex. 
+    <div id="ex-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/37c548c4-11c4-4943-a77a-cad45c52430d_hu13294573103739461105.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/37c548c4-11c4-4943-a77a-cad45c52430d_hu12237322391669161173.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/37c548c4-11c4-4943-a77a-cad45c52430d_hu4346061678108238562.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/37c548c4-11c4-4943-a77a-cad45c52430d_hu7735223645764414469.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/37c548c4-11c4-4943-a77a-cad45c52430d_hu12237322391669161173.png"
+        alt="ECE212 Final Review -62.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Frequency Response 
+    <div id="frequency-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#frequency-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall the Transfer Function, with input as <strong>Various Frequency Components</strong>, the Transfer Function contains <strong>Amplitude $|T(j\omega)|$ and Phase Change $\angle T(j\omega)$</strong> two parts</p>
+<p>What this <strong>Transfer Function</strong> does is called the <strong>Frequency Response</strong> which is a “profile” that capture how circuit “process” signal component to different frequencies</p>
+
+
+<h2 class="relative group">Low Pass Filter 
+    <div id="low-pass-filter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#low-pass-filter" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image13_hu1538247478951073981.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image13_hu5714900446055982618.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image13_hu1559730046921609980.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image13_hu11795727388896309475.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image13_hu5714900446055982618.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>By setting a Cut Off Frequency $\omega_0$, we set up this <strong>Low Pass Filter</strong>, as <strong>this is not an Ideal LPF</strong>, we set up the frequency <strong>out of the band with a decay model</strong></p>
+<p>Different Filter will have there own passband Area</p>
+<ul>
+<li><strong>Low-pass</strong>：$[0, \omega_c]$</li>
+<li><strong>High-pass</strong>：$[\omega_c, \infty)$</li>
+<li><strong>Band-pass</strong>：$[\omega_{c1}, \omega_{c2}$</li>
+<li><strong>Band-stop:</strong> $[0, \omega_{c1}] &amp; [\omega_{c2}, \infty)$</li>
+</ul>
+
+
+<h2 class="relative group">The Bode Diagrams 
+    <div id="the-bode-diagrams" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-bode-diagrams" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There’s <strong>two kind of Bode Diagrams</strong>, <strong>Magnitude Plot</strong> and <strong>Phase Plot</strong>, they both have <strong>horizontal unit of frequency</strong>, and with different Vertigo Components</p>
+<ul>
+<li><strong>Magnitude Plot</strong>: $20 \log_{10} |T(j\omega)| \text{ decibel (dB)}$, use <strong>Decibel</strong></li>
+<li><strong>Phase Plot</strong>: $\angle T(j\omega) \text{ degree}$, use <strong>Angle</strong></li>
+</ul>
+
+
+<h2 class="relative group">Cascaded Systems 
+    <div id="cascaded-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cascaded-systems" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The <strong>overall Transfer Function</strong> is the <strong>multiplication of all Transfer Functions</strong>, in the form</p>
+<p>$$
+T(j\omega) = T_1(j\omega) \times T_2(j\omega) \times \dots \times T_n(j\omega)
+$$</p>
+
+
+<h3 class="relative group">Advantage of dB Scale 
+    <div id="advantage-of-db-scale" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#advantage-of-db-scale" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>dB scale is a good way to compactly express both very large and very small values</p>
+
+
+<h1 class="relative group">First-order Low Pass response 
+    <div id="first-order-low-pass-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#first-order-low-pass-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image14_hu1087382032694549036.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image14_hu17746958386397999957.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image14_hu6720245438808323307.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image14_hu15953864786992824696.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image14_hu17746958386397999957.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Given a RC circuit, the <strong>Voltage Transfer Function</strong> will be given as</p>
+<p>$$
+T(s) = \frac{V_2(s)}{V_1(s)} = \frac{1/sC}{R + 1/sC}= \frac{1}{1 + sRC}
+$$</p>
+
+
+<h2 class="relative group">General form of First-order low pass response 
+    <div id="general-form-of-first-order-low-pass-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#general-form-of-first-order-low-pass-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Known the <strong>General form</strong> of <strong>First-order low pass response is $T(s) = \frac{K}{\alpha + s}$</strong></p>
+<ul>
+<li>$s$: Complex Frequency</li>
+<li>$\alpha$: Poles, Cut off Frequency</li>
+<li>$K$: Gain Coefficient</li>
+</ul>
+
+
+<h2 class="relative group">Frequency Response of First order low pass response 
+    <div id="frequency-response-of-first-order-low-pass-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#frequency-response-of-first-order-low-pass-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If the only thing we care is <strong>how circuit deal with frequencies,</strong> then we can s<strong>implify the term $s = \sigma + j\omega$ into $s=j\omega$</strong>, which is the <strong>Frequency Response of the system</strong>, now we get</p>
+<p>$$
+T(j\omega) = \frac{K/\alpha}{1 + j\omega/\alpha} = \frac{T(0)}{1 + j\omega/\alpha}
+$$</p>
+
+
+<h2 class="relative group">Bode Plot of the Magnitude 
+    <div id="bode-plot-of-the-magnitude" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bode-plot-of-the-magnitude" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Start with the Transfer Function $T(j\omega) = \frac{K}{\alpha + j\omega}$, its Amplitude shall be the mod $|T(j\omega)| = \frac{|K|}{\sqrt{\alpha^2 + \omega^2}}$, then change into $|T(j\omega)| = \frac{|T(0)|}{\sqrt{1 + (\omega/\alpha)^2}}$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image15_hu3873937276738612483.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image15_hu15515217723615260543.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image15_hu6673312669545360942.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image15_hu1353949561188623539.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image15_hu15515217723615260543.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>There’s three important region on this Graph</p>
+<ul>
+<li>$|T(j\omega)|_{\omega=0}$: The <strong>DC term</strong>, is equal to $|T(0)|$</li>
+<li>$|T(j\omega)|_{\omega=\alpha}$: At the <strong>cut off frequency</strong>, is equal to  $\frac{|T(0)|}{\sqrt{2}}$</li>
+<li>$|T(j\omega)|_{\omega=high~\omega}$: At the <strong>region of cut off frequenc</strong>y, is equal to $\frac{|K|}{\omega}$</li>
+</ul>
+<p>For region larger than the cut off frequency, it is followed by the equation</p>
+<p>$$
+20\log |T(j\omega)| = |K|_{\text{dB}} - 20\log\omega
+$$</p>
+<p>this was approached by <strong>taking $log$ on both side of equation</strong></p>
+
+
+<h2 class="relative group">Plot of the phase angle 
+    <div id="plot-of-the-phase-angle" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#plot-of-the-phase-angle" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Also start with $T(j\omega) = \frac{K}{\alpha + j\omega}$, then <strong>overall phase is $\angle T(j\omega) = \angle K - \arctan(\omega/\alpha)$</strong>, we can also analysis this overall phase under three frequencies</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image16_hu11175377436770265049.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image16_hu4364201454262061927.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image16_hu4962034125380316136.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image16_hu2541152119534417173.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image16_hu4364201454262061927.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>$T(j\omega)|_{\omega=0}$: If $K$ is $+ve$, then its 0, else is $\pm 180$</li>
+<li>$T(j\omega)|_{\omega=\alpha}$: Phase is $\angle K - 45^{\circ}$</li>
+<li>$T(j\omega)|_{\omega\rightarrow \infty}$: Phase is $\angle K - 90^{\circ}$</li>
+</ul>
+
+
+<h1 class="relative group">Current Interpretation 
+    <div id="current-interpretation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#current-interpretation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall the RC circuit,</p>
+<ul>
+<li>At <strong>Low Frequency</strong>, the <strong>Impedance</strong> $\frac{1}{j\omega C}$ is very large that it’s an <strong>open-circuit</strong>, thus <strong>$V_{out} \approx V_{in}$, $T(j\omega) \approx 1$, $\angle T(j\omega) = 0^{\circ}$</strong></li>
+<li>At <strong>High Frequency</strong>, <strong>Impedance</strong> is small that is a <strong>short circuit</strong>, <strong>$T(j\omega) \approx \frac{1}{j\omega RC}$, $V_{out} \to 0$, $\angle T(j\omega) = 90^{\circ}$</strong></li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image17_hu6757465725601851675.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image17_hu4843931256681769124.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image17_hu16320256947819094460.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image17_hu8750006226837672462.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image17_hu4843931256681769124.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Bandwidth (BW) 
+    <div id="bandwidth-bw" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bandwidth-bw" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>For the First Order Low Filter $T(j\omega) = \frac{T_o}{1 + j\omega/\omega_c}$, its Bode plot is</p>
+<p>Whereas $T_0$ is the <strong>DC gain</strong> and $\omega_c$ is the <strong>Corner Frequency</strong>  (AKA <strong>Bandwidth,</strong> <strong>Cut off Frequency, 3dB Frequency</strong>)</p>
+<blockquote>
+<p>It’s called 3dB frequency because it’s <strong>3dB lower than $T_0$</strong></p>
+</blockquote>
+
+
+<h2 class="relative group">Gain-Bandwidth Product (GBW) 
+    <div id="gain-bandwidth-product-gbw" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gain-bandwidth-product-gbw" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<aside>
+❗
+<p><strong>Gain-Bandwidth Product (GBW) = DC gain  $\times$ BW</strong></p>
+</aside>
+<p>This means that in a given First Order System, the <strong>product of gain and BW is a constant</strong></p>
+
+
+<h2 class="relative group">Op Amp’s Bandwidth 
+    <div id="op-amps-bandwidth" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#op-amps-bandwidth" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Based on the <strong>Gain-Bandwidth Product</strong>, we can get the Op Amp’s gain and Bandwidth once we know the other</p>
+
+
+<h3 class="relative group">Open-loop 
+    <div id="open-loop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#open-loop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image18_hu6866723103283466848.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image18_hu13382988237429759531.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image18_hu17379315302482457761.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image18_hu9702325589602798309.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image18_hu13382988237429759531.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Open Loop Op amp has high gains, with <strong>$A_0=10^5-10^6$, this makes it’s $\omega_c$ really small</strong></p>
+
+
+<h3 class="relative group">Closed-loop 
+    <div id="closed-loop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#closed-loop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image19_hu16307520574272240328.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image19_hu16850485511827078663.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image19_hu18427203869293146752.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image19_hu2276960921875714680.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image19_hu16850485511827078663.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Known that the <strong>feedback coefficient is $\beta = \frac{R_2}{R_1+R_2}$</strong>, thus we can get the <strong>closed-loop gain</strong> from the formula <strong>$V_o = A(j\omega)(V_p - V_n)$</strong></p>
+<p>$$
+\text{Closed-loop gain} = \frac{A(j\omega)}{1 + \beta A(j\omega)}
+$$</p>
+<p>Now sub in the formula for <strong>First order low filter $A(j\omega) = \frac{A_o}{1 + j\omega/\omega_c}$</strong> to get</p>
+<ul>
+<li><strong>DC gain</strong>: $T_0=\frac{A_o}{1 + \beta A_o}$</li>
+<li><strong>Cut off Frequency</strong>: $\omega_c(1 + \beta A_o)$</li>
+</ul>
+<p>now we can get the new GBW formula as</p>
+<p>$$
+\text{GBW}_{closed} = \left( \frac{A_o}{1 + \beta A_o} \right) \times \left( \omega_c(1 + \beta A_o) \right) = A_o \omega_c
+$$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image20_hu4779198376469387779.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image20_hu14379642872051505677.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image20_hu1649387567281779081.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image20_hu16267824179955335700.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image20_hu14379642872051505677.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>The blue line is the Frequency Response for the <strong>open loop gain</strong>, it’s also the <strong>limit of the op amp</strong>, whereas the orange one $\omega_{clo}$ is the <strong>closed loop gain</strong> in which, 1. <strong>manually decrease the amplitude</strong>, 2. but <strong>having a widther bandwidth</strong></p>
+
+
+<h1 class="relative group">First-order high-pass response 
+    <div id="first-order-high-pass-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#first-order-high-pass-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The Standard form of First-order high-pass response is</p>
+<p>$$
+T(s) = \frac{Ks}{s + \alpha} = \frac{Ks/\alpha}{1 + s/\alpha} \quad (\alpha &gt; 0)
+$$</p>
+<ul>
+<li>$\alpha$ : Cut off frequency ($\omega_c$)</li>
+</ul>
+<hr>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image21_hu15367539813680801520.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image21_hu965365375373946177.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image21_hu17549391099829057768.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image21_hu5642795253423047140.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image21_hu965365375373946177.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Magnitude Response 
+    <div id="magnitude-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnitude-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>Taking the mod of</strong> the <strong>Transfer function</strong> to get</p>
+<p>$$
+|T(j\omega)| = \frac{|K|\omega}{\sqrt{\alpha^2 + \omega^2}} = \frac{|K|\omega/\alpha}{\sqrt{1 + (\omega/\alpha)^2}}
+$$</p>
+<ul>
+<li>$\omega \ll \alpha$: $|T(j\omega)|= \frac{|K|\omega}{\alpha}$, under <strong>log scale,</strong> it’s <strong>increasing with the slope</strong> of $+20\text{dB/dec}$</li>
+<li>$\omega \gg \alpha$: $|T(j\omega)|=|K|$, the <strong>magnitude</strong> is <strong>approaching constant $K$</strong></li>
+</ul>
+
+
+<h2 class="relative group">Phase Response 
+    <div id="phase-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#phase-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><strong>Taking the phase of</strong> the <strong>Transfer function</strong> to get</p>
+<p>$$
+\angle T(j\omega) = \angle K + 90^\circ - \tan^{-1}(\frac{\omega}{\alpha})
+$$</p>
+<ul>
+<li>$\omega = 0$: $\angle T(j\omega) =\angle K + 90^\circ$</li>
+<li>$\omega = \alpha$: $\angle T(j\omega) =\angle K + 45^\circ$</li>
+<li>$\omega \to \infty$: $\angle T(j\omega) =\angle K + 90^\circ - 90^\circ = \angle K$</li>
+</ul>
+
+
+<h2 class="relative group">Frequency Response 
+    <div id="frequency-response-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#frequency-response-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>By letting $s=j\omega$, we get the Frequency Response as</p>
+<p>$$
+T(j\omega) = \frac{j\omega K}{\alpha + j\omega}
+$$</p>
+
+
+<h3 class="relative group">High-pass circuit example 
+    <div id="high-pass-circuit-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#high-pass-circuit-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image22_hu6301379190266729467.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image22_hu728740923509047323.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image22_hu837104713729145578.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image22_hu2928101153457489922.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image22_hu728740923509047323.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image23_hu3304801276094015133.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image23_hu11176134537373535203.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image23_hu2611741804287501074.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image23_hu15147872472019928250.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image23_hu11176134537373535203.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image24_hu8629024771820890354.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image24_hu13504523898244287484.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image24_hu14141243940229624542.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image24_hu13817942693833264316.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image24_hu13504523898244287484.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">High-pass and Low-pass cascade 
+    <div id="high-pass-and-low-pass-cascade" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#high-pass-and-low-pass-cascade" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>The overall system is formed by a <strong>series connection of High-pass and Low-pass filter</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image25_hu4427993548385351813.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image25_hu14384556262003862456.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image25_hu9792927589634871194.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image25_hu4336810247404054993.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image25_hu14384556262003862456.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Thus we can get the overall <strong>Transfer function</strong> as the <strong>multiplication of two functions</strong></p>
+<p>$$
+T(s) = T_1(s) \cdot T_2(s) = \frac{K_1 s}{s + \alpha_1} \cdot \frac{K_2}{s + \alpha_2}
+$$</p>
+<p>Whereas its <strong>Frequency response</strong> is</p>
+<p>$$
+T(j\omega) = \frac{K_1 j\omega}{j\omega + \alpha_1} \cdot \frac{K_2}{j\omega + \alpha_2}
+$$</p>
+
+
+<h2 class="relative group">Magnitude Response of the Cascade Transfer function 
+    <div id="magnitude-response-of-the-cascade-transfer-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnitude-response-of-the-cascade-transfer-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Starting with the <strong>low frequency:</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image26_hu8538680058266802291.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image26_hu2457102856919005864.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image26_hu10434845128419046186.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image26_hu10730105188721167289.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image26_hu2457102856919005864.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>****$\omega \ll \alpha_1$: $|T(j\omega)|=\frac{|K_1|\omega}{\alpha_1} \cdot \frac{|K_2|}{\alpha_2}$, $|T(j\omega)|<em>{\text{dB}} = \left| \frac{K_1 K_2}{\alpha_1 \alpha_2} \right|</em>{\text{dB}} + 20 \log \omega$</li>
+</ul>
+<p>Then the <strong>high frequency</strong>:</p>
+<ul>
+<li>$\omega \gg \alpha_2$: $|T(j\omega)|=\frac{|K_1|\omega}{\omega} \cdot \frac{|K_2|}{\omega} = \frac{|K_1 K_2|}{\omega}$, $|T(j\omega)|<em>{\text{dB}} = |K_1 K_2|</em>{\text{dB}} - 20 \log \omega$</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/cf2910bb-d7ab-434d-ba6b-e81ac4f2e293_hu12400828265149382559.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/cf2910bb-d7ab-434d-ba6b-e81ac4f2e293_hu17742907616056656575.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/cf2910bb-d7ab-434d-ba6b-e81ac4f2e293_hu11695252444219322301.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/cf2910bb-d7ab-434d-ba6b-e81ac4f2e293_hu12130004626820539922.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/cf2910bb-d7ab-434d-ba6b-e81ac4f2e293_hu17742907616056656575.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Lastly the <strong>band pass region</strong> $\alpha_1 \ll \omega \ll \alpha_2$:</p>
+<ul>
+<li>$T_1(j\omega)\rightarrow \frac{|K_1|\omega}{\omega} = |K_1|$</li>
+<li>$T_2(j\omega)\rightarrow \frac{|K_2|}{\alpha_2}$</li>
+</ul>
+<p>Thus the <strong>overall Magnitude response</strong> is</p>
+<p>$$
+|T(j\omega)| \to \frac{|K_1 K_2|}{\alpha_2},\quad G = |K_1 K_2|<em>{\text{dB}} - |\alpha_2|</em>{\text{dB}}
+$$</p>
+
+
+<h2 class="relative group">Circuit Realization of Band-pass filter 
+    <div id="circuit-realization-of-band-pass-filter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#circuit-realization-of-band-pass-filter" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The <strong>series connection</strong> of <strong>a RC circuit and Op Amp forms a Band-pass filter</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image27_hu15164043527745286264.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image27_hu14057715670702405064.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image27_hu5076319292382933847.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image27_hu6676147365426944436.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image27_hu14057715670702405064.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Whereas the <strong>High-pass</strong> part is the <strong>RC filter</strong>, and <strong>low-pass</strong> is the <strong>Non-inverting Amplifier</strong>, thus the overall <strong>Transfer function</strong> is</p>
+<p>$$
+T(s) = T_1(s) \cdot T_2(s)
+$$</p>
+
+
+<h3 class="relative group">High-pass part 
+    <div id="high-pass-part" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#high-pass-part" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>Transfer function</strong>: $T_1(s) = \frac{R}{R + \frac{1}{sC}} = \frac{s}{s + \frac{1}{RC}}$</li>
+<li><strong>Frequency Response</strong>: $T_1(j\omega) = \frac{j\omega}{\frac{1}{RC} + j\omega}$</li>
+<li><strong>Cut-off Frequency:</strong> $f_{c_1} = \frac{\omega_{c_1}}{2\pi} = \frac{1}{2\pi RC}$</li>
+</ul>
+
+
+<h3 class="relative group">Low-pass part 
+    <div id="low-pass-part" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#low-pass-part" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>Frequency Response</strong>: $T_2(j\omega) = \frac{\text{DC gain}}{1 + j\omega / \omega_{cl_0}} = \frac{A_0 / (1 + \beta A_0)}{1 + j\omega / (\omega_c(1 + \beta A_0))}$</li>
+<li><strong>Cut-off Frequency (Angular)</strong>: $\omega_{c_2} = \omega_c(1 + \beta A_0)$</li>
+<li><strong>Cut-off Frequency</strong>: $f_{c_2} = \frac{\omega_{c_2}}{2\pi} = f_c(1 + \beta A_0)$</li>
+</ul>
+<hr>
+<p>Thus the overall <strong>Transfer Function (Frequency Response)</strong> is then</p>
+<p>$$
+T(j\omega) = T_1(j\omega) T_2(j\omega) = \frac{j\omega}{\frac{1}{RC} + j\omega} \times \frac{A_0 / (1 + \beta A_0)}{1 + j\omega / (\omega_c (1 + \beta A_0))}
+$$</p>
+<p>When the whole system is in the band-pass region ($\frac{1}{RC} \ll \omega \ll \omega_c(1 + \beta A_0)$), this becomes</p>
+<p>$$
+|T(j\omega)|_{\text{mid-range}} \approx 1 \times \frac{A_0}{1 + \beta A_0} = \text{Passband Gain}
+$$</p>
+
+
+<h3 class="relative group">Ex. Band-pass Filter Example 
+    <div id="ex-band-pass-filter-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-band-pass-filter-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image28_hu12691142107629120978.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image28_hu2263612878963621905.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image28_hu7678812274513484883.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image28_hu9125503131762481219.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image28_hu2263612878963621905.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Band-stop Response 
+    <div id="band-stop-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#band-stop-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image29_hu10580963402937068289.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image29_hu13561847888496640370.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image29_hu11677397042179405501.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image29_hu2291656183175718996.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image29_hu13561847888496640370.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Band-stop response is a <strong>parallel connection</strong> for <strong>a High-pass and Low-pass filter</strong>, and the overall <strong>Transfer function</strong> becomes</p>
+<p>$$
+T(s) = T_1(s) + T_2(s)
+$$</p>
+<blockquote>
+<p><strong>Notice: Series Cascade is multiplication, Parallel Cascade is addition</strong></p>
+</blockquote>
+<p>We can also get the Frequency response and the Magnitude response</p>
+<p>$$
+T(j\omega) = \frac{j\omega K_1}{\alpha_1 + j\omega} + \frac{K_2}{\alpha_2 + j\omega},\quad |T(j\omega)| = \frac{\omega K_1}{\sqrt{\alpha_1^2 + \omega^2}} + \frac{K_2}{\sqrt{\alpha_2^2 + \omega^2}}
+$$</p>
+<p>Then we can start analysing Transfer function under different frequencies</p>
+<hr>
+<p>Staring with <strong>Low Frequency:</strong></p>
+<ul>
+<li>$\omega \ll \alpha_2$: $|T(j\omega)| \approx |T_2(j\omega)| = \frac{K_2}{\alpha_2}$</li>
+</ul>
+<p>Then is the <strong>High Frequency</strong>:</p>
+<ul>
+<li>$\omega \gg \alpha_1$: $|T(j\omega)| \approx |T_1(j\omega)| = K_1$</li>
+<li>Design choice, it’s <strong>suggested if we can make two band’s gain the same</strong>, in which $K_1 = \frac{K_2}{\alpha_2}$</li>
+</ul>
+<p>Lastly the Mid Frequency:</p>
+<ul>
+<li>$\alpha_2 &lt; \omega &lt; \alpha_1$: $|T_1(j\omega)| = |T_2(j\omega)|, \quad \frac{K_1 \omega}{\alpha_1} = \frac{K_2}{\omega}, \quad \frac{K_1 \omega}{\alpha_1} = \frac{K_2}{\omega}, \quad \omega = \sqrt{\alpha_1 \alpha_2}$, thus the stopband gain is $\frac{K_1 \sqrt{\alpha_1 \alpha_2}}{\alpha_1} = K_1 \sqrt{\frac{\alpha_2}{\alpha_1}} \quad \text{or} \quad \frac{K_2}{\sqrt{\alpha_1 \alpha_2}}$</li>
+</ul>
+
+
+<h2 class="relative group">Circuit Realization for Band-stop Response 
+    <div id="circuit-realization-for-band-stop-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#circuit-realization-for-band-stop-response" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image30_hu6970419280995944163.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image30_hu7986427738796778237.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image30_hu13367114242912893882.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image30_hu127547466791458468.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image30_hu7986427738796778237.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image31_hu11903128884825017189.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image31_hu8088495247770545142.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image31_hu5151606040225285195.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image31_hu9465045299502089146.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca7.frequencydomainanalysis/image31_hu8088495247770545142.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>LEc 31</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

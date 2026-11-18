@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2L 3.3 A concise implementation of linear regression | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#331-生成数据集">3.3.1 生成数据集</a></li>
+    <li><a href="#332-读取数据集">3.3.2 读取数据集</a></li>
+    <li><a href="#333-定义模型">3.3.3 定义模型</a></li>
+    <li><a href="#334-初始化模型参数">3.3.4 初始化模型参数</a></li>
+    <li><a href="#335-定义损失函数">3.3.5 定义损失函数</a></li>
+    <li><a href="#336-定义优化算法">3.3.6 定义优化算法</a></li>
+    <li><a href="#337-训练">3.3.7 训练</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>D2L 3.3 A concise implementation of linear regression</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                April 15, 2024
+                <span style="margin: 0 10px;">&middot;</span> 
+                1286 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <p>本节将介绍如何通过使用深度学习框架来简洁地实现[[3.2_Object-OrientedDesignforImplementation]]中的线性回归模型</p>
+
+
+<h2 class="relative group">3.3.1 生成数据集 
+    <div id="331-%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#331-%E7%94%9F%E6%88%90%E6%95%B0%E6%8D%AE%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<pre tabindex="0"><code>import numpy as np
+import torch
+from torch.utils import data
+from d2l import torch as d2l
+
+true_w = torch.tensor([2, -3.4])
+true_b = 4.2
+features, labels = d2l.synthetic_data(true_w, true_b, 1000)
+</code></pre><ul>
+<li><code>d2l.synthetic_data(true_w, true_b, 1000)</code> 是 <code>d2l</code> 库中的一个函数调用。这个函数用于生成合成数据，其中包括特征数据和对应的标签数据。</li>
+<li>具体地，这个函数接受三个参数：</li>
+<li><code>true_w</code>：真实的权重，用于生成特征数据。</li>
+<li><code>true_b</code>：真实的偏置，用于生成特征数据。</li>
+<li><code>1000</code>：生成数据的数量，这里是指生成1000个样本。</li>
+</ul>
+
+
+<h2 class="relative group">3.3.2 读取数据集 
+    <div id="332-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#332-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<pre tabindex="0"><code>def load_array(data_arrays, batch_size, is_train=True):  #@save
+    &#34;&#34;&#34;构造一个PyTorch数据迭代器&#34;&#34;&#34;
+    dataset = data.TensorDataset(*data_arrays)
+    return data.DataLoader(dataset, batch_size, shuffle=is_train)
+
+batch_size = 10
+data_iter = load_array((features, labels), batch_size)
+</code></pre>
+
+<h2 class="relative group">3.3.3 定义模型 
+    <div id="333-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#333-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于标准深度学习模型，我们可以使用框架的预定义好的层</li>
+</ul>
+<pre tabindex="0"><code>## nn是神经网络的缩写
+from torch import nn
+net = nn.Sequential(nn.Linear(2, 1))
+</code></pre><ul>
+<li><code>nn.Sequential</code>：这是 PyTorch 中用于构建顺序神经网络模型的类。它允许用户按顺序堆叠多个层或模块，构建神经网络模型。</li>
+<li><code>nn.Linear(2, 1)</code>：这里创建了一个全连接层，其中 <code>nn.Linear</code> 是 PyTorch 中用于定义全连接层的类。构造函数 <code>nn.Linear(in_features, out_features)</code> 接受两个参数：</li>
+<li><code>in_features</code>：输入特征的数量。在这个例子中，输入特征的数量为 2。</li>
+<li><code>out_features</code>：输出特征的数量。在这个例子中，输出特征的数量为 1。
+因此，<code>net</code> 这个模型包含一个具有 2 个输入特征和 1 个输出特征的全连接层。
+这样的模型可以用于简单的二分类问题，其中输入特征有 2 个，输出特征有 1 个，代表着模型对样本的分类结果。</li>
+</ul>
+
+
+<h2 class="relative group">3.3.4 初始化模型参数 
+    <div id="334-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#334-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<pre tabindex="0"><code>net[0].weight.data.normal_(0, 0.01)
+net[0].bias.data.fill_(0)
+</code></pre><ul>
+<li>在网络的第一层输入参数</li>
+</ul>
+
+
+<h2 class="relative group">3.3.5 定义损失函数 
+    <div id="335-%E5%AE%9A%E4%B9%89%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#335-%E5%AE%9A%E4%B9%89%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>计算均方误差使用的是<code>MSELoss</code>类，也称为平方�2范数。 默认情况下，它返回所有样本损失的平均值。</li>
+</ul>
+<pre tabindex="0"><code>loss = nn.MSELoss()
+</code></pre>
+
+<h2 class="relative group">3.3.6 定义优化算法 
+    <div id="336-%E5%AE%9A%E4%B9%89%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#336-%E5%AE%9A%E4%B9%89%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<pre tabindex="0"><code> trainer = torch.optim.SGD(net.parameters(), lr=0.03)
+</code></pre><ul>
+<li>当我们实例化一个<code>SGD</code>实例时，我们要指定优化的参数 （可通过<code>net.parameters()</code>从我们的模型中获得）以及优化算法所需的超参数字典。 小批量随机梯度下降只需要设置<code>lr</code>值，这里设置为0.03。</li>
+</ul>
+
+
+<h2 class="relative group">3.3.7 训练 
+    <div id="337-%E8%AE%AD%E7%BB%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#337-%E8%AE%AD%E7%BB%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>通过深度学习框架的高级API来实现我们的模型只需要相对较少的代码。 我们不必单独分配参数、不必定义我们的损失函数，也不必手动实现小批量随机梯度下降。 当我们需要更复杂的模型时，高级API的优势将大大增加。 当我们有了所有的基本组件，训练过程代码与我们从零开始实现时所做的非常相似。</p>
+<pre tabindex="0"><code>num_epochs = 3
+for epoch in range(num_epochs):
+    for X, y in data_iter:
+        l = loss(net(X) ,y)
+        trainer.zero_grad()
+        l.backward()
+        trainer.step()
+    l = loss(net(features), labels)
+    print(f&#39;epoch {epoch + 1}, loss {l:f}&#39;)
+</code></pre><ul>
+<li><code>num_epochs = 3</code>：定义了训练的轮数，这里设置为 3</li>
+<li><code>for epoch in range(num_epochs):</code>：使用 <code>for</code> 循环迭代每个训练轮数</li>
+<li><code>for X, y in data_iter:</code>：使用 <code>data_iter</code> 迭代器遍历训练数据集，其中 <code>X</code> 是特征，<code>y</code> 是对应的标签</li>
+<li><code>l = loss(net(X) ,y)</code>：计算模型对当前批次数据的预测值，并计算与真实标签之间的损失</li>
+<li><code>trainer.zero_grad()</code>：梯度清零，以避免梯度累积</li>
+<li><code>l.backward()</code>：反向传播，计算损失函数相对于模型参数的梯度</li>
+<li><code>trainer.step()</code>：更新模型参数，采用优化算法更新参数</li>
+<li><code>l = loss(net(features), labels)</code>：计算当前训练轮数结束后整个训练集上的损失</li>
+<li><code>print(f'epoch {epoch + 1}, loss {l:f}')</code>：打印当前训练轮数和对应的损失值</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2024 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EF 7. Magnetic Fields | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#magnetic-field">Magnetic Field</a>
+      <ul>
+        <li><a href="#creation-of-magnetic-fields">Creation of Magnetic Fields</a></li>
+        <li><a href="#magnetic-field-strength">Magnetic Field Strength</a></li>
+        <li><a href="#direction-of-magnetic-field">Direction of Magnetic Field</a></li>
+        <li><a href="#ex-magnetic-force-on-a-moving-charged-particle">ex. Magnetic Force on a moving charged particle</a></li>
+      </ul>
+    </li>
+    <li><a href="#magnetic-force-due-to-straight-current-wire">Magnetic Force due to straight current wire</a></li>
+    <li><a href="#magnetic-field-create-by-straight-wire">Magnetic Field Create by Straight Wire</a></li>
+    <li><a href="#biot---savart-law">Biot - Savart Law</a>
+      <ul>
+        <li><a href="#law-of-biot-and-savart-in-straight-current-carrying-wire">Law of Biot and Savart in Straight current-carrying Wire</a></li>
+        <li><a href="#law-of-biot-and-savart-in-circular-wire">Law of Biot and Savart in circular wire</a></li>
+      </ul>
+    </li>
+    <li><a href="#force-between-two-parallel-currents">Force Between Two Parallel Currents</a></li>
+    <li><a href="#amperes-law">Ampere&rsquo;s Law</a>
+      <ul>
+        <li><a href="#ampereian-loop-安培环">Ampereian Loop 安培环</a></li>
+        <li><a href="#direction-of-magnetic-field-1">Direction of Magnetic Field</a></li>
+        <li><a href="#inside--outside-of-the-wire">Inside &amp; Outside of the Wire</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EF 7. Magnetic Fields</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                February 08, 2025
+                <span style="margin: 0 10px;">&middot;</span> 
+                1037 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 2/8/25</p>
+</blockquote>
+
+
+<h2 class="relative group">Magnetic Field 
+    <div id="magnetic-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>与 Electric Field 一般，Magnetic Field 也是由 Magnetic Charge 产生的</li>
+<li>虽然理论上存在 Individual Magnetic Charges (AKA Magnetic Monopoles) 但是尚未被证实</li>
+</ul>
+
+
+<h3 class="relative group">Creation of Magnetic Fields 
+    <div id="creation-of-magnetic-fields" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#creation-of-magnetic-fields" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>通常来说磁场通过两种方式形成，一个是 Electrically Charged Particles 比如导线中的电流形成的 Magnetic Field</li>
+<li>另一种则是通过 Elementary Particles 基本粒子，如 Electron 等形成的 Intrinsic Magnetic Field 固有磁场</li>
+</ul>
+
+
+<h3 class="relative group">Magnetic Field Strength 
+    <div id="magnetic-field-strength" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-strength" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>当 Charged Particle 在 Magnetic Field 中移动的时候，它受到的力为
+$$\vec F_B=q(\vec v\times\vec B)$$</li>
+<li>其中 \(\vec v\) 为 Velocity Vector</li>
+<li>Magnetic Field Strength 的力的方向则是 Cross Product 方向，即通过 Right Hard Rule 给出</li>
+<li>具体来说 Magnitude 为
+$$F_B=|q|v_B\sin\phi$$</li>
+<li>其中 \(\phi\) 为 Velocity 和 Magnetic Field 之间的夹角</li>
+<li>Magnetic Field Strength 的单位为 Tesla，有
+$$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\text{meter/second})}$$</li>
+</ul>
+
+
+<h3 class="relative group">Direction of Magnetic Field 
+    <div id="direction-of-magnetic-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#direction-of-magnetic-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>磁场线从磁体的 North Pole 指向 South Pole，和 Charged Particle 一般，同性相斥异性相吸</li>
+</ul>
+
+
+<h3 class="relative group">ex. Magnetic Force on a moving charged particle 
+    <div id="ex-magnetic-force-on-a-moving-charged-particle" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-magnetic-force-on-a-moving-charged-particle" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A uniform magnetic field \(\vec{B}\), with a magnitude of \(1.2 , \text{mT}\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \(5.3 , \text{MeV}\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \(1.67 \times 10^{-27} , \text{kg}\). (Neglect Earth&rsquo;s magnetic field.)</p>
+<ul>
+<li>先通过 Energy 求得 Proton 的 Velocity 有
+$$v = \sqrt{\frac{2K}{m}} = \sqrt{\frac{(2)(5.3 , \text{MeV})(1.60 \times 10^{-13} , \text{J/MeV})}{1.67 \times 10^{-27} , \text{kg}}} = 3.2 \times 10^7 , \text{m/s}$$</li>
+<li>再将速度带入 Magnetic Field Strength，有
+$$F_B = |q| v B \sin \phi<br>
+= (1.60 \times 10^{-19} , \text{C})(3.2 \times 10^7 , \text{m/s})<br>
+\times (1.2 \times 10^{-3} , \text{T})(\sin 90^\circ)<br>
+= 6.1 \times 10^{-15} , \text{N}. , (\text{Answer})$$</li>
+</ul>
+
+
+<h2 class="relative group">Magnetic Force due to straight current wire 
+    <div id="magnetic-force-due-to-straight-current-wire" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-force-due-to-straight-current-wire" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于一条有 Current 的 Wire，当它位于一个 Uniform 的 Magnetic Field 中时，其会收到一个 Magnetic Field Strength \(\vec F_b\)</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields_hu10653458457461263200.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields_hu2669816394102099491.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields_hu8064144908290824102.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields_hu5504662017660877206.png 2x"
+        src="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields_hu2669816394102099491.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>具体来说，Magnetic Field Force 的方向将由 Current 和 Magnetic Field 的方向决定</li>
+</ul>
+
+
+<h2 class="relative group">Magnetic Field Create by Straight Wire 
+    <div id="magnetic-field-create-by-straight-wire" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#magnetic-field-create-by-straight-wire" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>当一个 Current 从一根直的 Wire 中通过的时候，其周围会形成环形磁场 \(\vec B\)</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-1_hu7680040496110148254.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-1_hu14830769137525955804.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-1_hu4949293682075273630.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-1_hu7541163340604471052.png 2x"
+        src="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-1_hu14830769137525955804.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Magnetic Field 的方向可以通过 Right Hand Rule 判断</li>
+</ul>
+
+
+<h2 class="relative group">Biot - Savart Law 
+    <div id="biot---savart-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#biot---savart-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>非直线导线中一个长度元素 \(ds\) 在距离 r 处的点 P 产生的磁场微分为
+$$dB = \frac{\mu_0}{4 \pi} \cdot \frac{i , ds , \sin \theta}{r^2}
+$$</li>
+<li>其中的 \(\mu_0\) 为真空磁导率，有 \(μ0​=4π×10^{−7}T⋅m/A=1.26\times 10^{-6}T\cdot m/A\)</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-2_hu12334754555221112730.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-2_hu4025849482403564824.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-2_hu15688443145460072514.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-2_hu4085297457633207984.png 2x"
+        src="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-2_hu4025849482403564824.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>可以得到完整的 Law of Biot and Savart 有
+$$dB = \frac{\mu_0}{4 \pi} \cdot \frac{i , d\vec s \ \times \hat r}{r^2}
+$$</li>
+</ul>
+
+
+<h3 class="relative group">Law of Biot and Savart in Straight current-carrying Wire 
+    <div id="law-of-biot-and-savart-in-straight-current-carrying-wire" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#law-of-biot-and-savart-in-straight-current-carrying-wire" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>由 Biot and Savart 公式可以得出一个 Long Straight Wire R 远的距离的 Magnetic Field为
+$$B=\frac{\mu_oi}{2\pi R}$$
+
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-4_hu6432526847138228100.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-4_hu11745010794648198061.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-4_hu16986467672295159309.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-4_hu16884898152541406384.png 2x"
+        src="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-4_hu11745010794648198061.png"
+        alt="Img"
+      />
+      
+    </figure>
+</li>
+</ul>
+
+
+<h3 class="relative group">Law of Biot and Savart in circular wire 
+    <div id="law-of-biot-and-savart-in-circular-wire" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#law-of-biot-and-savart-in-circular-wire" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>一个圆弧的导线的圆心处的 Magnetic Field Strength 有
+$$B = \frac{\mu_0 i \Phi}{4 \pi R}$$</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="EF8.MagneticFields.png-5" alt="Img" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Force Between Two Parallel Currents 
+    <div id="force-between-two-parallel-currents" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#force-between-two-parallel-currents" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>已知一根带有 Current i 的 Straight Wire 的 Magnetic Field 有
+$$\vec F_b=i\vec L\times \vec B$$</li>
+<li>两根平行导线之间的力是由于其中一根导线产生的磁场作用在另一根导线上的结果</li>
+<li>导线 a 产生的磁场 \(B_a\) 在 b 位置为 \(B_a = \frac{\mu_0 i_a}{2 \pi d}\)，即 b 收到的 Magnetic Field Strength 为
+$$F_{ba} = i_b L B_a \sin 90^\circ = i_b L \cdot \frac{\mu_0 i_a}{2 \pi d}
+\Rightarrow F_{ba} = \frac{\mu_0 L i_a i_b}{2 \pi d}$$
+
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-6_hu7453991742308620594.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-6_hu8089329275913365759.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-6_hu2229004133682187208.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-6_hu15687172649567209332.png 2x"
+        src="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields-6_hu8089329275913365759.png"
+        alt="Img"
+      />
+      
+    </figure>
+</li>
+</ul>
+
+
+<h2 class="relative group">Ampere&rsquo;s Law 
+    <div id="amperes-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amperes-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Ampere&rsquo;s Law，通过一个假想的称为安培环（Ampereian Loop）的假想闭合路径来分析电流周围的磁场</li>
+</ul>
+
+
+<h3 class="relative group">Ampereian Loop 安培环 
+    <div id="ampereian-loop-%E5%AE%89%E5%9F%B9%E7%8E%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ampereian-loop-%E5%AE%89%E5%9F%B9%E7%8E%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Ampereian Loop 是一个假想的闭合路径，用于计算路径所包围的 Current 对该路径上每一点处磁场的贡献</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields_hu15241816054766663331.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields_hu16713710760384196777.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields_hu5959853084373446979.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields_hu11109769569058368396.png 2x"
+        src="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields_hu16713710760384196777.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>对于 Ampereian Loop 内部的 Current，有
+$$\oint \vec{B} \cdot d\vec{s} = \mu_0 i_{enc} \quad (\text{Ampere&rsquo;s law})$$</li>
+</ul>
+
+
+<h3 class="relative group">Direction of Magnetic Field 
+    <div id="direction-of-magnetic-field-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#direction-of-magnetic-field-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>通过右手来判断，四指弯曲指向 Integration 方向，大拇指方向则为 Current 方向</li>
+</ul>
+
+
+<h3 class="relative group">Inside &amp; Outside of the Wire 
+    <div id="inside--outside-of-the-wire" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inside--outside-of-the-wire" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在 Long Straight 内外部的 Magnetic Field 是不同的</li>
+<li>在外部时，可以通过 Biot - Savart Law 得到 Magnetic Field 为
+$$B=\frac{\mu_oi}{2\pi R}$$
+
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields-1_hu17197894438183710072.png 330w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields-1_hu13073959146545000725.png 660w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields-1_hu4879344789985660850.png 1024w,
+        /docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields-1_hu17561264306867761120.png 2x"
+        src="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF7.MagneticFields-1_hu13073959146545000725.png"
+        alt="Img"
+      />
+      
+    </figure>
+</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2025 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

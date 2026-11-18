@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2L 3.1 Linear Regression | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#311-线性回归的基本元素">3.1.1 线性回归的基本元素</a>
+      <ul>
+        <li><a href="#3111-线性模型">3.1.1.1 线性模型</a></li>
+        <li><a href="#高维数据集">高维数据集</a></li>
+        <li><a href="#点积形式">点积形式</a></li>
+        <li><a href="#model-parameters-模型参数">Model Parameters 模型参数</a>
+          <ul>
+            <li><a href="#一种模型质量的度量方式">一种模型质量的度量方式</a></li>
+            <li><a href="#一种能更新模型以提高预测质量的方式">一种能更新模型以提高预测质量的方式</a></li>
+          </ul>
+        </li>
+        <li><a href="#3112-损失函数">3.1.1.2 损失函数</a>
+          <ul>
+            <li><a href="#loss-function-损失函数">Loss Function 损失函数</a></li>
+          </ul>
+        </li>
+        <li><a href="#平方误差函数">平方误差函数</a></li>
+        <li><a href="#3113-解析式">3.1.1.3 解析式</a></li>
+        <li><a href="#3114-随机梯度下降">3.1.1.4 随机梯度下降</a>
+          <ul>
+            <li><a href="#gradient-descent-梯度下降">Gradient Descent 梯度下降</a></li>
+          </ul>
+        </li>
+        <li><a href="#sgd">SGD</a></li>
+        <li><a href="#hyperparameter-超参数">Hyperparameter 超参数</a></li>
+        <li><a href="#收敛">收敛</a></li>
+        <li><a href="#generalization-泛化">Generalization 泛化</a></li>
+        <li><a href="#3115-用模型进行预测">3.1.1.5 用模型进行预测</a></li>
+      </ul>
+    </li>
+    <li><a href="#312-矢量化加速">3.1.2 矢量化加速</a>
+      <ul>
+        <li><a href="#矢量化性能测试">矢量化性能测试</a></li>
+      </ul>
+    </li>
+    <li><a href="#313-正态分布与平方损失">3.1.3 正态分布与平方损失</a>
+      <ul>
+        <li><a href="#正态分布">正态分布</a></li>
+        <li><a href="#均方误差损失函数">均方误差损失函数</a></li>
+      </ul>
+    </li>
+    <li><a href="#likehood-似然">Likehood 似然</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#平方误差函数-1">平方误差函数</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#314-从线性回归到深度网络">3.1.4 从线性回归到深度网络</a>
+      <ul>
+        <li><a href="#3141-神经网络图">3.1.4.1 神经网络图</a></li>
+        <li><a href="#fully-connected-layer-全连接层">Fully-Connected Layer 全连接层</a></li>
+      </ul>
+    </li>
+    <li><a href="#3142-生物学">3.1.4.2 生物学</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>D2L 3.1 Linear Regression</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                April 15, 2024
+                <span style="margin: 0 10px;">&middot;</span> 
+                2946 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit 4/15/24</p>
+</blockquote>
+<p>Regression 回归，是能为一个或多个自变量与因变量之间关系建模的一种方式</p>
+<ul>
+<li>[[Regression 回归]]</li>
+</ul>
+
+
+<h2 class="relative group">3.1.1 线性回归的基本元素 
+    <div id="311-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#311-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Linear Regression 线性回归可以追溯到19世纪，其基于几个基本的假设</li>
+<li>假设自变量与因变量之间为线性关系</li>
+<li>假设噪声正常，如遵循正态分布</li>
+</ul>
+
+
+<h3 class="relative group">3.1.1.1 线性模型 
+    <div id="3111-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3111-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>[[线性模型]]</li>
+<li>线性假设是指目标可以表示为特征的加权和，如下例子</li>
+</ul>
+<p><em>E.X.</em>
+$$Price=w_{area}\cdot area+w_{age}\cdot age+b$$</p>
+<ul>
+<li>w称为Weight权重</li>
+<li>b称为Bias，Offset或者Intercept偏置，即特征为0时的预测值</li>
+</ul>
+<p>严格来说，上式为输入特征的一个[[Affine Transformation 仿射变换]]</p>
+<ul>
+<li>给定一个数据集，我们的目标即为寻找模型的Weight和Offset</li>
+</ul>
+
+
+<h3 class="relative group">高维数据集 
+    <div id="%E9%AB%98%E7%BB%B4%E6%95%B0%E6%8D%AE%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%AB%98%E7%BB%B4%E6%95%B0%E6%8D%AE%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在Deep Learning 领域，我们通常使用的是高纬数据集，建模时采用[[2.3 线性代数]]的表示方法会比较方便。</li>
+<li>当我们的输入包含多个特征时，我们将预测结果表示为\(\hat{y}\)</li>
+</ul>
+
+
+<h3 class="relative group">点积形式 
+    <div id="%E7%82%B9%E7%A7%AF%E5%BD%A2%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%82%B9%E7%A7%AF%E5%BD%A2%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>可以用点积形式来简洁的表达模型\(x\in R^d,w\in R^d\)
+$$\hat{y}=w^Tx+b$$</li>
+</ul>
+
+
+<h3 class="relative group">Model Parameters 模型参数 
+    <div id="model-parameters-%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#model-parameters-%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在开始寻找最好的模型参数前，我们还需要两个东西</li>
+</ul>
+
+
+<h4 class="relative group">一种模型质量的度量方式 
+    <div id="%E4%B8%80%E7%A7%8D%E6%A8%A1%E5%9E%8B%E8%B4%A8%E9%87%8F%E7%9A%84%E5%BA%A6%E9%87%8F%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%80%E7%A7%8D%E6%A8%A1%E5%9E%8B%E8%B4%A8%E9%87%8F%E7%9A%84%E5%BA%A6%E9%87%8F%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h4 class="relative group">一种能更新模型以提高预测质量的方式 
+    <div id="%E4%B8%80%E7%A7%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E6%A8%A1%E5%9E%8B%E4%BB%A5%E6%8F%90%E9%AB%98%E9%A2%84%E6%B5%8B%E8%B4%A8%E9%87%8F%E7%9A%84%E6%96%B9%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%80%E7%A7%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E6%A8%A1%E5%9E%8B%E4%BB%A5%E6%8F%90%E9%AB%98%E9%A2%84%E6%B5%8B%E8%B4%A8%E9%87%8F%E7%9A%84%E6%96%B9%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+
+<h3 class="relative group">3.1.1.2 损失函数 
+    <div id="3112-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3112-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在开始考虑如何用模型Fit 拟合数据之前，我们需要一个拟合程度的度量</li>
+</ul>
+
+
+<h4 class="relative group">Loss Function 损失函数 
+    <div id="loss-function-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#loss-function-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>量话目标的实际值和预测值之间的差距</li>
+<li>通常选用非负数作为Cost，并且数值越小损失越小</li>
+</ul>
+
+
+<h3 class="relative group">平方误差函数 
+    <div id="%E5%B9%B3%E6%96%B9%E8%AF%AF%E5%B7%AE%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B9%B3%E6%96%B9%E8%AF%AF%E5%B7%AE%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>回归问题中最常用的Cost Function是平方误差函数
+$$l^{(i)}(w,b)=\frac{1}{2}(\hat{y}^{(i)}-y^{(i)})^2$$</li>
+<li>常数\(\frac{1}{2}\)的存在不会带来本质的差别，但当我们对这一方程求导后由于\(\frac{1}{2}\)的存在会使常数等于1</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/D2L_Static/3.1_LinearRegression/3.1_LinearRegression-1.png" alt="" />
+      
+    </figure>
+</p>
+<ul>
+<li>由于平方误差函数中的二次方项，会导致估计值和观测值之间较大的差异造成更大的损失。</li>
+<li>为了度量模型在整个数据集上的质量，我们需要计算训练集上的样本损失均值
+$$L(w,b)= \frac{1}{n}\Sigma^n_{i=1}l^{(i)}(w,b)=\frac{1}{n}\Sigma^n_{i=1}\frac{1}{2}(w^Tx^{(i)}+b-y^{(i)})^2$$</li>
+<li>总的来说训练模型就是为了找到一组参数\(w^<em>,b^</em>\)，其
+$$w^<em>,b^</em>=argmin~L(w,b)$$</li>
+</ul>
+
+
+<h3 class="relative group">3.1.1.3 解析式 
+    <div id="3113-%E8%A7%A3%E6%9E%90%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3113-%E8%A7%A3%E6%9E%90%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>线性回归是一个很简单的优化问题，与大部分模型不同，其解可以用一个公式简单的表达出来，这类解便称为Analytical Solution 解析解</li>
+</ul>
+
+
+<h3 class="relative group">3.1.1.4 随机梯度下降 
+    <div id="3114-%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3114-%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>即使在无法得到解析解的情况下，我们可以有效的训练模型</li>
+</ul>
+
+
+<h4 class="relative group">Gradient Descent 梯度下降 
+    <div id="gradient-descent-%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gradient-descent-%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>最简单的方法就是计算Cost Function关于模型参数的导数（梯度）</li>
+<li>但由于每次操作前都需要遍历整个数据集，导致执行速度非常之慢</li>
+<li>所以通常会在每次更新时候抽取一小批样本，即为Minibatch Stochastic Gradient Descent 小批量随机梯度下降</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/D2L_Static/3.1_LinearRegression/3.1_LinearRegression-2.png" alt="" />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">SGD 
+    <div id="sgd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sgd" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Minibatch Stochastic Gradient Descent 小批量随机梯度下降</li>
+<li>每次迭代中，我们首先随机抽样一个小批量B， 它是由固定数量的训练样本组成的。 然后，我们计算小批量的平均损失关于模型参数的导数（也可以称为梯度）。 最后，我们将梯度乘以一个预先确定的正数，并从当前参数的值中减掉
+$$(w,b)\leftarrow(w,b)-\frac{\eta}{|B|}\Sigma_{i\in B}\partial_{w,b}l^{(i)}(w,b)$$</li>
+<li>初始化模型参数的值</li>
+<li>从数据集中随机抽取小批量样本在负梯度方向上更新参数，并一直迭代</li>
+<li>\(\eta\)表示Learning Rate 学习率</li>
+<li>B表示Batch Size 批量大小</li>
+</ul>
+
+
+<h3 class="relative group">Hyperparameter 超参数 
+    <div id="hyperparameter-%E8%B6%85%E5%8F%82%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hyperparameter-%E8%B6%85%E5%8F%82%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>这些可以调整但不在训练过程中更新的参数称为超参数</li>
+<li>Hyperparameter Tuning为调整Hyperparameter的过程</li>
+<li>而训练迭代结果是在独立的验证数据集（validation dataset）上评估得到的</li>
+</ul>
+
+
+<h3 class="relative group">收敛 
+    <div id="%E6%94%B6%E6%95%9B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%94%B6%E6%95%9B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Linear Regression只会让预测值无限接近于实际值而却不能在有限的步数内非常精确地达到最小值</li>
+</ul>
+
+
+<h3 class="relative group">Generalization 泛化 
+    <div id="generalization-%E6%B3%9B%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#generalization-%E6%B3%9B%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>寻找到一组合适的Hyperparameter纵然困难，但更加困难的是找到一组参数，这组参数能够在我们从未见过的数据上实现较低的损失， 这一挑战被称为Generalization 泛化</li>
+</ul>
+
+
+<h3 class="relative group">3.1.1.5 用模型进行预测 
+    <div id="3115-%E7%94%A8%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E9%A2%84%E6%B5%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3115-%E7%94%A8%E6%A8%A1%E5%9E%8B%E8%BF%9B%E8%A1%8C%E9%A2%84%E6%B5%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>需要指出的是，Deep Learning对于实际值的接近更多是一种Prediction预测而非Inference推断</li>
+</ul>
+
+
+<h2 class="relative group">3.1.2 矢量化加速 
+    <div id="312-%E7%9F%A2%E9%87%8F%E5%8C%96%E5%8A%A0%E9%80%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#312-%E7%9F%A2%E9%87%8F%E5%8C%96%E5%8A%A0%E9%80%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>为了同时处理整个小批量的样本，同时防止在python中编写开销高昂的for循环</li>
+</ul>
+
+
+<h3 class="relative group">矢量化性能测试 
+    <div id="%E7%9F%A2%E9%87%8F%E5%8C%96%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E7%9F%A2%E9%87%8F%E5%8C%96%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>实例化两个全为1的10000维向量，采取两种处理方式，Python的for循环和对+的调用</li>
+</ul>
+<pre tabindex="0"><code>###初始化两个Tensor
+n = 10000
+a = torch.ones([n])
+b = torch.ones([n])
+
+###用for循环完成一次
+c = torch.zeros(n)
+timer = Timer()
+for i in range(n):
+    c[i] = a[i] + b[i]
+f&#39;{timer.stop():.5f} sec&#39;
+
+###用线性代数完成矢量化运算
+timer.start()
+d = a + b
+f&#39;{timer.stop():.5f} sec&#39;
+</code></pre><ul>
+<li>得到的结果为 0.167sec 和0.00042 sec</li>
+</ul>
+
+
+<h2 class="relative group">3.1.3 正态分布与平方损失 
+    <div id="313-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E4%B8%8E%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#313-%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E4%B8%8E%E5%B9%B3%E6%96%B9%E6%8D%9F%E5%A4%B1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>接下来，我们通过对噪声分布的假设来解读平方损失目标函数</li>
+</ul>
+
+
+<h3 class="relative group">正态分布 
+    <div id="%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>[[Normal Distribution 正态分布]]</li>
+</ul>
+
+
+<h3 class="relative group">均方误差损失函数 
+    <div id="%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AE%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9D%87%E6%96%B9%E8%AF%AF%E5%B7%AE%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>均方损失可以用于线性回归的一个原因是：我们假设了观测中包含噪声，其中噪声服从正态分布，如下
+$$y=w^Tx+b+\epsilon$$</li>
+<li>\(\epsilon\)代表了噪声</li>
+</ul>
+
+
+<h2 class="relative group">Likehood 似然 
+    <div id="likehood-%E4%BC%BC%E7%84%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#likehood-%E4%BC%BC%E7%84%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>[[Likehood 似然]]</li>
+<li>通过给定的x观测到特定y的似然（likelihood）
+$$p(y|x)=\frac{1}{\sqrt{2\pi \sigma^2}}exp(-\frac{1}{2\sigma^2}(y-w^Tx-b)^2)$$</li>
+<li>对于似然函数\(L(\theta|data)=P(data|\theta)= \Pi^N_{i=1}P(x_i|\theta)\)</li>
+<li>已知x的正态分布密度函数，也就是x（\(\theta\)取每个值的概率）</li>
+<li>要求得给定x（\(\theta\)）（其不固定，但遵循正态分布）观测到特点y的似然，得到公式 \(L(x|y)=P(y|x)\)</li>
+<li>已知\(p(y|x)=\frac{1}{\sqrt{2\pi \sigma^2}}exp(-\frac{1}{2\sigma^2}(y-w^Tx-b)^2)\)</li>
+<li>由于\(P(y|x)=\Pi^N_{i=1}P(y^{(i)}|x^{(i)})\)（由x的参数条件下观测到y的可能性为独立的N个子事件的乘积）</li>
+<li>根据[[Maximum Likehood Estimation 极大似然估计]]，参数w和b的最优值是使整个数据集的[[Likehood 似然]]最大的值</li>
+<li>但又因为乘积最大化问题十分复杂，并且由于历史遗留问题，优化常说的不是最大化，而是最小化</li>
+<li>所以我们需要通过最小化对数似然\(-logP(y|x)\)，由此可以得到的数学公式为
+$$-logP(y|x)=\sum\limits^n_{i=1}\frac{1}{2}log(2\pi\sigma^2)+\frac{1}{2\sigma^2}(y^{(i)}-w^Tx^{(i)}-b)^2$$</li>
+<li>推导如下</li>
+<li>\(-logP(y|x)=-log\sum\limits^n_{i=1}\frac{1}{\sqrt{2\pi \sigma^2}}exp(-\frac{1}{2\sigma^2}(y-w^Tx-b)^2)\) <br>
+\(=-log\sum\limits^n_{i=1}\frac{1}{\sqrt{2\pi \sigma^2}}e^{(-\frac{1}{2\sigma^2}(y-w^Tx-b)^2)}\)
+\(=-log(\sum\limits^n_{i=1}\frac{1}{\sqrt{2\pi \sigma^2}})+\frac{1}{2\sigma^2}(y-w^Tx-b)^2\)
+\(=-log\sum\limits^n_{i=1}(2\pi\sigma^2)^{-\frac{1}{2}}+\frac{1}{2\sigma^2}(y-w^Tx-b)^2\)
+= \(\sum\limits^n_{i=1}\frac{1}{2}log(2\pi\sigma^2)+\frac{1}{2\sigma^2}(y-w^Tx-b)^2\)</li>
+<li>现在我们只需要假设�是某个固定常数就可以忽略第一项\(\sum\limits^n_{i=1}\frac{1}{2}log(2\pi\sigma^2)\)，因为第一项不依赖于w和b</li>
+<li>对于第二项，除了常数\(\frac{1}{\sigma^2}\)外，其余部分与[[#平方误差函数]]是一样的</li>
+</ul>
+
+
+<h4 class="relative group">平方误差函数 
+    <div id="%E5%B9%B3%E6%96%B9%E8%AF%AF%E5%B7%AE%E5%87%BD%E6%95%B0-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%B9%B3%E6%96%B9%E8%AF%AF%E5%B7%AE%E5%87%BD%E6%95%B0-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$l^{(i)}(w,b)=\frac{1}{2}(\hat{y}^{(i)}-y^{(i)})^2$$</p>
+<ul>
+<li>幸运的是，上面式子的解并不依赖于\(\sigma\)</li>
+<li><strong>因此，在高斯噪声的假设下，最小化均方误差等价于对线性模型的极大似然估计</strong></li>
+</ul>
+
+
+<h2 class="relative group">3.1.4 从线性回归到深度网络 
+    <div id="314-%E4%BB%8E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%B0%E6%B7%B1%E5%BA%A6%E7%BD%91%E7%BB%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#314-%E4%BB%8E%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%B0%E6%B7%B1%E5%BA%A6%E7%BD%91%E7%BB%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>到目前，我只谈论了线性模型，而神经网络涵盖了更为丰富的模型，并且我们也可以用描述神经网络的方式来描述线性模型，从而把线性模型看作一个神经网络。可以用“层”符号来重写这个模型</li>
+</ul>
+
+
+<h3 class="relative group">3.1.4.1 神经网络图 
+    <div id="3141-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%9B%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3141-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%9B%BE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>制图表可以可视化模型中正在发生的事情，但该图只显示了链接模式，而不包含权重和偏置的值
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/D2L_Static/3.1_LinearRegression/3.1_LinearRegression-3.png" alt="" />
+      
+    </figure>
+</p>
+</li>
+<li>
+<p>在上图中，输入为\(x_1,\dots x_d\)，可知输入层的Feature Dimensionality 输入数（或称为特征维度）为d</p>
+</li>
+<li>
+<p>网络的输出层为\(o_1\)，因此输出层的输出数为1</p>
+</li>
+<li>
+<p>需要注意的是，输入值都是已经给定的，并且只有一个_计算_神经元。 由于模型重点在发生计算的地方，所以通常我们在计算层数时不考虑输入层。</p>
+</li>
+</ul>
+
+
+<h3 class="relative group">Fully-Connected Layer 全连接层 
+    <div id="fully-connected-layer-%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fully-connected-layer-%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于线性回归，每个输入都与每个输出（在本例中只有一个输出）相连， 我们将这种变换称为全连接层（Fully-connected layer）或称为稠密层（dense layer）。</li>
+</ul>
+
+
+<h2 class="relative group">3.1.4.2 生物学 
+    <div id="3142-%E7%94%9F%E7%89%A9%E5%AD%A6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3142-%E7%94%9F%E7%89%A9%E5%AD%A6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/D2L_Static/3.1_LinearRegression/3.1_LinearRegression-4.png" alt="" />
+      
+    </figure>
+</p>
+<ul>
+<li>
+<p>即使观察真实的神经元，但当今大多数深度学习的研究几乎没有直接从神经科学中获得灵感</p>
+</li>
+<li>
+<p>我们援引斯图尔特·罗素和彼得·诺维格在他们的经典人工智能教科书 <em>Artificial Intelligence:A Modern Approach</em> (<a href="https://zh-v2.d2l.ai/chapter_references/zreferences.html#id141"title="Russell, S. J., &amp; Norvig, P. (2016). Artificial intelligence: a modern approach. Malaysia; Pearson Education Limited,." target="_blank">Russell and Norvig, 2016</a>) 中所说的：虽然飞机可能受到鸟类的启发，但几个世纪以来，鸟类学并不是航空创新的主要驱动力。 同样地，如今在深度学习中的灵感同样或更多地来自数学、统计学和计算机科学。</p>
+</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2024 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

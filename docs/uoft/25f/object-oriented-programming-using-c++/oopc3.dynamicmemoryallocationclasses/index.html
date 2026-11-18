@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPC 3. DynamicMemory Allocation &amp; Classes | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#311-recap-dynamic-memory-allocation">3.1.1 Recap: Dynamic Memory Allocation</a>
+      <ul>
+        <li><a href="#step-1-stack-only">Step 1： Stack Only</a></li>
+        <li><a href="#step-2-dynamic-memory-allocation">Step 2: Dynamic Memory Allocation</a></li>
+        <li><a href="#step-3-freeing-memory">Step 3. Freeing Memory</a></li>
+        <li><a href="#step4-resolve-dangling-pointer">Step4. Resolve Dangling Pointer</a></li>
+        <li><a href="#3111-dynamic-memory-allocation-of-arrays">3.1.1.1 Dynamic Memory Allocation of Arrays</a></li>
+      </ul>
+    </li>
+    <li><a href="#312-explicitly-calling-destructor">3.1.2 Explicitly Calling Destructor</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#331-recall-when-are-destructors-called-">3.3.1 Recall: When are Destructors Called ?</a></li>
+    <li><a href="#332recall-why-do-we-need-destructors"><strong>3.3.2. Recall: Why Do We Need Destructors?</strong></a></li>
+    <li><a href="#333why-do-we-need-destructors-for-objects-owning-other-dynamically-allocated-objects"><strong>3.3.3. Why Do We Need Destructors for Objects Owning Other Dynamically Allocated Objects?</strong></a>
+      <ul>
+        <li><a href="#solution">Solution</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#341-double-pointers">3.4.1 Double Pointers</a></li>
+    <li><a href="#342-array-of-pointers">3.4.2 Array of Pointers</a>
+      <ul>
+        <li><a href="#array-of-integers">Array of Integers</a></li>
+        <li><a href="#array-of-pointers">Array of Pointers</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>OOPC 3. DynamicMemory Allocation &amp; Classes</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                September 28, 2025
+                <span style="margin: 0 10px;">&middot;</span> 
+                1277 Words
+            </div>
+        </header>
+
+        <section class="content">
+            
+
+<h1 class="relative group">OOPC3.DynamicMemoryAllocation&amp;Classes 
+    <div id="oopc3dynamicmemoryallocationclasses" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#oopc3dynamicmemoryallocationclasses" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>Last Edit: 9/28/25</p>
+</blockquote>
+
+
+<h1 class="relative group">3.1 Freeing an Object from Memory Explicitly 
+    <div id="31-freeing-an-object-from-memory-explicitly" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#31-freeing-an-object-from-memory-explicitly" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>Recall what happened during a program is running</li>
+</ul>
+
+
+<h2 class="relative group">3.1.1 Recap: Dynamic Memory Allocation 
+    <div id="311-recap-dynamic-memory-allocation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#311-recap-dynamic-memory-allocation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>When the program start, computer allocates memory in Random Access Memory (RAM)</li>
+<li>大概有四种 Segment 出现
+<ul>
+<li><strong>Stack</strong>: Stores the Local Variables and Objects of a function</li>
+<li><strong>Heap:</strong> Stores the dynamically allocated memory</li>
+<li><strong>Global + Const</strong> <strong>Variables</strong>: Obviously Stores the Variables</li>
+<li><strong>Code</strong>: Store instruction of the program</li>
+</ul>
+</li>
+</ul>
+
+
+<h3 class="relative group">Step 1： Stack Only 
+    <div id="step-1-stack-only" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step-1-stack-only" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>首先先有代码 <code>main.cpp</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>      <span class="c1">// Allocate x in stack with value 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>   <span class="c1">// Add a pointer in stack with NULL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>          <span class="c1">// Let P point to x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>          <span class="c1">// Dereference P and change x&#39;s value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>So far everything is in stack</li>
+</ul>
+
+
+<h3 class="relative group">Step 2: Dynamic Memory Allocation 
+    <div id="step-2-dynamic-memory-allocation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step-2-dynamic-memory-allocation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Change <code>main.cpp</code> into</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>       <span class="c1">// Allocate x in stack with value 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>    <span class="c1">// Add a pointer in stack with NULL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>           <span class="c1">// Let P point to x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>           <span class="c1">// Dereference P and change x&#39;s value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>      <span class="c1">// Dynamically allocate a value of int in heap
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>          <span class="c1">// Change the value of p to 20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value at p: &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// print 20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of x: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   <span class="c1">// print 7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><code>p = new int;</code> → allocate a new int space on heap, which is a dynamically allocated memory, then return its value to p</li>
+<li>So now on, the p is pointing to the space in <strong>heap</strong></li>
+</ul>
+
+
+<h3 class="relative group">Step 3. Freeing Memory 
+    <div id="step-3-freeing-memory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step-3-freeing-memory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>at the end, need to manually deleted the memory in heap</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>       <span class="c1">// Allocate x in stack with value 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>    <span class="c1">// Add a pointer in stack with NULL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>           <span class="c1">// Let P point to x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>           <span class="c1">// Dereference P and change x&#39;s value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>      <span class="c1">// Dynamically allocate a value of int in heap
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>          <span class="c1">// Change the value of p to 20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value at p: &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// print 20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of x: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   <span class="c1">// print 7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><code>delete p</code>  is freeing the memory p is pointing to on <strong>HEAP</strong></li>
+<li>However the pointer p itself remains</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image_hu6502602655580604349.png 330w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image_hu12466367089008322127.png 660w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image_hu11515990158075449043.png 1024w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image_hu13770305354329506340.png 2x"
+        src="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image_hu12466367089008322127.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Step4. Resolve Dangling Pointer 
+    <div id="step4-resolve-dangling-pointer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#step4-resolve-dangling-pointer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Dangling Pointer 悬空指针 happened when <strong>pointer</strong> is pointing to a <strong>memory</strong> which has been already <strong>freed</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>       <span class="c1">// Allocate x in stack with value 10
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>    <span class="c1">// Add a pointer in stack with NULL
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>           <span class="c1">// Let P point to x
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>           <span class="c1">// Dereference P and change x&#39;s value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>      <span class="c1">// Dynamically allocate a value of int in heap
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>          <span class="c1">// Change the value of p to 20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value at p: &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>  <span class="c1">// print 20
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Value of x: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   <span class="c1">// print 7
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>      
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>         
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>Basically, Set p to <code>NULL</code>  to resolve this problem</li>
+</ul>
+
+
+<h3 class="relative group">3.1.1.1 Dynamic Memory Allocation of Arrays 
+    <div id="3111-dynamic-memory-allocation-of-arrays" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3111-dynamic-memory-allocation-of-arrays" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>The way to allocate one int in heap has been shown above, with the code  <code>int* p = new int;</code></li>
+<li>Whereas to delete it, use <code>delete p;</code></li>
+<li>Instead, when allocating Arrays, use <code>int* p = new int[size];</code> , so that now pointer p can be pointing to the first element in the Array</li>
+<li>Likewise, use <code>delete[] p;</code>  to free the memory pointer pointing to</li>
+</ul>
+
+
+<h2 class="relative group">3.1.2 Explicitly Calling Destructor 
+    <div id="312-explicitly-calling-destructor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#312-explicitly-calling-destructor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>To API <code>new</code>  and <code>delete</code> basically Explicitly called Destructor and Constructor</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Constructor called&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Student</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Destructor called&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>   
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Student</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>                
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+
+<h1 class="relative group">3.2 Why do we need Destructors? 
+    <div id="32-why-do-we-need-destructors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#32-why-do-we-need-destructors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>As known, a constructor is used when an object is being initialized, whereas destructor is used to clean everything up</p>
+<p>If there’s no Destructor in the life cycle of the code when some memory has been dynamically called, the MEMORY LEAK will occur</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">*</span> <span class="n">grades</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">grades</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">];</span> <span class="c1">// Dynamically Aloocated the Array
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// Constructed Array with three ints
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>     <span class="c1">// Program ENDED WITHOUT DESTRUCTOR
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>As seen, some memory has been dynamically allocated on HEAP, however there’s no Destructor, meaning the memory on HEAP will remain and has not been freed, this is being called <strong>MEMORY LEAK</strong></li>
+</ul>
+
+
+<h1 class="relative group">3.3 Objects Owning Other Dynamically Allocated Objects 
+    <div id="33-objects-owning-other-dynamically-allocated-objects" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#33-objects-owning-other-dynamically-allocated-objects" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">3.3.1 Recall: When are Destructors Called ? 
+    <div id="331-recall-when-are-destructors-called-" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#331-recall-when-are-destructors-called-" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Recall that Destructors are called when:
+<ul>
+<li>Goes out of Scope</li>
+<li>Using Delete</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 class="relative group"><strong>3.3.2. Recall: Why Do We Need Destructors?</strong> 
+    <div id="332recall-why-do-we-need-destructors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#332recall-why-do-we-need-destructors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Destructors are needed to be define if object <strong>has dynamically allocated memory that needs to be freed</strong></li>
+</ul>
+
+
+<h2 class="relative group"><strong>3.3.3. Why Do We Need Destructors for Objects Owning Other Dynamically Allocated Objects?</strong> 
+    <div id="333why-do-we-need-destructors-for-objects-owning-other-dynamically-allocated-objects" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#333why-do-we-need-destructors-for-objects-owning-other-dynamically-allocated-objects" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Complex</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">real</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">imag</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Complex</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>   <span class="c1">// Pointer pointing to another Complex Object
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">Complex</span><span class="p">(</span><span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">real</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">imag</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Complex</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span> <span class="c1">// This will only free the first Complex
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image1_hu10160614445379502763.png 330w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image1_hu16211288470159694938.png 660w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image1_hu2272482167202533124.png 1024w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image1_hu13957977170609430599.png 2x"
+        src="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image1_hu16211288470159694938.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Now the problem is that there exist two Complex in the heap, that if only delete the first one, the second one will cause a memory leak</li>
+</ul>
+
+
+<h3 class="relative group">Solution 
+    <div id="solution" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#solution" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The solution is to somehow use RECURSIVE</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Complex</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">real</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">imag</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Complex</span><span class="o">*</span> <span class="n">next</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Complex</span><span class="p">(</span><span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">real</span> <span class="o">=</span> <span class="n">r</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">imag</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">next</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">Complex</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Destructor called for Complex(&#34;</span>
+</span></span><span class="line"><span class="cl">             <span class="o">&lt;&lt;</span> <span class="n">real</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;, &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">imag</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;)&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">next</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">delete</span> <span class="n">next</span><span class="p">;</span>   <span class="c1">// RECURSIVE Condition
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Complex</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image2_hu9392753047748215981.png 330w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image2_hu9846867801641572433.png 660w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image2_hu6117525892815170758.png 1024w,
+        /docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image2_hu10654349006538559688.png 2x"
+        src="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/image2_hu9846867801641572433.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">3.4 Arrays of Pointers 
+    <div id="34-arrays-of-pointers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#34-arrays-of-pointers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Double Pointers can be used in creating arrays of pointers</p>
+
+
+<h2 class="relative group">3.4.1 Double Pointers 
+    <div id="341-double-pointers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#341-double-pointers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span><span class="o">**</span> <span class="n">p2p</span><span class="p">;</span>    <span class="c1">// Double Pointer, Pointing to a integer
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">		<span class="kt">int</span> <span class="o">*</span> <span class="n">q</span><span class="p">;</span> 
+</span></span><span class="line"><span class="cl">		
+</span></span><span class="line"><span class="cl">    <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>  <span class="c1">// Dynamic Allocation
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>       
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">p2p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">;</span>     <span class="c1">// p2p point to pointer p
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">q</span> <span class="o">=</span> <span class="o">*</span><span class="n">p2p</span><span class="p">;</span>     <span class="c1">// Give the Address of Pointer p to q
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                  <span class="c1">// Now q is also pointing the int
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>       <span class="c1">// Change Vaule of q&#39;s pointing value to 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*p = &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;*q = &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">q</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;**p2p = &#34;</span> <span class="o">&lt;&lt;</span> <span class="o">**</span><span class="n">p2p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">delete</span> <span class="n">p</span><span class="p">;</span>     
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>After this, all codes will become 8</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="o">*</span><span class="n">q</span> <span class="o">=</span> <span class="mi">8</span>
+</span></span><span class="line"><span class="cl"><span class="o">**</span><span class="n">p2p</span> <span class="o">=</span> <span class="mi">8</span>
+</span></span></code></pre></div>
+
+<h2 class="relative group">3.4.2 Array of Pointers 
+    <div id="342-array-of-pointers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#342-array-of-pointers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>A Array which every members are Pointers</li>
+</ul>
+
+
+<h3 class="relative group">Array of Integers 
+    <div id="array-of-integers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#array-of-integers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">*</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">size</span><span class="p">]</span>
+</span></span></code></pre></div><ul>
+<li>This will call for a Dynamic Memory on HEAP that stores <code>size</code> of integers</li>
+</ul>
+
+
+<h3 class="relative group">Array of Pointers 
+    <div id="array-of-pointers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#array-of-pointers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span><span class="o">**</span> <span class="n">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">*</span><span class="p">[</span><span class="n">size</span><span class="p">];</span>
+</span></span></code></pre></div><ul>
+<li>This will call for a Dynamic Memory on HEAP that stores <code>size</code> of Pointers</li>
+<li>That every single Element <code>arr[i]</code> is one Integer Pointer</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2025 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

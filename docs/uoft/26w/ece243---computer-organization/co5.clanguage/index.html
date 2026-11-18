@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO 5. CLanguage | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#linker">Linker</a></li>
+    <li><a href="#start-up-code">Start Up Code</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#sample-rate">Sample Rate</a></li>
+    <li><a href="#sound-output-process">Sound Output Process</a></li>
+    <li><a href="#buffering">Buffering</a></li>
+    <li><a href="#fifo">FIFO</a></li>
+    <li><a href="#audio-memory-mapped-registers">Audio Memory Mapped Registers</a>
+      <ul>
+        <li><a href="#left-and-right-data-register">Left and Right data Register</a></li>
+        <li><a href="#fifospace-register">Fifospace Register</a></li>
+        <li><a href="#control-register">Control Register</a></li>
+      </ul>
+    </li>
+    <li><a href="#code-example">Code Example</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CO 5. CLanguage</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                February 23, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                931 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 2/23/26</p>
+</blockquote>
+<p>Learning Assembly is about to know what happens underneath, while C Language is more readable and faster</p>
+
+
+<h1 class="relative group">Compilation of C 
+    <div id="compilation-of-c" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#compilation-of-c" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Starting from C Language, it have the file type of <code>.c</code> , we use <code>gcc</code> to compile it into Assembly</p>
+<p>Then we have Assembly with <code>.s</code> , we use <code>gnuas</code> to make it to Machine Code</p>
+<p>Then we have Machine Code with all <code>1</code> and <code>0</code>, that have file type of <code>.o</code></p>
+
+
+<h2 class="relative group">Linker 
+    <div id="linker" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linker" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If there’s more than one file for C language, then we need to link all the <code>.o</code> files together into one machine code</p>
+
+
+<h2 class="relative group">Start Up Code 
+    <div id="start-up-code" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#start-up-code" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Actually the program doesn’t start at the <code>main</code> function, instead it has a <code>start up code</code> , it</p>
+<ul>
+<li>Set up stack pointer</li>
+<li>Set un-initialised variables</li>
+</ul>
+
+
+<h1 class="relative group">Using I/O Devices in C 
+    <div id="using-io-devices-in-c" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#using-io-devices-in-c" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall the way we did in Assembly to copies the things on Switches into LEDs</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">LEDs</span><span class="p">,</span> <span class="mh">0xFF200000</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">SW</span><span class="p">,</span> <span class="mh">0xFF200040</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">_start:</span> <span class="nf">la</span> <span class="nv">t0</span><span class="p">,</span> <span class="nv">LEDs</span>       <span class="err">#</span> <span class="nv">get</span> <span class="nv">LED</span> <span class="nv">address</span> <span class="nv">into</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">la</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">SW</span>         <span class="err">#</span> <span class="nv">get</span> <span class="nv">SW</span> <span class="nv">address</span> <span class="nv">into</span> <span class="nv">t1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">loop</span> <span class="nv">to</span> <span class="nv">copy</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">switches</span> <span class="nv">into</span> <span class="nv">the</span> <span class="nv">LEDs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">loop:</span>   <span class="nf">lw</span> <span class="nv">t2</span><span class="p">,</span> <span class="p">(</span><span class="nv">t1</span><span class="p">)</span>       <span class="err">#</span> <span class="nv">load</span> <span class="nv">the</span> <span class="mi">10</span> <span class="nv">switches</span> <span class="nv">value</span> <span class="nv">into</span> <span class="nv">t2</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">sw</span> <span class="nv">t2</span><span class="p">,</span> <span class="p">(</span><span class="nv">t0</span><span class="p">)</span>       <span class="err">#</span> <span class="nv">store</span> <span class="nv">the</span> <span class="mi">10</span> <span class="nv">values</span> <span class="nv">into</span> <span class="nv">the</span> <span class="nv">LEDs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">j</span> <span class="nv">loop</span>            <span class="err">#</span> <span class="nv">do</span> <span class="nv">it</span> <span class="nv">over</span> <span class="nv">and</span> <span class="nv">over</span>
+</span></span></code></pre></div><p>The same can be done in a better way in C</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="nf">int</span> <span class="nv">main</span> <span class="p">(</span><span class="nv">void</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">volatile</span> <span class="nv">int</span> <span class="o">*</span><span class="nv">SW_ptr</span> <span class="err">=</span> <span class="p">(</span><span class="nv">int</span> <span class="o">*</span><span class="p">)</span> <span class="mh">0xFF200040</span><span class="c1">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">volatile</span> <span class="nv">int</span> <span class="o">*</span><span class="nv">LEDR_ptr</span> <span class="err">=</span> <span class="p">(</span><span class="nv">int</span> <span class="o">*</span><span class="p">)</span> <span class="mh">0xFF200000</span><span class="c1">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">int</span> <span class="nv">value</span><span class="c1">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="err">{</span>                   <span class="o">//</span> <span class="nv">infinite</span> <span class="nv">loop</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="nf">value</span> <span class="err">=</span> <span class="o">*</span><span class="nv">SW_ptr</span><span class="c1">; // Get Switches - dereference SW_ptr - lw t2,(t1)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="err">*</span><span class="nf">LEDR_ptr</span> <span class="err">=</span> <span class="nv">value</span><span class="c1">;// Put to LEDs - dereference LED_ptr - sw t2, (t0)</span>
+</span></span><span class="line"><span class="cl">    <span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">}</span>
+</span></span></code></pre></div><p>Notice there’s a <code>volatile</code> inside, this tells the compiler to keep reading the memory instead of the register as the Compiler will think keep reading Register is easier, but the truth is that the things in memory will change</p>
+
+
+<h1 class="relative group">Audio In and Output 
+    <div id="audio-in-and-output" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#audio-in-and-output" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Starting from the Original Sound, microphone will transfer those into Voltage Signal, then go through Amplifier, then goes to Analog to Digital Converter</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image_hu4803821478509366349.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image_hu1312152171362112863.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image_hu9423155000065744715.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image_hu9018381393070648370.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co5.clanguage/image_hu1312152171362112863.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>That is sampling in short intervals, and this is a 24-bit Digital Values</p>
+
+
+<h2 class="relative group">Sample Rate 
+    <div id="sample-rate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sample-rate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If we are sampling 10000 times in one sec, that’s a 10kHz sampling rate, and the samples are</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image1_hu2468084726215298080.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image1_hu14390168946984761741.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image1_hu11740559613335718571.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image1_hu874674200825927902.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co5.clanguage/image1_hu14390168946984761741.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>just voltage values for each time</p>
+
+
+<h2 class="relative group">Sound Output Process 
+    <div id="sound-output-process" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sound-output-process" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The processor will transfer the same 24 bit thing back (24 bits means 8kHz), then D/A will convert the discrete voltages into continuous voltage, then go through amplifier then to speaker</p>
+
+
+<h2 class="relative group">Buffering 
+    <div id="buffering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#buffering" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There’s two problem for CPU when dealing with microphone and speaker</p>
+<ul>
+<li>For input microphone, it’s generating new signal every $100\mu s$</li>
+<li>For output speaker, it’s requiring signal every $100\mu s$ too</li>
+</ul>
+<p>Thus if the CPU is busy doing other things and forget to deal with those two, then a lag will occur</p>
+<hr>
+<p>The way we overcome this issue is then by FIFO Hardware</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image2_hu7110552278769398148.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image2_hu12789957686587018154.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image2_hu11160023829951963761.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image2_hu7876829583795627937.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co5.clanguage/image2_hu12789957686587018154.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>The size of FIFO however, isn’t infinity large, with only 128 sampling points, thus if there comes the 129’s signal, it will be discard</p>
+
+
+<h2 class="relative group">FIFO 
+    <div id="fifo" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fifo" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>There’s only two operation for FIFO, Load and Store</li>
+<li>Even though FIFO is a hardware circuit, system will give it a virtual address, thus accessing this FIFO is same as accessing the memory</li>
+<li>The Processor only talks to the input FIFO and output FIFO instead of directly to the A/D, or D/A</li>
+</ul>
+
+
+<h2 class="relative group">Audio Memory Mapped Registers 
+    <div id="audio-memory-mapped-registers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#audio-memory-mapped-registers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image3_hu5795907391023456596.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image3_hu6145693491232195249.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image3_hu8364558914112335367.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co5.clanguage/image3_hu96564572504029758.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co5.clanguage/image3_hu6145693491232195249.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Left and Right data Register 
+    <div id="left-and-right-data-register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#left-and-right-data-register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The <code>Leftdata</code> and <code>Rightdata</code> are connected to the FIFO, that getting one sample from queue</p>
+<p>The same holds for storing, it stores a sample into the Output FIFO</p>
+
+
+<h3 class="relative group">Fifospace Register 
+    <div id="fifospace-register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fifospace-register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Indicates how empty or full the in/output FIFOs are</p>
+<ul>
+<li>RALC: Number of Input Left FIFO used</li>
+<li>RARC: Numbers of Input  Right FIFO used</li>
+<li>WSLC: Numbers of Output Left FIFO empty</li>
+<li>WSRC: Numbers of Output Right FIFO empty</li>
+<li>Thus we can see, if it’s clear, then Input FIFO <code>RALC = RARC = 0</code> , and the Output FIFO <code>WDRC = WSLC = 128</code></li>
+</ul>
+
+
+<h3 class="relative group">Control Register 
+    <div id="control-register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#control-register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>A status Register</p>
+<ul>
+<li>Write 1 into <code>CR</code> clears the Left and Right Input FIFO</li>
+<li>Write 1 into <code>CW</code> clears the Output FIFO</li>
+<li><code>RE</code> and <code>WE</code> bits are about interrupt that we don’t need</li>
+<li><code>RI</code> if the input FIFO is 75% full or more, shows up 1</li>
+<li><code>WI</code> if the output FIFO is less than 25% full, shows up 1</li>
+</ul>
+
+
+<h2 class="relative group">Code Example 
+    <div id="code-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#code-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#define AUDIO_BASE    0xFF203040
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// Audio codec Register address
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">volatile</span> <span class="kt">int</span> <span class="o">*</span> <span class="n">audio_ptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span> <span class="n">AUDIO_BASE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// intermediate values
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">int</span> <span class="n">fifospace</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// This is an infinite loop checking the RARC to see if there is at least one
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// entry in the input FIFOs. If there is, just copy it over to the output fifo.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// The timing of the input FIFO controls the timing of the output, which
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">// makes this easier than the other parts of the lab.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fifospace</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">audio_ptr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// read the audio port fifospace register
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">((</span><span class="n">fifospace</span> <span class="o">&amp;</span> <span class="mh">0x000000FF</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// check RARC to see if there is at least one sample input
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// load both input microphone channels - just get one sample from each
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">audio_ptr</span> <span class="o">+</span> <span class="mi">2</span><span class="p">);</span>  <span class="c1">// read the leftdata register - input FIFO
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="o">*</span><span class="p">(</span><span class="n">audio_ptr</span> <span class="o">+</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// same for rightdata
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// note that these removes the samples from the FIFO
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// store both of those samples to output channels
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="o">*</span><span class="p">(</span><span class="n">audio_ptr</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">left</span><span class="p">;</span>  <span class="c1">// storing to the leftdata adds to output FIFO
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="o">*</span><span class="p">(</span><span class="n">audio_ptr</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">right</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

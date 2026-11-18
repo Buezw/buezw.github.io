@@ -1,0 +1,40 @@
+# 1. 基础环境配置
+local_backend: true
+backend:
+  name: test-repo
+
+# 2. 媒体管理：留空代表图片会保存在 index.md 同级目录
+media_folder: "" 
+public_folder: ""
+
+# 3. 核心集合配置
+collections:
+  # --- 对应你的 content/docs 大类 ---
+  - name: "docs"
+    label: "Docs (文档)"
+    folder: "content/docs"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    nested: 
+      depth: 10 # 支持往下钻 10 层子文件夹
+    path: "{{slug}}/index" # 自动生成 文件夹/index.md 结构
+    fields: &base_fields
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "日期", name: "date", widget: "datetime", format: "YYYY-MM-DD", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "数学渲染", name: "math", widget: "string", default: "mathjax", required: false}
+      - {label: "显示字数", name: "showWordCount", widget: "boolean", default: true, required: false}
+      - {label: "正文", name: "body", widget: "markdown"}
+
+  # --- 对应你的 content/finance 大类 ---
+  - name: "finance"
+    label: "Finance (金融)"
+    folder: "content/finance"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    nested: 
+      depth: 10
+    path: "{{slug}}/index"
+    fields: *base_fields

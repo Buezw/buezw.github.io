@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA 1. Vector Line &amp; Plane | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1250px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:1313/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#set-notation-集合">Set Notation 集合</a>
+      <ul>
+        <li><a href="#union-of-sets-并集">Union of Sets 并集</a></li>
+        <li><a href="#intersection-of-sets-交集">Intersection of Sets 交集</a></li>
+      </ul>
+    </li>
+    <li><a href="#vector-向量">Vector 向量</a></li>
+    <li><a href="#norm-模">Norm 模</a>
+      <ul>
+        <li><a href="#dot-product-点积">Dot Product 点积</a></li>
+        <li><a href="#definition">Definition</a></li>
+        <li><a href="#angle-between-vectors">Angle Between Vectors</a></li>
+        <li><a href="#application">Application</a>
+          <ul>
+            <li><a href="#最终公式">最终公式</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#line-直线">Line 直线</a></li>
+    <li><a href="#plane">Plane</a>
+      <ul>
+        <li><a href="#normal-vector">Normal Vector</a></li>
+        <li><a href="#proof">Proof</a></li>
+        <li><a href="#second-definition">Second definition</a></li>
+      </ul>
+    </li>
+    <li><a href="#ex">ex.</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>LA 1. Vector Line &amp; Plane</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                October 15, 2024
+                <span style="margin: 0 10px;">&middot;</span> 
+                2559 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 11/26/24</p>
+</blockquote>
+
+
+<h2 class="relative group">Set Notation 集合 
+    <div id="set-notation-%E9%9B%86%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#set-notation-%E9%9B%86%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Set is a collection of objects, called elements of the set
+$$A={t|t\in R}$$</li>
+<li>这就是一个矩阵，其中A为t，而t可以取任意Real Number</li>
+<li>这就是集合的表示方法，用这种方法便可以表示向量，直线和平面</li>
+</ul>
+
+
+<h3 class="relative group">Union of Sets 并集 
+    <div id="union-of-sets-%E5%B9%B6%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#union-of-sets-%E5%B9%B6%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于两个集合，其Union是另一个Set，其元素包含了all elements of A and B
+$$A \cup B = { x \in X \mid x \in A \text{ or } x \in B }$$</li>
+</ul>
+
+
+<h3 class="relative group">Intersection of Sets 交集 
+    <div id="intersection-of-sets-%E4%BA%A4%E9%9B%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#intersection-of-sets-%E4%BA%A4%E9%9B%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于Intersection来说，这个Set包含了任意同时出现在A与B中的元素
+$$A \cap B = { x \in X \mid x \in A \text{ and } x \in B }.$$</li>
+</ul>
+
+
+<h2 class="relative group">Vector 向量 
+    <div id="vector-%E5%90%91%E9%87%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#vector-%E5%90%91%E9%87%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>思考一个问题，对于一个坐标轴上的点\((2,1)\)和一个向量\(\vec v =[2,1]^T\)，他们的区别</li>
+<li><strong>Point</strong>：点是空间中的一个位置，用坐标表示，如P = (x, y, z)表示三维空间中的一个具体位置。点没有方向和大小。</li>
+<li><strong>Vector</strong>：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\(\mathbf{v} = \overrightarrow{AB}\)</li>
+<li>亦可以说<strong>Point是绝对位置，而向量是一个点到另外一个的有方向的距离</strong></li>
+</ul>
+
+
+<h2 class="relative group">Norm 模 
+    <div id="norm-%E6%A8%A1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#norm-%E6%A8%A1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于\(\vec{v} = \begin{bmatrix} v_1 \ v_2 \ \vdots \ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\)</li>
+<li>它的Norm，也就是向量长度即为
+$$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$</li>
+</ul>
+
+
+<h3 class="relative group">Dot Product 点积 
+    <div id="dot-product-%E7%82%B9%E7%A7%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dot-product-%E7%82%B9%E7%A7%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Dot Product，用来衡量两个Vector方向相似程度的一个Scalar</li>
+<li>其值从-1到1（仅当两个Vector为Unit Vector的情况下），从方向相反，到同方向，在0的时候代表两个Vector Orthogonal 垂直</li>
+</ul>
+
+
+<h3 class="relative group">Definition 
+    <div id="definition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#definition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$</p>
+<ul>
+<li>公式中的每一项\(a_i b_i\)表示两个向量在某个维度上的大小相乘</li>
+<li>点积实际上是在将a和b的方向分量进行逐一对比，累加得到两个向量在整个空间上的“相似性”，每一个维度的相似性都将累加到最终的空间相似性上</li>
+<li>想要表达这个相似性，还存在另一种方式，即通过Projection
+$$\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \cos \theta$$</li>
+<li>其代表了b在a方向上Projection的长度再乘以a</li>
+</ul>
+
+
+<h3 class="relative group">Angle Between Vectors 
+    <div id="angle-between-vectors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#angle-between-vectors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>同理可以用Dot Product公式推导两个Vector之间的夹角
+$$\theta = \cos^{-1} \left( \frac{\mathbf{A} \cdot \mathbf{B}}{AB} \right) \quad 0^\circ \leq \theta \leq 180^\circ$$</li>
+</ul>
+
+
+<h3 class="relative group">Application 
+    <div id="application" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#application" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Dot Product的一种用法便是Force Vector Directed Along a Line</li>
+<li>对于一个在\(\vec u\)方向上的Force F，有
+$$\vec F_u=\vec F\cdot \vec u=(F\times 1)\cdot \cos\theta=F\cdot \cos\theta$$</li>
+<li>而这一个\(\cos\theta\)则是
+$$\cos\theta=\frac{\vec v\cdot \vec{w}}{|v|\times|w|}$$</li>
+<li>当把其中一个Vector替换为Direction Vector时，便可以得到Axis-Force&rsquo;s Direction Cosine
+$$\cos\theta = \frac{{r_xi+r_yj+r_zk}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1}$$</li>
+<li>所以就有\(F\cdot \cos \theta=F\cdot \vec u\)之后便可以得到Force在\(\vec u\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）</li>
+<li>要想得到Force在\(\vec u\)方向上的Cartesian Vector，需要再次乘以Direction Vector</li>
+</ul>
+
+
+<h4 class="relative group">最终公式 
+    <div id="%E6%9C%80%E7%BB%88%E5%85%AC%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%9C%80%E7%BB%88%E5%85%AC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$\vec F=F_u\cdot \vec u= (\vec F\cdot u\cdot\cos\theta)\cdot \vec u=(F\cdot\frac{{r_xi+r_yj+r_zk}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1})\cdot\vec u$$</p>
+
+
+<h2 class="relative group">Line 直线 
+    <div id="line-%E7%9B%B4%E7%BA%BF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#line-%E7%9B%B4%E7%BA%BF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>考虑一个问题Consider the two points P = (1, 2) and Q = (−1, 4)，find an equation for the line y = mx + b which passes through P and Q</li>
+<li>通过Point-Point Formula可以算出
+$$y_2-y_1=\frac{y_2 - y_1}{x_2 - x_1}(x_2-x_1)$$</li>
+<li>解得 \(y=−x+3\)</li>
+<li>现在考虑相似的问题 Suppose x and y satisfy the vector equation
+$$\begin{bmatrix} x \ y \end{bmatrix} = \begin{bmatrix} 1 \ 2 \end{bmatrix} + k \begin{bmatrix} 1 \ -1 \end{bmatrix}, \text{ where } k \in \mathbb{R}$$</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA1.VectorLine&amp;Plane/LA1.VectorLine&amp;Plane-1.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>可以发现两个不同的形式表达了同一个Line，他们之所以等价是因为</li>
+<li>\([1,2​]^T\)是直线上的一个固定点（在直线上）。</li>
+<li>\(k\begin{bmatrix} 1 \ -1 \end{bmatrix}\)是一个方向向量，表示直线的方向（斜率），而方程中的斜率为\(m = \frac{\Delta y}{\Delta x}\)，用Direction Vector的y分量除以x分量就可以得到一样的结果</li>
+<li>而对于Intersection来说，当k=-1的时候，有
+$$\begin{bmatrix} x \ y \end{bmatrix} = \begin{bmatrix} 1 \ 2 \end{bmatrix} +  \begin{bmatrix} -1 \ 1 \end{bmatrix} = \begin{bmatrix} 0 \ 3\end{bmatrix}$$</li>
+<li>也就是截距</li>
+<li>于是就可以定义如下的Line using Set Notation
+$$L = { \vec{u} \in \mathbb{R}^2 \mid \vec{u} = \vec{v} + t \vec{d}, \text{ for some } t \in \mathbb{R} }$$</li>
+</ul>
+<blockquote>
+<p>为什么需要两个向量
+—&gt; 因为需要Position Vector区分不同平行的直线</p>
+</blockquote>
+
+
+<h2 class="relative group">Plane 
+    <div id="plane" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#plane" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>同理对于一个Plane，可以通过两个Linearly Independent的Vector与一个Plane上的点表示</li>
+<li>至于前面Line中所提到的Slope，在这里便是Partical Derivative
+$$\mathcal{P} = { \vec{u} \in \mathbb{R}^3 \mid \vec{u} = \vec{p} + s \vec{d}_1 + t \vec{d}_2, \text{ for some } s, t \in \mathbb{R} }$$</li>
+<li>可以发现u是一个\(\mathbb R^3\)中的Subset，这代表了该Subset只含有两个Degree of Freedom，即为三维空间中的一个Plane</li>
+</ul>
+<blockquote>
+<p>注意这里的Plane是一个Subset，不是Subspace，具体原因将在后面指出</p>
+</blockquote>
+
+
+<h3 class="relative group">Normal Vector 
+    <div id="normal-vector" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#normal-vector" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于平面\(Ax+By+Cz=D\)来说，其Normal Vecotr，也就是垂直于整个Plane的Vector即为\(n=[A,B,C]^T\)</li>
+</ul>
+
+
+<h3 class="relative group">Proof 
+    <div id="proof" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#proof" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>\(P(x_1​,y_1​,z_1​)\)和\(Q(x_2, y_2, z_2)\)都在平面上，那么它们的坐标满足平面方程
+$$Ax_1+By_1+Cz_1=D，Ax_2+By_2+Cz_2=D$$</li>
+<li>则可以构建向量\(\vec{v} = \begin{bmatrix} x_2 - x_1 \ y_2 - y_1 \ z_2 - z_1 \end{bmatrix}\)</li>
+<li>结合方程组则有\(A(x_2-x_1)+B(y_2-y_1)+C(z_2-z_1)=0\)</li>
+<li>也就是\(\vec v \cdot \vec n =0\)，其中\(\vec{n} = \begin{bmatrix} A \ B \ C \end{bmatrix}\)</li>
+</ul>
+
+
+<h3 class="relative group">Second definition 
+    <div id="second-definition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#second-definition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>结合上面的思想便可以得到Space的第二个Set Notation表达式
+$$\mathcal{P} = { \vec{u} \in \mathbb{R}^3 \mid \vec{n} \cdot (\vec{u} - \vec{p}) = 0 }$$</li>
+<li>\(u∈R^3\)：表示平面上的任意点的坐标。</li>
+<li>\(\vec{n} \in \mathbb{R}^3\)：表示平面的<strong>法向量</strong>，即垂直于平面表面的向量。</li>
+<li>\(\vec{p} \in \mathbb{R}^3\)：表示平面上的一个固定点，用于确定平面的具体位置。</li>
+<li>点积\(\vec{n} \cdot (\vec{u} - \vec{p}) = 0\)：表示向量\((\vec{u} - \vec{p})\)与法向量\(\vec{n}\)正交。</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/LinearAlgebra_Static/LA1.VectorLine&amp;Plane/LA1.VectorLine&amp;Plane-2.png" alt="Img" />
+      
+    </figure>
+</p>
+<ul>
+<li>\(\vec p\)为Plane上一点，\(\vec n\)为Plane的Normal Vector，剩下的就是点上的任意位置了，由于任意\(\vec u\)都在平面中，\(\vec u-\vec p\) 将仍处于Plane中，而\(\vec n⋅(\vec u−\vec p​)=0\)是限定他的条件</li>
+</ul>
+<blockquote>
+<p>所有的Vector都为Position Vector，即以坐标系Origin为Head的Vector</p>
+</blockquote>
+
+
+<h2 class="relative group">ex. 
+    <div id="ex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>
+<p>Find the equation for a plane \(\mathcal{P}\) which contains the three points P = (0, 1, 1), Q = (2, 0, 4), andR = (0, 0, 1)</p>
+</li>
+<li>
+<p>Express \(\mathcal{P}\) in vector form, in normal form, and as an equation ax + by + cz = d</p>
+</li>
+<li>
+<p>用三个点确定Plane上的两个Vector</p>
+</li>
+</ul>
+<div>
+$$\vec{v}_1 = \begin{bmatrix} 2 - 0 \\ 0 - 1 \\ 4 - 1 \end{bmatrix} = \begin{bmatrix} 2 \\ -1 \\ 3 \end{bmatrix}$$
+</div>
+<div>
+$$\vec{v}_2 = \begin{bmatrix} 0 - 0 \\ 0 - 1 \\ 1 - 1 \end{bmatrix} = \begin{bmatrix} 0 \\ -1 \\ 0 \end{bmatrix}$$
+</div>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2024 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

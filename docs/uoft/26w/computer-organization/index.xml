@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced Engineering Mathematics on Buezwqwg</title>
+    <link>http://localhost:8888/docs/uoft/26w/computer-organization/</link>
+    <description>Recent content in Advanced Engineering Mathematics on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2026 Buezwqwg</copyright>
+    <lastBuildDate>Sat, 25 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:8888/docs/uoft/26w/computer-organization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CO 8. Cache</title>
+      <link>http://localhost:8888/docs/uoft/26w/computer-organization/co8.cache/</link>
+      <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:8888/docs/uoft/26w/computer-organization/co8.cache/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 4/25/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Physics of Memory 
+    &lt;div id=&#34;physics-of-memory&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#physics-of-memory&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;存储容量越大，访问速度越慢&lt;/li&gt;
+&lt;li&gt;进行一次主存访问大约需要消耗 &lt;strong&gt;300 个处理器时钟周期&lt;/strong&gt;。这意味着如果没有优化，处理器在执行一条加载指令（如 &lt;code&gt;lw&lt;/code&gt;）后需要闲置等待 300 个周期，软件运行将极其缓慢&lt;/li&gt;
+&lt;li&gt;为了解决上述矛盾，课件提出了核心洞察：&lt;strong&gt;小容量存储器比大容量存储器快。&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;解决方案：&lt;/strong&gt; 在处理器和主内存之间放置一个“小而快”的存储器，即 &lt;strong&gt;Cache&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;工作机制：&lt;/strong&gt; 将**当前活跃（currently active）**的内存位置保留在 Cache 中，从而确保处理器发出的内存请求能得到快速响应。&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Cache Memory 
+    &lt;div id=&#34;cache-memory&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#cache-memory&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/computer-organization/co8.cache/image_hu919539970637125229.png 330w,
+        /docs/uoft/26w/computer-organization/co8.cache/image_hu16488558446007447742.png 660w,
+        /docs/uoft/26w/computer-organization/co8.cache/image_hu8217247360323923298.png 1024w,
+        /docs/uoft/26w/computer-organization/co8.cache/image_hu13139247176593910498.png 2x&#34;
+        src=&#34;http://localhost:8888/docs/uoft/26w/computer-organization/co8.cache/image_hu16488558446007447742.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 7. DesignofProcessor</title>
+      <link>http://localhost:8888/docs/uoft/26w/computer-organization/co7.designofprocessor/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:8888/docs/uoft/26w/computer-organization/co7.designofprocessor/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/10/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The former course is about to use Assembly and C language to view the processor in terms of a programmer, now the course has been switched into view processor hardware using digital design knowledge&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 6. Low-levelGraphicsinSoftware</title>
+      <link>http://localhost:8888/docs/uoft/26w/computer-organization/co6.low-levelgraphicsinsoftware/</link>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:8888/docs/uoft/26w/computer-organization/co6.low-levelgraphicsinsoftware/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/9/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Intro to Low-Level Graphics 
+    &lt;div id=&#34;intro-to-low-level-graphics&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#intro-to-low-level-graphics&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/computer-organization/co6.low-levelgraphicsinsoftware/image_hu15234567419980076524.png 330w,
+        /docs/uoft/26w/computer-organization/co6.low-levelgraphicsinsoftware/image_hu11320103388789212494.png 660w,
+        /docs/uoft/26w/computer-organization/co6.low-levelgraphicsinsoftware/image_hu17128458278778623679.png 1024w,
+        /docs/uoft/26w/computer-organization/co6.low-levelgraphicsinsoftware/image_hu3728884395623859223.png 2x&#34;
+        src=&#34;http://localhost:8888/docs/uoft/26w/computer-organization/co6.low-levelgraphicsinsoftware/image_hu11320103388789212494.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 5. CLanguage</title>
+      <link>http://localhost:8888/docs/uoft/26w/computer-organization/co5.clanguage/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:8888/docs/uoft/26w/computer-organization/co5.clanguage/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Learning Assembly is about to know what happens underneath, while C Language is more readable and faster&lt;/p&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Compilation of C 
+    &lt;div id=&#34;compilation-of-c&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#compilation-of-c&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Starting from C Language, it have the file type of &lt;code&gt;.c&lt;/code&gt; , we use &lt;code&gt;gcc&lt;/code&gt; to compile it into Assembly&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 4. Input/Output</title>
+      <link>http://localhost:8888/docs/uoft/26w/computer-organization/co4.input/output/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:8888/docs/uoft/26w/computer-organization/co4.input/output/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/5/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Input and Output are the connection between the virtual world and the physical world&lt;/p&gt;
+&lt;p&gt;Recall on DE1-Soc Board, we have I/Os&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;10 LEDs&lt;/li&gt;
+&lt;li&gt;10 Slider Switches&lt;/li&gt;
+&lt;li&gt;4 Buttons&lt;/li&gt;
+&lt;li&gt;6 Seven Segment Displays&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Memory Mapped I/O 
+    &lt;div id=&#34;memory-mapped-io&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#memory-mapped-io&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Recall the Computer Structure&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 3. Subroutines</title>
+      <link>http://localhost:8888/docs/uoft/26w/computer-organization/co3.subroutines/</link>
+      <pubDate>Tue, 20 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:8888/docs/uoft/26w/computer-organization/co3.subroutines/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/20/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/20/25&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Directives 
+    &lt;div id=&#34;directives&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#directives&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Directives are not the code for CPU to run, instead, its a guidance for Assembler to order code&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 2. MemoryOrgranization</title>
+      <link>http://localhost:8888/docs/uoft/26w/computer-organization/co2.memoryorgranization/</link>
+      <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:8888/docs/uoft/26w/computer-organization/co2.memoryorgranization/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/13/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;The Processor we are working with is called Nios V Processor&lt;/p&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Nios V Processor 
+    &lt;div id=&#34;nios-v-processor&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#nios-v-processor&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;This is a processor from Intel with RISC-V Architecture&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CO 1. PartsofComputer</title>
+      <link>http://localhost:8888/docs/uoft/26w/computer-organization/co1.partsofcomputer/</link>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>http://localhost:8888/docs/uoft/26w/computer-organization/co1.partsofcomputer/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/12/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/12/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Parts of Computer 
+    &lt;div id=&#34;parts-of-computer&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#parts-of-computer&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Modern Computer contains three parts, &lt;strong&gt;CPU, Memory and Input/Output&lt;/strong&gt;, they are connecting by the System Bus&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

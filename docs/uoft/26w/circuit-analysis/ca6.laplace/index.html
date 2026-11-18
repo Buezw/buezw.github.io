@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA 6. Laplace | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1250px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:1313/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-inverse-laplace-transform">The Inverse Laplace Transform</a></li>
+    <li><a href="#uniqueness-property-of-laplace-transform">Uniqueness Property of Laplace Transform</a></li>
+    <li><a href="#linearity-of-laplace-transform">Linearity of Laplace Transform</a></li>
+    <li><a href="#integration">Integration</a></li>
+    <li><a href="#differentiation">Differentiation</a></li>
+    <li><a href="#translation-properties">Translation Properties</a></li>
+    <li><a href="#poles-and-zeros">Poles and Zeros</a>
+      <ul>
+        <li><a href="#ex-laplace-transform-and-their-discontinuity">Ex. Laplace Transform and their Discontinuity</a></li>
+      </ul>
+    </li>
+    <li><a href="#finding-the-inverse-laplace-transform">Finding the Inverse Laplace Transform</a>
+      <ul>
+        <li><a href="#case-1-distinct-poles">Case 1: Distinct Poles</a></li>
+        <li><a href="#special-case-1-complex-roots">Special Case 1: Complex Roots</a></li>
+        <li><a href="#case-2-repeated-roots">Case 2: Repeated Roots</a></li>
+        <li><a href="#special-case-2-two-complex-double-poles">Special Case 2: Two Complex Double Poles</a></li>
+        <li><a href="#case-3-improper-rational-function">Case 3: Improper Rational Function</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#fist-order-series-rc-circuit">Fist Order Series RC Circuit</a></li>
+    <li><a href="#circuit-elements-in-s-domain">Circuit Elements in S-domain</a>
+      <ul>
+        <li><a href="#ex-a-inductor-in-s-domain">Ex. A Inductor in S-domain</a></li>
+        <li><a href="#ex-circuit-analysis-in-s-domain">Ex. Circuit Analysis in S-domain</a></li>
+      </ul>
+    </li>
+    <li><a href="#interesting-feature-combine-source--switch">Interesting feature: combine source &amp; switch</a></li>
+    <li><a href="#techniques-applicable-in-s-domain">Techniques applicable in S-domain</a>
+      <ul>
+        <li><a href="#ex-s-domain-circuit-analysis">Ex. S-domain Circuit Analysis</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CA 6. Laplace</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 18, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                846 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/18/26</p>
+</blockquote>
+<p>In the previous cases, we used transfer from Time Domain to Phasor Domains to analyze circuit with <strong>Sinusoidal Steady-State</strong>, but we suggest this method is too limited. To use Laplace Transform, we are able to deal with more general ones</p>
+<p>Laplace Transform: Transfer circuit in Time Domain into Frequency Domain (s-Domain)</p>
+<ul>
+<li>In time domain the circuit is described by Differential Equations and in Frequency Domains they are Algebraic Equations</li>
+<li>We first use Laplace Transfer to change it into Frequency Domain, then get the result in Frequency Domain, and change it back to time Domain using Inverse Laplace</li>
+</ul>
+
+
+<h1 class="relative group">Laplace Transform 
+    <div id="laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>$$
+F(s) = \mathcal{L}{f(t)} = \int_{0^{-}}^{\infty} f(t) e^{-st} dt
+$$</p>
+<p>Notice the Interval of the Integral, with 0 as the lower bond, this means we assume $f(t)=0$ for all $t&lt;0$</p>
+
+
+<h2 class="relative group">The Inverse Laplace Transform 
+    <div id="the-inverse-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-inverse-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+f(t) = \mathcal{L}^{-1}{F(s)} = \frac{1}{2\pi j} \int_{\sigma-j\infty}^{\sigma+j\infty} F(s) e^{st} ds
+$$</p>
+<p>We actually never use this, instead we follow the Laplace Transform Pairs</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>信号名称 (Signal)</strong></th>
+          <th style="text-align: left"><strong>时域波形 f(t)</strong></th>
+          <th style="text-align: left"><strong>复频域变换 F(s)</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Impulse (单位冲击)</strong></td>
+          <td style="text-align: left">$\delta(t)$</td>
+          <td style="text-align: left">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Step (阶跃函数)</strong></td>
+          <td style="text-align: left">$u(t)$</td>
+          <td style="text-align: left">$1/s$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Ramp (斜坡函数)</strong></td>
+          <td style="text-align: left">$t u(t)$</td>
+          <td style="text-align: left">$1/s^2$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Exponential (指数)</strong></td>
+          <td style="text-align: left">$e^{-\alpha t} u(t)$</td>
+          <td style="text-align: left">$1/(s+\alpha)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Sine (正弦)</strong></td>
+          <td style="text-align: left">$\sin(\beta t) u(t)$</td>
+          <td style="text-align: left">$\beta/(s^2+\beta^2)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Damped Sine (衰减正弦)</strong></td>
+          <td style="text-align: left">$e^{-\alpha t}\sin(\beta t) u(t)$</td>
+          <td style="text-align: left">$\beta/[(s+\alpha)^2+\beta^2]$</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">Uniqueness Property of Laplace Transform 
+    <div id="uniqueness-property-of-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#uniqueness-property-of-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Laplace Transform is a one to one function that</p>
+<p>$$
+If\quad \mathcal{L}{f(t)} = F(s)\quad  then\quad \mathcal{L}^{-1}{F(s)} = f(t)
+$$</p>
+
+
+<h2 class="relative group">Linearity of Laplace Transform 
+    <div id="linearity-of-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linearity-of-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\mathcal{L}{a f_1(t) + b f_2(t)} = a F_1(s) + b F_2(s)
+$$</p>
+
+
+<h2 class="relative group">Integration 
+    <div id="integration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integration" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Taking Integration in Time Domain equals to divided by s in s Domain</p>
+<p>$$
+\mathcal{L}{\int_0^t f(\tau) d\tau} = \frac{F(s)}{s}
+$$</p>
+
+
+<h2 class="relative group">Differentiation 
+    <div id="differentiation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#differentiation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Taking differentiation in Time Domain equals to timing s and subtract initial value din s domain</p>
+<p>$$
+\mathcal{L}{\frac{df(t)}{dt}} = sF(s) - f(0^-)
+$$</p>
+
+
+<h2 class="relative group">Translation Properties 
+    <div id="translation-properties" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#translation-properties" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There’s two shift for Laplace, one is shifting in Time Domain, the other is shifting in Frequency Domain</p>
+<p>Frequency Damian Translation:</p>
+<p>$$
+\mathcal{L}{e^{\alpha t} f(t)} = F(s - \alpha)
+$$</p>
+<p>Time Domain Translation</p>
+<p>$$
+\mathcal{L}{f(t-\alpha) u(t-\alpha)} = e^{-\alpha s} F(s)
+$$</p>
+
+
+<h2 class="relative group">Poles and Zeros 
+    <div id="poles-and-zeros" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#poles-and-zeros" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>For linear Circuits, the Frequency Domain $F(s)$ tends to be a Rational Fraction</p>
+<p>$$
+F(s) = K \frac{(s - z_1)(s - z_2) \dots (s - z_m)}{(s - p_1)(s - p_2) \dots (s - p_n)}
+$$</p>
+<p>Whereas there are to kind of discontinuity in this Fraction, Zeros and Poles</p>
+<ul>
+<li>Zeros: When Nominator is zero</li>
+<li>Poles: When Denominator is zero</li>
+</ul>
+
+
+<h3 class="relative group">Ex. Laplace Transform and their Discontinuity 
+    <div id="ex-laplace-transform-and-their-discontinuity" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-laplace-transform-and-their-discontinuity" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image_hu10913308214955986314.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image_hu5937915464735684964.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image_hu12990301376394819116.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image_hu15206062028200995972.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/image_hu5937915464735684964.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Finding the Inverse Laplace Transform 
+    <div id="finding-the-inverse-laplace-transform" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#finding-the-inverse-laplace-transform" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As indicated, most of the Laplace Function we seen will have the form of</p>
+<p>$$
+F(s) = k \frac{(s-z_1)(s-z_2) \cdots (s-z_m)}{(s-p_1)(s-p_2) \cdots (s-p_n)}
+$$</p>
+<p>and there could be several cases for this function, but we need to make sure <strong>the degree of nominator must be smaller than degree of denominator to begin</strong></p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/95da9f5b-574d-461f-9cfc-e20584e6e95d_hu4926609209547128721.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/95da9f5b-574d-461f-9cfc-e20584e6e95d_hu7258800871893001466.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/95da9f5b-574d-461f-9cfc-e20584e6e95d_hu6784637700847325236.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/95da9f5b-574d-461f-9cfc-e20584e6e95d_hu13236714428810711036.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/95da9f5b-574d-461f-9cfc-e20584e6e95d_hu7258800871893001466.png"
+        alt="ECE212 Final Review -45.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Case 1: Distinct Poles 
+    <div id="case-1-distinct-poles" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-1-distinct-poles" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>When all poles are the degree of one, thus we will have the function in the form of</p>
+<p>$$
+F(s) = \frac{k_1}{s-p_1} + \frac{k_2}{s-p_2} + \cdots + \frac{k_n}{s-p_n}
+$$</p>
+<p>Where the coefficients $k_1, k_2, \dots, k_n$ here are called Residues</p>
+<hr>
+<p>And Covering Up Method is what we used for finding Residues</p>
+
+
+<h3 class="relative group">Special Case 1: Complex Roots 
+    <div id="special-case-1-complex-roots" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#special-case-1-complex-roots" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ec2665be-9b3c-4101-89aa-f0aeb75933bc_hu11684461657082265742.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ec2665be-9b3c-4101-89aa-f0aeb75933bc_hu11418713980598189435.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ec2665be-9b3c-4101-89aa-f0aeb75933bc_hu16916974520645480416.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ec2665be-9b3c-4101-89aa-f0aeb75933bc_hu4664016944299963280.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/ec2665be-9b3c-4101-89aa-f0aeb75933bc_hu11418713980598189435.png"
+        alt="ECE212 Final Review -46.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Case 2: Repeated Roots 
+    <div id="case-2-repeated-roots" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-2-repeated-roots" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>When one poles exist more than one times, then its a repeated root with the form</p>
+<p>$$
+F(s) = \frac{N(s)}{(s-p_1)^r (s-p_2) \cdots}
+$$</p>
+<p>In this case, for that $(s-p_1)$ term, we need to expand it into r terms, which is</p>
+<p>$$
+F(s) = \frac{k_{11}}{(s-p_1)^r} + \frac{k_{12}}{(s-p_1)^{r-1}} + \cdots + \frac{k_{1r}}{s-p_1} + \text{others}
+$$</p>
+<p>And in this case, we can’t use the Cover up method anymore, instead we need derivatives</p>
+<p>$$
+k_{1j} = \frac{1}{(j-1)!} \frac{d^{j-1}}{ds^{j-1}} \left[ (s-p_1)^r F(s) \right] \Bigg|_{s=p_1}
+$$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image1_hu13062353758046457978.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image1_hu8415971991663463556.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image1_hu2769000965402653162.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image1_hu8798236001273742174.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/image1_hu8415971991663463556.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Special Case 2: Two Complex Double Poles 
+    <div id="special-case-2-two-complex-double-poles" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#special-case-2-two-complex-double-poles" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>When there’s Complex Root and there time is more than one, in the form of</p>
+<p>$$
+F(s) = \frac{K}{(s-p_j)^2(s-p_j^*)^2} = \frac{k}{(s+\alpha-j\beta)^2} + \frac{k^*}{(s+\alpha+j\beta)^2}
+$$</p>
+<p>It’s Laplace Inverse in time domain will then be a sinusoid signal with time linear decay</p>
+<p>$$
+f(t) = 2|k| t e^{-\alpha t} \cos(\beta t + \theta) u(t)
+$$</p>
+
+
+<h3 class="relative group">Case 3: Improper Rational Function 
+    <div id="case-3-improper-rational-function" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#case-3-improper-rational-function" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Use long division first to get the fraction in the form of a Polynomial + a Real Fraction</p>
+
+
+<h1 class="relative group">Laplace Circuit Analysis 
+    <div id="laplace-circuit-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#laplace-circuit-analysis" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Fist Order Series RC Circuit 
+    <div id="fist-order-series-rc-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#fist-order-series-rc-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-48_hu14561377091273066002.jpg 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-48_hu1697255668892764933.jpg 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-48_hu1608273743040275738.jpg 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-48_hu2924568067096281054.jpg 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-48_hu1697255668892764933.jpg"
+        alt="ECE212 Final Review -48.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Circuit Elements in S-domain 
+    <div id="circuit-elements-in-s-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#circuit-elements-in-s-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image2_hu3669932479677578613.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image2_hu6754918479981962795.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image2_hu4180934400896933250.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image2_hu14282927418702464843.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/image2_hu6754918479981962795.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. A Inductor in S-domain 
+    <div id="ex-a-inductor-in-s-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-a-inductor-in-s-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/bf53d488-a5cc-4622-b9fa-85a4f1fef963_hu10231145419583332431.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/bf53d488-a5cc-4622-b9fa-85a4f1fef963_hu14440366848681232152.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/bf53d488-a5cc-4622-b9fa-85a4f1fef963_hu15898012407991790462.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/bf53d488-a5cc-4622-b9fa-85a4f1fef963_hu15321984539885655766.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/bf53d488-a5cc-4622-b9fa-85a4f1fef963_hu14440366848681232152.png"
+        alt="ECE212 Final Review -49.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. Circuit Analysis in S-domain 
+    <div id="ex-circuit-analysis-in-s-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-circuit-analysis-in-s-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-50_hu825183902163790784.jpg 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-50_hu2642204131152770446.jpg 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-50_hu1574872595048736241.jpg 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-50_hu5511735982122034545.jpg 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-50_hu2642204131152770446.jpg"
+        alt="ECE212 Final Review -50.jpg"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-51_hu15591740453128963397.jpg 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-51_hu2345594103429483588.jpg 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-51_hu344852379807665716.jpg 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-51_hu2165684012151899978.jpg 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/ECE212_Final_Review_-51_hu2345594103429483588.jpg"
+        alt="ECE212 Final Review -51.jpg"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/e454b72f-84e8-4dbb-8e51-9f7791b73f57_hu3518134568958647755.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/e454b72f-84e8-4dbb-8e51-9f7791b73f57_hu2773144688756071505.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/e454b72f-84e8-4dbb-8e51-9f7791b73f57_hu16640614571777329879.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/e454b72f-84e8-4dbb-8e51-9f7791b73f57_hu13344990445508941880.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/e454b72f-84e8-4dbb-8e51-9f7791b73f57_hu2773144688756071505.png"
+        alt="ECE212 Final Review -52.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Interesting feature: combine source &amp; switch 
+    <div id="interesting-feature-combine-source--switch" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#interesting-feature-combine-source--switch" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image3_hu15390589337099397197.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image3_hu1667895791988714726.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image3_hu9647906016721501701.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/image3_hu352109846860114688.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/image3_hu1667895791988714726.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Thus in S-domain, the ODE becomes a DC circuit</p>
+
+
+<h2 class="relative group">Techniques applicable in S-domain 
+    <div id="techniques-applicable-in-s-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#techniques-applicable-in-s-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>There’s some same techniques we used in time domain that can be also apply on the S-domain</p>
+<ol>
+<li>Series and Parallel Equivalence of Impedances</li>
+<li>Voltage and Current division rules</li>
+<li>Superposition</li>
+<li>Nodal and Mesh Analysis</li>
+<li>Thevenin and Norton Equivalent Circuits</li>
+</ol>
+
+
+<h3 class="relative group">Ex. S-domain Circuit Analysis 
+    <div id="ex-s-domain-circuit-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-s-domain-circuit-analysis" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/b758eca2-8c3c-405c-a313-8f492253b07d_hu9681135178681105849.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/b758eca2-8c3c-405c-a313-8f492253b07d_hu1640424086267699646.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/b758eca2-8c3c-405c-a313-8f492253b07d_hu3397567503166482550.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca6.laplace/b758eca2-8c3c-405c-a313-8f492253b07d_hu13560326418805381142.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca6.laplace/b758eca2-8c3c-405c-a313-8f492253b07d_hu1640424086267699646.png"
+        alt="ECE212 Final Review -53.jpg"
+      />
+      
+    </figure>
+</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

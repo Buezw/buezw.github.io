@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D2L 3.4 Softmax Regression | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#341-分类问题">3.4.1 分类问题</a></li>
+    <li><a href="#342-网格架构">3.4.2 网格架构</a></li>
+    <li><a href="#343-全连接层的参数开销">3.4.3 全连接层的参数开销</a></li>
+    <li><a href="#344-softmax-运算">3.4.4 softmax 运算</a>
+      <ul>
+        <li><a href="#能否将未规范化的预测o直接视作我们感兴趣的输出呢">能否将未规范化的预测o直接视作我们感兴趣的输出呢</a></li>
+      </ul>
+    </li>
+    <li><a href="#概率论">概率论</a>
+      <ul>
+        <li><a href="#calibration-校准">Calibration 校准</a></li>
+      </ul>
+    </li>
+    <li><a href="#softmax-函数">Softmax 函数</a></li>
+    <li><a href="#345-小批量样本的矢量化">3.4.5 小批量样本的矢量化</a></li>
+    <li><a href="#346-损失函数">3.4.6 损失函数</a>
+      <ul>
+        <li><a href="#3461-对数似然">3.4.6.1 对数似然</a>
+          <ul>
+            <li><a href="#为什么要加入对数而不是直接取负数">为什么要加入对数，而不是直接取负数</a></li>
+          </ul>
+        </li>
+        <li><a href="#3462-softmax及其导数">3.4.6.2 softmax及其导数</a>
+          <ul>
+            <li><a href="#softmax结合cross-entropy的求导过程">Softmax结合Cross Entropy的求导过程</a></li>
+          </ul>
+        </li>
+        <li><a href="#3463-交叉熵损失">3.4.6.3 交叉熵损失</a></li>
+        <li><a href="#3471-熵">3.4.7.1 熵</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>D2L 3.4 Softmax Regression</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                April 15, 2024
+                <span style="margin: 0 10px;">&middot;</span> 
+                1963 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <p>回归可以用于预测_多少_的问题。 比如预测房屋被售出价格，或者棒球队可能获得的胜场数，又或者患者住院的天数。</p>
+<p>事实上，我们也对_分类_问题感兴趣：不是问“多少”，而是问“哪一个”</p>
+
+
+<h2 class="relative group">3.4.1 分类问题 
+    <div id="341-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#341-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>[[One-hot encoding 独热编码]]</li>
+</ul>
+
+
+<h2 class="relative group">3.4.2 网格架构 
+    <div id="342-%E7%BD%91%E6%A0%BC%E6%9E%B6%E6%9E%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#342-%E7%BD%91%E6%A0%BC%E6%9E%B6%E6%9E%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>为了估计所有可能类别的条件概率，我们需要一个有多个输出的模型，每个类别对应一个输出。 为了解决线性模型的分类问题，我们需要和输出一样多的[[Affine Function 仿射函数]]</li>
+</ul>
+<p><em>E.X.</em></p>
+<ul>
+<li>假设现在有3个未规范化的预测(Logit)：\(o_1,o_2和o_3\)
+\(o_1=x_1w_{11}+x_2w_{12}+x_3w_{13}+x_4w_{14}+b_1\)
+\(o_2=x_1w_{21}+x_2w_{22}+x_3w_{23}+x_4w_{24}+b_2\)
+\(o_1=x_1w_{31}+x_2w_{32}+x_3w_{33}+x_4w_{34}+b_3\)</li>
+</ul>
+
+
+<h2 class="relative group">3.4.3 全连接层的参数开销 
+    <div id="343-%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82%E7%9A%84%E5%8F%82%E6%95%B0%E5%BC%80%E9%94%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#343-%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82%E7%9A%84%E5%8F%82%E6%95%B0%E5%BC%80%E9%94%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>对于任何具有d个输入和q个输出的全连接层[[3.1_LinearRegression#Fully-Connected Layer 全连接层]]，其参数开销为\(O(dq)\)，但可以通过超参数减少到\(O(\frac{dq}{n})\)</li>
+</ul>
+
+
+<h2 class="relative group">3.4.4 softmax 运算 
+    <div id="344-softmax-%E8%BF%90%E7%AE%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#344-softmax-%E8%BF%90%E7%AE%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>我们希望模型的输出\(\hat y_j\)可以视为属于类\(j\)的概率，然后选择具有最大输出值的类别\(argmaxx_jy_j\)作为我们的预测，例如\(\hat y_1,\hat y_2\)和\(\hat y_3\)分别为\(\hat y={0.1,0.8,0.1}\)那么我们的预测变为独热编码的\(y={0,1,0}\)，即为鸡</li>
+</ul>
+
+
+<h3 class="relative group">能否将未规范化的预测o直接视作我们感兴趣的输出呢 
+    <div id="%E8%83%BD%E5%90%A6%E5%B0%86%E6%9C%AA%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E9%A2%84%E6%B5%8Bo%E7%9B%B4%E6%8E%A5%E8%A7%86%E4%BD%9C%E6%88%91%E4%BB%AC%E6%84%9F%E5%85%B4%E8%B6%A3%E7%9A%84%E8%BE%93%E5%87%BA%E5%91%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%83%BD%E5%90%A6%E5%B0%86%E6%9C%AA%E8%A7%84%E8%8C%83%E5%8C%96%E7%9A%84%E9%A2%84%E6%B5%8Bo%E7%9B%B4%E6%8E%A5%E8%A7%86%E4%BD%9C%E6%88%91%E4%BB%AC%E6%84%9F%E5%85%B4%E8%B6%A3%E7%9A%84%E8%BE%93%E5%87%BA%E5%91%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>不行</li>
+<li>因为将线性层的输出直接视为概率时存在一些问题</li>
+<li>我们没有限制这些输出数字的总和为1</li>
+<li>根据输入的不同，它们可以为负值</li>
+<li>其违反了[[概率论公理]]</li>
+</ul>
+
+
+<h2 class="relative group">概率论 
+    <div id="%E6%A6%82%E7%8E%87%E8%AE%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%A6%82%E7%8E%87%E8%AE%BA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>要将输出视为概率，我们必须保证在任何数据上的输出都是非负的且总和为1</li>
+<li> 此外，我们需要一个训练的目标函数，来激励模型精准地估计概率</li>
+</ul>
+
+
+<h3 class="relative group">Calibration 校准 
+    <div id="calibration-%E6%A0%A1%E5%87%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#calibration-%E6%A0%A1%E5%87%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>例如， 在分类器输出0.5的所有样本中，我们希望这些样本是刚好有一半实际上属于预测的类别</li>
+</ul>
+
+
+<h2 class="relative group">Softmax 函数 
+    <div id="softmax-%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#softmax-%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>社会科学家邓肯·卢斯于1959年在选择模型（choice model）的理论基础上发明的softmax函数</li>
+<li>softmax函数能够将未规范化的预测变换为非负数并且总和为1，同时让模型保持 可导的性质</li>
+<li>为了完成这一目标，我们首先对每个未规范化的预测求幂，这样可以确保输出非负</li>
+<li>为了确保最终输出的概率值总和为1，我们再让每个求幂后的结果除以它们的总和。如下式$$\hat y=softmax(o)，其中\hat y_j=\frac{exp(o_j)}{\sum_kexp(o_k)}=\frac{e^j}{\sum_ke^k}$$</li>
+<li>这里，对于所有的j总有\(0\leq\hat y_j\leq1\)，因此\(\hat y\)可以视为一个正确的概率分布</li>
+<li>尽管softmax是一个非线性函数，但softmax回归的输出仍然由输入特征的仿射变换决定。 因此，softmax回归是一个线性模型（linear model）。</li>
+</ul>
+
+
+<h2 class="relative group">3.4.5 小批量样本的矢量化 
+    <div id="345-%E5%B0%8F%E6%89%B9%E9%87%8F%E6%A0%B7%E6%9C%AC%E7%9A%84%E7%9F%A2%E9%87%8F%E5%8C%96" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#345-%E5%B0%8F%E6%89%B9%E9%87%8F%E6%A0%B7%E6%9C%AC%E7%9A%84%E7%9F%A2%E9%87%8F%E5%8C%96" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>为了提高计算效率并且充分利用GPU，我们通常会对小批量样本的数据执行矢量计算</li>
+</ul>
+
+
+<h2 class="relative group">3.4.6 损失函数 
+    <div id="346-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#346-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>使用[[Maximum Likehood Estimation 极大似然估计]]</li>
+</ul>
+
+
+<h3 class="relative group">3.4.6.1 对数似然 
+    <div id="3461-%E5%AF%B9%E6%95%B0%E4%BC%BC%E7%84%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3461-%E5%AF%B9%E6%95%B0%E4%BC%BC%E7%84%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>softmax函数给出了一个向量\(\hat y\)， 我们可以将其视为“对给定任意输入x的每个类的条件概率</p>
+</li>
+<li>
+<p>通过计算softmax的对数似然，可以推导出他的损失函数</p>
+</li>
+<li>
+<p>假设现在有一个数据集 \({X,Y}\)，其具有n个样本，其中索引i的样本由特征向量\(x^{(i)}\)和独热标签向量\(y^{(i)}\)组成，可以将估计值与实际值进行比较$$P(Y|X)=\prod^n_{i=1}P(y^{(i)}|x^{(i)})$$</p>
+</li>
+<li>
+<p>根据[[3.1_LinearRegression#Likehood 似然]]，已知最大化$P(Y|X)，相当于最小化负对数似然
+$$P(Y|X)=\sum^n_{i=1}-logP(y^{(i)}|x^{(i)})=\sum^n_{i=1}l(y^{(i)},\hat y^{(i)})$$</p>
+</li>
+<li>
+<p>其中对于任何标签y和预测模型\(\hat y\)，损失函数为$$l(y,\hat y)=-\sum^{q}_{j=1}y_j\log \hat y_j$$</p>
+</li>
+<li>
+<p>这个[[3.1_LinearRegression#Loss Function 损失函数]]并没有介绍过，他的名字为Cross-entropy Loss交叉熵损失，将在后面介绍到</p>
+</li>
+</ul>
+
+
+<h4 class="relative group">为什么要加入对数，而不是直接取负数 
+    <div id="%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%A0%E5%85%A5%E5%AF%B9%E6%95%B0%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E5%8F%96%E8%B4%9F%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%A0%E5%85%A5%E5%AF%B9%E6%95%B0%E8%80%8C%E4%B8%8D%E6%98%AF%E7%9B%B4%E6%8E%A5%E5%8F%96%E8%B4%9F%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>数值稳定性：</strong> 在概率模型中，可能会有大量的乘法运算，这可能导致数值下溢或溢出问题，尤其是当概率很小的时候。通过取对数，可以将乘法运算转换为加法运算，从而提高计算的稳定性。</li>
+<li>对数函数的导数相对于原函数来说更简单，这使得梯度的计算更加高效。特别是在梯度下降等优化算法中，简化的导数计算可以显著减少计算量。</li>
+<li>对数函数的特性使得推导和分析变得更加简单，因为它可以将乘法转换为加法，并且有很多性质，例如对数函数的导数比原函数更容易处理</li>
+</ul>
+
+
+<h3 class="relative group">3.4.6.2 softmax及其导数 
+    <div id="3462-softmax%E5%8F%8A%E5%85%B6%E5%AF%BC%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3462-softmax%E5%8F%8A%E5%85%B6%E5%AF%BC%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>由于softmax和相关的损失函数很常见， 因此我们需要更好地理解它的计算方式</li>
+<li>将3.4.3带入Cross-entropy Loss Function中，得到
+$$\begin{align}l(y,\hat y)=-\sum^{q}<em>{j=1}y_j\log \frac{e^{o_j}}{{\sum^{q}</em>{k=1}e^{o_k}}} \=-\sum_{j=1}^{q}y_j[\ln e^{o_j}-\ln \sum^q_{k=1}e^{o_k}] \=\sum^q_{j=1}y_j\log\sum^q_{k=1}e^{o_k}-\sum^q_{j=1}y_jo_j \=\log \sum^q_{k=1}e^{o_k}-\sum^q_{j=1}y_jo_j\end{align}$$</li>
+</ul>
+
+
+<h4 class="relative group">Softmax结合Cross Entropy的求导过程 
+    <div id="softmax%E7%BB%93%E5%90%88cross-entropy%E7%9A%84%E6%B1%82%E5%AF%BC%E8%BF%87%E7%A8%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#softmax%E7%BB%93%E5%90%88cross-entropy%E7%9A%84%E6%B1%82%E5%AF%BC%E8%BF%87%E7%A8%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>
+<p>已知Cross Entropy Function$$H(y_i,p_i)=-\sum_iy_i\log pi$$</p>
+</li>
+<li>
+<p>\(y_i\)为预测事件，\(\log p_i\)为一个分布的最优编码</p>
+</li>
+<li>
+<p>得到[[Home Page]]
+
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="/docs/D2L_Static/3.4_SoftmaxRegression/3.4_SoftmaxRegression-1.png" alt="" />
+      
+    </figure>
+</p>
+</li>
+</ul>
+
+
+<h3 class="relative group">3.4.6.3 交叉熵损失 
+    <div id="3463-%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3463-%E4%BA%A4%E5%8F%89%E7%86%B5%E6%8D%9F%E5%A4%B1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>[[Cross-Entropy 交叉熵]]</li>
+</ul>
+
+
+<h3 class="relative group">3.4.7.1 熵 
+    <div id="3471-%E7%86%B5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3471-%E7%86%B5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>[[Cross-Entropy 交叉熵#2. 熵]]</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2024 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

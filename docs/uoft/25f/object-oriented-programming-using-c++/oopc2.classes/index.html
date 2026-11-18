@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPC 2. Classes | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-an-instance">Create an instance</a></li>
+    <li><a href="#print-struct-data">Print struct data</a></li>
+    <li><a href="#211-what-is-a-class">2.1.1 What is a Class</a></li>
+    <li><a href="#212-defining-a-class"><strong>2.1.2 Defining a class</strong></a></li>
+    <li><a href="#213-access-control"><strong>2.1.3 Access Control</strong></a></li>
+    <li><a href="#214-implementing-functions-in-a-class"><strong>2.1.4 Implementing functions in a class</strong></a></li>
+    <li><a href="#215-creating-instances-of-a-class"><strong>2.1.5 Creating instances of a class</strong></a></li>
+    <li><a href="#216-getter-and-setter-functions"><strong>2.1.6 Getter and Setter Functions</strong></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#221-default-constructor">2.2.1 Default Constructor</a></li>
+    <li><a href="#222-other-constructors">2.2.2 Other Constructors</a></li>
+    <li><a href="#223how-is-it-possible-to-have-multiple-constructors-with-the-same-name-but-different-numbers-of-parameters"><strong>2.2.3. How is it possible to have multiple constructors with the same name but different numbers of parameters?</strong></a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>OOPC 2. Classes</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                September 27, 2025
+                <span style="margin: 0 10px;">&middot;</span> 
+                2060 Words
+            </div>
+        </header>
+
+        <section class="content">
+            
+
+<h1 class="relative group">OOPC2.Classes 
+    <div id="oopc2classes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#oopc2classes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<blockquote>
+<p>Last Edit: 9/28/25</p>
+</blockquote>
+
+
+<h1 class="relative group">2.1 Structs and Classes 
+    <div id="21-structs-and-classes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#21-structs-and-classes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>Struct，通过一个大的模块，将众多 Data Types 储存到其中</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li><code>struct</code>（结构体）：用于将多个不同类型的数据组合在一起</li>
+<li><code>Student</code> 是结构体的名称（结构体名）</li>
+<li><code>string name</code>（字符串类型的 name）：表示学生的名字</li>
+<li><code>int ID</code>（整数类型的 ID）：表示学生的编号</li>
+</ul>
+<blockquote>
+<p>这里只是<strong>定义结构体，不会分配内存</strong></p>
+</blockquote>
+
+
+<h2 class="relative group">Create an instance 
+    <div id="create-an-instance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#create-an-instance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Student</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Kenya&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="mi">8012</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Cindy&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="mi">2023</span><span class="p">;</span>
+</span></span></code></pre></div><ul>
+<li>这里创建了两个 instance：<code>x</code> 和 <code>y</code></li>
+<li>用 <code>.</code> 操作符访问成员变量（dot operator）：
+<ul>
+<li><code>x.name</code> 表示 x 的 name 字段</li>
+<li><code>x.ID</code> 表示 x 的 ID 字段</li>
+</ul>
+</li>
+<li>每个结构体实例都单独存储属于自己的数据</li>
+</ul>
+
+
+<h2 class="relative group">Print struct data 
+    <div id="print-struct-data" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#print-struct-data" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>赋值之后通过 <code>cout &lt;&lt; &quot;X, Name: &quot; &lt;&lt; x.name &lt;&lt; endl &lt;&lt; &quot;ID: &quot; &lt;&lt; x.ID &lt;&lt; endl;</code> 就可以得到以下输出</li>
+</ul>
+<pre tabindex="0"><code>Name: Kenya
+ID: 8012
+</code></pre>
+
+<h2 class="relative group">2.1.1 What is a Class 
+    <div id="211-what-is-a-class" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#211-what-is-a-class" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Class，是 Struct 的拓展版本，其可以把 Data Member 和 Functions 一起组成一个单元</li>
+</ul>
+
+
+<h2 class="relative group"><strong>2.1.2 Defining a class</strong> 
+    <div id="212-defining-a-class" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#212-defining-a-class" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>使用关键字 <code>class</code> 定义类，类名为 <code>Student</code></li>
+<li>有两个 data member：<code>name</code> 和 <code>ID</code>，还有一个成员函数 <code>print()</code></li>
+<li>类定义一般写在头文件里，比如 <code>Student.h</code></li>
+</ul>
+<blockquote>
+<p>函数 <code>print()</code> 这里只 declaration），还没有 implementation</p>
+</blockquote>
+
+
+<h2 class="relative group"><strong>2.1.3 Access Control</strong> 
+    <div id="213-access-control" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#213-access-control" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>类成员默认是 <code>private</code> 的，意味着 <code>name</code>、<code>ID</code> 和 <code>print</code> 函数不能在类外访问，所以不能直接写 <code>x.name</code> 来访问类成员</li>
+<li>简单来说，一个 Class 存在两种 Specifiers</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">访问权限</th>
+          <th style="text-align: left">含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>private</code>（私有）</td>
+          <td style="text-align: left">只能在类的内部访问</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>public</code>（公开）</td>
+          <td style="text-align: left">可以在类的外部访问</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>于是如果想要 <code>print</code> 能被访问到，就可以通过</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>把 <code>name</code> 和 <code>ID</code> 放在 <code>private:</code> 后面，表示它们是私有的</li>
+<li>把 <code>print()</code> 函数放在 <code>public:</code> 后面，表示它可以在类外访</li>
+</ul>
+
+
+<h2 class="relative group"><strong>2.1.4 Implementing functions in a class</strong> 
+    <div id="214-implementing-functions-in-a-class" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#214-implementing-functions-in-a-class" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Student</span><span class="o">::</span><span class="n">print</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Name: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ID: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ID</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li><code>Student::print()</code> 表示这是 <code>Student</code> 类的 <code>print</code> 方法（使用作用域解析符 <code>::</code>）</li>
+<li>实现在 <code>.cpp</code> 文件中，有助于代码组织（编译更快、调试更方便）</li>
+</ul>
+
+
+<h2 class="relative group"><strong>2.1.5 Creating instances of a class</strong> 
+    <div id="215-creating-instances-of-a-class" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#215-creating-instances-of-a-class" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Student</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;Cindy&#34;</span><span class="p">;</span> <span class="c1">// ❌ 错误：name 是 private 成员
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">x</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>
+</span></span></code></pre></div><ul>
+<li>类的成员默认是 <code>private</code>，不能直接在类外访问 <code>x.name</code></li>
+<li>虽然 <code>x.print()</code> 可以调用（因为 <code>print</code> 是 public），但输出是未初始化的内容</li>
+</ul>
+<blockquote>
+<p>虽然是 <code>private</code> ，但 <code>x</code> 中的 <code>name</code> 和 <code>ID</code> 会占据内存，但没赋初值，会是垃圾值（<code>?</code>）</p>
+</blockquote>
+<ul>
+<li>想要访问 <code>Private</code> 的值当然也有办法， Solution 1：把 <code>name</code> 和 <code>ID</code> 改为 public，这个并不推荐，破坏封装性</li>
+<li>于是就可以使用 Solution 2：使用 <code>setter</code> 和 <code>getter</code> 函数，更推荐，用函数来修改和访问私有数据</li>
+</ul>
+
+
+<h2 class="relative group"><strong>2.1.6 Getter and Setter Functions</strong> 
+    <div id="216-getter-and-setter-functions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#216-getter-and-setter-functions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>通过为 <code>name</code> 成员添加访问接口的方式实现，首先在 <code>Student.h</code> 中声明</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">setName</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">string</span> <span class="nf">getName</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>然后<code>Student.cpp</code> 中定义</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Student.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Student</span><span class="o">::</span><span class="n">print</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Name: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ID: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ID</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Student</span><span class="o">::</span><span class="n">setName</span><span class="p">(</span><span class="n">string</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="n">Student</span><span class="o">::</span><span class="n">getName</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>最后 main 中有</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Student</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&#34;Cindy&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span><span class="p">.</span><span class="n">print</span><span class="p">();</span>  <span class="c1">// ID 仍然未初始化
+</span></span></span></code></pre></div><ul>
+<li>输出即为</li>
+</ul>
+<pre tabindex="0"><code>Cindy
+Name: Cindy
+ID: -86764（未定义的随机值
+</code></pre><blockquote>
+<p>这里 ID 就单纯一个 Class 中的 data</p>
+</blockquote>
+<ul>
+<li><code>getName()</code> 返回的是 <strong>值（value）</strong>，不是引用</li>
+<li>所以不能写：<code>x.getName() = &quot;Bob&quot;;</code>，因为无法对返回值赋值</li>
+</ul>
+
+
+<h1 class="relative group">2.2 Constructors 
+    <div id="22-constructors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#22-constructors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>Constructors 是一种特殊的函数，它在创建 Class 的 Object 时自动被调用，用来初始化这个对象的成员</li>
+</ul>
+
+
+<h2 class="relative group">2.2.1 Default Constructor 
+    <div id="221-default-constructor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#221-default-constructor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>同样使用一个完整的代码</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Student.h
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">setName</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">string</span> <span class="nf">getName</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// Student.cpp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Student.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Student</span><span class="o">::</span><span class="n">print</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Name: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;ID: &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">ID</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">Student</span><span class="o">::</span><span class="n">setName</span><span class="p">(</span><span class="n">string</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">string</span> <span class="n">Student</span><span class="o">::</span><span class="n">getName</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// main.cpp
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;Student.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Student</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">x</span><span class="p">.</span><span class="n">setName</span><span class="p">(</span><span class="s">&#34;Cindy&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">x</span><span class="p">.</span><span class="n">print</span><span class="p">();</span> <span class="c1">// ID is not initialized
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>在打印时会有输出</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="nl">Name</span><span class="p">:</span> <span class="n">Cindy</span>
+</span></span><span class="line"><span class="cl"><span class="nl">ID</span><span class="p">:</span> <span class="mi">32767</span>  <span class="c1">// or -12345, or any random garbage value
+</span></span></span></code></pre></div><ul>
+<li>这是因为 So far 只赋值了了 <code>name</code>，没设置 <code>ID</code></li>
+<li>想要这个 <code>ID</code> 有值，也可以通过一个 <code>x.setID(12345);</code> 来赋值，但有比这个更加好的解决方案</li>
+<li>回到 <code>Student.h</code> 文件中</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">ID</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span><span class="p">();</span>  <span class="c1">// Constructor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kt">void</span> <span class="nf">print</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">setName</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">string</span> <span class="nf">getName</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><ul>
+<li>然后在 <code>Student.cpp</code> 中定义它：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Student</span><span class="o">::</span><span class="n">Student</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ID</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;no name&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>这段代码的意思是：每次创建 Student 对象时，自动把 <code>name</code> 设为 <code>&quot;no name&quot;</code>，<code>ID</code> 设为 <code>0</code></li>
+<li>这样的话，到了 <code>main</code> 函数中，通过 <code>Student x;</code>  和 <code>x.print();</code> 就可以得到</li>
+</ul>
+<pre tabindex="0"><code>Name: no name
+ID: 0
+</code></pre>
+
+<h2 class="relative group">2.2.2 Other Constructors 
+    <div id="222-other-constructors" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#222-other-constructors" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Default 的 Constructors 没有参数，所有值都必须写死（hardcoded）</li>
+<li>但有时候我们想在创建对象时就设置好名字和 ID —— 这时就需要 <strong>Parameterized constructors</strong></li>
+<li>回到 <code>student.h</code> ，在 Constructors 中添加参数</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">);</span>              <span class="c1">// 第一个构造函数，只传 id
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="n">string</span> <span class="n">n</span><span class="p">);</span>    <span class="c1">// 第二个构造函数，同时传 id 和 name
+</span></span></span></code></pre></div><ul>
+<li>对应的 CPP 就是</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Student</span><span class="o">::</span><span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ID</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s">&#34;no name&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Student</span><span class="o">::</span><span class="n">Student</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">,</span> <span class="n">string</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ID</span> <span class="o">=</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>如果只传一个 <code>int</code>，就只设置 ID，名字是 &ldquo;no name&rdquo;</li>
+<li>如果传一个 <code>int</code> 和一个 <code>string</code>，两个都设置</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="n">Student</span> <span class="n">x</span><span class="p">;</span>                   <span class="c1">// Default constructor is called
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Student</span> <span class="nf">y</span><span class="p">(</span><span class="mi">20207</span><span class="p">);</span>            <span class="c1">// 1st constructor is called
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Student</span> <span class="nf">z</span><span class="p">(</span><span class="mi">20207</span><span class="p">,</span> <span class="s">&#34;Osiris&#34;</span><span class="p">);</span>  <span class="c1">// 2nd constructor is called
+</span></span></span></code></pre></div><ul>
+<li>这样就会得到输出</li>
+</ul>
+<pre tabindex="0"><code>Student x:
+Name: no name
+ID: 0
+
+Student y:
+Name: no name
+ID: 20207
+
+Student z:
+Name: Osiris
+ID: 20207
+</code></pre><ul>
+<li>每种 Construct 都起了对应的初始化作用</li>
+</ul>
+
+
+<h2 class="relative group"><strong>2.2.3. How is it possible to have multiple constructors with the same name but different numbers of parameters?</strong> 
+    <div id="223how-is-it-possible-to-have-multiple-constructors-with-the-same-name-but-different-numbers-of-parameters" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#223how-is-it-possible-to-have-multiple-constructors-with-the-same-name-but-different-numbers-of-parameters" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>类似于 Function，只要 Parameter 个数，或者 Type 不一样，就可以定义多个版本</li>
+<li>如果<strong>一个构造函数都没写</strong>，编译器会自动生成一个默认构造函数（<code>Student::Student()</code>）</li>
+</ul>
+<blockquote>
+<p>默认的 Constructor 什么都干不了</p>
+</blockquote>
+<ul>
+<li>但<strong>只要手动写了任何构造函数</strong>，编译器就<strong>不会</strong>帮自动生成默认构造函数了</li>
+<li>所以如果用 <code>Student x;</code> 这样无参数的方式创建对象，必须写上 <code>Student();</code> 默认构造函数</li>
+</ul>
+
+
+<h1 class="relative group">2.3 Lifecycle of an Object 
+    <div id="23-lifecycle-of-an-object" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#23-lifecycle-of-an-object" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>有 Construct 的同时也存在 Destructor，用来在对象被销毁、释放内存时自动调用</li>
+<li>在离开 Scope，Implicitly Deleted 的时候自动调用，定义为 <code>~</code>  加 Class</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Student</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span><span class="p">();</span>        <span class="c1">// Constructor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="o">~</span><span class="n">Student</span><span class="p">();</span>       <span class="c1">// Destructor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//可以通过两个对 Constructor 和 Destructor 的定义来可视化 Lifecycle
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">Student</span><span class="o">::</span><span class="n">Student</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cont</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Constructor called&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">Studeng</span><span class="o">::~</span><span class="n">Student</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl">	<span class="n">cont</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Destructor called&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>然后跑一个含有 Scope 的 main 就可以得到</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Student</span> <span class="n">x</span><span class="p">;</span>  <span class="c1">// Define x, Constructor Called
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside main&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Student</span> <span class="n">y</span><span class="p">;</span>  <span class="c1">// Define y, another Constructor called
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Inside if&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>  <span class="c1">// Leaving y&#39;s scope, Destructor called
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Outside if&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// Whole game end, Destructor called
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><ul>
+<li>跑完这个 main，预期会得到输出</li>
+</ul>
+<pre tabindex="0"><code>Constructor called
+Inside main
+Constructor called
+Inside if
+Destructor called
+Outside if
+Destructor called
+</code></pre>
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2025 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

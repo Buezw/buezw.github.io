@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA 2. OPAMP | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1250px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:1313/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#differential-amplifier">Differential Amplifier</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#op-amps-properties">Op Amp’s Properties</a>
+      <ul>
+        <li><a href="#virtual-short">Virtual Short</a></li>
+        <li><a href="#ideal-op-amp">Ideal Op Amp</a></li>
+      </ul>
+    </li>
+    <li><a href="#effects-of-finite-open-loop-op-amp-gain-a">Effects of finite open-loop Op Amp gain (A)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#buffer">Buffer</a></li>
+    <li><a href="#inverting-amplifier">Inverting Amplifier</a>
+      <ul>
+        <li><a href="#inverting-amplifier-in-cascade">Inverting Amplifier in Cascade</a></li>
+      </ul>
+    </li>
+    <li><a href="#inverting-summer">Inverting summer</a></li>
+    <li><a href="#non-inverting-summer">Non-Inverting Summer</a></li>
+    <li><a href="#differential-amplifier-or-subtractor">Differential amplifier or subtractor</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#power-and-energy">Power and Energy</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#property-of-inductor">Property of Inductor</a></li>
+    <li><a href="#energy">Energy</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#inverting-integrator">Inverting Integrator</a></li>
+    <li><a href="#inverting-differentiator">Inverting Differentiator</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CA 2. OPAMP</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 22, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                808 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 1/22/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Amplifier transfer characteristics 
+    <div id="amplifier-transfer-characteristics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#amplifier-transfer-characteristics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image_hu2420036342384123286.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image_hu1158483708773899495.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image_hu2742288437485137689.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image_hu8601981890611016428.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image_hu1158483708773899495.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Differential Amplifier 
+    <div id="differential-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#differential-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image1_hu2504088714560227624.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image1_hu13312411690813704743.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image1_hu15137311847830828264.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image1_hu14775784976970748042.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image1_hu13312411690813704743.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Operational Amplifier 
+    <div id="operational-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#operational-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image2_hu1521023146655387358.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image2_hu6329139166849156796.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image2_hu14744121030495058050.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image2_hu16879382869322758465.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image2_hu6329139166849156796.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Operational Amplifier, has few main things to remember</p>
+
+
+<h2 class="relative group">Op Amp’s Properties 
+    <div id="op-amps-properties" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#op-amps-properties" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Virtual Short 
+    <div id="virtual-short" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#virtual-short" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The Open Loop Gain $A$, is a very Large Amplifier, that <strong>Ideally Infinite</strong>, this states that, based on the equation $V_{out}=A(V_p-V_n)$, the Positive and Negative Voltage has to be identical to make the output within the Operational Area</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image3_hu860919302543959036.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image3_hu12569902456833202324.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image3_hu8156786706912169714.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image3_hu14509313754205038451.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image3_hu12569902456833202324.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Thus Virtual Short States</li>
+</ul>
+<p>$$
+V_{p}=V_{n}
+$$</p>
+
+
+<h3 class="relative group">Ideal Op Amp 
+    <div id="ideal-op-amp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ideal-op-amp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>An Ideal Op Amp have following assumptions</p>
+<p>$$
+R_{in}=\infty,\quad R_{out}=0,\quad A=\infty
+$$</p>
+
+
+<h2 class="relative group">Effects of finite open-loop Op Amp gain (A) 
+    <div id="effects-of-finite-open-loop-op-amp-gain-a" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#effects-of-finite-open-loop-op-amp-gain-a" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If an Op Amp is no longer Idea, then what will happened is that</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image4_hu6500274741273451848.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image4_hu12096895368471004084.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image4_hu16669088614275602746.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image4_hu9490602988735975820.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image4_hu12096895368471004084.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Thus the Closed Loop Gain for Non-Ideal Op Amp is</p>
+<p>$$
+\frac{v_0}{v_s} = \frac{(R_1 + R_2) / R_2}{1 + \frac{(R_1 + R_2) / R_2}{A}}
+$$</p>
+
+
+<h1 class="relative group">Op amp analysis 
+    <div id="op-amp-analysis" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#op-amp-analysis" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Buffer 
+    <div id="buffer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#buffer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image5_hu14245764811658598683.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image5_hu1810439503093340608.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image5_hu10298360725309215084.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image5_hu8713809641076129505.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image5_hu1810439503093340608.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Buffer is the device to keep the Signal the same linking from two devices</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image6_hu16280654131499988119.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image6_hu13331156045005401152.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image6_hu105118962655293786.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image6_hu9459434121643374278.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image6_hu13331156045005401152.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>The circuit above is a Voltage Divider with no Buffer, the Output Voltage is</li>
+</ul>
+<p>$$
+V_o = \frac{R_L}{R_s + R_L} V_s
+$$</p>
+<ul>
+<li>As we want to make $V_o=V_s$, the Value of two Resistors really matters in such case</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image7_hu10940681714759715672.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image7_hu12702047816610129531.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image7_hu8209416915382892238.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image7_hu1332155187342803872.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image7_hu12702047816610129531.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>While if we put a Buffer in between, then</li>
+</ul>
+<p>$$
+V_x = V_{\text{sig}} \cdot \frac{\infty}{R_{\text{sig}} + \infty} = V_{\text{sig}}
+$$</p>
+<ul>
+<li>In such case, the input Signal remains the same</li>
+<li>While for the output part</li>
+</ul>
+<p>$$
+V_{\text{out}} = V_o \cdot \frac{R_L}{R_{\text{out}} + R_L} \approx V_o
+$$</p>
+<ul>
+<li>So that’s how A Buffer keeps the Voltage</li>
+</ul>
+
+
+<h2 class="relative group">Inverting Amplifier 
+    <div id="inverting-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverting-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image8_hu5669152820226771901.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image8_hu509299336190671731.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image8_hu3186195755974956081.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image8_hu8135484600267773227.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image8_hu509299336190671731.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Inverting Amplifier has the Closed Loop Gain of</p>
+<p>$$
+\frac{v_o}{v_i} = -\frac{R_2}{R_1}
+$$</p>
+
+
+<h3 class="relative group">Inverting Amplifier in Cascade 
+    <div id="inverting-amplifier-in-cascade" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverting-amplifier-in-cascade" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>If the input Voltage $v_i$ comes from another Circuit, the previous circuit’s Output Resistor and the Inverting Amplifier’s Resistor will form a Voltage Divider, having the effect</p>
+<p>$$
+V=\frac{R_1}{R_1+R_0}
+$$</p>
+<ul>
+<li>To make the input Voltage V as same as possible, we then need to make $R_1$ <strong>as large as possible</strong></li>
+<li>However, if we want to make an Amplifier, then the Closed Loop Gain is $R_2/R_1$, then $R_2$ has to be something even bigger, i.e. $100M\Omega$, this is kind of hard and will cause Distortion</li>
+<li>Thus it’s kind of hard for Inverting Amplifier to satisfied both at once</li>
+</ul>
+
+
+<h2 class="relative group">Inverting summer 
+    <div id="inverting-summer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverting-summer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image9_hu12251135784600991414.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image9_hu11762194190565146756.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image9_hu2357918540287619726.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image9_hu11733661286878974779.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image9_hu11762194190565146756.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+v_o = -\left( \frac{R_F}{R_1}v_1 + \frac{R_F}{R_2}v_2 \right)
+$$</p>
+
+
+<h2 class="relative group">Non-Inverting Summer 
+    <div id="non-inverting-summer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#non-inverting-summer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image10_hu10310954471288785759.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image10_hu2011211042520200944.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image10_hu12758641788736337483.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image10_hu3974068748577795880.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image10_hu2011211042520200944.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+V_o = \frac{R_A + R_B}{R_A} \cdot \frac{V_1 + V_2}{2}
+$$</p>
+
+
+<h2 class="relative group">Differential amplifier or subtractor 
+    <div id="differential-amplifier-or-subtractor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#differential-amplifier-or-subtractor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image11_hu7452946305413243600.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image11_hu16412452464755549360.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image11_hu751922050425118004.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image11_hu14437304055573032425.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image11_hu16412452464755549360.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+V_o = \left( \frac{1 + R_2/R_1}{1 + R_3/R_4} \right) \left( \frac{R_4}{R_3} \right) V_2 - \left( \frac{R_2}{R_1} \right) V_1
+$$</p>
+<ul>
+<li>To simplify into a subtractor, we will made $\frac{R_4}{R_3} = \frac{R_2}{R_1} = a$, thus</li>
+</ul>
+<p>$$
+V_o = a(V_2 - V_1)
+$$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/Note-20_hu6798816938521213791.jpg 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/Note-20_hu5188084254945595606.jpg 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/Note-20_hu14763762601275265923.jpg 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/Note-20_hu4435570274795520757.jpg 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/Note-20_hu5188084254945595606.jpg"
+        alt="Note-20.jpg"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/Note-21_hu14715229344865774821.jpg 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/Note-21_hu10919819003656452525.jpg 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/Note-21_hu10112949279295880705.jpg 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/Note-21_hu5051796222887991941.jpg 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/Note-21_hu10919819003656452525.jpg"
+        alt="Note-21.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Capacitor 
+    <div id="capacitor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#capacitor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image12_hu2155453219462256589.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image12_hu15226143634094699095.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image12_hu7504693293299457782.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image12_hu2875372277891231929.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image12_hu15226143634094699095.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Parallel-Plate Capacitor is the most common seen model, its Capacitance is determine by</p>
+<p>Capacitor have three important property in circuit</p>
+<ol>
+<li>Open-Circuit Under DC Conditions</li>
+<li>Dynamic Effect</li>
+<li>Voltage Must be continuous over time</li>
+</ol>
+<hr>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image13_hu8598875910796786082.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image13_hu3670526104872495057.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image13_hu2011330703506143242.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image13_hu9533930451614642705.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image13_hu3670526104872495057.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>Time Instant</strong></th>
+          <th style="text-align: left"><strong>Capacitor Voltage vC(t)</strong></th>
+          <th style="text-align: left"><strong>Resistor Voltage vR(t)</strong></th>
+          <th style="text-align: left"><strong>Key Observation</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>$0^-$</strong> (Pre-switching)</td>
+          <td style="text-align: left">$0\text{V}$</td>
+          <td style="text-align: left">$0\text{V}$</td>
+          <td style="text-align: left">Initial relaxed state.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>$0^+$</strong> (Post-switching)</td>
+          <td style="text-align: left">$0\text{V}$</td>
+          <td style="text-align: left">$V_s$</td>
+          <td style="text-align: left"><strong>Continuity:</strong> v_C cannot change instantaneously.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>$\infty$</strong> (Steady State)</td>
+          <td style="text-align: left">$V_s$</td>
+          <td style="text-align: left">$0$</td>
+          <td style="text-align: left">Capacitor acts as an open circuit.</td>
+      </tr>
+  </tbody>
+</table>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image14_hu111264301792999047.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image14_hu10025658769143322622.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image14_hu12994679114377881051.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image14_hu7666745389965965379.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image14_hu10025658769143322622.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Thus we can write it as a integral form</p>
+<p>$$
+v_C(t) = \frac{1}{C} \int_{-\infty}^{t} i(\tau) , d\tau = v_C(0) + \frac{1}{C} \int_{0}^{t} i(\tau) , d\tau
+$$</p>
+
+
+<h2 class="relative group">Power and Energy 
+    <div id="power-and-energy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#power-and-energy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+P_c(t) = v_c(t) \cdot i_c(t)= v_c(t) \cdot C \frac{dv_c(t)}{dt}= \frac{d}{dt} \left( \frac{1}{2} C v_c^2(t) \right)
+$$</p>
+<p>This is the power of Capacitor</p>
+<p>$$
+u_c(t) = \frac{1}{2} C v_c^2(t)
+$$</p>
+<p>Whereas the Energy it stores is the one inside derivative</p>
+<ul>
+<li>This indicates that Power is the derivative of energy by time t</li>
+</ul>
+<aside>
+❗
+<p>Capacitors and inductors have kind of duality, i.e. Capacitor voltage $\iff$ Inductor current</p>
+</aside>
+
+
+<h1 class="relative group">Inductor 
+    <div id="inductor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inductor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Inductor is actually a Solenoid with length L, the Inductance has been defined as</p>
+<p>$$
+L = \mu_0 n^2 \ell A
+$$</p>
+<p>When the current go through the Solenoid, it will then creates a Magnetic Field that induct the EMF</p>
+<p>$$
+v_L(t) = L \frac{di_L(t)}{dt}
+$$</p>
+
+
+<h2 class="relative group">Property of Inductor 
+    <div id="property-of-inductor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-of-inductor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>Is <strong>Short</strong> Circuit under DC</li>
+<li>Only have <strong>Voltage</strong> when C<strong>urrent</strong> is changing</li>
+<li>$i_L(t^-) = i_L(t^+)$</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image15_hu10973437885640561660.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image15_hu11864558338066529346.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image15_hu146707903507729437.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image15_hu7423618801885439415.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image15_hu11864558338066529346.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+i_L(t) = i_L(0) + \frac{1}{L} \int_{0}^{t} v_L(\tau) d\tau
+$$</p>
+
+
+<h2 class="relative group">Energy 
+    <div id="energy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#energy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+U_L(t) = \frac{1}{2} L i_L^2(t)
+$$</p>
+
+
+<h1 class="relative group">Series and Parallel Combinations 
+    <div id="series-and-parallel-combinations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#series-and-parallel-combinations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image16_hu9784133136481768637.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image16_hu17162370124817135082.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image16_hu14948162003502424456.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image16_hu16552658866309832179.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image16_hu17162370124817135082.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Dynamic Op Amp circuits 
+    <div id="dynamic-op-amp-circuits" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dynamic-op-amp-circuits" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Using Capacitor and Inductor, we can create Op Amp with more operations</p>
+
+
+<h2 class="relative group">Inverting Integrator 
+    <div id="inverting-integrator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverting-integrator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image17_hu9860700598778841851.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image17_hu18168388082300360240.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image17_hu200281710422074303.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image17_hu3302921338762365579.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image17_hu18168388082300360240.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>To Find the Closed Gian, start with the KCL at the $V_-$ Node, with virtual short, that is</p>
+<p>$$
+i_c=-i_s
+$$</p>
+<p>Also known from above that the current from a Capacitor is being defined as</p>
+<p>$$
+i_c=C \frac{dv_c(t)}{dt}
+$$</p>
+<p>Combine the two equations to get that</p>
+<p>$$
+-i_s=C \frac{dv_c(t)}{dt}= -\frac{v_s}{R}\Rightarrow \frac{dv_c(t)}{dt} = -\frac{1}{RC} v_s
+$$</p>
+<p>Integrate both side to get</p>
+<p>$$
+v_o(t) = -\frac{1}{RC} \int_{0}^{t} v_s(\tau) d\tau
+$$</p>
+
+
+<h2 class="relative group">Inverting Differentiator 
+    <div id="inverting-differentiator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverting-differentiator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image18_hu3606312039490600658.png 330w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image18_hu17155499631104225058.png 660w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image18_hu13007803257937270906.png 1024w,
+        /docs/uoft/26w/circuit-analysis/ca2.opamp/image18_hu5339840895719825895.png 2x"
+        src="/docs/uoft/26w/circuit-analysis/ca2.opamp/image18_hu17155499631104225058.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Similarly, do the KCL at Node $V_-$</p>
+<p>$$
+C \frac{dv_s(t)}{dt} = -\frac{v_o}{R}\Rightarrow v_o(t) = -RC \frac{dv_s(t)}{dt}
+$$</p>
+<p>Thus is a Differentiator</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

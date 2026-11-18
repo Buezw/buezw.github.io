@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced Engineering Mathematics on Buezwqwg</title>
+    <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/</link>
+    <description>Recent content in Advanced Engineering Mathematics on Buezwqwg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
+    <webMaster>youremail@example.com (Buezwqwg)</webMaster>
+    <copyright>© 2026 Buezwqwg</copyright>
+    <lastBuildDate>Mon, 23 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CA 7. FrequencyDomainAnalysis</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca7.frequencydomainanalysis/</link>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca7.frequencydomainanalysis/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/23/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Network function, Transfer function 
+    &lt;div id=&#34;network-function-transfer-function&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#network-function-transfer-function&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;Under Zero Initial Condition, the Network function is being defined as the ratio between input and output Laplace Transform&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 6. Laplace</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca6.laplace/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca6.laplace/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/18/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In the previous cases, we used transfer from Time Domain to Phasor Domains to analyze circuit with &lt;strong&gt;Sinusoidal Steady-State&lt;/strong&gt;, but we suggest this method is too limited. To use Laplace Transform, we are able to deal with more general ones&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 5. Transformer&amp;Power</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/</link>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 3/11/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Self Inductance 
+    &lt;div id=&#34;self-inductance&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#self-inductance&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;When the Coil has a current change, it will create a induced emf and induced current&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 4. PhasorAnalysis</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca4.-phasoranalysis/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca4.-phasoranalysis/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/22/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In a linear circuit, a sinusoidal input with frequency $\omega$ always produces sinusoidal steady-state outputs with the same frequency&lt;/p&gt;
+&lt;p&gt;Thus we can only analyze the Amplitude an Phase of elements, and the key of it is&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 3. RLCCircuit</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca3.rlccircuit/</link>
+      <pubDate>Mon, 09 Feb 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca3.rlccircuit/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 2/9/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Linear Ordinary Differential Equation, ODE 
+    &lt;div id=&#34;linear-ordinary-differential-equation-ode&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#linear-ordinary-differential-equation-ode&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;$$
+a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 x^{(1)} + a_0 x = g(t)
+$$&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 1. DC Circuit Analysis</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca1.dccircuitanalysis/</link>
+      <pubDate>Fri, 23 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca1.dccircuitanalysis/</guid>
+      <description>Linear circuit analysis techniques</description>
+      
+    </item>
+    
+    <item>
+      <title>CA 2. OPAMP</title>
+      <link>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/</link>
+      <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 1/22/26&lt;/p&gt;
+&lt;/blockquote&gt;
+
+
+&lt;h1 class=&#34;relative group&#34;&gt;Amplifier transfer characteristics 
+    &lt;div id=&#34;amplifier-transfer-characteristics&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#amplifier-transfer-characteristics&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h1&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu2420036342384123286.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu1158483708773899495.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu2742288437485137689.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu8601981890611016428.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/image_hu1158483708773899495.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

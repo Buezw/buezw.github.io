@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CA 5. Transformer&amp;Power | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-self-inductance-in-a-coil">The Self Inductance in a Coil</a></li>
+    <li><a href="#faradays-law">Faraday’s Law</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#energy">Energy</a></li>
+    <li><a href="#coupling-coefficient">Coupling Coefficient</a></li>
+    <li><a href="#total-voltage">Total Voltage</a>
+      <ul>
+        <li><a href="#sign-connection">Sign Connection</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-dot-convention">The Dot Convention</a>
+      <ul>
+        <li><a href="#addition">Addition</a></li>
+        <li><a href="#subtraction">Subtraction</a></li>
+        <li><a href="#ex-1-mutual-inductance">Ex 1. Mutual Inductance</a></li>
+        <li><a href="#ex-2-mutual-inductance">Ex 2. Mutual Inductance</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#recall-coupled-coils">Recall Coupled Coils</a></li>
+    <li><a href="#turn-ratio">Turn Ratio</a></li>
+    <li><a href="#dot-convention">Dot Convention</a></li>
+    <li><a href="#transformer-in-phasor-domain">Transformer in Phasor Domain</a></li>
+    <li><a href="#types-of-transformer">Types of Transformer</a></li>
+    <li><a href="#impedance-in-phasor-domain">Impedance in Phasor Domain</a>
+      <ul>
+        <li><a href="#ex1-finding-voltage-and-current-in-phasor-domain">Ex.1 Finding Voltage and Current in Phasor Domain</a></li>
+        <li><a href="#ex-2">Ex 2.</a></li>
+      </ul>
+    </li>
+    <li><a href="#circuit-transformers">Circuit Transformers</a></li>
+    <li><a href="#thevenin-equivalent-circuit-on-primary-side">Thevenin Equivalent Circuit on Primary Side</a></li>
+    <li><a href="#thevenin-equivalent-circuit-on-secondary-side">Thevenin Equivalent Circuit on Secondary Side</a></li>
+    <li><a href="#root-mean-square-value">Root-Mean-Square Value</a>
+      <ul>
+        <li><a href="#special-case-for-trig-functions">Special Case for Trig Functions</a></li>
+      </ul>
+    </li>
+    <li><a href="#transformer-design-example">Transformer Design Example</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#coupling-coefficient-in-phasor-domain">Coupling Coefficient in Phasor Domain</a>
+      <ul>
+        <li><a href="#ex-magnetically-coupled-circuits">Ex. Magnetically Coupled Circuits</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#instantaneous-power">Instantaneous Power</a></li>
+    <li><a href="#average-power">Average Power</a>
+      <ul>
+        <li><a href="#theta--0">Theta = 0</a></li>
+        <li><a href="#theta--45">Theta = 45</a></li>
+      </ul>
+    </li>
+    <li><a href="#average-power-vs-theta">Average Power vs. Theta</a></li>
+    <li><a href="#lagging-and-leading">Lagging and Leading</a>
+      <ul>
+        <li><a href="#ex-calculate-the-power-of-system">Ex. Calculate the Power of System</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#analogy-of-beer">Analogy of beer</a></li>
+    <li><a href="#complex-power-in-phasor-domain">Complex Power in Phasor Domain</a></li>
+    <li><a href="#the-power-triangle">The Power Triangle</a>
+      <ul>
+        <li><a href="#ex-calculating-the-power-triangle-for-the-system">Ex. Calculating the Power Triangle for the system</a></li>
+      </ul>
+    </li>
+    <li><a href="#conservation-of-complex-power-in-a-system">Conservation of Complex Power in a System</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#given-active-and-reactive-power">Given Active and Reactive Power</a></li>
+    <li><a href="#given-apparent-and-power-factor">Given Apparent and Power Factor</a></li>
+    <li><a href="#given-active-and-power-factor">Given Active and Power Factor</a></li>
+    <li><a href="#given-impedance-and-rms">Given Impedance and RMS</a></li>
+    <li><a href="#ex-source-voltage-and-complex-power">Ex. Source Voltage and Complex Power</a></li>
+    <li><a href="#power-factor-correction">Power Factor Correction</a>
+      <ul>
+        <li><a href="#ex-power-factor-correction">Ex. Power Factor Correction</a></li>
+        <li><a href="#ex-design-example-for-power-factor-correction">Ex. Design Example for Power Factor Correction</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CA 5. Transformer&amp;Power</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 11, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                2094 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/11/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Self Inductance 
+    <div id="self-inductance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#self-inductance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>When the Coil has a current change, it will create a induced emf and induced current</p>
+<p>due to current change in coil itself</p>
+<p>$$
+L = \frac{N\Phi}{i} \quad \text{or} \quad N\Phi = Li
+$$</p>
+
+
+<h2 class="relative group">The Self Inductance in a Coil 
+    <div id="the-self-inductance-in-a-coil" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-self-inductance-in-a-coil" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In a coil with length $l$, Cross-Sectional Area $A$ and $N$ turns, its Magnetic Flux will be</p>
+<p>$$
+\Phi = B \cdot A = \mu_0 \frac{N}{l}iA
+$$</p>
+<p>Which sub in L will get</p>
+<p>$$
+L = \frac{N}{i} \left( \mu_0 \frac{N}{l} i A \right) = \frac{\mu_0 N^2 A}{l}
+$$</p>
+
+
+<h2 class="relative group">Faraday’s Law 
+    <div id="faradays-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#faradays-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Faraday’s Law states once there’s a Change in Magnetic Flux, a Induced voltage will be created in inductor against that change</p>
+<p>$$
+v(t) = \frac{d(N\Phi)}{dt}
+$$</p>
+<p>Also sub in $N\Phi = Li$ to get</p>
+<p>$$
+v(t) = \frac{d(Li)}{dt} = L\frac{di}{dt}
+$$</p>
+
+
+<h1 class="relative group">Mutual Inductance 
+    <div id="mutual-inductance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mutual-inductance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>On top of Faraday’s Law, if two Coil is very close</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image_hu5673747026507480426.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image_hu5267532905143847354.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image_hu13780159010384757620.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image_hu5330907422249977838.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image_hu5267532905143847354.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>When there’s current change in one Inductor, it will cause the Magnetic Flux to change, in which make the second coil has a current change, that is</p>
+<p>$$
+v_{21} = N_2 \frac{d\phi_{21}}{dt} = M_{21} \frac{di_1}{dt}
+$$</p>
+<p>$v_{21}$: Means that this voltage is occur on <strong>Coil 2</strong> due to <strong>Coil 1</strong></p>
+<p>$N_2 \frac{d\phi_{21}}{dt}$: Faraday’s Law</p>
+<p>$M_{21}$: Mutual Inductance Coefficient</p>
+<hr>
+<p>So basically what happened is that</p>
+<ol>
+<li>There’s a current change in Coil 1, $\frac{di_1}{dt}$</li>
+<li>The current change cause the Magnetic Field in coil 1 changed, that influence the Magnetic Flux in coil 2 which is near coil 1</li>
+<li>Thus based on Faraday’s Law, there will be a Induced Voltage in Coil 2 due to Coil 1’s current change, and that’s $v_{21}$</li>
+</ol>
+<hr>
+<p>If Magnetic Medium in the coil is linear, then</p>
+<p>$$
+M_{21}=M_{12}=M
+$$</p>
+
+
+<h2 class="relative group">Energy 
+    <div id="energy" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#energy" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The two Inductor forms a system with total energy of $W(t)$, and as energy can’t be negative, that gives us</p>
+<p>$$
+M \le \sqrt{L_1 L_2}
+$$</p>
+
+
+<h2 class="relative group">Coupling Coefficient 
+    <div id="coupling-coefficient" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#coupling-coefficient" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Coupling Coefficient is from $[0,1]$ which measures how close was two coils</p>
+<p>$$
+k = \frac{M}{\sqrt{L_1 L_2}}
+$$</p>
+<blockquote>
+<p>Perfect Couling is when $k=1$</p>
+</blockquote>
+
+
+<h2 class="relative group">Total Voltage 
+    <div id="total-voltage" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#total-voltage" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When there’s two inductors that are close, the voltage on the first inductor doesn’t simply depends on itself, but in the equation</p>
+<p>$$
+v_1(t) = L_1 \frac{di_1}{dt} \pm M \frac{di_2}{dt}
+$$</p>
+
+
+<h3 class="relative group">Sign Connection 
+    <div id="sign-connection" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#sign-connection" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>When the Magnetic Flux from Coil 1 and Coil 2 are in the same direction, then use addition, otherwise apply the subtraction</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image1_hu15867782623035794103.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image1_hu2577033359151320539.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image1_hu9437273630511666625.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image1_hu5185555120765100439.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image1_hu2577033359151320539.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Seen in this image, two Magnetic Flux are having the same direction (CW), thus is an additive</p>
+
+
+<h2 class="relative group">The Dot Convention 
+    <div id="the-dot-convention" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-dot-convention" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>By drawing the coils, it makes the problem too hard, so we can simplify using Dot Convention</p>
+
+
+<h3 class="relative group">Addition 
+    <div id="addition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#addition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image2_hu9390433616544316261.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image2_hu10564985328645375838.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image2_hu8151846654740976390.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image2_hu8746034761091834430.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image2_hu10564985328645375838.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>When dots are on the same Node</p>
+
+
+<h3 class="relative group">Subtraction 
+    <div id="subtraction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#subtraction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image3_hu17631639688502660507.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image3_hu6900279090014832630.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image3_hu4990487903199287664.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image3_hu8517641283565636392.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image3_hu6900279090014832630.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex 1. Mutual Inductance 
+    <div id="ex-1-mutual-inductance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-1-mutual-inductance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/e6dfcb0a-600e-4854-aee8-bcf0c39f838d_hu14267090108664695816.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/e6dfcb0a-600e-4854-aee8-bcf0c39f838d_hu3392145147995874867.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/e6dfcb0a-600e-4854-aee8-bcf0c39f838d_hu1235009108331834305.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/e6dfcb0a-600e-4854-aee8-bcf0c39f838d_hu6272491321173317749.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/e6dfcb0a-600e-4854-aee8-bcf0c39f838d_hu3392145147995874867.png"
+        alt="ECE212 Final Review -30.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex 2. Mutual Inductance 
+    <div id="ex-2-mutual-inductance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-2-mutual-inductance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-31_hu3056612783936141948.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-31_hu10363463386790156227.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-31_hu10182777960649860359.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-31_hu3216993024481899631.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-31_hu10363463386790156227.jpg"
+        alt="ECE212 Final Review -31.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Ideal Transformer 
+    <div id="ideal-transformer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ideal-transformer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>In ideal Transformer, we assume perfect coupling, making $k=1$, also $\Phi_1 = \Phi_2 = \Phi$, and there’s no heat loss</p>
+
+
+<h2 class="relative group">Recall Coupled Coils 
+    <div id="recall-coupled-coils" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#recall-coupled-coils" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Coupled Coils has the property that</p>
+<p>$$
+\Phi_1 = \Phi_{11} + \Phi_{12}
+$$</p>
+<p>The main function for Transformer is</p>
+<ol>
+<li>Isolation: There’s no connection between primary and secondary winding</li>
+<li>Replication: The signal can be transform from one side to the other</li>
+<li>Scaling: Resize the magnitude of Voltage or Current</li>
+</ol>
+
+
+<h2 class="relative group">Turn Ratio 
+    <div id="turn-ratio" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#turn-ratio" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+n = \frac{N_2}{N_1}
+$$</p>
+<p>The ratio of Turns, this decided Transformer is raising of decreasing voltage</p>
+
+
+<h2 class="relative group">Dot Convention 
+    <div id="dot-convention" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dot-convention" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Voltage Ratio</p>
+<p>$$
+\frac{v_2(t)}{v_1(t)} = \pm n
+$$</p>
+<p>Current Ratio</p>
+<p>$$
+\frac{i_2(t)}{i_1(t)} = \mp \frac{1}{n}
+$$</p>
+
+
+<h2 class="relative group">Transformer in Phasor Domain 
+    <div id="transformer-in-phasor-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#transformer-in-phasor-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In Phasor Domain the Turn Ratio has the same equation</p>
+<p>$$
+\frac{\bar{V}_2}{\bar{V}_1} = \pm n,\quad \frac{\bar{I}_2}{\bar{I}_1} = \mp \frac{1}{n}
+$$</p>
+
+
+<h2 class="relative group">Types of Transformer 
+    <div id="types-of-transformer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#types-of-transformer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Based on the Turn Ratio, we can get three kinds of Transformer</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Type</th>
+          <th style="text-align: left">Turn Ratio</th>
+          <th style="text-align: left">Physical Behavior</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Isolation</td>
+          <td style="text-align: left">n = 1</td>
+          <td style="text-align: left">i and V stay the same</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Step-up</td>
+          <td style="text-align: left">n &gt; 1</td>
+          <td style="text-align: left">$V \uparrow$, $I \downarrow$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Step-down</td>
+          <td style="text-align: left">n &lt; 1</td>
+          <td style="text-align: left">$V \downarrow$, $I \uparrow$</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">Impedance in Phasor Domain 
+    <div id="impedance-in-phasor-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#impedance-in-phasor-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image4_hu16977088404816231342.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image4_hu10317889044110259225.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image4_hu3543728616651968787.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image4_hu11207154839744849418.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image4_hu10317889044110259225.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Based on the Secondary, $Z_L = \frac{\bar{V}_2}{\bar{I}_L}$, also we known that $\bar{V}_2 = n \bar{V}_1$ and $\bar{I}_L = \frac{\bar{I}_1}{n}$, thus</p>
+<p>$$
+Z_L = \frac{n \bar{V}_1}{\bar{I}_1 / n} = n^2 \frac{\bar{V}_1}{\bar{I}<em>1}=n^2 Z</em>{IN}
+$$</p>
+
+
+<h3 class="relative group">Ex.1 Finding Voltage and Current in Phasor Domain 
+    <div id="ex1-finding-voltage-and-current-in-phasor-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex1-finding-voltage-and-current-in-phasor-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<h3 class="relative group">Ex 2. 
+    <div id="ex-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-33_hu2685059427774455651.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-33_hu8631200898938051818.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-33_hu16707154098970016467.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-33_hu9404080952695523732.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-33_hu8631200898938051818.jpg"
+        alt="ECE212 Final Review -33.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Circuit Transformers 
+    <div id="circuit-transformers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#circuit-transformers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Transformer is the real element we used for resizing the voltage, whereas circuit transformer is the way we used to use a circuit to simulate the behavior of Transformer, and this is done by using Thevenin Equivalent Circuit</p>
+<p>In the Circuit Transformer, we divided the circuit into left and right which are primary and secondary half, then we can either do Thevenin on the left side or the right side</p>
+
+
+<h2 class="relative group">Thevenin Equivalent Circuit on Primary Side 
+    <div id="thevenin-equivalent-circuit-on-primary-side" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#thevenin-equivalent-circuit-on-primary-side" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image5_hu11230018817520916463.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image5_hu12075920812538783191.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image5_hu3869061424484542421.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image5_hu14151484227263256179.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image5_hu12075920812538783191.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Thevenin Equivalent Circuit on Secondary Side 
+    <div id="thevenin-equivalent-circuit-on-secondary-side" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#thevenin-equivalent-circuit-on-secondary-side" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The same can be applied on the Secondary Side, having</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image6_hu11109685269508889690.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image6_hu12523396801850651539.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image6_hu1002376898154080712.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image6_hu9138525865910126827.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image6_hu12523396801850651539.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Root-Mean-Square Value 
+    <div id="root-mean-square-value" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#root-mean-square-value" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>RMS is the value used to evaluate the <strong>Average Power</strong> of the Signal</p>
+<ul>
+<li>As for the Instant Power, it’s $p(t) = v(t)i(t) = Ri^2(t) = \frac{v^2(t)}{R}$</li>
+</ul>
+<p>Then we can use the Average Formula to find the RSM value</p>
+<p>$$
+P_{ave} = \frac{1}{T} \int_{0}^{T} p(t) dt=R( \frac{1}{T} \int_{0}^{T} i^2(t) dt)=\frac1R( \frac{1}{T} \int_{0}^{T} v^2(t) dt)
+$$</p>
+<p>$$
+\Rightarrow P_{ave} = R \cdot I_{rms}^2=\frac{V_{rms}^2}{R} =V_{rms} \cdot I_{rms}
+$$</p>
+
+
+<h3 class="relative group">Special Case for Trig Functions 
+    <div id="special-case-for-trig-functions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#special-case-for-trig-functions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>For those commonly seen Trig Functions, it’s RSM Value can be simplified to</p>
+<p>$$
+V_{rms} = \frac{V_A}{\sqrt{2}}
+$$</p>
+
+
+<h2 class="relative group">Transformer Design Example 
+    <div id="transformer-design-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#transformer-design-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Known the Voltage Source is $13.8kV$ and Wire is $R_{line}=5\Omega$, whereas the Secondary Requirement is $V_2= 240V$, with maximum current $I_L=200A$</p>
+<hr>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-34_hu8593288151335934919.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-34_hu3096952441338452040.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-34_hu14515153410027274055.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-34_hu7627782963636144814.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-34_hu3096952441338452040.jpg"
+        alt="ECE212 Final Review -34.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Linear Transformers in Phasor Domain 
+    <div id="linear-transformers-in-phasor-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#linear-transformers-in-phasor-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Starting with the Voltage in Time domain, we have the equation</p>
+<p>$$
+v_1(t) = L_1 \frac{di_1(t)}{dt} \pm M \frac{di_2(t)}{dt}
+$$</p>
+<p>eThe first term is <strong>Self-Induction</strong> and Second term is <strong>Mutual Induction</strong></p>
+<p>Notice this is a <strong>Differential Equation,</strong> we wish to <strong>transform this into phasor domain</strong> to simplify the question, thus we will have</p>
+<p>$$
+\overline{V}_1 = j\omega L_1 \overline{I}_1 \pm j\omega M \overline{I}_2,\quad \overline{V}_2 = j\omega L_2 \overline{I}_2 \pm j\omega M \overline{I}_1
+$$</p>
+<p>Now setting the Reactance to let $X_1 = \omega L_1$, $X_2 = \omega L_2$, and $X_M = \omega M$, we will then get</p>
+<p>$$
+\bar{V}_1 = jX_1 \bar{I}_1 \pm jX_M \bar{I}_2,\quad \bar{V}_2 = jX_2 \bar{I}_2 \pm jX_M \bar{I}_1
+$$</p>
+
+
+<h2 class="relative group">Coupling Coefficient in Phasor Domain 
+    <div id="coupling-coefficient-in-phasor-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#coupling-coefficient-in-phasor-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+k = \frac{M}{\sqrt{L_1 L_2}} = \frac{X_M}{\sqrt{X_1 X_2}}
+$$</p>
+
+
+<h3 class="relative group">Ex. Magnetically Coupled Circuits 
+    <div id="ex-magnetically-coupled-circuits" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-magnetically-coupled-circuits" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-35_hu9468771227120388919.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-35_hu11938957552783330984.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-35_hu5765115006450257995.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-35_hu15047638966810215597.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-35_hu11938957552783330984.jpg"
+        alt="ECE212 Final Review -35.jpg"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/9f5cbe2e-83c1-4c93-8095-a774847cf220_hu16034273850913180409.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/9f5cbe2e-83c1-4c93-8095-a774847cf220_hu386468699107736929.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/9f5cbe2e-83c1-4c93-8095-a774847cf220_hu358283849950333825.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/9f5cbe2e-83c1-4c93-8095-a774847cf220_hu4020973754593463327.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/9f5cbe2e-83c1-4c93-8095-a774847cf220_hu386468699107736929.png"
+        alt="ECE212 Final Review -36.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Instantaneous and Average power 
+    <div id="instantaneous-and-average-power" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#instantaneous-and-average-power" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Giving a reference current with $i(t) = I_A \cos \omega t$, analyze the behavior of other elements’ ins and avg power</p>
+<p><strong>Impedance</strong> <strong>has two parts $Z=R+jX$</strong></p>
+<ul>
+<li>$R$: <strong>Resistance</strong> (Real), the <strong>part really consuming energy</strong>
+<ul>
+<li>Has the <strong>same phase</strong> for Current and Voltage</li>
+</ul>
+</li>
+<li>$X$: <strong>Reactance</strong> (Imaginary), caused by the Electronic Field or Magnetic Field,
+<ul>
+<li>Has a <strong>Phase difference</strong> as over a period, the average of it will be induced back</li>
+</ul>
+</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>Load</strong></th>
+          <th style="text-align: left">Instantaneous Power</th>
+          <th style="text-align: left">Average power</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">Resistor</td>
+          <td style="text-align: left">$\frac{V_A I_A}{2} [1 + \cos 2\omega t]$</td>
+          <td style="text-align: left">$\frac{V_A I_A}{2} = V_{rms} I_{rms} = R I_{rms}^2$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Inductance</td>
+          <td style="text-align: left">$-\frac{\omega L I_A^2}{2} \sin 2\omega t$a</td>
+          <td style="text-align: left">0</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Capacitor</td>
+          <td style="text-align: left">$-\frac{\omega C V_A^2}{2} \sin 2\omega t$</td>
+          <td style="text-align: left">0</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>Average Power of Inductance and Capacitor over <strong>a period will be zero out,</strong> the Average Power is then zero</li>
+<li>Where as the Instantaneous Power <strong>will have a phase difference of 90</strong></li>
+</ul>
+
+
+<h1 class="relative group">AC Power System 
+    <div id="ac-power-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ac-power-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image7_hu9643765595903358146.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image7_hu5912091533651749827.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image7_hu6843482062994902975.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image7_hu14664420752005454886.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image7_hu5912091533651749827.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Having a System of Sinusoidal Source $i(t) = I_A \cos(\omega t)$ and $v(t) = V_A \cos(\omega t + \theta)$, we are going to calculate its Ins and Average Power</p>
+
+
+<h2 class="relative group">Instantaneous Power 
+    <div id="instantaneous-power" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#instantaneous-power" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Start with the equation $p(t) = v(t) \cdot i(t)$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image8_hu8357857001254129827.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image8_hu16658176926337851993.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image8_hu14359465049016600952.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image8_hu13468890674943753105.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image8_hu16658176926337851993.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>We can define two Power, Active and Reactive Power</p>
+<ul>
+<li><strong>Active Power</strong>: <strong>$P = \frac{V_A I_A}{2} \cos \theta$</strong> , the power being consumed</li>
+<li><strong>Reactive Power</strong>: <strong>$Q = \frac{V_A I_A}{2} \sin \theta$</strong> , the power transferring in Electro Field and Magnetic Field</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image9_hu17349723022197915462.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image9_hu6193606953620661869.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image9_hu10013519484543558601.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image9_hu11131150475211454958.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image9_hu6193606953620661869.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>As indicated, the Blue one will be wasted, while orange one has the average of zero</p>
+
+
+<h2 class="relative group">Average Power 
+    <div id="average-power" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#average-power" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The average is given by the Integral divided by Period, thus is</p>
+<p>$$
+P_{ave} = \frac{1}{T} \int_{0}^{T} p(t)dt = \frac{V_A I_A}{2} \cos \theta
+$$</p>
+<aside>
+❗
+<p><strong>Notice Average Power is just Active Power</strong></p>
+</aside>
+<p>Here we can use the concept of <strong>RMS</strong>, and the fact that <strong>$V_{rms} = \frac{V_A}{\sqrt{2}}$ and $I_{rms} = \frac{I_A}{\sqrt{2}}$</strong> to get</p>
+<p>$$
+P_{ave} = V_{rms} I_{rms} \cos \theta
+$$</p>
+<p>In this equation, the <strong>term $\theta$ is the only one deterring the number of Actual Work</strong>, analyze it in different values</p>
+
+
+<h3 class="relative group">Theta = 0 
+    <div id="theta--0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#theta--0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image10_hu11025035833779404403.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image10_hu8277833527153371211.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image10_hu7769402982807426668.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image10_hu9292482902098746735.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image10_hu8277833527153371211.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>In this case, the Power is always on the top of t axis that makes the magnitude of Average Power to maximum</p>
+
+
+<h3 class="relative group">Theta = 45 
+    <div id="theta--45" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#theta--45" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image11_hu13560440768596640428.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image11_hu2970111568093473900.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image11_hu12911025512162771330.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image11_hu3025099009319600070.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image11_hu2970111568093473900.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Part of the Power will be moved blow t axis, that means the power is return from the load to the source</p>
+
+
+<h2 class="relative group">Average Power vs. Theta 
+    <div id="average-power-vs-theta" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#average-power-vs-theta" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image12_hu3844787556194672083.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image12_hu8745852336261041720.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image12_hu4004163694248294820.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image12_hu14160812203894628001.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image12_hu8745852336261041720.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>This is the graph of $cos\theta$ in the range from $[-\frac\pi2,\frac\pi2]$</p>
+
+
+<h2 class="relative group">Lagging and Leading 
+    <div id="lagging-and-leading" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#lagging-and-leading" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$\theta$ basically tells if the system  has a lagging or leading in signal</p>
+<ul>
+<li>$\theta&gt;0$: Voltage Phasor is larger than Current Phasor</li>
+<li>$\theta &lt;0$: Current Phasor is large than Current Phasor</li>
+</ul>
+
+
+<h3 class="relative group">Ex. Calculate the Power of System 
+    <div id="ex-calculate-the-power-of-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-calculate-the-power-of-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-38_hu2107144943791916611.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-38_hu17090084828390558772.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-38_hu862047970319371542.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-38_hu15243011378152783233.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-38_hu17090084828390558772.jpg"
+        alt="ECE212 Final Review -38.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Complex Power 
+    <div id="complex-power" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-power" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Here we are going to summarize thing above, starting with the formula of Instantaneous Power</p>
+<p>$$
+p(t) = V_{rms}I_{rms}\cos\theta [1 + \cos 2\omega t] - V_{rms}I_{rms}\sin\theta [\sin 2\omega t]
+$$</p>
+<p>We now define the Complex Power as $\overline S=P+jQ$, whereas</p>
+<ul>
+<li>$P$ is the Real Power, and the Average Power</li>
+<li>$Q$ is the Reactive Power</li>
+<li>Their magnitude $|\bar{S}| = \sqrt{P^2 + Q^2} = V_{rms} I_{rms}$, is the Apparent Power, that’s the capacity of power device have to have to make everything run</li>
+<li>$pf=\cos \theta$ is the Power Factor that determine the phase</li>
+</ul>
+
+
+<h2 class="relative group">Analogy of beer 
+    <div id="analogy-of-beer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#analogy-of-beer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A good analogy for this Complex Power would be the beer</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image13_hu11015993383769647045.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image13_hu10608203034673879471.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image13_hu15322980636319040413.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image13_hu14127263477322056484.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image13_hu10608203034673879471.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>The Foam is the Reactive one and Real Beer is the Real (Active) one, whereas the size of the cup has to be S to hold both the fuzz and beer</p>
+
+
+<h2 class="relative group">Complex Power in Phasor Domain 
+    <div id="complex-power-in-phasor-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#complex-power-in-phasor-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Now we can analysis the Instantaneous Power $p(t) = V_{rms}I_{rms}\cos\theta [1 + \cos 2\omega t] - V_{rms}I_{rms}\sin\theta [\sin 2\omega t]$  in Phasor Domain, as defined, the Complex Power is $\overline S=P+jQ$</p>
+<p>$$
+\Rightarrow \bar{S} = V_{rms} I_{rms} e^{j\theta} = V_{rms} I_{rms} \angle \theta= V_{rms} I_{rms} \angle (\phi_v - \phi_I)
+$$</p>
+<p>$$
+\Rightarrow \overline S=V_{rms} \angle \phi_v \cdot I_{rms} \angle -\phi_I
+$$</p>
+<p>Known that $I_{rms} \angle -\phi_I = I^*_{rms}$, thus we get the final formula is</p>
+<p>$$
+\bar{S} = \bar{V}<em>{rms} \cdot \bar{I}</em>{rms}^*
+$$</p>
+
+
+<h2 class="relative group">The Power Triangle 
+    <div id="the-power-triangle" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-power-triangle" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image14_hu26927391555147544.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image14_hu11199286877386951599.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image14_hu666554140709181050.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image14_hu17254247347643591566.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image14_hu11199286877386951599.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>We can use a triangle on the complex plane to represent this Complex Power</p>
+
+
+<h3 class="relative group">Ex. Calculating the Power Triangle for the system 
+    <div id="ex-calculating-the-power-triangle-for-the-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-calculating-the-power-triangle-for-the-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-39_hu10163033808972016211.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-39_hu6249318747179680995.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-39_hu4581805347002298190.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-39_hu8289286876229050789.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-39_hu6249318747179680995.jpg"
+        alt="ECE212 Final Review -39.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Conservation of Complex Power in a System 
+    <div id="conservation-of-complex-power-in-a-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conservation-of-complex-power-in-a-system" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-40_hu9124248515450977583.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-40_hu7088437704250969513.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-40_hu7010495685685355372.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-40_hu2100636146563745719.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-40_hu7088437704250969513.jpg"
+        alt="ECE212 Final Review -40.jpg"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-41_hu2642004693459260032.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-41_hu13075915830705060897.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-41_hu15048349813413992647.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-41_hu592287299910141943.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-41_hu13075915830705060897.jpg"
+        alt="ECE212 Final Review -41.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Power Flow 
+    <div id="power-flow" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#power-flow" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall the ways we express the Power Flow, to begin with, we have four Powers</p>
+<ol>
+<li>P: Active Power</li>
+<li>Q: Reactive Power</li>
+<li>$S_L$: Complex Power</li>
+<li>$|S_L|$: Apparent Power</li>
+<li>$\cos \theta$: Power Factor</li>
+</ol>
+
+
+<h2 class="relative group">Given Active and Reactive Power 
+    <div id="given-active-and-reactive-power" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#given-active-and-reactive-power" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\bar{S}_L = P_L + jQ_L
+$$</p>
+
+
+<h2 class="relative group">Given Apparent and Power Factor 
+    <div id="given-apparent-and-power-factor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#given-apparent-and-power-factor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\bar{S}_L = P \pm jQ
+$$</p>
+
+
+<h2 class="relative group">Given Active and Power Factor 
+    <div id="given-active-and-power-factor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#given-active-and-power-factor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Use Active Power to find the Apparent Power $|\bar{S}_L| = \frac{P_L}{pf}$, then find the Reactive Power $|\bar{S}_L| = \frac{P_L}{pf}$</p>
+
+
+<h2 class="relative group">Given Impedance and RMS 
+    <div id="given-impedance-and-rms" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#given-impedance-and-rms" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>$$
+\bar{S}<em>L = Z_L \cdot I</em>{rms}^2 = \frac{V_{rms}^2}{Z_L^*}
+$$</p>
+
+
+<h2 class="relative group">Ex. Source Voltage and Complex Power 
+    <div id="ex-source-voltage-and-complex-power" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-source-voltage-and-complex-power" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-42_hu3294269962820472998.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-42_hu11895182205755046163.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-42_hu12394047855522198132.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-42_hu13355521387636152114.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-42_hu11895182205755046163.jpg"
+        alt="ECE212 Final Review -42.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Power Factor Correction 
+    <div id="power-factor-correction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#power-factor-correction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>For most of time, the low Power Factor is not good, as the Real Power will be reduced, in order to transfer the same Real Power, it will need to transfer a larger transparent Power</p>
+<p>On top of that, a larger current will increase the lose in the power line, thus we need to find a way to resize the Power Factor</p>
+<hr>
+<p><strong>Power factor correction</strong>: design feature that increases the pf without changing the real power</p>
+<p>And the method we will apply is to parallel a Capacitor beside the Load Impedance</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image15_hu4979888785985244935.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image15_hu16874754763415971675.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image15_hu18350383267842694376.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image15_hu2068885864745869640.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/image15_hu16874754763415971675.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>The Impedance for Load is $Z_L = R + jX_L$, and its Complex Power formula is</p>
+<p>$$
+\bar{S}_L = P + jQ_L = R|\bar{I}_L|^2 + j\omega L \frac{|\bar{V}_L|^2}{|Z_L|^2}
+$$</p>
+<p>And for Capacitor, its Impedance is $X_C = -\frac{1}{\omega C}$, and its Complex Power Formula is</p>
+<p>$$
+\bar{S}_C = -j\omega C |\bar{V}_L|^2
+$$</p>
+<p>By adding them up, we will get</p>
+<p>$$
+\bar{S} = \bar{S}_L + \bar{S}_C = \underbrace{R|\bar{I}<em>L|^2}</em>{P} + \underbrace{j\omega \left( \frac{L}{|Z_L|^2} - C \right) |\bar{V}<em>L|^2}</em>{Q}
+$$</p>
+<p>Now, we would like to eliminate the $Q$ term to make the Charge Wire leave entirely to the Real Power, that’s the case when we need $C$ to be $C = \frac{L}{|Z_L|^2}$</p>
+<p>Now we have complete the Power Factor Correction</p>
+<ul>
+<li>without influencing the Power of Real Power</li>
+<li>Using Capacitor to eliminate the Reactive Power in Capacitor</li>
+<li>Make the Impedance into Resister</li>
+</ul>
+
+
+<h3 class="relative group">Ex. Power Factor Correction 
+    <div id="ex-power-factor-correction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-power-factor-correction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/42a25868-69a7-497e-9a59-aa72daf617c9_hu11646118922419139376.png 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/42a25868-69a7-497e-9a59-aa72daf617c9_hu4143187726821591888.png 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/42a25868-69a7-497e-9a59-aa72daf617c9_hu13450339910668476062.png 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/42a25868-69a7-497e-9a59-aa72daf617c9_hu15572400010752163536.png 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/42a25868-69a7-497e-9a59-aa72daf617c9_hu4143187726821591888.png"
+        alt="ECE212 Final Review -43.jpg"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ex. Design Example for Power Factor Correction 
+    <div id="ex-design-example-for-power-factor-correction" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-design-example-for-power-factor-correction" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-44_hu16925398299012846046.jpg 330w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-44_hu8719745505122007349.jpg 660w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-44_hu17229735352662359749.jpg 1024w,
+        /docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-44_hu8950803758419601700.jpg 2x"
+        src="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/ECE212_Final_Review_-44_hu8719745505122007349.jpg"
+        alt="ECE212 Final Review -44.jpg"
+      />
+      
+    </figure>
+</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

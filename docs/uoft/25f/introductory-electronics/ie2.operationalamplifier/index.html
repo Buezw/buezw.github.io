@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE 2. Operational Amplifiers | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#21-the-ideal-op-amp">2.1 The Ideal Op Amp</a>
+      <ul>
+        <li><a href="#211-the-op-amp-terminal">2.1.1 The Op-Amp Terminal</a></li>
+        <li><a href="#ideal-vs-discrete">Ideal v.s. Discrete</a></li>
+      </ul>
+    </li>
+    <li><a href="#22-the-inverting-configuration">2.2 The Inverting Configuration</a>
+      <ul>
+        <li><a href="#virtual-short">Virtual Short</a></li>
+        <li><a href="#op-amp-configuration">Op AMP Configuration</a></li>
+        <li><a href="#1-non-inverting-op-amp同相放大器">1. <strong>Non-inverting Op Amp（同相放大器）</strong></a></li>
+        <li><a href="#2-inverting-op-amp反相放大器">2. <strong>Inverting Op Amp（反相放大器）</strong></a></li>
+        <li><a href="#3-unit-gain-buffer电压跟随器">3. <strong>Unit-gain Buffer（电压跟随器）</strong></a>
+          <ul>
+            <li><a href="#buffer">Buffer</a></li>
+          </ul>
+        </li>
+        <li><a href="#review-of-impedance">Review of Impedance</a>
+          <ul>
+            <li><a href="#resistor-电阻">Resistor 电阻</a></li>
+            <li><a href="#impedance-阻抗">Impedance 阻抗</a></li>
+            <li><a href="#capacitor-电容">Capacitor 电容</a></li>
+            <li><a href="#inductor-电感">Inductor 电感</a></li>
+          </ul>
+        </li>
+        <li><a href="#4-general-inverting-op-amp-circuit">4. General Inverting Op amp Circuit</a>
+          <ul>
+            <li><a href="#miller-integrator米勒积分器">Miller Integrator（米勒积分器）</a></li>
+          </ul>
+        </li>
+        <li><a href="#time-domain--frequency-domain">Time Domain &amp; Frequency Domain</a>
+          <ul>
+            <li><a href="#differentiator">Differentiator</a></li>
+            <li><a href="#summing-circuit">Summing Circuit</a></li>
+            <li><a href="#difference-amplifier">Difference Amplifier</a></li>
+          </ul>
+        </li>
+        <li><a href="#input-resistance-bin">Input Resistance Bin</a></li>
+        <li><a href="#cascading-op-amp-circuit"><strong>Cascading Op amp circuit</strong></a></li>
+        <li><a href="#instrumentation-amplifier-an-improved-difference-amplifier"><strong>Instrumentation Amplifier (an improved difference amplifier)</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#dc-imperfections">DC Imperfections</a>
+      <ul>
+        <li><a href="#dc-offsets">DC offsets</a></li>
+        <li><a href="#effect-of--v_os--on-amplifier">Effect of  \(V_{OS}\)  on Amplifier</a>
+          <ul>
+            <li><a href="#non-inverting-conf">Non-Inverting conf.</a></li>
+            <li><a href="#inverting-conf"><strong>Inverting conf.</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#use-capacitor-to-remedy-the-offset">Use Capacitor to Remedy the offset</a></li>
+        <li><a href="#miller-integrator">Miller Integrator</a></li>
+        <li><a href="#time-domain">Time Domain</a>
+          <ul>
+            <li><a href="#miller-integrator-1">Miller Integrator</a></li>
+            <li><a href="#integrator-with-r2">Integrator with R2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#input-bias-current">Input Bias Current</a>
+      <ul>
+        <li><a href="#superposition">Superposition</a>
+          <ul>
+            <li><a href="#i_b2">\(I_{B2}\)</a></li>
+          </ul>
+        </li>
+        <li><a href="#biased-current-in-miller-integrator">Biased Current in Miller Integrator</a></li>
+      </ul>
+    </li>
+    <li><a href="#large-signal-limitations-of-op-amp">Large-Signal Limitations of Op-amp</a>
+      <ul>
+        <li><a href="#output-voltage-saturation">Output voltage saturation</a>
+          <ul>
+            <li><a href="#ex-output-saturation">Ex. Output Saturation</a></li>
+          </ul>
+        </li>
+        <li><a href="#output-current-limit">Output Current Limit</a></li>
+        <li><a href="#slew-rate">Slew Rate</a>
+          <ul>
+            <li><a href="#ex-distortion-in-op-amp">Ex. Distortion in op amp</a></li>
+          </ul>
+        </li>
+        <li><a href="#full-power-bandwidth">Full-power bandwidth</a>
+          <ul>
+            <li><a href="#ex-full-power-bandwidth-for-741-op-am">Ex. Full-power bandwidth for 741 op am</a></li>
+          </ul>
+        </li>
+        <li><a href="#slew-rate-vs-amplitude">Slew Rate v.s. Amplitude</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>IE 2. Operational Amplifiers</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                October 07, 2025
+                <span style="margin: 0 10px;">&middot;</span> 
+                6514 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 10/7/25</p>
+</blockquote>
+
+
+<h2 class="relative group">2.1 The Ideal Op Amp 
+    <div id="21-the-ideal-op-amp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#21-the-ideal-op-amp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">2.1.1 The Op-Amp Terminal 
+    <div id="211-the-op-amp-terminal" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#211-the-op-amp-terminal" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在 IE1 中提到过 Amplifier，这里将要介绍一个更加具体的 Amplifier 叫做 Operational AMP</li>
+<li>其最大的差别就是接受了两个 Signal 的进入</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu6707710446908872823.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu14190371214853685493.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu7648658950034460969.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image_hu18270125127338792539.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>一共有三条线，1 代表了 Inverting Input，2 代表了 Noninverting Input</li>
+<li>而 3 则是输出 Output</li>
+<li>为了让 Op AMP 工作，需要接入两个 DC Power Supply</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image1_hu13208627242863209874.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image1_hu6491469665488489320.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image1_hu12702932260788300481.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image1_hu17959388746084170578.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image1_hu6491469665488489320.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Op AMP 的特点是，其是一个 Semi-custom Design，即它是以一个部分完成的通用放大模块</li>
+<li>可以根据需要来定制它的功能，比如：反向放大，积分器，比较器等</li>
+<li>其最基本的功能就是 Amplifies the Difference in the two inputs，有数学表达式</li>
+</ul>
+<p>$$
+V_o=A(V_2−V_1)
+$$</p>
+<ul>
+<li>同时，他还有良好的 Resistance 设计</li>
+<li><strong>Has high input resistance（高输入电阻 \(R_{\text{in}}\)）</strong>
+<ul>
+<li>这样不会“吃掉”前级电路的信号，利于级联连接</li>
+</ul>
+</li>
+<li><strong>Has low output resistance（低输出电阻 \(R_o\)）</strong>
+<ul>
+<li>能驱动后续电路而不失真</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>具体原因后面会进一步说明</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image2_hu17084179510550114223.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image2_hu12970706299612588072.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image2_hu10896596180472392295.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image2_hu2941463428662271141.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image2_hu12970706299612588072.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>目前的情况下，三个 Signal（两个 Input 和一个 Output）是独立的</li>
+<li>这种情况下由于 \(A_{v0}\) 是一个非常大的值，来到了 \(10e5\) 的级别</li>
+<li>在 V1 和 V2 的数值有一点点细小的变化的时候，Output 会马上来到 Saturation 饱和阶段</li>
+<li>所以在没有 Feedback 之前，这个 Op AMP 只适合做一个 Comparator 比较器</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image3_hu16697182028746302596.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image3_hu891755882044386967.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image3_hu10592194559215032169.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image3_hu5610499021337902212.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image3_hu891755882044386967.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Ideal v.s. Discrete 
+    <div id="ideal-vs-discrete" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ideal-vs-discrete" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">参数</th>
+          <th style="text-align: left">Ideal Op Amp（理想运放）</th>
+          <th style="text-align: left">Discrete OpAmp 741（分立型）</th>
+          <th style="text-align: left">Modern Integrated（现代集成）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">\(A_{v0}\)</td>
+          <td style="text-align: left">∞</td>
+          <td style="text-align: left">10510^5</td>
+          <td style="text-align: left">50 ~ 100</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(R_{in}\)</td>
+          <td style="text-align: left">∞</td>
+          <td style="text-align: left">数兆欧（several MΩ）</td>
+          <td style="text-align: left">数兆欧</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">\(R_o\)</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">&lt; 100Ω</td>
+          <td style="text-align: left">几欧（several Ω）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">BW（带宽）</td>
+          <td style="text-align: left">∞</td>
+          <td style="text-align: left">1.5 MHz</td>
+          <td style="text-align: left">几 GHz</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">功耗 Power</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">80 mW</td>
+          <td style="text-align: left">5–10 mW</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">成本 Cost</td>
+          <td style="text-align: left">0</td>
+          <td style="text-align: left">&lt;\(1</td>
+          <td style="text-align: left">\)10^{-5}$</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">2.2 The Inverting Configuration 
+    <div id="22-the-inverting-configuration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#22-the-inverting-configuration" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>如果我们希望用运放构建具有精确可控增益的放大器，我们需要把它连接成 negative feedback 结构</li>
+<li>其中，两个 Input 的 Signal 并不需要改变，只不过在 Output 前，输出 \(v_o\) 通过一个反馈路径回到反相端，形成 Negative Feedback</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/931a4ccc-f12f-48d0-a433-9f32e24a2b2b_hu1421361163987170707.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/931a4ccc-f12f-48d0-a433-9f32e24a2b2b_hu6463344385577434919.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/931a4ccc-f12f-48d0-a433-9f32e24a2b2b_hu9021687375219690755.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/931a4ccc-f12f-48d0-a433-9f32e24a2b2b_hu14609029878580991429.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/931a4ccc-f12f-48d0-a433-9f32e24a2b2b_hu6463344385577434919.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>其输出公式仍是：</li>
+</ul>
+<p>$$
+v_o = A_{v0} (v_2 - v_1)
+$$</p>
+<ul>
+<li>本质上来说，由于 \(A_{vo}\) 是一个常数，所以希望控制 v1 和 v2 之间的差值尽可能小是设计 Negative Feedback 的诉求</li>
+<li>只要差值足够小它就可以在 Linear Range 中运行</li>
+</ul>
+
+
+<h3 class="relative group">Virtual Short 
+    <div id="virtual-short" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#virtual-short" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>前面提到了 \(v_2 \approx v_1\)，这边就直接认为它们的 Voltage 是一样的，尽管两个 Node 之间并没有真正的一根连接线，但由于 Voltage 几乎一样，于是就叫他 Virtual Short</li>
+</ul>
+
+
+<h3 class="relative group">Op AMP Configuration 
+    <div id="op-amp-configuration" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#op-amp-configuration" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Op amps with negative feedback 带有负反馈的运放电路，共同满足两个重要前提条件：</li>
+</ul>
+<ol>
+<li><strong>输入电流为 0</strong>：\(i_+ = i_- = 0\)（因为输入阻抗趋近于无穷）</li>
+<li><strong>输入端电压相等</strong>：\(v_+ \approx v_-\)（因为虚短）</li>
+</ol>
+
+
+<h3 class="relative group">1. <strong>Non-inverting Op Amp（同相放大器）</strong> 
+    <div id="1-non-inverting-op-amp%E5%90%8C%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-non-inverting-op-amp%E5%90%8C%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image4_hu15389418809024428921.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image4_hu17262370259831328401.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image4_hu6136614335010740510.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image4_hu5669731351531202213.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image4_hu17262370259831328401.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>输入电压 \(v_i\) 接在 <strong>+ 端</strong>，所以这个 Op AMP 是一个 Noninverting input</li>
+<li>负反馈电阻 \(R_1\) 和 \(R_2\) 组成一个分压器，从输出 \(v_o\) 接回 <strong>– 端</strong></li>
+</ul>
+<blockquote>
+<p>Op AMP 负端的 Voltage 是来自 Output 的，因为它左边是 Ground，其 Voltage 是两个 In Series 的 Resistors 的分压的结果</p>
+</blockquote>
+<ul>
+<li>根据 Virtual Short，\(v_- = v_+ = v_i\)</li>
+<li>输出电压 \(v_o\) 会分压成 \(v_i\)，也就是说：</li>
+</ul>
+<p>$$
+v_i = v_o \cdot \frac{R_1}{R_1 + R_2}\Rightarrow v_o = v_i \left(1 + \frac{R_2}{R_1}\right)\Rightarrow \text{Voltage gain} = \frac{v_o}{v_i} = 1 + \frac{R_2}{R_1}
+$$</p>
+
+
+<h3 class="relative group">2. <strong>Inverting Op Amp（反相放大器）</strong> 
+    <div id="2-inverting-op-amp%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-inverting-op-amp%E5%8F%8D%E7%9B%B8%E6%94%BE%E5%A4%A7%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image5_hu5669152820226771901.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image5_hu509299336190671731.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image5_hu3186195755974956081.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image5_hu8135484600267773227.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image5_hu509299336190671731.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>在这个例子下，Signal \(v_i\) 从负端进入，即是一个 Inverting</li>
+<li>输入 \(v_i\) 接到 <strong>– 端</strong>，通过电阻 R1</li>
+<li>正端接地（即 \(v_+ = 0\)）</li>
+<li>输出端 \(v_o\) 通过 R2 接回 – 端，形成负反馈</li>
+<li>由于正端接了地，所以 \(v_+ = 0\)，所以 \(v_- \approx 0\)</li>
+<li>计算负端左边的 KCL</li>
+</ul>
+<p>$$
+\frac{v_i}{R_1} = \frac{-v_o}{R_2}\Rightarrow v_o = -\frac{R_2}{R_1} v_i\Rightarrow \text{Voltage gain} = \frac{v_o}{v_i} = -\frac{R_2}{R_1}
+$$</p>
+
+
+<h3 class="relative group">3. <strong>Unit-gain Buffer（电压跟随器）</strong> 
+    <div id="3-unit-gain-buffer%E7%94%B5%E5%8E%8B%E8%B7%9F%E9%9A%8F%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-unit-gain-buffer%E7%94%B5%E5%8E%8B%E8%B7%9F%E9%9A%8F%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image6_hu9791520891633841567.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image6_hu16826318858773187988.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image6_hu15076223383425818163.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image6_hu16259895765207008980.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image6_hu16826318858773187988.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>输入 \(v_i\) 接在 + 端</li>
+<li>输出端直接连接到 – 端（无电阻）</li>
+<li>它的特性就是 \(R1 → ∞，R2 = 0\)</li>
+<li>是 “Non-Inverting” 的一个特例</li>
+</ul>
+<p>$$
+\frac{v_o}{v_i} = 1 + \frac{R_2}{R_1} = 1 + \frac{0}{\infty} = 1\Rightarrow v_o = v_i
+$$</p>
+
+
+<h4 class="relative group">Buffer 
+    <div id="buffer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#buffer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>在一般的 Input Output Circuit 中，Signal 一般都不是 Ideal 的，即其存在一个不可忽视的内阻 \(R_{sig}\)，如果这时候想要输出，整体就会被分压为</li>
+</ul>
+<p>$$
+{\text{out}} = V_{\text{sig}} \cdot \frac{R_L}{R_{\text{sig}} + R_L}
+$$</p>
+<ul>
+<li>如果 \(R_L\) 很小，输出电压就会比原来的 \(V_{\text{sig}}\) 小很多，从而无法实现型号的稳定输出</li>
+<li>这叫做 Attenuation 信号衰减</li>
+<li>想要解决这个问题，就可以通过一个 Buffer，让 Voltage 结构变成 \(Vsig → Buffer → RL\)</li>
+<li>而这个 Buffer 应该有的特性为</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">作用</th>
+          <th style="text-align: left">表现</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>不吃输入信号</strong></td>
+          <td style="text-align: left">输入阻抗极大 \(R_{\text{in}} = \infty\)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>能推得动输出</strong></td>
+          <td style="text-align: left">输出阻抗极小 \(R_{\text{out}} \approx 0\)</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>左边 \(V_{\text{sig}}\) 不会被拉低的同时右边负载 \(R_L\) 也不会拉低输出</li>
+<li>整体结构就来到了这样</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image7_hu10940681714759715672.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image7_hu12702047816610129531.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image7_hu8209416915382892238.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image7_hu1332155187342803872.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image7_hu12702047816610129531.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>有 \(V_{\text{out}} \approx V_o \approx V_{\text{sig}}\)</li>
+<li>具体原理如下，由于 Buffer 有一个很大的 \(R_{in}\)，所以有</li>
+</ul>
+<p>$$
+V_x = V_{\text{sig}} \cdot \frac{\infty}{R_{\text{sig}} + \infty} = V_{\text{sig}}
+$$</p>
+<ul>
+<li>而到了输出的时候，又给出了一个非常小的 \(R_{out}\)，即</li>
+</ul>
+<p>$$
+V_{\text{out}} = V_o \cdot \frac{R_L}{R_{\text{out}} + R_L} \approx V_o
+$$</p>
+<ul>
+<li>在这用情况下，Input 的 Signal 就几乎等同于 Output 的了</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image8_hu10357254710781635701.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image8_hu16300510048277686213.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image8_hu2549581573238272536.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image8_hu12822842468895242700.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image8_hu16300510048277686213.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<blockquote>
+<p>不知道这张图在干什么</p>
+</blockquote>
+
+
+<h3 class="relative group">Review of Impedance 
+    <div id="review-of-impedance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#review-of-impedance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在开始接下来的部分前，有必要复习一下 Impedance 和 Resistor 的区别</li>
+</ul>
+
+
+<h4 class="relative group">Resistor 电阻 
+    <div id="resistor-%E7%94%B5%E9%98%BB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#resistor-%E7%94%B5%E9%98%BB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>符号</strong>：R</li>
+<li><strong>性质</strong>：只跟材料、几何尺寸有关，不随频率变化</li>
+</ul>
+
+
+<h4 class="relative group">Impedance 阻抗 
+    <div id="impedance-%E9%98%BB%E6%8A%97" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#impedance-%E9%98%BB%E6%8A%97" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>
+<p><strong>符号</strong>：Z</p>
+</li>
+<li>
+<p><strong>性质</strong>：是对 交流电（AC） 的综合“阻碍”程度。</p>
+</li>
+<li>
+<p>包含了 Resistance 和 电抗（X） 两部分：</p>
+<p>$$
+Z = R + jX
+$$</p>
+<ul>
+<li>R：电阻部分，消耗能量</li>
+<li>X：电抗部分，来自电容（C）或电感（L），只储能不耗能</li>
+</ul>
+</li>
+<li>
+<p>单位：同样是欧姆（\(\Omega\)）</p>
+</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">对象</th>
+          <th style="text-align: left">符号</th>
+          <th style="text-align: left">是否随频率变</th>
+          <th style="text-align: left">组成</th>
+          <th style="text-align: left">单位</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>Resistor 电阻</strong></td>
+          <td style="text-align: left">R</td>
+          <td style="text-align: left">不变</td>
+          <td style="text-align: left">纯电阻</td>
+          <td style="text-align: left">欧姆</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Impedance 阻抗</strong></td>
+          <td style="text-align: left">Z</td>
+          <td style="text-align: left">会变</td>
+          <td style="text-align: left">电阻 + 电抗</td>
+          <td style="text-align: left">欧姆</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li>到这一步，可以总结出</li>
+</ul>
+<aside>
+💡
+<ul>
+<li>Resistor 就是 Impedance 的 Real Part</li>
+<li>当只存在 DC Signal 的时候，就 Impedance 就以 Resistor 的形式出现</li>
+</ul>
+</aside>
+<ul>
+<li>接下去就是具体研究 X Reactance 电抗</li>
+<li>Reactance 来自 Inductor（电感）和 Capacitor（电容）</li>
+</ul>
+
+
+<h4 class="relative group">Capacitor 电容 
+    <div id="capacitor-%E7%94%B5%E5%AE%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#capacitor-%E7%94%B5%E5%AE%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>Capacitor 只会存储 Electric Field 能量，不消耗：</li>
+</ul>
+<p>$$
+Z_C = \frac{1}{j\omega C}
+$$</p>
+<ul>
+<li>高频时阻抗小（容易导通）</li>
+<li>低频/直流时阻抗大（几乎断路）</li>
+</ul>
+
+
+<h4 class="relative group">Inductor 电感 
+    <div id="inductor-%E7%94%B5%E6%84%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inductor-%E7%94%B5%E6%84%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>电感只会存储 Magnetic Field 能量，不消耗：</li>
+</ul>
+<p>$$
+Z_L = j\omega L
+$$</p>
+<ul>
+<li>总结来说</li>
+</ul>
+<aside>
+💡
+<p>Resistor, Inductor, Capacitor 都能看作是阻抗：\(Z = R + jX\)</p>
+<ul>
+<li><strong>Resistor R</strong> → 实数部分（能量损耗）</li>
+<li><strong>L/C</strong> → 虚数部分 jX（能量存储、相位变化）</li>
+</ul>
+</aside>
+<hr>
+
+
+<h3 class="relative group">4. General Inverting Op amp Circuit 
+    <div id="4-general-inverting-op-amp-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-general-inverting-op-amp-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>现在，在回顾完了 Impedance（阻抗）了之后，就可以进入 AC Signal 的领域</li>
+</ul>
+<aside>
+💡
+<p>已知前面的 Resistor 是 Impedance 的特殊形式，即只有 Real Part 的情况，现在引入完整的 Impedance 作为控制系统，有公式 \(Z = R + jX\)</p>
+</aside>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image9_hu15357504406753881877.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image9_hu900998544508122106.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image9_hu14056461609919028090.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image9_hu17575483580584783386.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image9_hu900998544508122106.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>于是就可以得到这样的一个 Circuit，其和之前的 Op amp 分析起来并没有区别</li>
+<li>可以很容易的看出这是一个 Inverting AMP，其 Gian 为</li>
+</ul>
+<p>$$
+\frac{v_o}{v_i} = -\frac{Z_2}{Z_1}
+$$</p>
+<aside>
+💡
+<p>现在将 Capacitor 和 Inductor 等能形成 Reactance 的原件引入，就可以得到更加复杂的 Op amp</p>
+</aside>
+
+
+<h4 class="relative group">Miller Integrator（米勒积分器） 
+    <div id="miller-integrator%E7%B1%B3%E5%8B%92%E7%A7%AF%E5%88%86%E5%99%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#miller-integrator%E7%B1%B3%E5%8B%92%E7%A7%AF%E5%88%86%E5%99%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>在 \(z_2\) 的槽中放入，Capacitor \(C_1\)，保持 Input Resistance 不变为 \(R_1\)</li>
+<li>已知 Capacitor 的 Reactance（Imaginary Part of Impedance）为</li>
+</ul>
+<p>$$
+Z_2 = \frac{1}{C s}, \quad s = j\omega
+$$</p>
+<ul>
+<li>
+<p>可以得到整体 Op amp 的 Gain 为</p>
+<p>$$
+\frac{v_o}{v_i} = -\frac{1}{R_1 C_1 j\omega}
+$$</p>
+</li>
+<li>
+<p>这说明它在频域中表现为一个 Integrator（积分器）</p>
+</li>
+</ul>
+<blockquote>
+<p>具体原因和 s 和 Laplace Transform 有关，这边不做提及</p>
+</blockquote>
+<aside>
+💡
+<p>于是可以总结出：越低频，增益越高；频率越高，增益越低</p>
+</aside>
+<hr>
+
+
+<h3 class="relative group">Time Domain &amp; Frequency Domain 
+    <div id="time-domain--frequency-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#time-domain--frequency-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在进入下一步前，先复习一下 Time Domain 时域，和 Frequency Domain 频域</li>
+<li><strong>Time domain</strong> = 信号随着时间 t 的变化</li>
+<li>横轴是 时间，纵轴是 信号的幅度（电压、电流等）</li>
+<li>它回答的问题是：<strong>在每个时刻，信号值是多少？</strong></li>
+</ul>
+<hr>
+<ul>
+<li><strong>Frequency domain（频域）</strong>：横轴是 <strong>频率</strong>，纵轴是 <strong>信号在各频率上的强度</strong></li>
+<li>它回答的问题是：<strong>信号里包含哪些频率成分？</strong></li>
+<li>例如：一个方波在时域看起来是方形；但在频域，它包含很多正弦波成分</li>
+</ul>
+<hr>
+<ul>
+<li>现在就可以开始分析 Miller Integrator 在 Time Domain 下的表现了</li>
+<li>假设目前先只给了一个 DC 的 \(v_{i}\)（方便展示 Integrate 的效果）</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image10_hu3124848443437614256.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image10_hu1262450408637644319.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image10_hu16285809121909844547.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image10_hu17599496552373848659.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image10_hu1262450408637644319.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>可以同步得到 Input Current 为 \(i = v_i / R_1\)</li>
+<li>之后，这个突然出现的冲击 Current 将碰到 Capacitor，最后 \(v_o\)  变化的斜率将由 C 决定</li>
+</ul>
+<p>$$
+i = \frac{v_i}{R_1} = C \frac{dv_c}{dt} = C \frac{d(-v_o)}{dt}
+$$</p>
+<ul>
+<li>想要算出 \(v_o\)，已知 \(\frac{v_i}{R_1} = C \frac{d(-v_o)}{dt}\)，将其改写为</li>
+</ul>
+<p>$$
+\frac{dv_o}{dt} = -\frac{1}{R_1 C} v_i
+$$</p>
+<ul>
+<li>两边同时积分，即可以得到</li>
+</ul>
+<p>$$
+v_o = -\frac{1}{R_1 C} \int v_i , dt
+$$</p>
+<ul>
+<li>前面，为了方便展示的清晰，将 \(v_i\) 设定为了 Constant，于是有</li>
+</ul>
+<p>$$
+v_o = -\frac{V_i}{R_1 C} t
+$$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image11_hu2344068497860596234.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image11_hu1706745646532122976.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image11_hu7093461147202291518.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image11_hu1027874725091902943.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image11_hu1706745646532122976.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>于是最终 Time Domain 就长这样</li>
+</ul>
+
+
+<h4 class="relative group">Differentiator 
+    <div id="differentiator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#differentiator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image12_hu7985170931636248095.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image12_hu612242341249904154.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image12_hu17556439607133375541.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image12_hu4121874683982493309.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image12_hu612242341249904154.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>将 Integrator 的 C 的位置换一下就是 Differentiator 了</li>
+<li>能看出这是一个 Inverting Gain，大小为</li>
+</ul>
+<p>$$
+\frac{v_o}{v_i} = -\frac{Z_2}{Z_1}=\frac{v_o}{v_i} = -\frac{R_1}{1/(C_1 s)} = -R_1 C_1 s
+$$</p>
+<ul>
+<li>在 Frequency Domain 中为</li>
+</ul>
+<p>$$
+\frac{v_o}{v_i} = -j \omega R_1 C_1
+$$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image13_hu14934793690282418858.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image13_hu15308542448216691531.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image13_hu14665994509720273038.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image13_hu14023747710913667396.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image13_hu15308542448216691531.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<aside>
+💡
+<p>增益随频率线性增加</p>
+</aside>
+<ul>
+<li>Time Domain 中</li>
+</ul>
+<p>$$
+v_o(t) = -R_1 C_1 \frac{dv_i(t)}{dt}
+$$</p>
+
+
+<h4 class="relative group">Summing Circuit 
+    <div id="summing-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#summing-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image14_hu6156368352095388430.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image14_hu4320768359652937021.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image14_hu14370767866275700371.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image14_hu4051191403325591279.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image14_hu4320768359652937021.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Summing Circuit 中，两个输入电压：\(v_1, v_2\)，分别通过电阻 \(R_1, R_2\) 接到运放反相端</li>
+<li>运放的反馈电阻是 \(R_F\)，所以这是一个 Inverting Op amp</li>
+<li>进入 \(R_F\) 的 Current 为两个支路的 Current Sum，为</li>
+</ul>
+<p>$$
+i=\frac{v_1}{R_1} + \frac{v_2}{R_2}
+$$</p>
+<ul>
+<li>通过 KCL 可以得到：</li>
+</ul>
+<p>$$
+v_o = - R_F \left( \frac{v_1}{R_1} + \frac{v_2}{R_2} \right)
+$$</p>
+<ul>
+<li>拆一个括号就可以发现</li>
+</ul>
+<p>$$
+v_o = -\left( \frac{R_F}{R_1} v_1 + \frac{R_F}{R_2} v_2 \right)
+$$</p>
+<aside>
+💡
+<p>所以这个电路是一个 <strong>weighted summing circuit（加权求和电路 ）</strong></p>
+</aside>
+<ul>
+<li>输出电压 = 各输入电压 × 权重，再求和</li>
+<li>Summing Circuit 的一个很好的例子就是 Mixer（混音器），其把吉他 (guitar) 和键盘 (keyboard) 信号加在一起，这就是一个实际的 <strong>summing circuit（加法电路）</strong> 的应用</li>
+</ul>
+
+
+<h4 class="relative group">Difference Amplifier 
+    <div id="difference-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#difference-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image15_hu13031030480865303129.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image15_hu6904280372199272954.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image15_hu15090175709290056031.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image15_hu4805041026216667726.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image15_hu6904280372199272954.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>同样有两个 Input，不过两个接入的位置为一正一负</li>
+<li>分析两个端口电压，对于 \(v_+\) 端来说，其电压为</li>
+</ul>
+<p>$$
+V^+ = \frac{R_4}{R_3 + R_4} v_2
+$$</p>
+<ul>
+<li>根据 Virtual Short 就可以得到 \(v_-\) 端的电压也为同样的 \(v_+\)，于是可以得到负端的 Current 为</li>
+</ul>
+<p>$$
+i_1 = \frac{V^+ - v_1}{R_1}
+$$</p>
+<ul>
+<li>
+<p>根据 Node  V 可以写出 KVL方程，得到输出电压为</p>
+<p>$$
+v_o = V^+ + i_1 R_2
+$$</p>
+</li>
+<li>
+<p>将两个值带入，有</p>
+</li>
+</ul>
+<p>$$
+v_o = \frac{R_4}{R_3 + R_4} v_2 + \frac{R_4}{R_3+R_4} \cdot \frac{R_2}{R_1}(v_2 - v_1)
+$$</p>
+<ul>
+<li>化简之后可以得</li>
+</ul>
+<p>$$
+v_o = \frac{R_2}{R_1}\left(\frac{R_4}{R_3+R_4}(1+\frac{R_1}{R_2}) v_2 - v_1 \right)
+$$</p>
+<ul>
+<li>在上式中，如果满足电阻匹配条件：</li>
+</ul>
+<p>$$
+\frac{R_4}{R_3} = \frac{R_2}{R_1}
+$$</p>
+<ul>
+<li>
+<p>那么公式大大简化为</p>
+<p>$$
+v_o = \frac{R_2}{R_1}(v_2 - v_1)
+$$</p>
+</li>
+<li>
+<p>想要分析 Difference Op amp 还能通过 Superposition 的办法，分别分析两个 Input Voltage</p>
+</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image16_hu3701077048709467397.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image16_hu9763519709147849796.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image16_hu4189033094210449634.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image16_hu1153868344023470498.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image16_hu9763519709147849796.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>可以看出，左边的就是一个 Typical Inverting Op amp</li>
+<li>而右边的则是一个 Typical Noninverting Op amp，不过它的 Input Voltage 有一点不同，是 \(\frac{R_4}{R_3+R_4}v_2\)，是一个被分压后的值</li>
+<li>之后更具 Superposition 的原理，将他们相加就可以得到</li>
+</ul>
+<p>$$
+v_o = \left(1 + \frac{R_2}{R_1}\right)\frac{R_4}{R_3+R_4} v_2 - \frac{R_2}{R_1} v_1
+$$</p>
+<ul>
+<li>和上面的结论一样，当满足</li>
+</ul>
+<p>$$
+\frac{R_4}{R_3} = \frac{R_2}{R_1}
+$$</p>
+<ul>
+<li>的时候，那么表达式化简为：</li>
+</ul>
+<p>$$
+v_o = \frac{R_2}{R_1}(v_2 - v_1)
+$$</p>
+
+
+<h3 class="relative group">Input Resistance Bin 
+    <div id="input-resistance-bin" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#input-resistance-bin" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>总结了一下常见电路类型和输入电阻 \(R_{in}\)</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">电路类型 (Circuit Type)</th>
+          <th style="text-align: left">输入电阻公式 (Input Resistance R_{in})</th>
+          <th style="text-align: left">原因 (Reason)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>反相运放 (Inverting Op Amp)</strong></td>
+          <td style="text-align: left">\(R_{in} = R_1\)</td>
+          <td style="text-align: left">输入电压先经过电阻 \(R_1\)，再到虚短点</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>同相运放 (Non-inverting Op Amp)</strong></td>
+          <td style="text-align: left">\(R_{in} = \infty\)</td>
+          <td style="text-align: left">输入端直接接到 + 端，理想运放输入电流≈0</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>分压输入 (Voltage Divider Input)</strong></td>
+          <td style="text-align: left">\(R_{in} = R_3 + R_4\)</td>
+          <td style="text-align: left">输入电压先通过 \(R_3, R_4\) 串联分压</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>差分放大器 (Difference Amplifier)</strong></td>
+          <td style="text-align: left">\(R_{in} = R_1 + R_3\)</td>
+          <td style="text-align: left">两个电阻 \(R_1, R_3\) 串联到虚短点</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h3 class="relative group"><strong>Cascading Op amp circuit</strong> 
+    <div id="cascading-op-amp-circuit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#cascading-op-amp-circuit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>当存在多个 Op amp 串联的情况的时候，将他们的 Gain 乘上就是 Overall Gain</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image17_hu10789358883444318928.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image17_hu5013558581968934051.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image17_hu7704049640342831377.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image17_hu8970825594504792972.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image17_hu5013558581968934051.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group"><strong>Instrumentation Amplifier (an improved difference amplifier)</strong> 
+    <div id="instrumentation-amplifier-an-improved-difference-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#instrumentation-amplifier-an-improved-difference-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image18_hu2903343461942897941.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image18_hu1850864345586634234.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image18_hu14557638059300520657.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image18_hu12049443331300283218.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image18_hu1850864345586634234.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li><strong>Instrumentation Amplifier（仪表放大器）</strong>，它是一种 I<strong>mproved difference amplifier 改进型差分放大器</strong></li>
+<li>其由三个 Op amp 组成，前面有两个 Noninverting 的作为输入</li>
+<li>\(A_3\)：后面是一个 Difference amp</li>
+<li>先从输出部分开始，一开始的两个 Noninverting amp 由于各自的 Virtual Short，有两个 Node 具有不同的 Voltage</li>
+<li>他们的差值则为 \(v_{id} = v_{i2} - v_{i1}\)</li>
+<li>在经过整个电路后得出等效的 Input Voltage 为</li>
+</ul>
+<p>$$
+v_{in} = \frac{v_{id}}{2R_1}(2R_1 + 2R_2) = v_{id}\left(1 + \frac{R_2}{R_1}\right)
+$$</p>
+<ul>
+<li>之后这个 Input Voltage 来到了 Difference amp 的位置，有 Gian 为</li>
+</ul>
+<p>$$
+v_o = \frac{R_4}{R_3} v_{in}
+$$</p>
+<ul>
+<li>根据上面 Cascading Op amp 的结论，把前后两级结合得</li>
+</ul>
+<p>$$
+v_o = \frac{R_4}{R_3} \left(1 + \frac{R_2}{R_1}\right) v_{id}
+$$</p>
+<aside>
+💡
+<p>仪表放大器 = 差分放大器的改进版，输入电阻更高，增益可调，抗干扰能力更强，适合用在传感器信号测量（比如心电图 ECG、压力传感器）</p>
+</aside>
+
+
+<h2 class="relative group">DC Imperfections 
+    <div id="dc-imperfections" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dc-imperfections" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>显示世界中，<strong>DC imperfection</strong> 的原因主要来自于实际制造过程中器件的不完美和不对称性</li>
+<li>这一问题会造成包括  DC offsets, Input Bias Currents 等问题</li>
+</ul>
+
+
+<h3 class="relative group">DC offsets 
+    <div id="dc-offsets" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dc-offsets" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>源于制造过程中的不对称性</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image19_hu18197990521987530684.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image19_hu4619742495904500325.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image19_hu16353068380763306058.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image19_hu18283092562447451444.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image19_hu4619742495904500325.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>已知一个标准 OP amp 在当 \(V_2=V_1\)  的时候，输出 \(V_0  = 0\)，但是现实中的 Op amp 更像是加上了一个 Input Offset Voltage</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image20_hu10550019291937967419.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image20_hu5382245119689095624.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image20_hu1009908708670929884.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image20_hu4581909589522697236.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image20_hu5382245119689095624.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>于是他就导致了 Output \(V_o\)  和 \(V_2-V_1\)  之间产生了 Bias，不再是 Linear 的了</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image21_hu6680807347168904265.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image21_hu12177715926033911288.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image21_hu14024340403526869080.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image21_hu6126273438816229743.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image21_hu12177715926033911288.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Effect of  \(V_{OS}\)  on Amplifier 
+    <div id="effect-of--v_os--on-amplifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#effect-of--v_os--on-amplifier" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>这个 V offset 也同理可以作用到 Non-Inverting（正极）和 Inverting（负极）上</li>
+</ul>
+
+
+<h4 class="relative group">Non-Inverting conf. 
+    <div id="non-inverting-conf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#non-inverting-conf" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image22_hu16698543037086383462.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image22_hu12493331951784870493.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image22_hu1491087246929908761.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image22_hu3772622790253631617.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image22_hu12493331951784870493.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>对于 Non-Inverting 来说，\(V_{OS}\)  就是一个和 \(V_{in}\) 被加在一块的 Input</li>
+<li>所以整体这个 Op amp 产生的 output 将是</li>
+</ul>
+<p>$$
+V_{out} = \left(1 + \frac{R_2}{R_1}\right)(V_{in} + V_{OS})
+$$</p>
+<ul>
+<li>可以发现 <strong>\(V_{OS}\)</strong> 被 和输入信号 \(V_{in}\) 一样的比例放大了</li>
+<li>所以即使 \(V_{in}\) 为 0，仍会产生一个 Biased 项，这也就是上图中的类似一次函数产生的原因</li>
+</ul>
+
+
+<h4 class="relative group"><strong>Inverting conf.</strong> 
+    <div id="inverting-conf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#inverting-conf" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image23_hu14102246591564843334.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image23_hu62360339899652829.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image23_hu2032111322229897487.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image23_hu6744518256328117617.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image23_hu62360339899652829.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>这次，\(V_{in}\) 来到了 Negative 端，而 Virtual Short 只会发生在离 Positive 端最近的旁边一个点上</li>
+<li>这就导致一个 Extra Voltage 在 Positive 端的进入，可以通过 Superposition 来分析，有</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image24_hu8910983738761744937.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image24_hu789805213158714007.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image24_hu11543655728918561095.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image24_hu13586724773456773055.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image24_hu789805213158714007.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Superposition 将 Inverting Conf. 分为了一个 Non-Inverting + 一个 Inverting 的 Conf.</li>
+<li>左图中 \(V_{out}&rsquo; = -\frac{R_2}{R_1} V_{in}\)，右图中 \(V_{out}&rsquo;&rsquo; = \left(1 + \frac{R_2}{R_1}\right) V_{OS}\)</li>
+<li>于是 Overall 的 Amplification 就变成了</li>
+</ul>
+<p>$$
+V_{out} = V_{out}&rsquo; + V_{out}&rsquo;&rsquo; = -\frac{R_2}{R_1} V_{in} + \left(1 + \frac{R_2}{R_1} \right) V_{OS}
+$$</p>
+
+
+<h3 class="relative group">Use Capacitor to Remedy the offset 
+    <div id="use-capacitor-to-remedy-the-offset" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#use-capacitor-to-remedy-the-offset" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>通过在 \(R_{in}\) 和 \(v_{in}\) 中串联一个 Capacitor</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image25_hu15113739907808450171.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image25_hu8806377302718420719.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image25_hu2549625659621921892.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image25_hu8323220316018822864.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image25_hu8806377302718420719.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>这个 Capacitor 会阻断直流，即不能让偏移电压直接传到电路中</li>
+<li>所以虽然有 \(V_{OS}\)，但它不会完全被放大到输出端</li>
+<li>来分析一下这个 Capacitor 具体会干什么，先将 \(V_{in}\) 设为 0，单独拿出 \(V_{OS}\) 分析</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image26_hu11626786271134043222.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image26_hu11173345843245970945.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image26_hu5083721258042750646.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image26_hu17386186405841703570.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image26_hu11173345843245970945.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>在只有 \(V_{OS}\) 的情况下，Virtual Short 导致了 Negative 端电压也是 \(V_{OS}\)</li>
+<li>但是由于 \(V_{OS}\) 是一个 Dircet Current，它无法进入 Capcitor</li>
+</ul>
+<blockquote>
+<p>Capacitor 的特性 \(i_C = C\cdot \frac{dV}{dt}\)，只有 Voltage Change 的时候才会有 Current</p>
+</blockquote>
+<aside>
+💡
+<p>这就避免了 \(V_{OS}\) 被叠加在 \(V_{in}\) 的上面</p>
+</aside>
+<ul>
+<li>要具体分析什么叫做叠加在 \(V_{in}\) 上，就需要回顾之前没有 Capacitor 时候的情况，在那个 Circuit 中，\(V_{OS}\) 要么是先和 \(V_{in}\) 做加法，再乘上放大倍率 \(\left(1 + \frac{R_2}{R_1}\right)(V_{in} + V_{OS})\)，要么是 \(\frac{R_2}{R_1} V_{in} + \left(1 + \frac{R_2}{R_1} \right) V_{OS}\) 先加上一个倍率再和 \(V_{in}\) 相加</li>
+<li>这一个倍率的乘数就会令 \(V_{OS}\) 被放大，而有了 Capacitor 就可以避免这一现象</li>
+</ul>
+
+
+<h3 class="relative group">Miller Integrator 
+    <div id="miller-integrator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#miller-integrator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>当尝试分析之前的 Miller Integrator 时</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image27_hu7234068658582140218.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image27_hu6759678200065263018.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image27_hu10738008491949210387.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image27_hu6291316830609183603.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image27_hu6759678200065263018.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>并没有考虑到可能出现的 DC Imperfection 可能造成的影响</li>
+<li>而实际上，当多出了一个 \(V_{OS}\) 的情况下，会使得另一端出现 Imperfection，导致</li>
+</ul>
+<p>$$
+V_{\text{out}} = V_{\text{OS}} + \frac{1}{C_1} \int \frac{V_{\text{in}}}{R_1} dt
+$$</p>
+<ul>
+<li>哪怕 \(V_{\text{OS}}\) 很小，积分以后也会不断累积，使得 \(V_{\text{out}}\) 随时间线性上升，最后 saturate 到电源电压 rail 上，电路失效</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/8104467b-3546-4262-b267-311b2c5772d2_hu1638790794621240070.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/8104467b-3546-4262-b267-311b2c5772d2_hu17409281247627320137.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/8104467b-3546-4262-b267-311b2c5772d2_hu13208065853173045498.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/8104467b-3546-4262-b267-311b2c5772d2_hu16229607536495604087.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/8104467b-3546-4262-b267-311b2c5772d2_hu17409281247627320137.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>所以只靠理想电路设计，这个积分器不能长期稳定工作</li>
+<li>所幸的是，存在修复的办法，也就是加一个电阻 \(R_2\) 并联在电容 \(C_1\) 上</li>
+<li>直流电流（由 VOSV_{\text{OS}} 引起）原本无法通过电容流动，会导致积分输出发散；</li>
+</ul>
+<blockquote>
+<p>Capacitor 令 DC 无法经过，这导致在一端形成了一个永久的 Voltage Source，持续输出</p>
+</blockquote>
+<ul>
+<li>加了 \(R_2\) 以后，这个 DC 电流可以<strong>改走 \(R_2\) 路径</strong>，而不是一直积累在电容上</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image28_hu7327252412134450432.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image28_hu13829384442906996330.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image28_hu6388740880080251292.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image28_hu9452229956112201778.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image28_hu13829384442906996330.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>于是最终 \(V_{\text{out}}\) 会有一个有限的、稳定的直流偏移（offset），而不是无限上升；</li>
+<li>在没有 \(R_2\) 的时候，Miller Integrator 的 Gain 为</li>
+</ul>
+<p>$$
+\frac{V_{\text{out}}}{V_{\text{in}}} = -\frac{1}{R_1 C_1 j\omega}
+$$</p>
+<ul>
+<li>这就是一个是一个 Ideal integrator 的 Gain</li>
+<li>但是由于多了一个 DC Imperfection \(\omega = 0\)，可以观察 Gain 发现，在 \(\omega\)  为 0 的时候，Gain 直接 Diverge 了</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image29_hu17120273876440420784.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image29_hu16027627394973866090.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image29_hu14567161792303658934.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image29_hu6231389572372567042.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image29_hu16027627394973866090.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>接下去分析有了 \(R_2\) 的情况，新的传递函数变成：</li>
+</ul>
+<p>$$
+\frac{V_{\text{out}}}{V_{\text{in}}} = -\frac{R_2 / R_1}{1 + R_2 C_1 j\omega}
+$$</p>
+<ul>
+<li>Frequency Domain 也变成了</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image30_hu5629993782220833338.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image30_hu12930369763098812807.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image30_hu11195112854192982152.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image30_hu6600062431678289701.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image30_hu12930369763098812807.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>将 Gain Function 取模</li>
+</ul>
+<p>$$
+|H(j\omega)| = \frac{R_2 / R_1}{\sqrt{1 + (\omega R_2 C_1)^2}}
+$$</p>
+<ul>
+<li>当 \(\omega \to 0\) 的时候</li>
+</ul>
+<p>$$
+|H(j\omega)| \to \frac{R_2}{R_1}
+$$</p>
+<ul>
+<li>这个是常数，图上对应左边蓝色那段平的部分</li>
+<li>当 \(\omega \to \infty\) 时，</li>
+</ul>
+<p>$$
+|H(j\omega)| \to \frac{R_2 / R_1}{\omega R_2 C_1} = \frac{1}{R_1 C_1 \omega}
+$$</p>
+<ul>
+<li>这是标准的积分器行为，幅度随着频率下降</li>
+</ul>
+
+
+<h3 class="relative group">Time Domain 
+    <div id="time-domain" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#time-domain" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image31_hu12897590257201937310.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image31_hu18428831527303688098.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image31_hu8112397595140416645.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image31_hu9738729659101475984.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image31_hu18428831527303688098.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>当一个最普通的方波输出 \(V_{in}\) 进入</li>
+</ul>
+
+
+<h4 class="relative group">Miller Integrator 
+    <div id="miller-integrator-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#miller-integrator-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image32_hu6783147468201240371.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image32_hu4675598832789223698.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image32_hu554549981876923026.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image32_hu1654406480479903624.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image32_hu4675598832789223698.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>
+<p><strong>0 &lt; t &lt; T：</strong></p>
+<ul>
+<li>理想积分器，输出是对输入常数 \(V_{in}\) 的积分</li>
+<li>数学上是线性关系：</li>
+</ul>
+<p>$$
+V_{out}(t) = -\frac{1}{R_1 C_1} \int V_{in} , dt = -\frac{V_{in}}{R_1 C_1} t
+$$</p>
+<ul>
+<li>所以曲线是线性下降的蓝色斜线</li>
+</ul>
+</li>
+<li>
+<p><strong>t &gt; T：</strong></p>
+<ul>
+<li>输入为 0，积分器积分常数 0，输出就保持最后的值不变</li>
+<li>所以输出是一条水平线，表示“记住了”这个结果</li>
+</ul>
+</li>
+</ul>
+
+
+<h4 class="relative group">Integrator with R2 
+    <div id="integrator-with-r2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#integrator-with-r2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>
+<p>0 &lt; t &lt; T（充电阶段）</p>
+<ul>
+<li>输入为常数，输出仍然积分：</li>
+</ul>
+<p>$$
+V_{out}(t) = -\frac{R_2}{R_1} V_{in} \left(1 - e^{-t / (R_2 C_1)}\right)
+$$</p>
+</li>
+<li>
+<p>输出是一个<strong>负向指数上升曲线</strong>（因为乘了负号）</p>
+<ul>
+<li>随着时间推移，越来越接近极限值 \(-\frac{R_2}{R_1} V_{in}\)</li>
+</ul>
+</li>
+<li>
+<p>图中蓝色实线写着 <code>charging cap.</code>（电容在充电）</p>
+</li>
+<li>
+<p>t &gt; T（放电阶段）</p>
+<ul>
+<li>输入回到 0，输出开始衰减</li>
+<li>电容通过 R2R_2 放电，形成指数恢复：</li>
+</ul>
+<p>$$
+V_{out}(t) = V_{out}(T) \cdot e^{-(t - T)/R_2 C_1}
+$$</p>
+</li>
+</ul>
+
+
+<h2 class="relative group">Input Bias Current 
+    <div id="input-bias-current" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#input-bias-current" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>
+<p>Input Bias Current 通常由 Op amp 内部的 BJT 晶体管引起</p>
+</li>
+<li>
+<p>记为  \(I_{B1}, I_{B2}\)，分别是流入运放正负输入端的电流</p>
+</li>
+<li>
+<p>他们的典型数值为</p>
+<ul>
+<li>\(I_{B1} \approx I_{B2} \approx 100 , \text{nA}\)</li>
+<li>\(I_{OS} = |I_{B2} - I_{B1}| \approx 10 , \text{nA}\)（<strong>输入失调电流</strong>）</li>
+</ul>
+</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image33_hu17301436481753084103.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image33_hu4724210927776160824.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image33_hu877781369822245602.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image33_hu12886740393199436288.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image33_hu4724210927776160824.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>
+<p>将两个 Input Voltage 都 Grounded（0V），但是由于有 \(I_{B1}\) 流过反馈电阻 \(R_2\)，导致输出电压不为 0</p>
+<p>$$
+V_{out} = R_2 \cdot I_{B1}
+$$</p>
+</li>
+</ul>
+<aside>
+💡
+<p>所以在 Bias Current 下，即使输入为 0，输出也会出现偏移（non-zero）</p>
+</aside>
+<ul>
+<li>这个东西同样也有解决方案，就是在 Positive Input 端 Parallel 一个 Resistor \(R_1 \parallel R_2\)</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image34_hu7302265947987197233.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image34_hu8309897246469642901.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image34_hu13494798076116142562.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image34_hu2846236836721648503.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image34_hu8309897246469642901.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Superposition 
+    <div id="superposition" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#superposition" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>\(I_{B1}\)</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image35_hu5500631582073341457.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image35_hu13062590768520422020.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image35_hu9851865751298848495.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image35_hu11153801288564284997.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image35_hu13062590768520422020.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>
+<p>运放正输入端接地（0V）</p>
+</li>
+<li>
+<p>输出产生：</p>
+<p>$$
+V_{out}&rsquo; = R_2 \cdot I_{B1}
+$$</p>
+</li>
+</ul>
+
+
+<h4 class="relative group">\(I_{B2}\) 
+    <div id="i_b2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#i_b2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image36_hu10872572552564724316.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image36_hu11455121218499858690.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image36_hu13526943815977681684.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image36_hu2712406189860792437.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image36_hu11455121218499858690.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>
+<p>在正输入端加了一个等效电阻 \(R_1 \parallel R_2\)</p>
+</li>
+<li>
+<p>这个电流通过该电阻向下流，并造成输出扰动：</p>
+<p>$$
+V_{out}&rsquo;&rsquo; = -I_{B2} \cdot (R_1 \parallel R_2) \cdot \left(1 + \frac{R_2}{R_1}\right)
+$$</p>
+</li>
+<li>
+<p>最终经过代数整理得到：</p>
+<p>$$
+V_{out}&rsquo;&rsquo; = -R_2 \cdot I_{B2}
+$$</p>
+</li>
+<li>
+<p>将他们叠加得到</p>
+</li>
+</ul>
+<p>$$
+V_{out} = V_{out}&rsquo; + V_{out}&rsquo;&rsquo; = R_2 (I_{B1} - I_{B2})
+$$</p>
+<ul>
+<li>如果 \(I_{B1} \approx I_{B2}\)，那 \(V_{out} \approx 0\)，偏置电流误差被“抵消”了</li>
+</ul>
+
+
+<h3 class="relative group">Biased Current in Miller Integrator 
+    <div id="biased-current-in-miller-integrator" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#biased-current-in-miller-integrator" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image37_hu12578566398111535253.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image37_hu2681970035627278156.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image37_hu17028633416044530450.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image37_hu3354551949846359649.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image37_hu2681970035627278156.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>一标准的积分器结构：反馈路径是电容 \(C_1\)，但现在多了 \(I_{B1}, I_{B2}\)</li>
+<li>输入端接地，但 \(I_{B1}\) 没有其他去路，只能穿过电容 <strong>\(C_1\)</strong></li>
+<li>DC 偏置电流 \(I_{B1}\) 经过电容 \(C_1\)，使得输出电压持续积分，最终导致<strong>饱和</strong></li>
+</ul>
+<blockquote>
+<p>加一个并联电阻 \(R_2\)（跟前面分析一致）</p>
+</blockquote>
+
+
+<h2 class="relative group">Large-Signal Limitations of Op-amp 
+    <div id="large-signal-limitations-of-op-amp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#large-signal-limitations-of-op-amp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The Op-amp has some Limitation under large signals, those are basically</p>
+<ol>
+<li>Saturation voltage and current</li>
+<li>Slew Rate</li>
+</ol>
+
+
+<h3 class="relative group">Output voltage saturation 
+    <div id="output-voltage-saturation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#output-voltage-saturation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image38_hu7046300244539147193.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image38_hu2115470971652139853.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image38_hu16066615933143266330.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image38_hu12903713787626121315.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image38_hu2115470971652139853.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>The graph above is an example of Non-Inverting Amplifier</li>
+<li>As the Vcc are 15v, which means that the output voltage can’t be bigger than 15v in this case</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image39_hu5280590715604190678.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image39_hu10723278975575173075.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image39_hu7021400151890567680.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image39_hu14927695835365385755.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image39_hu10723278975575173075.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>And the part which is out of range will then be <strong>Saturation</strong></li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image40_hu10313043406451367323.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image40_hu6582402897586866742.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image40_hu16295533400968318686.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image40_hu6865210994007082185.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image40_hu6582402897586866742.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>By analyzing the waveform, we can find out that the part bigger than 13v (usually 1 or 2 v from railing) will be clipping</li>
+</ul>
+
+
+<h4 class="relative group">Ex. Output Saturation 
+    <div id="ex-output-saturation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-output-saturation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>We have a 1 v peak to peak sin function input, with \(R_1=1k\), \(R_2 = 19k\), aksing for the output</p>
+<hr>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image41_hu5769439509640315507.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image41_hu12536829817445224310.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image41_hu9152890227848983741.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image41_hu849089467206397083.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image41_hu12536829817445224310.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Output Current Limit 
+    <div id="output-current-limit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#output-current-limit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image42_hu14424214375345294645.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image42_hu11938609010437291764.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image42_hu5039200457750557025.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image42_hu15395042882271191906.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image42_hu11938609010437291764.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Using this circuit, there’s a speaker load with \(8\Omega\), and the op-amp we are using is called the 741 Op-amp, its limited current output should be \(20mA\)</li>
+<li>Let’s assume that this buffer has \(v_i = 1V\), the ideal output should also be \(v_o=1V\)</li>
+<li>However there’s a speaker, so a Voltage Divider exist on the output end with \(8\Omega\)</li>
+<li>So the Current required for \(v_o\) to be 1V is then \(125mA\)</li>
+</ul>
+
+
+<h3 class="relative group">Slew Rate 
+    <div id="slew-rate" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#slew-rate" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Slew Rate describe the rate of change of the output signal, its being defined as</p>
+<p>$$
+SR = \left( \frac{dV_o(t)}{dt} \right)_{max}
+$$</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image43_hu10169893488363446096.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image43_hu14109593181532178856.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image43_hu9913929535650314152.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image43_hu13510129983113280208.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image43_hu14109593181532178856.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>This graph describe the highest amount of change the output can have, thus if the blue output waveform goes above the SR line, meaning its derivative exceed SR, then the waveform will distort</li>
+<li>The op-amp we mentioned above, which is 741, it has \(SR = ±1V/μs = ±10^6 V/s\)</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image44_hu8378613214956458474.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image44_hu3401277278998560723.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image44_hu1276724726030968252.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image44_hu13454070388419215213.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image44_hu3401277278998560723.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Thus in the graph above, the black signal is the one we want, but with the limit of SR, the signal will distort</li>
+</ul>
+
+
+<h4 class="relative group">Ex. Distortion in op amp 
+    <div id="ex-distortion-in-op-amp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-distortion-in-op-amp" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image45_hu5838745783045237585.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image45_hu11213932143750745293.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image45_hu6318887016678552159.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image45_hu4072188033421099059.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image45_hu11213932143750745293.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>Giving a Buffer, with</p>
+<p>$$
+\omega_t = 2\pi \times 10^6 \text{ rad/s} \quad\text{(unity-gain frequency)}
+$$</p>
+<p>$$
+SR = ±10^6 , \text{V/s}
+$$</p>
+<p>Find the largest step input, (\(V_i\)), without SR limiting</p>
+<hr>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image46_hu18436024299130752353.png 330w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image46_hu7775801228981573163.png 660w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image46_hu13108944538046102650.png 1024w,
+        /docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image46_hu13338731975606358987.png 2x"
+        src="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/image46_hu7775801228981573163.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h3 class="relative group">Full-power bandwidth 
+    <div id="full-power-bandwidth" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#full-power-bandwidth" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>\(fm\) is the largest frequency of waveform an op-amp can have under largest Output Voltage without Slew Rate Limiting</p>
+<p>We know that a sin wave form can be expressed as</p>
+<p>$$
+v_o(t) = V_{o(max)} \sin(2\pi f_M t)
+$$</p>
+<ul>
+<li>Whereas the only part we really care is when \(t=0\), the place that have the largest slope</li>
+</ul>
+<p>$$
+\left|\frac{dv_o(t)}{dt}\right|{max}= 2\pi f_M V{o(max)}
+$$</p>
+<ul>
+<li>We want to make it equal to SR</li>
+</ul>
+<p>$$
+SR = 2\pi f_M V_{o(max)}
+$$</p>
+<ul>
+<li>So we can get that</li>
+</ul>
+<p>$$
+f_M = \frac{SR}{2\pi V_{o(max)}}
+$$</p>
+
+
+<h4 class="relative group">Ex. Full-power bandwidth for 741 op am 
+    <div id="ex-full-power-bandwidth-for-741-op-am" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-full-power-bandwidth-for-741-op-am" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>With \(V_{o(max)} = 10,V, \quad SR = 10^6,V/s\)</p>
+<hr>
+<p>$$
+f_M = \frac{10^6}{2\pi \times 10} = 15.9\text{kHz}
+$$</p>
+<ul>
+<li>Thus for 741 op amp, the largest frequency it can have if output voltage is 10V within the SR is 15.9 kHz</li>
+</ul>
+
+
+<h3 class="relative group">Slew Rate v.s. Amplitude 
+    <div id="slew-rate-vs-amplitude" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#slew-rate-vs-amplitude" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>From the formula \(SR = 2\pi f V_{o(peak)}\) we can see that \(SR\) is Proportional to the frequency \(f\) and \(V_{0(peak)}\)</p>
+<ul>
+<li>So that to avoid distortion, we rather
+<ul>
+<li>Reduce the output amplitude if frequency is high</li>
+<li>Or reduce the frequency when amplitude is high这叫</li>
+</ul>
+</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2025 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

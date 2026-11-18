@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EF 3. Gauss&#39; Law Edited | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1250px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:1313/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ex">ex.</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#ex-gausss-law">ex. Gauss&rsquo;s Law</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#the-external-electric-field">The External Electric Field</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#ex-lighting-strikes-the-tree">ex. Lighting strikes the tree</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EF 3. Gauss&#39; Law Edited</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                March 28, 2025
+                <span style="margin: 0 10px;">&middot;</span> 
+                1795 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 3/28/25</p>
+</blockquote>
+
+
+<h1 class="relative group">Electric Flux 
+    <div id="electric-flux" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-flux" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>穿一个大小为 A 的平面的 Electric Field 个数</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/image_hu8802652043434880325.png 330w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/image_hu13755665881257866306.png 660w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/image_hu3513976184223037978.png 1024w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/image_hu3352758712050547112.png 2x"
+        src="/docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/image_hu13755665881257866306.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>$$
+\Delta \Phi = (E \cos \theta) \Delta A
+$$</p>
+<ul>
+<li>也可以替换为 Dot Product，$\Delta \Phi = \vec E \cdot \Delta A$，同样的，Total Flux就是</li>
+</ul>
+<p>$$
+\Phi=\sum \vec E\cdot  \Delta \vec A，or~\Phi=\int\vec E\cdot d\vec A
+$$</p>
+
+
+<h2 class="relative group">ex. 
+    <div id="ex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Consider a cylinder of radius R in a uniform electric field with axis parallel to the field direction, what are the flux through the end caps, cylindrical surface, and the net flux?</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-1_hu13532035378649585148.png 330w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-1_hu17235173465810949313.png 660w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-1_hu15378486573188772500.png 1024w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-1_hu10200506187641854661.png 2x"
+        src="/docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-1_hu17235173465810949313.png"
+        alt="EF3.Gauss&rsquo;Law-1.png"
+      />
+      
+    </figure>
+</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h1 class="relative group">Gauss&rsquo;s Law 
+    <div id="gausss-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#gausss-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>Consider a particle with charge +q is surrounded by an imaginary concentric sphere</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+<blockquote>
+<p>这是一个 Gauss‘ Law 的 Special Case</p>
+</blockquote>
+<p>$$
+\Phi = \oint \vec{E} \cdot d\vec{A} = \oint E , dA = E \oint dA= E \cdot 4\pi r^2 = \left( \frac{1}{4 \pi \varepsilon_0} \cdot \frac{q}{r^2} \right) \cdot 4 \pi r^2 = \frac{q}{\varepsilon_0}
+$$</p>
+<ul>
+<li>其中 $\oint dA$ 指的是一个封闭曲面的总面积</li>
+<li>通过上面等式，Gauss’ Law 说明了一个闭合表面即 Gaussian Surface 的 Electric Flux 和其包围的 Net Charge 的关系，即</li>
+</ul>
+<p>$$
+{\varepsilon_0}\Phi = Q_{\text{enc}}
+$$</p>
+
+
+<h2 class="relative group">ex. Gauss&rsquo;s Law 
+    <div id="ex-gausss-law" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-gausss-law" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Consider two charges with opposite signs and equal magnitude (+q and –q). Determine the electric flux of the four Gaussian surfaces are shown below:</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>S1：q 是一个 Positive Charge，是一个 Positive Number</li>
+<li>S2：q 是一个 Negative Charge，是 Negative</li>
+<li>S3：其所围成的空间中并不包含 Charge，所以 Zero</li>
+<li>S4：Net charge 为 0，即 Zero</li>
+</ul>
+
+
+<h1 class="relative group">A charged Isolated Conductor 
+    <div id="a-charged-isolated-conductor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#a-charged-isolated-conductor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>孤立导体上，所有额外的电荷都会移动到导体的表面，导体内部不会有多余电荷</li>
+<li>这是因为导体内部的电荷会通过相互作用重新分布，直到内部电场为零，从而达到静电平衡</li>
+</ul>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>同理如果里面出现了一个 Cavity，其也不会存在电荷</li>
+<li>当 Conductor 不是一个光滑的 Spherical 的情况下，电荷并不会均匀的分布在表面上，而是受到曲率的影响，导致尖锐的部分会拥有更多的电荷密度</li>
+</ul>
+
+
+<h2 class="relative group">The External Electric Field 
+    <div id="the-external-electric-field" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-external-electric-field" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+<ul>
+<li>对于一个贴着 Conductor 的 Gaussian Surface，由于 Conductor 内部 Electric Field 为 0，所以只考虑外部的通量</li>
+</ul>
+<p>$$
+ε₀EA = σA
+$$</p>
+<ul>
+<li>导体表面外侧的电场强度等于表面电荷密度除以 $\varepsilon_0$，但这个关系只在表面成立</li>
+</ul>
+
+
+<h1 class="relative group">Applying Gauss&rsquo;s Law: Cylindrical Symmetry 
+    <div id="applying-gausss-law-cylindrical-symmetry" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#applying-gausss-law-cylindrical-symmetry" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>有一个长度为无线的 Plastic Rod，其 Charge Density 为 \lambda</li>
+<li>想求离Central Axis的半径为r的距离处的Electric Field Magnitude</li>
+<li>由于Electric Field是从圆柱体中心穿过的，而有Gauss&rsquo; Law</li>
+</ul>
+<p>$$
+\Phi = \frac{Q_{\text{enc}}}{\epsilon_0}= \oint \vec{E} \cdot d\vec{A}
+$$</p>
+<ul>
+<li>可以得出面积等于 $A = 2\pi rl$</li>
+<li>已知电荷密度为 $\lambda$，即总电荷数为 $Q_{enclosed}=\lambda \cdot L$，所以有 $2\pi rl E=\frac{\lambda L}{E_0}$，也就是</li>
+</ul>
+<p>$$
+E = \frac{\lambda}{2\pi\epsilon_0 r}
+$$</p>
+
+
+<h2 class="relative group">ex. Lighting strikes the tree 
+    <div id="ex-lighting-strikes-the-tree" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-lighting-strikes-the-tree" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>当雷电击中一棵树的时候，其可以被看作是一个导线，而半径为r内的空气都将被 Ionized，计算出这个半径r，令 E=3\times 10^6 N/C</p>
+<p>$$
+r = \frac{\lambda}{2\pi\epsilon_0 E}= \frac{1 \times 10^{-3}\ \text{C/m}}{(2\pi)(8.85 \times 10^{-12}\ \text{C}^2/\text{N}\cdot\text{m}^2)(3 \times 10^6\ \text{N/C})}= 6\ \text{m}
+$$</p>
+
+
+<h1 class="relative group">Applying Gauss&rsquo;s Law: Planar Symmetry 
+    <div id="applying-gausss-law-planar-symmetry" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#applying-gausss-law-planar-symmetry" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>对于一个无限大的电荷密度为 $\sigma$ 的Plane，有 $\sigma=\frac{Q}{A}$</li>
+<li>根据 Gauss&rsquo; Law $\Phi = \frac{Q_{\text{enc}}}{\varepsilon_0}$，其中 $Q=\sigma A$，于是有</li>
+</ul>
+<p>$$
+\Phi=\frac{\sigma A_0}{\varepsilon_0}
+$$</p>
+<ul>
+<li>令其中一个 Cylinder 为高斯面，Flux 从两个Cross-Sectional Area 流过</li>
+</ul>
+<p>$$
+\Phi=EA=2EA_0=\frac{\sigma A_0}{\varepsilon_0}
+\Rightarrow E=\frac{\sigma}{2\varepsilon_0}
+$$</p>
+
+
+<h1 class="relative group">Applying Gauss’s Law Shell Theorem #1 
+    <div id="applying-gausss-law-shell-theorem-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#applying-gausss-law-shell-theorem-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>回顾 Shell Theorem #1，它讲的是一个带有均匀电荷的壳层对壳外的粒子的吸引或排斥作用，就像所有电荷集中在球壳的中心一样</li>
+</ul>
+<p>$$
+\Phi = \oint \vec{E} \cdot d\vec{A}      = E \oint dA    = E \cdot 4\pi r^2 \\varepsilon_0 \Phi = q_{\text{enc}} \quad \text{(where } \varepsilon_0 \text{ is the permittivity of free space)} \\varepsilon_0 E \cdot 4\pi r^2 = q_{\text{enc}}\Rightarrow E = \frac{1}{4\pi \varepsilon_0} \cdot \frac{q_{\text{enc}}}{r^2}
+$$</p>
+
+
+<h1 class="relative group">Applying Gauss’s Law Shell Theorem #2 
+    <div id="applying-gausss-law-shell-theorem-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#applying-gausss-law-shell-theorem-2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>第二个 Shell Theorem 说的是如果一个带电粒子处于一个带有均匀电荷分布的壳层内部，那么壳层对该粒子不会产生任何 Electrostatic force</li>
+<li>这是因为所有的电荷都在 Shell 的 surface 上，内部 Gauss Surface 所包围的 Charge 为 0，所以内部粒子不会受到任何 Electrostatic Force</li>
+</ul>
+<blockquote>
+<p>However, there can still be an electric field within the shell, created by other objects</p>
+<p>需要注意的是，Shell 内部仍可能存在其他物体所产生的电场</p>
+</blockquote>
+
+
+<h1 class="relative group">Applying Gauss&rsquo; Law: Spherical Symmetry 
+    <div id="applying-gauss-law-spherical-symmetry" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#applying-gauss-law-spherical-symmetry" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<ul>
+<li>有一个球壳，上面的Charge均匀分布，电荷总量为q，半径为R</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-6_hu6273724963684929248.png 330w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-6_hu16547411812927462945.png 660w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-6_hu13665851087721244782.png 1024w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-6_hu7560436792672202669.png 2x"
+        src="/docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-6_hu16547411812927462945.png"
+        alt="EF3.Gauss&rsquo;Law-6.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>使用两个同心的球形高斯面 $S_1$ 和 $S_2$</li>
+<li>对于内部高斯面 $S_1$ 来说，Electric Field 为 0，Electric Flux 也为 0</li>
+<li>对于外部高斯面 $S_2$ 来说，Electric Field公式由 $E=\frac{q}{4\pi\varepsilon_0r^2}$ 给出，由 Shell Theorem 1 证明，球壳外部的 Charge 可以被视为 Point Charge</li>
+<li>第二种情况则是一个带电的均匀实心球体（电荷在其中均匀分布）</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-8_hu2812729296438970059.png 330w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-8_hu12933634522729691136.png 660w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-8_hu12261056621406380126.png 1024w,
+        /docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-8_hu6194440552333681022.png 2x"
+        src="/docs/uoft/24f/electrical-fundamentals/ef3.gausslaw_edited/EF3.GaussLaw-8_hu12933634522729691136.png"
+        alt="EF3.Gauss&rsquo;Law-8.png"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>令整个实心球半径为R，总电荷量为q，且在体积内均匀分布，则体积电荷密度</li>
+</ul>
+<p>$$
+\rho ;=; \frac{q}{\tfrac{4}{3}\pi R^3}
+$$</p>
+<ul>
+<li>在球内取一半径为 $r&lt;R$ 的球面作高斯面，则该高斯面所包围的电荷量</li>
+</ul>
+<p>$$
+Q_{\text{enclosed}} ;=; \rho \times \bigl(\tfrac{4}{3}\pi r^3\bigr) = \frac{q}{\tfrac{4}{3}\pi R^3};\times;\tfrac{4}{3}\pi r^3 = q,\frac{r^3}{R^3}
+$$</p>
+<ul>
+<li>由对称性，球面上电场大小恒为E，方向辐向向外，故</li>
+</ul>
+<p>$$
+\oint \mathbf{E}\cdot \mathrm{d}\mathbf{A} = E,\cdot 4\pi r^2
+$$</p>
+<ul>
+<li>高斯定律给出</li>
+</ul>
+<p>$$
+E \cdot 4\pi r^2 = \frac{Q_{\text{enclosed}}}{\varepsilon_0} = \frac{q,\tfrac{r^3}{R^3}}{\varepsilon_0}
+\Rightarrow E(r) = \frac{1}{4\pi \varepsilon_0} ,\frac{q,\tfrac{r^3}{R^3}}{r^2} = \frac{1}{4\pi \varepsilon_0},\frac{q}{R^3},r
+$$</p>
+<ul>
+<li>总的来说<strong>空心球壳</strong>：</li>
+<li>壳外 $r \ge R$：电场如点电荷，$E=\frac{1}{4\pi\varepsilon_0},\frac{q}{r^2}$</li>
+<li>壳内 $r \le R$：电场为 0</li>
+<li><strong>实心均匀带电球</strong>：</li>
+<li>球外 $r \ge R$：同样表现为点电荷，$E=\frac{1}{4\pi\varepsilon_0},\frac{q}{r^2}$</li>
+<li>球内 $r \le R$：$E=\frac{1}{4\pi \varepsilon_0},\frac{q}{R^3},r$，即随r线性增大</li>
+</ul>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2025 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

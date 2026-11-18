@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus 10. Parametric Equations and Polar Coordinates | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1250px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="http://localhost:1313/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#101-parametric-equations">10.1 Parametric Equations</a>
+      <ul>
+        <li><a href="#eliminating-the-parameter-化简">Eliminating the Parameter 化简</a>
+          <ul>
+            <li><a href="#ex">ex.</a></li>
+          </ul>
+        </li>
+        <li><a href="#use-trigonometrey-to-eliminate-parameter">Use Trigonometrey to Eliminate Parameter</a>
+          <ul>
+            <li><a href="#ex-1">ex.</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#102-calculus-of-parametric-curves">10.2 Calculus of Parametric Curves</a>
+      <ul>
+        <li><a href="#derivatives-of-parametric-equations">Derivatives of Parametric Equations</a></li>
+        <li><a href="#arc-length-of-a-parametric-curve">Arc Length of a Parametric Curve</a></li>
+        <li><a href="#converting-points-between-coordinate-systems">Converting Points between Coordinate Systems</a></li>
+      </ul>
+    </li>
+    <li><a href="#104-area-and-arc-length-in-polar-coordinates">10.4 Area and Arc Length in Polar Coordinates</a>
+      <ul>
+        <li><a href="#slope-of-polar-curve">Slope of Polar Curve</a></li>
+        <li><a href="#areas-of-regions-bounded-by-polar-curves">Areas of Regions Bounded by Polar Curves</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>Calculus 10. Parametric Equations and Polar Coordinates</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                January 08, 2025
+                <span style="margin: 0 10px;">&middot;</span> 
+                809 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 1/8/25</p>
+</blockquote>
+
+
+<h2 class="relative group">10.1 Parametric Equations 
+    <div id="101-parametric-equations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#101-parametric-equations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>If x and y are continuous functions of t on an interval I, then the equations are called parametric equations and t is called the parameter
+$$x=x(t) andy=y(t)$$</li>
+</ul>
+
+
+<h3 class="relative group">Eliminating the Parameter 化简 
+    <div id="eliminating-the-parameter-%E5%8C%96%E7%AE%80" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#eliminating-the-parameter-%E5%8C%96%E7%AE%80" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>通过关系式直接得到x和y之间的函数</li>
+</ul>
+
+
+<h4 class="relative group">ex. 
+    <div id="ex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$</p>
+<ul>
+<li>从第二个Equation中提出\(t = \frac{y - 1}{2}\)后带入
+$$x = \left(\frac{y - 1}{2}\right)^2 - 3 \ = \frac{y^2 - 2y + 1}{4} - 3 \ = \frac{y^2 - 2y - 11}{4}$$</li>
+</ul>
+
+
+<h3 class="relative group">Use Trigonometrey to Eliminate Parameter 
+    <div id="use-trigonometrey-to-eliminate-parameter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#use-trigonometrey-to-eliminate-parameter" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>通过一些等式建立x和y之间的关系</li>
+<li>例如\(\cos^2x+\sin^2 x=1\)</li>
+</ul>
+
+
+<h4 class="relative group">ex. 
+    <div id="ex-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-1" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>有\(x = 3 \cos \theta \quad \text{and} \quad y = 4 \sin \theta, \quad 0 \leq \theta \leq 2\pi\)</li>
+<li>通过\(cos \theta=\frac{x}{3},sin\theta=\frac{y}{4}\)替换原式，便有\((\frac{x}{3})^2+(\frac{y}{4})^2=1\)</li>
+</ul>
+
+
+<h2 class="relative group">10.2 Calculus of Parametric Curves 
+    <div id="102-calculus-of-parametric-curves" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#102-calculus-of-parametric-curves" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Derivatives of Parametric Equations 
+    <div id="derivatives-of-parametric-equations" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#derivatives-of-parametric-equations" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>If a smooth curve C is given by the equations
+$$x = f(t) \quad \text{and} \quad y = g(t)$$</li>
+<li>then the slope of C at (x, y)  is
+$$\frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}, \quad \frac{dx}{dt} \neq 0
+$$</li>
+</ul>
+
+
+<h3 class="relative group">Arc Length of a Parametric Curve 
+    <div id="arc-length-of-a-parametric-curve" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#arc-length-of-a-parametric-curve" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>普通的Arc Length公式为\(\int^b_a\sqrt{1+[f&rsquo;(x)]^2}dx\)</li>
+<li>将Parametric Curve的Derivative带入，得到
+$$\int^b_a\sqrt{1+(\frac{dy/dt}{dx/dt})^2}dx=\int^b_a\sqrt{\frac{(dx/dt)^2+(dy/dt)^2}{(dx/dt)^2}}\frac{dx}{dt}dt$$</li>
+<li>也就是
+$$=\int^b_a\sqrt{(\frac{dx}{dt})^2+(\frac{dy}{dt})^2}dt=\int^b_a\sqrt{[f&rsquo;(x)]^2+[g&rsquo;(t)]^2}dt$$</li>
+</ul>
+<p>10.3 Polar Coordinates 极坐标</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates_hu1987074736033940406.png 330w,
+        /docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates_hu17181490569976233415.png 660w,
+        /docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates_hu610460320111572420.png 1024w,
+        /docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates_hu14770728672412081708.png 2x"
+        src="/docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates_hu17181490569976233415.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<ul>
+<li>Polar Coordinates，一个新的坐标系，通过Radius和于Polar Axis的Directed Angle来表示点在坐标系中的位置</li>
+</ul>
+
+
+<h3 class="relative group">Converting Points between Coordinate Systems 
+    <div id="converting-points-between-coordinate-systems" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#converting-points-between-coordinate-systems" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>想要把Cartesian Coordinates转换为Polar Coordinates，只需要找到\(r=\sqrt{x^2+y^2}\) 和 \(\tan^{-1}\frac{y}{x}\)便可</li>
+<li>而Polar 到 Cartesian的转换则是通过公式\(x=r\cos\theta , y=r\sin\theta\)得到</li>
+</ul>
+
+
+<h2 class="relative group">10.4 Area and Arc Length in Polar Coordinates 
+    <div id="104-area-and-arc-length-in-polar-coordinates" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#104-area-and-arc-length-in-polar-coordinates" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Slope of Polar Curve 
+    <div id="slope-of-polar-curve" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#slope-of-polar-curve" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>对于Polar Coodinates来说，其Derivative可以通过一个简单的Chain Rule得到
+$$\frac{dy}{dx} = \frac{\frac{dy}{d\theta}}{\frac{dx}{d\theta}} = \frac{f(\theta) \cos \theta + f&rsquo;(\theta) \sin \theta}{-f(\theta) \sin \theta + f&rsquo;(\theta) \cos \theta}$$</li>
+</ul>
+
+
+<h3 class="relative group">Areas of Regions Bounded by Polar Curves 
+    <div id="areas-of-regions-bounded-by-polar-curves" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#areas-of-regions-bounded-by-polar-curves" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>在之前都是采用多边形来近似面积，而在Polar Region中，采用了扇形的来近似</li>
+</ul>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates-1_hu5187340416160311234.png 330w,
+        /docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates-1_hu10224638281013357781.png 660w,
+        /docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates-1_hu12499406022062617817.png 1024w,
+        /docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates-1_hu9963052659910388436.png 2x"
+        src="/docs/uoft/24f/calculus/calculus10.parametricequationsandpolarcoordinates/Calculus10.ParametricEquationsandPolarCoordinates-1_hu10224638281013357781.png"
+        alt="Img"
+      />
+      
+    </figure>
+</p>
+<p>$$A = \lim_{n \to \infty} \frac{1}{2} \sum_{i=1}^{n} [f(\theta_i)]^2 \Delta \theta = \frac{1}{2} \int_{\alpha}^{\beta} [f(\theta)]^2 d\theta$$</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2025 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

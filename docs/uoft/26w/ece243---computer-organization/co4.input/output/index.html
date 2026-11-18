@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO 4. Input/Output | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#code-example-using-of-io">Code Example: Using of I/O</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#transmission-of-parameters">Transmission of Parameters</a></li>
+        <li><a href="#argument-registers">Argument Registers</a></li>
+        <li><a href="#temporary-registers">Temporary Registers</a></li>
+        <li><a href="#callee-saved-registers">Callee Saved Registers</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#data-reg-0xff200050-">Data Reg (<code>0xFF200050</code> )</a></li>
+    <li><a href="#edge-capture-reg-0xff20005c">Edge Capture Reg (<code>0xFF20005C</code>)</a></li>
+    <li><a href="#detect-the-key-change">Detect the Key change</a>
+      <ul>
+        <li><a href="#polling-using-data-reg">Polling using Data Reg</a></li>
+        <li><a href="#polling-using-edge-capture-reg">Polling using Edge Capture Reg</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#on-memory">On Memory</a>
+      <ul>
+        <li><a href="#1-split-high-and-low">1. Split High and Low</a></li>
+        <li><a href="#2-set-and-start">2. Set and Start</a></li>
+        <li><a href="#3-polling">3. Polling</a></li>
+        <li><a href="#4-reset">4. Reset</a></li>
+      </ul>
+    </li>
+    <li><a href="#code-example-hardware-counter">Code Example: Hardware Counter</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#interrupt-driven-inputoutput">Interrupt-Driven Input/Output</a></li>
+    <li><a href="#flow-chart">Flow Chart</a></li>
+    <li><a href="#mtvec-register">mtvec Register</a></li>
+    <li><a href="#mepc-register">mepc Register</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#enable--mask">Enable &amp; Mask</a></li>
+    <li><a href="#privilege">Privilege</a></li>
+    <li><a href="#control-registers">Control Registers</a></li>
+    <li><a href="#interrupt-request">Interrupt Request</a></li>
+    <li><a href="#the-interrupt-sequence">The Interrupt Sequence</a>
+      <ul>
+        <li><a href="#initialisation">Initialisation</a></li>
+      </ul>
+    </li>
+    <li><a href="#control-and-status-register-command">Control and Status Register Command</a></li>
+    <li><a href="#mie-register">MIE Register</a></li>
+    <li><a href="#code-example">Code Example</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>CO 4. Input/Output</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                February 05, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                2920 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 2/5/26</p>
+</blockquote>
+<p>The Input and Output are the connection between the virtual world and the physical world</p>
+<p>Recall on DE1-Soc Board, we have I/Os</p>
+<ul>
+<li>10 LEDs</li>
+<li>10 Slider Switches</li>
+<li>4 Buttons</li>
+<li>6 Seven Segment Displays</li>
+</ul>
+
+
+<h1 class="relative group">Memory Mapped I/O 
+    <div id="memory-mapped-io" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#memory-mapped-io" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall the Computer Structure</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image_hu10237692504448175263.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image_hu2518347728748637828.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image_hu12985773433677973446.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image_hu12119206710139389535.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co4.input/output/image_hu2518347728748637828.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>The three main parts of Computer are communicating with the <code>Bus</code> , and there are address bus, which the <code>lw</code> will call when processor want to load something from the memory to the registers</p>
+<p>The majority of address are associated to the memory that are being reserved for processors</p>
+<ul>
+<li>They are bing classified by a circuit (the orange box) before entering</li>
+</ul>
+<p>While there are few of addresses that are mapped to connect to the Input/Output</p>
+<hr>
+<p>For example, the state (ON/OFF) of LEDs are mapped to the low order 10 bits at address <code>oxFF20000</code> , and that is just what we called the memory mapped I/O</p>
+
+
+<h2 class="relative group">Code Example: Using of I/O 
+    <div id="code-example-using-of-io" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#code-example-using-of-io" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">Define</span> <span class="nv">hardware</span> <span class="nv">register</span> <span class="nv">addresses</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">LEDs</span><span class="p">,</span> <span class="mh">0xFF200000</span>  <span class="err">#</span> <span class="nv">Base</span> <span class="nv">address</span> <span class="nv">for</span> <span class="nv">the</span> <span class="mi">10</span> <span class="nv">LEDs</span> <span class="p">(</span><span class="nv">Output</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">SW</span><span class="p">,</span>   <span class="mh">0xFF200040</span>  <span class="err">#</span> <span class="nv">Base</span> <span class="nv">address</span> <span class="nv">for</span> <span class="nv">the</span> <span class="mi">10</span> <span class="nv">Slider</span> <span class="nv">Switches</span> <span class="p">(</span><span class="nv">Input</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">_start:</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span> <span class="nv">t0</span><span class="p">,</span> <span class="nv">LEDs</span>        <span class="err">#</span> <span class="nv">Load</span> <span class="nv">the</span> <span class="nv">memory</span><span class="o">-</span><span class="nv">mapped</span> <span class="nv">address</span> <span class="nv">of</span> <span class="nv">LEDs</span> <span class="nv">into</span> <span class="nv">register</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">SW</span>          <span class="err">#</span> <span class="nv">Load</span> <span class="nv">the</span> <span class="nv">memory</span><span class="o">-</span><span class="nv">mapped</span> <span class="nv">address</span> <span class="nv">of</span> <span class="nv">Switches</span> <span class="nv">into</span> <span class="nv">register</span> <span class="nv">t1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">Main</span> <span class="nv">loop</span> <span class="nv">to</span> <span class="nv">synchronize</span> <span class="nv">switches</span> <span class="nv">and</span> <span class="nv">LEDs</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">In</span> <span class="nv">Memory</span> <span class="nv">Mapped</span> <span class="nv">I</span><span class="o">/</span><span class="nv">O</span><span class="p">,</span> <span class="nv">the</span> <span class="nv">hardware</span> <span class="nv">uses</span> <span class="nv">the</span> <span class="nv">address</span> <span class="nv">to</span> <span class="nv">determine</span> <span class="nv">if</span> 
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">lw</span><span class="o">/</span><span class="nv">sw</span> <span class="nv">refers</span> <span class="nv">to</span> <span class="nv">actual</span> <span class="nv">memory</span> <span class="nv">or</span> <span class="nv">a</span> <span class="nv">hardware</span> <span class="nv">device.</span>
+</span></span><span class="line"><span class="cl"><span class="nl">loop:</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span> <span class="nv">t2</span><span class="p">,</span> <span class="p">(</span><span class="nv">t1</span><span class="p">)</span>        <span class="err">#</span> <span class="nv">Read</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">state</span> <span class="nv">of</span> <span class="nv">the</span> <span class="mi">10</span> <span class="nv">switches</span> <span class="nv">into</span> <span class="nv">register</span> <span class="nv">t2</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span> <span class="nv">t2</span><span class="p">,</span> <span class="p">(</span><span class="nv">t0</span><span class="p">)</span>        <span class="err">#</span> <span class="nv">Write</span> <span class="nv">the</span> <span class="nv">value</span> <span class="nv">from</span> <span class="nv">t2</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">LEDs</span><span class="p">,</span> <span class="nv">turning</span> <span class="nv">them</span> <span class="nv">ON</span><span class="o">/</span><span class="nv">OFF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">j</span> <span class="nv">loop</span>             <span class="err">#</span> <span class="nv">Jump</span> <span class="nv">back</span> <span class="nv">to</span> <span class="s">&#39;loop&#39;</span> <span class="nv">to</span> <span class="nv">repeat</span> <span class="nv">indefinite</span>
+</span></span></code></pre></div>
+
+<h1 class="relative group">Memory in Subroutines 
+    <div id="memory-in-subroutines" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#memory-in-subroutines" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Recall the Nested Subroutines which used the <code>ra</code> register to store the return address, there’s actually an issue with the <strong>Registers</strong></p>
+<ul>
+<li>If both the caller and the callee want to use one same register <code>t0</code> , then an overwrite will occur</li>
+<li>Thus we make rules for everyone and follows them</li>
+</ul>
+
+
+<h3 class="relative group">Transmission of Parameters 
+    <div id="transmission-of-parameters" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#transmission-of-parameters" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Recall in C, the function prototype is <code>int Your_Sub(int a, int b){</code></p>
+<ul>
+<li>This defines the input and output</li>
+</ul>
+
+
+<h3 class="relative group">Argument Registers 
+    <div id="argument-registers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#argument-registers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>In Assembly, to send parameters from caller to callee, we begin with first 8 parameters into register <code>a0, a1 … a7</code></p>
+<ul>
+<li>If there’s more than 8 of them, then use the stack</li>
+<li>The caller is responsible for both the pushing and popping</li>
+</ul>
+<p>While when returning, put to the <code>a0,a1 … a7</code> too</p>
+
+
+<h3 class="relative group">Temporary Registers 
+    <div id="temporary-registers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#temporary-registers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<hr>
+<p>The registers we frequently used <code>t0 - t6</code> are the Temporary, the <strong>caller</strong> is responsible to preserve them for use</p>
+<hr>
+
+
+<h3 class="relative group">Callee Saved Registers 
+    <div id="callee-saved-registers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#callee-saved-registers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>As for the <code>s0-s11</code>, those are called the saved Register, that if the callee want to make use, they will need to</p>
+<ul>
+<li>Saved those on stack</li>
+<li>Then use them</li>
+<li>Make sure to restore everything before giving back to caller, so that for the caller, those are the same before and after calling</li>
+</ul>
+
+
+<h1 class="relative group">Interrupt 
+    <div id="interrupt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#interrupt" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>In the previous code example, we used the way of polling to get the change of Keys, that is keep while loop to detect the change</p>
+<p>This Polling method is bad as its keep wasting the processor source, so we need a better way, and that is just interrupt</p>
+<hr>
+<p>Interrupt means that the processor will keep doing it own task, until some thing interrupt it</p>
+
+
+<h1 class="relative group">Special Registers 
+    <div id="special-registers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#special-registers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Data Reg (<code>0xFF200050</code> ) 
+    <div id="data-reg-0xff200050-" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#data-reg-0xff200050-" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Only the last 4 bits is valid</p>
+<ul>
+<li>Reflects the key status</li>
+<li>When Key 0 is pressed , the bit 0 set to 1</li>
+<li>When Key 0 released, then set to 0</li>
+</ul>
+
+
+<h2 class="relative group">Edge Capture Reg (<code>0xFF20005C</code>) 
+    <div id="edge-capture-reg-0xff20005c" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#edge-capture-reg-0xff20005c" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Saved the pressed status</p>
+<ul>
+<li>If key 0 is pressed, then set key 0 to 1</li>
+<li>And it keeps to be 1 until Explicit Reset</li>
+</ul>
+<p>This Reg is designed as the CPU’s operating rate might be slower than the press operation, thus we want to record that action of pressing</p>
+<ul>
+<li>To reset the bit to 0, send a 1 into it, otherwise it remains</li>
+</ul>
+<hr>
+
+
+<h2 class="relative group">Detect the Key change 
+    <div id="detect-the-key-change" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#detect-the-key-change" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Thus there will be two ways for detecting the key change</p>
+<ul>
+<li>Data Reg</li>
+<li>Edge Capture Reg</li>
+</ul>
+
+
+<h3 class="relative group">Polling using Data Reg 
+    <div id="polling-using-data-reg" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#polling-using-data-reg" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">KEY_BASE</span><span class="p">,</span> <span class="mh">0xFF200050</span>  <span class="err">#</span> <span class="nv">Define</span> <span class="nv">the</span> <span class="nv">base</span> <span class="nv">memory</span><span class="o">-</span><span class="nv">mapped</span> <span class="nv">address</span> <span class="nv">for</span> <span class="nv">the</span> <span class="nv">KEY</span> <span class="nv">pushbuttons</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">la</span>  <span class="nv">t0</span><span class="p">,</span> <span class="nv">KEY_BASE</span>           <span class="err">#</span> <span class="nv">Load</span> <span class="nv">the</span> <span class="nv">base</span> <span class="nv">address</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">KEY</span> <span class="nv">port</span> <span class="nv">into</span> <span class="nv">register</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">Polling</span> <span class="nv">loop</span><span class="p">:</span> <span class="nv">Wait</span> <span class="nv">here</span> <span class="nv">until</span> <span class="nv">Key</span> <span class="mi">1</span> <span class="nv">is</span> <span class="nv">detected</span> <span class="nv">as</span> <span class="nv">pressed</span>
+</span></span><span class="line"><span class="cl"><span class="nl">poll:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span>   <span class="nv">t1</span><span class="p">,</span> <span class="p">(</span><span class="nv">t0</span><span class="p">)</span>          <span class="err">#</span> <span class="nv">Read</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">state</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">Data</span> <span class="nv">Register</span> <span class="nv">into</span> <span class="nv">t1</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nf">andi</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">t1</span><span class="p">,</span> <span class="mh">0x2</span>       <span class="err">#</span> <span class="nv">Bitwise</span> <span class="nv">AND</span> <span class="nv">with</span> <span class="mh">0x2</span> <span class="p">(</span><span class="nv">binary</span> <span class="mi">0010</span><span class="p">)</span> <span class="nv">to</span> <span class="nv">mask</span> <span class="nb">al</span><span class="nv">l</span> <span class="nv">bits</span> <span class="nv">except</span> <span class="nv">Bit</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                           <span class="err">#</span> <span class="nf">This</span> <span class="nv">isolates</span> <span class="nv">the</span> <span class="nv">status</span> <span class="nv">of</span> <span class="nv">Key</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">beqz</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">poll</span>          <span class="err">#</span> <span class="nv">If</span> <span class="nv">t1</span> <span class="nv">is</span> <span class="mi">0</span> <span class="p">(</span><span class="nv">Key</span> <span class="mi">1</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">pressed</span><span class="p">),</span> <span class="nv">branch</span> <span class="nv">back</span> <span class="nv">to</span> <span class="s">&#39;poll&#39;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">Execution</span> <span class="nv">reaches</span> <span class="nv">this</span> <span class="nv">point</span> <span class="nv">only</span> <span class="nv">after</span> <span class="nv">Key</span> <span class="mi">1</span> <span class="nv">is</span> <span class="nv">pressed</span>
+</span></span></code></pre></div>
+
+<h3 class="relative group">Polling using Edge Capture Reg 
+    <div id="polling-using-edge-capture-reg" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#polling-using-edge-capture-reg" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="nf">.global</span> <span class="nv">_start</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">KEY_BASE</span><span class="p">,</span> <span class="mh">0xFF200050</span>    <span class="err">#</span> <span class="nv">Base</span> <span class="nv">address</span> <span class="nv">for</span> <span class="nv">the</span> <span class="nv">Pushbutton</span> <span class="nv">KEY</span> <span class="nv">parallel</span> <span class="nv">port</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">LEDs</span><span class="p">,</span>     <span class="mh">0xFF200000</span>    <span class="err">#</span> <span class="nv">Base</span> <span class="nv">address</span> <span class="nv">for</span> <span class="nv">the</span> <span class="nv">Red</span> <span class="nv">LED</span> <span class="nv">parallel</span> <span class="nv">port</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">_start:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span>  <span class="nv">t0</span><span class="p">,</span> <span class="nv">KEY_BASE</span>         <span class="err">#</span> <span class="nv">Load</span> <span class="nv">address</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">KEY</span> <span class="nv">port</span> <span class="nv">into</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span>  <span class="nv">t1</span><span class="p">,</span> <span class="nv">LEDs</span>             <span class="err">#</span> <span class="nv">Load</span> <span class="nv">address</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">LED</span> <span class="nv">port</span> <span class="nv">into</span> <span class="nv">t1</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span>  <span class="nv">t2</span><span class="p">,</span> <span class="mh">0x1</span>              <span class="err">#</span> <span class="nv">Initialize</span> <span class="nv">LED</span> <span class="nv">pattern</span><span class="p">:</span> <span class="nv">start</span> <span class="nv">with</span> <span class="nv">LED</span> <span class="mi">0</span> <span class="nv">turned</span> <span class="nv">ON</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">Main</span> <span class="nv">polling</span> <span class="nv">loop</span> <span class="nv">to</span> <span class="nb">ch</span><span class="nv">eck</span> <span class="nv">for</span> <span class="nv">edge</span> <span class="nv">capture</span> <span class="nv">events</span>
+</span></span><span class="line"><span class="cl"><span class="nl">poll:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span>   <span class="nv">t3</span><span class="p">,</span> <span class="mh">0xC</span><span class="p">(</span><span class="nv">t0</span><span class="p">)</span>         <span class="err">#</span> <span class="nv">Load</span> <span class="nv">the</span> <span class="nv">Edge</span> <span class="nv">Capture</span> <span class="nv">Register</span> <span class="p">(</span><span class="nv">offset</span> <span class="mh">0xC</span> <span class="nv">from</span> <span class="nv">base</span><span class="p">)</span> <span class="nv">into</span> <span class="nv">t3</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">andi</span> <span class="nv">t3</span><span class="p">,</span> <span class="nv">t3</span><span class="p">,</span> <span class="mh">0x4</span>         <span class="err">#</span> <span class="nv">Mask</span> <span class="nv">Bit</span> <span class="mi">2</span> <span class="nv">to</span> <span class="nb">sp</span><span class="nv">ecifically</span> <span class="nb">ch</span><span class="nv">eck</span> <span class="nv">the</span> <span class="nv">status</span> <span class="nv">of</span> <span class="nv">Key</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">beqz</span> <span class="nv">t3</span><span class="p">,</span> <span class="nv">poll</span>            <span class="err">#</span> <span class="nv">If</span> <span class="nv">result</span> <span class="nv">is</span> <span class="mi">0</span> <span class="p">(</span><span class="nv">Key</span> <span class="mi">2</span> <span class="nv">not</span> <span class="nv">pressed</span><span class="o">/</span><span class="nv">released</span><span class="p">),</span> <span class="nv">continue</span> <span class="nv">polling</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">Reaching</span> <span class="nv">here</span> <span class="nv">means</span> <span class="nv">Key</span> <span class="mi">2</span> <span class="nv">was</span> <span class="nv">pressed</span> <span class="nv">and</span> <span class="nv">released</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>   <span class="nv">t2</span><span class="p">,</span> <span class="p">(</span><span class="nv">t1</span><span class="p">)</span>            <span class="err">#</span> <span class="nv">Store</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">pattern</span> <span class="nv">in</span> <span class="nv">t2</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">LED</span> <span class="nv">data</span> <span class="nv">register</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">xori</span> <span class="nv">t2</span><span class="p">,</span> <span class="nv">t2</span><span class="p">,</span> <span class="mh">0x1</span>         <span class="err">#</span> <span class="nv">XOR</span> <span class="nv">with</span> <span class="mi">1</span> <span class="nv">to</span> <span class="nv">toggle</span> <span class="nv">the</span> <span class="nv">state</span> <span class="nv">of</span> <span class="nv">Bit</span> <span class="mi">0</span> <span class="nv">for</span> <span class="nv">the</span> <span class="nv">next</span> <span class="nv">press</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">Critical</span> <span class="nv">Step</span><span class="p">:</span> <span class="nv">Reset</span> <span class="nv">the</span> <span class="nv">Edge</span> <span class="nv">Capture</span> <span class="nv">bit</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span>   <span class="nv">t4</span><span class="p">,</span> <span class="mh">0x4</span>             <span class="err">#</span> <span class="nv">Prepare</span> <span class="nv">a</span> <span class="nv">value</span> <span class="nv">with</span> <span class="nv">Bit</span> <span class="mi">2</span> <span class="nv">set</span> <span class="nv">to</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>   <span class="nv">t4</span><span class="p">,</span> <span class="mh">0xC</span><span class="p">(</span><span class="nv">t0</span><span class="p">)</span>         <span class="err">#</span> <span class="nv">Write</span> <span class="mi">1</span> <span class="nv">to</span> <span class="nv">Bit</span> <span class="mi">2</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">Edge</span> <span class="nv">Capture</span> <span class="nv">Reg</span> <span class="nv">to</span> <span class="nb">cl</span><span class="nv">ear</span> <span class="nv">it</span> <span class="p">(</span><span class="nv">Write</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="nv">to</span><span class="o">-</span><span class="nb">Cl</span><span class="nv">ear</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">j</span>    <span class="nv">poll</span>                <span class="err">#</span> <span class="nv">Return</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">start</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">loop</span> <span class="nv">to</span> <span class="nv">wait</span> <span class="nv">for</span> <span class="nv">the</span> <span class="nv">next</span> <span class="nv">event</span>
+</span></span></code></pre></div>
+
+<h1 class="relative group">Hardware Timer 
+    <div id="hardware-timer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#hardware-timer" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>There are several ways to time</p>
+<ul>
+<li>Software Delay Loop: use loop to approximate time
+<ul>
+<li>Notice as CPU frequency change, this will change</li>
+</ul>
+</li>
+<li>Hardware Timer: Use specific hardware for timing</li>
+</ul>
+<p>There are two things needed, a <strong>Crystal Oscillator</strong> and a <strong>Counter Reg</strong></p>
+
+
+<h2 class="relative group">Example 
+    <div id="example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Consider a counter with $100MHz$, it’s period is then</p>
+<p>$$
+T = \frac{1}{f} = \frac{1}{100 \times 10^6 \text{ Hz}} = 10 \text{ ns}
+$$</p>
+<p>To count to one, we will need</p>
+<p>$$
+100,000,000 \text{ times} \times 10 \text{ ns} = 1 \text{ s}
+$$</p>
+<p>which is 100 million times</p>
+<p>So what we do is to start with 100 million and subtract one after each period</p>
+
+
+<h2 class="relative group">On Memory 
+    <div id="on-memory" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#on-memory" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As indicated, the I/O are being mapped on Register, there’s a Internal Timer that has six memory-mapped Registers which are <strong>16 bits</strong> each</p>
+<p>But we are operating everything in 32 bits, that means we need to do everything twice</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image1_hu5377671093568970599.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image1_hu12951225459433313426.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image1_hu7473899395390615314.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image1_hu12790501925106123272.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co4.input/output/image1_hu12951225459433313426.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>After knowing the structure, here’s how to make it work</p>
+
+
+<h3 class="relative group">1. Split High and Low 
+    <div id="1-split-high-and-low" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-split-high-and-low" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Split Everything into high and low 16 bits</p>
+
+
+<h3 class="relative group">2. Set and Start 
+    <div id="2-set-and-start" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-set-and-start" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Change the Control Reg bit 2 (START) to 1, and bit 1 (CONT) to 1</p>
+<ul>
+<li><code>START</code> : Start</li>
+<li><code>CONT</code> : Repeat after count to zero</li>
+</ul>
+<p>Can be done one simply write <code>0x6</code></p>
+
+
+<h3 class="relative group">3. Polling 
+    <div id="3-polling" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-polling" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Polling to check if <code>T0 == 1</code> , if its true, then the time is up</p>
+
+
+<h3 class="relative group">4. Reset 
+    <div id="4-reset" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-reset" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Load 1 to <code>T0</code> to reset it</p>
+
+
+<h2 class="relative group">Code Example: Hardware Counter 
+    <div id="code-example-hardware-counter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#code-example-hardware-counter" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="err">#</span> <span class="err">--------------------------------------------------------------------------------</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nl">Program:</span> <span class="nf">LED</span> <span class="nb">Bl</span><span class="nv">inking</span> <span class="nv">with</span> <span class="nv">Hardware</span> <span class="nv">Interval</span> <span class="nv">Timer</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nl">Platform:</span> <span class="nf">DE1</span><span class="o">-</span><span class="nv">SoC</span> <span class="p">(</span><span class="nv">Nios</span> <span class="nv">V</span> <span class="o">/</span> <span class="nv">RISC</span><span class="o">-</span><span class="nv">V</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nl">Function:</span> <span class="nf">Toggles</span> <span class="nv">LED0</span> <span class="nv">every</span> <span class="mi">1</span> <span class="nv">second</span> <span class="nv">using</span> <span class="nv">a</span> <span class="mi">100</span><span class="nv">MHz</span> <span class="nv">hardware</span> <span class="nv">timer.</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="err">--------------------------------------------------------------------------------</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">.global</span> <span class="nv">_start</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">Memory</span><span class="o">-</span><span class="nv">mapped</span> <span class="nv">register</span> <span class="nv">addresses</span> <span class="nv">and</span> <span class="nv">constants</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">TIMER_BASE</span><span class="p">,</span>    <span class="mh">0xff202000</span>      <span class="err">#</span> <span class="nv">Base</span> <span class="nv">address</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">Interval</span> <span class="nv">Timer</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">LEDS</span><span class="p">,</span>          <span class="mh">0xff200000</span>      <span class="err">#</span> <span class="nv">Base</span> <span class="nv">address</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">Parallel</span> <span class="nv">Port</span> <span class="nv">for</span> <span class="nv">LEDs</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">COUNTER_DELAY</span><span class="p">,</span> <span class="mi">100000000</span>       <span class="err">#</span> <span class="mi">100</span><span class="p">,</span><span class="mi">000</span><span class="p">,</span><span class="mi">000</span> <span class="nv">ticks</span> <span class="err">=</span> <span class="mi">1</span> <span class="nv">second</span> <span class="nv">at</span> <span class="mi">100</span><span class="nv">MHz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">_start:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span>      <span class="nv">t5</span><span class="p">,</span> <span class="nv">TIMER_BASE</span>          <span class="err">#</span> <span class="nv">Load</span> <span class="nv">timer</span> <span class="nv">base</span> <span class="nv">address</span> <span class="nv">into</span> <span class="nv">t5</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span>      <span class="nv">t6</span><span class="p">,</span> <span class="nv">LEDs</span>                <span class="err">#</span> <span class="nv">Load</span> <span class="nv">LEDs</span> <span class="nv">base</span> <span class="nv">address</span> <span class="nv">into</span> <span class="nv">t6</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">1</span><span class="nf">.</span> <span class="nv">Initialize</span> <span class="nv">Timer</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>      <span class="nv">zero</span><span class="p">,</span> <span class="mi">0</span><span class="p">(</span><span class="nv">t5</span><span class="p">)</span>             <span class="err">#</span> <span class="nb">Cl</span><span class="nv">ear</span> <span class="nv">the</span> <span class="nv">TO</span> <span class="p">(</span><span class="nv">Time</span> <span class="nv">Out</span><span class="p">)</span> <span class="nv">bit</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">Status</span> <span class="nv">register</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span>      <span class="nv">t0</span><span class="p">,</span> <span class="nv">COUNTER_DELAY</span>       <span class="err">#</span> <span class="nv">Load</span> <span class="nv">the</span> <span class="mi">32</span><span class="o">-</span><span class="nv">bit</span> <span class="nv">delay</span> <span class="nv">value</span> <span class="p">(</span><span class="mi">100</span><span class="nv">M</span><span class="p">)</span> <span class="nv">into</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">2</span><span class="nf">.</span> <span class="nb">Sp</span><span class="nv">lit</span> <span class="nv">and</span> <span class="nv">Store</span> <span class="nv">the</span> <span class="mi">32</span><span class="o">-</span><span class="nv">bit</span> <span class="nv">counter</span> <span class="nv">value</span> <span class="nv">into</span> <span class="mi">16</span><span class="o">-</span><span class="nv">bit</span> <span class="nv">hardware</span> <span class="nv">registers</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">The</span> <span class="nv">hardware</span> <span class="nv">requires</span> <span class="nv">writing</span> <span class="nv">the</span> <span class="nv">Low</span> <span class="mi">16</span> <span class="nv">bits</span> <span class="nv">and</span> <span class="nv">High</span> <span class="mi">16</span> <span class="nv">bits</span> <span class="nv">separately.</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>      <span class="nv">t0</span><span class="p">,</span> <span class="mh">0x8</span><span class="p">(</span><span class="nv">t5</span><span class="p">)</span>             <span class="err">#</span> <span class="nv">Store</span> <span class="nv">bits</span> <span class="p">[</span><span class="mi">15</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="nv">to</span> <span class="nv">Counter</span> <span class="nv">Start</span> <span class="nv">Value</span> <span class="p">(</span><span class="nv">Low</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">srli</span>    <span class="nv">t1</span><span class="p">,</span> <span class="nv">t0</span><span class="p">,</span> <span class="mi">16</span>              <span class="err">#</span> <span class="nv">Shift</span> <span class="nv">right</span> <span class="nv">by</span> <span class="mi">16</span> <span class="nv">bits</span> <span class="nv">to</span> <span class="nb">al</span><span class="nv">ign</span> <span class="nv">the</span> <span class="nv">upper</span> <span class="nv">bits</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>      <span class="nv">t1</span><span class="p">,</span> <span class="mh">0xc</span><span class="p">(</span><span class="nv">t5</span><span class="p">)</span>             <span class="err">#</span> <span class="nv">Store</span> <span class="nv">bits</span> <span class="p">[</span><span class="mi">31</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span> <span class="nv">to</span> <span class="nv">Counter</span> <span class="nv">Start</span> <span class="nv">Value</span> <span class="p">(</span><span class="nv">High</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">3</span><span class="nf">.</span> <span class="nv">Configure</span> <span class="nv">and</span> <span class="nv">Start</span> <span class="nv">the</span> <span class="nv">Timer</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">We</span> <span class="nv">write</span> <span class="mb">0b</span><span class="mi">0110</span> <span class="p">(</span><span class="mh">0x6</span><span class="p">)</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">Control</span> <span class="nv">register</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">Bit</span> <span class="mi">2</span> <span class="p">(</span><span class="nv">START</span><span class="p">)</span> <span class="err">=</span> <span class="mi">1</span><span class="p">:</span> <span class="nv">Starts</span> <span class="nv">the</span> <span class="nv">timer</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">Bit</span> <span class="mi">1</span> <span class="p">(</span><span class="nv">CONT</span><span class="p">)</span>  <span class="err">=</span> <span class="mi">1</span><span class="p">:</span> <span class="nv">Enables</span> <span class="nv">continuous</span> <span class="nv">mode</span> <span class="p">(</span><span class="nv">auto</span><span class="o">-</span><span class="nv">reload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span>      <span class="nv">t0</span><span class="p">,</span> <span class="mb">0b</span><span class="mi">0110</span>              <span class="err">#</span> <span class="nv">Load</span> <span class="nv">configuration</span> <span class="nv">bits</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>      <span class="nv">t0</span><span class="p">,</span> <span class="mh">0x4</span><span class="p">(</span><span class="nv">t5</span><span class="p">)</span>             <span class="err">#</span> <span class="nv">Write</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">Control</span> <span class="nv">register</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span>      <span class="nv">t2</span><span class="p">,</span> <span class="mi">1</span>                   <span class="err">#</span> <span class="nv">Initial</span> <span class="nv">state</span> <span class="nv">for</span> <span class="nv">LED0</span> <span class="p">(</span><span class="mi">1</span> <span class="err">=</span> <span class="nv">ON</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">tloop:</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">4</span><span class="nf">.</span> <span class="nv">Update</span> <span class="nv">the</span> <span class="nv">LED</span> <span class="nv">state</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>      <span class="nv">t2</span><span class="p">,</span> <span class="p">(</span><span class="nv">t6</span><span class="p">)</span>                <span class="err">#</span> <span class="nv">Store</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">value</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">LED</span> <span class="nv">register</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">xori</span>    <span class="nv">t2</span><span class="p">,</span> <span class="nv">t2</span><span class="p">,</span> <span class="mi">1</span>               <span class="err">#</span> <span class="nv">Flip</span> <span class="nv">the</span> <span class="nv">LSB</span> <span class="nv">of</span> <span class="nv">t2</span> <span class="p">(</span><span class="nv">Toggle</span> <span class="nv">between</span> <span class="mi">0</span> <span class="nv">and</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">5</span><span class="nf">.</span> <span class="nv">Polling</span> <span class="nv">Loop</span><span class="p">:</span> <span class="nv">Wait</span> <span class="nv">for</span> <span class="mi">1</span> <span class="nv">second</span> <span class="nv">to</span> <span class="nv">pass</span>
+</span></span><span class="line"><span class="cl"><span class="nl">ploop:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span>      <span class="nv">t0</span><span class="p">,</span> <span class="mi">0</span><span class="p">(</span><span class="nv">t5</span><span class="p">)</span>               <span class="err">#</span> <span class="nv">Load</span> <span class="nv">the</span> <span class="nv">Timer</span> <span class="nv">Status</span> <span class="nv">register</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">andi</span>    <span class="nv">t0</span><span class="p">,</span> <span class="nv">t0</span><span class="p">,</span> <span class="mb">0b</span><span class="mi">1</span>             <span class="err">#</span> <span class="nv">Mask</span> <span class="nb">al</span><span class="nv">l</span> <span class="nv">bits</span> <span class="nv">except</span> <span class="nv">the</span> <span class="nv">TO</span> <span class="nv">bit</span> <span class="p">(</span><span class="nv">bit</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">beqz</span>    <span class="nv">t0</span><span class="p">,</span> <span class="nv">ploop</span>               <span class="err">#</span> <span class="nv">If</span> <span class="nv">TO</span> <span class="err">==</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">keep</span> <span class="nb">ch</span><span class="nv">ecking</span> <span class="p">(</span><span class="nv">timer</span> <span class="nv">still</span> <span class="nv">counting</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">6</span><span class="nf">.</span> <span class="nv">Reset</span> <span class="nv">the</span> <span class="nv">Timer</span> <span class="nv">Status</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">Once</span> <span class="nv">TO</span> <span class="nv">is</span> <span class="nv">detected</span> <span class="nv">as</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">it</span> <span class="nv">must</span> <span class="nv">be</span> <span class="nv">manually</span> <span class="nb">cl</span><span class="nv">eared</span> <span class="nv">by</span> <span class="nv">writing</span> <span class="mi">0</span> <span class="nv">to</span> <span class="nv">it.</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span>      <span class="nv">zero</span><span class="p">,</span> <span class="mi">0</span><span class="p">(</span><span class="nv">t5</span><span class="p">)</span>             <span class="err">#</span> <span class="nb">Cl</span><span class="nv">ear</span> <span class="nv">the</span> <span class="nv">TO</span> <span class="nv">bit</span> <span class="nv">for</span> <span class="nv">the</span> <span class="nv">next</span> <span class="nv">cycle</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nf">j</span>       <span class="nv">tloop</span>                   <span class="err">#</span> <span class="nv">Jump</span> <span class="nv">back</span> <span class="nv">to</span> <span class="nv">toggle</span> <span class="nv">LED</span> <span class="nv">and</span> <span class="nv">wait</span> <span class="nv">again</span>
+</span></span></code></pre></div>
+
+<h1 class="relative group">Interrupts 
+    <div id="interrupts" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#interrupts" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>Polling is a kind of Mindless Loop that keep the processor keep tracking the change of button</p>
+<p>This executed a lot and has a very low efficiency</p>
+
+
+<h2 class="relative group">Interrupt-Driven Input/Output 
+    <div id="interrupt-driven-inputoutput" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#interrupt-driven-inputoutput" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image2_hu14536088676520488046.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image2_hu890549076246980692.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image2_hu4607963148414111905.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image2_hu12191540244081911139.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co4.input/output/image2_hu890549076246980692.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>In the Computer organization, there will be several wires called Interrupt Request Lines that directly interrupt the Processor</p>
+
+
+<h2 class="relative group">Flow Chart 
+    <div id="flow-chart" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#flow-chart" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image3_hu17456012001651691893.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image3_hu15293943970501634072.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image3_hu10409290881255716410.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image3_hu14004540144674641292.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co4.input/output/image3_hu15293943970501634072.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>After getting the interrupt instruction, the main loop will first finish the current instruction, then goes to the Interrupt Request Handler and then come back</p>
+<p>One thing need to make sure is that we can’t <strong>overwrite the registers that the main loop is using</strong>, thus we have to find a way to store them</p>
+
+
+<h2 class="relative group">mtvec Register 
+    <div id="mtvec-register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mtvec-register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Under Nios V, we need to let FSM knows where to switch to when the interruption happens, and that’s provided by the <code>mtvec</code> Regester</p>
+<p><code>mtvec</code> having the full name of Machine Trap Vector, it stores the address of Interrupt Handler the main loop should jump to</p>
+<ul>
+<li>While interruption is included inside Trap, Exception is also a kind of trap</li>
+</ul>
+
+
+<h2 class="relative group">mepc Register 
+    <div id="mepc-register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mepc-register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>If we are jumping into somewhere else, we also need to find the path to go back after the interruption handler finished, and <code>mepc</code> does that</p>
+<p>Unlike the <code>pc</code> Register, <code>mepc</code> is called Machine exception program counter that specifically response for the Counter related to machines</p>
+
+
+<h2 class="relative group">Stack 
+    <div id="stack" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stack" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As indicated, we always need to store registers on stack before going into interruptions, and restore it after jumping back</p>
+<p>This need to be implemented manually by code</p>
+
+
+<h2 class="relative group">Enable &amp; Mask 
+    <div id="enable--mask" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#enable--mask" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Some details for interruption to works include</p>
+<ul>
+<li>Enable the Interrupt function (this will be include later) while making sure there’s no interruption happens between Enable the interrupt and setting the <code>mevec</code> , otherwise FSM doesn’t know where to jump to and will make it crush</li>
+<li>The Input will have their own instruction of where to go to</li>
+</ul>
+
+
+<h2 class="relative group">Privilege 
+    <div id="privilege" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#privilege" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>In real world, <code>mepc</code> has a large power, thus user normally can’t get such power</p>
+
+
+<h2 class="relative group">Control Registers 
+    <div id="control-registers" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#control-registers" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image4_hu17051408435973884315.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image4_hu3430191581815191018.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image4_hu6228211151972665883.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image4_hu14053166979806290329.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co4.input/output/image4_hu3430191581815191018.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Interrupt Request 
+    <div id="interrupt-request" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#interrupt-request" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image5_hu6672917089421315361.png 330w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image5_hu2974485935334502301.png 660w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image5_hu792751650422788625.png 1024w,
+        /docs/uoft/26w/ece243---computer-organization/co4.input/output/image5_hu9810985648888990481.png 2x"
+        src="/docs/uoft/26w/ece243---computer-organization/co4.input/output/image5_hu2974485935334502301.png"
+        alt="image.png"
+      />
+      
+    </figure>
+</p>
+<p>There will be wires from input to FSM to help it figure out which device is sending the interrupt</p>
+<ul>
+<li>Each Hardware is connected to its own IRQ</li>
+</ul>
+
+
+<h2 class="relative group">The Interrupt Sequence 
+    <div id="the-interrupt-sequence" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#the-interrupt-sequence" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Initialisation 
+    <div id="initialisation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#initialisation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Before Everything happens, we need initialize things first</p>
+<ol>
+<li>Enable Interruption (still not covered yet)</li>
+<li>Set up which device we want to used for interruption</li>
+</ol>
+<hr>
+<p>Starting with the Instruction <code>*</code> , so the interrupt happens since</p>
+<ol>
+<li>The external hardware will pull up the IRQ wire to <code>1</code> to request the interrupt</li>
+<li>Processor check <code>mstatus</code> reg to see the <code>mie</code> is 0 or 1</li>
+<li>Check the <code>mie</code> reg to see if the required device is being enable</li>
+<li>Set <code>mstatus.MIE</code> to zero to avoid interruption during interrupt</li>
+<li>First the processor will finish the current instruction <code>*</code></li>
+<li>Then store the next address into the <code>mepc</code> Register</li>
+<li>Store the reason for interruption to <code>mcause</code></li>
+<li>Looking at the <code>mtvec</code> Register to find the address of interrupt handler</li>
+</ol>
+<hr>
+<p>Since now we have jump into the Handler</p>
+<ol>
+<li>goes to the address <code>mtvec</code> is pointing to</li>
+<li>Stack Protection, we store every register used in main loop into stack</li>
+<li>Execute things inside the Handler</li>
+</ol>
+<hr>
+<p>Then comes to the return stage</p>
+<ol>
+<li><code>mret</code> run, change the <code>pc</code> to address in <code>mepc</code></li>
+<li>Reset <code>mstatus.MIE</code> to 1</li>
+</ol>
+
+
+<h2 class="relative group">Control and Status Register Command 
+    <div id="control-and-status-register-command" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#control-and-status-register-command" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Similarly, those special registers in memory can’t be operated by normal instructions, instead they should be called by <code>csr</code>, commonly seen commands are</p>
+<ul>
+<li><code>csrr</code> : Read</li>
+<li><code>csrw</code> : Write</li>
+<li><code>csrs/csrc</code> : Set/Clear</li>
+</ul>
+
+
+<h2 class="relative group">MIE Register 
+    <div id="mie-register" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#mie-register" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Machine Interrupt Enable Register, is correspond to the IRQ, setting the given digit to one can make the Interruption for that hardware enable</p>
+
+
+<h2 class="relative group">Code Example 
+    <div id="code-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#code-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nasm" data-lang="nasm"><span class="line"><span class="cl"><span class="err">/*</span> <span class="nf">The</span> <span class="nb">si</span><span class="nv">mplest</span> <span class="nv">interrupt</span><span class="o">-</span><span class="nv">driven</span> <span class="nv">program</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl"> <span class="err">*</span> <span class="nf">When</span> <span class="nv">Push</span> <span class="nv">button</span> <span class="nv">Key</span> <span class="mi">1</span> <span class="nv">is</span> <span class="nv">pressed</span><span class="p">,</span> <span class="nv">cause</span> <span class="nv">an</span> <span class="nv">interrupt</span>
+</span></span><span class="line"><span class="cl"> <span class="err">*</span> <span class="nf">Each</span> <span class="nv">time</span><span class="p">,</span> <span class="nv">Toggle</span> <span class="nv">LED</span> <span class="mi">3</span><span class="nv">.</span> <span class="p">(</span><span class="nv">i.e.</span> <span class="nv">go</span> <span class="nv">on</span> <span class="nv">and</span> <span class="nv">off</span> <span class="nv">with</span> <span class="nv">each</span> <span class="nv">Key</span> <span class="mi">1</span> <span class="nv">press</span><span class="p">)</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.global</span> <span class="nv">_start</span>
+</span></span><span class="line"><span class="cl"><span class="nl">_start:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">LEDs</span><span class="p">,</span> <span class="mh">0xFF200000</span>
+</span></span><span class="line"><span class="cl"><span class="nf">.equ</span> <span class="nv">KEY_BASE</span><span class="p">,</span> <span class="mh">0xFF200050</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span> <span class="nb">sp</span><span class="p">,</span> <span class="mh">0x20000</span>        <span class="err">#</span> <span class="nv">Initialize</span> <span class="nv">the</span> <span class="nv">Stack</span> <span class="nv">Pointer</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">csrw</span> <span class="nv">mstatus</span><span class="p">,</span> <span class="nv">zero</span>    <span class="err">#</span> <span class="nv">turn</span> <span class="nv">off</span> <span class="nv">bit</span> <span class="mi">3</span> <span class="nv">of</span> <span class="nv">mstatus</span> <span class="o">-</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">disable</span> <span class="nv">processor</span> <span class="nv">interrupts</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#(</span><span class="nf">in</span> <span class="nv">case</span> <span class="nv">it</span> <span class="nv">was</span> <span class="nv">on</span><span class="p">,</span> <span class="nv">just</span> <span class="nv">being</span> <span class="nv">cautious</span><span class="p">,</span> <span class="nv">while</span> <span class="nv">we</span> <span class="nv">set</span> <span class="nv">everything</span> <span class="nv">else</span> <span class="nv">up</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">Now</span><span class="p">,</span> <span class="nv">enable</span> <span class="nv">interrupts</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">KEY</span> <span class="nv">device</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">using</span> <span class="nv">the</span> <span class="nv">Interrupt</span> <span class="nv">Mask</span> <span class="nv">Register</span><span class="p">:</span> <span class="nv">Bit</span> <span class="nv">i</span> <span class="nv">of</span> <span class="nv">mask</span> <span class="nv">register</span> <span class="nv">on</span> <span class="nv">means</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">cause</span> <span class="nv">an</span> <span class="nv">interrupt</span> <span class="nv">when</span> <span class="nv">edge</span> <span class="nv">capture</span> <span class="nv">bit</span> <span class="nv">i</span> <span class="nv">goes</span> <span class="nv">to</span> <span class="nv">a</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">This</span> <span class="nv">tells</span> <span class="nv">the</span> <span class="nv">device</span> <span class="nv">when</span> <span class="nv">to</span> <span class="o">*</span><span class="nv">request</span><span class="o">*</span> <span class="nv">an</span> <span class="nv">interrupt</span> <span class="nv">on</span> <span class="nv">wire</span> <span class="nv">IRQ18</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">KEY_BASE</span>       <span class="err">#</span> <span class="nv">address</span> <span class="nv">of</span> <span class="nv">KEY</span> <span class="nv">registers</span> <span class="nv">base</span> <span class="nv">into</span> <span class="nv">t1</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span> <span class="nv">t0</span><span class="p">,</span> <span class="mb">0b</span><span class="mi">0010</span>         <span class="err">#</span> <span class="nv">just</span> <span class="nv">want</span> <span class="nv">bit</span> <span class="mi">1</span> <span class="o">-&gt;</span> <span class="nv">Key</span> <span class="mi">1</span> <span class="nv">to</span> <span class="nv">have</span> <span class="nv">enabled</span> <span class="nv">interrupts</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span> <span class="nv">t0</span><span class="p">,</span> <span class="mi">8</span><span class="p">(</span><span class="nv">t1</span><span class="p">)</span>          <span class="err">#</span> <span class="nv">Set</span> <span class="nv">interrupt</span> <span class="nv">enable</span> <span class="nv">in</span> <span class="nv">interrupt</span> <span class="nv">mask</span> <span class="nv">for</span> <span class="nv">Key</span> <span class="mi">1</span> <span class="o">-</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">i.e.</span> <span class="nv">have</span> <span class="nv">it</span> <span class="nv">request</span> <span class="nv">an</span> <span class="nv">interrupt</span> <span class="nv">when</span> <span class="nv">edge</span> <span class="nv">on</span> <span class="nv">key</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span> <span class="nv">t0</span><span class="p">,</span> <span class="mi">12</span><span class="p">(</span><span class="nv">t1</span><span class="p">)</span>         <span class="err">#</span> <span class="nb">cl</span><span class="nv">ear</span> <span class="nv">Edge</span> <span class="nv">Capture</span> <span class="nv">bit</span> <span class="nv">of</span> <span class="nv">Key</span> <span class="mi">1</span> <span class="nv">in</span> <span class="nv">case</span> <span class="nv">it</span> <span class="nv">is</span> <span class="nb">al</span><span class="nv">ready</span> <span class="nv">on</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="nf">Enable</span> <span class="nv">interrupts</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">processor</span> <span class="nb">si</span><span class="nv">de</span> <span class="o">-</span> <span class="nv">enabled</span> <span class="nv">in</span> <span class="mi">2</span> <span class="nv">ways</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span> <span class="nv">t0</span><span class="p">,</span> <span class="mh">0x40000</span>        <span class="err">#</span> <span class="mh">0x40000</span> <span class="nv">corresponds</span> <span class="nv">to</span> <span class="nv">bit</span> <span class="mi">18</span> <span class="nv">of</span> <span class="mi">32</span> <span class="nv">bit</span> <span class="kt">word</span> <span class="nv">being</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="err">(</span><span class="nf">The</span> <span class="nv">Keys</span> <span class="nv">request</span> <span class="nv">interrupts</span> <span class="nv">on</span> <span class="nv">line</span> <span class="mi">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">csrs</span> <span class="nv">mie</span><span class="p">,</span> <span class="nv">t0</span>          <span class="err">#</span> <span class="nv">this</span> <span class="nv">sets</span> <span class="nv">bit</span> <span class="mi">18</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">MIE</span> <span class="nv">to</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">enabling</span> <span class="nv">interrupts</span> <span class="nb">sp</span><span class="nv">ecifically</span> <span class="nv">from</span> <span class="nv">KEYs</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span> <span class="nv">t0</span><span class="p">,</span> <span class="nv">interrupt_handler</span> <span class="err">#</span> <span class="nv">put</span> <span class="nv">addr</span> <span class="nv">of</span> <span class="nv">interrupt</span> <span class="nv">handler</span> <span class="nv">routine</span> <span class="nv">into</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">csrw</span> <span class="nv">mtvec</span><span class="p">,</span> <span class="nv">t0</span>        <span class="err">#</span> <span class="nv">set</span> <span class="nv">MTVEC</span> <span class="nv">to</span> <span class="nv">contain</span> <span class="nv">that</span> <span class="nv">address</span> <span class="o">-</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">so</span> <span class="nv">proc</span> <span class="nv">knows</span> <span class="nv">where</span> <span class="nv">to</span> <span class="nv">go</span> <span class="nv">when</span> <span class="nv">interrupt</span> <span class="nv">happens</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span> <span class="nv">t0</span><span class="p">,</span> <span class="mb">0b</span><span class="mi">1000</span>         <span class="err">#</span> <span class="nv">turn</span> <span class="nv">on</span> <span class="nv">bit</span> <span class="nv">three</span> <span class="nv">of</span> <span class="nv">register</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">csrs</span> <span class="nv">mstatus</span><span class="p">,</span> <span class="nv">t0</span>      <span class="err">#</span> <span class="nv">use</span> <span class="nv">it</span> <span class="nv">to</span> <span class="nv">turn</span> <span class="nv">on</span> <span class="nv">bit</span> <span class="mi">3</span> <span class="nv">of</span> <span class="nv">MSTATUS</span> <span class="o">-</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">the</span> <span class="nv">MIE</span> <span class="nv">bit</span> <span class="nv">to</span> <span class="nv">enable</span> <span class="nv">processor</span> <span class="nv">interrupts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">Main_loop:</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span> <span class="nv">t0</span><span class="p">,</span> <span class="mi">1</span>              <span class="err">#</span> <span class="nv">this</span> <span class="nv">loop</span> <span class="nv">doesn</span><span class="err">&#39;</span><span class="nv">t</span> <span class="nv">do</span> <span class="nv">anything</span> <span class="nv">except</span> <span class="nv">set</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">and</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">and</span> <span class="nv">we</span> <span class="nv">can</span> <span class="nb">ch</span><span class="nv">eck</span> <span class="nv">that</span> <span class="nv">the</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">interrupt</span> <span class="nv">program</span> <span class="nv">doesn</span><span class="err">&#39;</span><span class="nv">t</span> <span class="nb">di</span><span class="nv">sturb</span> <span class="nv">them</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span> <span class="nv">t1</span><span class="p">,</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">j</span> <span class="nv">Main_loop</span>           <span class="err">#</span> <span class="nv">Just</span> <span class="nv">do</span> <span class="nv">that</span> <span class="nv">over</span> <span class="nv">and</span> <span class="nv">over</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">/*</span> <span class="nf">this</span> <span class="nv">is</span> <span class="nv">where</span> <span class="nv">the</span> <span class="nv">processor</span> <span class="nv">will</span> <span class="nv">execute</span> <span class="nv">when</span> <span class="nv">interrupt</span> <span class="nv">occurs</span><span class="p">:</span> <span class="o">*/</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">interrupt_handler:</span>        <span class="err">#</span> <span class="nf">Note</span> <span class="nv">that</span><span class="p">,</span> <span class="nv">upon</span> <span class="nv">an</span> <span class="nv">interrupt</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">the</span> <span class="nv">MIE</span> <span class="nv">bit</span> <span class="nv">in</span> <span class="nv">MSTATUS</span> <span class="nv">is</span> <span class="nv">set</span> <span class="nv">to</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">preventing</span> <span class="nv">a</span> <span class="nv">further</span> <span class="nv">interrupt.</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">First</span> <span class="nv">reserve</span> <span class="nv">room</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">stack</span> <span class="nv">for</span> <span class="nv">three</span> <span class="kt">word</span><span class="nv">s</span> <span class="p">(</span><span class="mi">3</span> <span class="kt">word</span><span class="nv">s</span> <span class="nv">x</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="err">4</span> <span class="nf">bytes</span><span class="o">/</span><span class="kt">word</span> <span class="err">=</span> <span class="mi">12</span><span class="p">)</span> <span class="nv">for</span> <span class="nv">the</span> <span class="nv">three</span> <span class="nv">registers</span> <span class="nv">we</span><span class="err">&#39;</span><span class="nv">ll</span> <span class="nv">use</span> <span class="nv">t0</span><span class="p">,</span> <span class="nv">t1</span> <span class="nv">and</span> <span class="nv">ra</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">addi</span> <span class="nb">sp</span><span class="p">,</span> <span class="nb">sp</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span> <span class="nv">t0</span><span class="p">,</span> <span class="mi">0</span><span class="p">(</span><span class="nb">sp</span><span class="p">)</span>          <span class="err">#</span> <span class="nv">Push</span> <span class="nv">t0</span> <span class="nv">onto</span> <span class="nv">the</span> <span class="nv">stack</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span> <span class="nv">t1</span><span class="p">,</span> <span class="mi">4</span><span class="p">(</span><span class="nb">sp</span><span class="p">)</span>          <span class="err">#</span> <span class="nv">Push</span> <span class="nv">t1</span> <span class="nv">onto</span> <span class="nv">the</span> <span class="nv">stack</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">sw</span> <span class="nv">ra</span><span class="p">,</span> <span class="mi">8</span><span class="p">(</span><span class="nb">sp</span><span class="p">)</span>          <span class="err">#</span> <span class="nv">Push</span> <span class="nv">ra</span> <span class="nv">onto</span> <span class="nv">the</span> <span class="nv">stack</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span> <span class="nv">t0</span><span class="p">,</span> <span class="mh">0x7FFFFFFF</span>     <span class="err">#</span> <span class="nv">Next</span><span class="p">,</span> <span class="nb">ch</span><span class="nv">eck</span> <span class="nv">if</span> <span class="nv">the</span> <span class="nv">interrupt</span> <span class="nv">was</span> <span class="nv">caused</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">by</span> <span class="nv">devices</span> <span class="nv">we</span> <span class="nv">were</span> <span class="nv">expecting</span> <span class="p">(</span><span class="nv">KEYS</span> <span class="nv">in</span> <span class="nv">this</span> <span class="nv">case</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">by</span> <span class="nv">looking</span> <span class="nv">at</span> <span class="nv">the</span> <span class="nv">code</span> <span class="nv">placed</span> <span class="nv">into</span> <span class="nv">the</span> <span class="nv">low</span> <span class="mi">31</span> <span class="nv">bits</span> <span class="nv">of</span> <span class="nv">MCAUSE</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">csrr</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">mcause</span>       <span class="err">#</span> <span class="nv">read</span> <span class="nv">MCAUSE</span> <span class="nv">into</span> <span class="nv">t1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">and</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">t0</span>        <span class="err">#</span> <span class="s">&#34;zero out&#34;</span> <span class="nv">bit</span> <span class="mi">31</span> <span class="p">(</span><span class="nv">leave</span> <span class="nv">every</span> <span class="nv">other</span> <span class="nv">bit</span> <span class="nv">the</span> <span class="nv">same</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">li</span> <span class="nv">t0</span><span class="p">,</span> <span class="mi">18</span>             <span class="err">#</span> <span class="nv">code</span> <span class="nv">for</span> <span class="nv">KEYs</span> <span class="nv">in</span> <span class="nv">MCAUSE</span> <span class="nv">should</span> <span class="nv">be</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">bne</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">t0</span><span class="p">,</span> <span class="nv">end_interrupt</span> <span class="err">#</span> <span class="nv">if</span> <span class="nv">MCAUSE</span> <span class="nv">low</span> <span class="mi">31</span> <span class="nv">bits</span> <span class="nv">aren</span><span class="err">&#39;</span><span class="nv">t</span> <span class="mi">18</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                              <span class="err">#</span> <span class="nf">something</span><span class="err">&#39;</span><span class="nv">s</span> <span class="nv">wrong</span><span class="p">,</span> <span class="nv">just</span> <span class="nv">return</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">call</span> <span class="nv">KEY_ISR</span>          <span class="err">#</span> <span class="nv">otherwise</span> <span class="nv">call</span> <span class="nv">the</span> <span class="nv">KEY</span> <span class="nv">interrupt</span> <span class="nv">service</span> <span class="nv">routine</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">#</span> <span class="kd">rest</span><span class="nv">ore</span> <span class="nv">the</span> <span class="nv">registers</span> <span class="nv">that</span> <span class="nv">were</span> <span class="nv">used</span> <span class="nv">back</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">stack</span>
+</span></span><span class="line"><span class="cl"><span class="nl">end_interrupt:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span> <span class="nv">t0</span><span class="p">,</span> <span class="mi">0</span><span class="p">(</span><span class="nb">sp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span> <span class="nv">t1</span><span class="p">,</span> <span class="mi">4</span><span class="p">(</span><span class="nb">sp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span> <span class="nv">ra</span><span class="p">,</span> <span class="mi">8</span><span class="p">(</span><span class="nb">sp</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">addi</span> <span class="nb">sp</span><span class="p">,</span> <span class="nb">sp</span><span class="p">,</span> <span class="mi">12</span>       <span class="err">#</span> <span class="nv">move</span> <span class="nv">the</span> <span class="nv">stack</span> <span class="nv">pointer</span> <span class="nv">now</span> <span class="nv">that</span> <span class="nv">we</span><span class="err">&#39;</span><span class="nv">ve</span> <span class="nv">copied</span> <span class="nv">the</span> <span class="nv">values</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">mret</span>                  <span class="err">#</span> <span class="nv">return</span> <span class="nv">from</span> <span class="nv">interrupt</span> <span class="o">-</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">this</span> <span class="nv">copies</span> <span class="nv">the</span> <span class="nv">MEPC</span> <span class="nv">register</span> <span class="nv">into</span> <span class="nv">the</span> <span class="nv">PC</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">it</span> <span class="nb">al</span><span class="nv">so</span> <span class="nv">restores</span> <span class="nv">the</span> <span class="nv">MIE</span> <span class="nv">bit</span> <span class="nv">back</span> <span class="nv">to</span> <span class="nv">be</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">re</span><span class="o">-</span><span class="nv">enabling</span> <span class="nv">interrupts</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nl">KEY_ISR:</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">la</span> <span class="nv">t0</span><span class="p">,</span> <span class="nv">KEY_BASE</span>       <span class="err">#</span> <span class="nv">gets</span> <span class="nv">keys</span> <span class="nv">port</span> <span class="nv">address</span> <span class="nv">into</span> <span class="nv">t0</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">lw</span> <span class="nv">t1</span><span class="p">,</span> <span class="mi">12</span><span class="p">(</span><span class="nv">t0</span><span class="p">)</span>         <span class="err">#</span> <span class="nv">Load</span> <span class="nv">the</span> <span class="nv">edge</span> <span class="nv">capture</span> <span class="nv">register</span> <span class="nv">and</span> <span class="nb">ch</span><span class="nv">eck</span>
+</span></span><span class="line"><span class="cl">                          <span class="err">#</span> <span class="nf">if</span> <span class="nv">it</span> <span class="nv">is</span> <span class="nv">Key</span> <span class="mi">1</span> <span class="nv">pushed</span> <span class="p">(</span><span class="nv">just</span> <span class="nb">ch</span><span class="nv">ecking</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nf">andi</span> <span class="nv">t1</span><span class="p">,</span> <span class="nv">t1</span><span class="p">,</span> <span class="mb">0b</span><span class="mi">0010</span>
+</span></span><span class="line"><span class="cl">    <span class="err">#</span> <span class="nf">...</span> <span class="p">(</span><span class="nv">Note</span><span class="p">:</span> <span class="nv">The</span> <span class="nv">provided</span> <span class="nv">images</span> <span class="nv">end</span> <span class="nv">here</span><span class="p">,</span> <span class="nv">the</span> <span class="nv">rest</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">ISR</span> <span class="nv">to</span> <span class="nv">toggle</span> <span class="nv">the</span> <span class="nv">LED</span> <span class="nv">is</span> <span class="nv">missing</span><span class="p">)</span>
+</span></span></code></pre></div>
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>

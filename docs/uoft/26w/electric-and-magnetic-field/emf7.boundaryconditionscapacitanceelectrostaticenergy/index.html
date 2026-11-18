@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMF 7. BoundaryConditions, Capacitance&amp; ElectrostaticEnergy | Buezwqwg</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --accent-color: #800000;  
+            --secondary-color: #555;
+            --border-color: #d1d1d1;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Noto Serif SC', 'Georgia', serif;
+            line-height: 1.85;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+         
+        .top-bar {
+            height: 4px;
+            background-color: var(--accent-color);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+         
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+        .home-link:hover { color: var(--accent-color); }
+
+         
+        .container {
+            max-width: 1000px;       
+            width: 90%;             
+            margin: 30px auto 40px; 
+            padding: 0 15px;
+            box-sizing: border-box; 
+        }
+
+         
+        .toc-sidebar {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            width: 240px;
+            max-height: 80vh;
+            overflow-y: auto;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.85rem;
+            color: #666;
+            border-left: 2px solid #eee;
+            padding-left: 15px;
+            display: none; 
+            z-index: 90;
+        }
+
+        .toc-sidebar h4 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+            font-size: 1rem;
+        }
+
+        .toc-sidebar nav ul { list-style: none; padding: 0; margin: 0; }
+        .toc-sidebar nav ul li { margin-bottom: 8px; line-height: 1.4; }
+        .toc-sidebar nav ul ul { padding-left: 15px; margin-top: 5px; }
+        .toc-sidebar a { text-decoration: none; color: #888; transition: color 0.2s; }
+        .toc-sidebar a:hover { color: var(--accent-color); text-decoration: underline; }
+
+        @media (min-width: 1560px) {
+            .toc-sidebar { display: block; }
+        }
+
+         
+        header {
+            text-align: center;
+            margin-bottom: 0px;
+            border-bottom: 1px solid transparent;
+        }
+
+        .journal-meta {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.75rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 10px 0 20px 0;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .author-line {
+            font-family: 'Noto Serif SC', serif;
+            font-style: italic;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            margin: 30px 0 10px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+         
+        .content {
+            text-align: justify; 
+            hyphens: auto;
+            font-size: 1.05rem;
+        }
+
+        .content p { margin-bottom: 1.6em; }
+
+         
+        .content h2, .content h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000;
+            
+             
+            display: block; 
+            text-align: left;
+            width: 100%;
+            
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3em;
+        }
+        
+        .content h2 { font-size: 1.6rem; }
+        .content h3 { font-size: 1.2rem; color: var(--accent-color); }
+
+         
+        .content h1 a,
+        .content h2 a,
+        .content h3 a,
+        .content h4 a {
+            display: none !important;  
+        }
+
+         
+        .content h1 a:hover,
+        .content h2 a:hover,
+        .content h3 a:hover {
+            color: var(--accent-color) !important;
+        }
+
+         
+        .content pre {
+            text-align: left; 
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid #eee;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+        
+        .content code {
+            font-family: 'JetBrains Mono', monospace;
+            background: #f4f4f4;
+            padding: 2px 4px;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        .content pre code { color: inherit; background: none; padding: 0; }
+
+         
+        blockquote {
+            margin: 40px 0;
+            padding: 0 40px;
+            border-left: none;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+         
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        th {
+            border-bottom: 2px solid var(--text-color);
+            padding: 10px;
+            font-weight: 700;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            color: #444;
+        }
+
+         
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+
+        footer {
+            margin-top: 100px;
+            padding-top: 20px;
+            border-top: 3px double var(--border-color);
+            font-size: 0.75rem;
+            color: #888;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        @media print {
+            .container { max-width: 100%; margin: 0; }
+            .top-bar, .home-link, .toc-sidebar { display: none; }
+            body { background: white; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar"></div>
+    
+    <a href="https://buezw.github.io/" class="home-link">← Back to Index</a>
+
+    <aside class="toc-sidebar">
+        <h4>Contents</h4>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dielectric--dielectric-interface--tangential-components">Dielectric – Dielectric Interface – Tangential Components</a></li>
+    <li><a href="#dielectric--dielectric-interface--normal-components">Dielectric – Dielectric Interface – Normal Components</a></li>
+    <li><a href="#example">Example</a></li>
+    <li><a href="#dielectric--perfect-conductor-interface--tangential-components">Dielectric – Perfect Conductor Interface – Tangential Components</a></li>
+    <li><a href="#conductor--conductor-interface">Conductor – Conductor Interface</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#property-of-capacitance">Property of Capacitance</a></li>
+    <li><a href="#rc-coefficient">RC Coefficient</a></li>
+    <li><a href="#recall">Recall</a></li>
+    <li><a href="#ex-parallel-plate-capacitor">Ex. Parallel-Plate Capacitor</a></li>
+    <li><a href="#ex-coaxial-cable-capacitor">Ex. Coaxial Cable Capacitor</a></li>
+    <li><a href="#capacitor-with-stacked-dielectrics">Capacitor with Stacked Dielectrics</a>
+      <ul>
+        <li><a href="#stacked-in-series">Stacked in Series</a></li>
+        <li><a href="#stacked-in-parallel">Stacked in Parallel</a></li>
+      </ul>
+    </li>
+    <li><a href="#ex-spherical-capacitor">Ex. Spherical Capacitor</a></li>
+  </ul>
+</nav>
+    </aside>
+
+    <article class="container">
+        <header>
+            <div class="journal-meta">Research & Engineering Archive</div>
+            <h1>EMF 7. BoundaryConditions, Capacitance&amp; ElectrostaticEnergy</h1>
+            <div class="author-line">
+                By Jingnan Huang 
+                <span style="margin: 0 10px;">&middot;</span> 
+                February 06, 2026
+                <span style="margin: 0 10px;">&middot;</span> 
+                1211 Words
+            </div>
+        </header>
+
+        <section class="content">
+            <blockquote>
+<p>Last Edit: 2/6/26</p>
+</blockquote>
+
+
+<h1 class="relative group">Electric Field Boundary Conditions 
+    <div id="electric-field-boundary-conditions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#electric-field-boundary-conditions" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">Dielectric – Dielectric Interface – Tangential Components 
+    <div id="dielectric--dielectric-interface--tangential-components" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dielectric--dielectric-interface--tangential-components" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Known that Electric Field has the Conservative Property, that is</p>
+<p>$$
+\nabla \times E=0
+$$</p>
+<p>Thus based on Stokes’ Theorem, this means that $\oint_C \vec{E} \cdot d\vec{l} = 0$</p>
+<p>In order to analysis the condition around the margin, we first construct a square contour</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>This is just the sum of four contours, and known that their sum is zero</p>
+<p>$$
+\int_{l_1} + \int_{l_2} + \int_{l_3} + \int_{l_4} = 0
+$$</p>
+<p>Notice that both $l1$ and $l3$ is equal to zero if we make the height h to be zero, thus</p>
+<p>$$
+\int_{l_2} \vec{E}<em>2 \cdot d\vec{l} + \int</em>{l_4} \vec{E}_1 \cdot d\vec{l} = 0
+$$</p>
+<p>As they are in different directions, thus</p>
+<p>$$
+-E_{2t} \cdot a + E_{1t} \cdot a = 0\Rightarrow E_{1t} = E_{2t}
+$$</p>
+<p>This is saying that when entering from one material to another, the Perpendicular Electric Field might change, but the Parallel one won’t</p>
+
+
+<h2 class="relative group">Dielectric – Dielectric Interface – Normal Components 
+    <div id="dielectric--dielectric-interface--normal-components" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dielectric--dielectric-interface--normal-components" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Known that $\nabla \cdot \vec{D} = \rho_v$, which is $\oiint \vec{D} \cdot d\vec{s} = Q_{enc}$</p>
+<p>Now we are using a model of a Pillbox</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%201.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>We are assuming that $h\rightarrow 0$, to get the Normal Boundary condition</p>
+<p>Notice that when this cylindrical is now a circle having Surface Charge Density which only have flux on the top and bottom</p>
+<p>$$
+\iint\limits_{\text{Top}} \vec{D} \cdot d\vec{s} + \cancel{\iint\limits_{\text{Side}} \vec{D} \cdot d\vec{s}} + \iint\limits_{\text{Bottom}} \vec{D} \cdot d\vec{s} = Q_{\text{enc}}
+$$</p>
+<p>As all the Area is just $\Delta s$,the equation can be simplified to</p>
+<p>$$
+\varepsilon_2 E_{2n} - \varepsilon_1 E_{1n} = \rho_s
+$$</p>
+
+
+<h2 class="relative group">Example 
+    <div id="example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Assuming two Electric Fields</p>
+<p>$$
+\vec{E_1}=E_{1x}\hat x+E_{1y}\hat y+E_{1z}\hat z
+$$</p>
+<p>$$
+\vec{E_2}=E_{2x}\hat x+E_{2y}\hat y+E_{2z}\hat z
+$$</p>
+<p>The x and y component are always the same as the Tangent, whereas the Normal one have</p>
+<p>$$
+\varepsilon_2 E_{2n} - \varepsilon_1 E_{1n} = \rho_s
+$$</p>
+<p>If we assume $\rho_s = 0$, then $\varepsilon_2 E_{2n}  = \varepsilon_1 E_{1n}$</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%202.png" alt="image.png" />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">Dielectric – Perfect Conductor Interface – Tangential Components 
+    <div id="dielectric--perfect-conductor-interface--tangential-components" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#dielectric--perfect-conductor-interface--tangential-components" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>A special case for conductor is that it’s interior Electric Field is zero, that is $E_1= 0,D_1=0$</p>
+<p>Thus if the boundary is between a conductor and a Perfect Conductor, thus</p>
+<ul>
+<li>The 1st B.C, $E_{1t}=E_{2t}=0$</li>
+<li>The 2nd B.C. $E_{2n}=\frac{\rho_s}{\varepsilon _2}$</li>
+</ul>
+
+
+<h2 class="relative group">Conductor – Conductor Interface 
+    <div id="conductor--conductor-interface" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conductor--conductor-interface" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As the previous ones $E_{1t}=E_{2t}$ for the 1st B.C., however as there’s current passing by in the Conductor, we need to take care of Current Density J, as $J=\sigma E$, we have</p>
+<p>$$
+\vec{J}<em>{2t} = \frac{\sigma_2}{\sigma_1} \vec{J}</em>{1t}
+$$</p>
+<hr>
+<p>For the 2nd B.C., as $D_{2n} - D_{1n} = \rho_s$, and $D = \varepsilon E$, $E = J/\sigma$, thus we have</p>
+<p>$$
+\varepsilon_2 \frac{J_{2n}}{\sigma_2} - \varepsilon_1 \frac{J_{1n}}{\sigma_1} = \rho_s
+$$</p>
+<p>Whereas at the steady state, we have $J_{1n} = J_{2n}$, thus</p>
+<p>$$
+J_{1n} \left( \frac{\varepsilon_2}{\sigma_2} - \frac{\varepsilon_1}{\sigma_1} \right) = \rho_s
+$$</p>
+
+
+<h1 class="relative group">Capacitance 
+    <div id="capacitance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#capacitance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+<p>In this course, Capacitance is being defined as the place where any two conductors sperate by insulator</p>
+<p>In this course we start with formula $C=Q/V$, by Gaussian’s Law we define Q as</p>
+<p>$$
+Q_{enc} = \oint_S \vec{D} \cdot d\vec{s} = \oint_S \epsilon_r \epsilon_0 \vec{E} \cdot d\vec{s}
+$$</p>
+<p>While we can use the Line Integral to define V as</p>
+<p>$$
+V = -\int_-^+ \vec{E} \cdot d\vec{l} = V_+ - V_-
+$$</p>
+<p>And we can get he formula of C as</p>
+<p>$$
+C = \frac{\oint_S \epsilon \vec{E} \cdot d\vec{s}}{-\int_-^+ \vec{E} \cdot d\vec{l}}
+$$</p>
+
+
+<h2 class="relative group">Property of Capacitance 
+    <div id="property-of-capacitance" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#property-of-capacitance" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Capacitance only depends on following properties</p>
+<ul>
+<li>Shape of the conductors</li>
+<li>Distance b/w the conductors</li>
+<li>Permittivity ($\epsilon$)</li>
+</ul>
+
+
+<h2 class="relative group">RC Coefficient 
+    <div id="rc-coefficient" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#rc-coefficient" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h2 class="relative group">Recall 
+    <div id="recall" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#recall" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Based on the Conductivity $\sigma$  we can classify the materials</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%203.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>Nevertheless, there’re no perfect Capacitor in real life, thus we need to analyse the real behavior</p>
+<hr>
+<p>There’s two ideal material, Conductors and Dielectrics, one have the $R=0$, the other have $R=\infty$, as the Capacitance is not ideal in real life, we treat it with as a identical Parallel Capacitor and Resistor</p>
+<p>Since we define the Resistor R as $R=V/I$, we can write it as</p>
+<p>$$
+R = \frac{V}{I} = \frac{-\int \vec{E} \cdot d\vec{l}}{\iint \vec{J} \cdot d\vec{s}}
+$$</p>
+<p>In the same way, we can write Capacitor as</p>
+<p>$$
+C = \frac{Q}{V} = \frac{\iint \epsilon \vec{E} \cdot d\vec{s}}{-\int \vec{E} \cdot d\vec{l}}
+$$</p>
+<p>Notice if we multiply those two we will then get</p>
+<p>$$
+RC = \left( \frac{-\int \vec{E} \cdot d\vec{l}}{\iint \sigma \vec{E} \cdot d\vec{s}} \right) \cdot \left( \frac{\iint \epsilon \vec{E} \cdot d\vec{s}}{-\int \vec{E} \cdot d\vec{l}} \right)=\frac{\epsilon}{\sigma}
+$$</p>
+<aside>
+❗
+<p>Using this equation, we can get the R and C of the Capacitor as long as we know one of those</p>
+</aside>
+
+
+<h2 class="relative group">Ex. Parallel-Plate Capacitor 
+    <div id="ex-parallel-plate-capacitor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-parallel-plate-capacitor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>As indicated, in real life we deal with non-ideal Capacitor, and we wish to find that Leakage Resistance and the Capacitance</p>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%204.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>In this given example, we can start with $C=Q/V$</p>
+<p>$$
+C = \frac{Q}{V} = \frac{\iint \varepsilon \vec{E} \cdot d\vec{S}}{-\int_{-}^{+} \vec{E} \cdot d\vec{l}}
+$$</p>
+<p>As both integral requires Electric Field, we can find E first, and there’s basically two methods</p>
+<ol>
+<li>Using the known formula for parallel plates</li>
+<li>Using Laplace’s Equation and B.C.</li>
+</ol>
+<ul>
+<li>Now we can sub in $\vec{E} = -\frac{\rho_s}{\varepsilon} \hat{z}$</li>
+</ul>
+<p>$$
+C = \frac{\iint \varepsilon \left( -\frac{\rho_s}{\varepsilon} \hat{z} \right) \cdot dS (-\hat{z})}{-\int_{0}^{d} -\frac{\rho_s}{\varepsilon} \hat{z} \cdot dz \hat{z}}= \frac{\rho_s \cdot A}{\frac{\rho_s}{\varepsilon} \cdot d} = \frac{\varepsilon A}{d}
+$$</p>
+<p>Once known the Capacitance, we can then find R using the RC formula</p>
+<p>$$
+R = \frac{\epsilon}{\sigma} \cdot \frac{d}{\epsilon A} = \frac{d}{\sigma A}
+$$</p>
+
+
+<h2 class="relative group">Ex. Coaxial Cable Capacitor 
+    <div id="ex-coaxial-cable-capacitor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-coaxial-cable-capacitor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%205.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>As usual, find the C first using $C=Q/V$, then we need the Electric Field Again, and this Example we can approach by either Laplacian or Gauss’s Law, and it will be</p>
+<p>$$
+\vec{E} = \frac{-\rho_s a}{\epsilon r} \hat{r}
+$$</p>
+<p>Sub in this E back and we will get</p>
+<p>$$
+C = \frac{\rho_s \cdot 2\pi a \cdot l}{-\int_{a}^{b} \frac{-\rho_s a}{\varepsilon r} \hat{r} \cdot dr \hat{r}} = \frac{\rho_s \cdot 2\pi a \cdot l}{\left. \frac{\rho_s \cdot a}{\varepsilon} \ln r \right|_a^b} = \frac{2\pi l \varepsilon}{\ln(\frac{b}{a})}
+$$</p>
+<p>And using we RC formula we can also get</p>
+<p>$$
+R = \frac{\epsilon}{\sigma} \cdot \frac{1}{C} = \frac{\ln(b/a)}{2\pi \sigma l}
+$$</p>
+
+
+<h2 class="relative group">Capacitor with Stacked Dielectrics 
+    <div id="capacitor-with-stacked-dielectrics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#capacitor-with-stacked-dielectrics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>When we put two Capacitors in Series or Parallel, its ability to store charge will change, based on the formula</p>
+<p>$$
+C = \varepsilon \cdot \frac{A}{d}
+$$</p>
+<p>Where in this formula, the coefficient $\varepsilon$ is used to describe the scale of that ability, but if we still want to use the same formula after stacked two capacitors, we need to adjust this $\varepsilon$</p>
+<blockquote>
+<p>Similar to mixing the juice, say we have apple juice and orange juice each has their own scale of sugar, if we combine them together, we will need a new way to describe the mixture of their sugar under the volume v.s. sugar</p>
+</blockquote>
+
+
+<h3 class="relative group">Stacked in Series 
+    <div id="stacked-in-series" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stacked-in-series" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%206.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>$$
+\frac{1}{C} = \frac{1}{C_1} + \frac{1}{C_2} = \frac{d_1}{\varepsilon_1 A} + \frac{d_2}{\varepsilon_2 A} \Rightarrow C = \frac{A \varepsilon_1 \varepsilon_2}{d_1 \varepsilon_2 + d_2 \varepsilon_1}
+$$</p>
+<p>Now we want this formula back to the form of $C = \varepsilon \cdot \frac{A}{d}$, thus we divided by $A/d$</p>
+<p>$$
+\varepsilon_{eff,s} = \frac{\varepsilon_1 \varepsilon_2 (d_1 + d_2)}{d_1 \varepsilon_2 + d_2 \varepsilon_1}
+$$</p>
+
+
+<h3 class="relative group">Stacked in Parallel 
+    <div id="stacked-in-parallel" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#stacked-in-parallel" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%207.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>$$
+C = C_1 + C_2 = \frac{1}{d} (\varepsilon_1 A_1 + \varepsilon_2 A_2)
+$$</p>
+<p>In Parallel, the Capacitance is simply addition, and the adjusted coefficient will be</p>
+<p>$$
+\varepsilon_{eff,p} = \frac{\varepsilon_1 A_1 + \varepsilon_2 A_2}{A_1 + A_2}
+$$</p>
+
+
+<h2 class="relative group">Ex. Spherical Capacitor 
+    <div id="ex-spherical-capacitor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#ex-spherical-capacitor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img class="my-0 rounded-md" loading="lazy" src="image%208.png" alt="image.png" />
+      
+    </figure>
+</p>
+<p>As</p>
+
+        </section>
+
+        <footer>
+            <p><strong>Copyright & Disclaimer:</strong> The content provided herein is for academic and engineering archival purposes only. </p>
+            <p>&copy; 2026 Buezwqwg. All rights reserved. Generated via Hugo.</p>
+        </footer>
+    </article>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ]
+    });"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+</body>
+</html>
