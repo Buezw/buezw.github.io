@@ -543,95 +543,78 @@
 </style>
 
     <style>
-        .role-list {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
-            margin-bottom: 4px;
+         
+        .role-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
         }
-        .role-row {
-            display: flex;
-            align-items: center;
-            gap: 32px;
+         
+        .role-card {
+            display: grid;
+            grid-row: span 4;
+            grid-template-rows: subgrid;
+            row-gap: 0;
+            align-content: start;
             border: 1px solid var(--line);
-            border-left-width: 3px;
-            padding: 20px 30px;
-            text-decoration: none !important;
-            transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-left: 3px solid var(--role);
+            padding: 22px 26px 18px;
         }
-        .role-row:hover {
-            transform: translateX(4px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        .role-card-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
         }
-        .role-row-head { flex: 0 0 22rem; }
-        .role-row-tag {
+        .role-card-tag {
             font-family: var(--font-mono);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            color: var(--role);
+            margin-bottom: 8px;
         }
-        .role-row-title {
+        .role-card-title {
             font-family: var(--font-serif);
             font-size: 1.9rem;
-            color: var(--text);
+            line-height: 1.15;
             margin: 0;
         }
-        .role-row-desc {
-            flex: 1 1 auto;
-            font-size: 1.15rem;
-            color: var(--dim);
-            line-height: 1.5;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            overflow: hidden;
-        }
-        .role-row-enter {
+        .role-card-title a:hover { color: var(--role); }
+        .role-card-enter {
             flex: 0 0 auto;
             font-family: var(--font-mono);
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: var(--text);
             white-space: nowrap;
+            padding-top: 4px;
         }
-        @media (max-width: 900px) {
-            .role-row { flex-direction: column; align-items: flex-start; gap: 12px; }
-            .role-row-head { flex: none; }
+        .role-card-enter:hover { color: var(--role); }
+        .role-card-desc {
+            font-size: 1.05rem;
+            color: var(--dim);
+            line-height: 1.55;
+            margin: 12px 0 18px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-
-        .hub-heading.is-section {
-            text-align: left;
-            margin-top: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #000;
-            font-size: 0.85rem;
-            font-weight: bold;
-            color: var(--text);
-        }
-        .trinity-grid { margin-top: 10px; }
-        .trinity-col .list-group-header {
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
-            font-weight: 700;
-            text-transform: none;
+        .role-card-latest {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--dim);
             border-bottom: 1px solid var(--line);
-            margin-bottom: 10px;
             padding-bottom: 6px;
+            margin-bottom: 12px;
         }
-        .trinity-col .entry-item {
-            margin-bottom: 8px;
-            padding-bottom: 8px;
-        }
-        .trinity-col .entry-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .role-card .entry-item { margin-bottom: 10px; padding-bottom: 10px; }
+        .role-card .entry-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        .role-card .entry-item:hover .entry-title,
+        .role-card .entry-item:hover .entry-title-mono { color: var(--role); }
 
-         
-        .trinity-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .trinity-grid.cols-2 .trinity-col:last-child { grid-column: auto; }
-        @media (max-width: 1000px) {
-            .trinity-grid.cols-2 { grid-template-columns: minmax(0, 1fr); }
+        @media (max-width: 1200px) {
+            .role-cards { grid-template-columns: minmax(0, 1fr); }
         }
 
          
@@ -639,22 +622,19 @@
             .home-wrapper { row-gap: 0; }
             .home-wrapper > main { display: contents; }
             .home-wrapper .section-header { order: 1; }
-            .home-wrapper .role-list { order: 2; }
+            .home-wrapper .role-cards { order: 2; }
             .home-wrapper .sidebar {
                 order: 3;
                 margin: 32px 0 8px;
                 padding-top: 24px;
                 border-top: 1px solid var(--line);
             }
-            .home-wrapper .hub-heading { order: 4; margin-top: 24px; }
-            .home-wrapper .trinity-grid { order: 5; }
             .home-wrapper .profile-name { margin-bottom: 16px; }
         }
         @media (max-width: 640px) {
-            .role-row { padding: 18px 20px; }
-            .role-row-title { font-size: 1.6rem; }
-            .role-row-desc { font-size: 1rem; }
-            .role-row-enter { font-size: 0.85rem; }
+            .role-card { padding: 18px 20px 16px; }
+            .role-card-title { font-size: 1.6rem; }
+            .role-card-desc { font-size: 1rem; }
         }
     </style>
 </head>
@@ -703,6 +683,12 @@
     </div>
 </header>
 
+
+    
+    
+    
+    
+    
 
     <div class="fluid-wrapper home-wrapper">
         <aside class="sidebar">
@@ -758,48 +744,42 @@
 
         <main>
             <h2 class="section-header">Choose a Role <span>ARCHIVE</span></h2>
-            <div class="role-list">
-                <a href="/student/" class="role-row" style="border-left-color:#0033cc;">
-                    <div class="role-row-head">
-                        <div class="role-row-tag" style="color:#0033cc;">UOFT STUDENT</div>
-                        <h3 class="role-row-title">Computer Engineering</h3>
-                    </div>
-                    <p class="role-row-desc">
-                        Coursework, lab notes, and project logs from the B.A.Sc Computer Engineering program at the University of Toronto — circuits, systems, math, and software fundamentals.
-                    </p>
-                    <div class="role-row-enter">View Coursework →</div>
-                </a>
-                <a href="/utefa/" class="role-row" style="border-left-color:#cc0000;">
-                    <div class="role-row-head">
-                        <div class="role-row-tag" style="color:#cc0000;">UTEFA ANALYST</div>
-                        <h3 class="role-row-title">Sales & Trading</h3>
-                    </div>
-                    <p class="role-row-desc">
-                        Market commentary, microstructure research, and trading infrastructure projects (pricing engines, FPGA matching, market simulation) from my work as a Sales & Trading Analyst at UTEFA.
-                    </p>
-                    <div class="role-row-enter">View Research →</div>
-                </a>
-            </div>
+            <div class="role-cards">
 
-            <div class="hub-heading is-section">Latest Across the Archive</div>
-            <div class="trinity-grid cols-2">
-                <div class="trinity-col">
-                    <div class="list-group-header">Computer Engineering <span style="color:#0033cc;">UOFT</span></div>
-                    
-                    
-                    
-                    
-                    <div class="empty-state">No entries yet.</div>
-                    
-                </div>
-                <div class="trinity-col">
-                    <div class="list-group-header">Sales & Trading <span style="color:#cc0000;">UTEFA</span></div>
-                    
-                    
+                <section class="role-card" style="--role:#0033cc;">
+                    <div class="role-card-head">
+                        <div>
+                            <div class="role-card-tag">UofT Student</div>
+                            <h3 class="role-card-title"><a href="/student/">Computer Engineering</a></h3>
+                        </div>
+                        <a href="/student/" class="role-card-enter">View all →</a>
+                    </div>
+                    <p class="role-card-desc">
+                        Lecture notes and lab write-ups from the B.A.Sc Computer Engineering program — circuits, systems, math, and software.
+                    </p>
+                    <div class="role-card-latest">Latest</div>
                     
                     <div class="empty-state">No entries yet.</div>
                     
-                </div>
+                </section>
+
+                <section class="role-card" style="--role:#cc0000;">
+                    <div class="role-card-head">
+                        <div>
+                            <div class="role-card-tag">UTEFA Analyst</div>
+                            <h3 class="role-card-title"><a href="/utefa/">Sales & Trading</a></h3>
+                        </div>
+                        <a href="/utefa/" class="role-card-enter">View all →</a>
+                    </div>
+                    <p class="role-card-desc">
+                        Market commentary, microstructure research, and trading-infrastructure builds from the UTEFA Sales & Trading desk.
+                    </p>
+                    <div class="role-card-latest">Latest</div>
+                    
+                    <div class="empty-state">No entries yet.</div>
+                    
+                </section>
+
             </div>
         </main>
     </div>
