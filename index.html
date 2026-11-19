@@ -33,7 +33,16 @@
         --font-serif: 'Playfair Display', serif;
         --font-body: 'Noto Serif SC', 'Georgia', serif;
         --font-mono: 'JetBrains Mono', monospace;
+         
+        --page-max: 1440px;
+        --gutter: 48px;
     }
+     
+    html { --zoom: 1; zoom: var(--zoom); }
+    @media (min-width: 2000px) { html { --zoom: 1.15; } }
+    @media (min-width: 2400px) { html { --zoom: 1.3; } }
+    @media (max-width: 1000px) { :root { --gutter: 25px; } }
+    @media (max-width: 640px)  { :root { --gutter: 20px; } }
 
     html { height: 100%; }
 
@@ -45,7 +54,13 @@
         font-family: var(--font-body);
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
+         
+         
+        min-height: calc(100vh / var(--zoom));
+        display: flex;
+        flex-direction: column;
     }
+    .site-footer { margin-top: auto; }
 
     a { color: inherit; text-decoration: none; transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
     a:hover { color: var(--accent); }
@@ -58,9 +73,10 @@
     }
 
     .site-header-inner {
-        max-width: 1800px;
+        box-sizing: border-box;
+        max-width: var(--page-max);
         margin: 0 auto;
-        padding: 12px 48px;
+        padding: 12px var(--gutter);
         display: flex;
         align-items: baseline;
         flex-wrap: wrap;
@@ -120,20 +136,41 @@
     @media (max-width: 960px) {
         .site-title { white-space: normal; }
     }
+    .sub-sep { margin: 0 0.6em; }
+
     @media (max-width: 640px) {
-        .site-header-inner { flex-direction: column; align-items: flex-start; }
-        .site-title { font-size: 1.8rem; }
+        .site-header-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+         
+        .site-nav {
+            flex-wrap: nowrap;
+            gap: 16px;
+            max-width: 100%;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .site-nav::-webkit-scrollbar { display: none; }
+        .site-nav-link { font-size: 0.75rem; letter-spacing: 1px; }
+        .site-title { font-size: 1.6rem; line-height: 1.2; letter-spacing: -0.5px; }
+         
+        .site-subtitle { font-size: 0.68rem; letter-spacing: 1.5px; line-height: 1.7; margin-top: 6px; }
+        .sub-sep { display: none; }
+        .sub-item { display: block; }
     }
 
      
     .fluid-wrapper {
-        max-width: 1800px;
+        width: 100%;
+        box-sizing: border-box;
+        max-width: var(--page-max);
         margin: 0 auto 16px;
-        padding: 0 48px;
+        padding: 0 var(--gutter);
         display: grid;
         grid-template-columns: 300px 1fr;
         gap: 48px;
     }
+
+     
+    .fluid-wrapper main { min-width: 0; }
 
     .sidebar { position: sticky; top: 24px; height: fit-content; }
     .profile-name { font-family: var(--font-serif); font-size: 1.9rem; margin: 0 0 24px; }
@@ -431,7 +468,7 @@
         .trinity-col:last-child { grid-column: 1 / -1; }
     }
     @media (max-width: 1000px) {
-        .fluid-wrapper { grid-template-columns: 1fr; padding: 0 25px; }
+        .fluid-wrapper { grid-template-columns: 1fr; }
         .sidebar { position: static; }
         .trinity-grid { grid-template-columns: minmax(0, 1fr); }
     }
@@ -526,7 +563,7 @@
             transform: translateX(4px);
             box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
-        .role-row-head { flex: 0 0 340px; }
+        .role-row-head { flex: 0 0 22rem; }
         .role-row-tag {
             font-family: var(--font-mono);
             font-size: 0.9rem;
@@ -589,6 +626,36 @@
             padding-bottom: 8px;
         }
         .trinity-col .entry-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+         
+        .trinity-grid.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .trinity-grid.cols-2 .trinity-col:last-child { grid-column: auto; }
+        @media (max-width: 1000px) {
+            .trinity-grid.cols-2 { grid-template-columns: minmax(0, 1fr); }
+        }
+
+         
+        @media (max-width: 1000px) {
+            .home-wrapper { row-gap: 0; }
+            .home-wrapper > main { display: contents; }
+            .home-wrapper .section-header { order: 1; }
+            .home-wrapper .role-list { order: 2; }
+            .home-wrapper .sidebar {
+                order: 3;
+                margin: 32px 0 8px;
+                padding-top: 24px;
+                border-top: 1px solid var(--line);
+            }
+            .home-wrapper .hub-heading { order: 4; margin-top: 24px; }
+            .home-wrapper .trinity-grid { order: 5; }
+            .home-wrapper .profile-name { margin-bottom: 16px; }
+        }
+        @media (max-width: 640px) {
+            .role-row { padding: 18px 20px; }
+            .role-row-title { font-size: 1.6rem; }
+            .role-row-desc { font-size: 1rem; }
+            .role-row-enter { font-size: 0.85rem; }
+        }
     </style>
 </head>
 <body>
@@ -626,14 +693,14 @@
         </nav>
         <div class="header-titles">
             <h1 class="site-title"><a href="/">Research & Engineering Archive</a></h1>
-            <div class="site-subtitle">Research & Engineering | Quantitative Systems | Academic Archive</div>
+            <div class="site-subtitle"><span class="sub-item">Research & Engineering</span><span class="sub-sep">|</span><span class="sub-item">Quantitative Systems</span><span class="sub-sep">|</span><span class="sub-item">Academic Archive</span></div>
         </div>
         
     </div>
 </header>
 
 
-    <div class="fluid-wrapper">
+    <div class="fluid-wrapper home-wrapper">
         <aside class="sidebar">
             <h2 class="profile-name">Jingnan Huang</h2>
             <div class="profile-bio">
@@ -642,7 +709,7 @@
                     <span style="color: var(--dim)">University of Toronto</span>
                 </div>
                 <div class="bio-edu">
-                    Working across quantitative trading, low-latency systems, and computational biology research. Pick a role to see the relevant work.
+                    Working across quantitative trading and low-latency systems. Pick a role to see the relevant work.
                 </div>
             </div>
 
@@ -681,7 +748,6 @@
                     <span class="tag-pill">Market Microstructure</span>
                     <span class="tag-pill">Low Latency Systems</span>
                     <span class="tag-pill">FPGA Acceleration</span>
-                    <span class="tag-pill">Computational Biology</span>
                 </div>
             </div>
         </aside>
@@ -709,20 +775,10 @@
                     </p>
                     <div class="role-row-enter">View Research →</div>
                 </a>
-                <a href="/vepe/" class="role-row" style="border-left-color:#008855;">
-                    <div class="role-row-head">
-                        <div class="role-row-tag" style="color:#008855;">VEPE RESEARCHER</div>
-                        <h3 class="role-row-title">Virtual Cell</h3>
-                    </div>
-                    <p class="role-row-desc">
-                        Research notes and progress on virtual cell modeling at VEPE — this section is being set up and will fill in as the work develops.
-                    </p>
-                    <div class="role-row-enter">View Research →</div>
-                </a>
             </div>
 
             <div class="hub-heading is-section">Latest Across the Archive</div>
-            <div class="trinity-grid">
+            <div class="trinity-grid cols-2">
                 <div class="trinity-col">
                     <div class="list-group-header">Computer Engineering <span style="color:#0033cc;">UOFT</span></div>
                     
@@ -769,23 +825,6 @@
                         
                     </div>
                     <p><a href="/utefa/" class="see-all-link">See all research →</a></p>
-                    
-                </div>
-                <div class="trinity-col">
-                    <div class="list-group-header">Virtual Cell <span style="color:#008855;">VEPE</span></div>
-                    
-                    
-                    
-                    
-                    <div class="entry-list">
-                        
-                        <a href="/vepe/coming-soon/" class="entry-item">
-                            <div class="entry-meta">Aug 27, 2026</div>
-                            <div class="entry-title-mono">Virtual Cell Research — Coming Soon</div>
-                        </a>
-                        
-                    </div>
-                    <p><a href="/vepe/" class="see-all-link">See all research →</a></p>
                     
                 </div>
             </div>
