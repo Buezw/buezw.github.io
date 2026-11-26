@@ -94,9 +94,11 @@
 &lt;ul&gt;
 &lt;li&gt;在 ODE 中，未知函数只依赖于一个 independent variable&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
+$$
 \frac{d^2 y}{dx^2} = -k^2 y
-$$&lt;/p&gt;</description>
+$$&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用的是 &lt;strong&gt;Leibniz notation（莱布尼茨记号）&lt;/strong&gt;&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/feature.png" />
     </item>
     
@@ -136,9 +138,29 @@ $$&lt;/p&gt;</description>
 &lt;li&gt;当有 \(ax^2+bx+c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &amp;lt; 0\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\)&lt;/li&gt;
 &lt;li&gt;但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
-\mathbb C={z|z=a+bi,a,b\in\mathbb R }
-$$&lt;/p&gt;</description>
+$$
+\mathbb C=\{z|z=a+bi,a,b\in\mathbb R \}
+$$&lt;ul&gt;
+&lt;li&gt;其也有 Polar Form，也称为三角形式，为&lt;/li&gt;
+&lt;/ul&gt;
+$$
+z=r(\cos \theta+i\sin\theta)
+$$&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu4106092323412754640.png 330w,
+        /docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu5328658782807095689.png 660w,
+        /docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu12884890518048418593.png 1024w,
+        /docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu10161829841846972568.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu5328658782807095689.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/feature.png" />
     </item>
     

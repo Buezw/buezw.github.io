@@ -1,970 +1,347 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head>
-  <meta charset="utf-8" />
-  
-  <meta http-equiv="content-language" content="en" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  
-  <title>IMP 2. Limits &middot; Buezwqwg</title>
-  <meta name="title" content="IMP 2. Limits &middot; Buezwqwg" />
-  
-  
-  <meta name="keywords" content="Docs, Econ, " />
-  
-  
-  <link rel="canonical" href="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/" />
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
-    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
-  
-  
-  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
-    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.a5312a15393b6da77a379acf5b55576cabc85cb09cf0973d143812be82d0810982674c92e8564f3999e456d97305ae6f6269c41612d008359d8b94265a99eec5.js"
-    integrity="sha512-pTEqFTk7bad6N5rPW1VXbKvIXLCc8Jc9FDgSvoLQgQmCZ0yS6FZPOZnkVtlzBa5vYmnEFhLQCDWdi5QmWpnuxQ==" data-copy="" data-copied=""></script>
-  
-  
-  
-  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
-  
-  
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:url" content="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/">
-  <meta property="og:site_name" content="Buezwqwg">
-  <meta property="og:title" content="IMP 2. Limits">
-  <meta property="og:description" content="IMP2.Limits # Last Edit: 9/22/25
-Multivariable Limit Definition（多元极限定义） # 函数 \(f\) 的极限是 \(L\)，当点 \(P(x,y)\) 逼近 \(P_0(a,b)\) 时，写作 $$ \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L $$">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2025-09-22T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-09-22T00:00:00+00:00">
-    <meta property="article:tag" content="Docs">
-    <meta property="article:tag" content="Econ">
-    <meta property="og:image" content="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/feature.png">
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IMP 2. Limits · Jingnan Huang</title>
+<meta name="description" content="IMP 2. Limits — notes by Jingnan Huang">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
 
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/feature.png">
-  <meta name="twitter:title" content="IMP 2. Limits">
-  <meta name="twitter:description" content="IMP2.Limits # Last Edit: 9/22/25
-Multivariable Limit Definition（多元极限定义） # 函数 \(f\) 的极限是 \(L\)，当点 \(P(x,y)\) 逼近 \(P_0(a,b)\) 时，写作 $$ \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L $$">
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
 
-  
-  <script type="application/ld+json">
-  [{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "articleSection": "Docs",
-    "name": "IMP 2. Limits",
-    "headline": "IMP 2. Limits",
-    
-    "abstract": "\u003ch2 class=\u0022relative group\u0022\u003eIMP2.Limits \n    \u003cdiv id=\u0022imp2limits\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#imp2limits\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 9\/22\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\n\n\u003ch3 class=\u0022relative group\u0022\u003e\u003cstrong\u003eMultivariable Limit Definition（多元极限定义）\u003c\/strong\u003e \n    \u003cdiv id=\u0022multivariable-limit-definition%E5%A4%9A%E5%85%83%E6%9E%81%E9%99%90%E5%AE%9A%E4%B9%89\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#multivariable-limit-definition%E5%A4%9A%E5%85%83%E6%9E%81%E9%99%90%E5%AE%9A%E4%B9%89\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h3\u003e\n\u003cul\u003e\n\u003cli\u003e函数 \\(f\\) 的极限是 \\(L\\)，当点 \\(P(x,y)\\) 逼近 \\(P_0(a,b)\\) 时，写作\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e$$\n\\lim_{(x,y)\\to(a,b)} f(x,y) = \\lim_{P \\to P_0} f(x,y) = L\n$$\u003c\/p\u003e",
-    "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/25f\/introduction-to-mathematic-physic\/imp2.limits\/",
-    "author" : {
-      "@type": "Person",
-      "name": "Buezwqwg"
-    },
-    "copyrightYear": "2025",
-    "dateCreated": "2025-09-22T00:00:00\u002b00:00",
-    "datePublished": "2025-09-22T00:00:00\u002b00:00",
-    
-    "dateModified": "2025-09-22T00:00:00\u002b00:00",
-    
-    "keywords": ["Docs","Econ"],
-    
-    "mainEntityOfPage": "true",
-    "wordCount": "6370"
-  }]
-  </script>
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
 
+ 
+.search{position:relative;flex:1;max-width:520px}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
 
-  
-  
-  <meta name="author" content="Buezwqwg" />
-  
-  
-  
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
 
-<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
 
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
 
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
 
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
+</style>
 
+<link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
+<link rel="stylesheet" href="/lib/katex/katex.min.css">
+<script defer src="/lib/katex/katex.min.js"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<style>
+ 
+.banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.banner>div{padding:0 clamp(24px,3.4vw,64px);max-width:calc(860px + 2*clamp(24px,3.4vw,64px));width:100%;margin:0 auto;box-sizing:border-box;min-width:0}
+.banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 12px;white-space:nowrap;width:max-content}
+.banner h1.wrap{white-space:normal;width:auto}
+.banner .meta{font-size:.86rem}
+.banner .lead{max-width:860px;margin:0 0 12px}
+.nav2{display:flex;gap:8px}
+.nav2 a{display:block;background:#fff;border:1px solid var(--paper2);padding:8px 14px;width:220px}
+.nav2 a:hover{border-color:var(--text)}
+.nav2 small{display:block;font-size:.72rem;color:var(--dim)}
+.nav2 b{display:block;font-weight:500;font-size:.86rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav2 .nx{text-align:right}
+.page{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh / var(--zoom) - 40px);overflow:auto;padding-right:4px}
+.side{padding:30px 22px 30px var(--px)}
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.grp{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;margin-top:8px;padding-bottom:12px;border-bottom:1px solid var(--paper2)}
+.grp a:hover{color:var(--c)}
+.grp small{display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:.76rem;font-weight:400;color:var(--dim);margin-top:6px;letter-spacing:0}
+.grp small i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.sib{font-size:.88rem;line-height:1.35;counter-reset:n}
+.sib a{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;align-items:baseline;padding:6px 8px 6px 0;color:#4a4741;border-radius:3px}
+.sib a em{font-style:normal;font-family:var(--serif);font-size:.95rem;color:var(--dim);text-align:right;padding-right:6px}
+.sib a span{overflow-wrap:anywhere}
+.sib a:hover{color:var(--text);background:rgba(255,255,255,.55)}
+.sib a.cur{background:#fff;color:var(--text);font-weight:500;box-shadow:inset 2px 0 0 var(--c)}
+.sib a.cur em{color:var(--c)}
+.rail{padding:30px var(--px) 30px 24px;border-left:1px solid var(--line)}
+.toc{font-size:.84rem;line-height:1.4;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 0 4px 12px;margin-left:-1px;border-left:2px solid transparent;color:#5a5650}
+.toc a.l2{padding-left:24px;font-size:.8rem;color:var(--dim)}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--c);border-left-color:var(--c)}
+.totop{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--dim)}
+.totop:hover{color:var(--text)}
 
+.art{padding:30px clamp(24px,3.4vw,64px) 50px;min-width:0}
+.art>*{margin-left:auto;margin-right:auto}
+.ahead{max-width:860px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--text)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+.ahead h1{font-size:2.6rem;line-height:1.12;margin:12px 0 0;overflow-wrap:anywhere}
+.ahead .crumb{margin-bottom:10px}
+.lead{margin:14px 0 0;font-size:1.05rem;line-height:1.65;color:#4a4741}
 
+ 
+.prose{max-width:860px;font-size:1.02rem;line-height:1.8;color:#232220;overflow-wrap:break-word}
+.prose h1,.prose h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-size:1.65rem;line-height:1.25;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:1.8em 0 .5em;scroll-margin-top:20px}
+.prose h4{font-size:1.05rem;font-weight:600;margin:1.6em 0 .4em;scroll-margin-top:20px}
+.prose>*:first-child{margin-top:0}
+.prose h1>span,.prose h2>span,.prose h3>span,.prose h4>span{display:none}
+.prose .anchor{scroll-margin-top:20px}
+.prose p{margin:0 0 1em}
+.prose a{color:var(--c);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.prose strong{font-weight:600;color:var(--text)}
+.prose ul,.prose ol{padding-left:1.4em;margin:0 0 1em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.2em 0}
+.prose blockquote{margin:1.2em 0;padding:.6em 1.1em;border-left:3px solid var(--c);background:#faf9f6;color:#4a4741}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose img,.prose video{display:block;max-width:100%;height:auto;margin:1.2em auto;border:1px solid var(--line)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;margin:1.2em 0;font-size:.92rem}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top}
+.prose th{background:#f6f4ef;font-weight:600}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:#f3f0ea;padding:.1em .35em;border-radius:3px}
+.prose pre{background:#faf9f6;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;font-size:.86rem;line-height:1.6;margin:1.2em 0}
+.prose pre code{background:none;padding:0;font-size:inherit}
+.prose .highlight{margin:1.2em 0}
+.prose .highlight pre{margin:0}
+.prose .katex-display{overflow-x:auto;overflow-y:hidden;padding:.2em 0}
+.prose .katex{font-size:1.06em}
 
+.pn{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:18px;border-top:1px solid var(--text)}
+.pn a{display:block;padding:12px 14px;border:1px solid var(--line)}
+.pn a:hover{border-color:var(--text)}
+.pn span{display:block;font-size:.78rem;color:var(--dim)}
+.pn b{font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
+.pn .nx{text-align:right;grid-column:2}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWY3M67C4S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FWY3M67C4S');
-</script>
-
-
-
-  
-  
-  <meta name="theme-color"/>
-  
-  
+@media (max-width:1000px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .banner{display:block;padding:22px 0 18px}
+  .banner h1{font-size:1.8rem!important;white-space:normal;width:auto}
+  .nav2{display:none}
+  .prose{font-size:.98rem}
+  .pn{grid-template-columns:1fr}
+  .pn .nx{grid-column:1}
+}
+</style>
 </head>
-<body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
-  <div id="the-top" class="absolute flex self-center">
-    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
-      href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+<body style="--c:var(--blue)">
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 112 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
   </div>
-  
-  
-  <div class="min-h-[148px]"></div>
-<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
-  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
-  <div class="relative max-w-[64rem] ml-auto mr-auto">
-    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
-    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
-    
-    <div class="flex flex-1 items-center justify-between">
-        <nav class="flex space-x-3">
-
-            
-            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
-            
-
-        </nav>
-        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
-
-            
-            
-            
-  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Docs
-    </p>
-</a>
-
-
-
-            
-            
-  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Blogs
-    </p>
-</a>
-
-
-
-            
-            
-  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Thoughts
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="/tags/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Notes
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Zhihu
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <span >
-        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-
-  </span>
-
-
-    </span>
-    
-    <p class="text-base font-medium" title="">
-        
-    </p>
-</a>
-
-
-
-            
-            
-
-            
-
-
-            
-            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-                title="">
-                
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-            </button>
-            
-
-
-            
-            
-            <div
-                class="ltr:mr-14 rtl:ml-14 flex items-center">
-                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
-                    <div class="flex items-center justify-center dark:hidden">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-
-                    </div>
-                    <div class="items-center justify-center hidden dark:flex">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-
-                    </div>
-                </button>
-            </div>
-            
-
-        </nav>
-        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
-
-            <span></span>
-
-            
-
-
-            
-            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-                title="">
-                
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-            </button>
-            
-
-            
-            
-            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
-                <div class="flex items-center justify-center dark:hidden">
-                    
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-
-                </div>
-                <div class="items-center justify-center hidden dark:flex">
-                    
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-
-                </div>
-            </button>
-            
-
-        </div>
-    </div>
-    <div class="-my-2 -mr-2 md:hidden">
-
-        <label id="menu-button" class="block">
-            
-            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
-                
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
-
-  </span>
-
-
-            </div>
-            <div id="menu-wrapper" style="padding-top:5px;"
-                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
-                <ul
-                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
-
-                    <li id="menu-close-button">
-                        <span
-                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
-
-  </span>
-
-</span>
-                    </li>
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Docs
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Blogs
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Thoughts
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/tags/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Notes
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Zhihu
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <div >
-            
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-
-  </span>
-
-
-        </div>
-        
-        <p class="text-bg font-bg" title="">
-            
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                </ul>
-                
-                
-
-            </div>
-        </label>
-    </div>
-</div>
-
-
-
-
+  <nav>
+    <a href="/student/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="/docs/">Docs</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
 <script>
-    (function () {
-        var $mainmenu = $('.main-menu');
-        var path = window.location.pathname;
-        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
-            $(e).children('p').addClass('active');
-        });
-    })();
-</script>
-
-
-  </div>
-</div>
-<script>
-  window.addEventListener('scroll', function (e) {
-    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    var background_blur = document.getElementById('menu-blur');
-    background_blur.style.opacity = (scroll / 300);
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
   });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
 </script>
 
-  
-  <div class="relative flex flex-col grow">
-    <main id="main-content" class="grow">
-      
 
-
-<article>
-  
-  
-  
-  
-  
-  
-
-
-<div id="hero" class="h-[150px] md:h-[200px]"></div>
-
-
-
-    
-    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/feature_hu4544026792069868509.png);">
-    
-
-
-    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+<section class="banner">
+  <div>
+    <div class="crumb"><a href="/student/">Notebook</a><i>/</i><a href="/student/">Fall 2025</a><i>/</i><a href="/student/#introduction-to-mathematical-physics">Introduction to Mathematical Physics</a></div>
+    <h1 class="serif" id="atitle">IMP 2. Limits</h1>
+    <div class="meta"><i class="area" style="--d:#8a7bb0">Physics</i>
+      <span>Sep 22, 2025</span><span>Edited 9/22/25</span>
+      <i class="lang">CN</i>
     </div>
-    <div
-        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
-    </div>
-</div>
-
-<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
-<script>
-    window.addEventListener('scroll', function (e) {
-        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var background_blur = document.getElementById('background-blur');
-        background_blur.style.opacity = (scroll / 300)
-    });
-</script>
-
-  
-  
-
-  <header id="single_header" class="mt-5 max-w-prose">
-    
-    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
-  
-  
-    
-  
-    
-  
-    
-  
-    
-  
-  <li class="inline hidden">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/"
-      >Buezwqwg</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/"
-      >Docs</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/uoft/"
-      >U of T</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/uoft/25f/introduction-to-mathematic-physic/"
-      >Introduction to Mathematic Physic</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline hidden">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/"
-      >IMP 2. Limits</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-</ol>
-
-
-    
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      IMP 2. Limits
-    </h1>
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>6370 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/econ/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Econ
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-    </div>
-
-    
-    
-    
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      
-
-    
-
-  </header>
-  
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-    
-     <div
-      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
-      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
-
-         <details open id="TOCView"
-  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
-  <summary
-    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
-  </summary>
-  <div
-    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#imp2limits">IMP2.Limits</a>
-      <ul>
-        <li><a href="#multivariable-limit-definition多元极限定义"><strong>Multivariable Limit Definition（多元极限定义）</strong></a></li>
-        <li><a href="#definition-of-boundary-points-and-interior-points">Definition of Boundary Points and Interior Points</a>
-          <ul>
-            <li><a href="#interior--boundary-point">Interior &amp; Boundary Point</a></li>
-            <li><a href="#location-of-p_0">Location of P_0</a></li>
-          </ul>
-        </li>
-        <li><a href="#definition-of-open-and-closed-regionssets">Definition of Open and Closed Regions/Sets</a></li>
-        <li><a href="#methods-for-determining-existence-or-nonexistence-of-limits">Methods For Determining Existence or Nonexistence of Limits</a>
-          <ul>
-            <li><a href="#methods-to-apply">Methods to Apply</a></li>
-          </ul>
-        </li>
-        <li><a href="#basic-limit-laws">Basic Limit Laws</a>
-          <ul>
-            <li><a href="#theorem-151-limits-of-constant-and-linear-functions">Theorem 15.1: Limits of Constant and Linear Functions</a></li>
-            <li><a href="#theorem-152-limit-laws-of-two-variables">Theorem 15.2: Limit Laws of Two Variables</a></li>
-            <li><a href="#process-for-assuming-limit-dne">Process for Assuming Limit DNE</a></li>
-            <li><a href="#two-path-test">Two Path Test</a></li>
-            <li><a href="#change-of-variable-options-to-implement-two-path-test">Change of Variable Options to Implement Two Path Test</a></li>
-          </ul>
-        </li>
-        <li><a href="#continuity">Continuity</a>
-          <ul>
-            <li><a href="#definition-of-continuity">Definition of Continuity</a></li>
-            <li><a href="#continuity-of-composite-functions">Continuity of Composite Functions</a></li>
-          </ul>
-        </li>
-        <li><a href="#partial-derivatives-and-differentiability">Partial Derivatives and Differentiability</a>
-          <ul>
-            <li><a href="#definition-of-partial-derivative">Definition of Partial Derivative</a></li>
-            <li><a href="#higher-order-partial-derivatives-and-notation">Higher-Order Partial Derivatives and Notation</a></li>
-            <li><a href="#equality-of-mixed-partial-derivatives混合偏导数相等">Equality of Mixed Partial Derivatives（混合偏导数相等）</a></li>
-            <li><a href="#differentiability-of-a-function-with-1-variable">Differentiability of a Function with 1 Variable</a></li>
-            <li><a href="#differentiability-of-a-function-with-2-variables">Differentiability of a Function with 2 Variables</a></li>
-            <li><a href="#differentiability-of-a-function-with-2-variables-method-2">Differentiability of a Function with 2 Variables (Method 2）</a></li>
-            <li><a href="#differentiability-of-a-function-with-2-variables-special-cases">Differentiability of a Function with 2 Variables: Special Cases</a></li>
-            <li><a href="#relationship-between-differentiability-and-continuity">Relationship Between Differentiability and Continuity</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
   </div>
-</details>
-<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
-  <summary
-    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
-  </summary>
-  <div
-    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#imp2limits">IMP2.Limits</a>
-      <ul>
-        <li><a href="#multivariable-limit-definition多元极限定义"><strong>Multivariable Limit Definition（多元极限定义）</strong></a></li>
-        <li><a href="#definition-of-boundary-points-and-interior-points">Definition of Boundary Points and Interior Points</a>
-          <ul>
-            <li><a href="#interior--boundary-point">Interior &amp; Boundary Point</a></li>
-            <li><a href="#location-of-p_0">Location of P_0</a></li>
-          </ul>
-        </li>
-        <li><a href="#definition-of-open-and-closed-regionssets">Definition of Open and Closed Regions/Sets</a></li>
-        <li><a href="#methods-for-determining-existence-or-nonexistence-of-limits">Methods For Determining Existence or Nonexistence of Limits</a>
-          <ul>
-            <li><a href="#methods-to-apply">Methods to Apply</a></li>
-          </ul>
-        </li>
-        <li><a href="#basic-limit-laws">Basic Limit Laws</a>
-          <ul>
-            <li><a href="#theorem-151-limits-of-constant-and-linear-functions">Theorem 15.1: Limits of Constant and Linear Functions</a></li>
-            <li><a href="#theorem-152-limit-laws-of-two-variables">Theorem 15.2: Limit Laws of Two Variables</a></li>
-            <li><a href="#process-for-assuming-limit-dne">Process for Assuming Limit DNE</a></li>
-            <li><a href="#two-path-test">Two Path Test</a></li>
-            <li><a href="#change-of-variable-options-to-implement-two-path-test">Change of Variable Options to Implement Two Path Test</a></li>
-          </ul>
-        </li>
-        <li><a href="#continuity">Continuity</a>
-          <ul>
-            <li><a href="#definition-of-continuity">Definition of Continuity</a></li>
-            <li><a href="#continuity-of-composite-functions">Continuity of Composite Functions</a></li>
-          </ul>
-        </li>
-        <li><a href="#partial-derivatives-and-differentiability">Partial Derivatives and Differentiability</a>
-          <ul>
-            <li><a href="#definition-of-partial-derivative">Definition of Partial Derivative</a></li>
-            <li><a href="#higher-order-partial-derivatives-and-notation">Higher-Order Partial Derivatives and Notation</a></li>
-            <li><a href="#equality-of-mixed-partial-derivatives混合偏导数相等">Equality of Mixed Partial Derivatives（混合偏导数相等）</a></li>
-            <li><a href="#differentiability-of-a-function-with-1-variable">Differentiability of a Function with 1 Variable</a></li>
-            <li><a href="#differentiability-of-a-function-with-2-variables">Differentiability of a Function with 2 Variables</a></li>
-            <li><a href="#differentiability-of-a-function-with-2-variables-method-2">Differentiability of a Function with 2 Variables (Method 2）</a></li>
-            <li><a href="#differentiability-of-a-function-with-2-variables-special-cases">Differentiability of a Function with 2 Variables: Special Cases</a></li>
-            <li><a href="#relationship-between-differentiability-and-continuity">Relationship Between Differentiability and Continuity</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</details>
+</section>
 
-<script>
+<div class="page">
+  <article class="art">
 
-  var margin = 200;
-  var marginError = 50;
-
-  (function () {
-    var $window = $(window);
-    var $toc = $('#TOCView');
-    var tocHeight = $toc.height();
-
-    function onResize() {
-      var windowAndMarginHeight = $window.height() - margin;
-      if(tocHeight >= windowAndMarginHeight) {
-        $toc.css("overflow-y", "scroll")
-        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
-      } else {
-        $toc.css("overflow-y", "hidden")
-        $toc.css("max-height", "9999999px")
-      }
-    }
-
-    $window.on('resize', onResize);
-    $(document).ready(onResize);
-  })();
-
-
-
-  (function () {
-    var $toc = $('#TableOfContents');
-    if ($toc.length > 0) {
-      var $window = $(window);
-
-      function onScroll() {
-        var currentScroll = $window.scrollTop();
-        var h = $('.anchor');
-        var id = "";
-        h.each(function (i, e) {
-          e = $(e);
-          if (e.offset().top - $(window).height()/3 <= currentScroll) {
-            id = decodeURIComponent(e.attr('id'));
-          }
-        });
-        var active = $toc.find('a.active');      
-        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
-
-        active.each(function (i, e) {
-          
-            $(e).removeClass('active');
-          
-        });
-        $toc.find('a[href="#' + id + '"]').addClass('active')
-        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-          $(e).children('a').parents('ul').show();          
-        });
-      }
-
-      $window.on('scroll', onScroll);
-      $(document).ready(function () {
-        
-        onScroll();
-      });
-    }
-  })();
-
-
-</script>
-   </div>
-      </div>
+    <div class="prose">
       
-
-      <div class="min-w-0 min-h-0 max-w-fit">
-        
-        
-
-
-        <div class="article-content max-w-prose mb-20">
-          
 
 <h2 class="relative group">IMP2.Limits 
     <div id="imp2limits" class="anchor"></div>
@@ -976,9 +353,7 @@ Multivariable Limit Definition（多元极限定义） # 函数 \(f\) 的极限�
     </span>        
     
 </h2>
-<blockquote>
-<p>Last Edit: 9/22/25</p>
-</blockquote>
+
 
 
 <h3 class="relative group"><strong>Multivariable Limit Definition（多元极限定义）</strong> 
@@ -994,20 +369,17 @@ Multivariable Limit Definition（多元极限定义） # 函数 \(f\) 的极限�
 <ul>
 <li>函数 \(f\) 的极限是 \(L\)，当点 \(P(x,y)\) 逼近 \(P_0(a,b)\) 时，写作</li>
 </ul>
-<p>$$
+$$
 \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L
-$$</p>
-<ul>
+$$<ul>
 <li>对任意的 \(\varepsilon &gt; 0\)，存在一个 \(\delta &gt; 0\)，使得</li>
 </ul>
-<p>$$
-| f(x,y) - L | &lt; \varepsilon
-$$</p>
-<p>当且仅当 \((x,y)\) 在 \(f(x,y)\) 的定义域内，并且</p>
-<p>$$
-0 &lt; |P - P_0| = \sqrt{(x-a)^2 + (y-b)^2} &lt; \delta
-$$</p>
-<p><strong>Note（注释）：</strong></p>
+$$
+| f(x,y) - L | < \varepsilon
+$$<p>当且仅当 \((x,y)\) 在 \(f(x,y)\) 的定义域内，并且</p>
+$$
+0 < |P - P_0| = \sqrt{(x-a)^2 + (y-b)^2} < \delta
+$$<p><strong>Note（注释）：</strong></p>
 <ul>
 <li>\(\varepsilon\) 和 \(\delta\) 是很小的数</li>
 <li>L 是一个常数，等于极限值</li>
@@ -1281,46 +653,39 @@ $$</p>
 <ol>
 <li>
 <p><strong>Sum（和）</strong></p>
-<p>$$
-\lim_{(x,y)\to(a,b)} [f(x,y) + g(x,y)] = L + M
-$$</p>
-</li>
+$$
+    \lim_{(x,y)\to(a,b)} [f(x,y) + g(x,y)] = L + M
+    $$</li>
 <li>
 <p><strong>Difference（差）</strong></p>
-<p>$$
-\lim_{(x,y)\to(a,b)} [f(x,y) - g(x,y)] = L - M
-$$</p>
-</li>
+$$
+    \lim_{(x,y)\to(a,b)} [f(x,y) - g(x,y)] = L - M
+    $$</li>
 <li>
 <p><strong>Constant multiple（常数倍）</strong></p>
-<p>$$
-\lim_{(x,y)\to(a,b)} c f(x,y) = cL
-$$</p>
-</li>
+$$
+    \lim_{(x,y)\to(a,b)} c f(x,y) = cL
+    $$</li>
 <li>
 <p><strong>Product（乘积）</strong></p>
-<p>$$
-\lim_{(x,y)\to(a,b)} f(x,y) g(x,y) = LM
-$$</p>
-</li>
+$$
+    \lim_{(x,y)\to(a,b)} f(x,y) g(x,y) = LM
+    $$</li>
 <li>
 <p><strong>Quotient（商）</strong></p>
-<p>$$
-\lim_{(x,y)\to(a,b)} \frac{f(x,y)}{g(x,y)} = \frac{L}{M}，条件：M \neq 0
-$$</p>
-</li>
+$$
+    \lim_{(x,y)\to(a,b)} \frac{f(x,y)}{g(x,y)} = \frac{L}{M}，条件：M \neq 0
+    $$</li>
 <li>
 <p><strong>Power（幂次）</strong></p>
-<p>$$
-\lim_{(x,y)\to(a,b)} [f(x,y)]^n = L^n
-$$</p>
-</li>
+$$
+    \lim_{(x,y)\to(a,b)} [f(x,y)]^n = L^n
+    $$</li>
 <li>
 <p><strong>Root（开方）</strong></p>
-<p>$$
-\lim_{(x,y)\to(a,b)} [f(x,y)]^{1/n} = L^{1/n}，条件：若 n 为偶数，则要求 L &gt; 0
-$$</p>
-</li>
+$$
+    \lim_{(x,y)\to(a,b)} [f(x,y)]^{1/n} = L^{1/n}，条件：若 n 为偶数，则要求 L > 0
+    $$</li>
 </ol>
 
 
@@ -1334,20 +699,17 @@ $$</p>
     </span>        
     
 </h5>
-<p>$$
+$$
 z = \lim_{(x, y) \to (4,4)} \frac{x^2 - y^2}{x - y}
-$$</p>
-<ul>
+$$<ul>
 <li>分析 Domain 为 \({ (x, y), x \neq y, x, y \in \mathbb{R}^2 }\)</li>
 <li>Range 为 \(z \in \mathbb{R}\)，有</li>
 </ul>
-<p>$$
+$$
 z=\frac{(x + y)(x - y)}{x - y}=\frac{(x + y)(x - y)}{x - y} = x + y
-$$</p>
-<p>$$
+$$$$
 z = \lim_{(x, y) \to (4,4)} x + y= \lim_{(x,y)\to(4,4)} x + \lim_{(x,y)\to(4,4)} y = 4 + 4 = 8
-$$</p>
-
+$$
 
 <h5 class="relative group">Ex. Change of Variables 
     <div id="ex-change-of-variables" class="anchor"></div>
@@ -1366,26 +728,23 @@ $$</p>
 <blockquote>
 <p>这里提供一种思路， 当出现 \(x^2 + y^2\) 时，使用 P<strong>olar coordinates</strong>，有</p>
 </blockquote>
-<p>$$
+$$
 x = g(u,v) = v \cos u, \quad y = h(u,v) = v \sin u
-$$</p>
-<blockquote>
+$$<blockquote>
 <p>\(u,v \mapsto x,y\) 必须是一一对应（one-to-one）并且满射（onto）</p>
 </blockquote>
 <ul>
 <li>代入 v 和 u 得到</li>
 </ul>
-<p>$$
+$$
 \frac{x^2 y}{x^2 + y^2} \to \frac{(v\cos u)^2 (v\sin u)}{v^2} = v \cos^2 u \sin u
-$$</p>
-<ul>
+$$<ul>
 <li>观察到，想让 \(x,y=(0,0)\) 并不需要 u，只当 \(v=0\) 的时候就满足，于是就有</li>
 <li>\((x,y) = (0,0)\) 等价于 \((v,u) = (0,u)\)，有</li>
 </ul>
-<p>$$
+$$
 z = \lim_{v \to 0} v \cos^2 u \sin u = 0 \quad \text{（对于所有 u）}
-$$</p>
-
+$$
 
 <h4 class="relative group">Process for Assuming Limit DNE 
     <div id="process-for-assuming-limit-dne" class="anchor"></div>
@@ -1467,17 +826,15 @@ $$</p>
     </span>        
     
 </h5>
-<p>$$
+$$
 z = \lim_{(x,y)\to(0,0)} \frac{(x+y)^2}{x^2 + y^2}
-$$</p>
-<ul>
+$$<ul>
 <li>其中可以发现，(0,0) 是定义域的边界点（boundary point）</li>
 <li>正如前面提到的，当发现了 \(x^2+y^2\)  类似的式子的时候，使用 Polar Coordinate，于是就有</li>
 </ul>
-<p>$$
-x=v\cos u,y=v\sin u,v≥0, 0≤u&lt;2π
-$$</p>
-<ul>
+$$
+x=v\cos u,y=v\sin u,v≥0, 0≤u<2π
+$$<ul>
 <li>替换完式子后将 Limit Value 也替换了，\((x,y) = (0,0)\) 等价于 \((v,u)=(0,u)\)，其中 u 可以取 0 到 \(2\pi\) 之间的任意值</li>
 </ul>
 <aside>
@@ -1487,10 +844,9 @@ $$</p>
 <ul>
 <li>于是就代入，有</li>
 </ul>
-<p>$$
+$$
 z = \lim_{v \to 0} \frac{(v \cos u + v \sin u)^2}{v^2}  = \lim_{v \to 0} \left( 1 + 2 \cos u \cdot \sin u \right)
-$$</p>
-<ul>
+$$<ul>
 <li>可以发现，关于 v 的 limit 存在 u 的参数，说明了存在两个及以上的不同的 Limit Value，即证出极限不存在</li>
 </ul>
 
@@ -1508,19 +864,17 @@ $$</p>
 <ul>
 <li>现在给出第二种例子，要求</li>
 </ul>
-<p>$$
+$$
 z = \lim_{(x, y) \to (0, 0)} \frac{(x + y)^2}{x^2 + y^2}
-$$</p>
-<ul>
+$$<ul>
 <li>使用变量的替换，令 \(y=mx\)，这是一个常用的方法，表示从原点向不同的斜率 m 的直线方向逼近</li>
 <li>把 \(y = mx\)  代入后变为：</li>
 </ul>
-<p>$$
+$$
 z = \lim_{x \to 0} \frac{(x + mx)^2}{x^2 + (mx)^2}
 = \lim_{x \to 0} \frac{(1 + m)^2 x^2}{x^2 (1 + m^2)}
 = \frac{(1 + m)^2}{1 + m^2}
-$$</p>
-<aside>
+$$<aside>
 💡
 <p>最终得到了一个和 m 有关的结果，说明不同的路径（不同的 m）会得到不同的极限值，所以这个 Limit DNE</p>
 </aside>
@@ -1611,14 +965,13 @@ $$</p>
     
 </h5>
 <p>现在有 Function</p>
-<p>$$
+$$
 f(x, y) =
 \begin{cases}
-\frac{3xy^2}{x^2 + y^4}, &amp; \text{if } (x, y) \ne (0, 0) \
-0, &amp; \text{if } (x, y) = (0, 0)
+\frac{3xy^2}{x^2 + y^4}, & \text{if } (x, y) \ne (0, 0) \\
+0, & \text{if } (x, y) = (0, 0)
 \end{cases}
-$$</p>
-<ul>
+$$<ul>
 <li>注意到这个函数本身在 \((0,0)\) 点没有定义，但是这里人为定义了，为了讨论函数的 Continuity</li>
 </ul>
 <blockquote>
@@ -1628,10 +981,9 @@ $$</p>
 <li>分析 Domain 和 Range 可以得到</li>
 <li>函数 \(\frac{3xy^2}{x^2 + y^4}\) 的 Domain 是：</li>
 </ul>
-<p>$$
-{(x, y) \mid x \ne 0 \text{ 且 } y \ne 0}
-$$</p>
-<ul>
+$$
+\{(x, y) \mid x \ne 0 \text{ 且 } y \ne 0\}
+$$<ul>
 <li>Range 为 \(-\frac{3}{2} \le z \le \frac{3}{2}\)</li>
 </ul>
 <aside>
@@ -1644,12 +996,11 @@ $$</p>
 <li>现在到了第二部，验证 Limit 的存在</li>
 <li>设定路径 \(x = my^2\)，带入原 Function，有</li>
 </ul>
-<p>$$
+$$
 f(x, y) = \frac{3xy^2}{x^2 + y^4}
 = \frac{3m y^4}{m^2 y^4 + y^4}
 = \frac{3m}{m^2 + 1}
-$$</p>
-<ul>
+$$<ul>
 <li>这个极限值只与 m 有关 → limit DNE</li>
 </ul>
 <blockquote>
@@ -1727,27 +1078,25 @@ $$</p>
     
 </h5>
 <p>Where is function</p>
-<p>$$
+$$
 z =\begin{cases}
-\dfrac{\sin(x^2 y)}{x^2 y}, &amp; x^2 y \ne 0 \
-1, &amp; x^2 y = 0
+\dfrac{\sin(x^2 y)}{x^2 y}, & x^2 y \ne 0 \\
+1, & x^2 y = 0
 \end{cases}
-$$</p>
-<p>continuous</p>
+$$<p>continuous</p>
 <ul>
 <li>
 <p>Inner Function 为 \(g(x, y) = x^2 y\)</p>
 </li>
 <li>
 <p>Outer Function 为</p>
-<p>$$
-f(u) =
-\begin{cases}
-\dfrac{\sin(u)}{u}, &amp; u \ne 0 \
-1, &amp; u = 0
-\end{cases}
-$$</p>
-</li>
+$$
+    f(u) =
+    \begin{cases}
+    \dfrac{\sin(u)}{u}, & u \ne 0 \\
+    1, & u = 0
+    \end{cases}
+    $$</li>
 <li>
 <p>其中 Inner 是 Poly → cont</p>
 </li>
@@ -1758,12 +1107,11 @@ $$</p>
 <p>然后分析在 \(u=0\) 的时候的 Limit，为</p>
 </li>
 </ul>
-<p>$$
+$$
 \lim_{u \to 0} \frac{\sin(u)}{u}
 = \lim_{u \to 0} \frac{\frac{d}{du}(\sin(u))}{\frac{d}{du}(u)}
 = \lim_{u \to 0} \frac{\cos(u)}{1} = 1
-$$</p>
-<blockquote>
+$$<blockquote>
 <p>LHopital’s</p>
 </blockquote>
 <ul>
@@ -1803,22 +1151,19 @@ $$</p>
 <ul>
 <li>已知 Signal Variable Function 的 Derivative 的定义为</li>
 </ul>
-<p>$$
+$$
 f_x(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
-$$</p>
-<ul>
+$$<ul>
 <li>将其拓展到 Multi Variables 的情况下，就有</li>
 </ul>
-<p>$$
+$$
 f_x(a, b) = \lim_{h \to 0} \frac{f(a+h, b) - f(a, b)}{h}
-$$</p>
-<ul>
+$$<ul>
 <li>这就是 Function 对 x 的 Partial Derivative</li>
 </ul>
-<p>$$
+$$
 f_y(a, b) = \lim_{h \to 0} \frac{f(a, b+h) - f(a, b)}{h}
-$$</p>
-<ul>
+$$<ul>
 <li>这是 Function 对 y 的 Partial Derivative</li>
 </ul>
 <aside>
@@ -1854,20 +1199,18 @@ $$</p>
     
 </h5>
 <p>有函数 \(f(x,y)=x^2y\)，分别计算 x 和 y 的 PD</p>
-<p>$$
+$$
 \begin{align}
-\frac{\partial f}{\partial x} = f_x
-&amp;= \lim_{h \to 0} \frac{f(x+h,y) - f(x,y)}{h} \[6pt]
-&amp;= \lim_{h \to 0} \frac{(x+h)^2y - x^2y}{h} \[6pt]
-&amp;= \lim_{h \to 0} \frac{(x^2 + 2xh + h^2 - x^2)y}{h} \[6pt]
-&amp;= \lim_{h \to 0} \frac{(2x+h)hy}{h} \[6pt]
-&amp;= \lim_{h \to 0} (2x+h)y = 2xy
+\frac{\partial f}{\partial x} = f_x 
+&= \lim_{h \to 0} \frac{f(x+h,y) - f(x,y)}{h} \\[6pt]
+&= \lim_{h \to 0} \frac{(x+h)^2y - x^2y}{h} \\[6pt]
+&= \lim_{h \to 0} \frac{(x^2 + 2xh + h^2 - x^2)y}{h} \\[6pt]
+&= \lim_{h \to 0} \frac{(2x+h)hy}{h} \\[6pt]
+&= \lim_{h \to 0} (2x+h)y = 2xy
 \end{align}
-$$</p>
-<p>$$
-\begin{align}\frac{\partial f}{\partial y} = f_y &amp;= \lim_{h \to 0} \frac{f(x,y+h) - f(x,y)}{h} \[6pt]&amp;= \lim_{h \to 0} \frac{x^2(y+h) - x^2y}{h} \[6pt]&amp;= \lim_{h \to 0} \frac{x^2(y+h-y)}{h} \[6pt]&amp;= \lim_{h \to 0} \frac{x^2h}{h} \[6pt]&amp;= x^2\end{align}
-$$</p>
-
+$$$$
+\begin{align}\frac{\partial f}{\partial y} = f_y &= \lim_{h \to 0} \frac{f(x,y+h) - f(x,y)}{h} \\[6pt]&= \lim_{h \to 0} \frac{x^2(y+h) - x^2y}{h} \\[6pt]&= \lim_{h \to 0} \frac{x^2(y+h-y)}{h} \\[6pt]&= \lim_{h \to 0} \frac{x^2h}{h} \\[6pt]&= x^2\end{align}
+$$
 
 <h4 class="relative group">Higher-Order Partial Derivatives and Notation 
     <div id="higher-order-partial-derivatives-and-notation" class="anchor"></div>
@@ -1925,10 +1268,9 @@ $$</p>
 <li>且 \(f_{xy}\) 与 \(f_{yx}\) 在整个区域 D 上都是 Continuous 的</li>
 <li>那么就有：</li>
 </ul>
-<p>$$
+$$
 f_{xy} = f_{yx}
-$$</p>
-<blockquote>
+$$<blockquote>
 <p>即先对 x 再对 y 求 PD，和先对 y 再对 x 求 PD，结果是一样的</p>
 </blockquote>
 <ul>
@@ -1950,18 +1292,16 @@ $$</p>
 <ul>
 <li>已知 Derivative 的定义为</li>
 </ul>
-<p>$$
-f&rsquo;(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
-$$</p>
-<ul>
+$$
+f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}
+$$<ul>
 <li>也就是说，导数是函数在某点处的瞬时变化率，表示为 Difference Quotient 的极限</li>
 <li>这是前面提到的，但是 Differentiability 是一个性质</li>
 <li>当一个 Function \(y = f(x)\) 在点 \(x = a\) 处 <strong>differentiable</strong>，意味着导数存在，也即：</li>
 </ul>
-<p>$$
-\Delta y = f&rsquo;(x) \Delta x + \epsilon_1 \Delta x
-$$</p>
-<ul>
+$$
+\Delta y = f'(x) \Delta x + \epsilon_1 \Delta x
+$$<ul>
 <li>其中 \(\epsilon_1\) 是一个依赖于 \(\Delta x\) 的函数，且当 \(\Delta x \to 0\) 时 \(\epsilon_1 \to 0\)</li>
 <li>这个等价定义说明函数的变化可以近似由线性部分表示</li>
 </ul>
@@ -1982,40 +1322,33 @@ $$</p>
 <li>从 Equation 的左右两边分别计算</li>
 <li>左边的定义式是直接用函数定义计算函数值的变化：</li>
 </ul>
-<p>$$
+$$
 \Delta y = f(a + \Delta x) - f(a) = (a + \Delta x)^2 - a^2
-$$</p>
-<p>$$
+$$$$
 \Rightarrow a^2 + 2a \Delta x + (\Delta x)^2 - a^2 = 2a \Delta x + (\Delta x)^2
-$$</p>
-<p>$$
+$$$$
 \Rightarrow \Delta y = 2a \Delta x + (\Delta x)^2
-$$</p>
-<ul>
+$$<ul>
 <li>右边是用 Differentiability Definition 中右边的公式：</li>
 </ul>
-<p>$$
-\Delta y = f&rsquo;(x)\Delta x + \epsilon_1 \Delta x
-$$</p>
-<ul>
+$$
+\Delta y = f'(x)\Delta x + \epsilon_1 \Delta x
+$$<ul>
 <li>因为 \(f&rsquo;(x) = 2x\)，代入 \(x = a\)，得到：</li>
 </ul>
-<p>$$
+$$
 \Delta y = 2a \Delta x + \epsilon_1 \Delta x
-$$</p>
-<ul>
+$$<ul>
 <li>同时拿到左右两边</li>
 </ul>
-<p>$$
+$$
 2a \Delta x + (\Delta x)^2 = 2a \Delta x + \epsilon_1 \Delta x
-$$</p>
-<ul>
+$$<ul>
 <li>两边同时减去 \(2a \Delta x\)，得到：</li>
 </ul>
-<p>$$
+$$
 (\Delta x)^2 = \epsilon_1 \Delta x \Rightarrow \epsilon_1 = \Delta x
-$$</p>
-<aside>
+$$<aside>
 💡
 <p>这是一个非常正式的 Differentiability 证明</p>
 </aside>
@@ -2035,16 +1368,14 @@ $$</p>
 <li>到了 Two Variables Function 上，Function 在点 \((a,b)\) is Differentiable if \(f_x(a,b), f_y(a,b)\) 都存在</li>
 <li>函数值变化写为：</li>
 </ul>
-<p>$$
+$$
 \Delta z = f(a + \Delta x, b + \Delta y) - f(a, b)
-$$</p>
-<ul>
+$$<ul>
 <li>期望这个变化可以被线性近似：</li>
 </ul>
-<p>$$
-\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y + \epsilon_1 \Delta x + \epsilon_2 \Delta
-$$</p>
-<ul>
+$$
+\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y + \epsilon_1 \Delta x + \epsilon_2 \Delta 
+$$<ul>
 <li>其中：\(\epsilon_1, \epsilon_2 \to 0\)，当 \((\Delta x, \Delta y) \to (0, 0)\)</li>
 <li>也就是说：剩余误差项会比主导线性项小得更快</li>
 </ul>
@@ -2064,10 +1395,9 @@ $$</p>
 <ul>
 <li>按照 Differentiability of a Function with 2 Variables</li>
 </ul>
-<p>$$
+$$
 \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y + \epsilon_1 \Delta x + \epsilon_2 \Delta y
-$$</p>
-<ul>
+$$<ul>
 <li>其中：\(\epsilon_1, \epsilon_2 \to 0\) 当 \((\Delta x, \Delta y) \to (0, 0)\)</li>
 <li>首先分别计算两个的 Partial Derivative</li>
 </ul>
@@ -2092,35 +1422,29 @@ f_y(a,b) &amp;= \lim_{h \to 0} \frac{f(a,b+h) - f(a,b)}{h} \
 <ul>
 <li>同时，已知 \(\Delta z\) 为</li>
 </ul>
-<p>$$
-\begin{align*}\Delta z &amp;= f(a+\Delta x, b+\Delta y) - f(a,b) \&amp;= (a+\Delta x)^3 + (a+\Delta x)(b+\Delta y)^2 + 7 - a^3 - ab^2 - 7 \&amp;= a^3 + 3a^2\Delta x + 3a(\Delta x)^2 + (\Delta x)^3 + ab^2 + 2ab\Delta y + a(\Delta y)^2 \&amp;\quad + \Delta x b^2 + 2b\Delta x \Delta y + \Delta x(\Delta y)^2 + 7 - a^3 - ab^2 - 7 \&amp;= 3a^2\Delta x + 3a(\Delta x)^2 + (\Delta x)^3 + 2ab\Delta y + a(\Delta y)^2 \&amp;\quad + \Delta x b^2 + 2b\Delta x \Delta y + \Delta x(\Delta y)^2\end{align*}
-$$</p>
-<ul>
+$$
+\begin{align*}\Delta z &= f(a+\Delta x, b+\Delta y) - f(a,b) \\&= (a+\Delta x)^3 + (a+\Delta x)(b+\Delta y)^2 + 7 - a^3 - ab^2 - 7 \\&= a^3 + 3a^2\Delta x + 3a(\Delta x)^2 + (\Delta x)^3 + ab^2 + 2ab\Delta y + a(\Delta y)^2 \\&\quad + \Delta x b^2 + 2b\Delta x \Delta y + \Delta x(\Delta y)^2 + 7 - a^3 - ab^2 - 7 \\&= 3a^2\Delta x + 3a(\Delta x)^2 + (\Delta x)^3 + 2ab\Delta y + a(\Delta y)^2 \\&\quad + \Delta x b^2 + 2b\Delta x \Delta y + \Delta x(\Delta y)^2\end{align*}
+$$<ul>
 <li>现在要把上式写成 \(\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y + \epsilon_1 \Delta x + \epsilon_2 \Delta y\) 的形式，</li>
 <li>已知 \(f_x(a,b) = 3a^2+b^2\)，\(f_y(a,b) = 2ab\)，有</li>
 </ul>
-<p>$$
+$$
 f_x(a,b) \Delta x = (3a^2 + b^2)\Delta x，\quad f_y(a,b) \Delta y = 2ab \Delta y
-$$</p>
-<ul>
+$$<ul>
 <li>拆括号，匹配 LHS 和 RHS，最终得到</li>
 </ul>
-<p>$$
+$$
 \epsilon_1 \Delta x = 3a (\Delta x)^2 + (\Delta x)^3
-$$</p>
-<p>$$
+$$$$
 \epsilon_2 \Delta y = a(\Delta y)^2 + 2b \Delta x \Delta y + \Delta x (\Delta y)^2
-$$</p>
-<ul>
+$$<ul>
 <li>所以最终得到：</li>
 </ul>
-<p>$$
+$$
 \epsilon_1 = 3a \Delta x + (\Delta x)^2
-$$</p>
-<p>$$
+$$$$
 \epsilon_2 = a \Delta y + 2b \Delta x + \Delta x \Delta y
-$$</p>
-<ul>
+$$<ul>
 <li>最后 Check 三点</li>
 <li>\(\epsilon_1, \epsilon_2\) 是否是 \(\Delta x, \Delta y\) 的函数？✅</li>
 <li>当 \((\Delta x, \Delta y) \to (0, 0)\)，是否趋近于 0？✅</li>
@@ -2144,10 +1468,9 @@ $$</p>
 </li>
 <li>
 <p>定义一个 linear function：</p>
-<p>$$
-L_{a,b}(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)
-$$</p>
-</li>
+$$
+    L_{a,b}(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)
+    $$</li>
 <li>
 <p>这就是在点 \((a,b,f(a,b))\) 处的 <strong>tangent plane（切平面）</strong></p>
 </li>
@@ -2158,10 +1481,9 @@ $$</p>
 <ul>
 <li>f 在 (a,b) 可微，当且仅当</li>
 </ul>
-<p>$$
+$$
 \lim_{(x,y)\to(a,b)} \frac{E_d}{|(x-a,y-b)|} = 0
-$$</p>
-<ul>
+$$<ul>
 <li>\(E_d = f(x,y) - L_{a,b}(x,y)\)，表示函数值与切平面之间的 Vertical distance</li>
 </ul>
 <p>
@@ -2197,61 +1519,51 @@ $$</p>
     
 </h5>
 <p>有函数</p>
-<p>$$
-f(x,y) =
+$$
+f(x,y) = 
 \begin{cases}
-\dfrac{(x-1)(y-1)}{\sqrt{(x-1)^2+(y-1)^2}}, &amp; (x,y)\neq(1,1) \
-0, &amp; (x,y)=(1,1)
+\dfrac{(x-1)(y-1)}{\sqrt{(x-1)^2+(y-1)^2}}, & (x,y)\neq(1,1) \\
+0, & (x,y)=(1,1)
 \end{cases}
-$$</p>
-<ul>
+$$<ul>
 <li>先在 (1,1) 点计算偏导：</li>
 </ul>
-<p>$$
+$$
 f_x(1,1) = \lim_{h\to 0}\frac{f(1+h,1)-f(1,1)}{h} = 0
-$$</p>
-<p>$$
+$$$$
 f_y(1,1) = \lim_{h\to 0}\frac{f(1,1+h)-f(1,1)}{h} = 0
-$$</p>
-<ul>
+$$<ul>
 <li>→ 两个偏导数都存在</li>
 <li>定义切平</li>
 </ul>
-<p>$$
+$$
 L_{(1,1)}(x,y) = f(1,1) + f_x(1,1)(x-1) + f_y(1,1)(y-1) = 0
-$$</p>
-<ul>
+$$<ul>
 <li>其中，两个 Partial Derivative 在 \((1,1)\)  位置都是 0，所以有</li>
 </ul>
-<p>$$
+$$
 E_d = f(x,y) - L_{(1,1)}(x,y) =f(x,y)-f(1,1)
-$$</p>
-<ul>
+$$<ul>
 <li>又因为 \(f(1,1)\) 也是 0，所以有</li>
 </ul>
-<p>$$
+$$
 \Rightarrow E_d = f(x,y) = \dfrac{(x-1)(y-1)}{\sqrt{(x-1)^2+(y-1)^2}}
-$$</p>
-<ul>
+$$<ul>
 <li>已知 Distance Function d 为 \(\sqrt{(x-1)^2+(y-1)^2}\)</li>
 <li>接下来要检查它的 Limit 是否为 0</li>
 </ul>
-<p>$$
-\lim_{(x,y)\to(1,1)} \frac{E_d}{d} =\dfrac{(x-1)(y-1)}{\sqrt{(x-1)^2+(y-1)^2}}/\sqrt{(x-1)^2+(y-1)^2}
-$$</p>
-<p>$$
+$$
+\lim_{(x,y)\to(1,1)} \frac{E_d}{d} =\dfrac{(x-1)(y-1)}{\sqrt{(x-1)^2+(y-1)^2}}/\sqrt{(x-1)^2+(y-1)^2} 
+$$$$
 \Rightarrow \lim_{(x,y)\to(1,1)} \frac{E_d}{d}=\lim_{(x,y)\to(1,1)} \frac{(x-1)(y-1)}{(x-1)^2+(y-1)^2}
-$$</p>
-<ul>
+$$<ul>
 <li>换极坐标：</li>
 </ul>
-<p>$$
+$$
 x = 1 + v\cos u, \quad y = 1 + v\sin u, \quad v\geq 0,\quad 0\leq u\leq 2\pi
-$$</p>
-<p>$$
+$$$$
 \Rightarrow \lim_{(x,y)\to(1,1)}\frac{(x-1)(y-1)}{(x-1)^2+(y-1)^2} = \lim_{v\to0}\frac{v^2 \cos u \sin u}{v^2} = \cos u \sin u
-$$</p>
-<ul>
+$$<ul>
 <li>最后根据 Two Path Test 得出 Limit DNE</li>
 </ul>
 
@@ -2308,43 +1620,37 @@ $$</p>
     
 </h5>
 <p>证明函数</p>
-<p>$$
-f(x,y) =
+$$
+f(x,y) = 
 \begin{cases}
-\dfrac{x \sin y}{y}, &amp; y \neq 0 \
-x, &amp; y = 0
+\dfrac{x \sin y}{y}, & y \neq 0 \\
+x, & y = 0
 \end{cases}
-$$</p>
-<p>在点 (0,0) 可微</p>
+$$<p>在点 (0,0) 可微</p>
 <ul>
 <li>首先检查两个 Partial Derivative 的 Existance</li>
 </ul>
-<p>$$
-f_x = \frac{\sin y}{y}, \quad y \neq 0; \quad f_x(0,0)=1 \ (\text{用L&rsquo;Hôpital&rsquo;s Rule算的极限})
-$$</p>
-<p>$$
+$$
+f_x = \frac{\sin y}{y}, \quad y \neq 0; \quad f_x(0,0)=1 \ (\text{用L'Hôpital's Rule算的极限})
+$$$$
 f_y = x \cdot \frac{y \cos y - \sin y}{y^2}, \quad y \neq 0; \quad f_y(0,0)=0 \ (\text{用偏导定义算的极限})
-$$</p>
-<ul>
+$$<ul>
 <li>得出：\(f_x, f_y\) 在 \((0,0)\) 都存在</li>
 <li>检查两个 PD 的 Cont.</li>
 </ul>
-<p>$$
+$$
 f_x(0,0) = \lim_{(x,y)\to(0,0)} f_x(x,y), \quad f_y(0,0) = \lim_{(x,y)\to(0,0)} f_y(x,y)
-$$</p>
-<ul>
+$$<ul>
 <li>\(f_x\)：</li>
 </ul>
-<p>$$
+$$
 \lim_{y\to 0} \frac{\sin y}{y} = 1, \quad f_x(0,0)=1 \quad \Rightarrow \text{连续}
-$$</p>
-<ul>
+$$<ul>
 <li>\(f_y\)：</li>
 </ul>
-<p>$$
+$$
 \lim_{(x,y)\to(0,0)} x \cdot \frac{y \cos y - \sin y}{y^2} = 0, \quad f_y(0,0)=0 \quad \Rightarrow \text{连续}
-$$</p>
-<ul>
+$$<ul>
 <li>两个偏导数在 \((0,0)\) 都连续</li>
 <li>根据 <strong>Theorem 15.5</strong></li>
 <li>偏导数存在；并且在 (0,0) 连续</li>
@@ -2385,982 +1691,63 @@ $$</p>
 <li>逆否命题：如果函数在 \((a,b)\) 不连续，那么它在 \((a,b)\) 一定不可微</li>
 </ul>
 
-          
-          
-          
-        </div>
-        
-        
-
-        
-        
-
-        
-
-
-<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
-<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-  
-  
-
-  <a href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/feature_hu9920419362512656206.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/">IMP 1. Review of Vector</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>2209 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/econ/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Econ
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
     </div>
-  </a>
+    <nav class="pn"><a href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/"><span>← Previous</span><b>IMP 1. Review of Vector</b></a>
+    </nav>
+  </article>
 
-  
-  
-
-  <a href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/feature_hu9578550399762844699.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/">AEM 1. Complex Numbers</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>4808 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/aem/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    AEM
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
+  <aside class="rail">
+    <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#imp2limits" class="l1">IMP2.Limits</a>
+        <a href="#multivariable-limit-definition%e5%a4%9a%e5%85%83%e6%9e%81%e9%99%90%e5%ae%9a%e4%b9%89" class="l2">Multivariable Limit Definition（多元极限定义）</a>
+        <a href="#definition-of-boundary-points-and-interior-points" class="l2">Definition of Boundary Points and Interior Points</a>
+        <a href="#definition-of-open-and-closed-regionssets" class="l2">Definition of Open and Closed Regions/Sets</a>
+        <a href="#methods-for-determining-existence-or-nonexistence-of-limits" class="l2">Methods For Determining Existence or Nonexistence of Limits</a>
+        <a href="#basic-limit-laws" class="l2">Basic Limit Laws</a>
+        <a href="#continuity" class="l2">Continuity</a>
+        <a href="#partial-derivatives-and-differentiability" class="l2">Partial Derivatives and Differentiability</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
     </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature_hu3137460487742645143.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/">OOPC 1. ProgrammingBasics</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>5886 words</span>
-  
-
-  
-  
+  </aside>
 </div>
 
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/oopcs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    OOPCS
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/feature_hu17563863749955755898.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/">EF 3. Gauss' Law Edited</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-03-28T00:00:00&#43;00:00">Mar 28 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1795 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EF
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/feature_hu13221952812045409006.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/">Calculus 8. Methods of Integration</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>1848 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cal/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Cal
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/feature_hu3152701200236818152.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/">LPC 6. Pointers</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-02-20T00:00:00&#43;00:00">Feb 20 2025</time><span class="px-2 text-primary-500">&middot;</span><span>4024 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/lpc/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    LPC
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-</section>
-
-  
-      </div>
-     
-      
-      
-        
-        
-          
-          
-        
-      <script>
-        var oid = "views_docs\/UofT\/25F\/Introduction to Mathematic Physic\/IMP2.Limits\/index.md"
-        var oid_likes = "likes_docs\/UofT\/25F\/Introduction to Mathematic Physic\/IMP2.Limits\/index.md"
-      </script>
-      
-      
-      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
-      
-  
-    </section>
-  <footer class="pt-8 max-w-prose print:hidden">
-
-    
-  
-    
-    
-    
-      
-      
-    
-    <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-      <div class="flex justify-between pt-3">
-        <span>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >IMP 1. Review of Vector</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
-          
-        </span>
-      </div>
-    </div>
-  
-
-
-    
-  </footer>
-</article>
-
-      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
-  <a href="#the-top"
-    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-    aria-label="Scroll to top" title="Scroll to top">
-    &uarr;
-  </a>
-</div>
-    </main><script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>buezw.github.io</span>
+</footer>
 
 <script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
-  </script>
-
-<footer id="site-footer" class="py-10 print:hidden">
-  
-  
-    
-    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
-      <ul class="flex flex-col list-none sm:flex-row">
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
-            title="">
-            
-            Credits
-          </a>
-        </li>
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="">
-            
-            Tags
-          </a>
-        </li>
-        
-      </ul>
-    </nav>
-    
-  
-  <div class="flex items-center justify-between">
-
-    
-    
-    <p class="text-sm text-neutral-500 dark:text-neutral-400">
-      &copy;
-      2026
-      Buezwqwg
-    </p>
-    
-
-    
-    
-
-  </div>
-  <script>
-    
-    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
-      margin: 24,
-      background: 'rgba(0,0,0,0.5)',
-      scrollOffset: 0,
-    })
-    
-  </script>
-  
-  
-  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
-  
-  
-</footer>
-<div
-  id="search-wrapper"
-  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
-  style="z-index:500"
->
-  <div
-    id="search-modal"
-    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
-  >
-    <header class="relative z-10 flex items-center justify-between flex-none px-2">
-      <form class="flex items-center flex-auto min-w-0">
-        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
-          
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-        </div>
-        <input
-          type="search"
-          id="search-query"
-          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
-          tabindex="0"
-        />
-      </form>
-      <button
-        id="close-search-button"
-        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
-      >
-        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
-
-  </span>
-
-
-      </button>
-    </header>
-    <section class="flex-auto px-2 overflow-auto">
-      <ul id="search-results">
-        
-      </ul>
-    </section>
-  </div>
-</div>
-
-  </div>
+ 
+(function(){
+  var h=document.getElementById('atitle'); if(!h) return;
+  function fit(){
+    h.classList.remove('wrap'); h.style.fontSize='';
+    if(window.innerWidth<=760) return;
+    var band=h.closest('.banner'), right=band.getBoundingClientRect().right-parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+    var size=parseFloat(getComputedStyle(h).fontSize), min=parseFloat(getComputedStyle(document.documentElement).fontSize)*1.5;
+    while(h.getBoundingClientRect().right>right && size>min){ size-=1; h.style.fontSize=size+'px'; }
+    if(h.getBoundingClientRect().right>right) h.classList.add('wrap');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+ 
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a')); if(!links.length) return;
+  var heads=links.map(function(a){var e=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));return e&&(e.closest('h1,h2,h3,h4,h5,h6')||e);});
+  function on(){
+    var y=window.scrollY+80, k=0;
+    heads.forEach(function(h,i){ if(h && h.getBoundingClientRect().top+window.scrollY<=y) k=i; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) k=heads.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});
+  }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+</script>
 </body>
-
 </html>

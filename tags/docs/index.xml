@@ -175,10 +175,9 @@
     &lt;/span&gt;        
     
 &lt;/h1&gt;
-&lt;p&gt;$$
+$$
 \Psi = \iint \vec{B} \cdot d\vec{s}
-$$&lt;/p&gt;
-&lt;p&gt;Magnetic Flux is the integral of Magnetic Strength $B$ in area $s$&lt;/p&gt;</description>
+$$&lt;p&gt;Magnetic Flux is the integral of Magnetic Strength $B$ in area $s$&lt;/p&gt;</description>
       
     </item>
     
@@ -482,9 +481,9 @@ $$&lt;/p&gt;
     &lt;/span&gt;        
     
 &lt;/h2&gt;
-&lt;p&gt;$$
+$$
 \vec{F}_m = q \vec{u} \times \vec{B}
-$$&lt;/p&gt;</description>
+$$&lt;p&gt;$\vec u$: The Velocity Vector of the charge&lt;/p&gt;</description>
       
     </item>
     
@@ -571,9 +570,9 @@ $$&lt;/p&gt;</description>
     &lt;/span&gt;        
     
 &lt;/h1&gt;
-&lt;p&gt;$$
+$$
 a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 x^{(1)} + a_0 x = g(t)
-$$&lt;/p&gt;</description>
+$$&lt;p&gt;$x^{(n)}$: x’s n th derivative for t&lt;/p&gt;</description>
       
     </item>
     
@@ -930,10 +929,9 @@ $$&lt;/p&gt;</description>
     &lt;/span&gt;        
     
 &lt;/h1&gt;
-&lt;p&gt;$$
+$$
 f: \mathbb{R}^n \to \mathbb{R}
-$$&lt;/p&gt;
-&lt;ul&gt;
+$$&lt;ul&gt;
 &lt;li&gt;Scalar Field is used to describe the distribution of Scalar in space $\mathbb R^n$&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -948,9 +946,30 @@ $$&lt;/p&gt;
     &lt;/span&gt;        
     
 &lt;/h2&gt;
-&lt;p&gt;$$
+$$
 \nabla f(p) = \frac{\partial f(x, y, z)}{\partial x} \hat{x} + \frac{\partial f(x, y, z)}{\partial y} \hat{y} + \frac{\partial f(x, y, z)}{\partial z} \hat{z}
-$$&lt;/p&gt;</description>
+$$&lt;ul&gt;
+&lt;li&gt;Taking the Gradient turns the Scalar Field into a Vector Field $\nabla f: \mathbb{R}^n \to \mathbb{R}^n$&lt;/li&gt;
+&lt;li&gt;Then the vector is pointing to the direction &lt;strong&gt;Having the largest rate of change&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Ex. Finding the Gradient of a Scalar Field 
+    &lt;div id=&#34;ex-finding-the-gradient-of-a-scalar-field&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ex-finding-the-gradient-of-a-scalar-field&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
       
     </item>
     
@@ -1062,9 +1081,11 @@ $$&lt;/p&gt;</description>
 &lt;ul&gt;
 &lt;li&gt;在 ODE 中，未知函数只依赖于一个 independent variable&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
+$$
 \frac{d^2 y}{dx^2} = -k^2 y
-$$&lt;/p&gt;</description>
+$$&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用的是 &lt;strong&gt;Leibniz notation（莱布尼茨记号）&lt;/strong&gt;&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/feature.png" />
     </item>
     
@@ -1332,9 +1353,14 @@ $$&lt;/p&gt;</description>
 &lt;ul&gt;
 &lt;li&gt;函数 \(f\) 的极限是 \(L\)，当点 \(P(x,y)\) 逼近 \(P_0(a,b)\) 时，写作&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
+$$
 \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L
-$$&lt;/p&gt;</description>
+$$&lt;ul&gt;
+&lt;li&gt;对任意的 \(\varepsilon &amp;gt; 0\)，存在一个 \(\delta &amp;gt; 0\)，使得&lt;/li&gt;
+&lt;/ul&gt;
+$$
+| f(x,y) - L | &lt; \varepsilon
+$$&lt;p&gt;当且仅当 \((x,y)\) 在 \(f(x,y)\) 的定义域内，并且&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/feature.png" />
     </item>
     
@@ -1374,9 +1400,29 @@ $$&lt;/p&gt;</description>
 &lt;li&gt;当有 \(ax^2+bx+c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &amp;lt; 0\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\)&lt;/li&gt;
 &lt;li&gt;但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
-\mathbb C={z|z=a+bi,a,b\in\mathbb R }
-$$&lt;/p&gt;</description>
+$$
+\mathbb C=\{z|z=a+bi,a,b\in\mathbb R \}
+$$&lt;ul&gt;
+&lt;li&gt;其也有 Polar Form，也称为三角形式，为&lt;/li&gt;
+&lt;/ul&gt;
+$$
+z=r(\cos \theta+i\sin\theta)
+$$&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu4106092323412754640.png 330w,
+        /docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu5328658782807095689.png 660w,
+        /docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu12884890518048418593.png 1024w,
+        /docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu10161829841846972568.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/image_hu5328658782807095689.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/feature.png" />
     </item>
     
@@ -2092,11 +2138,34 @@ $$&lt;/p&gt;</description>
 &lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Euclidean Algorithm 是一种用于求两个整数最大公约数的方法，这个方法是递归定义的&lt;/li&gt;
-&lt;li&gt;该算法的核心为，如果 a 和 b 是两个正整数且 $a &amp;gt; b$，则 a 和 b 的最大公约数等于 $a - b$ 和 b 的 GCD&lt;/li&gt;
+&lt;li&gt;该算法的核心为，如果 a 和 b 是两个正整数且 $a &gt; b$，则 a 和 b 的最大公约数等于 $a - b$ 和 b 的 GCD&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
-\text{GCD}(a, b) =\begin{cases}\text{GCD}(b, a - b) &amp;amp; \text{if } a &amp;gt; b \\text{GCD}(b, a) &amp;amp; \text{if } a &amp;lt; b \a &amp;amp; \text{if } a = b\end{cases}
-$$&lt;/p&gt;</description>
+$$
+\text{GCD}(a, b) =\begin{cases}\text{GCD}(b, a - b) &amp; \text{if } a &gt; b \\\text{GCD}(b, a) &amp; \text{if } a &lt; b \\a &amp; \text{if } a = b\end{cases}
+$$&lt;ul&gt;
+&lt;li&gt;将流程写出代码就有&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;gcd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gcdAnswer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;gcd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nf&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;gcd(20, 8) = %d&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gcdAnswer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;gcd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;gcd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;gcd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;可以发现在 function gcd 中，gcd 函数再次调用了自身 &lt;code&gt;gcd(b, a - b)&lt;/code&gt;，这种 function calling itself 的过程就叫做 Recursion&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;实际上 Recursion 严重降低了代码的可读性&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps105---learning-programming-with-c/lpc11.recursion/feature.png" />
     </item>
     
@@ -2533,9 +2602,45 @@ $$&lt;/p&gt;</description>
 &lt;li&gt;当 Integral 内存在两个函数的乘积的时候，可以使用 Integration by parts&lt;/li&gt;
 &lt;li&gt;已知有 Derivative&amp;rsquo;s Product Rule&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
-\left( u(x) v(x) \right)&amp;rsquo; = u&amp;rsquo;(x) v(x) + u(x) v&amp;rsquo;(x)
-$$&lt;/p&gt;</description>
+$$
+\left( u(x) v(x) \right)&#39; = u&#39;(x) v(x) + u(x) v&#39;(x)
+$$&lt;ul&gt;
+&lt;li&gt;将两边同时积分可以得到&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\int u(x) v&#39;(x) \,dx = \int (u(x) v(x))&#39; \,dx - \int v(x) u&#39;(x) \,dx
+$$&lt;ul&gt;
+&lt;li&gt;等式右边的第一项化简后可以得到&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\int u(x) v&#39;(x) \,dx = u(x) v(x) - \int v(x) u&#39;(x) \,dx
+$$&lt;ul&gt;
+&lt;li&gt;于是就得到了 Integral By Parts 的公式&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\int u \,dv = uv - \int v \,du
+$$&lt;ul&gt;
+&lt;li&gt;在得到了处理 Integral 内部有乘积时候的公式后，只需要选择乘积中的一个作为 u，另一个作为 v，并对一个求导，一个积分就可以得到 Integral By Parts 的结果了&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Guidelines for Integration by Parts 
+    &lt;div id=&#34;guidelines-for-integration-by-parts&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#guidelines-for-integration-by-parts&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;u 和 v 的选择直接关系到了 Integral By Parts 的难度&lt;/li&gt;
+&lt;li&gt;u求导后应该比u简单&lt;/li&gt;
+&lt;li&gt;dv积分后应该比v简单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通常使用 &lt;strong&gt;LIATE 法则&lt;/strong&gt;（Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential） 优先选择 LIATE 顺序靠前的函数作为 u，然后把剩下的部分作为 dv&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/feature.png" />
     </item>
     
@@ -2749,7 +2854,7 @@ $$\vec F_B=q(\vec v\times\vec B)$$&lt;/li&gt;
 $$F_B=|q|v_B\sin\phi$$&lt;/li&gt;
 &lt;li&gt;其中 \(\phi\) 为 Velocity 和 Magnetic Field 之间的夹角&lt;/li&gt;
 &lt;li&gt;Magnetic Field Strength 的单位为 Tesla，有
-$$1 , \text{tesla} = 1 , \text{T} = \frac{1 , \text{newton}}{(\text{coulomb})(\text{meter/second})}$$&lt;/li&gt;
+$$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})(\text{meter/second})}$$&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3261,7 +3366,171 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h3&gt;
-&lt;p&gt;$$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p} + \cdots$$&lt;/p&gt;</description>
+$$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p} + \cdots$$
+
+&lt;h3 class=&#34;relative group&#34;&gt;Convergence of p-Series 
+    &lt;div id=&#34;convergence-of-p-series&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#convergence-of-p-series&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当 \(p&amp;gt;1\) 的时候Converge，\(0&amp;lt;p\leq 1\) 的时候Diverge&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Harmonic Series 
+    &lt;div id=&#34;harmonic-series&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#harmonic-series&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当p=1时，p-Series变成其特殊形式，即Harmonic Series&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Alternating Series 
+    &lt;div id=&#34;alternating-series&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#alternating-series&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;到目前为止的Series都只含有Postitive的Terms&lt;/li&gt;
+&lt;li&gt;Alternating Series 交错级数指的是一正一负（一负一正）的Terms的级数&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Alternating Series Remainder 
+    &lt;div id=&#34;alternating-series-remainder&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#alternating-series-remainder&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;如果一个&lt;strong&gt;收敛的交错级数&lt;/strong&gt;满足以下条件：&lt;/li&gt;
+&lt;li&gt;\(a_{n+1} \leq a_n\)（即正项部分单调递减），\(\lim_{n \to \infty} a_n = 0\)，&lt;/li&gt;
+&lt;li&gt;那么，当用第N项部分和\(S_N\)来近似整个级数的和 SS 时，有
+$$|S - S_N| = |R_N| \leq a_{N+1}$$
+换句话说，误差的绝对值小于等于被忽略的第一个正项\(a_{N+1}\)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Absolute and Conditional Convergence 
+    &lt;div id=&#34;absolute-and-conditional-convergence&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#absolute-and-conditional-convergence&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;有的Series可能含有正负项，但他们不已一定规律出现&lt;/li&gt;
+&lt;li&gt;这时候就需要利用Absolute and Conditional Convergence&lt;/li&gt;
+&lt;li&gt;如果一个级数 \(\sum |a_n|\) &lt;strong&gt;Convergence Absolutly&lt;/strong&gt;（即级数的项的绝对值构成的级数收敛），则原级数 \(\sum a_n\) 也一定Converge&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Conditionally Converge 
+    &lt;div id=&#34;conditionally-converge&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#conditionally-converge&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;对于一个Series，当\(\sum |a_n|\) Diverge但是\(\sum a_n\) converge的时候，其Conditionally Converge 条件收敛&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Tests for Convergency 
+    &lt;div id=&#34;tests-for-convergency&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#tests-for-convergency&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于Series存在许多的判断其是否收敛的办法&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;The Integral Test 
+    &lt;div id=&#34;the-integral-test&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#the-integral-test&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;如果函数f(x)满足以下条件：f(x)在 \(x \geq 1\) 上是positive，continuous，decreasing的，则：
+$$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$&lt;/li&gt;
+&lt;li&gt;的收敛性是一致的：  要么两者都收敛，要么两者都发散&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Direct Comparison Test 
+    &lt;div id=&#34;direct-comparison-test&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#direct-comparison-test&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;假设存在两个正项级数 \(\sum a_n\) 和 \(\sum b_n\)，并且对所有n都满足 \(0 &amp;lt; a_n \leq b_n\)，则有：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;如果 \(n\sum b_n\) &lt;strong&gt;Converge&lt;/strong&gt;，则 \(\sum a_n\) 也&lt;strong&gt;Converge&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果 \(\sum a_n\) &lt;strong&gt;Diverge&lt;/strong&gt;，则 \(\sum b_n\) 也&lt;strong&gt;Diverge&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Limit Comparison Test 
+    &lt;div id=&#34;limit-comparison-test&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#limit-comparison-test&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对于Direct Comparison能做的，Limit都能做到并且会更加简单
+假设存在两个正项级数 \(\sum a_n\) 和 \(\sum b_n\)，并且满足：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;\(a_n &amp;gt; 0\) 和 \(b_n &amp;gt; 0\) 对所有n成立，存在极限： \(\lim_{n \to \infty} \frac{a_n}{b_n} = L\) 其中\(0 &amp;lt; L &amp;lt; \infty\)&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus9.series/feature.png" />
     </item>
     
@@ -3984,7 +4253,41 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h2&gt;
-&lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
+$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;ul&gt;
+&lt;li&gt;用加权平均的方式（基于二项分布）生成新的多项式\(B_n(x)\)，作为\(f(x)\)的近似，实际上就是一个离散的Convolution&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Similarity to Convolution 
+    &lt;div id=&#34;similarity-to-convolution&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#similarity-to-convolution&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+$$(f * g)(x) = \sum_{k} f(k) g(x-k)$$&lt;ul&gt;
+&lt;li&gt;可以发现两者的区别就在于Bernstein Poly的Weight是基于Binomial Distribution的&lt;/li&gt;
+&lt;li&gt;并且采样点不再是连续的输入而是离散且固定的值&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Expectation 
+    &lt;div id=&#34;expectation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#expectation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+$$B_n(x) = \mathbb{E}\left[f\left(\frac{X}{n}\right)\right]$$&lt;ul&gt;
+&lt;li&gt;最终可以得到Bernstein Polynomial的期望值在\(n\rightarrow \infty\)的情况下是就是\(f(x)\)&lt;/li&gt;
+&lt;li&gt;也就是说可以通过一致收敛性，说明\(B_n(f, x)\)在区间\([0, 1]\)上以任意精度逼近\(f(x)\)&lt;/li&gt;
+&lt;/ul&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
     
@@ -5013,7 +5316,7 @@ class LinearRegression(Scene):
 &lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Set is a collection of objects, called elements of the set
-$$A={t|t\in R}$$&lt;/li&gt;
+$$A=\{t|t\in R\}$$&lt;/li&gt;
 &lt;li&gt;这就是一个矩阵，其中A为t，而t可以取任意Real Number&lt;/li&gt;
 &lt;li&gt;这就是集合的表示方法，用这种方法便可以表示向量，直线和平面&lt;/li&gt;
 &lt;/ul&gt;
@@ -5031,7 +5334,7 @@ $$A={t|t\in R}$$&lt;/li&gt;
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;对于两个集合，其Union是另一个Set，其元素包含了all elements of A and B
-$$A \cup B = { x \in X \mid x \in A \text{ or } x \in B }$$&lt;/li&gt;
+$$A \cup B = \{ x \in X \mid x \in A \text{ or } x \in B \}$$&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -5047,7 +5350,7 @@ $$A \cup B = { x \in X \mid x \in A \text{ or } x \in B }$$&lt;/li&gt;
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;对于Intersection来说，这个Set包含了任意同时出现在A与B中的元素
-$$A \cap B = { x \in X \mid x \in A \text{ and } x \in B }.$$&lt;/li&gt;
+$$A \cap B = \{ x \in X \mid x \in A \text{ and } x \in B \}.$$&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -5112,7 +5415,90 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h3&gt;
-&lt;p&gt;$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;/p&gt;</description>
+$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;ul&gt;
+&lt;li&gt;公式中的每一项\(a_i b_i\)表示两个向量在某个维度上的大小相乘&lt;/li&gt;
+&lt;li&gt;点积实际上是在将a和b的方向分量进行逐一对比，累加得到两个向量在整个空间上的“相似性”，每一个维度的相似性都将累加到最终的空间相似性上&lt;/li&gt;
+&lt;li&gt;想要表达这个相似性，还存在另一种方式，即通过Projection
+$$\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \cos \theta$$&lt;/li&gt;
+&lt;li&gt;其代表了b在a方向上Projection的长度再乘以a&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Angle Between Vectors 
+    &lt;div id=&#34;angle-between-vectors&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#angle-between-vectors&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;同理可以用Dot Product公式推导两个Vector之间的夹角
+$$\theta = \cos^{-1} \left( \frac{\mathbf{A} \cdot \mathbf{B}}{AB} \right) \quad 0^\circ \leq \theta \leq 180^\circ$$&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Application 
+    &lt;div id=&#34;application&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#application&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Dot Product的一种用法便是Force Vector Directed Along a Line&lt;/li&gt;
+&lt;li&gt;对于一个在\(\vec u\)方向上的Force F，有
+$$\vec F_u=\vec F\cdot \vec u=(F\times 1)\cdot \cos\theta=F\cdot \cos\theta$$&lt;/li&gt;
+&lt;li&gt;而这一个\(\cos\theta\)则是
+$$\cos\theta=\frac{\vec v\cdot \vec{w}}{|v|\times|w|}$$&lt;/li&gt;
+&lt;li&gt;当把其中一个Vector替换为Direction Vector时，便可以得到Axis-Force&amp;rsquo;s Direction Cosine
+$$\cos\theta = \frac{\{r_xi+r_yj+r_zk\}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1}$$&lt;/li&gt;
+&lt;li&gt;所以就有\(F\cdot \cos \theta=F\cdot \vec u\)之后便可以得到Force在\(\vec u\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）&lt;/li&gt;
+&lt;li&gt;要想得到Force在\(\vec u\)方向上的Cartesian Vector，需要再次乘以Direction Vector&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;最终公式 
+    &lt;div id=&#34;%E6%9C%80%E7%BB%88%E5%85%AC%E5%BC%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%9C%80%E7%BB%88%E5%85%AC%E5%BC%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+$$\vec F=F_u\cdot \vec u= (\vec F\cdot u\cdot\cos\theta)\cdot \vec u=(F\cdot\frac{\{r_xi+r_yj+r_zk\}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1})\cdot\vec u$$
+
+&lt;h2 class=&#34;relative group&#34;&gt;Line 直线 
+    &lt;div id=&#34;line-%E7%9B%B4%E7%BA%BF&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#line-%E7%9B%B4%E7%BA%BF&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;考虑一个问题Consider the two points P = (1, 2) and Q = (−1, 4)，find an equation for the line y = mx + b which passes through P and Q&lt;/li&gt;
+&lt;li&gt;通过Point-Point Formula可以算出
+$$y_2-y_1=\frac{y_2 - y_1}{x_2 - x_1}(x_2-x_1)$$&lt;/li&gt;
+&lt;li&gt;解得 \(y=−x+3\)&lt;/li&gt;
+&lt;li&gt;现在考虑相似的问题 Suppose x and y satisfy the vector equation
+$$\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} + k \begin{bmatrix} 1 \\ -1 \end{bmatrix}, \text{ where } k \in \mathbb{R}$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LA1.VectorLine&amp;amp;Plane/LA1.VectorLine&amp;amp;Plane-1.png&#34; alt=&#34;Img&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la1.vectorlineplane/feature.png" />
     </item>
     
@@ -5167,7 +5553,77 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h2&gt;
-&lt;p&gt;$$F=kx$$&lt;/p&gt;</description>
+$$F=kx$$&lt;ul&gt;
+&lt;li&gt;Spring constant (k): Spring Constant&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Material properties（材料性能） 
+    &lt;div id=&#34;material-properties%E6%9D%90%E6%96%99%E6%80%A7%E8%83%BD&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#material-properties%E6%9D%90%E6%96%99%E6%80%A7%E8%83%BD&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;主要指材料的基本机械性能，如&lt;strong&gt;弹性模量、屈服强度、抗拉强度&lt;/strong&gt;等&lt;/li&gt;
+&lt;li&gt;它们的计算方式应当剔除几何尺寸的影响&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Stress 应力 
+    &lt;div id=&#34;stress-%E5%BA%94%E5%8A%9B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#stress-%E5%BA%94%E5%8A%9B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;物体在外力作用下，单位面积上承受的内力
+$$Stress(\sigma)=\frac{F}{A_0}$$&lt;/li&gt;
+&lt;li&gt;\(A_0\): Initial Cross-Sectional Area&lt;/li&gt;
+&lt;li&gt;应力的单位通常是帕斯卡（Pa）&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Strain 应变 
+    &lt;div id=&#34;strain-%E5%BA%94%E5%8F%98&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#strain-%E5%BA%94%E5%8F%98&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;应变是材料在外力作用下发生的变形程度&lt;/li&gt;
+&lt;/ul&gt;
+$$Strain(\epsilon)=\frac{\Delta l}{l_0}$$&lt;ul&gt;
+&lt;li&gt;\(\Delta l\)：change of material&amp;rsquo;s length&lt;/li&gt;
+&lt;li&gt;\(l_0\): Initial length of material&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Young&amp;rsquo;s Modulus 杨氏模量 
+    &lt;div id=&#34;youngs-modulus-%E6%9D%A8%E6%B0%8F%E6%A8%A1%E9%87%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#youngs-modulus-%E6%9D%A8%E6%B0%8F%E6%A8%A1%E9%87%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;是固体在载荷下的刚度或对弹性变形的抵抗力的量度&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms2.elasticbehavior/feature.png" />
     </item>
     
@@ -5367,7 +5823,7 @@ b = torch.zeros(num_outputs, requires_grad=True)
 &lt;li&gt;对每个项求幂&lt;/li&gt;
 &lt;li&gt;对每一行求和，得到其规范化常数&lt;/li&gt;
 &lt;li&gt;每一行除以其规范化常数，保持结果的和为1
-$$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
+$$softmax(X)_{ij}=\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
 &lt;li&gt;分母或规范化常数，有时也称为_配分函数_（其对数称为对数-配分函数）。 该名称来自&lt;a href=&#34;https://en.wikipedia.org/wiki/Partition_function_%28statistical_mechanics%29&#34; target=&#34;_blank&#34;&gt;统计物理学&lt;/a&gt;中一个模拟粒子群分布的方程&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;def softmax(X):

@@ -44,9 +44,14 @@
 &lt;ul&gt;
 &lt;li&gt;函数 \(f\) 的极限是 \(L\)，当点 \(P(x,y)\) 逼近 \(P_0(a,b)\) 时，写作&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
+$$
 \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L
-$$&lt;/p&gt;</description>
+$$&lt;ul&gt;
+&lt;li&gt;对任意的 \(\varepsilon &amp;gt; 0\)，存在一个 \(\delta &amp;gt; 0\)，使得&lt;/li&gt;
+&lt;/ul&gt;
+$$
+| f(x,y) - L | &lt; \varepsilon
+$$&lt;p&gt;当且仅当 \((x,y)\) 在 \(f(x,y)\) 的定义域内，并且&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/feature.png" />
     </item>
     

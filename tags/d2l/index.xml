@@ -317,7 +317,41 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h2&gt;
-&lt;p&gt;$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;/p&gt;</description>
+$$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;ul&gt;
+&lt;li&gt;用加权平均的方式（基于二项分布）生成新的多项式\(B_n(x)\)，作为\(f(x)\)的近似，实际上就是一个离散的Convolution&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Similarity to Convolution 
+    &lt;div id=&#34;similarity-to-convolution&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#similarity-to-convolution&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+$$(f * g)(x) = \sum_{k} f(k) g(x-k)$$&lt;ul&gt;
+&lt;li&gt;可以发现两者的区别就在于Bernstein Poly的Weight是基于Binomial Distribution的&lt;/li&gt;
+&lt;li&gt;并且采样点不再是连续的输入而是离散且固定的值&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Expectation 
+    &lt;div id=&#34;expectation&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#expectation&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+$$B_n(x) = \mathbb{E}\left[f\left(\frac{X}{n}\right)\right]$$&lt;ul&gt;
+&lt;li&gt;最终可以得到Bernstein Polynomial的期望值在\(n\rightarrow \infty\)的情况下是就是\(f(x)\)&lt;/li&gt;
+&lt;li&gt;也就是说可以通过一致收敛性，说明\(B_n(f, x)\)在区间\([0, 1]\)上以任意精度逼近\(f(x)\)&lt;/li&gt;
+&lt;/ul&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
     
@@ -801,7 +835,7 @@ b = torch.zeros(num_outputs, requires_grad=True)
 &lt;li&gt;对每个项求幂&lt;/li&gt;
 &lt;li&gt;对每一行求和，得到其规范化常数&lt;/li&gt;
 &lt;li&gt;每一行除以其规范化常数，保持结果的和为1
-$$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
+$$softmax(X)_{ij}=\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
 &lt;li&gt;分母或规范化常数，有时也称为_配分函数_（其对数称为对数-配分函数）。 该名称来自&lt;a href=&#34;https://en.wikipedia.org/wiki/Partition_function_%28statistical_mechanics%29&#34; target=&#34;_blank&#34;&gt;统计物理学&lt;/a&gt;中一个模拟粒子群分布的方程&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;def softmax(X):

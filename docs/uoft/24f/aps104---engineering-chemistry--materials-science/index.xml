@@ -327,7 +327,77 @@ $$\Delta S = \frac{q_{REV}}{T}$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h2&gt;
-&lt;p&gt;$$F=kx$$&lt;/p&gt;</description>
+$$F=kx$$&lt;ul&gt;
+&lt;li&gt;Spring constant (k): Spring Constant&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Material properties（材料性能） 
+    &lt;div id=&#34;material-properties%E6%9D%90%E6%96%99%E6%80%A7%E8%83%BD&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#material-properties%E6%9D%90%E6%96%99%E6%80%A7%E8%83%BD&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;主要指材料的基本机械性能，如&lt;strong&gt;弹性模量、屈服强度、抗拉强度&lt;/strong&gt;等&lt;/li&gt;
+&lt;li&gt;它们的计算方式应当剔除几何尺寸的影响&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Stress 应力 
+    &lt;div id=&#34;stress-%E5%BA%94%E5%8A%9B&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#stress-%E5%BA%94%E5%8A%9B&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;物体在外力作用下，单位面积上承受的内力
+$$Stress(\sigma)=\frac{F}{A_0}$$&lt;/li&gt;
+&lt;li&gt;\(A_0\): Initial Cross-Sectional Area&lt;/li&gt;
+&lt;li&gt;应力的单位通常是帕斯卡（Pa）&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Strain 应变 
+    &lt;div id=&#34;strain-%E5%BA%94%E5%8F%98&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#strain-%E5%BA%94%E5%8F%98&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;应变是材料在外力作用下发生的变形程度&lt;/li&gt;
+&lt;/ul&gt;
+$$Strain(\epsilon)=\frac{\Delta l}{l_0}$$&lt;ul&gt;
+&lt;li&gt;\(\Delta l\)：change of material&amp;rsquo;s length&lt;/li&gt;
+&lt;li&gt;\(l_0\): Initial length of material&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Young&amp;rsquo;s Modulus 杨氏模量 
+    &lt;div id=&#34;youngs-modulus-%E6%9D%A8%E6%B0%8F%E6%A8%A1%E9%87%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#youngs-modulus-%E6%9D%A8%E6%B0%8F%E6%A8%A1%E9%87%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;是固体在载荷下的刚度或对弹性变形的抵抗力的量度&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms2.elasticbehavior/feature.png" />
     </item>
     

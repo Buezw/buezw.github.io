@@ -1,1182 +1,347 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="dark"
-  data-auto-appearance="false"><head>
-  <meta charset="utf-8" />
-  
-  <meta http-equiv="content-language" content="en" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  
-  <title>AEM 2. Differential Equations &middot; Buezwqwg</title>
-  <meta name="title" content="AEM 2. Differential Equations &middot; Buezwqwg" />
-  
-  
-  <meta name="keywords" content="Docs, AEM, " />
-  
-  
-  <link rel="canonical" href="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/" />
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <link type="text/css" rel="stylesheet" href="/css/main.bundle.min.67eb0befb1fb57e6528684f3a2ff6e0606a82100504705b66488d54a9f3fda9c2605c9bf3b70163208427288637a7b4d1a168384c1115e417458eae6b44b329c.css"
-    integrity="sha512-Z&#43;sL77H7V&#43;ZShoTzov9uBgaoIQBQRwW2ZIjVSp8/2pwmBcm/O3AWMghCcohjentNGhaDhMERXkF0WOrmtEsynA==" />
-  
-  
-  <script type="text/javascript" src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
-    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script defer type="text/javascript" id="script-bundle" src="/js/main.bundle.min.a5312a15393b6da77a379acf5b55576cabc85cb09cf0973d143812be82d0810982674c92e8564f3999e456d97305ae6f6269c41612d008359d8b94265a99eec5.js"
-    integrity="sha512-pTEqFTk7bad6N5rPW1VXbKvIXLCc8Jc9FDgSvoLQgQmCZ0yS6FZPOZnkVtlzBa5vYmnEFhLQCDWdi5QmWpnuxQ==" data-copy="" data-copied=""></script>
-  
-  
-  
-  <script src="/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
-  
-  
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:url" content="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/">
-  <meta property="og:site_name" content="Buezwqwg">
-  <meta property="og:title" content="AEM 2. Differential Equations">
-  <meta property="og:description" content=" Last Edit: 10/6/25
-Ordinary Differential Equations 常微分方程 # 在 ODE 中，未知函数只依赖于一个 independent variable $$ \frac{d^2 y}{dx^2} = -k^2 y $$">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="docs">
-    <meta property="article:published_time" content="2025-10-06T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-10-06T00:00:00+00:00">
-    <meta property="article:tag" content="Docs">
-    <meta property="article:tag" content="AEM">
-    <meta property="og:image" content="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/feature.png">
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AEM 2. Differential Equations · Jingnan Huang</title>
+<meta name="description" content="AEM 2. Differential Equations — notes by Jingnan Huang">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
 
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://buezw.github.io/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/feature.png">
-  <meta name="twitter:title" content="AEM 2. Differential Equations">
-  <meta name="twitter:description" content=" Last Edit: 10/6/25
-Ordinary Differential Equations 常微分方程 # 在 ODE 中，未知函数只依赖于一个 independent variable $$ \frac{d^2 y}{dx^2} = -k^2 y $$">
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
 
-  
-  <script type="application/ld+json">
-  [{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "articleSection": "Docs",
-    "name": "AEM 2. Differential Equations",
-    "headline": "AEM 2. Differential Equations",
-    
-    "abstract": "\u003cblockquote\u003e\n\u003cp\u003eLast Edit: 10\/6\/25\u003c\/p\u003e\n\u003c\/blockquote\u003e\n\n\n\u003ch2 class=\u0022relative group\u0022\u003eOrdinary Differential Equations 常微分方程 \n    \u003cdiv id=\u0022ordinary-differential-equations-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B\u0022 class=\u0022anchor\u0022\u003e\u003c\/div\u003e\n    \n    \u003cspan\n        class=\u0022absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100\u0022\u003e\n        \u003ca class=\u0022group-hover:text-primary-300 dark:group-hover:text-neutral-700\u0022\n            style=\u0022text-decoration-line: none !important;\u0022 href=\u0022#ordinary-differential-equations-%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B\u0022 aria-label=\u0022Anchor\u0022\u003e#\u003c\/a\u003e\n    \u003c\/span\u003e        \n    \n\u003c\/h2\u003e\n\u003cul\u003e\n\u003cli\u003e在 ODE 中，未知函数只依赖于一个 independent variable\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003e$$\n\\frac{d^2 y}{dx^2} = -k^2 y\n$$\u003c\/p\u003e",
-    "inLanguage": "en",
-    "url" : "https:\/\/buezw.github.io\/docs\/uoft\/25f\/advanced-engineering-mathematics\/aem2.differentialequations\/",
-    "author" : {
-      "@type": "Person",
-      "name": "Buezwqwg"
-    },
-    "copyrightYear": "2025",
-    "dateCreated": "2025-10-06T00:00:00\u002b00:00",
-    "datePublished": "2025-10-06T00:00:00\u002b00:00",
-    
-    "dateModified": "2025-10-06T00:00:00\u002b00:00",
-    
-    "keywords": ["Docs","AEM"],
-    
-    "mainEntityOfPage": "true",
-    "wordCount": "6442"
-  }]
-  </script>
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
 
+ 
+.search{position:relative;flex:1;max-width:520px}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
 
-  
-  
-  <meta name="author" content="Buezwqwg" />
-  
-  
-  
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
 
-<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
 
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
 
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
 
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
+</style>
 
+<link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
+<link rel="stylesheet" href="/lib/katex/katex.min.css">
+<script defer src="/lib/katex/katex.min.js"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<style>
+ 
+.banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.banner>div{padding:0 clamp(24px,3.4vw,64px);max-width:calc(860px + 2*clamp(24px,3.4vw,64px));width:100%;margin:0 auto;box-sizing:border-box;min-width:0}
+.banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 12px;white-space:nowrap;width:max-content}
+.banner h1.wrap{white-space:normal;width:auto}
+.banner .meta{font-size:.86rem}
+.banner .lead{max-width:860px;margin:0 0 12px}
+.nav2{display:flex;gap:8px}
+.nav2 a{display:block;background:#fff;border:1px solid var(--paper2);padding:8px 14px;width:220px}
+.nav2 a:hover{border-color:var(--text)}
+.nav2 small{display:block;font-size:.72rem;color:var(--dim)}
+.nav2 b{display:block;font-weight:500;font-size:.86rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav2 .nx{text-align:right}
+.page{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh / var(--zoom) - 40px);overflow:auto;padding-right:4px}
+.side{padding:30px 22px 30px var(--px)}
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.grp{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;margin-top:8px;padding-bottom:12px;border-bottom:1px solid var(--paper2)}
+.grp a:hover{color:var(--c)}
+.grp small{display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:.76rem;font-weight:400;color:var(--dim);margin-top:6px;letter-spacing:0}
+.grp small i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.sib{font-size:.88rem;line-height:1.35;counter-reset:n}
+.sib a{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;align-items:baseline;padding:6px 8px 6px 0;color:#4a4741;border-radius:3px}
+.sib a em{font-style:normal;font-family:var(--serif);font-size:.95rem;color:var(--dim);text-align:right;padding-right:6px}
+.sib a span{overflow-wrap:anywhere}
+.sib a:hover{color:var(--text);background:rgba(255,255,255,.55)}
+.sib a.cur{background:#fff;color:var(--text);font-weight:500;box-shadow:inset 2px 0 0 var(--c)}
+.sib a.cur em{color:var(--c)}
+.rail{padding:30px var(--px) 30px 24px;border-left:1px solid var(--line)}
+.toc{font-size:.84rem;line-height:1.4;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 0 4px 12px;margin-left:-1px;border-left:2px solid transparent;color:#5a5650}
+.toc a.l2{padding-left:24px;font-size:.8rem;color:var(--dim)}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--c);border-left-color:var(--c)}
+.totop{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--dim)}
+.totop:hover{color:var(--text)}
 
+.art{padding:30px clamp(24px,3.4vw,64px) 50px;min-width:0}
+.art>*{margin-left:auto;margin-right:auto}
+.ahead{max-width:860px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--text)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+.ahead h1{font-size:2.6rem;line-height:1.12;margin:12px 0 0;overflow-wrap:anywhere}
+.ahead .crumb{margin-bottom:10px}
+.lead{margin:14px 0 0;font-size:1.05rem;line-height:1.65;color:#4a4741}
 
+ 
+.prose{max-width:860px;font-size:1.02rem;line-height:1.8;color:#232220;overflow-wrap:break-word}
+.prose h1,.prose h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-size:1.65rem;line-height:1.25;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:1.8em 0 .5em;scroll-margin-top:20px}
+.prose h4{font-size:1.05rem;font-weight:600;margin:1.6em 0 .4em;scroll-margin-top:20px}
+.prose>*:first-child{margin-top:0}
+.prose h1>span,.prose h2>span,.prose h3>span,.prose h4>span{display:none}
+.prose .anchor{scroll-margin-top:20px}
+.prose p{margin:0 0 1em}
+.prose a{color:var(--c);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.prose strong{font-weight:600;color:var(--text)}
+.prose ul,.prose ol{padding-left:1.4em;margin:0 0 1em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.2em 0}
+.prose blockquote{margin:1.2em 0;padding:.6em 1.1em;border-left:3px solid var(--c);background:#faf9f6;color:#4a4741}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose img,.prose video{display:block;max-width:100%;height:auto;margin:1.2em auto;border:1px solid var(--line)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;margin:1.2em 0;font-size:.92rem}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top}
+.prose th{background:#f6f4ef;font-weight:600}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:#f3f0ea;padding:.1em .35em;border-radius:3px}
+.prose pre{background:#faf9f6;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;font-size:.86rem;line-height:1.6;margin:1.2em 0}
+.prose pre code{background:none;padding:0;font-size:inherit}
+.prose .highlight{margin:1.2em 0}
+.prose .highlight pre{margin:0}
+.prose .katex-display{overflow-x:auto;overflow-y:hidden;padding:.2em 0}
+.prose .katex{font-size:1.06em}
 
+.pn{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:18px;border-top:1px solid var(--text)}
+.pn a{display:block;padding:12px 14px;border:1px solid var(--line)}
+.pn a:hover{border-color:var(--text)}
+.pn span{display:block;font-size:.78rem;color:var(--dim)}
+.pn b{font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
+.pn .nx{text-align:right;grid-column:2}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FWY3M67C4S"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-FWY3M67C4S');
-</script>
-
-
-
-  
-  
-  <meta name="theme-color"/>
-  
-  
+@media (max-width:1000px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .banner{display:block;padding:22px 0 18px}
+  .banner h1{font-size:1.8rem!important;white-space:normal;width:auto}
+  .nav2{display:none}
+  .prose{font-size:.98rem}
+  .pn{grid-template-columns:1fr}
+  .pn .nx{grid-column:1}
+}
+</style>
 </head>
-<body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
-  <div id="the-top" class="absolute flex self-center">
-    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
-      href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+<body style="--c:var(--blue)">
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 112 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
   </div>
-  
-  
-  <div class="min-h-[148px]"></div>
-<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
-  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
-  <div class="relative max-w-[64rem] ml-auto mr-auto">
-    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
-    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
-    
-    <div class="flex flex-1 items-center justify-between">
-        <nav class="flex space-x-3">
-
-            
-            <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">Buezwqwg</a>
-            
-
-        </nav>
-        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
-
-            
-            
-            
-  <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Docs
-    </p>
-</a>
-
-
-
-            
-            
-  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Blogs
-    </p>
-</a>
-
-
-
-            
-            
-  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Thoughts
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="/tags/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Notes
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        Zhihu
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <span >
-        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-
-  </span>
-
-
-    </span>
-    
-    <p class="text-base font-medium" title="">
-        
-    </p>
-</a>
-
-
-
-            
-            
-
-            
-
-
-            
-            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-                title="">
-                
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-            </button>
-            
-
-
-            
-            
-            <div
-                class="ltr:mr-14 rtl:ml-14 flex items-center">
-                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
-                    <div class="flex items-center justify-center dark:hidden">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-
-                    </div>
-                    <div class="items-center justify-center hidden dark:flex">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-
-                    </div>
-                </button>
-            </div>
-            
-
-        </nav>
-        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
-
-            <span></span>
-
-            
-
-
-            
-            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-                title="">
-                
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-            </button>
-            
-
-            
-            
-            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
-                <div class="flex items-center justify-center dark:hidden">
-                    
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-
-                </div>
-                <div class="items-center justify-center hidden dark:flex">
-                    
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-
-                </div>
-            </button>
-            
-
-        </div>
-    </div>
-    <div class="-my-2 -mr-2 md:hidden">
-
-        <label id="menu-button" class="block">
-            
-            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
-                
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
-
-  </span>
-
-
-            </div>
-            <div id="menu-wrapper" style="padding-top:5px;"
-                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
-                <ul
-                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
-
-                    <li id="menu-close-button">
-                        <span
-                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
-
-  </span>
-
-</span>
-                    </li>
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/docs/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Docs
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Blogs
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Thoughts
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/tags/notes/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Notes
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            Zhihu
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="https://github.com/Buezw"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <div >
-            
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-
-  </span>
-
-
-        </div>
-        
-        <p class="text-bg font-bg" title="">
-            
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                </ul>
-                
-                
-
-            </div>
-        </label>
-    </div>
-</div>
-
-
-
-
+  <nav>
+    <a href="/student/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="/docs/">Docs</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
 <script>
-    (function () {
-        var $mainmenu = $('.main-menu');
-        var path = window.location.pathname;
-        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
-            $(e).children('p').addClass('active');
-        });
-    })();
-</script>
-
-
-  </div>
-</div>
-<script>
-  window.addEventListener('scroll', function (e) {
-    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    var background_blur = document.getElementById('menu-blur');
-    background_blur.style.opacity = (scroll / 300);
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
   });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
 </script>
 
-  
-  <div class="relative flex flex-col grow">
-    <main id="main-content" class="grow">
-      
 
-
-<article>
-  
-  
-  
-  
-  
-  
-
-
-<div id="hero" class="h-[150px] md:h-[200px]"></div>
-
-
-
-    
-    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
-    style="background-image:url(/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/feature_hu2621249713009970027.png);">
-    
-
-
-    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+<section class="banner">
+  <div>
+    <div class="crumb"><a href="/student/">Notebook</a><i>/</i><a href="/student/">Fall 2025</a><i>/</i><a href="/student/#advanced-engineering-mathematics">Advanced Engineering Mathematics</a></div>
+    <h1 class="serif" id="atitle">AEM 2. Differential Equations</h1>
+    <div class="meta"><i class="area" style="--d:#b97a7a">Math</i>
+      <span>Oct 6, 2025</span><span>Edited 10/6/25</span>
+      <i class="lang">CN</i>
     </div>
-    <div
-        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
-    </div>
-</div>
-
-<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
-<script>
-    window.addEventListener('scroll', function (e) {
-        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-        var background_blur = document.getElementById('background-blur');
-        background_blur.style.opacity = (scroll / 300)
-    });
-</script>
-
-  
-  
-
-  <header id="single_header" class="mt-5 max-w-prose">
-    
-    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
-  
-  
-    
-  
-    
-  
-    
-  
-    
-  
-  <li class="inline hidden">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/"
-      >Buezwqwg</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/"
-      >Docs</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/uoft/"
-      >U of T</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline ">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/uoft/25f/advanced-engineering-mathematics/"
-      >Advanced Engineering Mathematics</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-  
-  <li class="inline hidden">
-    <a
-      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
-      href="/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/"
-      >AEM 2. Differential Equations</a
-    ><span class="px-1 text-primary-500">/</span>
-  </li>
-
-</ol>
-
-
-    
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-      AEM 2. Differential Equations
-    </h1>
-    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
-      
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>6442 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/aem/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    AEM
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-    </div>
-
-    
-    
-    
-    
-    
-
-    
-
-    
-      
-      
-
-      
-
-      
-
-    
-
-  </header>
-  
-  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
-    
-     <div
-      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
-      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
-
-         <details open id="TOCView"
-  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
-  <summary
-    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
-  </summary>
-  <div
-    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#ordinary-differential-equations-常微分方程">Ordinary Differential Equations 常微分方程</a></li>
-    <li><a href="#classifying-des">Classifying DE’s</a>
-      <ul>
-        <li><a href="#order-of-a-de">Order of a DE</a></li>
-        <li><a href="#general-form-of-de">General form of DE</a></li>
-        <li><a href="#linear-and-non-linear-odes"><strong>Linear and Non-linear ODEs</strong></a></li>
-        <li><a href="#homogeneous-and-non-homogeneous-linear-ode"><strong>Homogeneous and Non-homogeneous Linear ODE</strong></a></li>
-        <li><a href="#constant-vs-variable-coefficient"><strong>Constant vs Variable Coefficient</strong></a></li>
-        <li><a href="#autonomous-ode"><strong>Autonomous ODE</strong></a>
-          <ul>
-            <li><a href="#ex-autonomous-ode">Ex. Autonomous ODE</a></li>
-            <li><a href="#general-form">General Form</a></li>
-          </ul>
-        </li>
-        <li><a href="#ex-identify-the-odes">Ex. Identify the ODEs</a></li>
-      </ul>
-    </li>
-    <li><a href="#solution-of-ode">Solution of ODE</a>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#ex-verifying-solution">Ex. Verifying Solution</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#existence-of-solutions-general-particular-and-singular">Existence of Solutions, General, Particular and Singular</a></li>
-    <li><a href="#how-to-solve-first-order-ode"><strong>How to solve first-order ODE</strong></a>
-      <ul>
-        <li><a href="#separable-first-order-ode"><strong>Separable First-order ODE</strong></a></li>
-        <li><a href="#integrating-factor-method"><strong>Integrating Factor Method</strong></a></li>
-        <li><a href="#ex">Ex.</a></li>
-      </ul>
-    </li>
-    <li><a href="#existence-and-uniqueness-of-solutions-for-linear-1st-order-ivps">Existence and Uniqueness of Solutions for Linear 1st Order IVPs</a>
-      <ul>
-        <li><a href="#existence-of-a-unique-solution-for-first-order-ivps">Existence of a Unique Solution for First-Order IVPs</a></li>
-        <li><a href="#existence-of-a-unique-solution-for-first-order-linear-ivps"><strong>Existence of a Unique Solution for First-Order Linear IVPs</strong></a></li>
-        <li><a href="#why-linear-follow-from-non-linear">Why Linear Follow From Non-Linear</a>
-          <ul>
-            <li><a href="#ex-applying-non-linear-case">Ex. Applying Non-Linear Case</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#solution-curves-without-solutions-direction-field">Solution Curves without Solutions: Direction Field</a></li>
-    <li><a href="#autonomous-de-and-its-critical-points">Autonomous DE and its Critical Points</a>
-      <ul>
-        <li><a href="#critical-point">Critical Point</a>
-          <ul>
-            <li><a href="#ex-critical-point-of-a-function">Ex. Critical Point of a Function</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#stability-of-critical-points">Stability of Critical Points</a>
-      <ul>
-        <li><a href="#stable-point">Stable Point</a></li>
-        <li><a href="#unstable-point">Unstable Point</a></li>
-        <li><a href="#semi-stable-point">Semi-Stable Point</a></li>
-      </ul>
-    </li>
-    <li><a href="#general-linear-odes-and-linear-differential-operator">General Linear ODE’s and Linear Differential Operator</a>
-      <ul>
-        <li><a href="#linear-differential-operator-l">Linear Differential Operator L</a>
-          <ul>
-            <li><a href="#ex1-find-linear-differential-operator-l">Ex1. Find Linear Differential Operator L</a></li>
-            <li><a href="#ex2-find-linear-differential-operator-l">Ex2. Find Linear Differential Operator L</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#existence-and-uniqueness-of-nth-order-linear-ode">Existence and Uniqueness of nth order Linear ODE</a>
-      <ul>
-        <li><a href="#theorem-existence-of-a-unique-solution"><strong>Theorem: Existence of a Unique Solution</strong></a>
-          <ul>
-            <li><a href="#ex1-existence-of-a-unique-solution">Ex1. Existence of a Unique Solution</a></li>
-            <li><a href="#ex2-existence-of-a-unique-solution">Ex2. Existence of a Unique Solution</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#homogenous-linear-des-general-solutions">Homogenous Linear DE’s: General Solutions</a>
-      <ul>
-        <li><a href="#theorem-general-solutions-for-homogeneous-linear-des">Theorem： General Solutions for Homogeneous Linear DEs</a></li>
-        <li><a href="#definition-linearly-independence-of-functions">Definition: Linearly Independence of Functions</a>
-          <ul>
-            <li><a href="#ex1-finding-the-linear-independency-of-function">Ex1. Finding the Linear Independency of function</a></li>
-            <li><a href="#ex2-finding-the-linear-independency-of-function">Ex2. Finding the Linear Independency of function</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#how-to-check-if-n-functions-are-independent">How to check if n functions are independent?</a>
-      <ul>
-        <li><a href="#case-in-non-polynomial">Case in non Polynomial</a></li>
-        <li><a href="#the-wronskian">The Wronskian</a></li>
-        <li><a href="#the-beauty-of-math-or-how-seemingly-unrelated-mathematical-topics-connect-to-each-other">The beauty of Math (or how seemingly unrelated mathematical topics connect to each other)</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#case-when-w--0-for-all-x-in-i">Case when W = 0 for all x in I</a>
-          <ul>
-            <li><a href="#ex-case-when-w--0-for-all-x-in-i">Ex. Case when W = 0 for all x in I</a></li>
-          </ul>
-        </li>
-        <li><a href="#special-case-of-wronskian">Special Case of Wronskian</a>
-          <ul>
-            <li><a href="#ex-determine-fundamental-set-of-solution">Ex. Determine Fundamental Set of Solution</a></li>
-          </ul>
-        </li>
-        <li><a href="#find-the-second-solution-for-a-2nd-degree-linear-homo-ode">Find the Second Solution for a 2nd Degree Linear Homo ODE</a>
-          <ul>
-            <li><a href="#ex-find-the-second-solution-for-2nd-linear-homo-ode">Ex. Find the second Solution for 2nd Linear Homo ODE</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#find-the-fundamental-set-of-solutions-for-higher-order-homo-linear-de">Find the fundamental set of solutions for Higher Order Homo Linear DE</a>
-      <ul>
-        <li><a href="#types-of-roots-solution-for-de">Types of roots (solution for DE)</a>
-          <ul>
-            <li><a href="#type-1distinct-real-roots"><strong>Type 1：Distinct Real Roots</strong></a></li>
-            <li><a href="#type-2conjugate-complex-roots"><strong>Type 2：Conjugate Complex Roots</strong></a></li>
-            <li><a href="#type-3repeated-real-roots"><strong>Type 3：Repeated Real Roots</strong></a></li>
-            <li><a href="#ex-specify-the-general-class-of-solution-of-function">Ex. Specify the general class of solution of function</a></li>
-            <li><a href="#ex-can-the-auxiliary-equation-have-repeated-complex-roots">Ex. Can the auxiliary equation have repeated complex roots?</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#general-solution-of-non-homo-linear-de">General Solution of Non-homo Linear DE</a>
-      <ul>
-        <li><a href="#proving-the-general-solution-is-comp--part">Proving the General Solution is Comp + Part</a>
-          <ul>
-            <li><a href="#ex-finding-the-general-solution">Ex. Finding the General Solution</a></li>
-          </ul>
-        </li>
-        <li><a href="#variation-of-parameters">Variation of Parameters</a>
-          <ul>
-            <li><a href="#ex-finding-the-particular-solution">Ex. Finding the Particular Solution</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
   </div>
-</details>
-<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
-  <summary
-    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    Table of Contents
-  </summary>
-  <div
-    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#ordinary-differential-equations-常微分方程">Ordinary Differential Equations 常微分方程</a></li>
-    <li><a href="#classifying-des">Classifying DE’s</a>
-      <ul>
-        <li><a href="#order-of-a-de">Order of a DE</a></li>
-        <li><a href="#general-form-of-de">General form of DE</a></li>
-        <li><a href="#linear-and-non-linear-odes"><strong>Linear and Non-linear ODEs</strong></a></li>
-        <li><a href="#homogeneous-and-non-homogeneous-linear-ode"><strong>Homogeneous and Non-homogeneous Linear ODE</strong></a></li>
-        <li><a href="#constant-vs-variable-coefficient"><strong>Constant vs Variable Coefficient</strong></a></li>
-        <li><a href="#autonomous-ode"><strong>Autonomous ODE</strong></a>
-          <ul>
-            <li><a href="#ex-autonomous-ode">Ex. Autonomous ODE</a></li>
-            <li><a href="#general-form">General Form</a></li>
-          </ul>
-        </li>
-        <li><a href="#ex-identify-the-odes">Ex. Identify the ODEs</a></li>
-      </ul>
-    </li>
-    <li><a href="#solution-of-ode">Solution of ODE</a>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#ex-verifying-solution">Ex. Verifying Solution</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#existence-of-solutions-general-particular-and-singular">Existence of Solutions, General, Particular and Singular</a></li>
-    <li><a href="#how-to-solve-first-order-ode"><strong>How to solve first-order ODE</strong></a>
-      <ul>
-        <li><a href="#separable-first-order-ode"><strong>Separable First-order ODE</strong></a></li>
-        <li><a href="#integrating-factor-method"><strong>Integrating Factor Method</strong></a></li>
-        <li><a href="#ex">Ex.</a></li>
-      </ul>
-    </li>
-    <li><a href="#existence-and-uniqueness-of-solutions-for-linear-1st-order-ivps">Existence and Uniqueness of Solutions for Linear 1st Order IVPs</a>
-      <ul>
-        <li><a href="#existence-of-a-unique-solution-for-first-order-ivps">Existence of a Unique Solution for First-Order IVPs</a></li>
-        <li><a href="#existence-of-a-unique-solution-for-first-order-linear-ivps"><strong>Existence of a Unique Solution for First-Order Linear IVPs</strong></a></li>
-        <li><a href="#why-linear-follow-from-non-linear">Why Linear Follow From Non-Linear</a>
-          <ul>
-            <li><a href="#ex-applying-non-linear-case">Ex. Applying Non-Linear Case</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#solution-curves-without-solutions-direction-field">Solution Curves without Solutions: Direction Field</a></li>
-    <li><a href="#autonomous-de-and-its-critical-points">Autonomous DE and its Critical Points</a>
-      <ul>
-        <li><a href="#critical-point">Critical Point</a>
-          <ul>
-            <li><a href="#ex-critical-point-of-a-function">Ex. Critical Point of a Function</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#stability-of-critical-points">Stability of Critical Points</a>
-      <ul>
-        <li><a href="#stable-point">Stable Point</a></li>
-        <li><a href="#unstable-point">Unstable Point</a></li>
-        <li><a href="#semi-stable-point">Semi-Stable Point</a></li>
-      </ul>
-    </li>
-    <li><a href="#general-linear-odes-and-linear-differential-operator">General Linear ODE’s and Linear Differential Operator</a>
-      <ul>
-        <li><a href="#linear-differential-operator-l">Linear Differential Operator L</a>
-          <ul>
-            <li><a href="#ex1-find-linear-differential-operator-l">Ex1. Find Linear Differential Operator L</a></li>
-            <li><a href="#ex2-find-linear-differential-operator-l">Ex2. Find Linear Differential Operator L</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#existence-and-uniqueness-of-nth-order-linear-ode">Existence and Uniqueness of nth order Linear ODE</a>
-      <ul>
-        <li><a href="#theorem-existence-of-a-unique-solution"><strong>Theorem: Existence of a Unique Solution</strong></a>
-          <ul>
-            <li><a href="#ex1-existence-of-a-unique-solution">Ex1. Existence of a Unique Solution</a></li>
-            <li><a href="#ex2-existence-of-a-unique-solution">Ex2. Existence of a Unique Solution</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#homogenous-linear-des-general-solutions">Homogenous Linear DE’s: General Solutions</a>
-      <ul>
-        <li><a href="#theorem-general-solutions-for-homogeneous-linear-des">Theorem： General Solutions for Homogeneous Linear DEs</a></li>
-        <li><a href="#definition-linearly-independence-of-functions">Definition: Linearly Independence of Functions</a>
-          <ul>
-            <li><a href="#ex1-finding-the-linear-independency-of-function">Ex1. Finding the Linear Independency of function</a></li>
-            <li><a href="#ex2-finding-the-linear-independency-of-function">Ex2. Finding the Linear Independency of function</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#how-to-check-if-n-functions-are-independent">How to check if n functions are independent?</a>
-      <ul>
-        <li><a href="#case-in-non-polynomial">Case in non Polynomial</a></li>
-        <li><a href="#the-wronskian">The Wronskian</a></li>
-        <li><a href="#the-beauty-of-math-or-how-seemingly-unrelated-mathematical-topics-connect-to-each-other">The beauty of Math (or how seemingly unrelated mathematical topics connect to each other)</a></li>
-      </ul>
-    </li>
-  </ul>
+</section>
 
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#case-when-w--0-for-all-x-in-i">Case when W = 0 for all x in I</a>
-          <ul>
-            <li><a href="#ex-case-when-w--0-for-all-x-in-i">Ex. Case when W = 0 for all x in I</a></li>
-          </ul>
-        </li>
-        <li><a href="#special-case-of-wronskian">Special Case of Wronskian</a>
-          <ul>
-            <li><a href="#ex-determine-fundamental-set-of-solution">Ex. Determine Fundamental Set of Solution</a></li>
-          </ul>
-        </li>
-        <li><a href="#find-the-second-solution-for-a-2nd-degree-linear-homo-ode">Find the Second Solution for a 2nd Degree Linear Homo ODE</a>
-          <ul>
-            <li><a href="#ex-find-the-second-solution-for-2nd-linear-homo-ode">Ex. Find the second Solution for 2nd Linear Homo ODE</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#find-the-fundamental-set-of-solutions-for-higher-order-homo-linear-de">Find the fundamental set of solutions for Higher Order Homo Linear DE</a>
-      <ul>
-        <li><a href="#types-of-roots-solution-for-de">Types of roots (solution for DE)</a>
-          <ul>
-            <li><a href="#type-1distinct-real-roots"><strong>Type 1：Distinct Real Roots</strong></a></li>
-            <li><a href="#type-2conjugate-complex-roots"><strong>Type 2：Conjugate Complex Roots</strong></a></li>
-            <li><a href="#type-3repeated-real-roots"><strong>Type 3：Repeated Real Roots</strong></a></li>
-            <li><a href="#ex-specify-the-general-class-of-solution-of-function">Ex. Specify the general class of solution of function</a></li>
-            <li><a href="#ex-can-the-auxiliary-equation-have-repeated-complex-roots">Ex. Can the auxiliary equation have repeated complex roots?</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#general-solution-of-non-homo-linear-de">General Solution of Non-homo Linear DE</a>
-      <ul>
-        <li><a href="#proving-the-general-solution-is-comp--part">Proving the General Solution is Comp + Part</a>
-          <ul>
-            <li><a href="#ex-finding-the-general-solution">Ex. Finding the General Solution</a></li>
-          </ul>
-        </li>
-        <li><a href="#variation-of-parameters">Variation of Parameters</a>
-          <ul>
-            <li><a href="#ex-finding-the-particular-solution">Ex. Finding the Particular Solution</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-  </div>
-</details>
+<div class="page">
+  <article class="art">
 
-<script>
-
-  var margin = 200;
-  var marginError = 50;
-
-  (function () {
-    var $window = $(window);
-    var $toc = $('#TOCView');
-    var tocHeight = $toc.height();
-
-    function onResize() {
-      var windowAndMarginHeight = $window.height() - margin;
-      if(tocHeight >= windowAndMarginHeight) {
-        $toc.css("overflow-y", "scroll")
-        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
-      } else {
-        $toc.css("overflow-y", "hidden")
-        $toc.css("max-height", "9999999px")
-      }
-    }
-
-    $window.on('resize', onResize);
-    $(document).ready(onResize);
-  })();
-
-
-
-  (function () {
-    var $toc = $('#TableOfContents');
-    if ($toc.length > 0) {
-      var $window = $(window);
-
-      function onScroll() {
-        var currentScroll = $window.scrollTop();
-        var h = $('.anchor');
-        var id = "";
-        h.each(function (i, e) {
-          e = $(e);
-          if (e.offset().top - $(window).height()/3 <= currentScroll) {
-            id = decodeURIComponent(e.attr('id'));
-          }
-        });
-        var active = $toc.find('a.active');      
-        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
-
-        active.each(function (i, e) {
-          
-            $(e).removeClass('active');
-          
-        });
-        $toc.find('a[href="#' + id + '"]').addClass('active')
-        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-          $(e).children('a').parents('ul').show();          
-        });
-      }
-
-      $window.on('scroll', onScroll);
-      $(document).ready(function () {
-        
-        onScroll();
-      });
-    }
-  })();
-
-
-</script>
-   </div>
-      </div>
+    <div class="prose">
       
-
-      <div class="min-w-0 min-h-0 max-w-fit">
-        
-        
-
-
-        <div class="article-content max-w-prose mb-20">
-          <blockquote>
-<p>Last Edit: 10/6/25</p>
-</blockquote>
 
 
 <h2 class="relative group">Ordinary Differential Equations 常微分方程 
@@ -1192,10 +357,9 @@ Ordinary Differential Equations 常微分方程 # 在 ODE 中，未知函数只�
 <ul>
 <li>在 ODE 中，未知函数只依赖于一个 independent variable</li>
 </ul>
-<p>$$
+$$
 \frac{d^2 y}{dx^2} = -k^2 y
-$$</p>
-<ul>
+$$<ul>
 <li>
 <p>使用的是 <strong>Leibniz notation（莱布尼茨记号）</strong></p>
 </li>
@@ -1208,16 +372,14 @@ $$</p>
 </li>
 <li>
 <p>与上式等价的拉格朗日记号写法为 Lagrange Notation</p>
-<p>$$
-y&rsquo;&rsquo; = -k^2 y
-$$</p>
-</li>
+$$
+    y'' = -k^2 y
+    $$</li>
 <li>
 <p>通用记法：</p>
-<p>$$
-\frac{d^n y}{d x^n} \equiv y^{(n)}
-$$</p>
-</li>
+$$
+    \frac{d^n y}{d x^n} \equiv y^{(n)}
+    $$</li>
 </ul>
 
 
@@ -1249,10 +411,9 @@ $$</p>
 </li>
 <li>
 <p>示例：</p>
-<p>$$
-y^{(4)} + 2x^2 + y&rsquo;&rsquo; = \sin x
-$$</p>
-</li>
+$$
+    y^{(4)} + 2x^2 + y'' = \sin x
+    $$</li>
 <li>
 <p>是一个四阶常微分方程（<strong>4th order ODE</strong>）</p>
 </li>
@@ -1269,10 +430,9 @@ $$</p>
     </span>        
     
 </h3>
-<p>$$
-F(x, y, y&rsquo;, y&rsquo;&rsquo;, &hellip;, y^{(n)}) = 0
-$$</p>
-
+$$
+F(x, y, y', y'', ..., y^{(n)}) = 0
+$$
 
 <h3 class="relative group"><strong>Linear and Non-linear ODEs</strong> 
     <div id="linear-and-non-linear-odes" class="anchor"></div>
@@ -1287,25 +447,22 @@ $$</p>
 <ul>
 <li>一个阶数为 n 的微分方程是 linear 的，当它可以写成：</li>
 </ul>
-<p>$$
+$$
 a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_0(x)y = f(x)
-$$</p>
-<ul>
+$$<ul>
 <li>系数 \(a_i(x)\) 只依赖于 \(x\)，不能含有 \(y\)</li>
 <li>示例：
 <ul>
 <li>
 <p><strong>First-order linear DE</strong></p>
-<p>$$
-y&rsquo; + p(x)y = f(x)
-$$</p>
-</li>
+$$
+        y' + p(x)y = f(x)
+        $$</li>
 <li>
 <p><strong>Second-order linear DE</strong></p>
-<p>$$
-y&rsquo;&rsquo; + p(x)y&rsquo; + q(x)y = f(x)
-$$</p>
-</li>
+$$
+        y'' + p(x)y' + q(x)y = f(x)
+        $$</li>
 </ul>
 </li>
 </ul>
@@ -1372,10 +529,9 @@ $$</p>
 <ul>
 <li>Population growth equation</li>
 </ul>
-<p>$$
+$$
 \frac{dP}{dt} = (\beta - \alpha)P
-$$</p>
-<ul>
+$$<ul>
 <li>t 没有显式出现</li>
 <li>\(\beta\)：出生率</li>
 <li>\(\alpha\)：死亡率</li>
@@ -1392,10 +548,9 @@ $$</p>
     </span>        
     
 </h4>
-<p>$$
-y^{(n)} = F(y^{(n-1)}, y^{(n-2)}, &hellip;, y&rsquo;, y)
-$$</p>
-
+$$
+y^{(n)} = F(y^{(n-1)}, y^{(n-2)}, ..., y', y)
+$$
 
 <h3 class="relative group">Ex. Identify the ODEs 
     <div id="ex-identify-the-odes" class="anchor"></div>
@@ -1407,10 +562,9 @@ $$</p>
     </span>        
     
 </h3>
-<p>$$
-y&rsquo;&rsquo; + 3(y&rsquo;)^2 + \cos x = 0
-$$</p>
-<ul>
+$$
+y'' + 3(y')^2 + \cos x = 0
+$$<ul>
 <li><strong>non-linear</strong>（因为有 \((y&rsquo;)^2\)）</li>
 <li><strong>non-homogeneous</strong>（有常数项 \(\cos x\)）</li>
 <li><strong>variable coefficient</strong>（\(3(y&rsquo;)^2\) 中的系数依赖 \(y&rsquo;\)，不是常数）</li>
@@ -1419,36 +573,32 @@ $$</p>
 <p>这里是 \(y&rsquo;\) 的平方</p>
 </blockquote>
 <hr>
-<p>$$
+$$
 5\sin\left(\frac{dy}{dt}\right) + \tan^2 y = 1
-$$</p>
-<ul>
+$$<ul>
 <li><strong>non-linear</strong></li>
 <li><strong>non-homogeneous</strong></li>
 </ul>
 <hr>
-<p>$$
+$$
 \frac{d^2 y}{dx^2} + x^2 \frac{dy}{dx} + (\sin x) y = e^x
-$$</p>
-<ul>
+$$<ul>
 <li><strong>linear</strong>（\(y, y&rsquo;, y&rsquo;&rsquo;\) 都是一次）</li>
 <li><strong>non-homogeneous</strong>（右边不是 0）</li>
 <li><strong>variable coefficient</strong>（系数 \(x^2, \sin x\) 都依赖于 \(x\)）</li>
 </ul>
 <hr>
-<p>$$
-x y&rsquo;&rsquo; + 4x^2 y&rsquo; - \frac{2}{1 + x^2} y = 0
-$$</p>
-<ul>
+$$
+x y'' + 4x^2 y' - \frac{2}{1 + x^2} y = 0
+$$<ul>
 <li><strong>linear</strong></li>
 <li><strong>homogeneous</strong>（右边是 0）</li>
 <li><strong>variable coefficient</strong>（所有系数依赖 x）</li>
 </ul>
 <hr>
-<p>$$
-y&rsquo;&rsquo; + \sin(y&rsquo;) + x y = x^2
-$$</p>
-<ul>
+$$
+y'' + \sin(y') + x y = x^2
+$$<ul>
 <li><strong>non-linear</strong>（因为 \(\sin(y&rsquo;)\) 是非线性项）</li>
 <li><strong>non-homogeneous</strong>（右边为 \(x^2\)）</li>
 <li><strong>variable coefficient</strong>（项 \(x y\) 中系数为 \(x\)）</li>
@@ -1469,17 +619,15 @@ $$</p>
 <ul>
 <li>Given an ODE of form</li>
 </ul>
-<p>$$
-y^{(n)} = F(y^{(n-1)}, &hellip;, y&rsquo;, y, x)
-$$</p>
-<ul>
+$$
+y^{(n)} = F(y^{(n-1)}, ..., y', y, x)
+$$<ul>
 <li>如果一个函数 \(y = \varphi(x)\) 被代入后，使得方程变为 <strong>identity</strong> 恒等式，那么它就是这个微分方程的一个 <strong>solution</strong></li>
 <li>代入后要满足：</li>
 </ul>
-<p>$$
-\varphi^{(n)} \equiv F\left(\varphi^{(n-1)}, &hellip;, \varphi&rsquo;, \varphi, x\right)
-$$</p>
-
+$$
+\varphi^{(n)} \equiv F\left(\varphi^{(n-1)}, ..., \varphi', \varphi, x\right)
+$$
 
 <h4 class="relative group">Ex. Verifying Solution 
     <div id="ex-verifying-solution" class="anchor"></div>
@@ -1492,16 +640,13 @@ $$</p>
     
 </h4>
 <p>For DE \(y&rsquo; = 6x(y - 1)^{2/3}\)，verify by substitution that  is a solution on interval \((-\infty, +\infty)\)，where C is an arbitrary constant</p>
-<p>$$
-y&rsquo; = 2x \cdot 3(x^2 + C)^2 = 6x(x^2 + C)^2
-$$</p>
-<p>$$
+$$
+y' = 2x \cdot 3(x^2 + C)^2 = 6x(x^2 + C)^2
+$$$$
 y - 1 = (x^2 + C)^3 \Rightarrow (y - 1)^{2/3} = [(x^2 + C)^3]^{2/3} = (x^2 + C)^2
-$$</p>
-<p>$$
+$$$$
 6x(y - 1)^{2/3} = 6x(x^2 + C)^2
-$$</p>
-
+$$
 
 <h2 class="relative group">Existence of Solutions, General, Particular and Singular 
     <div id="existence-of-solutions-general-particular-and-singular" class="anchor"></div>
@@ -1546,10 +691,9 @@ $$</p>
 <li>对于形如 \(y&rsquo; = g(x)h(y)\) 的 ODE</li>
 <li>解法是将变量 x 和 y 分离，积分两边：</li>
 </ul>
-<p>$$
+$$
 \int \frac{1}{h(y)} dy = \int g(x) dx
-$$</p>
-<ul>
+$$<ul>
 <li>这是标准的 <strong>Separation of Variables</strong></li>
 </ul>
 
@@ -1570,48 +714,41 @@ $$</p>
 </li>
 <li>
 <p>标准形式为：</p>
-<p>$$
-y&rsquo; + P(x)y = f(x)
-$$</p>
-</li>
+$$
+    y' + P(x)y = f(x)
+    $$</li>
 <li>
 <p>有 Integrating Factor</p>
 </li>
 </ul>
-<p>$$
-\mu(x) = e^{\int P(x),dx}
-$$</p>
-<ul>
+$$
+\mu(x) = e^{\int P(x)\,dx}
+$$<ul>
 <li>将方程两边都乘以 \(\mu(x)\)</li>
 </ul>
-<p>$$
-\mu(x) \cdot y&rsquo; + \mu(x) \cdot P(x) \cdot y = \mu(x) \cdot f(x)
-$$</p>
-<ul>
+$$
+\mu(x) \cdot y' + \mu(x) \cdot P(x) \cdot y = \mu(x) \cdot f(x)
+$$<ul>
 <li>左边可以写成一个积的导数：</li>
 </ul>
-<p>$$
+$$
 \frac{d}{dx}[\mu(x) \cdot y] = \mu(x) \cdot f(x)
-$$</p>
-<ul>
+$$<ul>
 <li>两边同时积分</li>
 </ul>
-<p>$$
-\int \frac{d}{dx}[\mu(x) \cdot y], dx = \int \mu(x) \cdot f(x) , dx
-$$</p>
-<ul>
+$$
+\int \frac{d}{dx}[\mu(x) \cdot y]\, dx = \int \mu(x) \cdot f(x) \, dx
+$$<ul>
 <li>得到：</li>
 </ul>
-<p>$$
-\mu(x) \cdot y = \int \mu(x) \cdot f(x), dx + C
-$$</p>
-<ul>
+$$
+\mu(x) \cdot y = \int \mu(x) \cdot f(x)\, dx + C
+$$<ul>
 <li>解出 y(x)</li>
 </ul>
-<p>$$
-y(x) = \frac{1}{\mu(x)} \left[ \int \mu(x) \cdot f(x) , dx + C \right]
-$$</p>
-
+$$
+y(x) = \frac{1}{\mu(x)} \left[ \int \mu(x) \cdot f(x) \, dx + C \right]
+$$
 
 <h3 class="relative group">Ex. 
     <div id="ex" class="anchor"></div>
@@ -1623,65 +760,57 @@ $$</p>
     </span>        
     
 </h3>
-<p>$$
-xy&rsquo; - y = 2x^2 \quad \text{with} \quad y(x_0) = y_0
-$$</p>
-<ul>
+$$
+xy' - y = 2x^2 \quad \text{with} \quad y(x_0) = y_0
+$$<ul>
 <li>将 DE 转换成标准形式，有 \(y&rsquo; - \frac{1}{x} y = 2x\)</li>
 <li>所以 \(P(x) = -\frac{1}{x}，f(x) = 2x\)</li>
 </ul>
 <ol>
 <li>
 <p>计算积分因子（Integrating Factor）：</p>
-<p>$$
-\mu(x) = e^{\int -\frac{1}{x} dx} = e^{-\ln x} = \frac{1}{x}
-$$</p>
-</li>
+$$
+    \mu(x) = e^{\int -\frac{1}{x} dx} = e^{-\ln x} = \frac{1}{x}
+    $$</li>
 <li>
 <p>两边乘以积分因子：</p>
-<p>$$
-\frac{d}{dx} \left( \frac{1}{x} y \right) = 2
-$$</p>
-</li>
+$$
+    \frac{d}{dx} \left( \frac{1}{x} y \right) = 2
+    $$</li>
 <li>
 <p>积分并解出 y：</p>
-<p>$$
-\frac{1}{x} y = \int 2 dx + C = 2x + C \quad \Rightarrow \quad y = x(2x + C) = 2x^2 + Cx
-$$</p>
-</li>
+$$
+    \frac{1}{x} y = \int 2 dx + C = 2x + C \quad \Rightarrow \quad y = x(2x + C) = 2x^2 + Cx
+    $$</li>
 <li>
 <p>若 IC 为 \(y(1) = 1\)：</p>
 <ul>
 <li>解代入得：</li>
 </ul>
-<p>$$
-1 = 2(1)^2 + C(1) \Rightarrow C = -1
-$$</p>
-</li>
+$$
+    1 = 2(1)^2 + C(1) \Rightarrow C = -1
+    $$</li>
 <li>
 <p>若 IC 为 y(1) = 0</p>
 <ul>
 <li>解代入得：</li>
 </ul>
-<p>$$
-0 = 2 + C \Rightarrow C = -2
-$$</p>
-</li>
+$$
+    0 = 2 + C \Rightarrow C = -2
+    $$</li>
 <li>
 <p>若 IC 为 \(y&rsquo;(1) = 2, y(1) = 2\)</p>
 </li>
 </ol>
-<p>$$
-y = 2x^2 + Cx \Rightarrow y&rsquo; = 4x + C
-$$</p>
-<ul>
+$$
+y = 2x^2 + Cx \Rightarrow y' = 4x + C
+$$<ul>
 <li>\(y&rsquo;(1) = 4 + C = 2 \Rightarrow C = -2\)</li>
 <li>代入 y(1) 得：</li>
 </ul>
-<p>$$
+$$
 y(1) = 2 + (-2) = 0 \ne 2
-$$</p>
-<ul>
+$$<ul>
 <li>❌ 无解（No solution）</li>
 </ul>
 
@@ -1711,10 +840,9 @@ $$</p>
 <ul>
 <li>
 <p><strong>Initial-value problem (IVP, 初值问题)</strong>：</p>
-<p>$$
-y&rsquo; = f(x,y), \quad y(x_0) = y_0
-$$</p>
-</li>
+$$
+    y' = f(x,y), \quad y(x_0) = y_0
+    $$</li>
 </ul>
 <blockquote>
 <p>给到一个 1st Order Differential Equation，并给了某个点 \((x_0, y_0)\) 的初始条件
@@ -1761,10 +889,9 @@ $$</p>
 <ul>
 <li>
 <p><strong>Linear IVP (线性初值问题)</strong>：</p>
-<p>$$
-y&rsquo; + P(x)y = f(x), \quad y(x_0) = y_0
-$$</p>
-</li>
+$$
+    y' + P(x)y = f(x), \quad y(x_0) = y_0
+    $$</li>
 </ul>
 <blockquote>
 <p>多了一个 Linear 的条件</p>
@@ -1793,25 +920,22 @@ $$</p>
 <li>f(x,y) 连续；\(\dfrac{\partial f}{\partial y}\) 在该区域也连续</li>
 <li>而在 Linear 的特殊情况下</li>
 </ul>
-<p>$$
-y&rsquo; + P(x)y = f(x)
-$$</p>
-<ul>
+$$
+y' + P(x)y = f(x)
+$$<ul>
 <li>可以改写成为</li>
 </ul>
-<p>$$
-y&rsquo; = f(x) - P(x)y = \hat{f}(x,y)
-$$</p>
-<ul>
+$$
+y' = f(x) - P(x)y = \hat{f}(x,y)
+$$<ul>
 <li>
 <p>也就来到了 Non-Linear 的第一个条件，想要让 \(\hat{f}(x,y)\) Cont. 在 Linear Function 中只需要 \(f(x)、P(x)\)  在区间 II 上连续就行</p>
 </li>
 <li>
 <p>同时 \(f(x)、P(x)\)  连续的情况下，也满足了 Partial Derivative 连续的条件，这是因为</p>
-<p>$$
-\frac{\partial \hat{f}(x,y)}{\partial y} = -P(x)
-$$</p>
-</li>
+$$
+    \frac{\partial \hat{f}(x,y)}{\partial y} = -P(x)
+    $$</li>
 <li>
 <p>所以只要 P(x) 连续，所以这个偏导也连续</p>
 </li>
@@ -1829,17 +953,15 @@ $$</p>
     
 </h4>
 <p>“What is the interval R in this example?”</p>
-<p>$$
-y&rsquo; = 3y^{2/3}, \quad y(2)=0
-$$</p>
-<ul>
+$$
+y' = 3y^{2/3}, \quad y(2)=0
+$$<ul>
 <li>Non-Linear Case，检查 \(f(x,y) = 3y^{2/3}\) 是连续的</li>
 <li>计算偏导：</li>
 </ul>
-<p>$$
+$$
 \frac{\partial f}{\partial y} = 2y^{-1/3} = \frac{2}{y^{1/3}}
-$$</p>
-<ul>
+$$<ul>
 <li>观察可以发现，当 y=0 的时候，\(\dfrac{2}{y^{1/3}}\)  会发散</li>
 </ul>
 <blockquote>
@@ -1862,10 +984,9 @@ $$</p>
 <ul>
 <li>对于一个微分方程：</li>
 </ul>
-<p>$$
-y&rsquo; = f(x,y),
-$$</p>
-<ul>
+$$
+y' = f(x,y),
+$$<ul>
 <li>它告诉你：在平面上每一个点 \((x,y)\)，解曲线的斜率是多少</li>
 <li><strong>方向场</strong> 就是：在很多点 \((x,y)\) 上画一条小的斜线，表示解曲线在这里的切线方向</li>
 <li>这样即使你没解出方程，也能大致看到解的走势</li>
@@ -1885,10 +1006,9 @@ $$</p>
 <ul>
 <li>
 <p><strong>Autonomous DE（自治微分方程）</strong> 指的是方程里面 Independent Variable <strong>x</strong> 不显式出现，形式为：</p>
-<p>$$
-\frac{dy}{dx} = f(y)
-$$</p>
-</li>
+$$
+    \frac{dy}{dx} = f(y)
+    $$</li>
 <li>
 <p>或者更一般写成 \(F(y,y&rsquo;)=0\)</p>
 </li>
@@ -1925,10 +1045,9 @@ $$</p>
     </span>        
     
 </h4>
-<p>$$
-x&rsquo; = x(4-x)
-$$</p>
-<ul>
+$$
+x' = x(4-x)
+$$<ul>
 <li>Critical Point 出现在 x = 0 和 4 的位置</li>
 </ul>
 <p>
@@ -2059,10 +1178,9 @@ $$</p>
 <ul>
 <li>回顾前面的 Linear ODE，其 Form 为</li>
 </ul>
-<p>$$
-a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&rsquo; + a_0(x)y = g(x)
-$$</p>
-<ul>
+$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = g(x)
+$$<ul>
 <li>这是 n-th order linear ordinary differential equation, ODE 的一般</li>
 <li>其中 \(a_k(x)\) 是系数函数，可能随 \(x\) 变化</li>
 <li>右边的 \(g(x)\) 是非齐次项</li>
@@ -2087,23 +1205,20 @@ $$</p>
 <li>线性微分的算子 L 可以简化我们写高阶 linear ODE 的方式</li>
 <li>上面提到了，传统的写法是</li>
 </ul>
-<p>$$
-a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&rsquo; + a_0(x)y = g(x)
-$$</p>
-<ul>
+$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = g(x)
+$$<ul>
 <li>这整个东西可以简写为：</li>
 </ul>
-<p>$$
+$$
 Ly = g(x)
-$$</p>
-<ul>
+$$<ul>
 <li>其中 L 是一个“作用在 y”上的线性微分算子</li>
 <li>可以发现 Equation 的左边只有 y，这就说明了 L 不仅包含 Coefficient，还包含对 y 的 Derivative</li>
 </ul>
-<p>$$
+$$
 L = a_n(x) \frac{d^n}{dx^n} + a_{n-1}(x) \frac{d^{n-1}}{dx^{n-1}} + \cdots + a_1(x) \frac{d}{dx} + a_0(x)
-$$</p>
-<p>
+$$<p>
     <figure>
       <img
         class="my-0 rounded-md"
@@ -2131,10 +1246,9 @@ $$</p>
     </span>        
     
 </h4>
-<p>$$
+$$
 3\ddot{y} - 4 \dot{y} + 2xy = e^{x} \Rightarrow L = 3 \frac{d^2}{dx^2} - 4 \frac{d}{dx} + 2x
-$$</p>
-
+$$
 
 <h4 class="relative group">Ex2. Find Linear Differential Operator L 
     <div id="ex2-find-linear-differential-operator-l" class="anchor"></div>
@@ -2146,10 +1260,9 @@ $$</p>
     </span>        
     
 </h4>
-<p>$$
-y&rsquo;&rsquo; + x \sin(y&rsquo;) - xy = x^2
-$$</p>
-<ul>
+$$
+y'' + x \sin(y') - xy = x^2
+$$<ul>
 <li>这并不是一个 Linear 的 DE，所以没有整个 Linear Differential Operator L</li>
 </ul>
 
@@ -2169,16 +1282,14 @@ $$</p>
 <li>那么对于 <strong>n 阶线性 ODE + 初始条件（initial value problem, IVP）</strong>，是否也存在类似定理？</li>
 <li>要求 nth ODE 形如</li>
 </ul>
-<p>$$
-a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&rsquo; + a_0(x)y = g(x)
-$$</p>
-<ul>
+$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = g(x)
+$$<ul>
 <li>initial conditions 为</li>
 </ul>
-<p>$$
-y(x_0) = y_0,\quad y&rsquo;(x_0) = y_1,\quad \cdots,\quad y^{(n-1)}(x_0) = y_{n-1}
-$$</p>
-
+$$
+y(x_0) = y_0,\quad y'(x_0) = y_1,\quad \cdots,\quad y^{(n-1)}(x_0) = y_{n-1}
+$$
 
 <h3 class="relative group"><strong>Theorem: Existence of a Unique Solution</strong> 
     <div id="theorem-existence-of-a-unique-solution" class="anchor"></div>
@@ -2193,10 +1304,9 @@ $$</p>
 <ul>
 <li>若函数 \(a_1(x), a_2(x), &hellip;, a_n(x), g(x)\) 在区间 I 上连续（continuous），且 \(a_n(x) \ne 0\)，那么对任意 \(x_0 \in I\)，初值问题：</li>
 </ul>
-<p>$$
-a_n(x)y^{(n)} + \cdots + a_0(x)y = g(x), \quad y(x_0) = y_0, \quad y&rsquo;(x_0) = y_1, \quad \cdots, \quad y^{(n-1)}(x_0) = y_{n-1}
-$$</p>
-<ul>
+$$
+a_n(x)y^{(n)} + \cdots + a_0(x)y = g(x), \quad y(x_0) = y_0, \quad y'(x_0) = y_1, \quad \cdots, \quad y^{(n-1)}(x_0) = y_{n-1}
+$$<ul>
 <li>在区间 I 上有唯一解</li>
 </ul>
 <blockquote>
@@ -2214,16 +1324,14 @@ $$</p>
     </span>        
     
 </h4>
-<p>$$
-y^{(3)} + 3y&rsquo;&rsquo; + 4y&rsquo; + 12y = 0
-$$</p>
-<ul>
+$$
+y^{(3)} + 3y'' + 4y' + 12y = 0
+$$<ul>
 <li>初始条件为：</li>
 </ul>
-<p>$$
-y(1) = y&rsquo;(1) = y&rsquo;&rsquo;(1) = 0
-$$</p>
-<ul>
+$$
+y(1) = y'(1) = y''(1) = 0
+$$<ul>
 <li>系数全是常数，连续</li>
 <li>\(a_3 = 1 \ne 0\)，最高阶导数项系数非零</li>
 <li>所以 Exist Unique Solution</li>
@@ -2240,16 +1348,14 @@ $$</p>
     </span>        
     
 </h4>
-<p>$$
-(1 - t^2)y&rsquo;&rsquo; - 2ty&rsquo; + 2y = 0
-$$</p>
-<ul>
+$$
+(1 - t^2)y'' - 2ty' + 2y = 0
+$$<ul>
 <li>初始条件是：</li>
 </ul>
-<p>$$
-y(0) = 1,\quad y&rsquo;(0) = 2
-$$</p>
-<ul>
+$$
+y(0) = 1,\quad y'(0) = 2
+$$<ul>
 <li>问：在哪个区间上存在唯一解？</li>
 </ul>
 <hr>
@@ -2284,31 +1390,27 @@ $$</p>
 <ul>
 <li>对于一个 nth Order 的 Homogenous Linear DEs</li>
 </ul>
-<p>$$
+$$
 L(y) = 0
-$$</p>
-<ul>
+$$<ul>
 <li>一定有 n 个 linearly independent 的解，这组解被称为：<strong>fundamental set of solutions（基本解组）</strong></li>
 <li>当知道了完整的 Solution Set：</li>
 </ul>
-<p>$$
-y_1(x), y_2(x), &hellip;, y_n(x)
-$$</p>
-<ul>
+$$
+y_1(x), y_2(x), ..., y_n(x)
+$$<ul>
 <li>那么 <strong>Particular Solution</strong> 就是它们的 <strong>linear combination</strong></li>
 <li>如果 IVP 给了超过 n 个初值条件，会 over-determined，可能无解</li>
 <li>这是因为 L 是线性算子（linear operator）</li>
 </ul>
-<p>$$
+$$
 L(\alpha y_1 + \beta y_2) = \alpha L(y_1) + \beta L(y_2)
-$$</p>
-<ul>
+$$<ul>
 <li>也就是说假设 \(y_1, y_2, &hellip;, y_n\) 是解，那么任意线性组合：</li>
 </ul>
-<p>$$
+$$
 c_1 y_1 + c_2 y_2 + \cdots + c_n y_n
-$$</p>
-<ul>
+$$<ul>
 <li>也一定是解，这就是为什么我们把所有解写成“线性组合”</li>
 </ul>
 
@@ -2326,10 +1428,9 @@ $$</p>
 <ul>
 <li>回忆线性代数里的定义：向量 \(v_1, &hellip;, v_n\) 是线性无关的意思是：</li>
 </ul>
-<p>$$
+$$
 c_1 v_1 + c_2 v_2 + \cdots + c_n v_n = 0
-$$</p>
-<ul>
+$$<ul>
 <li>仅当所有 \(c_k = 0\) 时才成</li>
 <li>在函数空间中也一样：如果只有 \(c_1 = c_2 = \cdots = c_n = 0\) 才能让 \(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) = 0\) 成立，则函数 \(f_1, &hellip;, f_n\) 是 linearly independent</li>
 </ul>
@@ -2409,10 +1510,9 @@ $$</p>
 <li>如果我们有 n 个多项式函数，这种情况是容易判断的</li>
 <li>找到它们的线性组合形式：</li>
 </ul>
-<p>$$
+$$
 \sum_{k=1}^{n} c_k y_k
-$$</p>
-<ul>
+$$<ul>
 <li>也就是形式如 \(c_1 y_1 + c_2 y_2 + \cdots + c_n y_n\)</li>
 <li>观察每一项（例如 \(x^k\)）的系数，如果所有系数都为零，说明这些函数线性无关</li>
 <li>这就是上面的两个例子</li>
@@ -2447,15 +1547,14 @@ $$</p>
 <ul>
 <li>
 <p>对于一组函数 \(f_1(x), f_2(x), \dots, f_n(x)\)，如果它们在区间 \([a, b]\) 上有 \(n-1\) 阶导数，则可以构造一个如下的行列式：</p>
-<p>$$
-W(f_1, f_2, \dots, f_n) = \begin{vmatrix}
-f_1 &amp; f_2 &amp; \cdots &amp; f_n \
-f_1&rsquo; &amp; f_2&rsquo; &amp; \cdots &amp; f_n&rsquo; \
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \
-f_1^{(n-1)} &amp; f_2^{(n-1)} &amp; \cdots &amp; f_n^{(n-1)}
-\end{vmatrix}
-$$</p>
-</li>
+$$
+    W(f_1, f_2, \dots, f_n) = \begin{vmatrix}
+    f_1 & f_2 & \cdots & f_n \\
+    f_1' & f_2' & \cdots & f_n' \\
+    \vdots & \vdots & \ddots & \vdots \\
+    f_1^{(n-1)} & f_2^{(n-1)} & \cdots & f_n^{(n-1)}
+    \end{vmatrix}
+    $$</li>
 <li>
 <p>假设这组函数在区间 \(I = [a, b]\) 上都有 \(n-1\) 阶导数</p>
 </li>
@@ -2478,24 +1577,21 @@ $$</p>
 <ul>
 <li>考虑一个 Function Set</li>
 </ul>
-<p>$$
-\left{ e^{m_1 x}, e^{m_2 x} \right}, \quad m_1, m_2 \in \mathbb{C}
-$$</p>
-<ul>
+$$
+\left\{ e^{m_1 x}, e^{m_2 x} \right\}, \quad m_1, m_2 \in \mathbb{C}
+$$<ul>
 <li>想要找这些函数是否 <strong>linearly independent</strong></li>
 <li>如果通过之前的通过 Polynomial 构造的方式，可以列出 Linear Combination</li>
 </ul>
-<p>$$
+$$
 C_1 e^{m_1 x} + C_2 e^{m_2 x} = 0, \quad \forall x \in \mathbb{R} \tag{I}
-$$</p>
-<ul>
+$$<ul>
 <li>目前这是一个方程、两个未知数，方程不够</li>
 <li>于是可以尝试用 Wronskain，先对 Functions 求导，得到</li>
 </ul>
-<p>$$
+$$
 C_1 m_1 e^{m_1 x} + C_2 m_2 e^{m_2 x} = 0, \quad \forall x \in \mathbb{R}
-$$</p>
-<ul>
+$$<ul>
 <li>将他们写入 Wronskain 可以得到</li>
 </ul>
 
@@ -2534,29 +1630,26 @@ $$</p>
 <ul>
 <li>也就是寻找一个向量 \(\vec{C}\) 使得：</li>
 </ul>
-<p>$$
+$$
 A(x)\vec{C} = \vec{0}, \quad \forall x \in \mathbb{R}
-$$</p>
-<ul>
+$$<ul>
 <li>如果唯一满足这个条件的是 <strong>\(\vec{C} = \vec{0}\)</strong>，那说明函数是线性无关的</li>
 <li>而要保证这一结论，可以通过证明如果某个点 \(x \in \mathbb{R}\) 使得 \(A(x)\) Invertible，那么系统只有唯一解 \(\vec{C} = \vec{0}\)</li>
 <li>而想要证明 \(A(x_0)\) 可逆，就可以通过 Determinant，即</li>
 </ul>
-<p>$$
+$$
 \vec{C} = A(x_0)^{-1} \vec{0} = \vec{0}
-$$</p>
-<ul>
+$$<ul>
 <li>而这个 \(\det A(x)\) 就是 <strong>Wronskian</strong>，有</li>
 </ul>
-<p>$$
-W(f_1, f_2) =
+$$
+W(f_1, f_2) = 
 \begin{vmatrix}
-e^{m_1 x} &amp; e^{m_2 x} \
-m_1 e^{m_1 x} &amp; m_2 e^{m_2 x}
+e^{m_1 x} & e^{m_2 x} \\
+m_1 e^{m_1 x} & m_2 e^{m_2 x}
 \end{vmatrix}
 = e^{(m_1 + m_2)x}(m_2 - m_1)
-$$</p>
-<ul>
+$$<ul>
 <li>如果 \(m_1 \ne m_2\)，那么 \(W(f_1, f_2) \ne 0\)，Wronskian 不为零</li>
 <li>因此函数集合 \({e^{m_1 x}, e^{m_2 x}}\) Linearly Independent</li>
 </ul>
@@ -2577,16 +1670,14 @@ $$</p>
 <li>计算得 \(W(f_1, f_2, \dots, f_n) = 0\) 对所有 \(x \in I\) 成立</li>
 <li><strong>不能</strong>否断定这些函数是 **linearly dependent，**这不是定理所说的内容</li>
 </ul>
-<p>$$
+$$
 W \not\equiv 0 \quad \Longrightarrow \quad \text{线性无关}
-$$</p>
-<ul>
+$$<ul>
 <li>但是它的逆命题 <strong>不成立</strong>：</li>
 </ul>
-<p>$$
+$$
 W \equiv 0 \quad NOT\Rightarrow \quad \text{线性相关}
-$$</p>
-
+$$
 
 <h4 class="relative group">Ex. Case when W = 0 for all x in I 
     <div id="ex-case-when-w--0-for-all-x-in-i" class="anchor"></div>
@@ -2598,20 +1689,19 @@ $$</p>
     </span>        
     
 </h4>
-<p>$$
-f_1(x) =
+$$
+f_1(x) = 
 \begin{cases}
-x^2, &amp; x \geq 0 \
-0, &amp; x &lt; 0
+x^2, & x \geq 0 \\
+0, & x < 0
 \end{cases},
 \quad
 f_2(x) =
 \begin{cases}
-0, &amp; x \geq 0 \
-x^2, &amp; x &lt; 0
+0, & x \geq 0 \\
+x^2, & x < 0
 \end{cases}
-$$</p>
-<ul>
+$$<ul>
 <li>这两个函数在各自区域里互补，显然是线性无关的</li>
 <li>但它们的 Wronskian 在整个区间恒为零，所以 Wronskian=0 并不能保证线性相关</li>
 </ul>
@@ -2630,17 +1720,15 @@ $$</p>
 <ul>
 <li>如果一组函数 \({y_1(x), \dots, y_n(x)}\) 是某个n阶 homogeneous linear ODE 的解</li>
 </ul>
-<p>$$
-a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y&rsquo; + a_0(x)y = 0
-$$</p>
-<ul>
+$$
+a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = 0
+$$<ul>
 <li>会有一个更强的结论，也就是</li>
 <li>这些函数在区间 II 上<strong>线性无关 当且仅当 iff</strong>：</li>
 </ul>
-<p>$$
+$$
 W(y_1, y_2, \dots, y_n)(x) \neq 0, \quad \forall x \in I
-$$</p>
-<ul>
+$$<ul>
 <li>也就是说</li>
 <li>\(W \equiv 0\) ⇒ 必定线性相关</li>
 <li>\(W \neq 0\) ⇒ 必定线性无关</li>
@@ -2688,116 +1776,97 @@ $$</p>
     
 </h3>
 <p>Assume that we already know that \(y_1(x)\) is a solution for this ODE, and consider the ODE</p>
-<p>$$
-y&rsquo;&rsquo;+P(x)y&rsquo;+Q(x)y=0
-$$</p>
-<ul>
+$$
+y''+P(x)y'+Q(x)y=0
+$$<ul>
 <li>Let the second solution as</li>
 </ul>
-<p>$$
+$$
 y_2(x)=U(x)y_1(x)
-$$</p>
-<ul>
+$$<ul>
 <li>Where \(U(x)\) is an undetermined function</li>
 <li>Take the derivative on both side to get</li>
 </ul>
-<p>$$
-y_2&rsquo; = U&rsquo; y_1 + U y_1&rsquo;
-$$</p>
-<p>$$
-y_2&rsquo;&rsquo; = U&rsquo;&rsquo; y_1 + 2U&rsquo; y_1&rsquo; + U y_1&rsquo;'
-$$</p>
-<ul>
+$$
+y_2' = U' y_1 + U y_1' 
+$$$$
+y_2'' = U'' y_1 + 2U' y_1' + U y_1''
+$$<ul>
 <li>Recall the original function \(y&rsquo;&rsquo; + P(x) y&rsquo; + Q(x) y = 0\)</li>
 <li>Sub in \(y_2\)  to get</li>
 </ul>
-<p>$$
-(U y_1)&rsquo;&rsquo; + P(U y_1)&rsquo; + Q(U y_1) = 0
-$$</p>
-<blockquote>
+$$
+(U y_1)'' + P(U y_1)' + Q(U y_1) = 0
+$$<blockquote>
 <p>Substitution is \(y_2= Uy_1\), since \(y_2\) is also a solution, so it can be sub in the function</p>
 </blockquote>
 <ul>
 <li>Expand to get</li>
 </ul>
-<p>$$
-(Uy_1)&rsquo;&rsquo; = U&rsquo;&lsquo;y_1 + 2U&rsquo;y_1&rsquo; + Uy_1&rsquo;&rsquo;
-$$</p>
-<p>$$
-(Uy_1)&rsquo; = U&rsquo;y_1 + Uy_1'
-$$</p>
-<ul>
+$$
+(Uy_1)'' = U''y_1 + 2U'y_1' + Uy_1''
+$$$$
+(Uy_1)' = U'y_1 + Uy_1'
+$$<ul>
 <li>Sub in to get</li>
 </ul>
-<p>$$
-(U&rsquo;&lsquo;y_1 + 2U&rsquo;y_1&rsquo; + Uy_1&rsquo;&rsquo;) + P(U&rsquo;y_1 + Uy_1&rsquo;) + Q(Uy_1) = 0
-$$</p>
-<ul>
+$$
+(U''y_1 + 2U'y_1' + Uy_1'') + P(U'y_1 + Uy_1') + Q(Uy_1) = 0
+$$<ul>
 <li>Arrange them into order of U</li>
 </ul>
-<p>$$
-y_1U&rsquo;&rsquo;+(2y_1&rsquo; + P y_1)U&rsquo;+(y_1&rsquo;&rsquo; + P y_1&rsquo; + Q y_1)U  = 0\tag{1}
-$$</p>
-<ul>
+$$
+y_1U''+(2y_1' + P y_1)U'+(y_1'' + P y_1' + Q y_1)U  = 0\tag{1}
+$$<ul>
 <li>We have the original ODE \(y_1&rsquo;&rsquo; + P y_1&rsquo; + Q y_1=0\)</li>
 <li>Thus (1) now become</li>
 </ul>
-<p>$$
-U y_1&rsquo;&rsquo; + (2 y_1&rsquo; + P y_1) U&rsquo; + y_1 U&rsquo;&rsquo; = 0
-$$</p>
-<ul>
+$$
+U y_1'' + (2 y_1' + P y_1) U' + y_1 U'' = 0
+$$<ul>
 <li>Now let \(w=U&rsquo;\), then</li>
 </ul>
-<p>$$
-y_1 w&rsquo; + (2 y_1&rsquo; + P y_1) w = 0
-$$</p>
-<ul>
+$$
+y_1 w' + (2 y_1' + P y_1) w = 0
+$$<ul>
 <li>Arrange to get</li>
 </ul>
-<p>$$
-w&rsquo; + \left( 2\frac{y_1&rsquo;}{y_1} + P \right) w = 0
-$$</p>
-<ul>
+$$
+w' + \left( 2\frac{y_1'}{y_1} + P \right) w = 0
+$$<ul>
 <li>Further Arrange to get</li>
 </ul>
-<p>$$
-\frac{w&rsquo;}{w} + 2\frac{y_1&rsquo;}{y_1} + P = 0\Rightarrow \frac{w&rsquo;}{w} + 2\frac{y_1&rsquo;}{y_1} = -P
-$$</p>
-<ul>
+$$
+\frac{w'}{w} + 2\frac{y_1'}{y_1} + P = 0\Rightarrow \frac{w'}{w} + 2\frac{y_1'}{y_1} = -P
+$$<ul>
 <li>Can see that LHS is a result of Derivative of Products</li>
 <li>Thus have</li>
 </ul>
-<p>$$
+$$
 \frac{d}{dx}(\ln(w y_1^2)) = -P
-$$</p>
-<ul>
+$$<ul>
 <li>Integrate both side to get</li>
 </ul>
-<p>$$
+$$
 \ln(w y_1^2) = -\int P(x),dx
-$$</p>
-<p>$$
+$$$$
 w y_1^2 = e^{-\int P(x),dx}\Rightarrow w = \frac{1}{y_1^2} e^{-\int P(x),dx}
-$$</p>
-<ul>
+$$<ul>
 <li>Recall that we let \(w=U&rsquo;\) before, now sub back to get</li>
 </ul>
-<p>$$
-U&rsquo; = \frac{1}{y_1^2} e^{-\int P(x),dx}
-$$</p>
-<ul>
+$$
+U' = \frac{1}{y_1^2} e^{-\int P(x),dx}
+$$<ul>
 <li>Integrate both side to get</li>
 </ul>
-<p>$$
+$$
 U = \int \frac{1}{y_1^2} e^{-\int P(x),dx},dx
-$$</p>
-<ul>
+$$<ul>
 <li>Recall we let \(y_2=y1U(x)\), so the <strong>Final Result</strong> is</li>
 </ul>
-<p>$$
+$$
 y_2(x) = y_1(x) \int \frac{e^{-\int P(x),dx}}{y_1(x)^2},dx
-$$</p>
-
+$$
 
 <h4 class="relative group">Ex. Find the second Solution for 2nd Linear Homo ODE 
     <div id="ex-find-the-second-solution-for-2nd-linear-homo-ode" class="anchor"></div>
@@ -2840,42 +1909,36 @@ $$</p>
     
 </h2>
 <p>Consider the function</p>
-<p>$$
-a y&rsquo;&rsquo;&rsquo; + b y&rsquo;&rsquo; + c y&rsquo; + d y = 0\quad a,b,c,d \in \mathbb{R}
-$$</p>
-<ul>
+$$
+a y''' + b y'' + c y' + d y = 0\quad a,b,c,d \in \mathbb{R}
+$$<ul>
 <li>This is a third-order homogeneous linear ODE with constant coefficients</li>
 <li>Consider \(y(x) = e^{mx}\) as a solution</li>
 <li>Now sub in \(y(x)\) into function</li>
 </ul>
-<p>$$
-y&rsquo; = m e^{mx}, \quad y&rsquo;&rsquo; = m^2 e^{mx}, \quad y&rsquo;&rsquo;&rsquo; = m^3 e^{mx}
-$$</p>
-<p>$$
+$$
+y' = m e^{mx}, \quad y'' = m^2 e^{mx}, \quad y''' = m^3 e^{mx}
+$$$$
 a m^3 e^{mx} + b m^2 e^{mx} + c m e^{mx} + d e^{mx} = 0
-$$</p>
-<ul>
+$$<ul>
 <li>Since \(e^{mx} \neq 0\), then get rid of it to get</li>
 </ul>
-<p>$$
+$$
 a m^3 + b m^2 + c m + d = 0
-$$</p>
-<ul>
+$$<ul>
 <li>This is the Characteristic Equation（特征方程）</li>
 <li>For that Equation above, clearly it has three solutions \(m_1, m_2, m_3\), so the funciton can become</li>
 </ul>
-<p>$$
+$$
 a (m - m_1)(m - m_2)(m - m_3) = 0
-$$</p>
-<ul>
+$$<ul>
 <li>Thus the three solutions are \(e^{m_1 x},\ e^{m_2 x},\ e^{m_3 x}\)</li>
 <li>And clearly if \(m_1\neq m_2\neq m_3\), then they are linearly independent</li>
 <li>Then will get the fundamental solution set of the DE as</li>
 </ul>
-<p>$$
-{e^{m_1 x}, e^{m_2 x}, e^{m_3 x}}
-$$</p>
-
+$$
+\{e^{m_1 x}, e^{m_2 x}, e^{m_3 x}\}
+$$
 
 <h3 class="relative group">Types of roots (solution for DE) 
     <div id="types-of-roots-solution-for-de" class="anchor"></div>
@@ -2891,16 +1954,14 @@ $$</p>
 <ul>
 <li>Now consider a more general case, for a nth order homo DE</li>
 </ul>
-<p>$$
-a_n y^{(n)} + a_{n-1} y^{(n-1)} + \dots + a_1 y&rsquo; + a_0 y = 0
-$$</p>
-<ul>
+$$
+a_n y^{(n)} + a_{n-1} y^{(n-1)} + \dots + a_1 y' + a_0 y = 0
+$$<ul>
 <li>Its Characteristic Equation is</li>
 </ul>
-<p>$$
+$$
 a_n m^n + a_{n-1} m^{n-1} + \dots + a_1 m + a_0 = 0
-$$</p>
-<ul>
+$$<ul>
 <li>The possible roots can be
 <ul>
 <li>Real</li>
@@ -2923,10 +1984,9 @@ $$</p>
     
 </h4>
 <p>The most simple case, when all three are <strong>Distinct Real Roots</strong></p>
-<p>$$
+$$
 y = c_1 e^{m_1 x} + c_2 e^{m_2 x} + \dots + c_n e^{m_n x}
-$$</p>
-<ul>
+$$<ul>
 <li>Then the solution is simple</li>
 </ul>
 
@@ -2942,22 +2002,19 @@ $$</p>
     
 </h4>
 <p>As Complex Roots need to appear with its <strong>Conjugate,</strong> thus have</p>
-<p>$$
+$$
 m_{1,2} = \alpha \pm i\beta
-$$</p>
-<ul>
+$$<ul>
 <li>Their roots are \(y = e^{(\alpha + i\beta)x}\), expand and get</li>
 </ul>
-<p>$$
+$$
 e^{\alpha x} \cos(\beta x), \quad e^{\alpha x} \sin(\beta x)
-$$</p>
-<ul>
+$$<ul>
 <li>Those two complex solution can be represent as</li>
 </ul>
-<p>$$
+$$
 y = e^{\alpha x}(c_1 \cos\beta x + c_2 \sin\beta x)
-$$</p>
-<blockquote>
+$$<blockquote>
 <p>Prove that a Complex Number Solution’s Conjugate is also a Solution
 We have the first Complex Number as
 \(A_n m_1^n + A_{n-1} m_1^{n-1} + \cdots + A_1 m_1 + A_0 = 0\), take Conjugate on both side to get
@@ -2976,10 +2033,9 @@ We have the first Complex Number as
     
 </h4>
 <p>If one Real Root has repeated r times \(m_1 = m_2 = \dots = m_r = m\), then the solution is</p>
-<p>$$
+$$
 e^{mx},x e^{mx}, x^2 e^{mx}, \dots, x^{r-1} e^{mx}
-$$</p>
-
+$$
 
 <h4 class="relative group">Ex. Specify the general class of solution of function 
     <div id="ex-specify-the-general-class-of-solution-of-function" class="anchor"></div>
@@ -2992,18 +2048,16 @@ $$</p>
     
 </h4>
 <p>Having the function</p>
-<p>$$
-y^{(6)} - 8y^{(5)} + 23y^{(4)} - 26y^{(3)} - 2y&rsquo;&rsquo; + 32y&rsquo; - 24y = 0
-$$</p>
-<hr>
+$$
+y^{(6)} - 8y^{(5)} + 23y^{(4)} - 26y^{(3)} - 2y'' + 32y' - 24y = 0
+$$<hr>
 <ul>
 <li>First get the Characteristic Function \(m^6 - 8m^5 + 23m^4 - 26m^3 - 2m^2 + 32m - 24 = 0\)</li>
 <li>This function has the following roots</li>
 </ul>
-<p>$$
+$$
 (m + 1)(m - 3)(m - 2)^2 (m - (1 + i))(m - (1 - i)) = 0
-$$</p>
-<ul>
+$$<ul>
 <li>The roots we have above are</li>
 </ul>
 <table>
@@ -3040,13 +2094,11 @@ $$</p>
 <ul>
 <li>So the General Solution si</li>
 </ul>
-<p>$$
-{ e^{-x},\ e^{3x},\ e^{2x},\ x e^{2x},\ e^{x}\cos x,\ e^{x}\sin x }
-$$</p>
-<p>$$
+$$
+\{ e^{-x},\ e^{3x},\ e^{2x},\ x e^{2x},\ e^{x}\cos x,\ e^{x}\sin x \}
+$$$$
 y_c(x) = C_1 e^{-x} + C_2 e^{3x} + C_3 e^{2x} + C_4 x e^{2x} + C_5 e^{x}\cos x + C_6 e^{x}\sin x
-$$</p>
-
+$$
 
 <h4 class="relative group">Ex. Can the auxiliary equation have repeated complex roots? 
     <div id="ex-can-the-auxiliary-equation-have-repeated-complex-roots" class="anchor"></div>
@@ -3059,16 +2111,14 @@ $$</p>
     
 </h4>
 <p>If we have the Characteristic Function as</p>
-<p>$$
+$$
 (m - (1+i))^2 (m - (1-i))^2 = 0
-$$</p>
-<ul>
+$$<ul>
 <li>Then its a Conjugate Pair of \((1+i)\) and \((1-i)\), their solution is then</li>
 </ul>
-<p>$$
+$$
 e^{x}\cos x,\ e^{x}\sin x,\ x e^{x}\cos x,\ x e^{x}\sin x
-$$</p>
-
+$$
 
 <h2 class="relative group">General Solution of Non-homo Linear DE 
     <div id="general-solution-of-non-homo-linear-de" class="anchor"></div>
@@ -3081,22 +2131,19 @@ $$</p>
     
 </h2>
 <p>Now we are copping with the Non-Homo Case, where there’s non zero on the RHS, so with the function</p>
-<p>$$
+$$
 a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \dots + a_0(x)y = g(x)
-$$</p>
-<ul>
+$$<ul>
 <li>So we are trying to find a Particular solution that</li>
 </ul>
-<p>$$
+$$
 L(y_p) = g(x)
-$$</p>
-<ul>
+$$<ul>
 <li>And a Homo Solution where</li>
 </ul>
-<p>$$
+$$
 L(y_c) = 0
-$$</p>
-
+$$
 
 <h3 class="relative group">Proving the General Solution is Comp + Part 
     <div id="proving-the-general-solution-is-comp--part" class="anchor"></div>
@@ -3112,34 +2159,29 @@ $$</p>
 <ul>
 <li>So sub it back to get</li>
 </ul>
-<p>$$
+$$
 L(y) = L(y_c + y_p)
-$$</p>
-<ul>
+$$<ul>
 <li>Because L is Linear, then</li>
 </ul>
-<p>$$
+$$
 L(y) = L(y_c) + L(y_p)
-$$</p>
-<ul>
+$$<ul>
 <li>We know that \(L(y_c) = 0\)  and \(L(y_p) = g(x)\), thus</li>
 </ul>
-<p>$$
+$$
 L(y) = 0 + g(x) = g(x)
-$$</p>
-<ul>
+$$<ul>
 <li>This will also work in the converse way that</li>
 </ul>
-<p>$$
+$$
 y - y_p
-$$</p>
-<ul>
+$$<ul>
 <li>has to have the identity that</li>
 </ul>
-<p>$$
+$$
 L(y - y_p) = L(y) - L(y_p) = g(x) - g(x) = 0
-$$</p>
-
+$$
 
 <h4 class="relative group">Ex. Finding the General Solution 
     <div id="ex-finding-the-general-solution" class="anchor"></div>
@@ -3185,77 +2227,66 @@ $$</p>
 <ul>
 <li>Suppose we have the DE</li>
 </ul>
-<p>$$
-y&rsquo;&rsquo; + P(x)y&rsquo; + Q(x)y = f(x)
-$$</p>
-<ul>
+$$
+y'' + P(x)y' + Q(x)y = f(x)
+$$<ul>
 <li>First the Complementary Solution is</li>
 </ul>
-<p>$$
+$$
 y_c = C_1 y_1 + C_2 y_2
-$$</p>
-<ul>
+$$<ul>
 <li>Then Start the Variation of Parameters</li>
 <li>Let all Constant become function</li>
 </ul>
-<p>$$
+$$
 y_p = U_1(x) y_1 + U_2(x) y_2
-$$</p>
-<ul>
+$$<ul>
 <li>Before we taking the derivatives, we found that</li>
 </ul>
-<p>$$
-y_p&rsquo; = U_1&rsquo;y_1 + U_1y_1&rsquo; + U_2&rsquo;y_2 + U_2y_2&rsquo;
-$$</p>
-<ul>
+$$
+y_p' = U_1'y_1 + U_1y_1' + U_2'y_2 + U_2y_2'
+$$<ul>
 <li>Is hard to due, so we can smartly setting a restriction that let</li>
 </ul>
-<p>$$
-U_1&rsquo; y_1 + U_2&rsquo; y_2 = 0 \quad \text{(Eq.1)}\Rightarrow y_p&rsquo; =U_1y&rsquo;_1+U_2y&rsquo;_2
-$$</p>
-<blockquote>
+$$
+U_1' y_1 + U_2' y_2 = 0 \quad \text{(Eq.1)}\Rightarrow y_p' =U_1y'_1+U_2y'_2
+$$<blockquote>
 <p>This helps when calculating \(y&rsquo;&rsquo;\)</p>
 </blockquote>
 <ul>
 <li>Now, calculate the \(y&rsquo;&rsquo;\)</li>
 </ul>
-<p>$$
-y_p&rsquo;&rsquo; = U_1&rsquo;y_1&rsquo; + U_1y_1&rsquo;&rsquo; + U_2&rsquo;y_2&rsquo; + U_2y_2&rsquo;'
-$$</p>
-<ul>
+$$
+y_p'' = U_1'y_1' + U_1y_1'' + U_2'y_2' + U_2y_2''
+$$<ul>
 <li>Then sub back the \(y_p\) into \(y&rsquo;&rsquo; + P y&rsquo; + Q y = f(x)\),</li>
 </ul>
-<p>$$
-(U_1&rsquo;y_1&rsquo; + U_1y_1&rsquo;&rsquo; + U_2&rsquo;y_2&rsquo; + U_2y_2&rsquo;&rsquo;)+P(U_1y_1&rsquo; + U_2y_2&rsquo;)+Q(U_1y_1 + U_2y_2)= f(x)
-$$</p>
-<ul>
+$$
+(U_1'y_1' + U_1y_1'' + U_2'y_2' + U_2y_2'')+P(U_1y_1' + U_2y_2')+Q(U_1y_1 + U_2y_2)= f(x)
+$$<ul>
 <li>Rearrange \(U_1,U_2\) to get</li>
 </ul>
-<p>$$
-(U_1&rsquo;y_1&rsquo; + U_2&rsquo;y_2&rsquo;) + U_1(y_1&rsquo;&rsquo; + Py_1&rsquo; + Qy_1) + U_2(y_2&rsquo;&rsquo; + Py_2&rsquo; + Qy_2) = f(x)
-$$</p>
-<ul>
+$$
+(U_1'y_1' + U_2'y_2') + U_1(y_1'' + Py_1' + Qy_1) + U_2(y_2'' + Py_2' + Qy_2) = f(x)
+$$<ul>
 <li>Cause \(y_1, y_2\) are solution of the Homo Function, thus</li>
 </ul>
-<p>$$
-y_1&rsquo;&rsquo; + Py_1&rsquo; + Qy_1 = 0, \quad y_2&rsquo;&rsquo; + Py_2&rsquo; + Qy_2 = 0
-$$</p>
-<ul>
+$$
+y_1'' + Py_1' + Qy_1 = 0, \quad y_2'' + Py_2' + Qy_2 = 0
+$$<ul>
 <li>Then the part left is</li>
 </ul>
-<p>$$
-U_1&rsquo;y_1&rsquo; + U_2&rsquo;y_2&rsquo; = f(x)
-$$</p>
-<ul>
+$$
+U_1'y_1' + U_2'y_2' = f(x)
+$$<ul>
 <li>So now, we got a function set</li>
 </ul>
-<p>$$
+$$
 \begin{cases}
-U_1&rsquo;y_1 + U_2&rsquo;y_2 = 0 &amp; (\text{Eq.1}) \
-U_1&rsquo;y_1&rsquo; + U_2&rsquo;y_2&rsquo; = f(x) &amp; (\text{Eq.2})
+U_1'y_1 + U_2'y_2 = 0 & (\text{Eq.1}) \\
+U_1'y_1' + U_2'y_2' = f(x) & (\text{Eq.2})
 \end{cases}
-$$</p>
-<ul>
+$$<ul>
 <li>Write them in Matrix Form is</li>
 </ul>
 <p>$$</p>
@@ -3275,26 +2306,23 @@ f(x)
 <ul>
 <li>We can find out that this matrix is just Wronskian, thus use Cramer’s Rule</li>
 </ul>
-<p>$$
+$$
 W(y_1, y_2) =
 \begin{vmatrix}
-y_1 &amp; y_2 \
-y_1&rsquo; &amp; y_2'
+y_1 & y_2 \\
+y_1' & y_2'
 \end{vmatrix}
-$$</p>
-<ul>
+$$<ul>
 <li>Thus we got</li>
 </ul>
-<p>$$
-U_1&rsquo; = -\frac{y_2 f}{W(y_1, y_2)}, \quad U_2&rsquo; = \frac{y_1 f}{W(y_1, y_2)}
-$$</p>
-<ul>
+$$
+U_1' = -\frac{y_2 f}{W(y_1, y_2)}, \quad U_2' = \frac{y_1 f}{W(y_1, y_2)}
+$$<ul>
 <li>Take integral</li>
 </ul>
-<p>$$
+$$
 U_1 = \int -\frac{y_2 f}{W(y_1, y_2)},dx, \quad U_2 = \int \frac{y_1 f}{W(y_1, y_2)},dx
-$$</p>
-<ul>
+$$<ul>
 <li>Then we will get the <strong>Particular Solution</strong></li>
 </ul>
 
@@ -3330,980 +2358,79 @@ $$</p>
 <hr>
 <p>5.1</p>
 
-          
-          
-          
-        </div>
-        
-        
-
-        
-        
-
-        
-
-
-<h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
-<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-  
-  
-
-  <a href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/feature_hu9578550399762844699.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/">AEM 1. Complex Numbers</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>4808 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/aem/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    AEM
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
     </div>
-  </a>
+    <nav class="pn"><a href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/"><span>← Previous</span><b>AEM 1. Complex Numbers</b></a>
+    </nav>
+  </article>
 
-  
-  
-
-  <a href="/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/feature_hu2531377829145119504.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/">IMP 2. Limits</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>6370 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/econ/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Econ
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
+  <aside class="rail">
+    <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#ordinary-differential-equations-%e5%b8%b8%e5%be%ae%e5%88%86%e6%96%b9%e7%a8%8b" class="l2">Ordinary Differential Equations 常微分方程</a>
+        <a href="#classifying-des" class="l2">Classifying DE’s</a>
+        <a href="#solution-of-ode" class="l2">Solution of ODE</a>
+        <a href="#existence-of-solutions-general-particular-and-singular" class="l2">Existence of Solutions, General, Particular and Singular</a>
+        <a href="#how-to-solve-first-order-ode" class="l2">How to solve first-order ODE</a>
+        <a href="#existence-and-uniqueness-of-solutions-for-linear-1st-order-ivps" class="l2">Existence and Uniqueness of Solutions for Linear 1st Order IVPs</a>
+        <a href="#solution-curves-without-solutions-direction-field" class="l2">Solution Curves without Solutions: Direction Field</a>
+        <a href="#autonomous-de-and-its-critical-points" class="l2">Autonomous DE and its Critical Points</a>
+        <a href="#stability-of-critical-points" class="l2">Stability of Critical Points</a>
+        <a href="#general-linear-odes-and-linear-differential-operator" class="l2">General Linear ODE’s and Linear Differential Operator</a>
+        <a href="#existence-and-uniqueness-of-nth-order-linear-ode" class="l2">Existence and Uniqueness of nth order Linear ODE</a>
+        <a href="#homogenous-linear-des-general-solutions" class="l2">Homogenous Linear DE’s: General Solutions</a>
+        <a href="#how-to-check-if-n-functions-are-independent" class="l2">How to check if n functions are independent?</a>
+        <a href="#endbmatrix" class="l1">$$
+\begin{bmatrix}
+e^{m_1 x} &amp; e^{m_2 x} \
+m_1 e^{m_1 x} &amp; m_2 e^{m_2 x}
+\end{bmatrix}
+\begin{bmatrix}
+C_1 \
+C_2
+\end{bmatrix}</a>
+        <a href="#find-the-fundamental-set-of-solutions-for-higher-order-homo-linear-de" class="l2">Find the fundamental set of solutions for Higher Order Homo Linear DE</a>
+        <a href="#general-solution-of-non-homo-linear-de" class="l2">General Solution of Non-homo Linear DE</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
     </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/feature_hu3137460487742645143.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/">OOPC 1. ProgrammingBasics</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>5886 words</span>
-  
-
-  
-  
+  </aside>
 </div>
 
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/oopcs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    OOPCS
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/feature_hu9920419362512656206.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/">IMP 1. Review of Vector</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>2209 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/econ/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Econ
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/feature_hu17563863749955755898.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/">EF 3. Gauss' Law Edited</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-03-28T00:00:00&#43;00:00">Mar 28 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1795 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/ef/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    EF
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card_related nozoom" style="background-image:url(/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/feature_hu13221952812045409006.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/">Calculus 8. Methods of Integration</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <span>1848 words</span>
-  
-
-  
-  
-</div>
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/docs/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/tags/cal/&#34;,'_self');">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Cal
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-</section>
-
-  
-      </div>
-     
-      
-      
-        
-        
-          
-          
-        
-      <script>
-        var oid = "views_docs\/UofT\/25F\/Advanced Engineering Mathematics\/AEM2.DifferentialEquations\/index.md"
-        var oid_likes = "likes_docs\/UofT\/25F\/Advanced Engineering Mathematics\/AEM2.DifferentialEquations\/index.md"
-      </script>
-      
-      
-      <script type="text/javascript" src="/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
-      
-  
-    </section>
-  <footer class="pt-8 max-w-prose print:hidden">
-
-    
-  
-    
-    
-    
-      
-      
-    
-    <div class="pt-8">
-      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-      <div class="flex justify-between pt-3">
-        <span>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/">
-              <span class="flex flex-col">
-                <span
-                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >AEM 1. Complex Numbers</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
-          
-        </span>
-      </div>
-    </div>
-  
-
-
-    
-  </footer>
-</article>
-
-      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
-  <a href="#the-top"
-    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
-    aria-label="Scroll to top" title="Scroll to top">
-    &uarr;
-  </a>
-</div>
-    </main><script type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>buezw.github.io</span>
+</footer>
 
 <script>
-  MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']]
-    }
-  };
-  </script>
-
-<footer id="site-footer" class="py-10 print:hidden">
-  
-  
-    
-    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
-      <ul class="flex flex-col list-none sm:flex-row">
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/credits/"
-            title="">
-            
-            Credits
-          </a>
-        </li>
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/tags/"
-            title="">
-            
-            Tags
-          </a>
-        </li>
-        
-      </ul>
-    </nav>
-    
-  
-  <div class="flex items-center justify-between">
-
-    
-    
-    <p class="text-sm text-neutral-500 dark:text-neutral-400">
-      &copy;
-      2026
-      Buezwqwg
-    </p>
-    
-
-    
-    
-
-  </div>
-  <script>
-    
-    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
-      margin: 24,
-      background: 'rgba(0,0,0,0.5)',
-      scrollOffset: 0,
-    })
-    
-  </script>
-  
-  
-  <script type="text/javascript" src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
-  
-  
-</footer>
-<div
-  id="search-wrapper"
-  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://buezw.github.io/"
-  style="z-index:500"
->
-  <div
-    id="search-modal"
-    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
-  >
-    <header class="relative z-10 flex items-center justify-between flex-none px-2">
-      <form class="flex items-center flex-auto min-w-0">
-        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
-          
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-        </div>
-        <input
-          type="search"
-          id="search-query"
-          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
-          tabindex="0"
-        />
-      </form>
-      <button
-        id="close-search-button"
-        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
-      >
-        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
-
-  </span>
-
-
-      </button>
-    </header>
-    <section class="flex-auto px-2 overflow-auto">
-      <ul id="search-results">
-        
-      </ul>
-    </section>
-  </div>
-</div>
-
-  </div>
+ 
+(function(){
+  var h=document.getElementById('atitle'); if(!h) return;
+  function fit(){
+    h.classList.remove('wrap'); h.style.fontSize='';
+    if(window.innerWidth<=760) return;
+    var band=h.closest('.banner'), right=band.getBoundingClientRect().right-parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+    var size=parseFloat(getComputedStyle(h).fontSize), min=parseFloat(getComputedStyle(document.documentElement).fontSize)*1.5;
+    while(h.getBoundingClientRect().right>right && size>min){ size-=1; h.style.fontSize=size+'px'; }
+    if(h.getBoundingClientRect().right>right) h.classList.add('wrap');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+ 
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a')); if(!links.length) return;
+  var heads=links.map(function(a){var e=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));return e&&(e.closest('h1,h2,h3,h4,h5,h6')||e);});
+  function on(){
+    var y=window.scrollY+80, k=0;
+    heads.forEach(function(h,i){ if(h && h.getBoundingClientRect().top+window.scrollY<=y) k=i; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) k=heads.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});
+  }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+</script>
 </body>
-
 </html>

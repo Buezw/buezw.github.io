@@ -1,809 +1,748 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jingnan Huang | UofT Student</title>
-    
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
-    delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '$', right: '$', display: false},
-        {left: '\\(', right: '\\)', display: false},
-        {left: '\\[', right: '\\]', display: true}
-    ]
-});"></script>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notebook · Jingnan Huang</title>
+<meta name="description" content="Lecture notes and self-study notes by Jingnan Huang — UofT Computer Engineering.">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
 <style>
-     
-    :root {
-        --bg: #ffffff;
-        --text: #111111;
-        --dim: #666666;
-        --line: #e5e5e5;
-        --accent: #0033cc;
-        --accent-mi: #cc0000;
-        --accent-el: #111111;
-        --accent-rl: #0033cc;
-        --font-serif: 'Playfair Display', serif;
-        --font-body: 'Noto Serif SC', 'Georgia', serif;
-        --font-mono: 'JetBrains Mono', monospace;
-         
-        --page-max: 1440px;
-        --gutter: 48px;
-    }
-     
-    html { --zoom: 1; zoom: var(--zoom); }
-    @media (min-width: 2000px) { html { --zoom: 1.15; } }
-    @media (min-width: 2400px) { html { --zoom: 1.3; } }
-    @media (max-width: 1000px) { :root { --gutter: 25px; } }
-    @media (max-width: 640px)  { :root { --gutter: 20px; } }
 
-    html { height: 100%; }
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
 
-    body {
-        margin: 0; padding: 0;
-        background-color: var(--bg) !important;
-        background-image: none !important;
-        color: var(--text);
-        font-family: var(--font-body);
-        -webkit-font-smoothing: antialiased;
-        overflow-x: hidden;
-         
-         
-        min-height: calc(100vh / var(--zoom));
-        display: flex;
-        flex-direction: column;
-    }
-    .site-footer { margin-top: auto; }
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
 
-    a { color: inherit; text-decoration: none; transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
-    a:hover { color: var(--accent); }
+ 
+.search{position:relative;flex:1;max-width:520px}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
 
-     
-    .site-header {
-        border-bottom: 3px double var(--text);
-        margin-bottom: 14px;
-        background: #fff;
-    }
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
 
-    .site-header-inner {
-        box-sizing: border-box;
-        max-width: var(--page-max);
-        margin: 0 auto;
-        padding: 12px var(--gutter);
-        display: flex;
-        align-items: baseline;
-        flex-wrap: wrap;
-        gap: 24px;
-    }
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
 
-    .header-titles {
-        min-width: 0;
-        text-align: left;
-    }
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
 
-    .site-title {
-        font-family: var(--font-serif);
-        font-size: 2.6rem;
-        margin: 0;
-        letter-spacing: -1px;
-        font-weight: 700;
-        white-space: nowrap;
-    }
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
 
-    .site-title a { color: inherit; }
-
-    .site-subtitle {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-top: 7px;
-        color: var(--dim);
-    }
-
-    .site-nav {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    .site-nav-link {
-        font-family: var(--font-mono);
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        color: var(--text);
-        padding-bottom: 2px;
-        border-bottom: 1px solid transparent;
-        white-space: nowrap;
-    }
-    .site-nav-link.is-active {
-        color: var(--accent);
-        border-bottom-color: var(--accent);
-    }
-    .site-nav-link:hover {
-        color: var(--accent);
-        border-bottom-color: var(--accent);
-    }
-
-    @media (max-width: 960px) {
-        .site-title { white-space: normal; }
-    }
-    .sub-sep { margin: 0 0.6em; }
-
-    @media (max-width: 640px) {
-        .site-header-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
-         
-        .site-nav {
-            flex-wrap: nowrap;
-            gap: 16px;
-            max-width: 100%;
-            overflow-x: auto;
-            scrollbar-width: none;
-        }
-        .site-nav::-webkit-scrollbar { display: none; }
-        .site-nav-link { font-size: 0.75rem; letter-spacing: 1px; }
-        .site-title { font-size: 1.6rem; line-height: 1.2; letter-spacing: -0.5px; }
-         
-        .site-subtitle { font-size: 0.68rem; letter-spacing: 1.5px; line-height: 1.7; margin-top: 6px; }
-        .sub-sep { display: none; }
-        .sub-item { display: block; }
-    }
-
-     
-    .fluid-wrapper {
-        width: 100%;
-        box-sizing: border-box;
-        max-width: var(--page-max);
-        margin: 0 auto 16px;
-        padding: 0 var(--gutter);
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        gap: 48px;
-    }
-
-     
-    .fluid-wrapper main { min-width: 0; }
-
-    .sidebar { position: sticky; top: 24px; height: fit-content; }
-    .profile-name { font-family: var(--font-serif); font-size: 1.9rem; margin: 0 0 24px; }
-
-    .profile-bio { margin-bottom: 22px; }
-    .bio-role {
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        border-left: 2px solid var(--accent);
-        padding-left: 12px;
-        margin-bottom: 12px;
-        line-height: 1.45;
-    }
-    .bio-edu {
-        font-size: 1.0rem;
-        color: var(--dim);
-        line-height: 1.6;
-    }
-    .bio-edu strong { color: var(--text); font-weight: 600; }
-
-    .btn-cv, .btn-back {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        background: #111;
-        color: #fff;
-        padding: 8px 16px;
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin-bottom: 0px;
-        width: fit-content;
-        transition: all 0.2s ease;
-    }
-    .btn-cv:hover, .btn-back:hover {
-        background: var(--accent);
-        transform: translateY(-1px);
-        color: #fff;
-    }
-    .btn-back {
-        background: transparent;
-        color: var(--text);
-        border: 1px solid var(--text);
-        margin-bottom: 16px;
-    }
-    .btn-back:hover { border-color: var(--accent); color: var(--accent); background: transparent; }
-
-    .sidebar-section { margin-top: 24px; }
-    .sidebar-label {
-        font-family: var(--font-mono); font-size: 0.75rem; font-weight: bold;
-        text-transform: uppercase; border-left: 3px solid var(--accent);
-        padding-left: 10px; margin-bottom: 15px; letter-spacing: 1px;
-    }
-
-    .contact-list {
-        list-style: none; padding: 0; margin: 0;
-        font-family: var(--font-mono); font-size: 0.85rem;
-    }
-    .contact-list li {
-        margin-bottom: 12px;
-        display: flex;
-        flex-direction: column;
-    }
-    .contact-label {
-        font-size: 0.7rem; color: #999; text-transform: uppercase; margin-bottom: 3px; letter-spacing: 0.5px;
-    }
-    .contact-val {
-        color: var(--text);
-        word-break: break-all;
-    }
-    .contact-val a { border-bottom: 1px dotted #ccc; }
-    .contact-val a:hover { border-bottom-color: var(--accent); }
-
-    .comp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag-pill { border: 1px solid var(--line); padding: 4px 10px; font-size: 0.85rem; color: var(--dim); }
-
-     
-    .section-header {
-        font-family: var(--font-serif); font-size: 1.7rem;
-        border-bottom: 1px solid var(--line);
-        margin-top: 0;
-        padding-bottom: 8px;
-        margin-bottom: 12px;
-        display: flex; justify-content: space-between; align-items: baseline;
-    }
-    .section-header span { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); letter-spacing: 1.2px; }
-
-    .persona-intro {
-        font-size: 1.05rem;
-        line-height: 1.75;
-        color: var(--text);
-        max-width: 68ch;
-        margin-bottom: 36px;
-    }
-
-    .see-all-link {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--accent);
-        border-bottom: 1px dotted var(--accent);
-    }
-
-    .empty-state {
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        color: var(--dim);
-        border: 1px dashed var(--line);
-        padding: 24px;
-        text-align: center;
-    }
-
-     
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
-        margin-bottom: 36px;
-    }
-
-    @media (max-width: 1200px) {
-        .projects-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-        .projects-grid { grid-template-columns: 1fr; }
-    }
-
-    .project-card {
-        background: #fff;
-        border: 1px solid #e5e5e5;
-        padding: 14px;
-        display: flex; flex-direction: column; justify-content: space-between;
-        position: relative;
-        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        text-decoration: none !important;
-        border-radius: 2px;
-        min-height: 118px;
-    }
-
-    .project-card:hover {
-        border-color: var(--accent);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    .project-card h3 {
-        font-family: var(--font-serif);
-        font-size: 1.2rem;
-        margin: 0 0 6px;
-        color: var(--text);
-        display: flex; justify-content: space-between; align-items: flex-start;
-    }
-
-    .project-card p {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-size: 0.9rem;
-        color: var(--dim);
-        line-height: 1.5;
-        margin-bottom: 10px;
-        margin-top: 0;
-    }
-
-    .project-keypoints {
-        font-family: var(--font-mono);
-        font-size: 0.7rem;
-        color: #444;
-        margin-bottom: 8px;
-        padding-bottom: 8px;
-        border-bottom: 1px dashed #eee;
-        letter-spacing: -0.3px;
-    }
-    .project-keypoints span {
-        color: var(--accent);
-        margin: 0 4px;
-        font-weight: bold;
-    }
-
-    .card-footer {
-        display: flex; justify-content: space-between; align-items: center;
-        margin-top: auto;
-    }
-
-    .card-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-
-    .card-tag {
-        font-family: var(--font-mono);
-        font-size: 0.7rem;
-        background: #f4f4f4;
-        padding: 2px 5px;
-        border-radius: 2px;
-        color: #333;
-    }
-
-    .icon-link svg {
-        stroke: #ccc;
-        transition: 0.2s;
-        width: 14px; height: 14px;
-    }
-    .project-card:hover .icon-link svg { stroke: var(--accent); }
-
-     
-    .entry-list { display: block; }
-    .entry-list .entry-item:last-child { border-bottom: none; }
-
-     
-    .trinity-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 28px;
-    }
-
-    .list-group-header {
-        font-family: var(--font-mono); font-weight: bold; font-size: 0.95rem;
-        text-transform: uppercase; border-bottom: 2px solid #000;
-        padding-bottom: 8px; margin-bottom: 16px; display: flex; justify-content: space-between;
-    }
-
-    .entry-item { display: block; border-bottom: 1px dashed var(--line); padding-bottom: 12px; margin-bottom: 14px; }
-    .entry-meta { font-family: var(--font-mono); font-size: 0.85rem; color: var(--dim); margin-bottom: 8px; display: flex; align-items: center; }
-    .meta-tag-mi { color: var(--accent-mi); font-weight: bold; margin-left: 8px; }
-    .meta-tag-el { color: var(--accent-el); font-weight: bold; margin-left: 8px; }
-    .meta-tag-rl { color: var(--accent-rl); font-weight: bold; margin-left: 8px; border: 1px solid var(--accent-rl); padding: 0 4px; }
-
-    .entry-title {
-        font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; line-height: 1.25; color: #000; margin-bottom: 5px;
-        overflow-wrap: break-word; word-break: break-word;
-    }
-    .entry-title-mono {
-        font-family: var(--font-mono); font-size: 1.05rem; font-weight: 700; line-height: 1.3; color: #222; margin-bottom: 5px;
-        overflow-wrap: break-word; word-break: break-word;
-    }
-
-    .entry-summary {
-        color: var(--dim);
-        font-size: 0.88rem;
-        line-height: 1.45;
-        font-family: var(--font-mono);
-    }
-
-     
-    .role-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-    }
-    @media (max-width: 900px) {
-        .role-grid { grid-template-columns: 1fr; }
-    }
-    .role-card {
-        border: 1px solid var(--line);
-        padding: 24px;
-        display: flex;
-        flex-direction: column;
-        transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        text-decoration: none !important;
-    }
-    .role-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
-    .role-card-tag {
-        font-family: var(--font-mono);
-        font-size: 0.75rem;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-    }
-    .role-card-title {
-        font-family: var(--font-serif);
-        font-size: 1.7rem;
-        color: var(--text);
-        margin: 0 0 10px;
-    }
-    .role-card-desc {
-        font-size: 0.95rem;
-        color: var(--dim);
-        line-height: 1.6;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        margin-bottom: 16px;
-        flex: 1;
-    }
-    .role-card-enter {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: var(--text);
-    }
-    .role-card:hover .role-card-enter { color: var(--accent); }
-
-    @media (max-width: 1400px) {
-        .trinity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .trinity-col:last-child { grid-column: 1 / -1; }
-    }
-    @media (max-width: 1000px) {
-        .fluid-wrapper { grid-template-columns: 1fr; }
-        .sidebar { position: static; }
-        .trinity-grid { grid-template-columns: minmax(0, 1fr); }
-    }
-
-    .site-footer {
-        text-align: center; padding: 14px; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: 0.8rem; color: var(--dim); background: #fff;
-    }
-
-     
-    body.theme-utefa {
-        --accent: #7a2430;
-    }
-    body.theme-utefa::before { content: ''; display: block; height: 4px; background: var(--accent); }
-    body.theme-utefa .fluid-wrapper { grid-template-columns: 1fr; max-width: 1000px; padding: 0 32px; margin-bottom: 8px; margin-top: 20px; }
-    body.theme-utefa .site-header { border-bottom: 3px double var(--accent); margin-bottom: 8px; }
-    body.theme-utefa .site-header-inner {
-        padding: 9px 32px;
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        gap: 12px;
-    }
-    body.theme-utefa .site-header-inner .site-nav { justify-self: start; }
-    body.theme-utefa .site-header-inner .header-titles { justify-self: center; text-align: center; }
-    body.theme-utefa .header-spacer { justify-self: end; }
-    body.theme-utefa .site-title { font-size: 1.7rem; }
-    @media (max-width: 640px) {
-        body.theme-utefa .site-header-inner { grid-template-columns: 1fr; text-align: center; }
-        body.theme-utefa .site-header-inner .site-nav { justify-self: center; }
-        body.theme-utefa .header-spacer { display: none; }
-    }
-    body.theme-utefa .site-title,
-    body.theme-utefa .section-header {
-        font-family: var(--font-mono);
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    body.theme-utefa .section-header { font-size: 1.3rem; padding-bottom: 5px; margin-bottom: 4px; }
-    body.theme-utefa .site-nav-link.is-active,
-    body.theme-utefa .site-nav-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
-
-     
-    .table-scroll { overflow-x: auto; margin-bottom: 16px; }
-    .ledger-table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.82rem; }
-    .ledger-table th {
-        text-align: left; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px;
-        color: var(--dim); border-bottom: 2px solid var(--text); padding: 5px 10px; white-space: nowrap;
-        border-right: 1px solid var(--line);
-    }
-    .ledger-table th:last-child { border-right: none; }
-    .ledger-table td { padding: 10px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); vertical-align: top; }
-    .ledger-table td:last-child { border-right: none; }
-    .ledger-table tbody tr:nth-child(even) td { background: #fafafa; }
-    .ledger-table tbody tr:hover td { background: #faf5f6; }
-    .ledger-table tfoot td { border-right: none; border-bottom: none; }
-    .ledger-summary td {
-        font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.5px;
-        color: var(--dim); border-top: 2px solid var(--text); padding-top: 8px;
-    }
-    .ledger-idx { color: var(--accent); font-weight: 700; white-space: nowrap; }
-    .ledger-date { color: var(--dim); white-space: nowrap; }
-    .ledger-name { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; color: var(--text); }
-    .ledger-desc { font-family: var(--font-body); font-weight: 400; font-size: 0.82rem; color: var(--dim); margin-top: 4px; line-height: 1.4; }
-    .ledger-stack { color: var(--dim); font-size: 0.75rem; white-space: nowrap; }
-    .ledger-status { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.5px; padding: 3px 7px; border: 1px solid currentColor; white-space: nowrap; }
-    .status-live { color: #1e7a45; }
-    .status-wip { color: var(--accent); }
-    .ledger-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.5px; color: var(--accent); }
-    .ledger-table .ledger-name a { text-decoration: none; }
-    .ledger-table .ledger-name a:hover { text-decoration: underline; }
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
 </style>
 
+<style>
+.page{flex:1;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,10fr)}
+.page>.side{position:relative}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:26px}
+.side h1{font-size:2.6rem;line-height:1;margin:0}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--paper2);border-bottom:1px solid var(--paper2)}
+.nums div{padding:9px 0;color:var(--dim);font-size:.78rem}
+.nums div+div{padding-left:12px;border-left:1px solid var(--paper2)}
+.nums b{display:block;font-family:var(--serif);font-weight:500;font-size:1.6rem;line-height:1.1;color:var(--text)}
+.toc{font-size:.88rem}
+.toc .tg{color:var(--dim);font-size:.78rem;margin:12px 0 4px}
+.toc .tg:first-child{margin-top:6px}
+.toc a{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.toc a span{color:var(--dim);font-size:.78rem}
+.toc a:hover{color:var(--blue)}
+.main{border-left:1px solid var(--line);padding:22px var(--px) 40px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.filters button{all:unset;cursor:pointer;font-size:.82rem;padding:4px 11px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:6px;background:#fff}
+.filters button i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.filters button em{font-style:normal;color:var(--dim);font-size:.74rem}
+.filters button:hover{border-color:var(--text)}
+.filters button.on{background:var(--text);color:#fff;border-color:var(--text)}
+.filters button.on em{color:#cfcac1}
+.term{margin-top:30px}
+.term>h2{font-size:1.9rem;line-height:1.1;margin:0 0 4px;display:flex;justify-content:space-between;align-items:baseline}
+.term>h2 span{font-family:'Inter Tight',sans-serif;font-size:.85rem;font-weight:400;color:var(--dim);letter-spacing:0}
+.courses{columns:2;column-gap:48px}
+.course{padding-top:16px;scroll-margin-top:20px;break-inside:avoid}
+.course .rs .t span .lang{margin-right:6px;vertical-align:1px}
+.course .lab b{display:flex;align-items:center;gap:8px}
+.course .lab b i{width:8px;height:8px;border-radius:50%;background:var(--d)}
+.course.hide,.term.hide{display:none}
+.nb .rs p{-webkit-line-clamp:1}
+@media (max-width:1100px){
+  .courses{columns:1}
+}
+@media (max-width:760px){
+  .page{display:flex;flex-direction:column}
+  .side{padding:22px var(--px)}
+  .sticky{position:static}
+  .toc{display:none}
+  .main{border-left:none;padding-top:18px}
+}
+</style>
 </head>
 <body>
-
-    
-<header class="site-header">
-    <div class="site-header-inner">
-        
-        <nav class="site-nav">
-            
-                
-                <a href="/docs/" class="site-nav-link">Docs</a>
-                
-            
-                
-            
-                
-            
-                
-                <a href="/tags/notes/" class="site-nav-link">Notes</a>
-                
-            
-                
-                <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" class="site-nav-link">Zhihu</a>
-                
-            
-                
-            
-        </nav>
-        <div class="header-titles">
-            <h1 class="site-title"><a href="/">Research & Engineering Archive</a></h1>
-            <div class="site-subtitle"><span class="sub-item">Quantitative Systems</span><span class="sub-sep">·</span><span class="sub-item">Academic Archive</span></div>
-        </div>
-        
-    </div>
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 112 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
+  </div>
+  <nav>
+    <a href="/student/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="/docs/">Docs</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
 </header>
+<script>
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
+</script>
 
 
-    <div class="fluid-wrapper">
-        <aside class="sidebar">
-            <a href="/" class="btn-back">← All Roles</a>
-            <h2 class="profile-name">Jingnan Huang</h2>
-
-            <div class="profile-bio">
-                <div class="bio-role">
-                    <strong>B.A.Sc Computer Engineering</strong><br>
-                    <span style="color: var(--dim)">University of Toronto</span>
-                </div>
-
-                <div class="bio-edu">
-                    + PEY Co-op<br>
-                    <span style="font-size: 0.85em; font-style: italic;">Intended Minor: Engineering Business and Entrepreneurship</span><br>
-                    <span style="font-size: 0.85em; color: #999;">Exp. Apr 2029</span>
-                </div>
-            </div>
-
-            <a href="/cv.pdf" class="btn-cv">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="white" style="margin-right:8px;"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
-                Download CV
-            </a>
-
-            <div class="sidebar-section">
-                <div class="sidebar-label">Coordinates</div>
-                <ul class="contact-list">
-                    <li>
-                        <span class="contact-label">Academic Email</span>
-                        <span class="contact-val">
-                            <a href="mailto:jingnan.huang@mail.utoronto.ca">jingnan.huang@mail.utoronto.ca</a>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="contact-label">Github</span>
-                        <span class="contact-val">
-                            <a href="https://github.com/Buezw" target="_blank">github.com/Buezw</a>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="sidebar-section">
-                <div class="sidebar-label">Coursework Focus</div>
-                <div class="comp-tags">
-                    <span class="tag-pill">Circuits & Systems</span>
-                    <span class="tag-pill">Math & Physics</span>
-                    <span class="tag-pill">OOP / C++</span>
-                </div>
-            </div>
-
-            <div class="sidebar-section">
-                <div class="sidebar-label">DEV TOOLS</div>
-                <div class="comp-tags">
-                    <span class="tag-pill">Linux / Bash</span>
-                    <span class="tag-pill">Vim / Neovim</span>
-                    <span class="tag-pill">CMake</span>
-                    <span class="tag-pill">Git</span>
-                </div>
-            </div>
-        </aside>
-
-        <main>
-            <h2 class="section-header">UofT Coursework <span>STUDENT</span></h2>
-            <p class="persona-intro">
-                Lecture notes, lab writeups, and problem sets from the B.A.Sc Computer Engineering program at the University of Toronto — spanning circuits, digital systems, math, and programming courses.
-            </p>
-
-            
-            
-            
-                
-            
-
-            
-            <div class="entry-list">
-                
-                <a href="/docs/uoft/26w/ece243---computer-organization/co8.cache/" class="entry-item">
-                    <div class="entry-meta">Apr 25, 2026
-                        <span class="meta-tag-rl">CO</span>
-                    </div>
-                    <div class="entry-title-mono">CO 8. Cache</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 4/25/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/" class="entry-item">
-                    <div class="entry-meta">Apr 20, 2026
-                        <span class="meta-tag-rl">EMF</span>
-                    </div>
-                    <div class="entry-title-mono">EMF 10. Time-VaryingFields</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 4/20/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/" class="entry-item">
-                    <div class="entry-meta">Mar 26, 2026
-                        <span class="meta-tag-rl">SS</span>
-                    </div>
-                    <div class="entry-title-mono">SS 8. FundamentalsofDiscrete-Time Systems</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 3/26/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/" class="entry-item">
-                    <div class="entry-meta">Mar 24, 2026
-                        <span class="meta-tag-rl">SS</span>
-                    </div>
-                    <div class="entry-title-mono">SS 7. AnalysisofCTSystemusingLaplaceTransform</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 3/24/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/ece221---circuit-analysis/ca7.frequencydomainanalysis/" class="entry-item">
-                    <div class="entry-meta">Mar 23, 2026
-                        <span class="meta-tag-rl">CA</span>
-                    </div>
-                    <div class="entry-title-mono">CA 7. FrequencyDomainAnalysis</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 3/23/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/ece221---circuit-analysis/ca6.laplace/" class="entry-item">
-                    <div class="entry-meta">Mar 18, 2026
-                        <span class="meta-tag-rl">CA</span>
-                    </div>
-                    <div class="entry-title-mono">CA 6. Laplace</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 3/18/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/" class="entry-item">
-                    <div class="entry-meta">Mar 11, 2026
-                        <span class="meta-tag-rl">CA</span>
-                    </div>
-                    <div class="entry-title-mono">CA 5. Transformer&amp;Power</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 3/11/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/" class="entry-item">
-                    <div class="entry-meta">Mar 11, 2026
-                        <span class="meta-tag-rl">SS</span>
-                    </div>
-                    <div class="entry-title-mono">SS 6. AnalysisofCTSusingForierTransform</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 3/11/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/ece243---computer-organization/co7.designofprocessor/" class="entry-item">
-                    <div class="entry-meta">Mar 10, 2026
-                        <span class="meta-tag-rl">CO</span>
-                    </div>
-                    <div class="entry-title-mono">CO 7. DesignofProcessor</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 3/10/26
-                        
-                    </div>
-                </a>
-                
-                <a href="/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/" class="entry-item">
-                    <div class="entry-meta">Mar 09, 2026
-                        <span class="meta-tag-rl">CO</span>
-                    </div>
-                    <div class="entry-title-mono">CO 6. Low-levelGraphicsinSoftware</div>
-                    <div class="entry-summary">
-                        
-                        
-                        
-                            Last Edit: 3/9/26
-                        
-                    </div>
-                </a>
-                
-            </div>
-            <p><a href="/docs/uoft/" class="see-all-link">See all coursework →</a></p>
-            
-        </main>
+<div class="page">
+  <aside class="side">
+    <div class="sticky">
+      <div>
+        <h1 class="serif">Notebook</h1>
+        <p class="blurb" style="margin-top:12px">Lecture notes from UofT Computer Engineering, plus self-study and reading notes. Grouped by term and course.</p>
+      </div>
+      <div class="nums">
+        <div><b>112</b>notes</div>
+        <div><b>17</b>courses &amp; books</div>
+        <div><b>8</b>areas</div>
+      </div>
+      <nav class="toc" aria-label="Courses">
+        <div class="tg">Winter 2026</div>
+        <a href="#ece221-circuit-analysis">ECE221 Circuit Analysis<span>7</span></a>
+        <a href="#ece243-computer-organization">ECE243 Computer Organization<span>8</span></a>
+        <a href="#electric--magnetic-fields">Electric &amp; Magnetic Fields<span>10</span></a>
+        <a href="#signals--systems">Signals &amp; Systems<span>8</span></a>
+        <div class="tg">Fall 2025</div>
+        <a href="#advanced-engineering-mathematics">Advanced Engineering Mathematics<span>2</span></a>
+        <a href="#digital-systems">Digital Systems<span>2</span></a>
+        <a href="#introduction-to-mathematical-physics">Introduction to Mathematical Physics<span>2</span></a>
+        <a href="#introductory-electronics">Introductory Electronics<span>2</span></a>
+        <a href="#object-oriented-programming-in-c">Object-Oriented Programming in C&#43;&#43;<span>4</span></a>
+        <div class="tg">Fall 2024</div>
+        <a href="#aps104-engineering-chemistry--materials-science">APS104 Engineering Chemistry &amp; Materials Science<span>7</span></a>
+        <a href="#aps105-programming-with-c">APS105 Programming with C<span>12</span></a>
+        <a href="#ece110-electrical-fundamentals">ECE110 Electrical Fundamentals<span>10</span></a>
+        <a href="#mat186-calculus">MAT186 Calculus<span>5</span></a>
+        <a href="#mat188-linear-algebra">MAT188 Linear Algebra<span>5</span></a>
+        <a href="#mie100-dynamics">MIE100 Dynamics<span>5</span></a>
+        <div class="tg">Self-study</div>
+        <a href="#dive-into-deep-learning">Dive Into Deep Learning<span>21</span></a>
+        <a href="#efficiently-inefficient">Efficiently Inefficient<span>2</span></a>
+      </nav>
     </div>
+  </aside>
 
-    <footer class="site-footer">
-    © 2026 Jingnan Huang · Research & Engineering
+  <main class="main nb">
+    <div class="filters" id="filters">
+      <button class="on" data-area="">All <em>112</em></button>
+      <button data-area="Circuits" style="--d:#6b86b8"><i></i>Circuits <em>19</em></button>
+      <button data-area="Finance" style="--d:#9a4a55"><i></i>Finance <em>2</em></button>
+      <button data-area="Hardware" style="--d:#5b8c85"><i></i>Hardware <em>10</em></button>
+      <button data-area="ML" style="--d:#7fa070"><i></i>ML <em>21</em></button>
+      <button data-area="Math" style="--d:#b97a7a"><i></i>Math <em>12</em></button>
+      <button data-area="Physics" style="--d:#8a7bb0"><i></i>Physics <em>24</em></button>
+      <button data-area="Programming" style="--d:#8c8577"><i></i>Programming <em>16</em></button>
+      <button data-area="Signals" style="--d:#c49a5a"><i></i>Signals <em>8</em></button>
+    </div>
+    <section class="term">
+      <h2 class="serif">Winter 2026<span>4 courses</span></h2>
+      <div class="courses">
+        <div class="course" id="ece221-circuit-analysis" data-area="Circuits">
+          <div class="lab"><b style="--d:#6b86b8"><i></i>ECE221 Circuit Analysis</b><span>7 notes</span></div>
+          <a class="rs" href="/docs/uoft/26w/ece221---circuit-analysis/ca1.dccircuitanalysis/">
+  <div class="t"><b>CA 1. DC Circuit Analysis</b><span><i class="lang">EN</i> Jan 23, 2026</span></div>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece221---circuit-analysis/ca2.opamp/">
+  <div class="t"><b>CA 2. OPAMP</b><span><i class="lang">EN</i> Jan 22, 2026</span></div><p>Amplifier transfer characteristics · Operational Amplifier · Op amp analysis · Capacitor</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece221---circuit-analysis/ca3.rlccircuit/">
+  <div class="t"><b>CA 3. RLCCircuit</b><span><i class="lang">EN</i> Feb 9, 2026</span></div><p>Linear Ordinary Differential Equation, ODE · First-order RC/RL circuits · 2nd-Order DE · Series RLC Circuit</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece221---circuit-analysis/ca4.-phasoranalysis/">
+  <div class="t"><b>CA 4. PhasorAnalysis</b><span><i class="lang">EN</i> Feb 22, 2026</span></div><p>Complex Number · Complex Number Calculus · Time Domain vs. Phasor Domain · Parallel and Series Connection</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece221---circuit-analysis/ca5.transformerpower/">
+  <div class="t"><b>CA 5. Transformer&amp;Power</b><span><i class="lang">EN</i> Mar 11, 2026</span></div><p>Self Inductance · Mutual Inductance · Ideal Transformer · Linear Transformers in Phasor Domain</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece221---circuit-analysis/ca6.laplace/">
+  <div class="t"><b>CA 6. Laplace</b><span><i class="lang">EN</i> Mar 18, 2026</span></div><p>Laplace Transform · Laplace Circuit Analysis · The Inverse Laplace Transform · Uniqueness Property of Laplace Transform</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece221---circuit-analysis/ca7.frequencydomainanalysis/">
+  <div class="t"><b>CA 7. FrequencyDomainAnalysis</b><span><i class="lang">EN</i> Mar 23, 2026</span></div><p>Network function, Transfer function · Impulse Response, Convolution · Step Response · Frequency Response</p>
+</a>
+        </div>
+        <div class="course" id="ece243-computer-organization" data-area="Hardware">
+          <div class="lab"><b style="--d:#5b8c85"><i></i>ECE243 Computer Organization</b><span>8 notes</span></div>
+          <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co1.partsofcomputer/">
+  <div class="t"><b>CO 1. PartsofComputer</b><span><i class="lang">EN</i> Jan 12, 2026</span></div><p>Parts of Computer · Compile Sequence · Branch</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co2.memoryorgranization/">
+  <div class="t"><b>CO 2. MemoryOrgranization</b><span><i class="lang">EN</i> Jan 13, 2026</span></div><p>Nios V Processor · Accessing Half Words &amp; Bytes · Move Instruction</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co3.subroutines/">
+  <div class="t"><b>CO 3. Subroutines</b><span><i class="lang">EN</i> Jan 20, 2026</span></div><p>Directives · Subroutines · .text · .data</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co4.input/output/">
+  <div class="t"><b>CO 4. Input/Output</b><span><i class="lang">EN</i> Feb 5, 2026</span></div><p>Memory Mapped I/O · Memory in Subroutines · Interrupt · Special Registers</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co5.clanguage/">
+  <div class="t"><b>CO 5. CLanguage</b><span><i class="lang">EN</i> Feb 23, 2026</span></div><p>Compilation of C · Using I/O Devices in C · Audio In and Output</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/">
+  <div class="t"><b>CO 6. Low-levelGraphicsinSoftware</b><span><i class="lang">EN</i> Mar 9, 2026</span></div><p>Intro to Low-Level Graphics · Drawing Lines on Screen · Animation · Bouncing Boxes</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co7.designofprocessor/">
+  <div class="t"><b>CO 7. DesignofProcessor</b><span><i class="lang">CN</i> Mar 10, 2026</span></div><p>Computer Architecture · Simple Processor Design · Datapath · Instruction Formats</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co8.cache/">
+  <div class="t"><b>CO 8. Cache</b><span><i class="lang">CN</i> Apr 25, 2026</span></div><p>Physics of Memory · Cache Memory · Direct-Mapped Caches · Associative Caches</p>
+</a>
+        </div>
+        <div class="course" id="electric--magnetic-fields" data-area="Physics">
+          <div class="lab"><b style="--d:#8a7bb0"><i></i>Electric &amp; Magnetic Fields</b><span>10 notes</span></div>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/">
+  <div class="t"><b>EMF 1. VectorCalculus</b><span><i class="lang">EN</i> Jan 13, 2026</span></div><p>Scalar Field · Divergency of a Vector Field · Curl of a Vector Field</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf2.maxwellsequations/">
+  <div class="t"><b>EMF 2. Maxwell’sEquations</b><span><i class="lang">EN</i> Jan 13, 2026</span></div><p>Maxwell’s Equations · Electrostatics · Magnetostatics</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf3.coulombslawelectricfield/">
+  <div class="t"><b>EMF 3. Coulomb’sLaw&amp;ElectricField</b><span><i class="lang">EN</i> Jan 19, 2026</span></div><p>Coulomb’s Law · Electric Field by Point Charge · Superposition of Electric Fields · Electric Field due to Continuous Charge Densities</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf4.gaussslaw/">
+  <div class="t"><b>EMF 4. Gauss’sLaw</b><span><i class="lang">EN</i> Jan 21, 2026</span></div><p>Electric Field of a Point Charge · Electric Field of Infinite Long Charge Line · Electric Field of Infinite Uniform Surface · Electric Field for Parallel Sheets</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/">
+  <div class="t"><b>EMF 5. ElectricPotential</b><span><i class="lang">EN</i> Jan 27, 2026</span></div><p>Electric Potential (Scalar) · Electric Potential of Different Model · Electrical Field · Poisson’s &amp; Laplace’s Equations</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf6.conductordielectrics/">
+  <div class="t"><b>EMF 6. Conductor&amp;Dielectrics</b><span><i class="lang">EN</i> Feb 3, 2026</span></div><p>Current and Current Densities · Property of Materials · Behavior of materials under external Electric Field</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf7.boundaryconditionscapacitanceelectrostaticenergy/">
+  <div class="t"><b>EMF 7. BoundaryConditions, Capacitance&amp; ElectrostaticEnergy</b><span><i class="lang">EN</i> Feb 6, 2026</span></div><p>Electric Field Boundary Conditions · Capacitance · Dielectric – Dielectric Interface – Tangential Components · Dielectric – Dielectric Interface – Normal Components</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/">
+  <div class="t"><b>EMF 8. MagnetostaticsForces&amp;Fields</b><span><i class="lang">EN</i> Feb 23, 2026</span></div><p>Magnetic Force · Types of Current Distributions · Magnetic Force in a System · Biot-Savart’s Law</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf9.magneticmaterialsbcinductance/">
+  <div class="t"><b>EMF 9. MagneticMaterials,BC&amp;Inductance</b><span><i class="lang">EN</i> Mar 9, 2026</span></div><p>Magnetic Dipole · Magnetic Materials · Magnetic Field Boundary Conditions · Magnetic Flux</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/">
+  <div class="t"><b>EMF 10. Time-VaryingFields</b><span><i class="lang">EN</i> Apr 20, 2026</span></div><p>Faraday’s Law · Time-varying Magnetic Flux · Faraday’s Law Relates Electric and Magnetic Fields · Electromagnetic Generator</p>
+</a>
+        </div>
+        <div class="course" id="signals--systems" data-area="Signals">
+          <div class="lab"><b style="--d:#c49a5a"><i></i>Signals &amp; Systems</b><span>8 notes</span></div>
+          <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss1.fundamentalsofcontinuousanddiscretetimesignals/">
+  <div class="t"><b>SS 1. FundamentalsofContinuousandDiscreteTimeSignals</b><span><i class="lang">EN</i> Jan 12, 2026</span></div><p>Signals · Period · Support · Duration</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/">
+  <div class="t"><b>SS 2. FourierSeries</b><span><i class="lang">EN</i> Jan 19, 2026</span></div><p>Fourier Series · The Complex Exponential Fourier Series · Continuous-Time Fourier Series (CTFS) · The CTFS and Signal Manipulations</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss3.fouriertransform/">
+  <div class="t"><b>SS 3. FourierTransform</b><span><i class="lang">EN</i> Feb 3, 2026</span></div><p>Fourier Transform · Existence of the CTFT for Finite Signals · The CTFT and Signal Manipulations · Discrete-Time Fourier Transform (DTFT)</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss4.sample/">
+  <div class="t"><b>SS 4. Sample</b><span><i class="lang">EN</i> Feb 23, 2026</span></div><p>Sampling · Band-Limited Signals · Nyquist-Shannon Sampling Theorem</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/">
+  <div class="t"><b>SS 5. Continuous-Time System</b><span><i class="lang">EN</i> Mar 8, 2026</span></div><p>Continuous-Time System · Linear Time-Invariant (LTI) System · Convolution · LTI system properties and the impulse response</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/">
+  <div class="t"><b>SS 6. AnalysisofCTSusingForierTransform</b><span><i class="lang">EN</i> Mar 11, 2026</span></div><p>LTI systems with Complex Exponential Inputs · LTI System and Invertibility · Complex Exponential Inputs · Frequency response of a LTI system</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/">
+  <div class="t"><b>SS 7. AnalysisofCTSystemusingLaplaceTransform</b><span><i class="lang">EN</i> Mar 24, 2026</span></div><p>LTI System with Complex Exponential Inputs · Motivation for transfer function methods · Signals of Exponential Class · Analysis of LICC-ODEs via Laplace Transform</p>
+</a>
+          <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/">
+  <div class="t"><b>SS 8. FundamentalsofDiscrete-Time Systems</b><span><i class="lang">EN</i> Mar 26, 2026</span></div><p>DT System · LTI System Properties and the Impulse Response · Finite impulse response (FIR) systems · Difference Equations and DT systems</p>
+</a>
+        </div>
+      </div>
+    </section>
+    <section class="term">
+      <h2 class="serif">Fall 2025<span>5 courses</span></h2>
+      <div class="courses">
+        <div class="course" id="advanced-engineering-mathematics" data-area="Math">
+          <div class="lab"><b style="--d:#b97a7a"><i></i>Advanced Engineering Mathematics</b><span>2 notes</span></div>
+          <a class="rs" href="/docs/uoft/25f/advanced-engineering-mathematics/aem1.complexnumbers/">
+  <div class="t"><b>AEM 1. Complex Numbers</b><span><i class="lang">CN</i> Sep 15, 2025</span></div><p>Complex Numbers · Complex Exponential · Euler’s Formula · Euler’s Identity</p>
+</a>
+          <a class="rs" href="/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/">
+  <div class="t"><b>AEM 2. Differential Equations</b><span><i class="lang">CN</i> Oct 6, 2025</span></div><p>Ordinary Differential Equations 常微分方程 · Classifying DE’s · Solution of ODE · Existence of Solutions, General, Particular and Singular</p>
+</a>
+        </div>
+        <div class="course" id="digital-systems" data-area="Hardware">
+          <div class="lab"><b style="--d:#5b8c85"><i></i>Digital Systems</b><span>2 notes</span></div>
+          <a class="rs" href="/docs/uoft/25f/digital-systems/ds1.introductiontologiccircuits/">
+  <div class="t"><b>DS 1. Introductionto Logic Circuits</b><span><i class="lang">CN</i> Oct 2, 2025</span></div><p>2.1 Variables and Functions · 2.2 Inversion · 2.3 Truth Tables · 2.4 Logic Gates and Networks</p>
+</a>
+          <a class="rs" href="/docs/uoft/25f/digital-systems/ds2.circuitmoduleverilog/">
+  <div class="t"><b>DS 2. Circuit Module &amp; Verilog</b><span><i class="lang">EN</i> Oct 5, 2025</span></div><p>NAND and NOR Logic Networks · Verilog Code · FGPA · Top Level Module</p>
+</a>
+        </div>
+        <div class="course" id="introduction-to-mathematical-physics" data-area="Physics">
+          <div class="lab"><b style="--d:#8a7bb0"><i></i>Introduction to Mathematical Physics</b><span>2 notes</span></div>
+          <a class="rs" href="/docs/uoft/25f/introduction-to-mathematic-physic/imp1.reviewofvector/">
+  <div class="t"><b>IMP 1. Review of Vector</b><span><i class="lang">CN</i> Sep 7, 2025</span></div><p>Scalar &amp; Pseudoscalars · Position Vectors &amp; Vector Fields · Orthonormal Basis Vectors &amp; Dot Product · Cross Product 叉积</p>
+</a>
+          <a class="rs" href="/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/">
+  <div class="t"><b>IMP 2. Limits</b><span><i class="lang">CN</i> Sep 22, 2025</span></div>
+</a>
+        </div>
+        <div class="course" id="introductory-electronics" data-area="Circuits">
+          <div class="lab"><b style="--d:#6b86b8"><i></i>Introductory Electronics</b><span>2 notes</span></div>
+          <a class="rs" href="/docs/uoft/25f/introductory-electronics/ie1.signalsamplifiers/">
+  <div class="t"><b>IE1.Signals&amp;Amplifiers</b><span><i class="lang">CN</i> Sep 4, 2025</span></div><p>1.1 Signals · 1.2 Frequency Spectrum of Signals · Representations · 1.3 Analog and Digital Signals</p>
+</a>
+          <a class="rs" href="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/">
+  <div class="t"><b>IE 2. Operational Amplifiers</b><span><i class="lang">CN</i> Oct 7, 2025</span></div><p>2.1 The Ideal Op Amp · 2.2 The Inverting Configuration · DC Imperfections · Input Bias Current</p>
+</a>
+        </div>
+        <div class="course" id="object-oriented-programming-in-c" data-area="Programming">
+          <div class="lab"><b style="--d:#8c8577"><i></i>Object-Oriented Programming in C&#43;&#43;</b><span>4 notes</span></div>
+          <a class="rs" href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc0.introduction/">
+  <div class="t"><b>OOPC 0. Introduction</b><span><i class="lang">CN</i> Sep 2, 2025</span></div><p>1.1 Computer Systems · 1.2 PROGRAMMING AND PROBLEM-SOLVING</p>
+</a>
+          <a class="rs" href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc1.programmingbasics/">
+  <div class="t"><b>OOPC 1. ProgrammingBasics</b><span><i class="lang">CN</i> Sep 15, 2025</span></div><p>1.2. Programming Basics · 1.3 Functions · 1.4 Passing Input Parameters to Functions · 1.5. Program Organization and Separate Compilation</p>
+</a>
+          <a class="rs" href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc2.classes/">
+  <div class="t"><b>OOPC 2. Classes</b><span><i class="lang">CN</i> Sep 27, 2025</span></div><p>2.1 Structs and Classes · 2.2 Constructors · 2.3 Lifecycle of an Object</p>
+</a>
+          <a class="rs" href="/docs/uoft/25f/object-oriented-programming-using-c&#43;&#43;/oopc3.dynamicmemoryallocationclasses/">
+  <div class="t"><b>OOPC 3. DynamicMemory Allocation &amp; Classes</b><span><i class="lang">EN</i> Sep 28, 2025</span></div><p>3.1 Freeing an Object from Memory Explicitly · 3.2 Why do we need Destructors? · 3.3 Objects Owning Other Dynamically Allocated Objects · 3.4 Arrays of Pointers</p>
+</a>
+        </div>
+      </div>
+    </section>
+    <section class="term">
+      <h2 class="serif">Fall 2024<span>6 courses</span></h2>
+      <div class="courses">
+        <div class="course" id="aps104-engineering-chemistry--materials-science" data-area="Physics">
+          <div class="lab"><b style="--d:#8a7bb0"><i></i>APS104 Engineering Chemistry &amp; Materials Science</b><span>7 notes</span></div>
+          <a class="rs" href="/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms2.elasticbehavior/">
+  <div class="t"><b>ECMS 2. Elastic Behavior</b><span><i class="lang">CN</i> Sep 24, 2024</span></div><p>Hooke’s Law · Material properties（材料性能） · Stress 应力 · Strain 应变</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms3.plasticdeformation/">
+  <div class="t"><b>ECMS 3. Plastic Deformation</b><span><i class="lang">CN</i> Sep 23, 2024</span></div>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms4.thestructureproperty/">
+  <div class="t"><b>ECMS 4. The Structure Property</b><span><i class="lang">CN</i> Sep 25, 2024</span></div><p>Young’s modulus change with Density · Ordered Solids · Grains · Simple Cubic</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms5.furtheronstressstrain/">
+  <div class="t"><b>MCMS 5. Further On Stress Strain</b><span><i class="lang">CN</i> Oct 16, 2024</span></div><p>Stress-Strain Curve · Uniform deformation · The Dislocation · Zero-Dimensional Imperfections or Point Defects</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms6.plastics/">
+  <div class="t"><b>MCMS 6. Plastics</b><span><i class="lang">CN</i> Nov 10, 2024</span></div><p>Polymer 聚合物 · Polyethylene and Polymer · Polymer’s Deformation · Bonds</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms7.lightquantum/">
+  <div class="t"><b>ECMS 7. Light and Quantum</b><span><i class="lang">CN</i> Nov 18, 2024</span></div><p>Light · Electromagnetic Spectrum 电磁光谱 · Electromagnetic Radiation 电磁辐射 · Photoelectric effect 光电效应</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps104---engineering-chemistry--materials-science/ecms8.thermodynamics/">
+  <div class="t"><b>ECMS 8. Thermodynamics</b><span><i class="lang">CN</i> Nov 25, 2024</span></div><p>The finger of time · The Second Law of Thermodynamics 热力学第二定律 · Entropy 熵 · The First Law of Thermodynamics 热力学第一定律</p>
+</a>
+        </div>
+        <div class="course" id="aps105-programming-with-c" data-area="Programming">
+          <div class="lab"><b style="--d:#8c8577"><i></i>APS105 Programming with C</b><span>12 notes</span></div>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/">
+  <div class="t"><b>LPC 1. Intro to Programming Computers</b><span><i class="lang">CN</i> Jan 8, 2025</span></div><p>1.2 Binary representation in memory · 1.4 Write Simple C Programs 编写简单的 C 程序</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc2.dataoperations/">
+  <div class="t"><b>LPC 2. Data &amp; Operations</b><span><i class="lang">CN</i> Jan 9, 2025</span></div><p>2.1 Double data type for real numbers · 2.2 Data types and representation · 2.3 Operations · 2.4. Math library</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/">
+  <div class="t"><b>LPC 3. Decision Making Statements</b><span><i class="lang">CN</i> Jan 13, 2025</span></div><p>3.1 If-Statement · 3.2 Multiple Conditions · 3.3 Nested-if Statement</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc4.repetition/">
+  <div class="t"><b>LPC 4. Repetition</b><span><i class="lang">CN</i> Jan 20, 2025</span></div><p>4.1 While Loop · 4.2 Do-while Loop · For loops · 4.4 Nested Loop</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc5.functions/">
+  <div class="t"><b>LPC 5. Functions</b><span><i class="lang">CN</i> Jan 28, 2025</span></div><p>5.1 Functions · 5.1.2 Function Prototype · 5.2. Communicate from a function · 5.3 Variable Scope</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/">
+  <div class="t"><b>LPC 6. Pointers</b><span><i class="lang">CN</i> Feb 20, 2025</span></div><p>6.1 Why Pointers ? · 6.2 What are Pointers ? · 6.3 Use Pointers to Communicate · 6.4. Rules defining scope of variables</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/">
+  <div class="t"><b>LPC 7. Arrays</b><span><i class="lang">CN</i> Feb 22, 2025</span></div><p>7.1 Why and how to use arrays ? · 7.2 What are arrays, and how are they stored ? · 7.3 How do we pass an Array to a function ?</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc8.dynamicmemoryallocation/">
+  <div class="t"><b>LPC 8. Dynamic Memory Allocation </b><span><i class="lang">CN</i> Mar 7, 2025</span></div><p>8.1 Dynamic Memory Allocation · 8.1.1 Different Options when array size is unknown</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc9.multi-dimensionalarrays/">
+  <div class="t"><b>LPC 9. Multi-dimensional Arrays</b><span><i class="lang">CN</i> Mar 25, 2025</span></div><p>9.1 Why and How to use 2D Array · 9.2. How do we pass a 2D array to a function? · 9.3 Dynamic Memory Allocation of 2D Arrays</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc10.strings/">
+  <div class="t"><b>LPC 10. Strings </b><span><i class="lang">CN</i> Mar 27, 2025</span></div><p>10.1. What are strings? · 10.2 Input/Output Strings · 10.3. String Functions · 10.4 Array of Strings</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc11.recursion/">
+  <div class="t"><b>LPC 11. Recursion</b><span><i class="lang">CN</i> Mar 31, 2025</span></div><p>11.1 Recursive Functions by Definition · 11.2 Recursion in Patterns · 11.3 Recursion in arrays</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc12.datastructure/">
+  <div class="t"><b>LPC 12. Data Structure </b><span><i class="lang">CN</i> Mar 31, 2025</span></div><p>12.1 What are Data Structures · 12.2 Pointers to Data Structures · 12.1.1 Define a data Structure · 12.1.2 Access Members of a data Structure</p>
+</a>
+        </div>
+        <div class="course" id="ece110-electrical-fundamentals" data-area="Circuits">
+          <div class="lab"><b style="--d:#6b86b8"><i></i>ECE110 Electrical Fundamentals</b><span>10 notes</span></div>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef1.coulombslaw_edited/">
+  <div class="t"><b>EF 1. Coulomb&#39;s Law Edited</b><span><i class="lang">CN</i> Mar 21, 2025</span></div><p>Coulomb’s Law 库仑定律 · Shell Theorem 壳定理 · Charge on Conducting Spherical Shell 导体球壳 · Conductor &amp; Insulator 导体和绝缘体</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef2.electricfield_edited/">
+  <div class="t"><b>EF 2. Electric Field Edited</b><span><i class="lang">CN</i> Mar 21, 2025</span></div><p>Electric Field 电场 · Electric Field Strength 电场强度 · Electric Field Lines 电场线 · The Electric Field Due to a charged Particle</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef3.gausslaw_edited/">
+  <div class="t"><b>EF 3. Gauss&#39; Law Edited</b><span><i class="lang">CN</i> Mar 28, 2025</span></div><p>Electric Flux · Gauss’s Law · A charged Isolated Conductor · Applying Gauss’s Law: Cylindrical Symmetry</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef4.electricpotential/">
+  <div class="t"><b>EF 4. Electric Potential</b><span><i class="lang">CN</i> Jan 23, 2025</span></div><p>4.1 Electric Potential · 4.2 Equipotential Surfaces 等势面 · 4.3 Electrical Potential Due to a Charged Particle · 4.7 Electrical Potential Energy of a system of charged Particles</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef5.capacitance/">
+  <div class="t"><b>EF 5. Capacitance</b><span><i class="lang">CN</i> Feb 6, 2025</span></div><p>5.1 Capacitance 电容 · 5.2 Calculating The Capacitance · 5.3 Capacitors in parallel and in series · 5.4 Energy Stored in an Electric Field</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef6.currentresistance/">
+  <div class="t"><b>EF 6. Current &amp; Resistance</b><span><i class="lang">CN</i> Feb 7, 2025</span></div><p>Electric Current · Current · Kirchhoff’s Current Law KCL · Current Density</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/">
+  <div class="t"><b>EF 7. Magnetic Fields</b><span><i class="lang">CN</i> Feb 8, 2025</span></div><p>Magnetic Field · Magnetic Force due to straight current wire · Magnetic Field Create by Straight Wire · Biot - Savart Law</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef8.inductioninductance/">
+  <div class="t"><b>EF 8. Induction &amp; Inductance</b><span><i class="lang">CN</i> Feb 20, 2025</span></div>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef9.resistivecircuits/">
+  <div class="t"><b>EF 9. Resistive Circuits</b><span><i class="lang">CN</i> Mar 3, 2025</span></div><p>Ohm’s Law · Conductance 电导 · Power Relationships · Conductor’s Influence in Circuit</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/ece110---electrical-fundamentals/ef10.nodalandloopanalysis/">
+  <div class="t"><b>EF 10. Nodal and Loop Analysis</b><span><i class="lang">CN</i> Apr 7, 2025</span></div><p>Node Analysis</p>
+</a>
+        </div>
+        <div class="course" id="mat186-calculus" data-area="Math">
+          <div class="lab"><b style="--d:#b97a7a"><i></i>MAT186 Calculus</b><span>5 notes</span></div>
+          <a class="rs" href="/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/">
+  <div class="t"><b>Calculus 8. Methods of Integration</b><span><i class="lang">CN</i> Mar 6, 2025</span></div><p>Integration by part · Trigonometric Substitute · Partial Fraction · Improper Integrals</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mat186---calculus/calculus9.series/">
+  <div class="t"><b>Calculus 9. Series</b><span><i class="lang">CN</i> Jan 22, 2025</span></div><p>Sequences · Series (Infinite Series) · Alternating Series · Absolute and Conditional Convergence</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mat186---calculus/calculus10.parametricequationsandpolarcoordinates/">
+  <div class="t"><b>Calculus 10. Parametric Equations and Polar Coordinates</b><span><i class="lang">EN</i> Jan 8, 2025</span></div><p>10.1 Parametric Equations · 10.2 Calculus of Parametric Curves · 10.4 Area and Arc Length in Polar Coordinates</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mat186---calculus/calculus11.complexnumber/">
+  <div class="t"><b>CAL 11. Complex Number</b><span><i class="lang">CN</i> Jan 9, 2025</span></div><p>1.  Imaginary and complex numbers · 2. Complex Arithmetic 复数运算 · 3. The Geometry of Complex Numbers · 4. Roots of polynomials</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mat186---calculus/calculusa1.polynomialinterpolation/">
+  <div class="t"><b>Calculus A1. Polynomial Interpolation</b><span><i class="lang">EN</i> Jan 13, 2025</span></div><p>Polynomial Interpolation · ex.</p>
+</a>
+        </div>
+        <div class="course" id="mat188-linear-algebra" data-area="Math">
+          <div class="lab"><b style="--d:#b97a7a"><i></i>MAT188 Linear Algebra</b><span>5 notes</span></div>
+          <a class="rs" href="/docs/uoft/24f/mat188---linearalgebra/la1.vectorlineplane/">
+  <div class="t"><b>LA 1. Vector Line &amp; Plane</b><span><i class="lang">CN</i> Oct 15, 2024</span></div><p>Set Notation 集合 · Vector 向量 · Norm 模 · Line 直线</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mat188---linearalgebra/la6.determiants/">
+  <div class="t"><b>LA 6. Determinants</b><span><i class="lang">CN</i> Oct 24, 2024</span></div><p>Formula for A Inverse · Introduction to Determinate · Properties of Determinant · Formular for Determinant</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mat188---linearalgebra/la7.orthogonalprojection/">
+  <div class="t"><b>LA 7. Orthogonal and Projection</b><span><i class="lang">CN</i> Nov 21, 2024</span></div><p>正交向量Orthogonal vectors · Orthogonal Subspaces 正交子空间 · Orthonormal · ATA</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mat188---linearalgebra/la8.diagonalizationandeigenvalues/">
+  <div class="t"><b>LA 8. Diagonalization and Eigenvalues</b><span><i class="lang">CN</i> Nov 25, 2024</span></div><p>Difference equations 差分方程 · Eigenvectors and Eigenvalues · Solve Ax = lambdax · Trace Equal to Eigenvalue Summation 矩阵的迹等于特征值之和</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mat188---linearalgebra/leastsquare/">
+  <div class="t"><b>LA Least Square</b><span><i class="lang">CN</i> Nov 19, 2024</span></div><p>Solution 解 · Projection 投影 · Least Squares 最小二乘</p>
+</a>
+        </div>
+        <div class="course" id="mie100-dynamics" data-area="Physics">
+          <div class="lab"><b style="--d:#8a7bb0"><i></i>MIE100 Dynamics</b><span>5 notes</span></div>
+          <a class="rs" href="/docs/uoft/24f/mie100---dynamics/dyn1.rectilinearmotion_edited/">
+  <div class="t"><b>DYN 1. Rectilinear Motion Edited</b><span><i class="lang">CN</i> Mar 24, 2025</span></div><p>Velocity &amp; Speed · Acceleration 加速度 · Summary</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mie100---dynamics/dyn2.planecurvilinearmotionandrectangularcoordinate_edited/">
+  <div class="t"><b>DYN 2. Plane Curvilinear Motion and Rectangular Coordinate Edited</b><span><i class="lang">CN</i> Mar 24, 2025</span></div><p>Plane Curvilinear Motion · Rectangular Coordinate System</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mie100---dynamics/dyn3.projectilemotion_edited/">
+  <div class="t"><b>DYN 3. Projectile Motion Edited</b><span><i class="lang">EN</i> Mar 24, 2025</span></div><p>Assumptions · Velocity</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mie100---dynamics/dyn4.n-tcoordinates_edited/">
+  <div class="t"><b>DYN 4. N-T Coordinates Edited</b><span><i class="lang">CN</i> Mar 24, 2025</span></div><p>Why N-T · Radius of curvature 曲率半径 · Distance in n-t System · Velocity in n-t System</p>
+</a>
+          <a class="rs" href="/docs/uoft/24f/mie100---dynamics/dyn5.r-thetacoordinate_edited/">
+  <div class="t"><b>DYN 5. R-Theta Coordinate Edited</b><span><i class="lang">CN</i> Mar 25, 2025</span></div><p>Position in R-Theta System · Velocity in R-Theta System · Acceleration in R-Theta System · Special Case: Circular Motion</p>
+</a>
+        </div>
+      </div>
+    </section>
+    <section class="term">
+      <h2 class="serif">Self-study<span>2 books</span></h2>
+      <div class="courses">
+        <div class="course" id="dive-into-deep-learning" data-area="ML">
+          <div class="lab"><b style="--d:#7fa070"><i></i>Dive Into Deep Learning</b><span>21 notes</span></div>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l4.multilayerperceptron/weierstrassapproximation/">
+  <div class="t"><b>D2L Weierstrass Approximation Theorem</b><span><i class="lang">CN</i> Dec 19, 2024</span></div><p>Weierstrass Approximation Theorem · Bernstein’s Proof 1912 · Bernstein Polynomial 伯恩斯坦多项式</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.1linearregression/">
+  <div class="t"><b>D2L 3.1 Linear Regression</b><span><i class="lang">CN</i> Apr 15, 2024</span></div><p>3.1.1 线性回归的基本元素 · 3.1.2 矢量化加速 · 3.1.3 正态分布与平方损失 · Likehood 似然</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.2object-orienteddesignforimplementation/">
+  <div class="t"><b>D2L 3.2 Object-Oriented Design for Implementation</b><span><i class="lang">CN</i> Apr 15, 2024</span></div><p>3.2.1  生成数据集 · 3.2.2 读取数据集 · 3.2.3 初始化模型参数 · 3.2.4 定义模型</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.3syntheticregressiondat/">
+  <div class="t"><b>D2L 3.3 A concise implementation of linear regression</b><span><i class="lang">CN</i> Apr 15, 2024</span></div><p>3.3.1 生成数据集 · 3.3.2 读取数据集 · 3.3.3 定义模型 · 3.3.4 初始化模型参数</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.4softmaxregression/">
+  <div class="t"><b>D2L 3.4 Softmax Regression</b><span><i class="lang">CN</i> Apr 15, 2024</span></div><p>3.4.1 分类问题 · 3.4.2 网格架构 · 3.4.3 全连接层的参数开销 · 3.4.4 softmax 运算</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.5imageclassificationdatasets/">
+  <div class="t"><b>D2L 3.5 Image classification datasets</b><span><i class="lang">CN</i> Apr 15, 2024</span></div><p>3.5.1 读取数据集 · 3.5.3. 整合所有组件</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.6implementationofsoftmaxregressionfromscratch/">
+  <div class="t"><b>D2L 3.6 Implementation of softmax regression from scratch</b><span><i class="lang">CN</i> Apr 15, 2024</span></div><p>3.6.1 初始化模型参数 · 3.6.2 定义softmax操作 · 3.6.3 定义模型 · 3.6.4 定义损失函数</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.1multilayerperceptron/">
+  <div class="t"><b>D2L 4.1 Multilayer Perceptron</b><span><i class="lang">CN</i> Dec 20, 2024</span></div><p>Perceptron 感知机 · XOR Problem · 单调假设与线性模型的局限性 · Hidden Layer 隐藏层</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/">
+  <div class="t"><b>D2L 4.1 MultilayerPerceptron</b><span><i class="lang">CN</i> Apr 15, 2024</span></div><p>4.1.1 隐藏层 · 4.1.1.4 通用近似定理 · 4.1.2 激活函数 Activation Function</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.2exampleofmlp/">
+  <div class="t"><b>D2L 4.2 Example of MLP</b><span><i class="lang">EN</i> Dec 20, 2024</span></div>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.4modelselectionunderfittingandoverfitting/">
+  <div class="t"><b>D2L 4.4 Model Selection, Underfitting, and Overfitting</b><span><i class="lang">CN</i> Apr 15, 2024</span></div><p>Overfitting 过拟合 · Regularization 正则化 · 4.4.1 训练误差和泛化误差 · 4.4.2 模型选择</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/">
+  <div class="t"><b>D2 5.1 Layer &amp; Block</b><span><i class="lang">CN</i> Dec 21, 2024</span></div><p>Layer 层 · Block 块 · MLP · 5.1.1 Custom block 自定义块</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.2parametermanagement/">
+  <div class="t"><b>D2L 5.2 Parameter Management</b><span><i class="lang">CN</i> Jan 17, 2025</span></div><p>5.2.1 Access parameters 访问参数 · 5.2.2 Parameter Initialization 参数初始化 · 5.2.3 Combined Parameter 参数绑定</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.3deferredinitialization/">
+  <div class="t"><b>D2L 5.3 Deferred Initialization</b><span><i class="lang">CN</i> Jan 18, 2025</span></div><p>5.3.1 Create Network 实例化网络</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.4customlayer/">
+  <div class="t"><b>D2L 5.4 Custom Layer</b><span><i class="lang">EN</i> Jan 19, 2025</span></div><p>5.4.1 Layer without parameter · 5.4.2 Layer with parameter</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
+  <div class="t"><b>D2L 6.2 Image Convolution</b><span><i class="lang">CN</i> Jan 28, 2025</span></div><p>6.2.1 Cross-Correlation Calculation · 6.2.2 Convolution Layer 卷积层 · 6.2.3 Edge detection · 6.2.5. Cross-Correlation and Convolution</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
+  <div class="t"><b>D2L 6.3 Padding &amp; Stride</b><span><i class="lang">CN</i> Mar 25, 2025</span></div><p>6.3.1 Padding 填充 · 6.3.2 Stride 步幅</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
+  <div class="t"><b>D2L 6.4 Multiple Input &amp; Output</b><span><i class="lang">CN</i> Mar 25, 2025</span></div><p>6.4.1 Multiple Input Channel · 6.4.2 Multiple Output Channel · 6.4.3 1x1 Convolution Layer</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
+  <div class="t"><b>D2L 6.5 Pooling Layer</b><span><i class="lang">CN</i> Mar 31, 2025</span></div><p>Pooling Layer · 6.5.1 Maximum &amp; Average Pooling Layer · 6.5.2 Padding &amp; Stride · 6.5.3 Multiple Channel</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
+  <div class="t"><b>D2L 6.6 LeNet</b><span><i class="lang">CN</i> Mar 31, 2025</span></div><p>6.6.1 LeNet · 6.6.2 Model Train · 定义函数 · 1️⃣ 初始化网络参数（使用 Xavier 初始化）</p>
+</a>
+          <a class="rs" href="/docs/dive-into-deep-learning/linearregression/">
+  <div class="t"><b>Linear Regression</b><span><i class="lang">CN</i> Nov 4, 2024</span></div>
+</a>
+        </div>
+        <div class="course" id="efficiently-inefficient" data-area="Finance">
+          <div class="lab"><b style="--d:#9a4a55"><i></i>Efficiently Inefficient</b><span>2 notes</span></div>
+          <a class="rs" href="/docs/reads/efficientlyinefficient/ei0.introduction/">
+  <div class="t"><b>EI0.Introduction</b><span><i class="lang">CN</i> Sep 6, 2025</span></div><p>Introduction · Hypotheis 假说 · Classing Sources of Alpha for Hedge Funds 经典对冲基金投资策略 · Investment Styles 投资风格</p>
+</a>
+          <a class="rs" href="/docs/reads/efficientlyinefficient/ei1.activeinvesting/">
+  <div class="t"><b>EI1.Active Investing</b><span><i class="lang">CN</i> Sep 7, 2025</span></div><p>Chapter 1. Hedge Fund 对冲基金 · 1.1. Goal and Fees</p>
+</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>buezw.github.io</span>
 </footer>
 
-
+<script>
+(function(){
+  var bs=document.querySelectorAll('#filters button');
+  bs.forEach(function(b){ b.addEventListener('click',function(){
+    var a=b.dataset.area;
+    bs.forEach(function(x){x.classList.toggle('on',x===b);});
+    document.querySelectorAll('.course').forEach(function(c){ c.classList.toggle('hide', !!a && c.dataset.area!==a); });
+    document.querySelectorAll('.term').forEach(function(t){ t.classList.toggle('hide', !t.querySelector('.course:not(.hide)')); });
+  }); });
+})();
+</script>
 </body>
 </html>

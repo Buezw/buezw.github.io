@@ -120,7 +120,7 @@ b = torch.zeros(num_outputs, requires_grad=True)
 &lt;li&gt;对每个项求幂&lt;/li&gt;
 &lt;li&gt;对每一行求和，得到其规范化常数&lt;/li&gt;
 &lt;li&gt;每一行除以其规范化常数，保持结果的和为1
-$$softmax(X)&lt;em&gt;{ij}=\frac{exp(X&lt;/em&gt;{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
+$$softmax(X)_{ij}=\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
 &lt;li&gt;分母或规范化常数，有时也称为_配分函数_（其对数称为对数-配分函数）。 该名称来自&lt;a href=&#34;https://en.wikipedia.org/wiki/Partition_function_%28statistical_mechanics%29&#34; target=&#34;_blank&#34;&gt;统计物理学&lt;/a&gt;中一个模拟粒子群分布的方程&lt;/li&gt;
 &lt;/ul&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;def softmax(X):

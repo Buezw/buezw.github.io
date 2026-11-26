@@ -108,9 +108,9 @@
     &lt;/span&gt;        
     
 &lt;/h1&gt;
-&lt;p&gt;$$
+$$
 a_n x^{(n)} + a_{n-1} x^{(n-1)} + \dots + a_1 x^{(1)} + a_0 x = g(t)
-$$&lt;/p&gt;</description>
+$$&lt;p&gt;$x^{(n)}$: x’s n th derivative for t&lt;/p&gt;</description>
       
     </item>
     

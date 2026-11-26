@@ -35,9 +35,45 @@
 &lt;li&gt;当 Integral 内存在两个函数的乘积的时候，可以使用 Integration by parts&lt;/li&gt;
 &lt;li&gt;已知有 Derivative&amp;rsquo;s Product Rule&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;$$
-\left( u(x) v(x) \right)&amp;rsquo; = u&amp;rsquo;(x) v(x) + u(x) v&amp;rsquo;(x)
-$$&lt;/p&gt;</description>
+$$
+\left( u(x) v(x) \right)&#39; = u&#39;(x) v(x) + u(x) v&#39;(x)
+$$&lt;ul&gt;
+&lt;li&gt;将两边同时积分可以得到&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\int u(x) v&#39;(x) \,dx = \int (u(x) v(x))&#39; \,dx - \int v(x) u&#39;(x) \,dx
+$$&lt;ul&gt;
+&lt;li&gt;等式右边的第一项化简后可以得到&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\int u(x) v&#39;(x) \,dx = u(x) v(x) - \int v(x) u&#39;(x) \,dx
+$$&lt;ul&gt;
+&lt;li&gt;于是就得到了 Integral By Parts 的公式&lt;/li&gt;
+&lt;/ul&gt;
+$$
+\int u \,dv = uv - \int v \,du
+$$&lt;ul&gt;
+&lt;li&gt;在得到了处理 Integral 内部有乘积时候的公式后，只需要选择乘积中的一个作为 u，另一个作为 v，并对一个求导，一个积分就可以得到 Integral By Parts 的结果了&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Guidelines for Integration by Parts 
+    &lt;div id=&#34;guidelines-for-integration-by-parts&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#guidelines-for-integration-by-parts&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;u 和 v 的选择直接关系到了 Integral By Parts 的难度&lt;/li&gt;
+&lt;li&gt;u求导后应该比u简单&lt;/li&gt;
+&lt;li&gt;dv积分后应该比v简单&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通常使用 &lt;strong&gt;LIATE 法则&lt;/strong&gt;（Logarithmic, Inverse trig, Algebraic, Trigonometric, Exponential） 优先选择 LIATE 顺序靠前的函数作为 u，然后把剩下的部分作为 dv&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus8.methodsofintegration/feature.png" />
     </item>
     
@@ -383,7 +419,171 @@ $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h3&gt;
-&lt;p&gt;$$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p} + \cdots$$&lt;/p&gt;</description>
+$$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3^p} + \cdots$$
+
+&lt;h3 class=&#34;relative group&#34;&gt;Convergence of p-Series 
+    &lt;div id=&#34;convergence-of-p-series&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#convergence-of-p-series&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当 \(p&amp;gt;1\) 的时候Converge，\(0&amp;lt;p\leq 1\) 的时候Diverge&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Harmonic Series 
+    &lt;div id=&#34;harmonic-series&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#harmonic-series&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;当p=1时，p-Series变成其特殊形式，即Harmonic Series&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Alternating Series 
+    &lt;div id=&#34;alternating-series&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#alternating-series&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;到目前为止的Series都只含有Postitive的Terms&lt;/li&gt;
+&lt;li&gt;Alternating Series 交错级数指的是一正一负（一负一正）的Terms的级数&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Alternating Series Remainder 
+    &lt;div id=&#34;alternating-series-remainder&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#alternating-series-remainder&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;如果一个&lt;strong&gt;收敛的交错级数&lt;/strong&gt;满足以下条件：&lt;/li&gt;
+&lt;li&gt;\(a_{n+1} \leq a_n\)（即正项部分单调递减），\(\lim_{n \to \infty} a_n = 0\)，&lt;/li&gt;
+&lt;li&gt;那么，当用第N项部分和\(S_N\)来近似整个级数的和 SS 时，有
+$$|S - S_N| = |R_N| \leq a_{N+1}$$
+换句话说，误差的绝对值小于等于被忽略的第一个正项\(a_{N+1}\)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Absolute and Conditional Convergence 
+    &lt;div id=&#34;absolute-and-conditional-convergence&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#absolute-and-conditional-convergence&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;有的Series可能含有正负项，但他们不已一定规律出现&lt;/li&gt;
+&lt;li&gt;这时候就需要利用Absolute and Conditional Convergence&lt;/li&gt;
+&lt;li&gt;如果一个级数 \(\sum |a_n|\) &lt;strong&gt;Convergence Absolutly&lt;/strong&gt;（即级数的项的绝对值构成的级数收敛），则原级数 \(\sum a_n\) 也一定Converge&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;Conditionally Converge 
+    &lt;div id=&#34;conditionally-converge&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#conditionally-converge&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;对于一个Series，当\(\sum |a_n|\) Diverge但是\(\sum a_n\) converge的时候，其Conditionally Converge 条件收敛&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;Tests for Convergency 
+    &lt;div id=&#34;tests-for-convergency&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#tests-for-convergency&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;对于Series存在许多的判断其是否收敛的办法&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;The Integral Test 
+    &lt;div id=&#34;the-integral-test&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#the-integral-test&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;如果函数f(x)满足以下条件：f(x)在 \(x \geq 1\) 上是positive，continuous，decreasing的，则：
+$$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$&lt;/li&gt;
+&lt;li&gt;的收敛性是一致的：  要么两者都收敛，要么两者都发散&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Direct Comparison Test 
+    &lt;div id=&#34;direct-comparison-test&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#direct-comparison-test&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;假设存在两个正项级数 \(\sum a_n\) 和 \(\sum b_n\)，并且对所有n都满足 \(0 &amp;lt; a_n \leq b_n\)，则有：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;如果 \(n\sum b_n\) &lt;strong&gt;Converge&lt;/strong&gt;，则 \(\sum a_n\) 也&lt;strong&gt;Converge&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果 \(\sum a_n\) &lt;strong&gt;Diverge&lt;/strong&gt;，则 \(\sum b_n\) 也&lt;strong&gt;Diverge&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Limit Comparison Test 
+    &lt;div id=&#34;limit-comparison-test&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#limit-comparison-test&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;对于Direct Comparison能做的，Limit都能做到并且会更加简单
+假设存在两个正项级数 \(\sum a_n\) 和 \(\sum b_n\)，并且满足：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;\(a_n &amp;gt; 0\) 和 \(b_n &amp;gt; 0\) 对所有n成立，存在极限： \(\lim_{n \to \infty} \frac{a_n}{b_n} = L\) 其中\(0 &amp;lt; L &amp;lt; \infty\)&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus9.series/feature.png" />
     </item>
     
@@ -485,8 +685,7 @@ $$(bi)^2=b^2\cdot i^2=b^2\cdot -1=-b^2$$&lt;/li&gt;
     
 &lt;/h4&gt;
 &lt;p&gt;Solve the equation \(x^2 +2x+2 = 0\). Using the quadratic formula
-$$z_1 = \frac{-2 + \sqrt{4 - 8}}{2} = -1 + i \quad \text{and} \quad z_2 = \frac{-2 - \sqrt{4 - 8}}{2} = -1 - i.
-$$&lt;/p&gt;</description>
+&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus11.complexnumber/feature.png" />
     </item>
     
@@ -542,7 +741,93 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h4&gt;
-&lt;p&gt;$$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$&lt;/p&gt;</description>
+$$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$&lt;ul&gt;
+&lt;li&gt;从第二个Equation中提出\(t = \frac{y - 1}{2}\)后带入
+$$x = \left(\frac{y - 1}{2}\right)^2 - 3 \\ = \frac{y^2 - 2y + 1}{4} - 3 \\ = \frac{y^2 - 2y - 11}{4}$$&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Use Trigonometrey to Eliminate Parameter 
+    &lt;div id=&#34;use-trigonometrey-to-eliminate-parameter&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#use-trigonometrey-to-eliminate-parameter&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;通过一些等式建立x和y之间的关系&lt;/li&gt;
+&lt;li&gt;例如\(\cos^2x+\sin^2 x=1\)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;ex. 
+    &lt;div id=&#34;ex-1&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#ex-1&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;有\(x = 3 \cos \theta \quad \text{and} \quad y = 4 \sin \theta, \quad 0 \leq \theta \leq 2\pi\)&lt;/li&gt;
+&lt;li&gt;通过\(cos \theta=\frac{x}{3},sin\theta=\frac{y}{4}\)替换原式，便有\((\frac{x}{3})^2+(\frac{y}{4})^2=1\)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;10.2 Calculus of Parametric Curves 
+    &lt;div id=&#34;102-calculus-of-parametric-curves&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#102-calculus-of-parametric-curves&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Derivatives of Parametric Equations 
+    &lt;div id=&#34;derivatives-of-parametric-equations&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#derivatives-of-parametric-equations&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;If a smooth curve C is given by the equations
+$$x = f(t) \quad \text{and} \quad y = g(t)$$&lt;/li&gt;
+&lt;li&gt;then the slope of C at (x, y)  is
+$$\frac{dy}{dx} = \frac{\frac{dy}{dt}}{\frac{dx}{dt}}, \quad \frac{dx}{dt} \neq 0
+$$&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Arc Length of a Parametric Curve 
+    &lt;div id=&#34;arc-length-of-a-parametric-curve&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#arc-length-of-a-parametric-curve&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;普通的Arc Length公式为\(\int^b_a\sqrt{1+[f&amp;rsquo;(x)]^2}dx\)&lt;/li&gt;
+&lt;li&gt;将Parametric Curve的Derivative带入，得到
+$$\int^b_a\sqrt{1+(\frac{dy/dt}{dx/dt})^2}dx=\int^b_a\sqrt{\frac{(dx/dt)^2+(dy/dt)^2}{(dx/dt)^2}}\frac{dx}{dt}dt$$&lt;/li&gt;
+&lt;li&gt;也就是
+$$=\int^b_a\sqrt{(\frac{dx}{dt})^2+(\frac{dy}{dt})^2}dt=\int^b_a\sqrt{[f&#39;(x)]^2+[g&#39;(t)]^2}dt$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;10.3 Polar Coordinates 极坐标&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus10.parametricequationsandpolarcoordinates/feature.png" />
     </item>
     

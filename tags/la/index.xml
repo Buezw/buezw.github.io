@@ -207,7 +207,7 @@ $$Ax=0x=0$$&lt;/li&gt;
 &lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Set is a collection of objects, called elements of the set
-$$A={t|t\in R}$$&lt;/li&gt;
+$$A=\{t|t\in R\}$$&lt;/li&gt;
 &lt;li&gt;这就是一个矩阵，其中A为t，而t可以取任意Real Number&lt;/li&gt;
 &lt;li&gt;这就是集合的表示方法，用这种方法便可以表示向量，直线和平面&lt;/li&gt;
 &lt;/ul&gt;
@@ -225,7 +225,7 @@ $$A={t|t\in R}$$&lt;/li&gt;
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;对于两个集合，其Union是另一个Set，其元素包含了all elements of A and B
-$$A \cup B = { x \in X \mid x \in A \text{ or } x \in B }$$&lt;/li&gt;
+$$A \cup B = \{ x \in X \mid x \in A \text{ or } x \in B \}$$&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -241,7 +241,7 @@ $$A \cup B = { x \in X \mid x \in A \text{ or } x \in B }$$&lt;/li&gt;
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;对于Intersection来说，这个Set包含了任意同时出现在A与B中的元素
-$$A \cap B = { x \in X \mid x \in A \text{ and } x \in B }.$$&lt;/li&gt;
+$$A \cap B = \{ x \in X \mid x \in A \text{ and } x \in B \}.$$&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -306,7 +306,90 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h3&gt;
-&lt;p&gt;$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;/p&gt;</description>
+$$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;ul&gt;
+&lt;li&gt;公式中的每一项\(a_i b_i\)表示两个向量在某个维度上的大小相乘&lt;/li&gt;
+&lt;li&gt;点积实际上是在将a和b的方向分量进行逐一对比，累加得到两个向量在整个空间上的“相似性”，每一个维度的相似性都将累加到最终的空间相似性上&lt;/li&gt;
+&lt;li&gt;想要表达这个相似性，还存在另一种方式，即通过Projection
+$$\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \cos \theta$$&lt;/li&gt;
+&lt;li&gt;其代表了b在a方向上Projection的长度再乘以a&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Angle Between Vectors 
+    &lt;div id=&#34;angle-between-vectors&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#angle-between-vectors&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;同理可以用Dot Product公式推导两个Vector之间的夹角
+$$\theta = \cos^{-1} \left( \frac{\mathbf{A} \cdot \mathbf{B}}{AB} \right) \quad 0^\circ \leq \theta \leq 180^\circ$$&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;Application 
+    &lt;div id=&#34;application&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#application&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Dot Product的一种用法便是Force Vector Directed Along a Line&lt;/li&gt;
+&lt;li&gt;对于一个在\(\vec u\)方向上的Force F，有
+$$\vec F_u=\vec F\cdot \vec u=(F\times 1)\cdot \cos\theta=F\cdot \cos\theta$$&lt;/li&gt;
+&lt;li&gt;而这一个\(\cos\theta\)则是
+$$\cos\theta=\frac{\vec v\cdot \vec{w}}{|v|\times|w|}$$&lt;/li&gt;
+&lt;li&gt;当把其中一个Vector替换为Direction Vector时，便可以得到Axis-Force&amp;rsquo;s Direction Cosine
+$$\cos\theta = \frac{\{r_xi+r_yj+r_zk\}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1}$$&lt;/li&gt;
+&lt;li&gt;所以就有\(F\cdot \cos \theta=F\cdot \vec u\)之后便可以得到Force在\(\vec u\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）&lt;/li&gt;
+&lt;li&gt;要想得到Force在\(\vec u\)方向上的Cartesian Vector，需要再次乘以Direction Vector&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h4 class=&#34;relative group&#34;&gt;最终公式 
+    &lt;div id=&#34;%E6%9C%80%E7%BB%88%E5%85%AC%E5%BC%8F&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%9C%80%E7%BB%88%E5%85%AC%E5%BC%8F&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h4&gt;
+$$\vec F=F_u\cdot \vec u= (\vec F\cdot u\cdot\cos\theta)\cdot \vec u=(F\cdot\frac{\{r_xi+r_yj+r_zk\}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1})\cdot\vec u$$
+
+&lt;h2 class=&#34;relative group&#34;&gt;Line 直线 
+    &lt;div id=&#34;line-%E7%9B%B4%E7%BA%BF&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#line-%E7%9B%B4%E7%BA%BF&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;考虑一个问题Consider the two points P = (1, 2) and Q = (−1, 4)，find an equation for the line y = mx + b which passes through P and Q&lt;/li&gt;
+&lt;li&gt;通过Point-Point Formula可以算出
+$$y_2-y_1=\frac{y_2 - y_1}{x_2 - x_1}(x_2-x_1)$$&lt;/li&gt;
+&lt;li&gt;解得 \(y=−x+3\)&lt;/li&gt;
+&lt;li&gt;现在考虑相似的问题 Suppose x and y satisfy the vector equation
+$$\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} + k \begin{bmatrix} 1 \\ -1 \end{bmatrix}, \text{ where } k \in \mathbb{R}$$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+    &lt;figure&gt;
+      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;https://buezw.github.io/docs/LinearAlgebra_Static/LA1.VectorLine&amp;amp;Plane/LA1.VectorLine&amp;amp;Plane-1.png&#34; alt=&#34;Img&#34; /&gt;
+      
+    &lt;/figure&gt;
+&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat188---linearalgebra/la1.vectorlineplane/feature.png" />
     </item>
     
