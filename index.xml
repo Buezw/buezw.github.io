@@ -31,6 +31,16 @@
     </item>
     
     <item>
+      <title>Options Market-Making Simulator 项目报告：从 Deribit BTC 期权原始数据到 PnL 归因</title>
+      <link>https://buezw.github.io/docs/articles/options-mm-simulator/</link>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/options-mm-simulator/</guid>
+      <description>Deribit BTC 期权做市回测系统的完整报告：Black-76 反解 IV、SVI 曲面与 TRF 求解、报价/成交/风控/对冲模块与 PnL 归因。</description>
+      
+    </item>
+    
+    <item>
       <title>Avellaneda–Stoikov 做市模型完整推导：从库存风险到最优双边报价</title>
       <link>https://buezw.github.io/docs/articles/as-full-derivation/</link>
       <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>

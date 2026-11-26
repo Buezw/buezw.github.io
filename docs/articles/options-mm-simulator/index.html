@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Options Market-Making Simulator 项目报告：从 Deribit BTC 期权原始数据到 PnL 归因 · Jingnan Huang</title>
+<meta name="description" content="Deribit BTC 期权做市回测系统的完整报告：Black-76 反解 IV、SVI 曲面与 TRF 求解、报价/成交/风控/对冲模块与 PnL 归因。">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f3f0ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
+
+ 
+.search{position:relative;flex:1;max-width:520px}
+ 
+@media (min-width:1101px){
+  .topnav{display:grid;grid-template-columns:1fr minmax(0,520px) 1fr}
+  .search{width:100%;max-width:none}
+  .topnav nav{justify-self:end}
+}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
+
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
+
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:80px 1fr;gap:16px 14px;margin:32px 0 6px;font-size:1rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
+
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
+
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
+
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
+ 
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+</style>
+
+<link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
+<link rel="stylesheet" href="/lib/katex/katex.min.css">
+<script defer src="/lib/katex/katex.min.js"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<style>
+ 
+.banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.banner>div{padding:0 clamp(24px,3.4vw,64px);max-width:calc(860px + 2*clamp(24px,3.4vw,64px));width:100%;margin:0 auto;box-sizing:border-box;min-width:0}
+.banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 12px;white-space:nowrap;width:max-content}
+.banner h1.wrap{white-space:normal;width:auto}
+.banner .meta{font-size:.86rem}
+.banner .lead{max-width:860px;margin:0 0 12px}
+.nav2{display:flex;gap:8px}
+.nav2 a{display:block;background:#fff;border:1px solid var(--paper2);padding:8px 14px;width:220px}
+.nav2 a:hover{border-color:var(--text)}
+.nav2 small{display:block;font-size:.72rem;color:var(--dim)}
+.nav2 b{display:block;font-weight:500;font-size:.86rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav2 .nx{text-align:right}
+.page{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh / var(--zoom) - 40px);overflow:auto;padding-right:4px}
+.side{padding:30px 22px 30px var(--px)}
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.grp{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;margin-top:8px;padding-bottom:12px;border-bottom:1px solid var(--paper2)}
+.grp a:hover{color:var(--c)}
+.grp small{display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:.76rem;font-weight:400;color:var(--dim);margin-top:6px;letter-spacing:0}
+.grp small i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.sib{font-size:.88rem;line-height:1.35;counter-reset:n}
+.sib a{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;align-items:baseline;padding:6px 8px 6px 0;color:#4a4741;border-radius:3px}
+.sib a em{font-style:normal;font-family:var(--serif);font-size:.95rem;color:var(--dim);text-align:right;padding-right:6px}
+.sib a span{overflow-wrap:anywhere}
+.sib a:hover{color:var(--text);background:rgba(255,255,255,.55)}
+.sib a.cur{background:#fff;color:var(--text);font-weight:500;box-shadow:inset 2px 0 0 var(--c)}
+.sib a.cur em{color:var(--c)}
+.rail{padding:30px var(--px) 30px 24px;border-left:1px solid var(--line)}
+.toc{font-size:.84rem;line-height:1.4;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 0 4px 12px;margin-left:-1px;border-left:2px solid transparent;color:#5a5650}
+.toc a.l2{padding-left:24px;font-size:.8rem;color:var(--dim)}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--c);border-left-color:var(--c)}
+.totop{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--dim)}
+.totop:hover{color:var(--text)}
+
+.art{padding:30px clamp(24px,3.4vw,64px) 50px;min-width:0}
+.art>*{margin-left:auto;margin-right:auto}
+.ahead{max-width:860px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--text)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+.ahead h1{font-size:2.6rem;line-height:1.12;margin:12px 0 0;overflow-wrap:anywhere}
+.ahead .crumb{margin-bottom:10px}
+.lead{margin:14px 0 0;font-size:1.05rem;line-height:1.65;color:#4a4741}
+
+ 
+.prose{max-width:860px;font-size:1.02rem;line-height:1.8;color:#232220;overflow-wrap:break-word}
+.prose h1,.prose h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-size:1.65rem;line-height:1.25;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:1.8em 0 .5em;scroll-margin-top:20px}
+.prose h4{font-size:1.05rem;font-weight:600;margin:1.6em 0 .4em;scroll-margin-top:20px}
+.prose>*:first-child{margin-top:0}
+.prose h1>span,.prose h2>span,.prose h3>span,.prose h4>span{display:none}
+.prose .anchor{scroll-margin-top:20px}
+.prose p{margin:0 0 1em}
+.prose a{color:var(--c);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.prose strong{font-weight:600;color:var(--text)}
+.prose ul,.prose ol{padding-left:1.4em;margin:0 0 1em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.2em 0}
+.prose blockquote{margin:1.2em 0;padding:.6em 1.1em;border-left:3px solid var(--c);background:#faf9f6;color:#4a4741}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose img,.prose video{display:block;max-width:100%;height:auto;margin:1.2em auto;border:1px solid var(--line)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;margin:1.2em 0;font-size:.92rem}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top}
+.prose th{background:#f6f4ef;font-weight:600}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:#f3f0ea;padding:.1em .35em;border-radius:3px}
+.prose pre{background:#faf9f6;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;font-size:.86rem;line-height:1.6;margin:1.2em 0}
+.prose pre code{background:none;padding:0;font-size:inherit}
+.prose .highlight{margin:1.2em 0}
+.prose .highlight pre{margin:0}
+.prose .katex-display{overflow-x:auto;overflow-y:hidden;padding:.2em 0}
+.prose .katex{font-size:1.06em}
+
+.pn{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:18px;border-top:1px solid var(--text)}
+.pn a{display:block;padding:12px 14px;border:1px solid var(--line)}
+.pn a:hover{border-color:var(--text)}
+.pn span{display:block;font-size:.78rem;color:var(--dim)}
+.pn b{font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
+.pn .nx{text-align:right;grid-column:2}
+
+@media (max-width:1000px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .banner{display:block;padding:22px 0 18px}
+  .banner h1{font-size:1.8rem!important;white-space:normal;width:auto}
+  .nav2{display:none}
+  .prose{font-size:.98rem}
+  .pn{grid-template-columns:1fr}
+  .pn .nx{grid-column:1}
+}
+</style>
+</head>
+<body style="--c:var(--blue)">
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 129 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
+  </div>
+  <nav>
+    <a href="/docs/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+<script>
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
+</script>
+
+
+<section class="banner">
+  <div>
+    <div class="crumb"><a href="/docs/">Notebook</a><i>/</i><a href="/docs/">Articles</a></div>
+    <h1 class="serif" id="atitle">Options Market-Making Simulator 项目报告：从 Deribit BTC 期权原始数据到 Pn L 归因</h1><p class="lead">Deribit BTC 期权做市回测系统的完整报告：Black-76 反解 IV、SVI 曲面与 TRF 求解、报价/成交/风控/对冲模块与 PnL 归因。</p>
+    <div class="meta">
+      <span>Sep 20, 2026</span><span>Edited 11/26/26</span>
+      <i class="lang">CN</i>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <article class="art">
+
+    <div class="prose">
+      
+<p><em>项目报告：从 Deribit BTC 期权原始数据到 PnL 归因</em></p>
+
+
+<h2 class="relative group">1. 一句话定义 
+    <div id="1-%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%AE%9A%E4%B9%89" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%AE%9A%E4%B9%89" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>这是一套把 <strong>Deribit BTC 期权/期货原始行情</strong> 转成 <strong>做市商完整决策闭环</strong> 的回测系统。链路是：录数据 $\to$ 拟合波动率曲面 $\to$ 报价 $\to$ 撮合成交 $\to$ 对冲 $\to$ 把每一笔盈亏拆解到每一个风险来源上。全程按时间顺序重放历史，不看未来数据。本项目当前标的固定为 BTC，<code>load_range()</code> 保留了按币种切换的接口，后续可以扩展到 ETH 等其他币种。</p>
+
+
+<h2 class="relative group">2. 整条链路的六步 
+    <div id="2-%E6%95%B4%E6%9D%A1%E9%93%BE%E8%B7%AF%E7%9A%84%E5%85%AD%E6%AD%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-%E6%95%B4%E6%9D%A1%E9%93%BE%E8%B7%AF%E7%9A%84%E5%85%AD%E6%AD%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>下面这六步是整个系统的主干流程，每一步用到的核心方法直接写在该步骤里。</p>
+<ol>
+<li><strong>录数据</strong>：<code>record_deribit.py</code> 连 Deribit 公开 API，持续记录 BTC 期权/期货的订单簿快照、行情（含标记价格与指数价格）、成交记录，按日期分区存成 <code>parquet</code> 文件。</li>
+<li><strong>加载与对齐</strong>：<code>load_range()</code> 读取指定日期区间的 BTC 数据，解析合约名称，按最小持仓量过滤掉冷门合约，合并成一条按时间戳排序的事件流。</li>
+<li><strong>初始曲面拟合（定价）</strong>：用 <strong>Black-76</strong> 期货期权定价公式，从行情反解每份期权的隐含波动率；按到期日分组，用 <strong>SVI</strong>（Stochastic Volatility Inspired）参数化做 vega 加权拟合，拼成一张完整的波动率曲面——见第 3 节。</li>
+<li><strong>组装做市/风控/对冲组件</strong>：报价、仓位记账、限额、对冲、成交撮合——见第 7–10 节，第 11 节给出它们之间的数据流。其中三个环节各有对应的方法：
+<ul>
+<li><strong>报价</strong>：库存感知的启发式报价——半价差随 vega/gamma 加宽，报价区间按库存偏斜（inventory skew）整体平移；</li>
+<li><strong>成交撮合</strong>：<strong>Poisson</strong> 理论撮合（成交强度随价差指数衰减）或 <strong>trade-replay</strong>（真实历史成交重放判定），二选一；</li>
+<li><strong>对冲</strong>：定时对冲 / 固定带宽对冲，二选一；<strong>Whalley–Wilmott</strong> 最优带宽对冲为规划中的第三种规则，尚未实现（见第 10.3 节）。</li>
+</ul>
+</li>
+<li><strong>事件驱动回测</strong>：把周期性的曲面重拟合、对冲检查点插入事件流，按时间顺序逐个处理，全程不看未来数据；每个对冲检查点上执行第 4 步选定的对冲规则。</li>
+<li><strong>输出与 PnL 归因</strong>：得到 PnL 序列，用多元 <strong>Taylor</strong> 展开按 delta/gamma/theta/vega 逐项拆解，残差单独核算（见第 12 节）；再计算夏普比率、最大回撤等指标，画图。</li>
+</ol>
+
+
+<h2 class="relative group">3. 定价的地基：从行情到一张波动率曲面 
+    <div id="3-%E5%AE%9A%E4%BB%B7%E7%9A%84%E5%9C%B0%E5%9F%BA%E4%BB%8E%E8%A1%8C%E6%83%85%E5%88%B0%E4%B8%80%E5%BC%A0%E6%B3%A2%E5%8A%A8%E7%8E%87%E6%9B%B2%E9%9D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-%E5%AE%9A%E4%BB%B7%E7%9A%84%E5%9C%B0%E5%9F%BA%E4%BB%8E%E8%A1%8C%E6%83%85%E5%88%B0%E4%B8%80%E5%BC%A0%E6%B3%A2%E5%8A%A8%E7%8E%87%E6%9B%B2%E9%9D%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">3.1 Black-Scholes 公式 
+    <div id="31-black-scholes-%E5%85%AC%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#31-black-scholes-%E5%85%AC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>期权定价最基础的模型是 <strong>Black-Scholes 公式</strong>。对一份现货标的、行权价 $K$、到期时间 $\tau$ 的欧式看涨期权，理论价格是：</p>
+$$
+C = S\,N(d_1) - K e^{-r\tau} N(d_2), \qquad
+d_1 = \frac{\ln(S/K) + (r+\sigma^2/2)\tau}{\sigma\sqrt{\tau}}, \qquad
+d_2 = d_1 - \sigma\sqrt{\tau}
+\tag{1}
+$$<p>其中：</p>
+<ul>
+<li>$S$ —— 标的现价；</li>
+<li>$K$ —— 行权价；</li>
+<li>$r$ —— 无风险利率；</li>
+<li>$\tau$ —— 到期时间；</li>
+<li>$\sigma$ —— 波动率；</li>
+<li>$N(\cdot)$ —— 标准正态分布的累积分布函数。</li>
+</ul>
+<p>式 (1) 里除了 $\sigma$，其余变量（$S,K,r,\tau$）都能直接从市场上观察到。</p>
+
+
+<h3 class="relative group">3.2 如何反解隐含波动率 
+    <div id="32-%E5%A6%82%E4%BD%95%E5%8F%8D%E8%A7%A3%E9%9A%90%E5%90%AB%E6%B3%A2%E5%8A%A8%E7%8E%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#32-%E5%A6%82%E4%BD%95%E5%8F%8D%E8%A7%A3%E9%9A%90%E5%90%AB%E6%B3%A2%E5%8A%A8%E7%8E%87" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><strong>隐含波动率（implied volatility, IV）</strong> 的算法是把式 (1) <strong>反过来用</strong>：市场上已经有这份期权的真实成交价或报价中间价 $C_{\text{market}}$，把它代入式 (1) 左边，反解出唯一能让等式成立的 $\sigma$：</p>
+$$
+\sigma_{\text{IV}} = \sigma \ \text{使得} \ C(\sigma) = C_{\text{market}}
+\tag{2}
+$$<p>式 (2) 没有解析解，因为 $\sigma$ 出现在 $N(\cdot)$ 内部，通常用数值方法（比如 Newton-Raphson 迭代）求解——这也是“用行情反解隐含波动率”这一步实际在做的事情：不是从模型算出一个价格，而是从市场已经给出的价格，反推市场当前对未来波动率的预期。</p>
+<p>项目里实际反解 IV 用的是 <strong>Black-76</strong>[1]，它是 Black-Scholes 针对<strong>远期/期货标的</strong>期权的变种。把式 (1) 提出一个折现因子改写成 $C=e^{-r\tau}\left[S e^{r\tau}N(d_1)-KN(d_2)\right]$，再把方括号里的 $Se^{r\tau}$ 换成同到期日的远期价格 $F$，就得到</p>
+$$
+C = e^{-r\tau}\left[F\,N(d_1) - K\,N(d_2)\right], \qquad
+d_1 = \frac{\ln(F/K) + \sigma^2\tau/2}{\sigma\sqrt{\tau}}, \qquad
+d_2 = d_1 - \sigma\sqrt{\tau}
+\tag{3}
+$$<p>注意消掉的只是 drift 里的 $r$——持有成本已经隐含在 $F$ 里，不必再单独处理利率和股息；但折现因子 $e^{-r\tau}$ 仍然保留。式 (3) 和式 (1) 结构一致，“从价格反解 $\sigma$”的原理也完全一样。用 Black-76 的理由是：Deribit 的 BTC 期权虽然按 BTC 指数现金交割，但市场定价和交易所的 mark price 都以同到期日的 forward 为基准，直接拿现货代入 Black-Scholes 去反解 IV 会引入系统性偏差。</p>
+
+
+<h4 class="relative group">3.2.1 一个实现上的坑：权利金以 BTC 计价 
+    <div id="321-%E4%B8%80%E4%B8%AA%E5%AE%9E%E7%8E%B0%E4%B8%8A%E7%9A%84%E5%9D%91%E6%9D%83%E5%88%A9%E9%87%91%E4%BB%A5-btc-%E8%AE%A1%E4%BB%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#321-%E4%B8%80%E4%B8%AA%E5%AE%9E%E7%8E%B0%E4%B8%8A%E7%9A%84%E5%9D%91%E6%9D%83%E5%88%A9%E9%87%91%E4%BB%A5-btc-%E8%AE%A1%E4%BB%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Deribit 的 BTC 期权是 inverse 合约，<strong>权利金本身以 BTC 报价</strong>（典型量级 0.003 BTC），而式 (3) 里的 $F$、$K$ 都是 USD，所以喂进求解器之前必须先乘上当时的 index price 换成 USD。项目里 ticker 的报价一开始就做了这一步，<strong>成交记录</strong>（trade）的价格却没有：$0.0032$（BTC）拿去和挂在 $240$ 上下（USD）的报价比较，式 (29) 的判定条件必然成立，于是每一笔成交都被判成“我们的 bid 被打中”。后果不只是仓位单向堆积，连 edge（公允价减成交价）都几乎等于整份期权白送——这个 bug 不报错，反而让回测跑出一条漂亮的 edge 曲线，比让程序崩溃的 bug 更难发现。</p>
+<p>换算还有一个细节：index price 必须取<strong>成交时刻或之前</strong>最近的一个（向后 <code>merge_asof</code>），用之后的就会让回测看到成交时还不存在的信息，是典型的前视偏差（lookahead）。成交记录自带 <code>index_price</code> 时优先用它，历史数据则退回到按时间向后对齐 ticker 的 index。</p>
+
+
+<h3 class="relative group">3.3 为什么不同行权价的 IV 不一样 
+    <div id="33-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E8%A1%8C%E6%9D%83%E4%BB%B7%E7%9A%84-iv-%E4%B8%8D%E4%B8%80%E6%A0%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#33-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%E8%A1%8C%E6%9D%83%E4%BB%B7%E7%9A%84-iv-%E4%B8%8D%E4%B8%80%E6%A0%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Black-Scholes 公式的一个核心假设是标的价格服从几何布朗运动，波动率 $\sigma$ 是常数——理论上不管行权价是多少，反解出来的 IV 应该都相等。但真实市场里几乎从不是这样，原因主要有三个：</p>
+<ul>
+<li><strong>尾部风险定价</strong>：真实标的价格的分布比正态分布有更肥的尾部（fat tails），极端下跌或上涨的概率比模型假设的更高。深度虚值、深度实值的期权本质上是在为这些尾部风险定价，市场会给它们更高的 IV 作为风险溢价，而不是用平值期权的 IV 一概而论。</li>
+<li><strong>供需失衡</strong>：不同行权价的期权，买卖双方的需求结构不一样。比如加密货币市场里，投资者习惯买入虚值看跌期权做尾部对冲，这部分需求会把该行权价的价格、进而把反解出的 IV 抬高，跟标的真实的波动率预期无关，纯粹是买卖压力造成的。</li>
+<li><strong>杠杆效应与波动率的价格依赖性</strong>：标的价格下跌时，公司杠杆率上升（或者市场恐慌情绪上升），实际波动率往往会跟着上升——这种“价格跌、波动率涨”的负相关关系，会让低行权价（看跌方向）的期权系统性地反解出更高的 IV。</li>
+</ul>
+<p>把同一到期日、不同行权价反解出的这一串 IV 连起来画在图上，横轴是行权价（或对数行权价），纵轴是 IV。得到的通常是一条中间低、两边高的曲线，形状像一个笑脸，这就是 <strong>volatility smile</strong>。它不是模型的产物，而是市场在告诉你“Black-Scholes 关于常数波动率的假设是错的，不同行权价上真实隐含的风险预期是不一样的”。</p>
+<p><em>图 1：Black-Scholes 假设的常数波动率（橙色虚线，取平值处 IV=55%）与真实市场反解出的 IV（绿色散点，每个点对应一个行权价）对比：如果常数波动率假设成立，所有散点应该都落在橙色虚线上；但真实的散点在两翼明显偏离水平线，且左翼偏离更陡，呈现左偏的笑脸形状（原文此处为 TikZ 图，见 PDF 版）</em></p>
+
+
+<h3 class="relative group">3.4 从散点到曲线：SVI 拟合的动机 
+    <div id="34-%E4%BB%8E%E6%95%A3%E7%82%B9%E5%88%B0%E6%9B%B2%E7%BA%BFsvi-%E6%8B%9F%E5%90%88%E7%9A%84%E5%8A%A8%E6%9C%BA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#34-%E4%BB%8E%E6%95%A3%E7%82%B9%E5%88%B0%E6%9B%B2%E7%BA%BFsvi-%E6%8B%9F%E5%90%88%E7%9A%84%E5%8A%A8%E6%9C%BA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>这一步在拟合的是市场对某一个到期日、不同行权价的期权的定价——更具体地说，是市场报价隐含出来的波动率。目标是用一条光滑曲线，把这些零散的报价概括起来。</p>
+
+
+<h4 class="relative group">3.4.1 原始数据长什么样 
+    <div id="341-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#341-%E5%8E%9F%E5%A7%8B%E6%95%B0%E6%8D%AE%E9%95%BF%E4%BB%80%E4%B9%88%E6%A0%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>以 Deribit 上某个 BTC 到期日为例，市场给出的只是一堆离散的期权报价。取标的价格 $F=100,000$、30 天到期的一组合约：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">合约</th>
+          <th style="text-align: left">权利金（BTC，交易所报价）</th>
+          <th style="text-align: left">折算 USD</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">80,000 put</td>
+          <td style="text-align: left">0.0127</td>
+          <td style="text-align: left">1,269</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">90,000 put</td>
+          <td style="text-align: left">0.0280</td>
+          <td style="text-align: left">2,800</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">100,000 call</td>
+          <td style="text-align: left">0.0628</td>
+          <td style="text-align: left">6,275</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">110,000 call</td>
+          <td style="text-align: left">0.0281</td>
+          <td style="text-align: left">2,806</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+          <td style="text-align: left">…</td>
+      </tr>
+  </tbody>
+</table>
+<p>交易所报的是 BTC 计价的权利金，先按 3.2.1 节换算成 USD，再用 Black-76 反推，每个价格就能得到一个隐含波动率 $\sigma_{\text{imp}}$，换算成 $(k_i, w_i)$。这样就得到了一组<strong>散点</strong>，也就是要拟合的对象。</p>
+
+
+<h4 class="relative group">3.4.2 为什么不直接用这些点 
+    <div id="342-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%9B%B4%E6%8E%A5%E7%94%A8%E8%BF%99%E4%BA%9B%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#342-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%9B%B4%E6%8E%A5%E7%94%A8%E8%BF%99%E4%BA%9B%E7%82%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>散点本身有三个问题：</p>
+<ol>
+<li><strong>只在有限的行权价上有值</strong>：如果要给 95,500 这个行权价报价，市场上没有这个点；</li>
+<li><strong>有噪声</strong>：买卖价差很宽，深度虚值的报价尤其不靠谱，有的点还会明显偏离；</li>
+<li><strong>不光滑</strong>：直接把点连起来，曲线会有折角和抖动，算出的 Greeks（尤其是二阶的）会很乱，甚至可能出现套利。</li>
+</ol>
+
+
+<h3 class="relative group">3.5 SVI 参数化：用五个参数概括一条曲线 
+    <div id="35-svi-%E5%8F%82%E6%95%B0%E5%8C%96%E7%94%A8%E4%BA%94%E4%B8%AA%E5%8F%82%E6%95%B0%E6%A6%82%E6%8B%AC%E4%B8%80%E6%9D%A1%E6%9B%B2%E7%BA%BF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#35-svi-%E5%8F%82%E6%95%B0%E5%8C%96%E7%94%A8%E4%BA%94%E4%B8%AA%E5%8F%82%E6%95%B0%E6%A6%82%E6%8B%AC%E4%B8%80%E6%9D%A1%E6%9B%B2%E7%BA%BF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>项目里用 <strong>SVI</strong>（Stochastic Volatility Inspired）参数化[2]去拟合每一条到期日的曲线，用 5 个参数描述总方差随行权价的变化：</p>
+$$
+w(k) = a + b\left(\rho(k-m) + \sqrt{(k-m)^2 + \sigma^2}\right)
+\tag{4}
+$$<p>先理解式 (4) 里每个符号具体是什么：</p>
+<ul>
+<li>$w = \sigma_{\text{imp}}^2 \cdot T$ —— <strong>总方差（total variance）</strong>：隐含波动率的平方乘以到期时间。SVI 不直接拟合隐含波动率本身，而是拟合这个经过变换的量，因为 $w$ 对到期时间的依赖更平滑、更适合参数化；</li>
+<li>$k = \ln(K/F)$ —— <strong>对数行权价（log-moneyness）</strong>：其中 $K$ 是行权价，$F$ 是远期价格。用对数比值而不是行权价本身，是因为这样不同标的价格水平下的曲线形状可以直接比较，不受价格量纲影响。</li>
+</ul>
+<p>式 (4) 画出来的曲线可以想象成一条<strong>圆角的 V 字形</strong>，五个参数各管一件事：</p>
+<ul>
+<li>$a$ —— 整体水平：整条曲线的上下平移，即 V 字形的最低水平；</li>
+<li>$b$ —— 两翼陡峭程度：V 字两翼张开的程度，左翼斜率是 $b(1-\rho)$，右翼斜率是 $b(1+\rho)$，$b$ 越大两翼整体越陡；</li>
+<li>$\rho$ —— 左右偏斜方向：控制左右两翼是否对称，取值范围 $(-1,1)$。BTC 期权市场常见左翼（看跌方向）更陡，此时 $\rho<0$，对应左翼斜率 $b(1-\rho)$ 比右翼斜率 $b(1+\rho)$ 更大；</li>
+<li>$m$ —— 谷底位置：V 字形谷底整体在 $k$ 轴上的左右平移；</li>
+<li>$\sigma$ —— 谷底圆润度：$\sigma\to 0$ 时谷底变成尖角，$\sigma$ 越大谷底越平缓、越圆润。</li>
+</ul>
+<p>图 2 取了一组标定过的参数代入式 (4)：$a=0.0038$，$b=0.027$，$\rho=-0.35$，$m=0$，$\sigma=0.045$，对应 7 天到期、平值隐含波动率 51%。$\rho<0$ 让曲线向左偏斜，也就是低行权价（看跌方向）一侧的隐含波动率比高行权价一侧更陡。这正是 3.3 节里“杠杆效应”造成的左偏 smile 在 SVI 参数上的体现。</p>
+<p><em>图 2：三条不同到期日的 SVI 曲线。把这一族曲线沿到期时间这根轴摞起来，就是完整的波动率曲面（原文此处为 TikZ 图，见 PDF 版）</em></p>
+
+
+<h4 class="relative group">3.5.1 拟合完得到什么 
+    <div id="351-%E6%8B%9F%E5%90%88%E5%AE%8C%E5%BE%97%E5%88%B0%E4%BB%80%E4%B9%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#351-%E6%8B%9F%E5%90%88%E5%AE%8C%E5%BE%97%E5%88%B0%E4%BB%80%E4%B9%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>拟合的结果是 <strong>5 个数 $(a,b,\rho,m,\sigma)$</strong>。有了它们，就相当于有了一个公式：给定任意一个行权价，算出 $k$，代入 SVI 得到 $w$，再换算出隐含波动率，最后代回 Black-76 得到理论价格。拟合的本质，就是把几十个带噪声的市场报价，压缩成 5 个参数描述的一条光滑、合理的微笑曲线。</p>
+
+
+<h4 class="relative group">3.5.2 这条曲线拿来做什么 
+    <div id="352-%E8%BF%99%E6%9D%A1%E6%9B%B2%E7%BA%BF%E6%8B%BF%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#352-%E8%BF%99%E6%9D%A1%E6%9B%B2%E7%BA%BF%E6%8B%BF%E6%9D%A5%E5%81%9A%E4%BB%80%E4%B9%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>有这条曲线之后：</p>
+<ul>
+<li><strong>定价任意行权价</strong>：包括市场上没有报价的点；</li>
+<li><strong>做市报价</strong>：以曲线给出的理论价为中心，加减价差，报出 bid 和 ask（见第 7 节）；</li>
+<li><strong>算 Greeks 和对冲</strong>：曲线光滑，delta、gamma、vega 才稳定；</li>
+<li><strong>判断市场报价贵还是便宜</strong>：某个点明显高于曲线，可能说明市场上这份期权偏贵；</li>
+<li><strong>观察形状变化</strong>：比如 $\rho$ 从 $-0.3$ 变成 $+0.1$，说明市场从更怕下跌转成更追涨。</li>
+</ul>
+<p>拟合时按每份合约的 vega 加权——流动性好、vega 大的合约权重更高，避免深度虚值、报价噪声大的合约拉偏整条曲线。</p>
+<p>拟合本质上是一个<strong>带边界约束的非线性最小二乘问题</strong>。输入是市场上观测到的一组 $(k_i, w_i)$，即每份合约的对数行权价和反解出的总方差。要找的是一组参数 $(a,b,\rho,m,\sigma)$，让式 (4) 算出的曲线尽量贴近这些散点。参数还要满足几条约束：$b\ge 0$、$|\rho|<1$、$\sigma>0$ 保证曲线形状有意义，$a+b\sigma\sqrt{1-\rho^2}\ge 0$ 保证总方差处处非负。具体求解算法见第 5 节。</p>
+
+
+<h3 class="relative group">3.6 从曲线到曲面 
+    <div id="36-%E4%BB%8E%E6%9B%B2%E7%BA%BF%E5%88%B0%E6%9B%B2%E9%9D%A2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#36-%E4%BB%8E%E6%9B%B2%E7%BA%BF%E5%88%B0%E6%9B%B2%E9%9D%A2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>单一到期日、不同行权价的期权，隐含波动率画出来是一条弯曲的曲线（volatility smile），而不是一条水平线。把所有到期日的曲线拼在一起，就是一张三维的<strong>波动率曲面</strong>：横轴是行权价，纵轴是到期时间，高度是隐含波动率。</p>
+<p>图 3 是一个具体的三维示例。它用前面图 2 那三条到期日曲线（7 天、30 天、90 天）背后的参数演化规律，插值出一个连续的曲面。可以看到两个规律——沿到期时间轴（往后）曲面整体抬升（到期越久，总方差积累越多），沿行权价轴（左右）曲面呈左偏的笑脸形状，且到期越久笑脸的谷底越平缓。</p>
+<p><em>图 3：一张示例波动率曲面：横轴是对数行权价 $k$，纵轴是到期天数 $T$，高度是总方差 $w$。这就是把无数条像图 2 那样的 SVI 曲线，沿到期时间连续摞起来的结果（原文此处为 TikZ 图，见 PDF 版）</em></p>
+<p>三条曲线的差异体现了曲面在到期时间方向上的规律。到期日越长，总方差的整体水平越高（$a$ 增大，因为方差随时间累积）。曲线谷底也越平缓（$\sigma$ 增大，市场对长期波动率的分歧比短期更小）。左偏程度则通常略有减弱（短期更容易受近期价格冲击和杠杆效应影响）。项目里 SVI 拟合是对每个到期日<strong>独立</strong>做的。所以拼接成曲面时还要额外检查一条：相邻到期日的曲线不能产生<strong>日历价差套利</strong>（calendar arbitrage），即近月总方差不能高于远月。</p>
+<p>如果某个时间段数据点太少，拟合会退化成一个未标定的 50% 平坦波动率曲面，并打印警告。这是一个工程兜底，不是理论上的正确曲面，只是保证后续模块不会因为拟合失败而崩溃。</p>
+
+
+<h2 class="relative group">4. 为什么用 SVI，而不用更简单的曲线 
+    <div id="4-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8-svi%E8%80%8C%E4%B8%8D%E7%94%A8%E6%9B%B4%E7%AE%80%E5%8D%95%E7%9A%84%E6%9B%B2%E7%BA%BF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8-svi%E8%80%8C%E4%B8%8D%E7%94%A8%E6%9B%B4%E7%AE%80%E5%8D%95%E7%9A%84%E6%9B%B2%E7%BA%BF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>在讲怎么解这个拟合问题之前，先回答一个更前置的问题：为什么非得是 SVI 这条曲线。抛物线在<strong>平值附近一小段</strong>其实能用，很多人做局部近似时也确实这么用。问题出在<strong>两翼</strong>和<strong>形状的自由度</strong>上，主要有四点。</p>
+<p>按市场惯例，行权价低于标的价格 $F$ 的一侧报<strong>看跌期权（put）</strong> 的价格，高于 $F$ 的一侧报<strong>看涨期权（call）</strong> 的价格。原因是虚值期权流动性更好、报价更活跃。市场上几乎不会直接交易深度实值期权，它们的价格都是靠 put-call 平价从对应的虚值期权换算出来的。</p>
+
+
+<h3 class="relative group">4.1 对称抛物线画不出偏斜 
+    <div id="41-%E5%AF%B9%E7%A7%B0%E6%8A%9B%E7%89%A9%E7%BA%BF%E7%94%BB%E4%B8%8D%E5%87%BA%E5%81%8F%E6%96%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#41-%E5%AF%B9%E7%A7%B0%E6%8A%9B%E7%89%A9%E7%BA%BF%E7%94%BB%E4%B8%8D%E5%87%BA%E5%81%8F%E6%96%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>最简单的想法是直接用一条抛物线 $w=ak^2+c$ 拟合总方差曲线。这个式子关于 $k=0$ 完全对称，左翼和右翼永远一样高。但真实市场几乎总是一边更贵——BTC 期权常见 put 侧更贵，这是抛物线最直接的缺陷。</p>
+<p>图 4 把这种失败单独画出来。</p>
+<p>加一个一次项变成 $w=\alpha k^2+\beta k+c$，对称轴就能挪开。这一步确实管用：SVI 的左右不对称展开后正好是线性的（$w(k)-w(-k)=2b\rho k$），一次项 $\beta k$ 能把它吃掉，所以在报价集中的那一小段行权价上，带一次项的抛物线能把两翼的高度差拟得相当准。</p>
+<p>它拟不了的是另外两件事。一是<strong>谷底形状</strong>：抛物线的二阶导数是同一个常数，两侧弯曲程度永远一样，做不出 SVI 那种“谷底尖、两翼渐平”的样子（实测它在平值处会高出近 5 个波动率点）。二是<strong>两翼的增长阶数</strong>：抛物线按平方增长，而 SVI 的两翼趋于直线、斜率分别是式 (4) 里的 $b(1-\rho)$ 和 $b(1+\rho)$——这是下一节的内容，也是更致命的一条。</p>
+<p><em>图 4：与图 1 同一组 30 天期数据，叠上一条对称抛物线 $w=ak^2+c$ 的最小二乘拟合。散点在 $|k|=0.6$ 处左翼接近 100%、右翼只有 80%，而抛物线两侧被迫都落在 92% 上（原文此处为 TikZ 图，见 PDF 版）</em></p>
+
+
+<h3 class="relative group">4.2 两翼增长太快，违反无套利 
+    <div id="42-%E4%B8%A4%E7%BF%BC%E5%A2%9E%E9%95%BF%E5%A4%AA%E5%BF%AB%E8%BF%9D%E5%8F%8D%E6%97%A0%E5%A5%97%E5%88%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#42-%E4%B8%A4%E7%BF%BC%E5%A2%9E%E9%95%BF%E5%A4%AA%E5%BF%AB%E8%BF%9D%E5%8F%8D%E6%97%A0%E5%A5%97%E5%88%A9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>这是最根本的原因。<strong>Lee 矩公式（Lee’s moment formula）</strong>[3]给出了一个模型无关的结论：当 $|k|\to\infty$ 时，总方差 $w(k)$ 最多只能<strong>线性</strong>增长，斜率不超过 2，即</p>
+$$
+\limsup_{|k|\to\infty} \frac{w(k)}{|k|} \le 2
+\tag{5}
+$$<p>越界的后果是实打实的：标的价格分布的矩不存在，对应的期权价格会给出无风险套利机会。所以式 (5) 不是建议，是硬约束。</p>
+<p>抛物线一定会越界。$w=ak^2+bk+c$ 是<strong>平方</strong>增长的，$|k|$ 足够大时必然超过线性上限。越过之后，模型给出的深度虚值期权价格会高到不合理，隐含概率分布也不再合法。</p>
+<p>SVI 则不会。式 (4) 里的根号项在 $|k|$ 很大时近似于 $|k-m|$，所以两翼趋于直线，增长阶数天然就是线性的——这是抛物线做不到的。</p>
+<p>但线性只保证了<em>形式</em>对。斜率要真正不超标，还得参数本身满足 $b(1+|\rho|)\le 2$。这是 Gatheral 与 Jacquier 讨论的 SVI 无套利参数域[4]里额外的一条约束，拟合时要一并检查。</p>
+
+
+<h3 class="relative group">4.3 外推会爆炸 
+    <div id="43-%E5%A4%96%E6%8E%A8%E4%BC%9A%E7%88%86%E7%82%B8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#43-%E5%A4%96%E6%8E%A8%E4%BC%9A%E7%88%86%E7%82%B8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>用图 2 里那组 30 天期 SVI 参数（$a=0.0143$，$b=0.086$，$\rho=-0.29$，$m=0$，$\sigma=0.122$，对应平值隐含波动率 55%），只取 $k=-0.2,0,0.2$ 三个点反过来拟合一条抛物线，得到 $w=0.2414k^2-0.0249k+0.0248$。只用三个点，是因为真实市场就是这样：流动性好的合约都挤在平值附近。往外推会发生什么：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">$k$</th>
+          <th style="text-align: left">行权价 $K$</th>
+          <th style="text-align: left">SVI 隐含波动率</th>
+          <th style="text-align: left">抛物线隐含波动率</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$-0.4$</td>
+          <td style="text-align: left">67,032</td>
+          <td style="text-align: left">86%</td>
+          <td style="text-align: left">95%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$0$</td>
+          <td style="text-align: left">100,000</td>
+          <td style="text-align: left">55%</td>
+          <td style="text-align: left">55%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$0.4$</td>
+          <td style="text-align: left">149,182</td>
+          <td style="text-align: left">70%</td>
+          <td style="text-align: left">81%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$1.0$</td>
+          <td style="text-align: left">271,828</td>
+          <td style="text-align: left">96%</td>
+          <td style="text-align: left">171%</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$2.0$</td>
+          <td style="text-align: left">738,906</td>
+          <td style="text-align: left">129%</td>
+          <td style="text-align: left">338%</td>
+      </tr>
+  </tbody>
+</table>
+<p>中间一段两条曲线几乎一样，但越往外，抛物线给出的波动率越离谱——$k=2.0$（行权价约 74 万美元）处 SVI 给出 129%，抛物线给出 338%，已经完全脱离任何合理区间。BTC 期权的行权价范围很宽，深度虚值合约也有人交易，这种外推误差是实际会碰到的问题，而不是一个纯理论上的边界情况。</p>
+<p>图 5 把这两条曲线画在同一张图上，可以直接看出中心重合、两翼迅速分化的效果。</p>
+<p><em>图 5：两条曲线都过同样三个点（深色圆点，$k=-0.2,0,0.2$）。中心区域几乎重合，往外走抛物线迅速拉开：$k=1.2$ 处它的总方差已是 SVI 的近四倍（原文此处为 TikZ 图，见 PDF 版）</em></p>
+
+
+<h3 class="relative group">4.4 曲率处处相同，形状不对 
+    <div id="44-%E6%9B%B2%E7%8E%87%E5%A4%84%E5%A4%84%E7%9B%B8%E5%90%8C%E5%BD%A2%E7%8A%B6%E4%B8%8D%E5%AF%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#44-%E6%9B%B2%E7%8E%87%E5%A4%84%E5%A4%84%E7%9B%B8%E5%90%8C%E5%BD%A2%E7%8A%B6%E4%B8%8D%E5%AF%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>抛物线 $w=ak^2+bk+c$ 的二阶导数是常数 $2a$，意味着每个地方弯的程度都一样。真实的 volatility smile 不是这样：平值附近弯得厉害，越往两边越接近直线。抛物线只能二选一——$a$ 设大一点，平值附近贴合了，但两翼翘得太高；$a$ 设小一点，两翼压下来了，但平值附近又不够弯。</p>
+<p>SVI 的曲率是</p>
+$$
+\kappa(k) = \frac{b\sigma^2}{\left((k-m)^2+\sigma^2\right)^{3/2}}
+\tag{6}
+$$<p>在谷底附近（$k\approx m$）最大，往两边迅速衰减到接近 0——正好符合“中间弯、两边直”的真实形状，这也是 3.5 节里 $\sigma$ 控制谷底圆润度这个直觉的数学来源。</p>
+
+
+<h3 class="relative group">4.5 小结 
+    <div id="45-%E5%B0%8F%E7%BB%93" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#45-%E5%B0%8F%E7%BB%93" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">抛物线</th>
+          <th style="text-align: left">SVI</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">偏斜</td>
+          <td style="text-align: left">两侧对称，做不到一边陡一边缓</td>
+          <td style="text-align: left">$\rho$ 控制两翼斜率不同</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">两翼增长</td>
+          <td style="text-align: left">平方增长，违反 Lee 矩公式上限</td>
+          <td style="text-align: left">线性增长，符合理论约束</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">外推</td>
+          <td style="text-align: left">越远越离谱</td>
+          <td style="text-align: left">保持稳定</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">曲率</td>
+          <td style="text-align: left">处处相同</td>
+          <td style="text-align: left">集中在谷底，两翼趋于 0</td>
+      </tr>
+  </tbody>
+</table>
+<p>可以这样理解：<strong>SVI 本质上是一条“在中间像抛物线、在两边变成直线、而且两边直线斜率可以不同”的曲线</strong>。抛物线只做到了第一点。</p>
+
+
+<h2 class="relative group">5. SVI 参数求解：TRF 算法 
+    <div id="5-svi-%E5%8F%82%E6%95%B0%E6%B1%82%E8%A7%A3trf-%E7%AE%97%E6%B3%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5-svi-%E5%8F%82%E6%95%B0%E6%B1%82%E8%A7%A3trf-%E7%AE%97%E6%B3%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>3.5 节末尾已经说明，SVI 曲线拟合本质上是一个<strong>带边界约束的非线性最小二乘问题</strong>。项目里用 <strong>TRF 算法</strong>（Trust Region Reflective，信赖域反射算法）[5]求解它。TRF 是 SciPy <code>scipy.optimize.least_squares</code> 的默认方法。<code>curve_fit</code> 则在没有 <code>bounds</code> 时默认走 <code>lm</code>，一旦给了边界就自动切到 <code>trf</code>。SVI 恰好必须给边界，所以两条路最后都落在 TRF 上。</p>
+<p>下面先把要解的问题本身讲清楚。再说明为什么不能直接求导解出来，以及雅可比矩阵在其中扮演什么角色。最后才是 TRF 名字里的那两项技术（信赖域 + 反射）和完整的求解步骤。</p>
+
+
+<h3 class="relative group">5.1 要解的问题：残差与损失函数 
+    <div id="51-%E8%A6%81%E8%A7%A3%E7%9A%84%E9%97%AE%E9%A2%98%E6%AE%8B%E5%B7%AE%E4%B8%8E%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#51-%E8%A6%81%E8%A7%A3%E7%9A%84%E9%97%AE%E9%A2%98%E6%AE%8B%E5%B7%AE%E4%B8%8E%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>对于一般形式的非线性最小二乘问题</p>
+$$
+\min_x \frac{1}{2}\|f(x)\|^2 \quad \text{s.t.} \quad lb \le x \le ub
+\tag{7}
+$$<p>这里需要分清楚两个容易混在一起的东西：<strong>残差（residual）</strong> 和<strong>损失函数（loss function）</strong>，它们不是一回事。</p>
+
+
+<h4 class="relative group">5.1.1 $f_i(x)$ 是残差，不是损失函数 
+    <div id="511-f_ix-%E6%98%AF%E6%AE%8B%E5%B7%AE%E4%B8%8D%E6%98%AF%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#511-f_ix-%E6%98%AF%E6%AE%8B%E5%B7%AE%E4%B8%8D%E6%98%AF%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>放回 3.5 节的 SVI 拟合场景，第 $i$ 个观测点上的残差是</p>
+$$
+f_i(x) = w(k_i; a,b,\rho,m,\sigma) - w_i
+\tag{8}
+$$<p>其中 $x=(a,b,\rho,m,\sigma)$ 是待求参数。式 (8) 算的是单个数据点上模型预测值减真实观测值，结果是一个数，可正可负（模型可能高估，也可能低估）——它只是残差，还不是最终要最小化的目标。</p>
+
+
+<h4 class="relative group">5.1.2 损失函数是把所有残差平方后加起来 
+    <div id="512-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E6%98%AF%E6%8A%8A%E6%89%80%E6%9C%89%E6%AE%8B%E5%B7%AE%E5%B9%B3%E6%96%B9%E5%90%8E%E5%8A%A0%E8%B5%B7%E6%9D%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#512-%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E6%98%AF%E6%8A%8A%E6%89%80%E6%9C%89%E6%AE%8B%E5%B7%AE%E5%B9%B3%E6%96%B9%E5%90%8E%E5%8A%A0%E8%B5%B7%E6%9D%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>真正要最小化的目标函数是</p>
+$$
+L(x) = \frac{1}{2}\sum_{i=1}^n f_i(x)^2 = \frac{1}{2}\sum_{i=1}^n \left(w(k_i;a,b,\rho,m,\sigma) - w_i\right)^2
+\tag{9}
+$$<p>这才是<strong>损失函数（loss）</strong>，也就是最小二乘里要最小化的那个量——所有数据点的残差平方和（乘 $\frac{1}{2}$ 只是为了求导时消掉系数 2，不影响最优解的位置）。项目里实际用的是 vega 加权版本：$f_i(x)=\text{weight}_i\cdot\left(w(k_i;x)-w_i\right)$，流动性好、vega 大的合约权重更高。</p>
+
+
+<h4 class="relative group">5.1.3 为什么式 (7) 只写 $f(x)$，不直接写 $L(x)$ 
+    <div id="513-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%8F-7-%E5%8F%AA%E5%86%99-fx%E4%B8%8D%E7%9B%B4%E6%8E%A5%E5%86%99-lx" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#513-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%8F-7-%E5%8F%AA%E5%86%99-fx%E4%B8%8D%E7%9B%B4%E6%8E%A5%E5%86%99-lx" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>因为 TRF 这类最小二乘算法在实现和推导时，是先分别对每一个残差 $f_i(x)$ 求偏导数，组成雅可比矩阵（$J$ 的每一行对应一个 $f_i$），再把这些残差打包成向量 $f(x)=(f_1(x),\ldots,f_n(x))$。损失函数写成向量形式就是</p>
+$$
+L(x) = \frac{1}{2}\|f(x)\|^2 = \frac{1}{2}f(x)^T f(x)
+\tag{10}
+$$<p>这和式 (9) 的求和号形式完全一样，只是换了个记号（向量内积展开就是各分量平方再相加）。之所以用向量形式，是因为雅可比矩阵、二次模型这些后续推导写成矩阵/向量运算更简洁，不用每次都写求和号——式 (7) 正是这个向量形式。</p>
+
+
+<h4 class="relative group">5.1.4 串起来看 
+    <div id="514-%E4%B8%B2%E8%B5%B7%E6%9D%A5%E7%9C%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#514-%E4%B8%B2%E8%B5%B7%E6%9D%A5%E7%9C%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>$f_i(x)$ —— 第 $i$ 个点的残差，一个数（式 (8)）；</li>
+<li>$f(x)$ —— 把所有残差摞成一个向量；</li>
+<li>$L(x)=\frac{1}{2}\|f(x)\|^2$ —— 损失函数，是残差向量长度的平方乘 $\frac{1}{2}$，这才是要最小化的对象，跟熟悉的“loss”是同一个东西，只是这里写成了向量范数的形式而不是求和号形式（式 (9)、式 (10)）。</li>
+</ul>
+<p>TRF 每一步都在试图让 $L(x)$ 变得更小，直到收敛。</p>
+
+
+<h3 class="relative group">5.2 为什么需要线性近似 
+    <div id="52-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#52-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>在看具体步骤之前，先说明一个更根本的问题：既然目标是让损失函数 $L(x)$ 最小，为什么不能直接用最基础的套路——求导、令导数为 0、解出参数？</p>
+
+
+<h4 class="relative group">5.2.1 求导本身没问题，问题出在“解方程”这一步 
+    <div id="521-%E6%B1%82%E5%AF%BC%E6%9C%AC%E8%BA%AB%E6%B2%A1%E9%97%AE%E9%A2%98%E9%97%AE%E9%A2%98%E5%87%BA%E5%9C%A8%E8%A7%A3%E6%96%B9%E7%A8%8B%E8%BF%99%E4%B8%80%E6%AD%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#521-%E6%B1%82%E5%AF%BC%E6%9C%AC%E8%BA%AB%E6%B2%A1%E9%97%AE%E9%A2%98%E9%97%AE%E9%A2%98%E5%87%BA%E5%9C%A8%E8%A7%A3%E6%96%B9%E7%A8%8B%E8%BF%99%E4%B8%80%E6%AD%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>对 $L(x)$ 求导、令其为 0，写成多参数形式就是</p>
+$$
+J(x)^T f(x) = 0
+\tag{11}
+$$<p>这一步求导本身毫无困难，任何可导函数都能求出式 (11) 这样的方程。问题在于：接下来这个方程能不能直接解出 $x=(a,b,\rho,m,\sigma)$？这取决于方程解出来是什么形式，而不是“非线性就一定解不出”这么简单——比如 $\sin(x)=0$ 虽然非线性，但有现成的解 $x=k\pi$。</p>
+
+
+<h4 class="relative group">5.2.2 SVI 的问题出在根号本身 
+    <div id="522-svi-%E7%9A%84%E9%97%AE%E9%A2%98%E5%87%BA%E5%9C%A8%E6%A0%B9%E5%8F%B7%E6%9C%AC%E8%BA%AB" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#522-svi-%E7%9A%84%E9%97%AE%E9%A2%98%E5%87%BA%E5%9C%A8%E6%A0%B9%E5%8F%B7%E6%9C%AC%E8%BA%AB" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>式 (4) 里含有根号项 $\sqrt{(k-m)^2+\sigma^2}$。对 $m$ 求偏导：</p>
+$$
+\frac{\partial w}{\partial m} = b\left(-\rho + \frac{-(k-m)}{\sqrt{(k-m)^2+\sigma^2}}\right)
+\tag{12}
+$$<p>求导之后根号并没有消失，只是从原来的加项变成了分母的一部分——式 (12) 依然是一个非线性表达式。把它代入式 (11)，5 个参数各自的偏导数方程还会因为 $\rho$、$m$、$\sigma$ 互相耦合在一起（每个方程里都同时出现好几个参数）而变成一个联立方程组。这样的方程组不属于任何有标准解法的类型（不像线性方程组永远有高斯消元、二次方程有求根公式），没有已知的代数方法能把 $a,b,\rho,m,\sigma$ 直接解出来。</p>
+
+
+<h4 class="relative group">5.2.3 线性近似才是真正能解的 
+    <div id="523-%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC%E6%89%8D%E6%98%AF%E7%9C%9F%E6%AD%A3%E8%83%BD%E8%A7%A3%E7%9A%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#523-%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC%E6%89%8D%E6%98%AF%E7%9C%9F%E6%AD%A3%E8%83%BD%E8%A7%A3%E7%9A%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>对比一个线性的例子。如果残差是 $f(a)=a-3$，求导得到 $f'(a)=1$（常数），令 $f\cdot f'=0$ 直接解出 $a=3$，一步到位。原因是原函数本身是线性的，求导之后依然是常数。但式 (12) 这种非线性函数，求导之后通常还是非线性的，令导数为 0 得到的依然是解不出来的方程。</p>
+<p>既然对真实的 $L(x)$ 直接求导 $=0$ 解不出来，就退一步：在当前点 $x_k$ 附近把 $f(x)$ 用一阶泰勒展开线性近似。近似之后的二次模型求导 $=0$ 就是一个线性方程组，可以直接解出封闭解。这也是下面“雅可比矩阵的作用”和“具体求解步骤”两节要讲的内容。</p>
+
+
+<h3 class="relative group">5.3 雅可比矩阵 $J$ 的作用 
+    <div id="53-%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5-j-%E7%9A%84%E4%BD%9C%E7%94%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#53-%E9%9B%85%E5%8F%AF%E6%AF%94%E7%9F%A9%E9%98%B5-j-%E7%9A%84%E4%BD%9C%E7%94%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>在看具体步骤之前，先说清楚雅可比矩阵 $J$ 到底在做什么。下面五步里 $J$ 会反复出现。它的用途是把非线性问题在局部转化成线性问题，从而能用线性代数直接算出下一步该往哪走。具体是四件事。</p>
+
+
+<h4 class="relative group">5.3.1 提供线性近似所需的斜率信息 
+    <div id="531-%E6%8F%90%E4%BE%9B%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC%E6%89%80%E9%9C%80%E7%9A%84%E6%96%9C%E7%8E%87%E4%BF%A1%E6%81%AF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#531-%E6%8F%90%E4%BE%9B%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC%E6%89%80%E9%9C%80%E7%9A%84%E6%96%9C%E7%8E%87%E4%BF%A1%E6%81%AF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>后面二次模型（式 (24)）建立在残差的线性近似上：</p>
+$$
+f(x_k+\delta) \approx f(x_k) + J\delta
+\tag{13}
+$$<p>$J$ 就是式 (13) 里唯一需要额外算出来的东西——它告诉你在当前点 $x_k$ 附近，残差朝各个参数方向变化的斜率是多少。没有 $J$，这个近似公式无从写出。</p>
+
+
+<h4 class="relative group">5.3.2 让下一步往哪走变成一个可以直接解的问题 
+    <div id="532-%E8%AE%A9%E4%B8%8B%E4%B8%80%E6%AD%A5%E5%BE%80%E5%93%AA%E8%B5%B0%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E8%A7%A3%E7%9A%84%E9%97%AE%E9%A2%98" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#532-%E8%AE%A9%E4%B8%8B%E4%B8%80%E6%AD%A5%E5%BE%80%E5%93%AA%E8%B5%B0%E5%8F%98%E6%88%90%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E8%A7%A3%E7%9A%84%E9%97%AE%E9%A2%98" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>前面讨论的正规方程 $J(x)^Tf(x)=0$ 解不出来，因为它是非线性的。有了 $J$，就能在 $x_k$ 附近把它换成一个能直接解的线性方程组。推导只有两步。</p>
+<p><strong>第一步，把式 (13) 的线性近似代进损失函数</strong> $L=\frac12\|f\|^2$：</p>
+$$
+L(x_k+\delta) \approx \tfrac{1}{2}\big\|f(x_k)+J\delta\big\|^2
+\tag{14}
+$$<p>式 (14) 右边对 $\delta$ 已经是一个标准的二次函数——非线性被 $J$ “拉直”了，而这正是式 (13) 唯一的用处。</p>
+<p><strong>第二步，对这个二次函数求极小。</strong> 对 $\delta$ 求导并令其为零，得到 $J^T\big(f(x_k)+J\delta\big)=0$，整理即</p>
+$$
+J^TJ\,\delta = -J^Tf(x_k)
+\tag{15}
+$$<p>式 (15) 就是这么来的：它不是另起炉灶的一个新方程，而是式 (13) 那个线性近似被求极小之后的直接产物。$J$ 在两处是同一个东西——在式 (13) 里它是斜率，展开之后它左边聚成 $J^TJ$、右边聚成 $-J^Tf(x_k)$。这正是后面五步里“求解子问题”那一步实际在做的运算。下面把等式两边分别拆开，看这两样各自代表什么。</p>
+
+
+<h5 class="relative group">5.3.2.1 右边 $-J^Tf(x_k)$ 是负梯度 
+    <div id="5321-%E5%8F%B3%E8%BE%B9--jtfx_k-%E6%98%AF%E8%B4%9F%E6%A2%AF%E5%BA%A6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5321-%E5%8F%B3%E8%BE%B9--jtfx_k-%E6%98%AF%E8%B4%9F%E6%A2%AF%E5%BA%A6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>目标函数是 $L(x)=\frac{1}{2}\|f(x)\|^2=\frac{1}{2}\sum_i f_i(x)^2$，对某个参数 $x_j$ 求偏导，求导与求和可以交换顺序：</p>
+$$
+\frac{\partial L}{\partial x_j} = \sum_i \frac{\partial}{\partial x_j}\left[\frac{1}{2}f_i(x)^2\right]
+\tag{16}
+$$<p>式 (16) 里每一项 $\frac{1}{2}f_i(x)^2$ 是一个复合函数——外层是平方，内层是 $f_i(x)$ 本身，链式法则给出</p>
+$$
+\frac{\partial}{\partial x_j}\left[\frac{1}{2}f_i(x)^2\right] = f_i(x)\cdot\frac{\partial f_i}{\partial x_j}
+\tag{17}
+$$<p>代回式 (16)，再把对每个参数 $x_j$ 求出的偏导数收拢成一个向量，就是梯度：</p>
+$$
+\frac{\partial L}{\partial x_j} = \sum_i f_i(x)\cdot\frac{\partial f_i}{\partial x_j} \quad\Longrightarrow\quad \nabla L(x) = J(x)^T f(x)
+\tag{18}
+$$<p>式 (18) 最后一步用到雅可比矩阵的定义 $J_{ij}=\partial f_i/\partial x_j$：矩阵乘法 $J^Tf(x)$ 的第 $j$ 个分量按定义是 $\sum_i(J^T)_{ji}f_i(x)=\sum_i\frac{\partial f_i}{\partial x_j}f_i(x)$，逐分量对上式 (17) 代回求和后的结果，两者完全一致。直觉上，损失函数对某个参数的变化率，等于每个残差对这个参数的变化率乘以残差本身的大小、再对所有残差求和——残差越大的点，对梯度的贡献也越大，这也是梯度会更多“照顾”误差大的点的原因。</p>
+<p>式 (18) 说明 $J^Tf(x)$ 不是一个随意凑出来的中间量，它本身就是损失函数在当前点的梯度。梯度指向函数上升最快的方向，取负号 $-J^Tf(x_k)$ 就指向下降最快的方向——这是判断“该往哪个方向调整参数”最原始的信息来源。</p>
+
+
+<h5 class="relative group">5.3.2.2 左边 $J^TJ$ 是曲率的近似 
+    <div id="5322-%E5%B7%A6%E8%BE%B9-jtj-%E6%98%AF%E6%9B%B2%E7%8E%87%E7%9A%84%E8%BF%91%E4%BC%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5322-%E5%B7%A6%E8%BE%B9-jtj-%E6%98%AF%E6%9B%B2%E7%8E%87%E7%9A%84%E8%BF%91%E4%BC%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>损失函数真正的曲率由 <strong>Hessian 矩阵</strong> $H$ 刻画。Hessian 是二阶导数矩阵，把函数在每个方向上的弯曲程度全部记下来：</p>
+$$
+H_{ij} = \frac{\partial^2 L}{\partial x_i\,\partial x_j}
+\tag{19}
+$$<p>一维时二阶导数 $f''$ 就是曲线弯得多厉害；多维时“弯曲程度”要分方向，所以对每一对参数都求一次二阶偏导，排成方阵——SVI 有五个参数，$H$ 就是 $5\times 5$ 的对称阵。对角线是沿单个参数方向的弯曲程度（值越大该方向越陡，越该小步走），非对角线是参数两两之间的耦合（为 $0$ 说明两个参数互不干扰，可以分开调）。</p>
+<p>对梯度 $\nabla L(x)=J(x)^Tf(x)$（式 (18)）再求一次导数，用乘积法则展开：</p>
+$$
+H = \nabla^2 L(x) = J(x)^TJ(x) + \sum_i f_i(x)\,\nabla^2 f_i(x)
+\tag{20}
+$$<p>式 (20) 右边第一项 $J^TJ$ 只需要一阶导数就能算出来；第二项才需要真正的二阶导数 $\nabla^2 f_i(x)$，且每一项还要乘上残差 $f_i(x)$ 本身。高斯–牛顿法的做法是直接丢掉第二项，用</p>
+$$
+H \approx J^TJ
+\tag{21}
+$$<p>这么做的好处是曲率等于白送：$J$ 本来就要算（式 (13) 要用），再做一次矩阵乘法就有了二阶信息，完全不必去碰二阶导数。</p>
+<p>之所以敢扔掉第二项，是因为它每一项都乘了残差 $f_i$ 本身。拟合得好的时候残差接近 0，这一项也就接近 0（模型本身接近线性时同理）。反过来，初值很差、残差很大时它不可忽略，式 (21) 会失真——Levenberg–Marquardt 就是为此在 $J^TJ$ 上加一个阻尼项。SVI 收敛到后期残差很小，这个近似够用。</p>
+<p>$J^TJ$ 既然顶替了 $H$，也就继承了它的结构：对角线是每个参数各自的敏感度，非对角线是参数之间的耦合。下一小节要查的正是后者。</p>
+
+
+<h5 class="relative group">5.3.2.3 两边合起来，$\delta$ 是让线性近似下梯度归零的步长 
+    <div id="5323-%E4%B8%A4%E8%BE%B9%E5%90%88%E8%B5%B7%E6%9D%A5delta-%E6%98%AF%E8%AE%A9%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC%E4%B8%8B%E6%A2%AF%E5%BA%A6%E5%BD%92%E9%9B%B6%E7%9A%84%E6%AD%A5%E9%95%BF" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5323-%E4%B8%A4%E8%BE%B9%E5%90%88%E8%B5%B7%E6%9D%A5delta-%E6%98%AF%E8%AE%A9%E7%BA%BF%E6%80%A7%E8%BF%91%E4%BC%BC%E4%B8%8B%E6%A2%AF%E5%BA%A6%E5%BD%92%E9%9B%B6%E7%9A%84%E6%AD%A5%E9%95%BF" aria-label="Anchor">#</a>
+    </span>        
+    
+</h5>
+<p>走完 $\delta$ 这一步后，线性近似给出的新残差是 $f(x_k)+J\delta$，对应的新梯度是</p>
+$$
+\nabla L \approx J^T\big(f(x_k)+J\delta\big) = J^Tf(x_k) + J^TJ\delta
+\tag{22}
+$$<p>令式 (22) 等于 0，即要求走完这一步后已经站在线性近似模型的最低点，整理就得到式 (15)。所以正规方程的完整含义是：负梯度 $-J^Tf(x_k)$ 告诉你大致该往哪个方向走，$J^TJ$ 则告诉你在这个方向的基础上，各个分量该按多大比例调整——因为不同方向上损失函数的陡峭程度不同：某个方向曲率越大（弯曲越剧烈），这个方向上就应该少走一点，避免冲过头；曲率越小（越平坦），就可以多走一点。解出的 $\delta$ 不是分两步先定方向再定步长，而是一次性给出“考虑了曲率之后、真正该走的那一步”，直接跳到二次模型 $m_k(p)$（式 (24)）的谷底，而不是像最朴素的梯度下降那样沿负梯度一点点试探。这也是高斯-牛顿法（Gauss–Newton method，TRF 的理论基础）比朴素梯度下降收敛更快的根本原因。</p>
+
+
+<h4 class="relative group">5.3.3 诊断参数是否可辨识 
+    <div id="533-%E8%AF%8A%E6%96%AD%E5%8F%82%E6%95%B0%E6%98%AF%E5%90%A6%E5%8F%AF%E8%BE%A8%E8%AF%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#533-%E8%AF%8A%E6%96%AD%E5%8F%82%E6%95%B0%E6%98%AF%E5%90%A6%E5%8F%AF%E8%BE%A8%E8%AF%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>$J$ 的列与列之间如果高度相关，说明这些参数在数据面前分不清彼此，拟合容易不稳定。SVI 里的 $\rho$ 和 $m$ 就是这样，两者对残差的影响方向很接近。这个信息直接从 $J$ 的结构就能看出来，是判断这组参数好不好拟合的一个重要信号。</p>
+<p>$\rho$ 和 $m$ 这一对正是典型例子。对 3.5 节那组 30 天期参数求 $J$，$\rho$ 列与 $m$ 列的相关系数随行权价范围收窄而迅速逼近 $-1$：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">行权价范围</th>
+          <th style="text-align: left">$\rho$–$m$ 列相关系数</th>
+          <th style="text-align: left">$\text{cond}(J)$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\vert k\vert \le 0.6$（含深度虚值）</td>
+          <td style="text-align: left">$-0.941$</td>
+          <td style="text-align: left">142</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\vert k\vert \le 0.25$（流动性好的档位）</td>
+          <td style="text-align: left">$-0.978$</td>
+          <td style="text-align: left">505</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\vert k\vert \le 0.12$（只剩平值附近几档）</td>
+          <td style="text-align: left">$-0.995$</td>
+          <td style="text-align: left">2763</td>
+      </tr>
+  </tbody>
+</table>
+<p>后果很直接。在 $|k|\le 0.25$ 这段上，把 $\rho$ 从 $-0.29$ 强行改成 $-0.40$，改动近四成。只要让 $m$ 跟着从 $0$ 挪到 $-0.014$、其余三个参数重新拟合，得到的曲线与原曲线在整段行权价上的隐含波动率偏差最大只有 $0.56$ 个波动率点，远小于 BTC 期权的买卖价差。也就是说，市场数据根本没有能力把这两组参数分开——拟合器最后落在哪一组，取决于初值和数值噪声，而不是市场信息。这种情况下单独报告 $\rho$ 的数值是没有意义的，只有 $\rho$ 与 $m$ 的某个组合才被数据确定。</p>
+
+
+<h4 class="relative group">5.3.4 拟合完之后评估参数可信度 
+    <div id="534-%E6%8B%9F%E5%90%88%E5%AE%8C%E4%B9%8B%E5%90%8E%E8%AF%84%E4%BC%B0%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BF%A1%E5%BA%A6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#534-%E6%8B%9F%E5%90%88%E5%AE%8C%E4%B9%8B%E5%90%8E%E8%AF%84%E4%BC%B0%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BF%A1%E5%BA%A6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>收敛之后，还能反过来用 $J$ 估计每个参数的不确定性：</p>
+$$
+\text{Cov}(\hat{x}) \approx \hat{\sigma}^2 (J^TJ)^{-1}
+\tag{23}
+$$<p>用式 (23) 反推出每个参数的标准误差，可以告诉你这次拟合出来的 $\rho=-0.29$ 这类结果，误差范围大致有多大、可信度如何。</p>
+<p>$J$ 是让整个数值优化流程跑得起来的核心零件——从决定往哪一步走，到判断参数好不好拟合，再到拟合完了信不信得过，全都靠它提供的一阶导数信息。</p>
+
+
+<h3 class="relative group">5.4 信赖域方法（trust region） 
+    <div id="54-%E4%BF%A1%E8%B5%96%E5%9F%9F%E6%96%B9%E6%B3%95trust-region" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#54-%E4%BF%A1%E8%B5%96%E5%9F%9F%E6%96%B9%E6%B3%95trust-region" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>线搜索方法是先定方向、再定步长。信赖域方法反过来：每一步先设定一个“可信”的邻域半径，在这个球形（或椭球形）区域内用二次模型近似目标函数，再在该区域内求解子问题得到候选步长。如果这一步让目标函数实际下降得和模型预测的差不多，就扩大信赖域；如果下降得很差甚至上升，就缩小信赖域重新尝试。这比纯线搜索更稳健，尤其是在目标函数很非线性或病态（ill-conditioned）时不容易发散。图 6 把这两点画在一起。</p>
+<p><em>图 6：信赖域方法的两个要点。(a) 二次模型只在 $x_k$ 的一个邻域内贴合真实目标函数：阴影带内两条曲线几乎重合，带外模型给出的值已经严重偏离，半径 $r_k$ 正是为了把候选步长限制在可信的那一段里。(b) 等高线是一条狭长的山谷：线搜索先定死一个方向（这里取负梯度），再沿这条射线找最优点，被卡在外圈等高线上；信赖域在半径 $r_k$ 的圆内同时选方向和长度，同样的步长预算却落进了最内圈（原文此处为 TikZ 图，见 PDF 版）</em></p>
+
+
+<h3 class="relative group">5.5 反射策略（reflective）处理边界约束 
+    <div id="55-%E5%8F%8D%E5%B0%84%E7%AD%96%E7%95%A5reflective%E5%A4%84%E7%90%86%E8%BE%B9%E7%95%8C%E7%BA%A6%E6%9D%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#55-%E5%8F%8D%E5%B0%84%E7%AD%96%E7%95%A5reflective%E5%A4%84%E7%90%86%E8%BE%B9%E7%95%8C%E7%BA%A6%E6%9D%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>当变量有上下界约束时（比如式 (4) 里要求 $\sigma>0$），TRF 不是简单地把超出边界的步长截断到边界上，而是把步长像光线遇到镜面一样反射回可行域内。这样可以在保持信赖域步长长度的同时仍然满足边界约束，收敛效果通常比截断法更好。图 7 是这两种做法的对比。</p>
+<p><em>图 7：浅色虚线是子问题解出的候选步长，它越过了 $\sigma>0$ 这道下界（空心圆为越界落点）。截断法停在边界上，这一步被白白缩短；反射策略把越界的一段镜像折回，终点落在域内，走过的总长度不变（原文此处为 TikZ 图，见 PDF 版）</em></p>
+
+
+<h3 class="relative group">5.6 具体求解步骤 
+    <div id="56-%E5%85%B7%E4%BD%93%E6%B1%82%E8%A7%A3%E6%AD%A5%E9%AA%A4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#56-%E5%85%B7%E4%BD%93%E6%B1%82%E8%A7%A3%E6%AD%A5%E9%AA%A4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>TRF 求解式 (7) 的具体步骤是：</p>
+<ol>
+<li><strong>计算雅可比矩阵，构造局部二次模型</strong>：在当前参数 $x_k$ 处，计算残差向量 $f(x)$ 对每个参数的偏导数，组成雅可比矩阵 $J_k=\partial f/\partial x|_{x_k}$。用一阶泰勒展开把损失函数 $L(x)$ 在 $x_k$ 附近近似成一个二次函数</li>
+</ol>
+$$
+m_k(p) = \frac{1}{2}\|f(x_k) + J_k p\|^2
+\tag{24}
+$$<p>其中 $p$ 是待求的步长——真实损失函数很难直接优化，但式 (24) 这个二次近似在信赖域内可以快速求解；</p>
+<ol start="2">
+<li><strong>引入缩放矩阵，把边界约束“软化”进步长里</strong>：构造一个对角缩放矩阵，每个参数的缩放系数由它当前到上下界的距离决定——越靠近边界，允许的步长越小。这一步把“参数不能越界”这个硬约束，转化成信赖域子问题里步长大小的软限制（图 8）；</li>
+<li><strong>在信赖域内求解缩放后的子问题</strong>：在半径为 $r_k$ 的信赖域内，求解经过缩放的二次模型 $\min_p m_k(p)$，得到候选步长 $p_k$（问题规模较大时用共轭梯度法迭代求解，规模小时可以直接求解线性方程组）；</li>
+<li><strong>用反射把越界的分量映射回可行域</strong>：如果候选步长 $x_k+p_k$ 仍然超出边界，不是简单截断到边界上，而是把超出的部分按 5.5 节的反射规则折回可行域内，得到最终试探点；</li>
+<li><strong>比较实际下降与预测下降，决定信赖域怎么调整</strong>：计算这一步让损失函数 $L(x)$ 实际下降了多少，再跟二次模型 $m_k(p)$ 预测的下降量相比。两者接近，说明二次近似可靠，接受这一步并扩大信赖域半径 $r_k$；如果实际下降远小于预测（甚至损失函数不降反升），说明步子迈得太大、近似失真，拒绝这一步、缩小信赖域后在同一个 $x_k$ 上重新尝试。</li>
+</ol>
+<p>反复迭代上述五步，直到损失函数 $L(x)$ 的下降量小于收敛阈值，或者达到最大迭代次数。</p>
+<p><em>图 8：同一个信赖域半径：远离边界时是正圆；贴近边界时虚线那个正圆会越界，于是垂直边界的方向按距离 $d$ 压扁成椭圆，平行方向不变（原文此处为 TikZ 图，见 PDF 版）</em></p>
+<p>与另外两种 SciPy 支持的算法相比：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">方法</th>
+          <th style="text-align: left">是否支持边界约束</th>
+          <th style="text-align: left">适用场景</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>lm</code>（Levenberg–Marquardt）</td>
+          <td style="text-align: left">不支持</td>
+          <td style="text-align: left">无约束、变量少的小规模问题，通常最快</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>trf</code></td>
+          <td style="text-align: left">支持</td>
+          <td style="text-align: left">有界约束问题，大规模问题也能处理稀疏雅可比矩阵</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>dogbox</code></td>
+          <td style="text-align: left">支持（矩形信赖域）</td>
+          <td style="text-align: left">类似 trf，但用矩形而非椭球信赖域；适合带边界的小规模问题，雅可比矩阵秩亏时不推荐</td>
+      </tr>
+  </tbody>
+</table>
+<p>项目的 SVI 参数标定需要给 $\sigma$（必须为正）等参数加边界约束，<code>lm</code> 直接出局，这正是最终选 TRF 的原因。</p>
+
+
+<h3 class="relative group">5.7 初值与 warm start 
+    <div id="57-%E5%88%9D%E5%80%BC%E4%B8%8E-warm-start" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#57-%E5%88%9D%E5%80%BC%E4%B8%8E-warm-start" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>前面六小节讲的都是“给定一个起点怎么往下走”。但式 (7) 是<strong>非凸</strong>的，起点选在哪里同样决定成败。SVI 的损失函数存在多个局部极小，$m$ 和 $\sigma$ 的初值偏了，TRF 会老老实实收敛到一个不好的解。5.3.3 节那段 $\rho$ 与 $m$ 的共线性更是把这一点放大了——既然数据本身分不清这两个参数，最终落在哪一组就更依赖起点。</p>
+<p>项目里的做法是 <strong>warm start</strong>：曲面是周期性重拟合的，每次不从随机点起步，而是拿<em>上一次拟合出来的参数</em>当初值，只保留少量随机重启作为兜底。这件事有两重收益。一是稳定性：相邻两次拟合面对的市场差别不大，从上一次的解出发，参数不会在等价组合之间来回跳。二是速度。SVI 重拟合本来占了回测运行时间的约四分之三，改用 warm start 后整体耗时下降约 35%，而拟合误差没有变化，合成数据上稳定在 0.049 个波动率点。</p>
+
+
+<h2 class="relative group">6. 做市模块总览 
+    <div id="6-%E5%81%9A%E5%B8%82%E6%A8%A1%E5%9D%97%E6%80%BB%E8%A7%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6-%E5%81%9A%E5%B8%82%E6%A8%A1%E5%9D%97%E6%80%BB%E8%A7%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>回测的核心是五个职责分明的模块，靠一本“账”（<code>Inventory</code>）串成闭环。下面四节依次拆解 <code>Quoter</code>、<code>FillModel</code>、<code>Inventory</code> 与 <code>RiskLimits</code>、<code>Hedger</code>，最后一节讲它们如何靠 <code>Inventory</code> 串成一个闭环。</p>
+
+
+<h2 class="relative group">7. Quoter：定价与报价 
+    <div id="7-quoter%E5%AE%9A%E4%BB%B7%E4%B8%8E%E6%8A%A5%E4%BB%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#7-quoter%E5%AE%9A%E4%BB%B7%E4%B8%8E%E6%8A%A5%E4%BB%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><code>Quoter</code> 的输出是给定一份合约后，一对可以直接挂出去的 $(\text{bid}, \text{ask})$ 报价，具体分三步算。</p>
+
+
+<h3 class="relative group">7.1 算公允价 
+    <div id="71-%E7%AE%97%E5%85%AC%E5%85%81%E4%BB%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#71-%E7%AE%97%E5%85%AC%E5%85%81%E4%BB%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>从曲面上查出这份合约（特定行权价、特定到期日）对应的隐含波动率 $\sigma$，连同标的价格 $F$、行权价 $K$、到期时间 $\tau$ 一起代入 Black-76，算出这份合约理论上应该值多少钱：</p>
+$$
+\text{fair} = \text{Black76}(F, K, \tau, \sigma)
+\tag{25}
+$$<p>同时用 <code>greeks</code> 模块算出这份合约的希腊字母，供下面两步使用：</p>
+<ul>
+<li>delta —— 期权价格对标的价格变动的敏感度：标的每涨 1 块钱，期权价格涨多少；</li>
+<li>gamma —— delta 对标的价格变动的敏感度：标的价格变化时，delta 本身会变得多快；</li>
+<li>vega —— 期权价格对隐含波动率变动的敏感度：波动率每涨 1 个百分点，期权价格涨多少；</li>
+<li>theta —— 期权价格对时间流逝的敏感度：每过一天，期权价格自然衰减多少。</li>
+</ul>
+
+
+<h3 class="relative group">7.2 半价差随 vega/gamma 加宽 
+    <div id="72-%E5%8D%8A%E4%BB%B7%E5%B7%AE%E9%9A%8F-vegagamma-%E5%8A%A0%E5%AE%BD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#72-%E5%8D%8A%E4%BB%B7%E5%B7%AE%E9%9A%8F-vegagamma-%E5%8A%A0%E5%AE%BD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>不是在美元价格上加减一个固定数字，而是让半价差本身随 vega、gamma 放大：</p>
+$$
+\text{half-spread} = \text{base} + k_1 |\text{vega}| + k_2 |\text{gamma}|
+\tag{26}
+$$<p>其中：</p>
+<ul>
+<li>base —— 基础价差：覆盖手续费、模型误差的固定成本；</li>
+<li>$k_1, k_2$ —— 标定系数：分别控制价差随 vega、gamma 放大的幅度。</li>
+</ul>
+<p>直觉是：vega 大意味着这份合约对波动率变化敏感，一旦波动率预期变了亏钱幅度也大；gamma 大意味着 delta 会随标的价格变化得很快，对冲跟不上就容易失控。这两种“未来管理起来更麻烦”的风险，都要在报价这一刻先在价差里定价进去。</p>
+
+
+<h3 class="relative group">7.3 库存偏斜：把报价区间整体挪一挪 
+    <div id="73-%E5%BA%93%E5%AD%98%E5%81%8F%E6%96%9C%E6%8A%8A%E6%8A%A5%E4%BB%B7%E5%8C%BA%E9%97%B4%E6%95%B4%E4%BD%93%E6%8C%AA%E4%B8%80%E6%8C%AA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#73-%E5%BA%93%E5%AD%98%E5%81%8F%E6%96%9C%E6%8A%8A%E6%8A%A5%E4%BB%B7%E5%8C%BA%E9%97%B4%E6%95%B4%E4%BD%93%E6%8C%AA%E4%B8%80%E6%8C%AA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>从 <code>Inventory</code> 读取当前净持仓方向，如果已经净卖出很多（delta 已经很负），就把整个报价区间往上平移一个 skew：</p>
+$$
+\text{bid} = \text{fair} - \text{half-spread} + \text{skew}, \qquad
+\text{ask} = \text{fair} + \text{half-spread} + \text{skew}
+\tag{27}
+$$<p>skew 的方向跟当前净仓位方向相反，仓位越偏，skew 挪得越多——这样 bid 更接近 fair（更愿意买回来）、ask 也被推高（更不愿意再卖），用报价的不对称引导市场帮忙消化库存，减少主动对冲的次数和成本。</p>
+<p>串起来看：曲面给出 $\sigma$ $\to$ 式 (25) 算出 fair 和 Greeks $\to$ 式 (26) 用 vega/gamma 决定价差多宽 $\to$ 式 (27) 用当前库存决定报价区间往哪边偏。最终吐出的 $(\text{bid}, \text{ask})$ 就是下一步喂给 <code>FillModel</code> 判断有没有被打中的输入。</p>
+
+
+<h2 class="relative group">8. FillModel：判断报价什么时候被打中 
+    <div id="8-fillmodel%E5%88%A4%E6%96%AD%E6%8A%A5%E4%BB%B7%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A2%AB%E6%89%93%E4%B8%AD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#8-fillmodel%E5%88%A4%E6%96%AD%E6%8A%A5%E4%BB%B7%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%A2%AB%E6%89%93%E4%B8%AD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><code>FillModel</code> 决定挂出去的报价何时算成交，提供两种模式。</p>
+
+
+<h3 class="relative group">8.1 Poisson 理论撮合 
+    <div id="81-poisson-%E7%90%86%E8%AE%BA%E6%92%AE%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#81-poisson-%E7%90%86%E8%AE%BA%E6%92%AE%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>假设成交是一个强度随价差衰减的泊松过程：报价偏离公允价的距离 $\delta$ 越小，被击中的强度越高，常见形式是指数衰减：</p>
+$$
+\lambda_{\text{fill}}(\delta) = A \, e^{-\beta\delta}
+\tag{28}
+$$<p>其中：</p>
+<ul>
+<li>$A$ —— 基础成交强度：贴着公允价报价时的成交强度；</li>
+<li>$\beta$ —— 衰减系数：控制强度随价差衰减得多快（这里不用 $k$，因为 $k$ 在前文已经是 log-moneyness）。</li>
+</ul>
+<p>在一个长度为 $dt$ 的时间片里，这份报价被击中的概率近似为 $\lambda_{\text{fill}}(\delta)\,dt$。这种模式不需要任何真实成交数据，只需要标定 $A,\beta$ 两个参数，适合数据稀疏、trade-replay 样本不够时也能把回测跑通，但成交行为是假设出来的，跟真实市场的实际成交节奏可能有偏差。</p>
+
+
+<h3 class="relative group">8.2 Trade-replay 
+    <div id="82-trade-replay" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#82-trade-replay" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>用 Deribit 上真实发生过的成交记录重放：按时间顺序遍历历史成交，每当一笔真实成交价 $p_{\text{trade}}$ 出现，检查它有没有穿过当时挂着的报价——</p>
+$$
+p_{\text{trade}} \ge \text{ask} \ \Rightarrow \ \text{判定卖出}, \qquad
+p_{\text{trade}} \le \text{bid} \ \Rightarrow \ \text{判定买入}
+\tag{29}
+$$<p>穿过了就判定成交，且用挂出去的 bid/ask 成交（而不是用 $p_{\text{trade}}$ 本身）——逻辑是如果真的挂在那，对手方会用报价本身跟你成交。这种模式完全基于历史上真实发生过的交易行为，不需要假设任何概率分布，更贴近真实，但依赖历史成交的密度：冷门到期日、深度虚值合约上真实成交很稀疏，可能很久都触发不了一次，样本量会不足。</p>
+<p>成交后，<code>FillModel</code> 把结果反馈给 <code>Inventory</code> 更新仓位，并记录一笔 <strong>edge</strong>，即成交价与当时公允价之差。这是纯粹靠挂单价差赚到的钱，后续会单独作为 PnL 归因的一项。</p>
+
+
+<h2 class="relative group">9. Inventory 与 RiskLimits：记账与刹车 
+    <div id="9-inventory-%E4%B8%8E-risklimits%E8%AE%B0%E8%B4%A6%E4%B8%8E%E5%88%B9%E8%BD%A6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#9-inventory-%E4%B8%8E-risklimits%E8%AE%B0%E8%B4%A6%E4%B8%8E%E5%88%B9%E8%BD%A6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>两者合起来管的是“已经接下的仓位是否健康”：<code>Inventory</code> 负责记账，<code>RiskLimits</code> 负责在账目超标时踩刹车。</p>
+
+
+<h3 class="relative group">9.1 Inventory：净仓位与净 Greeks 的聚合 
+    <div id="91-inventory%E5%87%80%E4%BB%93%E4%BD%8D%E4%B8%8E%E5%87%80-greeks-%E7%9A%84%E8%81%9A%E5%90%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#91-inventory%E5%87%80%E4%BB%93%E4%BD%8D%E4%B8%8E%E5%87%80-greeks-%E7%9A%84%E8%81%9A%E5%90%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>每成交一笔，<code>FillModel</code> 都会把结果反馈给 <code>Inventory</code>，更新持仓量 $q_i$（第 $i$ 份合约的净持有张数，做市商卖出记为负）。这里的“合约”既包括期权，也包括 <code>Hedger</code> 用来对冲的期货/永续腿（其 $\delta=1$，$\gamma=\nu=\theta=0$），所以下面这几个净值天然是<strong>对冲后</strong>的口径。<code>Inventory</code> 实时维护的不是每份合约各自的 Greeks，而是按持仓量加权后汇总出的<strong>净敞口</strong>：</p>
+$$
+\Delta_{\text{net}} = \sum_i q_i \,\delta_i, \qquad
+\Gamma_{\text{net}} = \sum_i q_i \,\gamma_i, \qquad
+\nu_{\text{net}} = \sum_i q_i \,\nu_i, \qquad
+\Theta_{\text{net}} = \sum_i q_i \,\theta_i
+\tag{30}
+$$<p>其中 $\delta_i, \gamma_i, \nu_i, \theta_i$ —— 第 $i$ 份合约当前的希腊字母（由曲面和 Black-76 实时算出）。式 (30) 里这四个净值就是整本账的“体检指标”——<code>Quoter</code> 用 $\Delta_{\text{net}}$ 的符号和大小决定 7.3 节里的库存偏斜方向和幅度，<code>Hedger</code> 用 $\Delta_{\text{net}}$ 判断要不要触发对冲，<code>RiskLimits</code> 用全部四个净值逐一比对阈值。</p>
+
+
+<h3 class="relative group">9.2 RiskLimits：超限即暂停某个方向的报价 
+    <div id="92-risklimits%E8%B6%85%E9%99%90%E5%8D%B3%E6%9A%82%E5%81%9C%E6%9F%90%E4%B8%AA%E6%96%B9%E5%90%91%E7%9A%84%E6%8A%A5%E4%BB%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#92-risklimits%E8%B6%85%E9%99%90%E5%8D%B3%E6%9A%82%E5%81%9C%E6%9F%90%E4%B8%AA%E6%96%B9%E5%90%91%E7%9A%84%E6%8A%A5%E4%BB%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><code>RiskLimits</code> 对式 (30) 里的每个净值分别设一个上下限，例如 $|\Delta_{\text{net}}| \le \Delta_{\max}$、$|\Gamma_{\text{net}}| \le \Gamma_{\max}$、$|\nu_{\text{net}}| \le \nu_{\max}$。此外还对单个合约的持仓量 $|q_i|$ 单独设限，防止某一份冷门合约被动堆出过大的敞口。检查在每次<code>Inventory</code>更新后触发。一旦某个净值越过阈值，<code>RiskLimits</code> 不会强平已有仓位，而是<strong>暂停继续朝同一方向接单</strong>。比如 $\nu_{\text{net}}$ 已经过于正（净做多波动率），就暂停 <code>Quoter</code> 卖出期权方向的报价，只留买入方向；等 $\nu_{\text{net}}$ 被后续对冲或反向成交拉回阈值以内，再恢复双边报价。</p>
+<p>两者的分工是：<code>Inventory</code> 是全系统唯一的净敞口数据源，<code>RiskLimits</code> 是读这本账、决定“要不要再接新仓位”的流入端闸门。它不主动处理已有敞口，那是下一节 <code>Hedger</code> 的职责。</p>
+
+
+<h2 class="relative group">10. Hedger：主动消化已有风险 
+    <div id="10-hedger%E4%B8%BB%E5%8A%A8%E6%B6%88%E5%8C%96%E5%B7%B2%E6%9C%89%E9%A3%8E%E9%99%A9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10-hedger%E4%B8%BB%E5%8A%A8%E6%B6%88%E5%8C%96%E5%B7%B2%E6%9C%89%E9%A3%8E%E9%99%A9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><code>Hedger</code> 在每个对冲检查点，用期货/永续合约把 <code>Inventory</code> 汇总出的 $\Delta_{\text{net}}$（式 (30)）部分抵消掉。目前已实现两种规则，第三种在规划中，从简单到精细依次是：</p>
+<p>对冲这笔交易要扣除手续费和半个买卖价差——这是真实的交易摩擦成本，会体现在最终的 PnL 归因里。<code>Hedger</code> 与 <code>RiskLimits</code> 互补：一个管存量的消化，一个管流入的限制。</p>
+
+
+<h3 class="relative group">10.1 定时对冲 
+    <div id="101-%E5%AE%9A%E6%97%B6%E5%AF%B9%E5%86%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#101-%E5%AE%9A%E6%97%B6%E5%AF%B9%E5%86%B2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>固定时间间隔（比如每 5 分钟）触发一次，把 $\Delta_{\text{net}}$ 拉平到 0。逻辑最简单，但两次对冲之间不管市场怎么波动都不会加开，遇到突发行情时反应滞后，敞口可能在触发前就已经积累得很大。</p>
+
+
+<h3 class="relative group">10.2 固定带宽对冲 
+    <div id="102-%E5%9B%BA%E5%AE%9A%E5%B8%A6%E5%AE%BD%E5%AF%B9%E5%86%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#102-%E5%9B%BA%E5%AE%9A%E5%B8%A6%E5%AE%BD%E5%AF%B9%E5%86%B2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>设一个带宽 $H$，只有 $|\Delta_{\text{net}}| > H$ 时才触发对冲，且只把 $\Delta_{\text{net}}$ 拉回到带宽边缘 $\pm H$ 而非拉到 0：</p>
+$$
+\text{触发条件：} \ |\Delta_{\text{net}}| > H \ \Rightarrow \ \text{对冲量} = \Delta_{\text{net}} - \text{sign}(\Delta_{\text{net}}) \cdot H
+\tag{31}
+$$<p>波动小的时候不触发，省下频繁对冲的手续费；波动大的时候及时限制敞口不失控。带宽 $H$ 通常是人为设定的固定数字，不随市场状态变化。</p>
+
+
+<h3 class="relative group">10.3 Future Work：Whalley–Wilmott 最优带宽 
+    <div id="103-future-workwhalleywilmott-%E6%9C%80%E4%BC%98%E5%B8%A6%E5%AE%BD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#103-future-workwhalleywilmott-%E6%9C%80%E4%BC%98%E5%B8%A6%E5%AE%BD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>目前 <code>Hedger</code> 实现的只有 10.1、10.2 两种规则，带宽 $H$ 都是人为设定的固定数字。计划中的第三种规则是让带宽本身也动态算出来，思路来自 Whalley 与 Wilmott[6]：在交易成本和敞口风险之间做最优权衡，用渐近展开推出一个理论最优带宽</p>
+$$
+H^*(t) = \left(\frac{3\,c\,F\,\Gamma_{\text{net}}^2}{2\lambda}\right)^{1/3}
+\tag{32}
+$$<p>其中：</p>
+<ul>
+<li>$\Gamma_{\text{net}}$ —— 当前净 gamma（式 (30)）；</li>
+<li>$F$ —— 标的价格；</li>
+<li>$c$ —— 按成交金额比例计的单位交易成本；</li>
+<li>$\lambda$ —— 风险厌恶系数。</li>
+</ul>
+<p>直觉是：交易成本越高，带宽越宽、少交易几次；风险厌恶系数越高（越不能忍受敞口波动），带宽越窄。gamma 的方向容易搞反——式 (32) 里 $\Gamma_{\text{net}}$ 在分子上，gamma 越大<strong>带宽越宽</strong>，因为此时 delta 漂得快、若还守着窄带宽就会被迫频繁重新对冲，手续费吃不消；带宽变宽不等于对冲变少，delta 漂移更快会把两次触发之间的<em>时间间隔</em>拉短，真正被放宽的是允许的<em>敞口幅度</em>。注意式 (32) 是 $c\to 0$ 的渐近结果，成本较大时会低估真实带宽。落地时每个对冲检查点都要重新算一次 $H^*(t)$，再代入式 (31) 的判断逻辑替换掉固定的 $H$。尚未实现的部分主要是 $c$、$\lambda$ 两个参数的标定——目前的数据量还不足以可靠估计单位对冲成本和风险厌恶系数，这也是第 13 节提到的“数据量不够”这个卡点的直接后果之一。</p>
+
+
+<h2 class="relative group">11. 五个模块的数据流 
+    <div id="11-%E4%BA%94%E4%B8%AA%E6%A8%A1%E5%9D%97%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#11-%E4%BA%94%E4%B8%AA%E6%A8%A1%E5%9D%97%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>一个类比方便理解五者分工。把整个做市系统看成一间工厂：<code>Quoter</code> 是“报价员”，只管每一份订单该开什么价；<code>FillModel</code> 是“验收员”，判断订单有没有真的被接走；<code>Inventory</code> 是“总账房”，记录工厂现在欠了多少货、囤了多少货；<code>RiskLimits</code> 是“门卫”，管住新订单还能不能再接；<code>Hedger</code> 是“清库存的人”，定期把囤积的存货主动处理掉。五个角色各自独立运作，但都要向总账房汇报或查账，整个工厂才不会乱套。</p>
+<p>数据流向如图 9 所示。</p>
+<p><em>图 9：实线是主决策链路；两条虚线是反馈回路（图例见图下方），分别把 <code>RiskLimits</code> 和 <code>Hedger</code> 的最新结果带回 <code>Quoter</code>，用于下一轮暂停某方向报价或调整库存偏斜。（原文此处为 TikZ 图，见 PDF 版）</em></p>
+
+
+<h2 class="relative group">12. PnL 归因：钱到底从哪来 
+    <div id="12-pnl-%E5%BD%92%E5%9B%A0%E9%92%B1%E5%88%B0%E5%BA%95%E4%BB%8E%E5%93%AA%E6%9D%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#12-pnl-%E5%BD%92%E5%9B%A0%E9%92%B1%E5%88%B0%E5%BA%95%E4%BB%8E%E5%93%AA%E6%9D%A5" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>仓位价值 $V$ 是标的价格 $F$、隐含波动率 $\sigma$、时间 $t$ 的函数。用多元泰勒展开，把一段时间内仓位价值的变化 $dV$ 拆成几项：</p>
+$$
+\text{PnL} \approx \text{edge} + \Delta \cdot dF + \frac{1}{2}\Gamma \cdot dF^2 + \Theta \cdot dt + \nu \cdot d\sigma - \text{对冲成本}
+\tag{33}
+$$<p>其中：</p>
+<ul>
+<li>$\text{edge}$ —— 成交价与公允价之差（见第 8 节），和末尾的对冲成本一起，是式 (33) 里仅有的两个不来自希腊字母的项；</li>
+<li>$\Delta, \Gamma, \Theta, \nu$ —— 仓位在期初的净 delta、gamma、theta、vega（由 <code>Inventory</code> 汇总，已含期货对冲腿，所以 $\Delta\cdot dF$ 这一项算的是对冲后的残余 delta 敞口，而不是期权腿单独的方向性盈亏）；</li>
+<li>$dF$、$d\sigma$、$dt$ —— 这段时间内标的价格、隐含波动率、时间的变化量；</li>
+<li>对冲成本 —— 式 (33) 里 <code>Hedger</code> 产生的手续费与半价差之和。</li>
+</ul>
+<p>用期初的 Greeks 代入各项算出理论贡献，再跟账户实际发生的真实盈亏对比，差值记为<strong>残差</strong>：</p>
+$$
+\text{残差} = \text{真实PnL} - \left(\text{edge} + \Delta \, dF + \tfrac{1}{2}\Gamma \, dF^2 + \Theta \, dt + \nu \, d\sigma - \text{对冲成本}\right)
+\tag{34}
+$$<p>式 (34) 里的残差主要来自三处：泰勒展开只做到二阶，忽略了三阶及以上的高阶项；vanna、volga 等二阶交叉希腊字母没有单独拆出来；以及对冲检查点之间的离散化误差。残差占比越小，说明这套归因框架越可信，对冲频率和 Greeks 计算越站得住脚。</p>
+<p>这里有一个容易写错的地方。两次 checkpoint 之间如果发生了新的成交或对冲，仓位的 Greeks 其实已经变了。这时再拿期初的 Greeks 去套整个区间，这部分贡献就会整个漏掉。项目里的做法是<strong>每发生一笔成交或一次对冲就切一个子步</strong>。Greeks 在子步边界上重新取值，式 (33) 逐子步累加后再汇总到 checkpoint。另外，持仓到期时按内在价值结算，这条路径单独做了测试。</p>
+<p>整段回测跑完后，把每一笔的归因结果累加，就能回答“这套做市系统的钱到底从哪来”。edge 和 theta 通常是相对稳定的收入项，gamma 的负贡献和对冲成本则是离散对冲必然付出的代价。两边相抵之后剩下的，才是这套系统真正意义上赚到的钱，而不是账户总盈亏这一个笼统数字所能说明的。</p>
+
+
+<h3 class="relative group">12.1 用合成数据验证归因 
+    <div id="121-%E7%94%A8%E5%90%88%E6%88%90%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81%E5%BD%92%E5%9B%A0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#121-%E7%94%A8%E5%90%88%E6%88%90%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81%E5%BD%92%E5%9B%A0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>式 (34) 的残差到底是“展开式本身的精度极限”还是“记账写错了”，用真实数据分不出来——真实市场没有真值可对。做法是反过来：先生成一条<em>已知真值</em>的合成市场，再让引擎在上面跑。</p>
+<p>合成市场的构造是：forward 走 GBM；两个到期日 $\times$ 九个行权价，每条 smile 都是 raw SVI。SVI 参数随时间漂移，ATM 水平与 spot 相关系数 $-0.5$，skew 与两翼各自随机游走。最后再叠加随机的 taker 成交。引擎能看到的只有 ticker 和 trade 两类事件，与 <code>load_range()</code> 喂真实数据时完全相同。同一次运行再用<em>真实曲面</em>（真 vol、真 $d\sigma$、真公允价）独立做一遍归因，逐项与引擎的结果对比。</p>
+<p>残差的分母特意没有用总 PnL：edge 按构造就是精确的，除以总 PnL 会让残差显得偏小。这里用的是扣掉 edge 和对冲成本之后的<strong>市场驱动 PnL</strong>，标准更严。每个场景跑 1 天、每分钟一个 checkpoint：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">场景</th>
+          <th style="text-align: left">残差/市场 PnL</th>
+          <th style="text-align: left">vanna+volga+speed 占比</th>
+          <th style="text-align: left">曲面拟合 RMSE</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">base</td>
+          <td style="text-align: left">0.15%</td>
+          <td style="text-align: left">97%</td>
+          <td style="text-align: left">0.045 vol pt</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">stressed（realized 80%，3$\times$ vol-of-vol）</td>
+          <td style="text-align: left">0.08%</td>
+          <td style="text-align: left">94%</td>
+          <td style="text-align: left">0.18 vol pt</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">low-edge</td>
+          <td style="text-align: left">0.06%</td>
+          <td style="text-align: left">96%</td>
+          <td style="text-align: left">0.048 vol pt</td>
+      </tr>
+  </tbody>
+</table>
+<p>三点结论：</p>
+<ol>
+<li>残差量级在 $0.06\%$–$0.15\%$，gamma、theta、对冲成本与真值的偏差都在 $0.1\%$ 以内。</li>
+<li>残差的 $94\%$–$97\%$ 能被式 (33) 里<em>没有放进去</em>的三阶与交叉项（vanna、volga、speed）精确解释，也就是说它是展开式的精度极限，不是记账错误。</li>
+<li>把 checkpoint 间隔从 1 分钟拉到 60 分钟，残差只从 $0.08\%$ 升到 $0.14\%$。残差由两部分构成：随 $dt$ 缩小的高阶余项，以及<em>不</em>随 $dt$ 缩小的 vanna/volga 地板——$dF\,d\sigma$ 的协变按总时长累积而非按步长累积。步长放大 60 倍残差不到翻倍，说明地板占主导。</li>
+</ol>
+<p>两处要如实写明。其一，delta 项在 base 场景里是 $-41$ 对 $-26$ 美元。绝对差只有 14 美元、量级很小，但相对偏差不小。原因是引擎用的是拟合出来的 vol，真值侧用的是真 vol。其二，曲面拟合误差不会进残差，而是让 PnL 在 edge 和 vega 之间挪位置：stressed 场景里 edge 高估了约 $4\%$。</p>
+<p>最后是这套验证的边界：合成市场由 raw SVI 生成、引擎拟合的也是 raw SVI，真值落在模型类内部。所以这里验证的是<strong>记账管道</strong>而不是<strong>模型设定</strong>——真实曲面不会正好是 SVI，拟合误差会明显更大。这一点在下面的真实数据结果里立刻就体现出来了。</p>
+
+
+<h3 class="relative group">12.2 真实数据上的初步结果 
+    <div id="122-%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%E4%B8%8A%E7%9A%84%E5%88%9D%E6%AD%A5%E7%BB%93%E6%9E%9C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#122-%E7%9C%9F%E5%AE%9E%E6%95%B0%E6%8D%AE%E4%B8%8A%E7%9A%84%E5%88%9D%E6%AD%A5%E7%BB%93%E6%9E%9C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>在看结果之前，回测设置上有两点要先交代。其一，<strong>初始曲面只用数据开头 5 分钟的 warm-up 窗口拟合，这段窗口本身不参与交易</strong>。早期版本是拿整段数据去拟合初始曲面的，那属于前视，跑出来的成交和 PnL 都不可信。其二，反解 IV 用的是每个时刻<em>实时</em>的剩余期限，而不是整段固定一个值。</p>
+<p>在这两条之下，拿 09-16 至 09-17 共 29 小时的 Deribit 录制数据跑了一遍：647 个期权、3433 笔成交、1734 次对冲，全程跑通。（顺带把 <code>scipy.stats.norm</code> 换成了底层同一个函数的 <code>scipy.special.ndtr</code>，整段回测快了约 4 倍，输出每一位数字不变。）但归因残差是 $4.1\%$，比合成数据高了一个量级以上。拆开看，来源有两处：</p>
+<ul>
+<li><strong>临近到期的期权贡献约 $60\%$</strong>。把距到期不足 1 天的合约剔除后，残差降到 $1.7\%$。0DTE 的 gamma 会爆掉，二阶泰勒展开在那里本来就失效，这是预期内的。</li>
+<li><strong>其余大部分集中在 5 分钟一次的 SVI refit 时刻</strong>。真实报价上每次重新拟合，曲面都会跳一下，一分钟内 vega PnL 能跳 $\pm 4$k–$9$k 美元；$d\sigma$ 一大，volga 项就跟着大。</li>
+</ul>
+<p>这次的 PnL 数字本身没有意义——只有 29 小时，而且配置里手续费和对冲价差都还是 0。有意义的是它把卡点定位到了一个具体的地方：真实数据上的 refit 不稳定（见第 13 节）。</p>
+
+
+<h2 class="relative group">13. 当前的卡点 
+    <div id="13-%E5%BD%93%E5%89%8D%E7%9A%84%E5%8D%A1%E7%82%B9" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#13-%E5%BD%93%E5%89%8D%E7%9A%84%E5%8D%A1%E7%82%B9" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>整条链路——Deribit $\to$ 录制 $\to$ <code>parquet</code> $\to$ 加载 $\to$ 隐含波动率/SVI 曲面 $\to$ 报价+仓位+撮合 $\to$ 事件循环（含对冲）$\to$ PnL 归因 $\to$ 指标/绘图——已经在合成数据上端到端验证过。真值已知的前提下，归因残差在 $0.2\%$ 以内，且残差的绝大部分能被展开式外的高阶项解释（见 12.1 节）。真实数据上也完整跑通了 29 小时（见 12.2 节）。剩下的是三件事。</p>
+<p><strong>一、真实数据上的 SVI refit 不稳定。</strong> 这是目前最实质的问题。每 5 分钟重新拟合一次，曲面就会跳一下，一分钟内 vega PnL 能跳 $\pm 4$k–$9$k 美元，把归因残差从合成数据上的 $0.15\%$ 推到 $4.1\%$。下一步是对上一次拟合结果加正则项，并在拟合前按流动性过滤报价——如果每次进入拟合的行权价集合本身就在变，曲面跳动就不可避免。</p>
+<p><strong>二、数据量。</strong> 目前录到的只有 29 小时（recorder 中途停了）。数据不足时曲面拟合会退化成未标定的 $50\%$ 平坦曲面，后续所有报价、对冲、归因都建立在这个假曲面上。这不是逻辑错误，而是等待数据累积的一个必经阶段。</p>
+<p><strong>三、一批参数尚未标定。</strong> 下列参数目前都取的是人为设定值，要靠真实成交数据估计：</p>
+<ul>
+<li>$k_1,k_2$（式 (26) 的半价差对 vega/gamma 的敏感度）与库存偏斜的幅度系数；</li>
+<li>$A,\beta$（式 (28) 的 Poisson 成交强度与衰减系数）——需要足够多的自有报价成交样本；</li>
+<li>$c,\lambda$（式 (32) 的单位对冲成本与风险厌恶系数）——这也是 10.3 节那条 Whalley–Wilmott 带宽规则至今未实现的直接原因。</li>
+</ul>
+<p>在这些标定完成之前，回测跑出的 PnL 数字本身不具备参考价值；这一阶段真正被验证的是记账管道的正确性，而不是策略的盈利能力。</p>
+
+
+<h2 class="relative group">参考文献 
+    <div id="%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li>F. Black, &ldquo;The pricing of commodity contracts,&rdquo; <em>J. Financial Econ.</em>, vol. 3, no. 1–2, pp. 167–179, 1976.</li>
+<li>J. Gatheral, &ldquo;A parsimonious arbitrage-free implied volatility parameterization with application to the valuation of volatility derivatives,&rdquo; presented at Global Derivatives &amp; Risk Management, Madrid, Spain, 2004.</li>
+<li>R. W. Lee, &ldquo;The moment formula for implied volatility at extreme strikes,&rdquo; <em>Math. Finance</em>, vol. 14, no. 3, pp. 469–480, 2004.</li>
+<li>J. Gatheral and A. Jacquier, &ldquo;Arbitrage-free SVI volatility surfaces,&rdquo; <em>Quant. Finance</em>, vol. 14, no. 1, pp. 59–71, 2014.</li>
+<li>M. A. Branch, T. F. Coleman, and Y. Li, &ldquo;A subspace, interior, and conjugate gradient method for large-scale bound-constrained minimization problems,&rdquo; <em>SIAM J. Sci. Comput.</em>, vol. 21, no. 1, pp. 1–23, 1999.</li>
+<li>A. E. Whalley and P. Wilmott, &ldquo;An asymptotic analysis of an optimal hedging model for option pricing with transaction costs,&rdquo; <em>Math. Finance</em>, vol. 7, no. 3, pp. 307–324, 1997.</li>
+</ol>
+
+    </div>
+    <nav class="pn"><a href="/docs/articles/binomial-practice/"><span>← Previous</span><b>Binomial Probability Law: Practice Problems</b></a><a class="nx" href="/docs/articles/as-full-derivation/"><span>Next →</span><b>Avellaneda–Stoikov 做市模型完整推导：从库存风险到最优双边报价</b></a>
+    </nav>
+  </article>
+
+  <aside class="rail">
+    <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#1-%e4%b8%80%e5%8f%a5%e8%af%9d%e5%ae%9a%e4%b9%89" class="l1">1. 一句话定义</a>
+        <a href="#2-%e6%95%b4%e6%9d%a1%e9%93%be%e8%b7%af%e7%9a%84%e5%85%ad%e6%ad%a5" class="l1">2. 整条链路的六步</a>
+        <a href="#3-%e5%ae%9a%e4%bb%b7%e7%9a%84%e5%9c%b0%e5%9f%ba%e4%bb%8e%e8%a1%8c%e6%83%85%e5%88%b0%e4%b8%80%e5%bc%a0%e6%b3%a2%e5%8a%a8%e7%8e%87%e6%9b%b2%e9%9d%a2" class="l1">3. 定价的地基：从行情到一张波动率曲面</a>
+        <a href="#31-black-scholes-%e5%85%ac%e5%bc%8f" class="l2">3.1 Black-Scholes 公式</a>
+        <a href="#32-%e5%a6%82%e4%bd%95%e5%8f%8d%e8%a7%a3%e9%9a%90%e5%90%ab%e6%b3%a2%e5%8a%a8%e7%8e%87" class="l2">3.2 如何反解隐含波动率</a>
+        <a href="#33-%e4%b8%ba%e4%bb%80%e4%b9%88%e4%b8%8d%e5%90%8c%e8%a1%8c%e6%9d%83%e4%bb%b7%e7%9a%84-iv-%e4%b8%8d%e4%b8%80%e6%a0%b7" class="l2">3.3 为什么不同行权价的 IV 不一样</a>
+        <a href="#34-%e4%bb%8e%e6%95%a3%e7%82%b9%e5%88%b0%e6%9b%b2%e7%ba%bfsvi-%e6%8b%9f%e5%90%88%e7%9a%84%e5%8a%a8%e6%9c%ba" class="l2">3.4 从散点到曲线：SVI 拟合的动机</a>
+        <a href="#35-svi-%e5%8f%82%e6%95%b0%e5%8c%96%e7%94%a8%e4%ba%94%e4%b8%aa%e5%8f%82%e6%95%b0%e6%a6%82%e6%8b%ac%e4%b8%80%e6%9d%a1%e6%9b%b2%e7%ba%bf" class="l2">3.5 SVI 参数化：用五个参数概括一条曲线</a>
+        <a href="#36-%e4%bb%8e%e6%9b%b2%e7%ba%bf%e5%88%b0%e6%9b%b2%e9%9d%a2" class="l2">3.6 从曲线到曲面</a>
+        <a href="#4-%e4%b8%ba%e4%bb%80%e4%b9%88%e7%94%a8-svi%e8%80%8c%e4%b8%8d%e7%94%a8%e6%9b%b4%e7%ae%80%e5%8d%95%e7%9a%84%e6%9b%b2%e7%ba%bf" class="l1">4. 为什么用 SVI，而不用更简单的曲线</a>
+        <a href="#41-%e5%af%b9%e7%a7%b0%e6%8a%9b%e7%89%a9%e7%ba%bf%e7%94%bb%e4%b8%8d%e5%87%ba%e5%81%8f%e6%96%9c" class="l2">4.1 对称抛物线画不出偏斜</a>
+        <a href="#42-%e4%b8%a4%e7%bf%bc%e5%a2%9e%e9%95%bf%e5%a4%aa%e5%bf%ab%e8%bf%9d%e5%8f%8d%e6%97%a0%e5%a5%97%e5%88%a9" class="l2">4.2 两翼增长太快，违反无套利</a>
+        <a href="#43-%e5%a4%96%e6%8e%a8%e4%bc%9a%e7%88%86%e7%82%b8" class="l2">4.3 外推会爆炸</a>
+        <a href="#44-%e6%9b%b2%e7%8e%87%e5%a4%84%e5%a4%84%e7%9b%b8%e5%90%8c%e5%bd%a2%e7%8a%b6%e4%b8%8d%e5%af%b9" class="l2">4.4 曲率处处相同，形状不对</a>
+        <a href="#45-%e5%b0%8f%e7%bb%93" class="l2">4.5 小结</a>
+        <a href="#5-svi-%e5%8f%82%e6%95%b0%e6%b1%82%e8%a7%a3trf-%e7%ae%97%e6%b3%95" class="l1">5. SVI 参数求解：TRF 算法</a>
+        <a href="#51-%e8%a6%81%e8%a7%a3%e7%9a%84%e9%97%ae%e9%a2%98%e6%ae%8b%e5%b7%ae%e4%b8%8e%e6%8d%9f%e5%a4%b1%e5%87%bd%e6%95%b0" class="l2">5.1 要解的问题：残差与损失函数</a>
+        <a href="#52-%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e7%ba%bf%e6%80%a7%e8%bf%91%e4%bc%bc" class="l2">5.2 为什么需要线性近似</a>
+        <a href="#53-%e9%9b%85%e5%8f%af%e6%af%94%e7%9f%a9%e9%98%b5-j-%e7%9a%84%e4%bd%9c%e7%94%a8" class="l2">5.3 雅可比矩阵  的作用</a>
+        <a href="#54-%e4%bf%a1%e8%b5%96%e5%9f%9f%e6%96%b9%e6%b3%95trust-region" class="l2">5.4 信赖域方法（trust region）</a>
+        <a href="#55-%e5%8f%8d%e5%b0%84%e7%ad%96%e7%95%a5reflective%e5%a4%84%e7%90%86%e8%be%b9%e7%95%8c%e7%ba%a6%e6%9d%9f" class="l2">5.5 反射策略（reflective）处理边界约束</a>
+        <a href="#56-%e5%85%b7%e4%bd%93%e6%b1%82%e8%a7%a3%e6%ad%a5%e9%aa%a4" class="l2">5.6 具体求解步骤</a>
+        <a href="#57-%e5%88%9d%e5%80%bc%e4%b8%8e-warm-start" class="l2">5.7 初值与 warm start</a>
+        <a href="#6-%e5%81%9a%e5%b8%82%e6%a8%a1%e5%9d%97%e6%80%bb%e8%a7%88" class="l1">6. 做市模块总览</a>
+        <a href="#7-quoter%e5%ae%9a%e4%bb%b7%e4%b8%8e%e6%8a%a5%e4%bb%b7" class="l1">7. Quoter：定价与报价</a>
+        <a href="#71-%e7%ae%97%e5%85%ac%e5%85%81%e4%bb%b7" class="l2">7.1 算公允价</a>
+        <a href="#72-%e5%8d%8a%e4%bb%b7%e5%b7%ae%e9%9a%8f-vegagamma-%e5%8a%a0%e5%ae%bd" class="l2">7.2 半价差随 vega/gamma 加宽</a>
+        <a href="#73-%e5%ba%93%e5%ad%98%e5%81%8f%e6%96%9c%e6%8a%8a%e6%8a%a5%e4%bb%b7%e5%8c%ba%e9%97%b4%e6%95%b4%e4%bd%93%e6%8c%aa%e4%b8%80%e6%8c%aa" class="l2">7.3 库存偏斜：把报价区间整体挪一挪</a>
+        <a href="#8-fillmodel%e5%88%a4%e6%96%ad%e6%8a%a5%e4%bb%b7%e4%bb%80%e4%b9%88%e6%97%b6%e5%80%99%e8%a2%ab%e6%89%93%e4%b8%ad" class="l1">8. FillModel：判断报价什么时候被打中</a>
+        <a href="#81-poisson-%e7%90%86%e8%ae%ba%e6%92%ae%e5%90%88" class="l2">8.1 Poisson 理论撮合</a>
+        <a href="#82-trade-replay" class="l2">8.2 Trade-replay</a>
+        <a href="#9-inventory-%e4%b8%8e-risklimits%e8%ae%b0%e8%b4%a6%e4%b8%8e%e5%88%b9%e8%bd%a6" class="l1">9. Inventory 与 RiskLimits：记账与刹车</a>
+        <a href="#91-inventory%e5%87%80%e4%bb%93%e4%bd%8d%e4%b8%8e%e5%87%80-greeks-%e7%9a%84%e8%81%9a%e5%90%88" class="l2">9.1 Inventory：净仓位与净 Greeks 的聚合</a>
+        <a href="#92-risklimits%e8%b6%85%e9%99%90%e5%8d%b3%e6%9a%82%e5%81%9c%e6%9f%90%e4%b8%aa%e6%96%b9%e5%90%91%e7%9a%84%e6%8a%a5%e4%bb%b7" class="l2">9.2 RiskLimits：超限即暂停某个方向的报价</a>
+        <a href="#10-hedger%e4%b8%bb%e5%8a%a8%e6%b6%88%e5%8c%96%e5%b7%b2%e6%9c%89%e9%a3%8e%e9%99%a9" class="l1">10. Hedger：主动消化已有风险</a>
+        <a href="#101-%e5%ae%9a%e6%97%b6%e5%af%b9%e5%86%b2" class="l2">10.1 定时对冲</a>
+        <a href="#102-%e5%9b%ba%e5%ae%9a%e5%b8%a6%e5%ae%bd%e5%af%b9%e5%86%b2" class="l2">10.2 固定带宽对冲</a>
+        <a href="#103-future-workwhalleywilmott-%e6%9c%80%e4%bc%98%e5%b8%a6%e5%ae%bd" class="l2">10.3 Future Work：Whalley–Wilmott 最优带宽</a>
+        <a href="#11-%e4%ba%94%e4%b8%aa%e6%a8%a1%e5%9d%97%e7%9a%84%e6%95%b0%e6%8d%ae%e6%b5%81" class="l1">11. 五个模块的数据流</a>
+        <a href="#12-pnl-%e5%bd%92%e5%9b%a0%e9%92%b1%e5%88%b0%e5%ba%95%e4%bb%8e%e5%93%aa%e6%9d%a5" class="l1">12. PnL 归因：钱到底从哪来</a>
+        <a href="#121-%e7%94%a8%e5%90%88%e6%88%90%e6%95%b0%e6%8d%ae%e9%aa%8c%e8%af%81%e5%bd%92%e5%9b%a0" class="l2">12.1 用合成数据验证归因</a>
+        <a href="#122-%e7%9c%9f%e5%ae%9e%e6%95%b0%e6%8d%ae%e4%b8%8a%e7%9a%84%e5%88%9d%e6%ad%a5%e7%bb%93%e6%9e%9c" class="l2">12.2 真实数据上的初步结果</a>
+        <a href="#13-%e5%bd%93%e5%89%8d%e7%9a%84%e5%8d%a1%e7%82%b9" class="l1">13. 当前的卡点</a>
+        <a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae" class="l1">参考文献</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>Last updated <time id="updated" datetime="2026-11-26T20:13:55Z">Nov 26, 2026, 3:13 PM ET</time> · buezw.github.io</span>
+</footer>
+<script>
+(function(){
+  var el=document.getElementById('updated'); if(!el||!window.Intl) return;
+  try{
+    var d=new Date(el.getAttribute('datetime'));
+    var s=new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(d);
+    el.textContent=s;
+  }catch(e){}
+})();
+</script>
+
+<script>
+
+
+(function(){
+  var root=document.querySelector('.prose'); if(!root) return;
+  var re=/\*\*((?:(?!\*\*)[\s\S]){1,400}?)\*\*/g;
+  root.querySelectorAll('p,li,td,th,h1,h2,h3,h4,h5,blockquote').forEach(function(el){
+    if(el.closest('pre,code')) return;
+    if(el.querySelector('p,li,ul,ol,table')) return;
+    if(el.innerHTML.indexOf('**')<0) return;
+    var parts=el.innerHTML.split(/(<code[\s\S]*?<\/code>)/);
+    for(var i=0;i<parts.length;i+=2){ parts[i]=parts[i].replace(/\*{4}/g,'').replace(re,'<strong>$1</strong>').replace(/\*\*/g,''); }
+    el.innerHTML=parts.join('');
+  });
+})();
+</script>
+<script>
+ 
+(function(){
+  var h=document.getElementById('atitle'); if(!h) return;
+  function fit(){
+    h.classList.remove('wrap'); h.style.fontSize='';
+    if(window.innerWidth<=760) return;
+    var band=h.closest('.banner'), right=band.getBoundingClientRect().right-parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+    var size=parseFloat(getComputedStyle(h).fontSize), min=parseFloat(getComputedStyle(document.documentElement).fontSize)*1.5;
+    while(h.getBoundingClientRect().right>right && size>min){ size-=1; h.style.fontSize=size+'px'; }
+    if(h.getBoundingClientRect().right>right) h.classList.add('wrap');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+ 
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a')); if(!links.length) return;
+  var heads=links.map(function(a){var e=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));return e&&(e.closest('h1,h2,h3,h4,h5,h6')||e);});
+  function on(){
+    var y=window.scrollY+80, k=0;
+    heads.forEach(function(h,i){ if(h && h.getBoundingClientRect().top+window.scrollY<=y) k=i; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) k=heads.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});
+  }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+</script>
+</body>
+</html>
