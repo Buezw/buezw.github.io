@@ -122,6 +122,12 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
   .sbox kbd{display:none}
   .nb .rs p{-webkit-line-clamp:2}
 }
+ 
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
 </style>
 
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
@@ -1017,6 +1023,22 @@ $$<p>
   <span>buezw.github.io</span>
 </footer>
 
+<script>
+
+
+(function(){
+  var root=document.querySelector('.prose'); if(!root) return;
+  var re=/\*\*((?:(?!\*\*)[\s\S]){1,400}?)\*\*/g;
+  root.querySelectorAll('p,li,td,th,h1,h2,h3,h4,h5,blockquote').forEach(function(el){
+    if(el.closest('pre,code')) return;
+    if(el.querySelector('p,li,ul,ol,table')) return;
+    if(el.innerHTML.indexOf('**')<0) return;
+    var parts=el.innerHTML.split(/(<code[\s\S]*?<\/code>)/);
+    for(var i=0;i<parts.length;i+=2){ parts[i]=parts[i].replace(/\*{4}/g,'').replace(re,'<strong>$1</strong>').replace(/\*\*/g,''); }
+    el.innerHTML=parts.join('');
+  });
+})();
+</script>
 <script>
  
 (function(){

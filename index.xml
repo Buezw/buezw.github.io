@@ -11,81 +11,6 @@
     <copyright>© 2026 Buezwqwg</copyright>
     <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Demo 1. Article Typography</title>
-      <link>https://buezw.github.io/docs/sample/demo1-articletypography/</link>
-      <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/sample/demo1-articletypography/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/13/26&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Headings and Body Text 
-    &lt;div id=&#34;headings-and-body-text&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#headings-and-body-text&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;这是一段普通正文，用来看看衬线体在长段落里的排版效果。Order flow toxicity is a measure of adverse selection risk faced by market makers — when the counterparty is more informed, fills skew against the quoter.&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Demo 2. Code &amp; Math</title>
-      <link>https://buezw.github.io/docs/sample/demo2-codeandmath/</link>
-      <pubDate>Thu, 10 Sep 2026 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/sample/demo2-codeandmath/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/10/26&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Inline &amp;amp; Block Math 
-    &lt;div id=&#34;inline--block-math&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#inline--block-math&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;Black-Scholes 定价公式，用来检查行内公式 \(C = S_0 N(d_1) - K e^{-rT} N(d_2)\) 和块级公式的渲染：&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>Demo 3. Long-form Notes with a Table</title>
-      <link>https://buezw.github.io/docs/sample/demo3-longformnotes/</link>
-      <pubDate>Sat, 05 Sep 2026 00:00:00 +0000</pubDate>
-      <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/sample/demo3-longformnotes/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Last Edit: 9/5/26&lt;/p&gt;
-&lt;/blockquote&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;Summary 
-    &lt;div id=&#34;summary&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#summary&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;这篇用来检查稍长一点的正文结构，混合标题、表格、列表。假设我们比较几种做市策略的关键指标：&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
       <title>CO 8. Cache</title>
       <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co8.cache/</link>
       <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
@@ -285,7 +210,7 @@ $$&lt;p&gt;Magnetic Flux is the integral of Magnetic Strength $B$ in area $s$&lt
     </item>
     
     <item>
-      <title>SS 6. AnalysisofCTSusingForierTransform</title>
+      <title>SS 6. AnalysisofCTSusingFourierTransform</title>
       <link>https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/</link>
       <pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
@@ -867,7 +792,7 @@ $$&lt;p&gt;$x^{(n)}$: x’s n th derivative for t&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>CO 2. MemoryOrgranization</title>
+      <title>CO 2. MemoryOrganization</title>
       <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co2.memoryorgranization/</link>
       <pubDate>Tue, 13 Jan 2026 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
@@ -1049,20 +974,20 @@ $$&lt;ul&gt;
     
     <item>
       <title>Quantifying Order Flow Toxicity: A Microstructure Perspective</title>
-      <link>https://buezw.github.io/finance/market-commentary/test-copy/</link>
+      <link>https://buezw.github.io/finance/market-commentary/order-flow-toxicity/</link>
       <pubDate>Sat, 20 Dec 2025 14:00:00 -0500</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/finance/market-commentary/test-copy/</guid>
+      <guid>https://buezw.github.io/finance/market-commentary/order-flow-toxicity/</guid>
       <description>Implementing the VPIN (Volume-Synchronized Probability of Informed Trading) metric to detect adverse selection risk in high-frequency order books.</description>
       
     </item>
     
     <item>
       <title>波动率路径下的隐性结构：当前政权转换的随机性分析</title>
-      <link>https://buezw.github.io/finance/market-commentary/test/</link>
+      <link>https://buezw.github.io/finance/market-commentary/volatility-regime-structure/</link>
       <pubDate>Thu, 18 Dec 2025 10:00:00 +0800</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/finance/market-commentary/test/</guid>
+      <guid>https://buezw.github.io/finance/market-commentary/volatility-regime-structure/</guid>
       <description>探讨在当前宏观流动性紧缩背景下，如何通过随机微积分视角观察波动率曲率的异常变化。</description>
       
     </item>
@@ -4786,7 +4711,7 @@ $$=\int^b_a\sqrt{(\frac{dx}{dt})^2+(\frac{dy}{dt})^2}dt=\int^b_a\sqrt{[f&#39;(x)
     </item>
     
     <item>
-      <title>D2 5.1 Layer &amp; Block</title>
+      <title>D2L 5.1 Layer &amp; Block</title>
       <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/d2l5.1layerblock/</link>
       <pubDate>Sat, 21 Dec 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
@@ -5905,7 +5830,7 @@ class LinearRegression(Scene):
     </item>
     
     <item>
-      <title>Projectile Motion when air resisitance is propftional to velocity</title>
+      <title>Projectile Motion when Air Resistance is Proportional to Velocity</title>
       <link>https://buezw.github.io/docs/displays/projectilemotion/</link>
       <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
@@ -6531,7 +6456,7 @@ $$softmax(X)_{ij}=\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
     </item>
     
     <item>
-      <title>D2L 4.1 MultilayerPerceptron</title>
+      <title>D2L 4.3 Simple Implementation of Multilayer Perceptron</title>
       <link>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/</link>
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
