@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avellaneda–Stoikov 做市模型完整推导：从库存风险到最优双边报价 · Jingnan Huang</title>
+<meta name="description" content="保留价格（报价中枢）与最优价差（中枢两边留多宽）的完整推导，并用蒙特卡洛回测验证定性结论。">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f3f0ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
+
+ 
+.search{position:relative;flex:1;max-width:520px}
+ 
+@media (min-width:1101px){
+  .topnav{display:grid;grid-template-columns:1fr minmax(0,520px) 1fr}
+  .search{width:100%;max-width:none}
+  .topnav nav{justify-self:end}
+}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
+
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
+
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:80px 1fr;gap:16px 14px;margin:32px 0 6px;font-size:1rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
+
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
+
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
+
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
+ 
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+</style>
+
+<link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
+<link rel="stylesheet" href="/lib/katex/katex.min.css">
+<script defer src="/lib/katex/katex.min.js"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<style>
+ 
+.banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.banner>div{padding:0 clamp(24px,3.4vw,64px);max-width:calc(860px + 2*clamp(24px,3.4vw,64px));width:100%;margin:0 auto;box-sizing:border-box;min-width:0}
+.banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 12px;white-space:nowrap;width:max-content}
+.banner h1.wrap{white-space:normal;width:auto}
+.banner .meta{font-size:.86rem}
+.banner .lead{max-width:860px;margin:0 0 12px}
+.nav2{display:flex;gap:8px}
+.nav2 a{display:block;background:#fff;border:1px solid var(--paper2);padding:8px 14px;width:220px}
+.nav2 a:hover{border-color:var(--text)}
+.nav2 small{display:block;font-size:.72rem;color:var(--dim)}
+.nav2 b{display:block;font-weight:500;font-size:.86rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav2 .nx{text-align:right}
+.page{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh / var(--zoom) - 40px);overflow:auto;padding-right:4px}
+.side{padding:30px 22px 30px var(--px)}
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.grp{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;margin-top:8px;padding-bottom:12px;border-bottom:1px solid var(--paper2)}
+.grp a:hover{color:var(--c)}
+.grp small{display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:.76rem;font-weight:400;color:var(--dim);margin-top:6px;letter-spacing:0}
+.grp small i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.sib{font-size:.88rem;line-height:1.35;counter-reset:n}
+.sib a{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;align-items:baseline;padding:6px 8px 6px 0;color:#4a4741;border-radius:3px}
+.sib a em{font-style:normal;font-family:var(--serif);font-size:.95rem;color:var(--dim);text-align:right;padding-right:6px}
+.sib a span{overflow-wrap:anywhere}
+.sib a:hover{color:var(--text);background:rgba(255,255,255,.55)}
+.sib a.cur{background:#fff;color:var(--text);font-weight:500;box-shadow:inset 2px 0 0 var(--c)}
+.sib a.cur em{color:var(--c)}
+.rail{padding:30px var(--px) 30px 24px;border-left:1px solid var(--line)}
+.toc{font-size:.84rem;line-height:1.4;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 0 4px 12px;margin-left:-1px;border-left:2px solid transparent;color:#5a5650}
+.toc a.l2{padding-left:24px;font-size:.8rem;color:var(--dim)}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--c);border-left-color:var(--c)}
+.totop{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--dim)}
+.totop:hover{color:var(--text)}
+
+.art{padding:30px clamp(24px,3.4vw,64px) 50px;min-width:0}
+.art>*{margin-left:auto;margin-right:auto}
+.ahead{max-width:860px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--text)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+.ahead h1{font-size:2.6rem;line-height:1.12;margin:12px 0 0;overflow-wrap:anywhere}
+.ahead .crumb{margin-bottom:10px}
+.lead{margin:14px 0 0;font-size:1.05rem;line-height:1.65;color:#4a4741}
+
+ 
+.prose{max-width:860px;font-size:1.02rem;line-height:1.8;color:#232220;overflow-wrap:break-word}
+.prose h1,.prose h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-size:1.65rem;line-height:1.25;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:1.8em 0 .5em;scroll-margin-top:20px}
+.prose h4{font-size:1.05rem;font-weight:600;margin:1.6em 0 .4em;scroll-margin-top:20px}
+.prose>*:first-child{margin-top:0}
+.prose h1>span,.prose h2>span,.prose h3>span,.prose h4>span{display:none}
+.prose .anchor{scroll-margin-top:20px}
+.prose p{margin:0 0 1em}
+.prose a{color:var(--c);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.prose strong{font-weight:600;color:var(--text)}
+.prose ul,.prose ol{padding-left:1.4em;margin:0 0 1em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.2em 0}
+.prose blockquote{margin:1.2em 0;padding:.6em 1.1em;border-left:3px solid var(--c);background:#faf9f6;color:#4a4741}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose img,.prose video{display:block;max-width:100%;height:auto;margin:1.2em auto;border:1px solid var(--line)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;margin:1.2em 0;font-size:.92rem}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top}
+.prose th{background:#f6f4ef;font-weight:600}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:#f3f0ea;padding:.1em .35em;border-radius:3px}
+.prose pre{background:#faf9f6;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;font-size:.86rem;line-height:1.6;margin:1.2em 0}
+.prose pre code{background:none;padding:0;font-size:inherit}
+.prose .highlight{margin:1.2em 0}
+.prose .highlight pre{margin:0}
+.prose .katex-display{overflow-x:auto;overflow-y:hidden;padding:.2em 0}
+.prose .katex{font-size:1.06em}
+
+.pn{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:18px;border-top:1px solid var(--text)}
+.pn a{display:block;padding:12px 14px;border:1px solid var(--line)}
+.pn a:hover{border-color:var(--text)}
+.pn span{display:block;font-size:.78rem;color:var(--dim)}
+.pn b{font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
+.pn .nx{text-align:right;grid-column:2}
+
+@media (max-width:1000px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .banner{display:block;padding:22px 0 18px}
+  .banner h1{font-size:1.8rem!important;white-space:normal;width:auto}
+  .nav2{display:none}
+  .prose{font-size:.98rem}
+  .pn{grid-template-columns:1fr}
+  .pn .nx{grid-column:1}
+}
+</style>
+</head>
+<body style="--c:var(--blue)">
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 126 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
+  </div>
+  <nav>
+    <a href="/docs/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+<script>
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
+</script>
+
+
+<section class="banner">
+  <div>
+    <div class="crumb"><a href="/docs/">Notebook</a><i>/</i><a href="/docs/">Articles</a></div>
+    <h1 class="serif" id="atitle">Avellaneda–Stoikov 做市模型完整推导：从库存风险到最优双边报价</h1><p class="lead">保留价格（报价中枢）与最优价差（中枢两边留多宽）的完整推导，并用蒙特卡洛回测验证定性结论。</p>
+    <div class="meta">
+      <span>Sep 16, 2026</span><span>Edited 11/26/26</span>
+      <i class="lang">CN</i>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <article class="art">
+
+    <div class="prose">
+      
+<p><em>库存感知做市模型：从效用最大化到闭式报价公式，附真实回测验证</em></p>
+<aside>
+💡
+<p><strong>一句话定义：</strong> Avellaneda–Stoikov 模型回答的是做市商最核心的两个问题——挂单的 <strong>中心该定在哪</strong>（保留价格 $r$，由库存风险决定），以及<strong>中心两边该留多宽</strong>（最优价差 $\delta^*$，由波动率与成交概率决定）。两者拼在一起，就是一套完整的、可以直接拿去跑的双边报价公式。</p>
+</aside>
+<p>本文分三部分：先推导保留价格 $r$（报价中枢由库存如何决定），再推导最优价差 $\delta^*$（中枢两边该留多宽），最后把两者拼成完整系统，并用一份基于该模型的蒙特卡洛回测报告，验证公式给出的定性结论在数值上是否成立。</p>
+
+
+<h2 class="relative group">1. 问题设定 
+    <div id="1-%E9%97%AE%E9%A2%98%E8%AE%BE%E5%AE%9A" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-%E9%97%AE%E9%A2%98%E8%AE%BE%E5%AE%9A" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>做市商的工作是同时挂出买价（bid）和卖价（ask），靠低买高卖赚取价差。但这里有一个所有做市商都要面对的矛盾：</p>
+<ul>
+<li>
+<p>如果只顾眼前赚钱，把买卖价都尽量往中间价贴，容易成交，但一旦买盘卖盘不对称成交（比如一直有人在你这边卖，很少有人买），库存会越滚越大，风险跟着累积；</p>
+</li>
+<li>
+<p>如果为了控制库存风险把价差拉得很宽，虽然安全，但很少有人愿意跟你成交，赚不到钱。</p>
+</li>
+</ul>
+<p>Avellaneda–Stoikov (2008) 给出的答案是：不要用一个固定的、对称的价差，而是让报价<strong>跟着当前库存动态调整</strong>——手上库存越多，就越应该主动压低报价去清库存；库存越少（或为负），就应该主动抬高报价去补库存。这个“动态中枢”就是保留价格 $r$；中枢确定之后，两边还要留多宽的问题，则由最优价差 $\delta^*$ 回答。</p>
+
+
+<h2 class="relative group">2. 第一步：保留价格 —— 报价中枢该定在哪 
+    <div id="2-%E7%AC%AC%E4%B8%80%E6%AD%A5%E4%BF%9D%E7%95%99%E4%BB%B7%E6%A0%BC--%E6%8A%A5%E4%BB%B7%E4%B8%AD%E6%9E%A2%E8%AF%A5%E5%AE%9A%E5%9C%A8%E5%93%AA" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-%E7%AC%AC%E4%B8%80%E6%AD%A5%E4%BF%9D%E7%95%99%E4%BB%B7%E6%A0%BC--%E6%8A%A5%E4%BB%B7%E4%B8%AD%E6%9E%A2%E8%AF%A5%E5%AE%9A%E5%9C%A8%E5%93%AA" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">2.1 财富的定义与随机性来源 
+    <div id="21-%E8%B4%A2%E5%AF%8C%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%9D%A5%E6%BA%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#21-%E8%B4%A2%E5%AF%8C%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%9D%A5%E6%BA%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>设做市商当前持有现金 $x$，库存 $q$ 单位（$q>0$ 为多头，$q<0$ 为空头）将在时间 $T$ 按当时市场价格 $S_T$ 结算。$S_T$ 在当下是未知的随机变量，因此时间 $T$ 时的总财富</p>
+$$
+W = x + qS_T\tag{1}
+$$<p>其中 $W$ 为时间 $T$ 的总财富，$x$ 为当前现金持仓，$q$ 为库存单位数，$S_T$ 为时间 $T$ 时的市场价格，也是式 (1) 中唯一的随机变量。举例来说，若 $q=100$、$S_T=50$，库存价值为 $100 \times 50 = 5000$，加上现金 $x$ 即为总财富。</p>
+<p>中间价服从无漂移的随机游走：</p>
+$$
+S_T = s + \sigma\sqrt{T-t}\,Z, \quad Z \sim N(0,1)\tag{2}
+$$<p>其中 $s$ 为当前时刻的价格（已知常数），$\sigma$ 为波动率（已知常数），$T-t$ 为距收盘的剩余时间（已知常数），$Z$ 为标准正态随机变量，是式 (2) 中唯一随机的部分，均值为 $0$、方差为 $1$。“无漂移”意味着价格不存在系统性上涨或下跌趋势，只有以当前价格为中心的纯随机波动。</p>
+
+
+<h3 class="relative group">2.2 财富的分布：$q^2$ 是风险的根源 
+    <div id="22-%E8%B4%A2%E5%AF%8C%E7%9A%84%E5%88%86%E5%B8%83q2-%E6%98%AF%E9%A3%8E%E9%99%A9%E7%9A%84%E6%A0%B9%E6%BA%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#22-%E8%B4%A2%E5%AF%8C%E7%9A%84%E5%88%86%E5%B8%83q2-%E6%98%AF%E9%A3%8E%E9%99%A9%E7%9A%84%E6%A0%B9%E6%BA%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>把式 (2) 代入式 (1)：</p>
+$$
+W = \underbrace{(x+qs)}_{\text{常数}} + \underbrace{q\sigma\sqrt{T-t}}_{\text{常数}} \cdot Z\tag{3}
+$$<p>其中各符号含义同式 (1) 与式 (2)。利用正态分布的线性组合性质：若 $Z \sim N(0,1)$，则对任意常数 $a,b$，有 $a+bZ \sim N(a,b^2)$（均值为 $a$，方差为 $b$ 的平方而非 $b$ 本身）。将式 (3) 中 $a=x+qs$、$b=q\sigma\sqrt{T-t}$ 代入，得到</p>
+$$
+W \sim N\Big(x+qs,\; q^2\sigma^2(T-t)\Big)\tag{4}
+$$<p>其中 $x+qs$ 为财富的期望值，即“现金加上库存按当前价估值”；$q^2\sigma^2(T-t)$ 为财富的方差，其余符号含义同上。关键在于方差中出现的 $q^2$：库存越大（无论多头还是空头），风险按库存量的<strong>平方</strong>增长——库存翻倍，方差变为原来的 $4$ 倍。这是后续“惩罚大库存”这一结论的数学根源。</p>
+
+
+<h3 class="relative group">2.3 CARA 效用下的期望效用与确定性等价财富 
+    <div id="23-cara-%E6%95%88%E7%94%A8%E4%B8%8B%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%95%88%E7%94%A8%E4%B8%8E%E7%A1%AE%E5%AE%9A%E6%80%A7%E7%AD%89%E4%BB%B7%E8%B4%A2%E5%AF%8C" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#23-cara-%E6%95%88%E7%94%A8%E4%B8%8B%E7%9A%84%E6%9C%9F%E6%9C%9B%E6%95%88%E7%94%A8%E4%B8%8E%E7%A1%AE%E5%AE%9A%E6%80%A7%E7%AD%89%E4%BB%B7%E8%B4%A2%E5%AF%8C" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>做市商的效用函数取 CARA（常数绝对风险厌恶）形式：</p>
+$$
+U(W) = -e^{-\gamma W}\tag{5}
+$$<p>其中 $\gamma>0$ 为风险厌恶系数，$W$ 为式 (4) 中的随机财富。</p>
+<p>期望效用为 $E[U(W)] = -E[e^{-\gamma W}]$。这里需要用到正态分布矩生成函数的标准结论：若 $W \sim N(\mu,\Sigma^2)$，则对任意常数 $k$，</p>
+$$
+E\big[e^{-kW}\big] = \exp\!\left(-k\mu + \tfrac{1}{2}k^2\Sigma^2\right)\tag{6}
+$$<p>其中 $\mu$ 为 $W$ 的均值，$\Sigma^2$ 为 $W$ 的方差，$k$ 为任意常数。此式为可直接引用的标准结论，此处不再重新证明。将式 (4) 中 $\mu=x+qs$、$\Sigma^2=q^2\sigma^2(T-t)$ 以及 $k=\gamma$ 代入式 (6)：</p>
+$$
+E[U(W)] = -\exp\!\left(-\gamma(x+qs) + \tfrac{1}{2}\gamma^2 q^2\sigma^2(T-t)\right)\tag{7}
+$$<p>其中各符号含义同式 (4) 与式 (5)。将式 (7) 指数部分提出公因子 $-\gamma$：</p>
+$$
+E[U(W)] = -\exp\!\left(-\gamma\Big(x+qs-\tfrac{1}{2}\gamma q^2\sigma^2(T-t)\Big)\right)\tag{8}
+$$<p>括号内的表达式即为<strong>确定性等价财富</strong>（certainty equivalent wealth）：</p>
+$$
+CE = x+qs-\tfrac{1}{2}\gamma q^2\sigma^2(T-t)\tag{9}
+$$<p>其中 $CE$ 为确定性等价财富，其余符号含义同式 (4)。式 (8) 的结构等价于 $U(CE)$，这意味着：一个风险厌恶的做市商，宁愿确定地获得 $CE$，也不愿去承担期望值更高、但方差为 $q^2\sigma^2(T-t)$ 的随机财富 $W$。$CE$ 相对于 $W$ 的期望值 $x+qs$ 打了折扣，折扣幅度是 $\tfrac{1}{2}\gamma q^2\sigma^2(T-t)$——这一项就是库存带来不确定性的“价格”。</p>
+
+
+<h3 class="relative group">2.4 保留价格的推导 
+    <div id="24-%E4%BF%9D%E7%95%99%E4%BB%B7%E6%A0%BC%E7%9A%84%E6%8E%A8%E5%AF%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#24-%E4%BF%9D%E7%95%99%E4%BB%B7%E6%A0%BC%E7%9A%84%E6%8E%A8%E5%AF%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>保留价格 $r$ 定义为：在考虑风险厌恶之后，每单位库存在做市商心目中的主观价值。按照“现金部分 $+$ $q$ 单位库存值 $r$”的思路倒推：</p>
+$$
+CE = x+qr\tag{10}
+$$<p>其中 $r$ 为保留价格，其余符号含义同式 (9)。将式 (9) 代入式 (10)，两边消去 $x$ 并除以 $q$，得到</p>
+$$
+r(s,q,t) = s - \tfrac{1}{2}\gamma q\sigma^2(T-t)\tag{11}
+$$<p>其中 $r(s,q,t)$ 为保留价格，$s,\gamma,q,\sigma,T-t$ 含义同上。部分教材版本不写 $\tfrac{1}{2}$ 这一系数，取决于对库存风险惩罚项的定义方式，但核心结构一致：<strong>保留价格 = 中间价 $-$ 一个正比于库存量 $q$ 的偏移项</strong>。</p>
+<aside>
+💡
+<p><strong>直觉验证：苹果店备货类比</strong></p>
+<p>若 $q>0$（多头，库存囤积过多），则 $r<s$：保留价格低于市场价，做市商认为这批库存“不值市场价那么多”，因为持有它带来了风险，双边报价整体下移，对应“库存过多时打折清货”的直觉。若 $q<0$（空头，需要买入补仓），则 $r>s$：保留价格高于市场价，双边报价整体上移，更迫切地想要买入平仓。若 $q=0$（无库存），则 $r=s$：没有库存就没有风险偏移，双边报价对称地围绕市场中间价——这是最“中性”的状态。</p>
+</aside>
+
+
+<h2 class="relative group">3. 第二步：最优价差 —— 中枢两边该留多宽 
+    <div id="3-%E7%AC%AC%E4%BA%8C%E6%AD%A5%E6%9C%80%E4%BC%98%E4%BB%B7%E5%B7%AE--%E4%B8%AD%E6%9E%A2%E4%B8%A4%E8%BE%B9%E8%AF%A5%E7%95%99%E5%A4%9A%E5%AE%BD" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-%E7%AC%AC%E4%BA%8C%E6%AD%A5%E6%9C%80%E4%BC%98%E4%BB%B7%E5%B7%AE--%E4%B8%AD%E6%9E%A2%E4%B8%A4%E8%BE%B9%E8%AF%A5%E7%95%99%E5%A4%9A%E5%AE%BD" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>保留价格解决了报价“中心在哪”的问题，接下来要解决中心两边该留多宽的距离 $\delta$：</p>
+$$
+\text{bid} = r-\delta_b, \quad \text{ask} = r+\delta_a\tag{12}
+$$<p>其中 bid 为买价，ask 为卖价，$r$ 为保留价格，$\delta_b$ 为买价偏离保留价格的距离，$\delta_a$ 为卖价偏离保留价格的距离。这里存在一个核心权衡：$\delta$ 太大（报价远离市场）意味着一旦成交利润更高，但成交概率很低；$\delta$ 太小（报价贴近市场）意味着容易成交，但每次利润微薄。最优价差就是在“多赚一点”与“多成交一点”之间求出的平衡点。</p>
+
+
+<h3 class="relative group">3.1 成交强度：$\delta$ 越远，成交越难 
+    <div id="31-%E6%88%90%E4%BA%A4%E5%BC%BA%E5%BA%A6delta-%E8%B6%8A%E8%BF%9C%E6%88%90%E4%BA%A4%E8%B6%8A%E9%9A%BE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#31-%E6%88%90%E4%BA%A4%E5%BC%BA%E5%BA%A6delta-%E8%B6%8A%E8%BF%9C%E6%88%90%E4%BA%A4%E8%B6%8A%E9%9A%BE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>设想在菜市场摆摊卖菜：别人都卖 5 元一斤，你的报价偏离这个“参考价”越多，顾客上门的频率就越低。这里采用的假设是：</p>
+$$
+\lambda(\delta) = Ae^{-k\delta}\tag{13}
+$$<p>其中 $\lambda(\delta)$ 为成交到达频率（单位时间内平均成交次数），$A$ 为 $\delta=0$ 时（报价恰好等于参考价，最有吸引力）的成交频率，$k$ 为衰减速度常数，二者都是已知或可估计的常数。</p>
+<p>当 $\delta=0$ 时，$\lambda=A$：报价和参考价完全一致，成交频率达到最大值 $A$——这是起点，不是终点。当 $\delta$ 增大，$\lambda(\delta)$ 并不是匀速下降，而是按 $e^{-k\delta}$ <strong>指数</strong>衰减：每往外挪一点点，成交频率就打一个折扣，而且这个折扣是乘性的，不是减性的。</p>
+<p>$k$ 决定这个折扣有多狠。设 $A=10$（次/小时）：若 $k=1$，报价偏离 $\delta=1$ 时，$\lambda=10e^{-1}\approx 3.68$ 次/小时，衰减比较温和；若 $k=5$，同样偏离 $\delta=1$，$\lambda=10e^{-5}\approx 0.067$ 次/小时，几乎没人愿意在这个价位成交。$k$ 越大，市场对价格偏离越“斤斤计较”（流动性好、竞争激烈的品种）；$k$ 越小，说明报价偏离参考价不少也照样有人成交（流动性差、少有人盯盘的品种）。</p>
+<aside>
+💡
+<p><strong>经验规律 vs. 严格推导</strong></p>
+<p>式 (13) 这一函数形式并非从数学第一性原理推导而来，而是一条经验规律：观察真实市场的成交数据后发现该形式拟合效果良好，因而被直接采用，这与保留价格部分从效用最大化严格推导出的结果性质不同——$\lambda(\delta)$ 更像是对市场行为的一个“描述”，而不是从理性人假设“推出”的必然结果。</p>
+</aside>
+
+
+<h3 class="relative group">3.2 单期利润率与一阶条件 
+    <div id="32-%E5%8D%95%E6%9C%9F%E5%88%A9%E6%B6%A6%E7%8E%87%E4%B8%8E%E4%B8%80%E9%98%B6%E6%9D%A1%E4%BB%B6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#32-%E5%8D%95%E6%9C%9F%E5%88%A9%E6%B6%A6%E7%8E%87%E4%B8%8E%E4%B8%80%E9%98%B6%E6%9D%A1%E4%BB%B6" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>先做一个简化：暂不考虑库存风险，只单独研究一侧报价（例如卖价）应留多宽的 $\delta$。利润率定义为“每次成交赚多少”乘以“多久成交一次”：</p>
+$$
+\Pi(\delta) = \delta \cdot \lambda(\delta) = A\delta e^{-k\delta}\tag{14}
+$$<p>其中 $\Pi(\delta)$ 为利润率，$\delta,\lambda(\delta),A,k$ 含义同式 (13)。当 $\delta \to 0$ 时，虽然成交很快，但每次几乎不赚钱，故 $\Pi \to 0$；当 $\delta \to \infty$ 时，虽然每次赚很多，但 $e^{-k\delta} \to 0$ 的速度比 $\delta$ 增长得快，故 $\Pi \to 0$。两端都趋于 $0$，中间必然存在使 $\Pi(\delta)$ 最大的 $\delta$。</p>
+<p>用一阶条件求这一最大值：对式 (14) 关于 $\delta$ 求导，令 $f(\delta)=\delta$、$g(\delta)=e^{-k\delta}$，由<strong>乘积法则</strong> $\frac{d}{d\delta}[fg]=f'g+fg'$，其中 $f'(\delta)=1$、$g'(\delta)=-ke^{-k\delta}$（<strong>链式法则</strong>：外层 $e^x$ 求导仍为 $e^x$，内层 $-k\delta$ 求导为 $-k$），得到</p>
+$$
+\frac{d\Pi}{d\delta} = A\big[e^{-k\delta}+\delta\cdot(-k)e^{-k\delta}\big] = Ae^{-k\delta}(1-k\delta)\tag{15}
+$$<p>其中各符号含义同式 (14)。令式 (15) 等于 $0$：由于 $A>0$ 且 $e^{-k\delta}$ 恒大于 $0$，方程成立只能是 $1-k\delta=0$，解得</p>
+$$
+\delta^* = \frac{1}{k}\tag{16}
+$$<p>其中 $\delta^*$ 为单期最优半价差（myopic half-spread），$k$ 含义同式 (13)。之所以称为“短视”，是因为这一推导只考虑了“这一次报价”该如何定价最划算，完全没有考虑成交后库存会变化、库存变化又会带来新的风险、新的风险又将反过来影响下一次报价——它只顾眼前一步的利润最大化，未考虑连锁反应。</p>
+
+
+<h3 class="relative group">3.3 加入库存风险：动态最优价差 
+    <div id="33-%E5%8A%A0%E5%85%A5%E5%BA%93%E5%AD%98%E9%A3%8E%E9%99%A9%E5%8A%A8%E6%80%81%E6%9C%80%E4%BC%98%E4%BB%B7%E5%B7%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#33-%E5%8A%A0%E5%85%A5%E5%BA%93%E5%AD%98%E9%A3%8E%E9%99%A9%E5%8A%A8%E6%80%81%E6%9C%80%E4%BC%98%E4%BB%B7%E5%B7%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>式 (16) 有一个明显的缺陷：它假装每一笔交易都是孤立的，卖完这一单就没事了。但真实做市商是连续经营的——这一单成交后，库存变了，风险跟着变，下一单该怎么报价也会跟着变。这是一个环环相扣的动态问题，不能再用“只看这一步”的简单方法求解。</p>
+<p>严格求解需要用到 Hamilton–Jacobi–Bellman（HJB）方程。这里先说清楚它到底在做什么，再直接给出结论，跳过的是中间那一大段偏微分方程的推导过程，而不是跳过“它是怎么想的”这件事。</p>
+<p>HJB 方程解决的是什么问题？做市商在每一时刻都要做一个决策（这一刻的 $\delta$ 该设多少），而这个决策会改变库存，库存又会改变下一刻的处境，下一刻的处境又反过来决定下一刻该怎么决策——一路连锁到收盘。HJB 方程的作用，是把“现在这一步该怎么选，才能让从现在到收盘这整段时间的总期望效用最大化”这个问题，转化成一个可以求解的方程：它在每一个时间点、每一个库存水平 $q$ 上，把“现在赚一点小利”和“现在的选择会如何影响未来处境”这两件事放在一起权衡，而不是像式 (16) 那样只看眼前这一步。这也是“动态”和“短视”的根本区别：短视解只优化这一次报价，HJB 解优化的是整条从现在到收盘的决策路径。</p>
+<p>我们跳过的是什么？具体来说，HJB 方法会先写出一个价值函数 $V(t,x,q,s)$——表示“在 $t$ 时刻、现金为 $x$、库存为 $q$、价格为 $s$ 的条件下，如果从现在开始一直最优地做市直到收盘，能获得的最大期望效用”。然后用一个偏微分方程刻画这个价值函数必须满足的条件（本质上是“现在最优的选择 = 现在的即时收益 + 未来最优价值”的数学表达），再对这个偏微分方程求解。这一整套推导过程相当长，本文略去，只直接给出解出来的最优价差：</p>
+$$
+\delta_a+\delta_b \approx \gamma\sigma^2(T-t) + \frac{2}{\gamma}\ln\!\left(1+\frac{\gamma}{k}\right)\tag{17}
+$$<p>其中 $\delta_a$ 为卖价偏离保留价格的距离，$\delta_b$ 为买价偏离保留价格的距离，二者之和为总价差宽度；$\gamma$ 为风险厌恶系数，$\sigma$ 为波动率，$T-t$ 为距收盘的剩余时间，$k$ 含义同式 (13)。</p>
+<p>这个公式可以拆成两块分别理解：</p>
+<ul>
+<li>
+<p><strong>第一块 $\gamma\sigma^2(T-t)$：为风险留出的安全垫。</strong> 这和式 (11) 里那个方差惩罚项，是同一套“风险厌恶 $\times$ 波动率”的逻辑：市场越不稳定（$\sigma$ 越大）、做市商越怕风险（$\gamma$ 越大）、离收盘越远（$T-t$ 越大），就应该把两边报价都拉得更开，不管现在手上有没有库存——因为哪怕现在是空仓，下一秒一旦成交就有了库存，就得承担风险，提前把这份风险的价格加进去。</p>
+</li>
+<li>
+<p><strong>第二块 $\frac{2}{\gamma}\ln(1+\gamma/k)$：升级版的“短视价差”。</strong> 式 (16) 里那个 $1/k$ 完全没考虑风险厌恶，这一项则是把 $\gamma$ 也一起算了进去，是同一个问题（该留多宽才能兼顾成交量和单次利润）更完整的答案。</p>
+</li>
+</ul>
+<p>一句话总结：<strong>总价差 = 为风险留的安全垫 + 兼顾成交量与利润的基础价差。</strong></p>
+
+
+<h3 class="relative group">3.4 直觉检验：胆子够大时，公式该退回原样 
+    <div id="34-%E7%9B%B4%E8%A7%89%E6%A3%80%E9%AA%8C%E8%83%86%E5%AD%90%E5%A4%9F%E5%A4%A7%E6%97%B6%E5%85%AC%E5%BC%8F%E8%AF%A5%E9%80%80%E5%9B%9E%E5%8E%9F%E6%A0%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#34-%E7%9B%B4%E8%A7%89%E6%A3%80%E9%AA%8C%E8%83%86%E5%AD%90%E5%A4%9F%E5%A4%A7%E6%97%B6%E5%85%AC%E5%BC%8F%E8%AF%A5%E9%80%80%E5%9B%9E%E5%8E%9F%E6%A0%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>判断一个复杂公式是否合理，一个简单的办法是：把它推到某个极端情况，看结果是否和常识吻合。这里取 $\gamma \to 0$，也就是做市商完全不怕风险的极端情形。</p>
+<p>直觉上，一个完全不怕风险的人是不会为了“防风险”而特意拉宽价差的——风险厌恶为零，安全垫这一项自然应该消失，价差应该退回到式 (16) 那个完全不考虑风险的最简单结果 $\delta^*=1/k$。</p>
+<p>代入式 (17) 验证：第一项 $\gamma\sigma^2(T-t)$ 里含有 $\gamma$，$\gamma \to 0$ 时这一项自然趋于 $0$，符合预期。第二项 $\frac{2}{\gamma}\ln(1+\gamma/k)$ 表面上看是 $0$ 分之 $0$，需要借助一个常用近似（$x$ 很小时 $\ln(1+x) \approx x$）才能算出来，结果趋于 $2/k$——这里不展开这一步的具体运算，只需知道结果是 $2/k$。</p>
+<p>两项相加，$\gamma \to 0$ 时总价差趋于 $0+\frac{2}{k}=\frac{2}{k}$，恰好等于式 (16) 中单期最优价差两边相加的结果（$2 \times \frac{1}{k}$）。也就是说：“不怕风险”这个极端情况下，考虑库存风险的完整公式，精确退回到了最开始那个不考虑风险的简单公式——说明复杂模型和简单模型逻辑自洽，复杂模型只是在简单模型基础上，多加了一层因为“怕风险”而产生的额外加宽。</p>
+
+
+<h2 class="relative group">4. 结果应用：估计参数与诊断调整 
+    <div id="4-%E7%BB%93%E6%9E%9C%E5%BA%94%E7%94%A8%E4%BC%B0%E8%AE%A1%E5%8F%82%E6%95%B0%E4%B8%8E%E8%AF%8A%E6%96%AD%E8%B0%83%E6%95%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-%E7%BB%93%E6%9E%9C%E5%BA%94%E7%94%A8%E4%BC%B0%E8%AE%A1%E5%8F%82%E6%95%B0%E4%B8%8E%E8%AF%8A%E6%96%AD%E8%B0%83%E6%95%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>式 (17) 在实操中主要有两方面用途：估计模型的自由参数 $k$，以及诊断市场变化时该调整哪一部分。</p>
+<p>第一，<strong>估计 $k$</strong>：通过自身历史成交数据，观察报价离市场价越远、成交率下降得有多快，拟合出这一“下降速度”，即为自身的 $k$ 值——它并非理论推导得出，而是从真实数据中估计出来的。</p>
+<p>第二，<strong>诊断市场变化时该调整哪一部分</strong>。式 (17) 天然把调整原因拆成两块，分别对应两种不同的市场状况，如表 1 所示。</p>
+<p><em>表 1：价差公式的两项分别对应的诊断与调整方向</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>市场变化</strong></th>
+          <th style="text-align: left"><strong>该调哪一项</strong></th>
+          <th style="text-align: left"><strong>逻辑</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">波动率上升（$\sigma$ 变大）</td>
+          <td style="text-align: left">第一项 $\gamma\sigma^2(T-t)$</td>
+          <td style="text-align: left">风险变大，需要更宽的价差保护自己，不论成交量如何</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">成交变稀少（$k$ 变大或 $A$ 变小）</td>
+          <td style="text-align: left">第二项 $\frac{2}{\gamma}\ln(1+\gamma/k)$</td>
+          <td style="text-align: left">市场对价格更敏感，需要重新评估多宽的价差才能保证合理成交量</td>
+      </tr>
+  </tbody>
+</table>
+<p>这种“分开诊断、分开调整”的能力，正是该公式相比单纯经验式调整（“感觉价差应该拉宽一点”）更有效的地方——它指明了风险的来源，以及应当调整哪一个具体的量、往哪个方向调整。</p>
+
+
+<h2 class="relative group">5. 完整双边报价系统 
+    <div id="5-%E5%AE%8C%E6%95%B4%E5%8F%8C%E8%BE%B9%E6%8A%A5%E4%BB%B7%E7%B3%BB%E7%BB%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5-%E5%AE%8C%E6%95%B4%E5%8F%8C%E8%BE%B9%E6%8A%A5%E4%BB%B7%E7%B3%BB%E7%BB%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>将保留价格与最优价差拼接，即可得到完整的双边报价系统：</p>
+$$
+r(s,q,t) = s - \tfrac{1}{2}\gamma q\sigma^2(T-t)\tag{18}
+$$$$
+\delta_a+\delta_b \approx \gamma\sigma^2(T-t) + \frac{2}{\gamma}\ln\!\left(1+\frac{\gamma}{k}\right)\tag{19}
+$$$$
+\text{bid} = r - \frac{\delta_a+\delta_b}{2}, \quad \text{ask} = r+\frac{\delta_a+\delta_b}{2}\tag{20}
+$$<p>其中式 (18) 即保留价格公式（同式 (11)），式 (19) 为最优总价差（同式 (17)），式 (20) 中 bid、ask 为最终买卖报价，其余符号含义同上。保留价格决定报价往哪偏（由库存驱动），最优价差决定报价留多宽（由波动率与成交概率驱动）——两者合起来，就是 Avellaneda–Stoikov 模型给出的完整双边报价答案。</p>
+
+
+<h2 class="relative group">6. 结果验证：蒙特卡洛回测 
+    <div id="6-%E7%BB%93%E6%9E%9C%E9%AA%8C%E8%AF%81%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E5%9B%9E%E6%B5%8B" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6-%E7%BB%93%E6%9E%9C%E9%AA%8C%E8%AF%81%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E5%9B%9E%E6%B5%8B" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>理论公式给出了两个可检验的定性预测：(1) 让报价中枢跟随库存偏移（式 (18)），应当比不做偏移的对称报价<strong>降低库存与 PnL 的波动</strong>；(2) 这种风险控制是以牺牲一部分期望收益为代价的，而不是“既多赚又少担风险”的免费午餐。下面用一份基于同一模型的蒙特卡洛模拟报告，检验这两个预测在数值上是否成立。</p>
+
+
+<h3 class="relative group">6.1 对照设置 
+    <div id="61-%E5%AF%B9%E7%85%A7%E8%AE%BE%E7%BD%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#61-%E5%AF%B9%E7%85%A7%E8%AE%BE%E7%BD%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>对照组做法（原论文 Sec. 4）：把保留价格式 (18) 中的库存项 $q$ 去掉，其余（价差公式、成交模型）完全一致，这样能干净地隔离出“库存偏斜”这一项到底带来了什么。参数取原论文算例：$s_0=100$，$T=1$，$\sigma=2$，$\gamma=0.1$，$k=1.5$，$A=140$，$dt=0.005$（200 步/条路径），5000 条独立路径。</p>
+<p><em>表 2：5000 条蒙特卡洛路径的终局统计：AS 策略 vs. 对称报价</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>策略</strong></th>
+          <th style="text-align: center"><strong>PnL 均值</strong></th>
+          <th style="text-align: center"><strong>PnL 标准差</strong></th>
+          <th style="text-align: center"><strong>库存标准差</strong></th>
+          <th style="text-align: center"><strong>平均最大</strong> $\vert q\vert$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">对称报价（不偏移）</td>
+          <td style="text-align: center">61.05</td>
+          <td style="text-align: center">8.15</td>
+          <td style="text-align: center">8.12</td>
+          <td style="text-align: center">9.64</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">AS 策略（库存偏移）</td>
+          <td style="text-align: center">57.29</td>
+          <td style="text-align: center">5.74</td>
+          <td style="text-align: center">3.00</td>
+          <td style="text-align: center">4.09</td>
+      </tr>
+  </tbody>
+</table>
+<aside>
+💡
+<p><strong>数值结果印证理论预测</strong></p>
+<p>表 2 正对应上文的两条定性预测：AS 策略的库存标准差只有对称策略的约三分之一，PnL 标准差降低约 30%，但代价是均值 PnL 减少约 6%（$57.29$ vs. $61.05$）。这与式 (18) 的机制完全吻合——库存偏移项主动牺牲了一部分“顺库存漂移赚取的额外收益”，换来的是终局财富分布更集中、尾部风险更薄，而不是单纯地“赚得更多”。</p>
+</aside>
+
+
+<h3 class="relative group">6.2 已知局限 
+    <div id="62-%E5%B7%B2%E7%9F%A5%E5%B1%80%E9%99%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#62-%E5%B7%B2%E7%9F%A5%E5%B1%80%E9%99%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>以下几点是该模型（以及本文所用回测）本身的简化，如实说明：</p>
+<ul>
+<li>
+<p>中间价过程没有 regime 结构——没有真实市场的波动率聚集、成交量相关的跳跃、动量；严格按式 (2) 的假设走纯 $\sigma$ 恒定的算术布朗运动。</p>
+</li>
+<li>
+<p>成交是单位大小、逐边独立的 Poisson 事件（式 (13)）——没有队列位置、没有部分成交、没有深度，这是模型自身的简化。</p>
+</li>
+<li>
+<p>式 (13) 假设订单流是无信息的：现实中若存在“知情交易”专挑做市商即将被打穿的一侧下单（adverse selection），需要在成交强度之外额外建模，本文的闭式解不包含这一层。</p>
+</li>
+</ul>
+<hr>
+<p>参考文献：Avellaneda, M. &amp; Stoikov, S. (2008). High-frequency trading in a limit order book. <em>Quantitative Finance</em>, 8(3), 217–224. DOI: 10.1080/14697680701381228</p>
+
+    </div>
+    <nav class="pn"><a href="/docs/articles/as2.optimal-spread/"><span>← Previous</span><b>A-S 2. 最优价差 δ*：从零开始完整推导</b></a><a class="nx" href="/docs/articles/black-scholes/"><span>Next →</span><b>Black-Scholes：一份“权利”该值多少钱</b></a>
+    </nav>
+  </article>
+
+  <aside class="rail">
+    <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#1-%e9%97%ae%e9%a2%98%e8%ae%be%e5%ae%9a" class="l1">1. 问题设定</a>
+        <a href="#2-%e7%ac%ac%e4%b8%80%e6%ad%a5%e4%bf%9d%e7%95%99%e4%bb%b7%e6%a0%bc--%e6%8a%a5%e4%bb%b7%e4%b8%ad%e6%9e%a2%e8%af%a5%e5%ae%9a%e5%9c%a8%e5%93%aa" class="l1">2. 第一步：保留价格 —— 报价中枢该定在哪</a>
+        <a href="#21-%e8%b4%a2%e5%af%8c%e7%9a%84%e5%ae%9a%e4%b9%89%e4%b8%8e%e9%9a%8f%e6%9c%ba%e6%80%a7%e6%9d%a5%e6%ba%90" class="l2">2.1 财富的定义与随机性来源</a>
+        <a href="#22-%e8%b4%a2%e5%af%8c%e7%9a%84%e5%88%86%e5%b8%83q2-%e6%98%af%e9%a3%8e%e9%99%a9%e7%9a%84%e6%a0%b9%e6%ba%90" class="l2">2.2 财富的分布： 是风险的根源</a>
+        <a href="#23-cara-%e6%95%88%e7%94%a8%e4%b8%8b%e7%9a%84%e6%9c%9f%e6%9c%9b%e6%95%88%e7%94%a8%e4%b8%8e%e7%a1%ae%e5%ae%9a%e6%80%a7%e7%ad%89%e4%bb%b7%e8%b4%a2%e5%af%8c" class="l2">2.3 CARA 效用下的期望效用与确定性等价财富</a>
+        <a href="#24-%e4%bf%9d%e7%95%99%e4%bb%b7%e6%a0%bc%e7%9a%84%e6%8e%a8%e5%af%bc" class="l2">2.4 保留价格的推导</a>
+        <a href="#3-%e7%ac%ac%e4%ba%8c%e6%ad%a5%e6%9c%80%e4%bc%98%e4%bb%b7%e5%b7%ae--%e4%b8%ad%e6%9e%a2%e4%b8%a4%e8%be%b9%e8%af%a5%e7%95%99%e5%a4%9a%e5%ae%bd" class="l1">3. 第二步：最优价差 —— 中枢两边该留多宽</a>
+        <a href="#31-%e6%88%90%e4%ba%a4%e5%bc%ba%e5%ba%a6delta-%e8%b6%8a%e8%bf%9c%e6%88%90%e4%ba%a4%e8%b6%8a%e9%9a%be" class="l2">3.1 成交强度： 越远，成交越难</a>
+        <a href="#32-%e5%8d%95%e6%9c%9f%e5%88%a9%e6%b6%a6%e7%8e%87%e4%b8%8e%e4%b8%80%e9%98%b6%e6%9d%a1%e4%bb%b6" class="l2">3.2 单期利润率与一阶条件</a>
+        <a href="#33-%e5%8a%a0%e5%85%a5%e5%ba%93%e5%ad%98%e9%a3%8e%e9%99%a9%e5%8a%a8%e6%80%81%e6%9c%80%e4%bc%98%e4%bb%b7%e5%b7%ae" class="l2">3.3 加入库存风险：动态最优价差</a>
+        <a href="#34-%e7%9b%b4%e8%a7%89%e6%a3%80%e9%aa%8c%e8%83%86%e5%ad%90%e5%a4%9f%e5%a4%a7%e6%97%b6%e5%85%ac%e5%bc%8f%e8%af%a5%e9%80%80%e5%9b%9e%e5%8e%9f%e6%a0%b7" class="l2">3.4 直觉检验：胆子够大时，公式该退回原样</a>
+        <a href="#4-%e7%bb%93%e6%9e%9c%e5%ba%94%e7%94%a8%e4%bc%b0%e8%ae%a1%e5%8f%82%e6%95%b0%e4%b8%8e%e8%af%8a%e6%96%ad%e8%b0%83%e6%95%b4" class="l1">4. 结果应用：估计参数与诊断调整</a>
+        <a href="#5-%e5%ae%8c%e6%95%b4%e5%8f%8c%e8%be%b9%e6%8a%a5%e4%bb%b7%e7%b3%bb%e7%bb%9f" class="l1">5. 完整双边报价系统</a>
+        <a href="#6-%e7%bb%93%e6%9e%9c%e9%aa%8c%e8%af%81%e8%92%99%e7%89%b9%e5%8d%a1%e6%b4%9b%e5%9b%9e%e6%b5%8b" class="l1">6. 结果验证：蒙特卡洛回测</a>
+        <a href="#61-%e5%af%b9%e7%85%a7%e8%ae%be%e7%bd%ae" class="l2">6.1 对照设置</a>
+        <a href="#62-%e5%b7%b2%e7%9f%a5%e5%b1%80%e9%99%90" class="l2">6.2 已知局限</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>Last updated <time id="updated" datetime="2026-11-26T20:08:54Z">Nov 26, 2026, 3:08 PM ET</time> · buezw.github.io</span>
+</footer>
+<script>
+(function(){
+  var el=document.getElementById('updated'); if(!el||!window.Intl) return;
+  try{
+    var d=new Date(el.getAttribute('datetime'));
+    var s=new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(d);
+    el.textContent=s;
+  }catch(e){}
+})();
+</script>
+
+<script>
+
+
+(function(){
+  var root=document.querySelector('.prose'); if(!root) return;
+  var re=/\*\*((?:(?!\*\*)[\s\S]){1,400}?)\*\*/g;
+  root.querySelectorAll('p,li,td,th,h1,h2,h3,h4,h5,blockquote').forEach(function(el){
+    if(el.closest('pre,code')) return;
+    if(el.querySelector('p,li,ul,ol,table')) return;
+    if(el.innerHTML.indexOf('**')<0) return;
+    var parts=el.innerHTML.split(/(<code[\s\S]*?<\/code>)/);
+    for(var i=0;i<parts.length;i+=2){ parts[i]=parts[i].replace(/\*{4}/g,'').replace(re,'<strong>$1</strong>').replace(/\*\*/g,''); }
+    el.innerHTML=parts.join('');
+  });
+})();
+</script>
+<script>
+ 
+(function(){
+  var h=document.getElementById('atitle'); if(!h) return;
+  function fit(){
+    h.classList.remove('wrap'); h.style.fontSize='';
+    if(window.innerWidth<=760) return;
+    var band=h.closest('.banner'), right=band.getBoundingClientRect().right-parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+    var size=parseFloat(getComputedStyle(h).fontSize), min=parseFloat(getComputedStyle(document.documentElement).fontSize)*1.5;
+    while(h.getBoundingClientRect().right>right && size>min){ size-=1; h.style.fontSize=size+'px'; }
+    if(h.getBoundingClientRect().right>right) h.classList.add('wrap');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+ 
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a')); if(!links.length) return;
+  var heads=links.map(function(a){var e=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));return e&&(e.closest('h1,h2,h3,h4,h5,h6')||e);});
+  function on(){
+    var y=window.scrollY+80, k=0;
+    heads.forEach(function(h,i){ if(h && h.getBoundingClientRect().top+window.scrollY<=y) k=i; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) k=heads.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});
+  }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+</script>
+</body>
+</html>

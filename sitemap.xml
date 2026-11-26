@@ -21,6 +21,24 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://buezw.github.io/docs/articles/as-full-derivation/</loc>
+    <lastmod>2026-09-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/articles/black-scholes/</loc>
+    <lastmod>2026-09-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/articles/market-making-loop/</loc>
+    <lastmod>2026-09-16T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://buezw.github.io/docs/articles/as-simulation-report/</loc>
     <lastmod>2026-09-15T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>

@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>期权做市商的核心业务闭环：从定价曲面到 PnL 归因的五层标准流程 · Jingnan Huang</title>
+<meta name="description" content="定价 → 报价 → 成交 → 对冲 → PnL 归因：期权做市台通用的五层闭环与异常诊断表。">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f3f0ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
+
+ 
+.search{position:relative;flex:1;max-width:520px}
+ 
+@media (min-width:1101px){
+  .topnav{display:grid;grid-template-columns:1fr minmax(0,520px) 1fr}
+  .search{width:100%;max-width:none}
+  .topnav nav{justify-self:end}
+}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
+
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
+
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:80px 1fr;gap:16px 14px;margin:32px 0 6px;font-size:1rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
+
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
+
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
+
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
+ 
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+</style>
+
+<link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
+<link rel="stylesheet" href="/lib/katex/katex.min.css">
+<script defer src="/lib/katex/katex.min.js"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<style>
+ 
+.banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.banner>div{padding:0 clamp(24px,3.4vw,64px);max-width:calc(860px + 2*clamp(24px,3.4vw,64px));width:100%;margin:0 auto;box-sizing:border-box;min-width:0}
+.banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 12px;white-space:nowrap;width:max-content}
+.banner h1.wrap{white-space:normal;width:auto}
+.banner .meta{font-size:.86rem}
+.banner .lead{max-width:860px;margin:0 0 12px}
+.nav2{display:flex;gap:8px}
+.nav2 a{display:block;background:#fff;border:1px solid var(--paper2);padding:8px 14px;width:220px}
+.nav2 a:hover{border-color:var(--text)}
+.nav2 small{display:block;font-size:.72rem;color:var(--dim)}
+.nav2 b{display:block;font-weight:500;font-size:.86rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav2 .nx{text-align:right}
+.page{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh / var(--zoom) - 40px);overflow:auto;padding-right:4px}
+.side{padding:30px 22px 30px var(--px)}
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.grp{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;margin-top:8px;padding-bottom:12px;border-bottom:1px solid var(--paper2)}
+.grp a:hover{color:var(--c)}
+.grp small{display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:.76rem;font-weight:400;color:var(--dim);margin-top:6px;letter-spacing:0}
+.grp small i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.sib{font-size:.88rem;line-height:1.35;counter-reset:n}
+.sib a{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;align-items:baseline;padding:6px 8px 6px 0;color:#4a4741;border-radius:3px}
+.sib a em{font-style:normal;font-family:var(--serif);font-size:.95rem;color:var(--dim);text-align:right;padding-right:6px}
+.sib a span{overflow-wrap:anywhere}
+.sib a:hover{color:var(--text);background:rgba(255,255,255,.55)}
+.sib a.cur{background:#fff;color:var(--text);font-weight:500;box-shadow:inset 2px 0 0 var(--c)}
+.sib a.cur em{color:var(--c)}
+.rail{padding:30px var(--px) 30px 24px;border-left:1px solid var(--line)}
+.toc{font-size:.84rem;line-height:1.4;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 0 4px 12px;margin-left:-1px;border-left:2px solid transparent;color:#5a5650}
+.toc a.l2{padding-left:24px;font-size:.8rem;color:var(--dim)}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--c);border-left-color:var(--c)}
+.totop{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--dim)}
+.totop:hover{color:var(--text)}
+
+.art{padding:30px clamp(24px,3.4vw,64px) 50px;min-width:0}
+.art>*{margin-left:auto;margin-right:auto}
+.ahead{max-width:860px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--text)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+.ahead h1{font-size:2.6rem;line-height:1.12;margin:12px 0 0;overflow-wrap:anywhere}
+.ahead .crumb{margin-bottom:10px}
+.lead{margin:14px 0 0;font-size:1.05rem;line-height:1.65;color:#4a4741}
+
+ 
+.prose{max-width:860px;font-size:1.02rem;line-height:1.8;color:#232220;overflow-wrap:break-word}
+.prose h1,.prose h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-size:1.65rem;line-height:1.25;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:1.8em 0 .5em;scroll-margin-top:20px}
+.prose h4{font-size:1.05rem;font-weight:600;margin:1.6em 0 .4em;scroll-margin-top:20px}
+.prose>*:first-child{margin-top:0}
+.prose h1>span,.prose h2>span,.prose h3>span,.prose h4>span{display:none}
+.prose .anchor{scroll-margin-top:20px}
+.prose p{margin:0 0 1em}
+.prose a{color:var(--c);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.prose strong{font-weight:600;color:var(--text)}
+.prose ul,.prose ol{padding-left:1.4em;margin:0 0 1em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.2em 0}
+.prose blockquote{margin:1.2em 0;padding:.6em 1.1em;border-left:3px solid var(--c);background:#faf9f6;color:#4a4741}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose img,.prose video{display:block;max-width:100%;height:auto;margin:1.2em auto;border:1px solid var(--line)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;margin:1.2em 0;font-size:.92rem}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top}
+.prose th{background:#f6f4ef;font-weight:600}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:#f3f0ea;padding:.1em .35em;border-radius:3px}
+.prose pre{background:#faf9f6;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;font-size:.86rem;line-height:1.6;margin:1.2em 0}
+.prose pre code{background:none;padding:0;font-size:inherit}
+.prose .highlight{margin:1.2em 0}
+.prose .highlight pre{margin:0}
+.prose .katex-display{overflow-x:auto;overflow-y:hidden;padding:.2em 0}
+.prose .katex{font-size:1.06em}
+
+.pn{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:18px;border-top:1px solid var(--text)}
+.pn a{display:block;padding:12px 14px;border:1px solid var(--line)}
+.pn a:hover{border-color:var(--text)}
+.pn span{display:block;font-size:.78rem;color:var(--dim)}
+.pn b{font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
+.pn .nx{text-align:right;grid-column:2}
+
+@media (max-width:1000px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .banner{display:block;padding:22px 0 18px}
+  .banner h1{font-size:1.8rem!important;white-space:normal;width:auto}
+  .nav2{display:none}
+  .prose{font-size:.98rem}
+  .pn{grid-template-columns:1fr}
+  .pn .nx{grid-column:1}
+}
+</style>
+</head>
+<body style="--c:var(--blue)">
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 126 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
+  </div>
+  <nav>
+    <a href="/docs/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+<script>
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
+</script>
+
+
+<section class="banner">
+  <div>
+    <div class="crumb"><a href="/docs/">Notebook</a><i>/</i><a href="/docs/">Articles</a></div>
+    <h1 class="serif" id="atitle">期权做市商的核心业务闭环：从定价曲面到 Pn L 归因的五层标准流程</h1><p class="lead">定价 → 报价 → 成交 → 对冲 → PnL 归因：期权做市台通用的五层闭环与异常诊断表。</p>
+    <div class="meta">
+      <span>Sep 16, 2026</span><span>Edited 11/26/26</span>
+      <i class="lang">CN</i>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <article class="art">
+
+    <div class="prose">
+      
+<p><em>定价 $\to$ 报价 $\to$ 成交 $\to$ 对冲 $\to$ PnL 归因：做市商每分钟都在跑的行业标准闭环</em></p>
+<aside>
+💡
+<p><strong>一句话定义：</strong> 期权做市商每天、每分钟实际在运行的，是一个由<strong>五个环节串成的闭环</strong>——先用波动率曲面把期权<strong>定价</strong>，再把公允价转成双边<strong>报价</strong>挂出去，被动<strong>成交</strong>后更新仓位，仓位敞口触发<strong>对冲</strong>规则，最后用泰勒展开做<strong>PnL 归因</strong>检验整套流程有没有漏洞。这五层不是某个人自己发明的，而是全行业期权做市台通用的标准操作范式（industry-standard market making loop）。</p>
+</aside>
+<p>本文延续“54%”系列此前对 Avellaneda–Stoikov 库存风险模型的推导，把视角从“某一次报价该怎么定”拉高到“做市商的完整业务系统长什么样”：五个环节里，第二层（波动率维度报价）和第四层（对冲带宽规则）与此前文章讨论的框架直接相关。</p>
+
+
+<h2 class="relative group">1. 问题设定 
+    <div id="1-%E9%97%AE%E9%A2%98%E8%AE%BE%E5%AE%9A" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-%E9%97%AE%E9%A2%98%E8%AE%BE%E5%AE%9A" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>上一篇文章推导了单次报价该如何在保留价格附近留出最优价差，但真实做市台面对的不是“报一次价”这么简单的问题，而是一个不断循环、环环相扣的系统：</p>
+<ul>
+<li>
+<p>报价前要先有<strong>公允价</strong>——期权和股票不同，没有唯一的“市场共识价”，需要一个定价模型把市场给出的少量信息（通常是几个行权价上的成交波动率）插值成任意行权价、任意到期日都能报价的完整曲面；</p>
+</li>
+<li>
+<p>报价挂出去之后，<strong>什么时候成交、成交多少</strong>是被动的、不受控制的——做市商只能决定报价本身，无法决定对手方什么时候来打；</p>
+</li>
+<li>
+<p>一旦成交，<strong>仓位敞口</strong>就产生了，而敞口本身带来方向性风险（delta 风险）和波动率风险（vega 风险），必须被对冲，但对冲本身有成本，不能每一笔成交都立刻对冲；</p>
+</li>
+<li>
+<p>一天结束后，<strong>实际赚了多少、亏在哪一项上</strong>，需要被拆解验证，否则定价模型和对冲规则出了系统性偏差也发现不了。</p>
+</li>
+</ul>
+<p>这四个问题按时间顺序串起来，就是“定价 $\to$ 报价 $\to$ 成交 $\to$ 对冲”这条主线，而“PnL 归因”是这条主线跑完一个周期后的自检环节，检验结果又会反过来修正定价模型的参数——所以整体是一个<strong>闭环</strong>，不是一条直线流程。</p>
+
+
+<h2 class="relative group">2. 机制拆解 
+    <div id="2-%E6%9C%BA%E5%88%B6%E6%8B%86%E8%A7%A3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-%E6%9C%BA%E5%88%B6%E6%8B%86%E8%A7%A3" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">2.1 定价层：波动率曲面 $\to$ 公允价与希腊字母 
+    <div id="21-%E5%AE%9A%E4%BB%B7%E5%B1%82%E6%B3%A2%E5%8A%A8%E7%8E%87%E6%9B%B2%E9%9D%A2-to-%E5%85%AC%E5%85%81%E4%BB%B7%E4%B8%8E%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#21-%E5%AE%9A%E4%BB%B7%E5%B1%82%E6%B3%A2%E5%8A%A8%E7%8E%87%E6%9B%B2%E9%9D%A2-to-%E5%85%AC%E5%85%81%E4%BB%B7%E4%B8%8E%E5%B8%8C%E8%85%8A%E5%AD%97%E6%AF%8D" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>期权定价面临的具体问题是：市场上直接报价成交的行权价、到期日组合是有限的（比如某只股票只有月度到期、几个整数行权价有成交量），但做市商需要能对<strong>任意</strong>行权价、任意到期日随时报价。直接的解决办法是先把已观察到的隐含波动率点拟合成一个连续的<strong>波动率曲面</strong> $\sigma(K,\tau)$（行权价 $K$、剩余期限 $\tau$ 为自变量），再用这个曲面上插值出的波动率去算任意合约的价格。</p>
+$$
+\sigma(K,\tau) = f_\theta(K,\tau)\tag{1}
+$$<p>其中 $\sigma(K,\tau)$ 为行权价 $K$、剩余期限 $\tau$ 对应的隐含波动率，$f_\theta$ 为曲面拟合函数，$\theta$ 为该函数的参数向量（例如 SVI 参数化下 $\theta=(a,b,\rho,m,\sigma_0)$，或 SABR 参数化下的另一组参数）。曲面本身有多种参数化方式，SVI（stochastic volatility inspired）和 SABR 是行业里最常见的两种，本文不展开二者的具体形式，只需知道它们的作用都是“用少量参数把稀疏的市场报价插值成连续曲面”。</p>
+<p>拿到某一合约在 $(K,\tau)$ 处的插值波动率后，代入定价公式即可得到公允价：</p>
+$$
+V = \mathrm{BS}(S,K,\tau,r,\sigma(K,\tau))\tag{2}
+$$<p>其中 $V$ 为期权公允价，$\mathrm{BS}(\cdot)$ 为 Black–Scholes（或期货期权用 Black-76）定价函数，$S$ 为标的现价，$K,\tau$ 含义同式 (1)，$r$ 为无风险利率，$\sigma(K,\tau)$ 为式 (1) 插值得到的波动率。举例来说，若某合约 $\tau=0.25$（三个月）、曲面插值给出 $\sigma=22\%$，其余参数已知，代入 $\mathrm{BS}(\cdot)$ 就能算出一个具体的美元公允价，而不需要这个合约本身有过成交记录。</p>
+<p>公允价之外，同一套定价公式对标的价 $S$、波动率 $\sigma$、时间 $\tau$ 求偏导，就得到希腊字母：</p>
+$$
+\Delta=\frac{\partial V}{\partial S},\quad \Gamma=\frac{\partial^2 V}{\partial S^2},\quad \mathrm{Vega}=\frac{\partial V}{\partial \sigma},\quad \Theta=\frac{\partial V}{\partial \tau}\tag{3}
+$$<p>其中 $\Delta$ 为价格对标的价的一阶敏感度，$\Gamma$ 为价格对标的价的二阶敏感度（$\Delta$ 本身的变化率），$\mathrm{Vega}$ 为价格对波动率的敏感度，$\Theta$ 为价格对时间流逝的敏感度，$V,S,\sigma,\tau$ 含义同式 (2)。这一步全行业通用，没有例外：不管用 SVI 还是 SABR 拟合曲面，最终都要落到“曲面 $\to$ Black-Scholes/Black-76 $\to$ 公允价 &amp; 希腊字母”这条固定链路上。</p>
+
+
+<h3 class="relative group">2.2 报价层：公允价 $\to$ 波动率维度的双边报价 
+    <div id="22-%E6%8A%A5%E4%BB%B7%E5%B1%82%E5%85%AC%E5%85%81%E4%BB%B7-to-%E6%B3%A2%E5%8A%A8%E7%8E%87%E7%BB%B4%E5%BA%A6%E7%9A%84%E5%8F%8C%E8%BE%B9%E6%8A%A5%E4%BB%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#22-%E6%8A%A5%E4%BB%B7%E5%B1%82%E5%85%AC%E5%85%81%E4%BB%B7-to-%E6%B3%A2%E5%8A%A8%E7%8E%87%E7%BB%B4%E5%BA%A6%E7%9A%84%E5%8F%8C%E8%BE%B9%E6%8A%A5%E4%BB%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>有了公允价，接下来的问题是：报价的买卖价差该加在<strong>美元价格</strong>上，还是加在<strong>波动率</strong>上？做市商的标准做法是后者，业内称为 quoting in vol space（波动率维度报价）：</p>
+$$
+\sigma_{\text{bid}} = \sigma(K,\tau) - s, \qquad \sigma_{\text{ask}} = \sigma(K,\tau) + s\tag{4}
+$$<p>其中 $\sigma_{\text{bid}}, \sigma_{\text{ask}}$ 分别为买价、卖价对应的报价波动率，$\sigma(K,\tau)$ 为式 (1) 给出的中枢波动率，$s$ 为波动率维度的半价差（以波动率点数计，例如 $s=0.5\%$）。再把 $\sigma_{\text{bid}},\sigma_{\text{ask}}$ 分别代入式 (2) 的 $\mathrm{BS}(\cdot)$，即可换算出美元维度的买价、卖价：</p>
+$$
+\text{bid} = \mathrm{BS}(S,K,\tau,r,\sigma_{\text{bid}}), \qquad \text{ask} = \mathrm{BS}(S,K,\tau,r,\sigma_{\text{ask}})\tag{5}
+$$<p>其中 bid、ask 为最终挂出的美元买卖报价，其余符号含义同式 (4) 与式 (2)。用波动率点数报价而不是直接在美元价格上加减，原因在于不同合约的 $\mathrm{Vega}$（式 (3)）差异巨大：深度价内、临近到期的合约 $\mathrm{Vega}$ 很小，而平值、长期限合约的 $\mathrm{Vega}$ 可能大出几十倍。若统一用固定美元价差 $c$ 报价，换算成波动率维度的价差近似为 $c/\mathrm{Vega}$——$\mathrm{Vega}$ 小的合约这个隐含价差会偏大（报价太宽、没有竞争力），$\mathrm{Vega}$ 大的合约这个隐含价差会偏小（价差没能覆盖住相应的风险敞口）。而固定波动率价差 $s$ 换算回美元价差时会自动按 $\mathrm{Vega}$ 缩放（近似为 $s\times\mathrm{Vega}$），使得报价宽度天然和风险敞口成比例，这正是全行业（尤其是场内期权做市商、大宗经纪台）采用这一做法的原因。</p>
+
+
+<h3 class="relative group">2.3 成交与仓位层：被动成交 $\to$ 更新仓位与边际收益 
+    <div id="23-%E6%88%90%E4%BA%A4%E4%B8%8E%E4%BB%93%E4%BD%8D%E5%B1%82%E8%A2%AB%E5%8A%A8%E6%88%90%E4%BA%A4-to-%E6%9B%B4%E6%96%B0%E4%BB%93%E4%BD%8D%E4%B8%8E%E8%BE%B9%E9%99%85%E6%94%B6%E7%9B%8A" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#23-%E6%88%90%E4%BA%A4%E4%B8%8E%E4%BB%93%E4%BD%8D%E5%B1%82%E8%A2%AB%E5%8A%A8%E6%88%90%E4%BA%A4-to-%E6%9B%B4%E6%96%B0%E4%BB%93%E4%BD%8D%E4%B8%8E%E8%BE%B9%E9%99%85%E6%94%B6%E7%9B%8A" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>报价挂出后，做市商无法主动选择何时成交，只能被动等待对手方点击。一旦某一边被打中，两件事同时发生：仓位更新，以及这一笔成交本身贡献的边际收益（业内称为 edge）被记录下来：</p>
+$$
+q_{t+1} = q_t + n\cdot\mathbb{1}_{\text{ask 被打中}} - n\cdot\mathbb{1}_{\text{bid 被打中}}\tag{6}
+$$<p>其中 $q_t$ 为成交前的期权仓位（张数，正为多头、负为空头），$q_{t+1}$ 为成交后的仓位，$n$ 为本次成交的合约张数，$\mathbb{1}_{(\cdot)}$ 为指示函数（事件发生取 $1$，否则取 $0$）；若对手方在 ask 处买入，做市商相当于卖出、仓位减少 $n$，符号取负；若在 bid 处卖出给做市商，做市商相当于买入、仓位增加 $n$，符号取正。</p>
+$$
+\text{edge} = n\times|\text{成交价} - V|\tag{7}
+$$<p>其中 edge 为该笔成交贡献的边际收益，$n$ 含义同式 (6)，成交价为对手方实际打中的 bid 或 ask，$V$ 为式 (2) 给出的同一时刻公允价。edge 本质就是“报价价差里被对手方实际支付的那一部分”，是做市商 PnL 核算里的通用术语——若成交价恰好等于 bid 或 ask，edge 就等于半价差乘以张数；若公允价在成交与记账之间发生了变化，edge 也会相应偏离半价差的理论值。</p>
+
+
+<h3 class="relative group">2.4 对冲层：仓位敞口 $\to$ 触发对冲规则 
+    <div id="24-%E5%AF%B9%E5%86%B2%E5%B1%82%E4%BB%93%E4%BD%8D%E6%95%9E%E5%8F%A3-to-%E8%A7%A6%E5%8F%91%E5%AF%B9%E5%86%B2%E8%A7%84%E5%88%99" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#24-%E5%AF%B9%E5%86%B2%E5%B1%82%E4%BB%93%E4%BD%8D%E6%95%9E%E5%8F%A3-to-%E8%A7%A6%E5%8F%91%E5%AF%B9%E5%86%B2%E8%A7%84%E5%88%99" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>式 (6) 更新后的仓位会累积方向性风险（delta 敞口）与波动率风险（vega 敞口），必须被对冲，但每笔成交都立即对冲会产生大量交易成本（买卖价差、手续费）。行业里有三种经典对冲规则，本文采用固定带宽规则（fixed bandwidth）：</p>
+$$
+\text{触发对冲} \iff |\Delta_{\text{portfolio}}| > B\tag{8}
+$$<p>其中 $\Delta_{\text{portfolio}}$ 为当前整个期权仓位的净 delta（对仓位中每一份合约的 $\Delta$，按式 (3) 计算后乘以张数再求和），$B$ 为预先设定的带宽阈值（一个正数）。只要净 delta 的绝对值超过 $B$，就用标的股票或期货把 delta 敞口对冲回接近零；只要没超过，就允许敞口在带宽内自由波动，不产生额外的对冲交易成本。</p>
+<aside>
+💡
+<p><strong>三种经典对冲规则的取舍</strong></p>
+<p>固定带宽规则（式 (8)）之外，另外两种常见做法是：定时对冲（每隔固定时间间隔无条件对冲一次，不管敞口大小）和 Whalley–Wilmott 规则（带宽本身不是常数，而是随波动率、对冲成本动态调整的最优带宽，需要额外求解一个最优化问题才能定出 $B$）。三者都在学界与业界的公开文献中被系统比较过：定时对冲最简单但对市场波动不敏感；固定带宽规则用一个常数 $B$ 近似地权衡了“敞口风险”与“对冲成本”；Whalley–Wilmott 规则理论上最优，但需要额外估计成本参数，工程复杂度更高。本文采用固定带宽规则，是三者中最常被用作基线（baseline）实现的一种。</p>
+</aside>
+
+
+<h3 class="relative group">2.5 PnL 归因层：泰勒展开拆解每日盈亏 
+    <div id="25-pnl-%E5%BD%92%E5%9B%A0%E5%B1%82%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80%E6%8B%86%E8%A7%A3%E6%AF%8F%E6%97%A5%E7%9B%88%E4%BA%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#25-pnl-%E5%BD%92%E5%9B%A0%E5%B1%82%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80%E6%8B%86%E8%A7%A3%E6%AF%8F%E6%97%A5%E7%9B%88%E4%BA%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>一天（或一段时间）结束后，做市商需要回答一个自检问题：实际赚到的钱，究竟是从哪几个风险维度上赚到的？行业里把这一环节称为 PnL Explain（或 PnL Attribution），做法是用泰勒展开把公允价的变化拆解成希腊字母各自的贡献：</p>
+$$
+\Delta V \approx \Delta\cdot\Delta S + \tfrac{1}{2}\Gamma\cdot(\Delta S)^2 + \mathrm{Vega}\cdot\Delta\sigma + \Theta\cdot\Delta\tau + \epsilon\tag{9}
+$$<p>其中 $\Delta V$ 为公允价在一段时间内的实际变化，$\Delta,\Gamma,\mathrm{Vega},\Theta$ 为式 (3) 中定义的希腊字母（取时间段起点的值），$\Delta S,\Delta\sigma,\Delta\tau$ 分别为标的价、波动率、剩余期限在该时间段内的实际变化量，$\epsilon$ 为泰勒展开截断后剩余的残差项（业内也常称为 unexplained P&amp;L）。这是二阶泰勒展开：对 $V(S,\sigma,\tau)$ 在起点附近展开，一阶项贡献 $\Delta\cdot\Delta S$ 与 $\mathrm{Vega}\cdot\Delta\sigma$、$\Theta\cdot\Delta\tau$，标的价的二阶项额外贡献 $\tfrac{1}{2}\Gamma\cdot(\Delta S)^2$（$\Gamma$ 前的 $\tfrac{1}{2}$ 系数来自二阶泰勒展开本身的标准系数），残差 $\epsilon$ 则来自更高阶项、以及希腊字母本身在这段时间内也在变化（而式 (9) 只用了起点固定值）这两方面的误差。</p>
+<aside>
+💡
+<p><strong>为什么这一步是标配日常报表</strong></p>
+<p>若某天的 $\epsilon$ 异常偏大，说明式 (9) 拆不干净——可能是定价模型（式 (1)）本身对当天的曲面形状拟合不准，也可能是对冲频率（式 (8) 的带宽 $B$）设得太宽、希腊字母在对冲间隔内变化太大导致线性近似失效。这正是华尔街做市商、期权自营台、风控团队每天都要跑这张报表的原因：它不只是“算一下今天赚了多少”，而是把定价模型和对冲策略有没有漏洞，量化成一个可以持续监控的残差指标。</p>
+</aside>
+
+
+<h3 class="relative group">2.6 直觉检验：把带宽 $B$ 推向零，该退回连续对冲 
+    <div id="26-%E7%9B%B4%E8%A7%89%E6%A3%80%E9%AA%8C%E6%8A%8A%E5%B8%A6%E5%AE%BD-b-%E6%8E%A8%E5%90%91%E9%9B%B6%E8%AF%A5%E9%80%80%E5%9B%9E%E8%BF%9E%E7%BB%AD%E5%AF%B9%E5%86%B2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#26-%E7%9B%B4%E8%A7%89%E6%A3%80%E9%AA%8C%E6%8A%8A%E5%B8%A6%E5%AE%BD-b-%E6%8E%A8%E5%90%91%E9%9B%B6%E8%AF%A5%E9%80%80%E5%9B%9E%E8%BF%9E%E7%BB%AD%E5%AF%B9%E5%86%B2" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>判断式 (8) 是否合理，一个办法是把带宽 $B$ 推向一个极端值，看结果是否符合常识。取 $B\to 0$：带宽趋于零意味着任何微小的 delta 敞口都会立刻触发对冲，等价于“连续对冲”（continuous rehedging）——这正是 Black–Scholes 原始框架里“无摩擦、可连续调整仓位”的理想假设。</p>
+<p>代入式 (8) 验证：$B\to 0$ 时，只要 $\Delta_{\text{portfolio}}\neq 0$ 就会触发对冲条件，仓位被不断拉回零 delta，对冲频率趋于无穷；对应地，式 (9) 中 $\Delta S$ 在两次对冲之间的间隔趋于零，$\Gamma$ 项与 $\epsilon$ 项也趋于零，PnL 归因退化为教科书里“完美对冲、无残差”的理想情形。现实中 $B$ 必须取一个正数，恰恰是因为连续对冲在真实市场里会产生无穷多笔交易成本——带宽 $B$ 越大，对冲频率越低、交易成本越省，但式 (9) 里的 $\Gamma$ 项与 $\epsilon$ 项也会跟着变大，即敞口风险与归因误差同时上升。这个极端情形说明：固定带宽规则并不是凭空发明的近似，而是“连续对冲理想模型”在有交易成本约束下的一个自然妥协。</p>
+
+
+<h2 class="relative group">3. 结果应用：诊断表 
+    <div id="3-%E7%BB%93%E6%9E%9C%E5%BA%94%E7%94%A8%E8%AF%8A%E6%96%AD%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-%E7%BB%93%E6%9E%9C%E5%BA%94%E7%94%A8%E8%AF%8A%E6%96%AD%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>五层闭环里每一层都对应一类可能出问题的环节，出现异常时该往哪一层排查，如表 1 所示。</p>
+<p><em>表 1：PnL 归因发现异常后，对应回查五层闭环中的哪一环</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"><strong>观察到的异常</strong></th>
+          <th style="text-align: left"><strong>该查哪一层</strong></th>
+          <th style="text-align: left"><strong>逻辑</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">报价与市场实际成交价持续偏离</td>
+          <td style="text-align: left">定价层（式 (1)）</td>
+          <td style="text-align: left">曲面拟合参数 $\theta$ 过时或拟合形式不适配当前市场，需要重新估计</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">某些行权价成交寥寥、竞争力弱</td>
+          <td style="text-align: left">报价层（式 (4)）</td>
+          <td style="text-align: left">波动率半价差 $s$ 设置不合理，需要按 $\mathrm{Vega}$ 结构重新校准</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">库存频繁大幅波动</td>
+          <td style="text-align: left">对冲层（式 (8)）</td>
+          <td style="text-align: left">带宽 $B$ 设得过宽，敞口在触发对冲前已经累积过大</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\epsilon$ 残差异常偏大</td>
+          <td style="text-align: left">定价层或对冲层共同排查</td>
+          <td style="text-align: left">说明式 (9) 线性近似失效，需回查曲面拟合精度与对冲频率是否匹配当前波动率环境</td>
+      </tr>
+  </tbody>
+</table>
+<p>这张诊断表体现的正是“PnL 归因反过来修正上游环节”这一闭环特性：归因结果不是终点，而是指向该回头调整定价层还是对冲层的具体线索。</p>
+
+
+<h2 class="relative group">4. 完整系统 
+    <div id="4-%E5%AE%8C%E6%95%B4%E7%B3%BB%E7%BB%9F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-%E5%AE%8C%E6%95%B4%E7%B3%BB%E7%BB%9F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>把五层重新按顺序拼接，即为期权做市商每天实际运行的完整闭环：</p>
+$$
+\sigma(K,\tau)=f_\theta(K,\tau) \;\longrightarrow\; V=\mathrm{BS}(S,K,\tau,r,\sigma(K,\tau))\tag{10}
+$$$$
+\sigma_{\text{bid,ask}} = \sigma(K,\tau)\mp s \;\longrightarrow\; \text{bid,ask} = \mathrm{BS}(S,K,\tau,r,\sigma_{\text{bid,ask}})\tag{11}
+$$$$
+q_{t+1}=q_t\pm n,\qquad \text{edge}=n\times|\text{成交价}-V|\tag{12}
+$$$$
+|\Delta_{\text{portfolio}}|>B \;\Rightarrow\; \text{对冲至 delta}\approx 0\tag{13}
+$$$$
+\Delta V \approx \Delta\cdot\Delta S+\tfrac{1}{2}\Gamma(\Delta S)^2+\mathrm{Vega}\cdot\Delta\sigma+\Theta\cdot\Delta\tau+\epsilon\tag{14}
+$$<p>其中式 (10) 为定价层（同式 (1)、式 (2)），式 (11) 为报价层（同式 (4)、式 (5)），式 (12) 为成交与仓位层（同式 (6)、式 (7)），式 (13) 为对冲层（同式 (8)），式 (14) 为 PnL 归因层（同式 (9)），其余符号含义同上。这五个环节按顺序执行一轮、再回到第一步用当天的归因结果校正曲面参数 $\theta$，就构成一个完整周期——曲面给出定价的“标尺”，报价把标尺转成可成交的双边价格，成交被动地把仓位推向某个方向，对冲规则决定什么时候把方向性风险拉回零，PnL 归因则是检验整套标尺和规则有没有系统性偏差的自检环节。这五层的组合方式本身是行业标准（业内常称 market making loop 或 quoting engine pipeline），本文只是把这套标准流程套上一组具体符号和公式，做成一份可对照代码实现（定价用的 black76 或 Black-Scholes 模块、希腊字母计算模块、TradeReplayFillModel 撮合回放模块）逐层核对的教学素材。</p>
+<hr>
+<p>延伸阅读：本文第二层（波动率维度报价）与第四层（固定带宽对冲）的具体推导，参见“54%”系列此前对 Avellaneda–Stoikov 库存风险模型的完整推导一文。</p>
+
+    </div>
+    <nav class="pn"><a href="/docs/articles/black-scholes/"><span>← Previous</span><b>Black-Scholes：一份“权利”该值多少钱</b></a><a class="nx" href="/docs/articles/as-simulation-report/"><span>Next →</span><b>Avellaneda-Stoikov 做市策略：模拟报告</b></a>
+    </nav>
+  </article>
+
+  <aside class="rail">
+    <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#1-%e9%97%ae%e9%a2%98%e8%ae%be%e5%ae%9a" class="l1">1. 问题设定</a>
+        <a href="#2-%e6%9c%ba%e5%88%b6%e6%8b%86%e8%a7%a3" class="l1">2. 机制拆解</a>
+        <a href="#21-%e5%ae%9a%e4%bb%b7%e5%b1%82%e6%b3%a2%e5%8a%a8%e7%8e%87%e6%9b%b2%e9%9d%a2-to-%e5%85%ac%e5%85%81%e4%bb%b7%e4%b8%8e%e5%b8%8c%e8%85%8a%e5%ad%97%e6%af%8d" class="l2">2.1 定价层：波动率曲面  公允价与希腊字母</a>
+        <a href="#22-%e6%8a%a5%e4%bb%b7%e5%b1%82%e5%85%ac%e5%85%81%e4%bb%b7-to-%e6%b3%a2%e5%8a%a8%e7%8e%87%e7%bb%b4%e5%ba%a6%e7%9a%84%e5%8f%8c%e8%be%b9%e6%8a%a5%e4%bb%b7" class="l2">2.2 报价层：公允价  波动率维度的双边报价</a>
+        <a href="#23-%e6%88%90%e4%ba%a4%e4%b8%8e%e4%bb%93%e4%bd%8d%e5%b1%82%e8%a2%ab%e5%8a%a8%e6%88%90%e4%ba%a4-to-%e6%9b%b4%e6%96%b0%e4%bb%93%e4%bd%8d%e4%b8%8e%e8%be%b9%e9%99%85%e6%94%b6%e7%9b%8a" class="l2">2.3 成交与仓位层：被动成交  更新仓位与边际收益</a>
+        <a href="#24-%e5%af%b9%e5%86%b2%e5%b1%82%e4%bb%93%e4%bd%8d%e6%95%9e%e5%8f%a3-to-%e8%a7%a6%e5%8f%91%e5%af%b9%e5%86%b2%e8%a7%84%e5%88%99" class="l2">2.4 对冲层：仓位敞口  触发对冲规则</a>
+        <a href="#25-pnl-%e5%bd%92%e5%9b%a0%e5%b1%82%e6%b3%b0%e5%8b%92%e5%b1%95%e5%bc%80%e6%8b%86%e8%a7%a3%e6%af%8f%e6%97%a5%e7%9b%88%e4%ba%8f" class="l2">2.5 PnL 归因层：泰勒展开拆解每日盈亏</a>
+        <a href="#26-%e7%9b%b4%e8%a7%89%e6%a3%80%e9%aa%8c%e6%8a%8a%e5%b8%a6%e5%ae%bd-b-%e6%8e%a8%e5%90%91%e9%9b%b6%e8%af%a5%e9%80%80%e5%9b%9e%e8%bf%9e%e7%bb%ad%e5%af%b9%e5%86%b2" class="l2">2.6 直觉检验：把带宽  推向零，该退回连续对冲</a>
+        <a href="#3-%e7%bb%93%e6%9e%9c%e5%ba%94%e7%94%a8%e8%af%8a%e6%96%ad%e8%a1%a8" class="l1">3. 结果应用：诊断表</a>
+        <a href="#4-%e5%ae%8c%e6%95%b4%e7%b3%bb%e7%bb%9f" class="l1">4. 完整系统</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>Last updated <time id="updated" datetime="2026-11-26T20:08:54Z">Nov 26, 2026, 3:08 PM ET</time> · buezw.github.io</span>
+</footer>
+<script>
+(function(){
+  var el=document.getElementById('updated'); if(!el||!window.Intl) return;
+  try{
+    var d=new Date(el.getAttribute('datetime'));
+    var s=new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(d);
+    el.textContent=s;
+  }catch(e){}
+})();
+</script>
+
+<script>
+
+
+(function(){
+  var root=document.querySelector('.prose'); if(!root) return;
+  var re=/\*\*((?:(?!\*\*)[\s\S]){1,400}?)\*\*/g;
+  root.querySelectorAll('p,li,td,th,h1,h2,h3,h4,h5,blockquote').forEach(function(el){
+    if(el.closest('pre,code')) return;
+    if(el.querySelector('p,li,ul,ol,table')) return;
+    if(el.innerHTML.indexOf('**')<0) return;
+    var parts=el.innerHTML.split(/(<code[\s\S]*?<\/code>)/);
+    for(var i=0;i<parts.length;i+=2){ parts[i]=parts[i].replace(/\*{4}/g,'').replace(re,'<strong>$1</strong>').replace(/\*\*/g,''); }
+    el.innerHTML=parts.join('');
+  });
+})();
+</script>
+<script>
+ 
+(function(){
+  var h=document.getElementById('atitle'); if(!h) return;
+  function fit(){
+    h.classList.remove('wrap'); h.style.fontSize='';
+    if(window.innerWidth<=760) return;
+    var band=h.closest('.banner'), right=band.getBoundingClientRect().right-parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+    var size=parseFloat(getComputedStyle(h).fontSize), min=parseFloat(getComputedStyle(document.documentElement).fontSize)*1.5;
+    while(h.getBoundingClientRect().right>right && size>min){ size-=1; h.style.fontSize=size+'px'; }
+    if(h.getBoundingClientRect().right>right) h.classList.add('wrap');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+ 
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a')); if(!links.length) return;
+  var heads=links.map(function(a){var e=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));return e&&(e.closest('h1,h2,h3,h4,h5,h6')||e);});
+  function on(){
+    var y=window.scrollY+80, k=0;
+    heads.forEach(function(h,i){ if(h && h.getBoundingClientRect().top+window.scrollY<=y) k=i; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) k=heads.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});
+  }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+</script>
+</body>
+</html>

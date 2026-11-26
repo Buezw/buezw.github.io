@@ -21,6 +21,36 @@
     </item>
     
     <item>
+      <title>Avellaneda–Stoikov 做市模型完整推导：从库存风险到最优双边报价</title>
+      <link>https://buezw.github.io/docs/articles/as-full-derivation/</link>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/as-full-derivation/</guid>
+      <description>保留价格（报价中枢）与最优价差（中枢两边留多宽）的完整推导，并用蒙特卡洛回测验证定性结论。</description>
+      
+    </item>
+    
+    <item>
+      <title>Black-Scholes：一份“权利”该值多少钱</title>
+      <link>https://buezw.github.io/docs/articles/black-scholes/</link>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/black-scholes/</guid>
+      <description>五个输入、一个输出：Black-Scholes 定价公式、d₁ 与 d₂ 的含义，以及隐含波动率的由来。</description>
+      
+    </item>
+    
+    <item>
+      <title>期权做市商的核心业务闭环：从定价曲面到 PnL 归因的五层标准流程</title>
+      <link>https://buezw.github.io/docs/articles/market-making-loop/</link>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/market-making-loop/</guid>
+      <description>定价 → 报价 → 成交 → 对冲 → PnL 归因：期权做市台通用的五层闭环与异常诊断表。</description>
+      
+    </item>
+    
+    <item>
       <title>Avellaneda-Stoikov 做市策略：模拟报告</title>
       <link>https://buezw.github.io/docs/articles/as-simulation-report/</link>
       <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
