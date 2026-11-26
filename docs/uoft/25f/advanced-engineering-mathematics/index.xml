@@ -75,7 +75,7 @@ $$&lt;ul&gt;
 &lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;最早对 Complex Numbers 的接触出现在 Quadratic Equation 中&lt;/li&gt;
-&lt;li&gt;当有 \(ax^2+bx+c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &amp;lt; 0\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\)&lt;/li&gt;
+&lt;li&gt;当有 \\(ax^2+bx+c=d\\) 的时候，如果 Discriminant 判别式 \\(b^2-4ac &lt; 0\\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \\(i^2=-1\\)&lt;/li&gt;
 &lt;li&gt;但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的&lt;/li&gt;
 &lt;/ul&gt;
 $$

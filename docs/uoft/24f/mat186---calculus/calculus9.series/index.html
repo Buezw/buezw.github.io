@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -360,7 +363,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     
 </h2>
 <ul>
-<li>Sequence是按照一定顺序排列的一列数。序列可以是有限的也可以是无限的，通常表示为\(a_1, a_2, a_3, \ldots\)，其中\(a_n\)表示序列的第n项</li>
+<li>Sequence是按照一定顺序排列的一列数。序列可以是有限的也可以是无限的，通常表示为\\(a_1, a_2, a_3, \ldots\\)，其中\\(a_n\\)表示序列的第n项</li>
 </ul>
 
 
@@ -394,7 +397,7 @@ $$\lim_{n\rightarrow\infty}a_n=L,L\in \mathbb R$$</li>
     
 </h4>
 <ul>
-<li>找到Sequence \(a_n = \left(1 + \frac{1}{n}\right)^n\)的Limit
+<li>找到Sequence \\(a_n = \left(1 + \frac{1}{n}\right)^n\\)的Limit
 $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n = e$$</li>
 </ul>
 
@@ -410,7 +413,7 @@ $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n =
     
 </h3>
 <ul>
-<li>Let \(\lim_{n \to \infty} a_n = L \text{ and } \lim_{n \to \infty} b_n = K\)
+<li>Let \\(\lim_{n \to \infty} a_n = L \text{ and } \lim_{n \to \infty} b_n = K\\)
 $$\lim_{n \to \infty} (a_n \pm b_n) = L \pm K$$
 $$\lim_{n \to \infty} c a_n = cL$$
 $$\lim_{n \to \infty} (a_n b_n) = LK$$
@@ -429,7 +432,7 @@ $$\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{L}{K}$$</li>
     
 </h3>
 <ul>
-<li>Squeeze Theorem也可以用来解Sequence的Convergence，其通常用在 \((-1)^n, \sin(x)\)等在\(n\rightarrow \infty\)时oscillate的函数中</li>
+<li>Squeeze Theorem也可以用来解Sequence的Convergence，其通常用在 \\((-1)^n, \sin(x)\\)等在\\(n\rightarrow \infty\\)时oscillate的函数中</li>
 </ul>
 
 
@@ -444,8 +447,8 @@ $$\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{L}{K}$$</li>
     
 </h4>
 <ul>
-<li>证明Sequence $\{ c_n \} = \left\{ (-1)^n \frac{1}{n!} \right\}$收敛</li>
-<li>使用两个序列\(a_n=\frac{1}{2^n}\)，已知Factorial的扩散速度小于Exponential，有
+<li>证明Sequence \\(\{ c_n \} = \left\{ (-1)^n \frac{1}{n!} \right\}\\)收敛</li>
+<li>使用两个序列\\(a_n=\frac{1}{2^n}\\)，已知Factorial的扩散速度小于Exponential，有
 $$-\frac{1}{2^n} \leq (-1)^n \frac{1}{n!} \leq \frac{1}{2^n}, \quad n \geq 4$$</li>
 </ul>
 
@@ -488,7 +491,7 @@ $$-\frac{1}{2^n} \leq (-1)^n \frac{1}{n!} \leq \frac{1}{2^n}, \quad n \geq 4$$</
     
 </h4>
 <ul>
-<li>当存在一个\(M\in \mathbb R\)使得\(a_n\leq M\)时，称该Sequence Bounded Above</li>
+<li>当存在一个\\(M\in \mathbb R\\)使得\\(a_n\leq M\\)时，称该Sequence Bounded Above</li>
 </ul>
 
 
@@ -503,7 +506,7 @@ $$-\frac{1}{2^n} \leq (-1)^n \frac{1}{n!} \leq \frac{1}{2^n}, \quad n \geq 4$$</
     
 </h4>
 <ul>
-<li>当存在一个\(M\in \mathbb R\)使得\(a_n\geq M\)时，称该Sequence Bounded Below</li>
+<li>当存在一个\\(M\in \mathbb R\\)使得\\(a_n\geq M\\)时，称该Sequence Bounded Below</li>
 </ul>
 
 
@@ -565,7 +568,7 @@ $$S_n=\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \cdots + a_n + \cdots$$</li>
     
 </h3>
 <ul>
-<li>对于一个Series \(\sum^\infty_{n=1}a_n\)来说，如果其Partial Sum（前n项之和）等于S，则该Series Converge，反则Diverge</li>
+<li>对于一个Series \\(\sum^\infty_{n=1}a_n\\)来说，如果其Partial Sum（前n项之和）等于S，则该Series Converge，反则Diverge</li>
 </ul>
 
 
@@ -595,7 +598,7 @@ $$S_n=\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \cdots + a_n + \cdots$$</li>
     
 </h4>
 <ul>
-<li>求解\(\sum_{n=1}^{\infty} \frac{2}{4n^2 - 1}\)
+<li>求解\\(\sum_{n=1}^{\infty} \frac{2}{4n^2 - 1}\\)
 $$a_n = \frac{2}{4n^2 - 1} = \frac{2}{(2n - 1)(2n + 1)} = \frac{1}{2n - 1} - \frac{1}{2n + 1}$$</li>
 <li>通过观察规律可以看出
 $$S_n = \left( \frac{1}{1} - \frac{1}{3} \right) + \left( \frac{1}{3} - \frac{1}{5} \right) + \cdots + \left( \frac{1}{2n-1} - \frac{1}{2n+1} \right) = 1 - \frac{1}{2n+1}$$</li>
@@ -615,7 +618,7 @@ $$\sum_{n=1}^{\infty} \frac{2}{4n^2 - 1} = \lim_{n \to \infty} S_n = \lim_{n \to
     
 </h3>
 <ul>
-<li>形如\(\sum_{n=0}^{\infty} ar^n\)的Series被称为Geometric Series，其完整形式为
+<li>形如\\(\sum_{n=0}^{\infty} ar^n\\)的Series被称为Geometric Series，其完整形式为
 $$\sum_{n=0}^{\infty} ar^n = a + ar + ar^2 + \cdots + ar^n + \cdots, \quad a \neq 0$$</li>
 </ul>
 
@@ -632,7 +635,7 @@ $$\sum_{n=0}^{\infty} ar^n = a + ar + ar^2 + \cdots + ar^n + \cdots, \quad a \ne
 </h4>
 <ul>
 <li>当Geometric Series的的敛散性高度取决于其公比r的取值</li>
-<li>具体来说当\(0&lt;|r|&lt;1\) Geometric Series Converge ，当\(|r|\geq 1\)，其Diverge</li>
+<li>具体来说当\\(0<|r|<1\\) Geometric Series Converge ，当\\(|r|\geq 1\\)，其Diverge</li>
 </ul>
 
 
@@ -663,7 +666,7 @@ $$\lim_{n \to \infty} S_n = \lim_{n \to \infty} \left[ \frac{a(1 - r^n)}{1 - r} 
     
 </h3>
 <ul>
-<li>如果\(\sum a_n\)和\(\sum b_n\)都是Converge的Series，并且分别收敛到A和B，则有
+<li>如果\\(\sum a_n\\)和\\(\sum b_n\\)都是Converge的Series，并且分别收敛到A和B，则有
 $$\sum_{n=1}^{\infty} c a_n = cA$$
 $$\sum_{n=1}^{\infty} (a_n + b_n) = A + B$$
 $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$</li>
@@ -693,7 +696,7 @@ $$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3
     
 </h3>
 <ul>
-<li>当 \(p&gt;1\) 的时候Converge，\(0&lt;p\leq 1\) 的时候Diverge</li>
+<li>当 \\(p>1\\) 的时候Converge，\\(0<p\leq 1\\) 的时候Diverge</li>
 </ul>
 
 
@@ -740,10 +743,10 @@ $$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3
 </h4>
 <ul>
 <li>如果一个<strong>收敛的交错级数</strong>满足以下条件：</li>
-<li>\(a_{n+1} \leq a_n\)（即正项部分单调递减），\(\lim_{n \to \infty} a_n = 0\)，</li>
-<li>那么，当用第N项部分和\(S_N\)来近似整个级数的和 SS 时，有
+<li>\\(a_{n+1} \leq a_n\\)（即正项部分单调递减），\\(\lim_{n \to \infty} a_n = 0\\)，</li>
+<li>那么，当用第N项部分和\\(S_N\\)来近似整个级数的和 SS 时，有
 $$|S - S_N| = |R_N| \leq a_{N+1}$$
-换句话说，误差的绝对值小于等于被忽略的第一个正项\(a_{N+1}\)</li>
+换句话说，误差的绝对值小于等于被忽略的第一个正项\\(a_{N+1}\\)</li>
 </ul>
 
 
@@ -760,7 +763,7 @@ $$|S - S_N| = |R_N| \leq a_{N+1}$$
 <ul>
 <li>有的Series可能含有正负项，但他们不已一定规律出现</li>
 <li>这时候就需要利用Absolute and Conditional Convergence</li>
-<li>如果一个级数 \(\sum |a_n|\) <strong>Convergence Absolutly</strong>（即级数的项的绝对值构成的级数收敛），则原级数 \(\sum a_n\) 也一定Converge</li>
+<li>如果一个级数 \\(\sum |a_n|\\) <strong>Convergence Absolutly</strong>（即级数的项的绝对值构成的级数收敛），则原级数 \\(\sum a_n\\) 也一定Converge</li>
 </ul>
 
 
@@ -775,7 +778,7 @@ $$|S - S_N| = |R_N| \leq a_{N+1}$$
     
 </h4>
 <ul>
-<li>对于一个Series，当\(\sum |a_n|\) Diverge但是\(\sum a_n\) converge的时候，其Conditionally Converge 条件收敛</li>
+<li>对于一个Series，当\\(\sum |a_n|\\) Diverge但是\\(\sum a_n\\) converge的时候，其Conditionally Converge 条件收敛</li>
 </ul>
 
 
@@ -805,7 +808,7 @@ $$|S - S_N| = |R_N| \leq a_{N+1}$$
     
 </h3>
 <ul>
-<li>如果函数f(x)满足以下条件：f(x)在 \(x \geq 1\) 上是positive，continuous，decreasing的，则：
+<li>如果函数f(x)满足以下条件：f(x)在 \\(x \geq 1\\) 上是positive，continuous，decreasing的，则：
 $$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$</li>
 <li>的收敛性是一致的：  要么两者都收敛，要么两者都发散</li>
 </ul>
@@ -822,11 +825,11 @@ $$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$</li>
     
 </h3>
 <ul>
-<li>假设存在两个正项级数 \(\sum a_n\) 和 \(\sum b_n\)，并且对所有n都满足 \(0 &lt; a_n \leq b_n\)，则有：</li>
+<li>假设存在两个正项级数 \\(\sum a_n\\) 和 \\(\sum b_n\\)，并且对所有n都满足 \\(0 < a_n \leq b_n\\)，则有：</li>
 </ul>
 <ol>
-<li>如果 \(n\sum b_n\) <strong>Converge</strong>，则 \(\sum a_n\) 也<strong>Converge</strong></li>
-<li>如果 \(\sum a_n\) <strong>Diverge</strong>，则 \(\sum b_n\) 也<strong>Diverge</strong></li>
+<li>如果 \\(n\sum b_n\\) <strong>Converge</strong>，则 \\(\sum a_n\\) 也<strong>Converge</strong></li>
+<li>如果 \\(\sum a_n\\) <strong>Diverge</strong>，则 \\(\sum b_n\\) 也<strong>Diverge</strong></li>
 </ol>
 
 
@@ -842,12 +845,12 @@ $$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$</li>
 </h3>
 <ul>
 <li>对于Direct Comparison能做的，Limit都能做到并且会更加简单
-假设存在两个正项级数 \(\sum a_n\) 和 \(\sum b_n\)，并且满足：</li>
+假设存在两个正项级数 \\(\sum a_n\\) 和 \\(\sum b_n\\)，并且满足：</li>
 </ul>
-<p>\(a_n &gt; 0\) 和 \(b_n &gt; 0\) 对所有n成立，存在极限： \(\lim_{n \to \infty} \frac{a_n}{b_n} = L\) 其中\(0 &lt; L &lt; \infty\)</p>
+<p>\\(a_n > 0\\) 和 \\(b_n > 0\\) 对所有n成立，存在极限： \\(\lim_{n \to \infty} \frac{a_n}{b_n} = L\\) 其中\\(0 < L < \infty\\)</p>
 <ul>
-<li>如果 \(\sum b_n\) Converge，则 \(\sum a_n\) 也Converge</li>
-<li>如果 \(\sum b_n\) Diverge，则 \(\sum a_n\) 也Diverge</li>
+<li>如果 \\(\sum b_n\\) Converge，则 \\(\sum a_n\\) 也Converge</li>
+<li>如果 \\(\sum b_n\\) Diverge，则 \\(\sum a_n\\) 也Diverge</li>
 </ul>
 
 
@@ -862,7 +865,7 @@ $$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$</li>
     
 </h3>
 <ul>
-<li>If \(\lim_{n \to \infty} a_n \neq 0\), then \(\sum_{n=1}^{\infty} a_n\) diverges</li>
+<li>If \\(\lim_{n \to \infty} a_n \neq 0\\), then \\(\sum_{n=1}^{\infty} a_n\\) diverges</li>
 </ul>
 
 
@@ -880,7 +883,7 @@ $$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$</li>
 <li>对于形式为交错级数的两个级数：
 $$\sum_{n=1}^\infty (-1)^n a_n \quad \text{和} \quad \sum_{n=1}^\infty (-1)^{n+1} a_n$$</li>
 <li>如果满足以下两个条件，则级数收敛：</li>
-<li>\(\lim_{n \to \infty} a_n = 0\)，\(a_{n+1} \leq a_n\) 对所有n成立（即\({a_n}\)是单调递减的正项数列）。</li>
+<li>\\(\lim_{n \to \infty} a_n = 0\\)，\\(a_{n+1} \leq a_n\\) 对所有n成立（即\\(\{a_n\}\\)是单调递减的正项数列）。</li>
 </ul>
 
 
@@ -895,10 +898,10 @@ $$\sum_{n=1}^\infty (-1)^n a_n \quad \text{和} \quad \sum_{n=1}^\infty (-1)^{n+
     
 </h3>
 <ul>
-<li>Let \(\sum a_n\) be a series with nonzero terms</li>
-<li>当\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| &lt; 1\)，级数Converges Absolutely</li>
-<li>当\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| &gt; 1 \text{ or } \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = \infty\)，级数Diverge</li>
-<li>当\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| =1\)时，Ratio Test失效</li>
+<li>Let \\(\sum a_n\\) be a series with nonzero terms</li>
+<li>当\\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| < 1\\)，级数Converges Absolutely</li>
+<li>当\\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| > 1 \text{ or } \lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = \infty\\)，级数Diverge</li>
+<li>当\\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| =1\\)时，Ratio Test失效</li>
 </ul>
 <blockquote>
 <p>简单解释一下原理就是通过转化为Geometric Series后计算公比</p>
@@ -916,10 +919,10 @@ $$\sum_{n=1}^\infty (-1)^n a_n \quad \text{和} \quad \sum_{n=1}^\infty (-1)^{n+
     
 </h3>
 <ul>
-<li>Let \(\sum a_n\) be a series with nonzero terms</li>
-<li>当\(\lim_{n \to \infty} \sqrt[n]{|a_n|} &lt; 1\)时，级数Converge Absolutely</li>
-<li>当\(\lim_{n \to \infty} \sqrt[n]{|a_n|} &gt; 1 \text{ or } \lim_{n \to \infty} \sqrt[n]{|a_n|} = \infty\)时，Diverge</li>
-<li>同理\(\lim_{n \to \infty} \sqrt[n]{|a_n|} = 1\)时失效</li>
+<li>Let \\(\sum a_n\\) be a series with nonzero terms</li>
+<li>当\\(\lim_{n \to \infty} \sqrt[n]{|a_n|} < 1\\)时，级数Converge Absolutely</li>
+<li>当\\(\lim_{n \to \infty} \sqrt[n]{|a_n|} > 1 \text{ or } \lim_{n \to \infty} \sqrt[n]{|a_n|} = \infty\\)时，Diverge</li>
+<li>同理\\(\lim_{n \to \infty} \sqrt[n]{|a_n|} = 1\\)时失效</li>
 </ul>
 
 
@@ -934,8 +937,8 @@ $$\sum_{n=1}^\infty (-1)^n a_n \quad \text{和} \quad \sum_{n=1}^\infty (-1)^{n+
     
 </h2>
 <ul>
-<li>想要通过一个Polynomial来近似一个function，首先找到一点c，其在function的domain中，再给与\(p(c)\)和\(f(c)\)相同的值，就可以说这个Polynomial是以c点为中心近似function的</li>
-<li>由于过一个点的Polynomial非常之多，所以更一步的近似就是同时令function和polynomial在点c处的slope也相似，有\(p&rsquo;(c)=f&rsquo;(c)\)满足了以上两个条件，就获得了一个简单的对于function的近似</li>
+<li>想要通过一个Polynomial来近似一个function，首先找到一点c，其在function的domain中，再给与\\(p(c)\\)和\\(f(c)\\)相同的值，就可以说这个Polynomial是以c点为中心近似function的</li>
+<li>由于过一个点的Polynomial非常之多，所以更一步的近似就是同时令function和polynomial在点c处的slope也相似，有\\(p'(c)=f'(c)\\)满足了以上两个条件，就获得了一个简单的对于function的近似</li>
 </ul>
 <p>
     <figure>
@@ -966,11 +969,11 @@ $$\sum_{n=1}^\infty (-1)^n a_n \quad \text{和} \quad \sum_{n=1}^\infty (-1)^{n+
     
 </h3>
 <ul>
-<li>\(f(x)=e^x\) 存在一个特殊的性质，就是其derivate等于原函数，于是有
+<li>\\(f(x)=e^x\\) 存在一个特殊的性质，就是其derivate等于原函数，于是有
 $$f(0)=f'(0)=e^0=1$$</li>
-<li>现在拿出一个One degree polynomial \(p(x)=a_0+a_1x\)，分别对齐\(p(0)\)和\(p&rsquo;(0)\)</li>
-<li>\(p(0)=a_0+0=1\Rightarrow a_0=1\)，\(p&rsquo;(0)=a_1=1\Rightarrow = a_1 =1\)</li>
-<li>可以得到\(p(x)=1+x\)，就这样逐渐的往高阶逼近，Polynomial和Function以c为中心的逼近也会越来越精确</li>
+<li>现在拿出一个One degree polynomial \\(p(x)=a_0+a_1x\\)，分别对齐\\(p(0)\\)和\\(p'(0)\\)</li>
+<li>\\(p(0)=a_0+0=1\Rightarrow a_0=1\\)，\\(p'(0)=a_1=1\Rightarrow = a_1 =1\\)</li>
+<li>可以得到\\(p(x)=1+x\\)，就这样逐渐的往高阶逼近，Polynomial和Function以c为中心的逼近也会越来越精确</li>
 </ul>
 
 
@@ -985,18 +988,18 @@ $$f(0)=f'(0)=e^0=1$$</li>
     
 </h3>
 <ul>
-<li>在上面的例子中，多项式是以\(c=0\)为中心approximate function的，而这一个c可以根据需要进行调整，具体来说这个多项式在n阶下应该为
+<li>在上面的例子中，多项式是以\\(c=0\\)为中心approximate function的，而这一个c可以根据需要进行调整，具体来说这个多项式在n阶下应该为
 $$P_n(x) = a_0 + a_1(x-c) + a_2(x-c)^2 + a_3(x-c)^3 + \cdots + a_n(x-c)^n$$</li>
 <li>这一个polynomial中存在三个参数，其中c为常数，x为variable，于是就要求解a的值</li>
-<li>在前面的例子中提到了求解\(a_0,a_1\)的办法，具体就是令\(p_n^{(n)}(c)=f_n^{(n)}(c)\)</li>
+<li>在前面的例子中提到了求解\\(a_0,a_1\\)的办法，具体就是令\\(p_n^{(n)}(c)=f_n^{(n)}(c)\\)</li>
 <li>观察polynomial求到第n阶导数的样子，有
 $$P_n'''(x) = 2(3a_3) + \cdots + n(n - 1)a_n(x - c)^{n-3}$$
 $$P_n^{(n)}(x) = n(n - 1)(n - 2) \cdots (2)(1) a_n$$</li>
-<li>可以发现求解\(a_n\)的关键就在于当P求到第n阶导数的时候\((x-c)^n\)这一项会只剩下系数（z）乘以\(a_n\)，也就是\(za_n(x-c)^0\)（具体系数等于多少稍后讨论），那么这时候令\(x=c\)，所有高次的项均会被消去只剩下\(p_n(x)\)原本的第n项系数，这时候有
+<li>可以发现求解\\(a_n\\)的关键就在于当P求到第n阶导数的时候\\((x-c)^n\\)这一项会只剩下系数（z）乘以\\(a_n\\)，也就是\\(za_n(x-c)^0\\)（具体系数等于多少稍后讨论），那么这时候令\\(x=c\\)，所有高次的项均会被消去只剩下\\(p_n(x)\\)原本的第n项系数，这时候有
 $$p_n^{(n)}(c)=f_n^{(n)}(c)=za_n$$</li>
 <li>这就可以得出
 $$a_n=\frac{f_n^{(n)}(c)}{z}$$</li>
-<li>那么问题就来到了z等于多少上，已知到这一步时，\(P_n(x)\)已经被求导了n次，也就是说这一项的幂减去了n次1，而系数乘上了\(n(n-1)(n-2)(n-3)\ldots 1=n!\)，总结得出
+<li>那么问题就来到了z等于多少上，已知到这一步时，\\(P_n(x)\\)已经被求导了n次，也就是说这一项的幂减去了n次1，而系数乘上了\\(n(n-1)(n-2)(n-3)\ldots 1=n!\\)，总结得出
 $$a_n=\frac{f_n^{(n)}(c)}{n!}$$</li>
 <li>将其带入Polynomial有
 $$P_n(x) = f(c) + f'(c)(x - c) + \frac{f''(c)}{2!}(x - c)^2 + \cdots + \frac{f^{(n)}(c)}{n!}(x - c)^n$$</li>
@@ -1014,7 +1017,7 @@ $$P_n(x) = f(c) + f'(c)(x - c) + \frac{f''(c)}{2!}(x - c)^2 + \cdots + \frac{f^{
     
 </h4>
 <ul>
-<li>麦克劳林级数是Taylor Series的特殊情况，其发生在\(c=0\)的时候，有
+<li>麦克劳林级数是Taylor Series的特殊情况，其发生在\\(c=0\\)的时候，有
 $$P_n(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \cdots + \frac{f^{(n)}(0)}{n!}x^n$$</li>
 </ul>
 
@@ -1029,13 +1032,13 @@ $$P_n(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(0)}{3!}x^3 + \cdots
     </span>        
     
 </h4>
-<p>以\(\pi/6\)为中心找到sinx的泰勒多项式</p>
+<p>以\\(\pi/6\\)为中心找到sinx的泰勒多项式</p>
 <ul>
 <li>找Taylor Polynomial实际上只用求原函数在各阶导数下的值就行</li>
-<li>\(f(x) = \sin x \quad f\left(\frac{\pi}{6}\right) = \sin\left(\frac{\pi}{6}\right) = \frac{1}{2}\)</li>
-<li>\(f&rsquo;(x) = \cos x \quad f&rsquo;\left(\frac{\pi}{6}\right) = \cos\left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2}\)</li>
-<li>\(f&rsquo;&rsquo;(x) = -\sin x \quad f&rsquo;&rsquo;\left(\frac{\pi}{6}\right) = -\sin\left(\frac{\pi}{6}\right) = -\frac{1}{2}\)</li>
-<li>\(f&rsquo;&rsquo;&rsquo;(x) = -\cos x \quad f&rsquo;&rsquo;&rsquo;\left(\frac{\pi}{6}\right) = -\cos\left(\frac{\pi}{6}\right) = -\frac{\sqrt{3}}{2}\)
+<li>\\(f(x) = \sin x \quad f\left(\frac{\pi}{6}\right) = \sin\left(\frac{\pi}{6}\right) = \frac{1}{2}\\)</li>
+<li>\\(f'(x) = \cos x \quad f'\left(\frac{\pi}{6}\right) = \cos\left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2}\\)</li>
+<li>\\(f''(x) = -\sin x \quad f''\left(\frac{\pi}{6}\right) = -\sin\left(\frac{\pi}{6}\right) = -\frac{1}{2}\\)</li>
+<li>\\(f'''(x) = -\cos x \quad f'''\left(\frac{\pi}{6}\right) = -\cos\left(\frac{\pi}{6}\right) = -\frac{\sqrt{3}}{2}\\)
 $$P_3(x) = f\left(\frac{\pi}{6}\right) + f'\left(\frac{\pi}{6}\right) (x - \frac{\pi}{6}) + \frac{f''\left(\frac{\pi}{6}\right)}{2!} (x - \frac{\pi}{6})^2 + \frac{f'''\left(\frac{\pi}{6}\right)}{3!} (x - \frac{\pi}{6})^3
 $$
 $$= \frac{1}{2} + \frac{\sqrt{3}}{2} \left(x - \frac{\pi}{6}\right) - \frac{1}{2(2!)} \left(x - \frac{\pi}{6}\right)^2 - \frac{\sqrt{3}}{2(3!)} \left(x - \frac{\pi}{6}\right)^3$$</li>
@@ -1069,7 +1072,7 @@ $$\text{Error} = |R_n(x)| = |f(x) - P_n(x)|$$</li>
     
 </h3>
 <ul>
-<li>如果一个函数n+1阶可导在一个包含了c的区间I中，则每一个I中的x都有一个\(z\in [x,c]\)使得
+<li>如果一个函数n+1阶可导在一个包含了c的区间I中，则每一个I中的x都有一个\\(z\in [x,c]\\)使得
 $$f(x) = f(c) + f'(c)(x - c) + \frac{f''(c)}{2!}(x - c)^2 + \cdots + \frac{f^{(n)}(c)}{n!}(x - c)^n + R_n(x)$$</li>
 <li>其中
 $$R_n(x) = \frac{f^{(n+1)}(z)}{(n+1)!} (x - c)^{n+1}$$</li>
@@ -1089,10 +1092,10 @@ $$|R_n(x)| \leq \frac{|x - c|^{n+1}}{(n+1)!} \max |f^{(n+1)}(z)|$$</li>
     </span>        
     
 </h4>
-<p>有Thrid Degree Maclaurin Polynomial \(P_3(x) = x - \frac{x^3}{3!}\)，求近似\(x=0.1\)时的误差
+<p>有Thrid Degree Maclaurin Polynomial \\(P_3(x) = x - \frac{x^3}{3!}\\)，求近似\\(x=0.1\\)时的误差
 </p>
 $$\sin x = x - \frac{x^3}{3!} + R_3(x) = x - \frac{x^3}{3!} + \frac{f^{(4)}(z)}{4!}x^4$$<ul>
-<li>在\(0&lt;z&lt;0.1\)的区间中，\(\sin(0.1)\)有着最大的值，于是有
+<li>在\\(0<z<0.1\\)的区间中，\\(\sin(0.1)\\)有着最大的值，于是有
 $$0 < R_3(0.1) = \frac{\sin z}{4!} (0.1)^4 < \frac{0.0001}{4!} \approx 0.000004
 $$</li>
 </ul>
@@ -1108,15 +1111,15 @@ $$</li>
     </span>        
     
 </h4>
-<p>Determine the degree of the Taylor polynomial expanded about c=1 that should be used to approximate \(\ln(1.2)\) so that the error is less than 0.001</p>
+<p>Determine the degree of the Taylor polynomial expanded about c=1 that should be used to approximate \\(\ln(1.2)\\) so that the error is less than 0.001</p>
 <ul>
 <li>既然求的是Error Value，直接用Remainder
 $$|R_n(1.2)| = \left| \frac{f^{(n+1)}(z)}{(n+1)!} (1.2 - 1)^{n+1} \right|
 = \frac{n!}{z^{n+1}(n + 1)!} (0.2)^{n+1}
 = \frac{(0.2)^{n+1}}{z^{n+1}(n + 1)}$$</li>
-<li>要让这玩意小于0.001，由于在\(1&lt;z&lt;1.2\)的区间中
+<li>要让这玩意小于0.001，由于在\\(1<z<1.2\\)的区间中
 $$\frac{(0.2)^{n+1}}{z^{n+1}(n + 1)}<\frac{(0.2)^{n+1}}{n + 1}<0.001$$</li>
-<li>最终可以得到 \(n=3\)</li>
+<li>最终可以得到 \\(n=3\\)</li>
 </ul>
 
 
@@ -1133,7 +1136,7 @@ $$\frac{(0.2)^{n+1}}{z^{n+1}(n + 1)}<\frac{(0.2)^{n+1}}{n + 1}<0.001$$</li>
 <ul>
 <li>Power Series 幂级数是一种形式为无穷多项式的Series，通常用来近似函数，其表示为
 $$\sum_{n=0}^{\infty} c_n (x-a)^n$$</li>
-<li>其中，\(c_n\)是系数，x是变量，a是幂级数展开的中心点</li>
+<li>其中，\\(c_n\\)是系数，x是变量，a是幂级数展开的中心点</li>
 </ul>
 
 
@@ -1148,7 +1151,7 @@ $$\sum_{n=0}^{\infty} c_n (x-a)^n$$</li>
     
 </h3>
 <ul>
-<li>中心点的选择是为了确定一个近似最精确的点，如果想要用Power Series来近似\(e^x\)，并且对于\(x=1\)这一点的函数更加关心时，就可以选择\(a=1\)为展开的中心点，这使得x=1周围的对于函数的逼近更加精确</li>
+<li>中心点的选择是为了确定一个近似最精确的点，如果想要用Power Series来近似\\(e^x\\)，并且对于\\(x=1\\)这一点的函数更加关心时，就可以选择\\(a=1\\)为展开的中心点，这使得x=1周围的对于函数的逼近更加精确</li>
 </ul>
 
 
@@ -1176,7 +1179,7 @@ $$\sum_{n=0}^{\infty} c_n (x-a)^n$$</li>
 </li>
 <li>
 <ol start="3">
-<li>Converges absolutely for all x 收敛于任意\(x\in R\)</li>
+<li>Converges absolutely for all x 收敛于任意\\(x\in R\\)</li>
 </ol>
 </li>
 <li>通过计算Power Series的Ratio或者Radius Test后便可以知道Radius of Convergency</li>
@@ -1194,15 +1197,15 @@ $$\sum_{n=0}^{\infty} c_n (x-a)^n$$</li>
     
 </h4>
 <ul>
-<li>对于Series \(\sum_{n=0}^{\infty} 3(x-2)^n\)，找到他的Radius of Convergence</li>
+<li>对于Series \\(\sum_{n=0}^{\infty} 3(x-2)^n\\)，找到他的Radius of Convergence</li>
 <li>利用Ratio Test得到
 $$\lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \lim_{n \to \infty} \frac{3(x-2)^{n+1}}{3(x-2)^n} = \lim_{n \to \infty} |x-2| = |x-2|$$</li>
-<li>已知当这一个极限\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| &lt; 1\)的时候Series Converge，则有
+<li>已知当这一个极限\\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| < 1\\)的时候Series Converge，则有
 $$|x-2|<1\Rightarrow -1<x-2<1\Rightarrow 1<x<3\Rightarrow R=1$$</li>
 </ul>
 
 
-<h4 class="relative group">ex. Finding the radius of Convergence  (\(R=\infty\)) 
+<h4 class="relative group">ex. Finding the radius of Convergence  (\\(R=\infty\\)) 
     <div id="ex-finding-the-radius-of-convergence--rinfty" class="anchor"></div>
     
     <span
@@ -1213,9 +1216,9 @@ $$|x-2|<1\Rightarrow -1<x-2<1\Rightarrow 1<x<3\Rightarrow R=1$$</li>
     
 </h4>
 <ul>
-<li>判断Series \(\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}\)
+<li>判断Series \\(\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}\\)
 $$\lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \lim_{n \to \infty} \frac{(-1)^{n+1} x^{2n+3}}{(2n + 3)!} \div \frac{(-1)^n x^{2n+1}}{(2n + 1)!} = \lim_{n \to \infty} \frac{x^2}{(2n + 3)(2n + 2)}=0$$</li>
-<li>这个情况下，无论x取什么值都有\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| &lt; 1\)，所以R也为\(\infty\)</li>
+<li>这个情况下，无论x取什么值都有\\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| < 1\\)，所以R也为\\(\infty\\)</li>
 </ul>
 
 
@@ -1230,7 +1233,7 @@ $$\lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \lim_{n \to \infty} \frac{(-1)^{n+1}
     
 </h3>
 <ul>
-<li>在判断了Convergency Radius后，还需要判断两个End Point的取值情况，这是因为在End Point位于\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = 1\)的点，前面提到了这个点处Ratio Test是失效的，所以需要单独计算</li>
+<li>在判断了Convergency Radius后，还需要判断两个End Point的取值情况，这是因为在End Point位于\\(\lim_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right| = 1\\)的点，前面提到了这个点处Ratio Test是失效的，所以需要单独计算</li>
 </ul>
 
 
@@ -1245,12 +1248,12 @@ $$\lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \lim_{n \to \infty} \frac{(-1)^{n+1}
     
 </h4>
 <ul>
-<li>判断Series \(\sum_{n=1}^{\infty} \frac{x^n}{n}\)的Interval of Convergence （注意问题变了）
+<li>判断Series \\(\sum_{n=1}^{\infty} \frac{x^n}{n}\\)的Interval of Convergence （注意问题变了）
 $$\lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \lim_{n \to \infty} \frac{x^{n+1} / (n+1)}{x^n / n} = \lim_{n \to \infty} \frac{nx}{n+1} = |x|$$</li>
-<li>知道了Convergence Radius\(R=1\)后分析两个End Point的Behavior
+<li>知道了Convergence Radius\\(R=1\\)后分析两个End Point的Behavior
 $$when~x=1:~\sum_{n=1}^{\infty} \frac{1}{n} = \frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \cdots$$
 $$when~x=-1:~\sum_{n=1}^{\infty} \frac{(-1)^n}{n} = -1 + \frac{1}{2} - \frac{1}{3} + \frac{1}{4} - \cdots$$</li>
-<li>最终得到完整Interval of Convergence为 \([-1,1)\)</li>
+<li>最终得到完整Interval of Convergence为 \\([-1,1)\\)</li>
 </ul>
 
 
@@ -1271,8 +1274,7 @@ $$f(x) = \sum_{n=0}^{\infty} a_n (x - c)^n = a_0 + a_1 (x - c) + a_2 (x - c)^2 +
 $$f'(x) = \sum_{n=1}^{\infty} n a_n (x - c)^{n-1} = a_1 + 2a_2(x - c) + 3a_3(x - c)^2 + \cdots$$
 $$\int f(x) \, dx = C + \sum_{n=0}^{\infty} a_n \frac{(x - c)^{n+1}}{n+1} 
 = C + a_0 (x - c) + \frac{a_1 (x - c)^2}{2} + \frac{a_2 (x - c)^3}{3} + \cdots$$</li>
-<li>其Integral和Derivative会有和原函数相同的Radius of convergency，但是由于Series本身发生了改变，导致End Point Behavior可能不同
-$$$$</li>
+<li>其Integral和Derivative会有和原函数相同的Radius of convergency，但是由于Series本身发生了改变，导致End Point Behavior可能不同</li>
 </ul>
 
 
@@ -1287,16 +1289,16 @@ $$$$</li>
     
 </h2>
 <ul>
-<li>考虑一个function \(f(x) = \frac{1}{1 - x}\)</li>
-<li>这个function长得非常像在前面所提到的Geometric Series的Partial Sum，具体来说一个Geometric Series会在\(0&lt;|r|&lt;1\)的时候有
+<li>考虑一个function \\(f(x) = \frac{1}{1 - x}\\)</li>
+<li>这个function长得非常像在前面所提到的Geometric Series的Partial Sum，具体来说一个Geometric Series会在\\(0<|r|<1\\)的时候有
 $$\sum_{n=0}^{\infty} ar^n = \frac{a}{1 - r}$$</li>
-<li>而对于上面的\(f(x)\)，当 \(a=1,r=x\) 的时候就有
+<li>而对于上面的\\(f(x)\\)，当 \\(a=1,r=x\\) 的时候就有
 $$\frac{1}{1 - x} = \sum_{n=0}^{\infty} ar^n = \sum_{n=0}^{\infty} x^n = 1 + x + x^2 + x^3 + \cdots, \quad |x| < 1.
 $$</li>
-<li>当然要知道一个Power Series存在Convergence Radius，这使得这个Series仅在\((-1,1)\)的区间上拟合了function，如果需要研究函数在其他区间的拟合，则可以更改Power Series的c</li>
-<li>比如当 \(c=-1\) 的时候就有
+<li>当然要知道一个Power Series存在Convergence Radius，这使得这个Series仅在\\((-1,1)\\)的区间上拟合了function，如果需要研究函数在其他区间的拟合，则可以更改Power Series的c</li>
+<li>比如当 \\(c=-1\\) 的时候就有
 $$\frac{1}{1 - x} = \frac{1}{2 - (x + 1)} =  \frac{\frac{1}{2}}{1 -\frac{(x + 1)}{2}} = \frac{a}{1 - r}$$</li>
-<li>于是可以得出 \(a= \frac{1}{2},r=\frac{x+1}{2}\)，带入Power Series中有
+<li>于是可以得出 \\(a= \frac{1}{2},r=\frac{x+1}{2}\\)，带入Power Series中有
 $$\frac{1}{1 - x} = \sum_{n=0}^{\infty} \left(\frac{1}{2}\right)\left(\frac{x+1}{2}\right)^n  = \frac{1}{2} \left[ 1 + \frac{x+1}{2} + \left(\frac{x+1}{2}\right)^2 + \left(\frac{x+1}{2}\right)^3 + \cdots \right], \quad |x+1| < 2$$</li>
 </ul>
 <p>
@@ -1330,11 +1332,11 @@ $$\frac{1}{1 - x} = \sum_{n=0}^{\infty} \left(\frac{1}{2}\right)\left(\frac{x+1}
     </span>        
     
 </h3>
-<p>找一个拟合function \(f(x) = \frac{4}{x + 2}\) 的Power Series</p>
+<p>找一个拟合function \\(f(x) = \frac{4}{x + 2}\\) 的Power Series</p>
 <ul>
-<li>将function写成 \(\frac{a}{1-r}\) 的形式
+<li>将function写成 \\(\frac{a}{1-r}\\) 的形式
 $$\frac{4}{2 + x} = \frac{2}{1 - \left(-\frac{x}{2}\right)} = \frac{a}{1 - r}$$</li>
-<li>有 \(a=2,r=\frac{-x}{2}\)</li>
+<li>有 \\(a=2,r=\frac{-x}{2}\\)</li>
 <li>于是可以写出Power Series
 $$\frac{4}{x + 2} = \sum_{n=0}^{\infty} a r^n = \sum_{n=0}^{\infty} 2 \left(-\frac{x}{2}\right)^n = 2 \left(1 - \frac{x}{2} + \frac{x^2}{4} - \frac{x^3}{8} + \cdots \right)$$</li>
 </ul>
@@ -1365,11 +1367,11 @@ $$f(x) = \sum_{n=0}^{\infty} a_n x^n \text{ and } g(x) = \sum_{n=0}^{\infty} b_n
 <ul>
 <li>前面提到了Power Series的Integral和Derivative也都还是Power Series，于是当一个函数的积分或者导数可以被整理为一个Geometric Power Series时，该函数也可以用Power Series来表示</li>
 </ul>
-<p>找到Power Series Representation of \(f(x)=\ln x\)</p>
+<p>找到Power Series Representation of \\(f(x)=\ln x\\)</p>
 <ul>
-<li>已知\(\int f(x)dx=\frac1x+C\)，有
+<li>已知\\(\int f(x)dx=\frac1x+C\\)，有
 $$\frac{1}{x} = \sum_{n=0}^{\infty} (-1)^n (x - 1)^n$$</li>
-<li>这是一个 \(a=1,r=-(x-1)\) 的Power Series，对这个Power Series积分有
+<li>这是一个 \\(a=1,r=-(x-1)\\) 的Power Series，对这个Power Series积分有
 $$\ln x = \int \frac{1}{x} \, dx + C = C + \sum_{n=0}^{\infty} (-1)^n \frac{(x - 1)^{n+1}}{n+1}= \frac{(x-1)}{1} - \frac{(x-1)^2}{2} + \frac{(x-1)^3}{3} - \frac{(x-1)^4}{4} + \cdots
 $$</li>
 </ul>
@@ -1385,13 +1387,13 @@ $$</li>
     </span>        
     
 </h3>
-<p>找到 \(g(x)=\arctan x\) 的Power Series</p>
+<p>找到 \\(g(x)=\arctan x\\) 的Power Series</p>
 <ul>
-<li>已知\(\arctan(x)\)的Derivative为\(\frac{1}{1+x^2}\)，令\(x^2\)为r，就可以写出他的Power Series有
+<li>已知\\(\arctan(x)\\)的Derivative为\\(\frac{1}{1+x^2}\\)，令\\(x^2\\)为r，就可以写出他的Power Series有
 $$f(x^2) = \frac{1}{1 + x^2} = \sum_{n=0}^{\infty} (-1)^n x^{2n}$$</li>
 <li>再对这玩意积分，有
 $$\arctan x = \int \frac{1}{1 + x^2} \, dx + C = C + \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1}$$</li>
-<li>令 \(x=1\) 可以知道 \(C=0\)，有
+<li>令 \\(x=1\\) 可以知道 \\(C=0\\)，有
 $$= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1} = x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \cdots$$</li>
 </ul>
 
@@ -1410,7 +1412,7 @@ $$= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1} = x - \frac{x^3}{3} + \frac
 <li>在前面通过了使用Geometric Series的Partial Sum找到了很多函数对于的Power Series，通过Taylor Series则可以找到那些可以被求导n次的函数的Power Series</li>
 <li>前面提到了Taylor Polynomial拟合的function在他的Radius of Convergence中可以表示为
 $$f(x) = f(c) + f'(c)(x - c) + \frac{f''(c)}{2!}(x - c)^2 + \cdots + \frac{f^{(n)}(c)}{n!}(x - c)^n + \cdots$$</li>
-<li>这个Polynomial也是不同Power的和，当\(n=\infty\)的时候，其也可以被当作一个Series，有
+<li>这个Polynomial也是不同Power的和，当\\(n=\infty\\)的时候，其也可以被当作一个Series，有
 $$\sum_{n=0}^{\infty} \frac{f^{(n)}(c)}{n!} (x - c)^n = f(c) + f'(c)(x - c) + \cdots + \frac{f^{(n)}(c)}{n!}(x - c)^n + \cdots
 $$</li>
 <li>这时候只要Taylor Series Converge，其就完全的拟合了Function</li>
@@ -1428,9 +1430,9 @@ $$</li>
     
 </h3>
 <ul>
-<li>对于形如 \(f(x)=(1+x)^k\) 的function，可以通过Binomial Serises逼近，因为其本身就是一个Binomial 二项式，当然可以同Series来表示他的二项式展开，经典二项式定理为
+<li>对于形如 \\(f(x)=(1+x)^k\\) 的function，可以通过Binomial Serises逼近，因为其本身就是一个Binomial 二项式，当然可以同Series来表示他的二项式展开，经典二项式定理为
 $$(1+x)^k = \sum_{n=0}^k \binom{k}{n} x^n$$</li>
-<li>但经典二项式定理存在一个前提为 \(k\in \mathbb z^+\)，当k不为整数的时候，二项式系数不会在某一项后归零，导致级数没有终止，这就导致了二项式展开变成了Seires，有
+<li>但经典二项式定理存在一个前提为 \\(k\in \mathbb z^+\\)，当k不为整数的时候，二项式系数不会在某一项后归零，导致级数没有终止，这就导致了二项式展开变成了Seires，有
 $$(1 + x)^k = 1 + kx + \frac{k(k-1)x^2}{2!} + \frac{k(k-1)(k-2)x^3}{3!} + \frac{k(k-1)(k-2)(k-3)x^4}{4!} + \cdots$$</li>
 </ul>
 

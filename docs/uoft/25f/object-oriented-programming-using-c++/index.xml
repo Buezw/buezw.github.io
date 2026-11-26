@@ -375,14 +375,14 @@
 &lt;ul&gt;
 &lt;li&gt;通常占 &lt;strong&gt;32 bits&lt;/strong&gt;，也就是 &lt;strong&gt;4 bytes&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;因为 1 bit 用来存储正负号，所以剩下 &lt;strong&gt;31 bits&lt;/strong&gt; 存数字&lt;/li&gt;
-&lt;li&gt;能表示的范围：\(-2^{31} \quad 到 \quad 2^{31}-1\)&lt;/li&gt;
+&lt;li&gt;能表示的范围：\\(-2^{31} \quad 到 \quad 2^{31}-1\\)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;short (短整型，short integer)&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;通常占 &lt;strong&gt;16 bits&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;1 bit 存符号，剩下 &lt;strong&gt;15 bits&lt;/strong&gt; 存数字。&lt;/li&gt;
-&lt;li&gt;范围：\(−1-2^{15} \quad 到 \quad 2^{15}-1\)&lt;/li&gt;
+&lt;li&gt;范围：\\(−1-2^{15} \quad 到 \quad 2^{15}-1\\)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;long (长整型，long integer)&lt;/strong&gt;
@@ -411,7 +411,7 @@
 &lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;floating-point numbers 浮点数就是带小数点的数，比如 2.9，−118.763&lt;/li&gt;
-&lt;li&gt;在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \(2.89 \times 10^{14}\) 会写成 &lt;code&gt;2.89e14&lt;/code&gt; 或 &lt;code&gt;2.89E14&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \\(2.89 \times 10^{14}\\) 会写成 &lt;code&gt;2.89e14&lt;/code&gt; 或 &lt;code&gt;2.89E14&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;与 Integer 一样，C/C++ 里有几种存储浮点数的数据类型 (data types)：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol&gt;

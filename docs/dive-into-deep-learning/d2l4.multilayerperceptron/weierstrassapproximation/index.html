@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -360,8 +363,8 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     
 </h2>
 <ul>
-<li>每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。</li>
-<li>换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &lt; \epsilon\)</li>
+<li>每一个定义在闭区间\\([a,b]\\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。</li>
+<li>换句话说，给定任意的连续函数\\(f: [a, b] \to \mathbb{R}\\)和任意小的正数\\(\epsilon\\)，都存在一个多项式\\(P(x)\\)，使得对所有\\(x \in [a, b]\\)都有\\(|f(x) - P(x)| < \epsilon\\)</li>
 </ul>
 
 
@@ -378,7 +381,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <ul>
 <li>采用离散的Convolution
 $$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$</li>
-<li>其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大</li>
+<li>其满足\\(\sum_i(x_i)=1\\)，离\\(x\\)越近的地方\\(w(x_i)\\)越大</li>
 </ul>
 
 
@@ -413,11 +416,11 @@ $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$</li>
     
 </h3>
 <ul>
-<li>这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)</li>
-<li>现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率</li>
-<li>当\(k=3\)时，概率质量函数为
+<li>这样理解，先不管\\(\binom{n}{k}\\)，假设一个成功率为\\(60\%\\)的事件，其总共实验次数为5次，也就是\\(p=0.6,n=5\\)</li>
+<li>现在当\\(k=5\\)的时候，Binomial Distribution表示的概率为\\(0.6^5\\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\\(0.6^5\\)，这就是最简单的概率</li>
+<li>当\\(k=3\\)时，概率质量函数为
 $$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$</li>
-<li>也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)</li>
+<li>也就是说，5次实验，每一个5次实验中3次成功的概率为\\(0.6^3 (1-0.6)^{5-3}\\)</li>
 <li>而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
 $$123,124,125,134,135,145,234,235,245,345$$</li>
 <li>这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10</li>
@@ -435,7 +438,7 @@ $$123,124,125,134,135,145,234,235,245,345$$</li>
     
 </h2>
 $$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$<ul>
-<li>用加权平均的方式（基于二项分布）生成新的多项式\(B_n(x)\)，作为\(f(x)\)的近似，实际上就是一个离散的Convolution</li>
+<li>用加权平均的方式（基于二项分布）生成新的多项式\\(B_n(x)\\)，作为\\(f(x)\\)的近似，实际上就是一个离散的Convolution</li>
 </ul>
 
 
@@ -466,8 +469,8 @@ $$(f * g)(x) = \sum_{k} f(k) g(x-k)$$<ul>
     
 </h3>
 $$B_n(x) = \mathbb{E}\left[f\left(\frac{X}{n}\right)\right]$$<ul>
-<li>最终可以得到Bernstein Polynomial的期望值在\(n\rightarrow \infty\)的情况下是就是\(f(x)\)</li>
-<li>也就是说可以通过一致收敛性，说明\(B_n(f, x)\)在区间\([0, 1]\)上以任意精度逼近\(f(x)\)</li>
+<li>最终可以得到Bernstein Polynomial的期望值在\\(n\rightarrow \infty\\)的情况下是就是\\(f(x)\\)</li>
+<li>也就是说可以通过一致收敛性，说明\\(B_n(f, x)\\)在区间\\([0, 1]\\)上以任意精度逼近\\(f(x)\\)</li>
 </ul>
 
     </div>

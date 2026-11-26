@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -556,14 +559,14 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <ul>
 <li>通常占 <strong>32 bits</strong>，也就是 <strong>4 bytes</strong></li>
 <li>因为 1 bit 用来存储正负号，所以剩下 <strong>31 bits</strong> 存数字</li>
-<li>能表示的范围：\(-2^{31} \quad 到 \quad 2^{31}-1\)</li>
+<li>能表示的范围：\\(-2^{31} \quad 到 \quad 2^{31}-1\\)</li>
 </ul>
 </li>
 <li><strong>short (短整型，short integer)</strong>
 <ul>
 <li>通常占 <strong>16 bits</strong></li>
 <li>1 bit 存符号，剩下 <strong>15 bits</strong> 存数字。</li>
-<li>范围：\(−1-2^{15} \quad 到 \quad 2^{15}-1\)</li>
+<li>范围：\\(−1-2^{15} \quad 到 \quad 2^{15}-1\\)</li>
 </ul>
 </li>
 <li><strong>long (长整型，long integer)</strong>
@@ -592,7 +595,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </h4>
 <ul>
 <li>floating-point numbers 浮点数就是带小数点的数，比如 2.9，−118.763</li>
-<li>在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \(2.89 \times 10^{14}\) 会写成 <code>2.89e14</code> 或 <code>2.89E14</code></li>
+<li>在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \\(2.89 \times 10^{14}\\) 会写成 <code>2.89e14</code> 或 <code>2.89E14</code></li>
 <li>与 Integer 一样，C/C++ 里有几种存储浮点数的数据类型 (data types)：</li>
 </ul>
 <ol>
@@ -953,7 +956,7 @@ $$<ul>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><ul>
 <li><code>factorial</code> ：计算了 Parameter 中 Integer 的阶乘</li>
-<li><code>nChooseK</code> ：调用 <code>factorial</code>  计算完整的公式 \(\binom{n}{k} = \frac{n!}{k!(n-k)!}\)</li>
+<li><code>nChooseK</code> ：调用 <code>factorial</code>  计算完整的公式 \\(\binom{n}{k} = \frac{n!}{k!(n-k)!}\\)</li>
 </ul>
 
 

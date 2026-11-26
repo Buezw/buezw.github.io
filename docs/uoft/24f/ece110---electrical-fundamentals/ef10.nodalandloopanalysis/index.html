@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -381,16 +384,16 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>以上图为例，在 Node 1 到 2 之间，Potential Difference 为 \(V_s=V_1+V_a\)</li>
-<li>而需要注意的是，在 Node Analysis 中，由 Battery 提供的初始 Voltage 被视为负值，有 \(-V_s+V_1+V_a=0\)</li>
+<li>以上图为例，在 Node 1 到 2 之间，Potential Difference 为 \\(V_s=V_1+V_a\\)</li>
+<li>而需要注意的是，在 Node Analysis 中，由 Battery 提供的初始 Voltage 被视为负值，有 \\(-V_s+V_1+V_a=0\\)</li>
 <li>这是因为，当电路闭合的时候，Battery 推动 Electron 从负极向正极移动，并且在到达正极的时候获取了最高的 Electric Potential，之后在通过 Resistor 和其他负载的时候，Electron 会消耗这些 Potential Energy 以克服阻力，这视为 Potential 的下降</li>
 <li>但是规定的符号与能量变换相反，即 Battery 提供 Electric Potential 的过程视为负号，用电器小号 Potential 的过程视为正号</li>
-<li>总结上图中的 \(V_1,V_3,V_5\)，可以得出</li>
+<li>总结上图中的 \\(V_1,V_3,V_5\\)，可以得出</li>
 </ul>
 $$
 I_1 = \frac{V_1}{9k} = \frac{V_s - V_a}{9k},I_3 = \frac{V_3}{3k} = \frac{V_a - V_b}{3k},I_5 = \frac{V_5}{9k} = \frac{V_b - V_c}{9k}
 $$<ul>
-<li>对于 \(6k\Omega\) 和 \(4k\Omega\) 来说，由于 Ground 是电路中所有 Node Potential 的参考零点，所以其本身为 0 V，也就是说 \(0=V_a-V_{6k\Omega}\)，而它所对应的 Current 也就是</li>
+<li>对于 \\(6k\Omega\\) 和 \\(4k\Omega\\) 来说，由于 Ground 是电路中所有 Node Potential 的参考零点，所以其本身为 0 V，也就是说 \\(0=V_a-V_{6k\Omega}\\)，而它所对应的 Current 也就是</li>
 </ul>
 $$
 I_2=\frac{V_{6k\Omega}}{6k}=\frac{V_a-0}{6k}
@@ -462,10 +465,10 @@ $$
     </figure>
 </p>
 <ul>
-<li>上图中即存在两个 Current Source，\(i_A\)  和 \(i_B\)</li>
-<li>而对于 Node 来说，Node 1 根据 KCL 有 \(i_A=i_1+i_2\)，Node 2 有 \(i_2=i_B+i_3\)</li>
-<li>现在进一步假设 \(I_A = 1,mA, R_1 = 12,k\Omega, R_2 = 6,k\Omega,  I_B = 4,mA, R_3 = 6,k\Omega\)</li>
-<li>已知 \({i}_1 = \frac{v_1}{R_1},{i}_2 = \frac{v_1 - v_2}{R_2},{i}_3 = \frac{v_2}{R_3}\)，将他们带入原来的 Equation 中，有</li>
+<li>上图中即存在两个 Current Source，\\(i_A\\)  和 \\(i_B\\)</li>
+<li>而对于 Node 来说，Node 1 根据 KCL 有 \\(i_A=i_1+i_2\\)，Node 2 有 \\(i_2=i_B+i_3\\)</li>
+<li>现在进一步假设 \\(I_A = 1\,mA, R_1 = 12\,k\Omega, R_2 = 6\,k\Omega,  I_B = 4\,mA, R_3 = 6\,k\Omega\\)</li>
+<li>已知 \\({i}_1 = \frac{v_1}{R_1},{i}_2 = \frac{v_1 - v_2}{R_2},{i}_3 = \frac{v_2}{R_3}\\)，将他们带入原来的 Equation 中，有</li>
 </ul>
 $$
 i_A = \frac{v_1}{R_1} + \frac{v_1 - v_2}{R_2},i_B = \frac{v_1 - v_2}{R_2} + \frac{v_2}{R_3}
@@ -475,7 +478,7 @@ $$<ul>
 $$
 1\times 10^3=\frac{v_1}{12k}+\frac{v_1-v_2}{6k},-4\times10^3=\frac{v_1-v_2}{6k}=\frac{v_2}{6k}
 $$<ul>
-<li>解方程组后可以得到 \(V_1=-6V,V_2=-15V\)，也就可以对应解出 \(I_1,I_2\) 了</li>
+<li>解方程组后可以得到 \\(V_1=-6V,V_2=-15V\\)，也就可以对应解出 \\(I_1,I_2\\) 了</li>
 </ul>
 <blockquote>
 <p>同时也可以发现，如果一个 Circuit 中有 N 个 Node，则对应存在 N-1 个 Equation 需要解</p>

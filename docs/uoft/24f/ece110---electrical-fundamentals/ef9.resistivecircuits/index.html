@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -420,7 +423,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 $$
 v(t) = Ri(t), \text{ where } R \geq 0
 $$<ul>
-<li>其中 Ohms 的符号为 \(\Omega,1\Omega=1V/A\)</li>
+<li>其中 Ohms 的符号为 \\(\Omega,1\Omega=1V/A\\)</li>
 </ul>
 
 
@@ -489,7 +492,7 @@ $$<ul>
 </h2>
 <ul>
 <li>Conductance 由符号 G 表示，其是 Resistor 的倒数</li>
-<li>它的单位是 Siemens，有 \(1S=1A/V\)</li>
+<li>它的单位是 Siemens，有 \\(1S=1A/V\\)</li>
 </ul>
 
 
@@ -509,12 +512,12 @@ $$<ul>
 $$
 p(t) = v(t) i(t)
 $$<ul>
-<li>当把 \(V=Ri\) 带入，有</li>
+<li>当把 \\(V=Ri\\) 带入，有</li>
 </ul>
 $$
 p(t) = Ri^2(t) = \frac{v^2(t)}{R}
 $$<ul>
-<li>带入 Conductance \(i(t) = Gv(t)\) 可以得到</li>
+<li>带入 Conductance \\(i(t) = Gv(t)\\) 可以得到</li>
 </ul>
 $$
 p(t) = \frac{i^2(t)}{G} = Gv^2(t)
@@ -654,8 +657,8 @@ $$
 $$
 -v(t) + v_{R1} + v_{R2} = 0\Rightarrow v(t) = v_{R1} + v_{R2}
 $$<ul>
-<li>根据 Ohm&rsquo;s Law 可以知道，\(v_{R1} = R_1i(t),v_{R2} = R_2i(t)\)，有 \(v(t)=R_1i(t)+R_2i(t)\)，可以解出 \(i(t) = \frac{v(t)}{R_1 + R_2}\)</li>
-<li>带回 \(v_{R_1}=R_1 i(t)\) 后可以得到</li>
+<li>根据 Ohm&rsquo;s Law 可以知道，\\(v_{R1} = R_1i(t),v_{R2} = R_2i(t)\\)，有 \\(v(t)=R_1i(t)+R_2i(t)\\)，可以解出 \\(i(t) = \frac{v(t)}{R_1 + R_2}\\)</li>
+<li>带回 \\(v_{R_1}=R_1 i(t)\\) 后可以得到</li>
 </ul>
 $$
 = R_1 \left[ \frac{v(t)}{R_1 + R_2} \right]
@@ -692,8 +695,8 @@ $$
     </figure>
 </p>
 <ul>
-<li>上图中，a 存在了多个 Voltage Sources 和 Resistors，沿着 Closed Loop 列出所有 KVL 方程 \(+vR1+v2(t)−v3(t)+vR2+v4(t)+v5(t)−v1(t)=0\)，将所有非 Resistor 的 Voltage 移动到等式右边，有 \(vR1+vR2=v1(t)−v2(t)+v3(t)−v4(t)−v5(t)\)</li>
-<li>根据 KVL ，就可以创建一个 \(R_S=R_1+R_2+R_3+R_4+R_5\) 的等效电路</li>
+<li>上图中，a 存在了多个 Voltage Sources 和 Resistors，沿着 Closed Loop 列出所有 KVL 方程 \\(+vR1+v2(t)−v3(t)+vR2+v4(t)+v5(t)−v1(t)=0\\)，将所有非 Resistor 的 Voltage 移动到等式右边，有 \\(vR1+vR2=v1(t)−v2(t)+v3(t)−v4(t)−v5(t)\\)</li>
+<li>根据 KVL ，就可以创建一个 \\(R_S=R_1+R_2+R_3+R_4+R_5\\) 的等效电路</li>
 <li>于是就把整个 Circuit 化简为了 b 中的等效电路</li>
 </ul>
 
@@ -732,7 +735,7 @@ $$
 $$
 10kI + 20kI + 12 + 30kI - 6 = 0\Rightarrow60kI = -6 \Rightarrow I = -0.1 \, \text{mA}
 $$<ul>
-<li>bd 段的 Voltage 自然可以通过 \(10kI + V_{bd} + 30kI - 6 = 0\) 得到，代入 \(I = -0.1 , \text{mA}\) 后得到 \(V_{bd}=10V\)</li>
+<li>bd 段的 Voltage 自然可以通过 \\(10kI + V_{bd} + 30kI - 6 = 0\\) 得到，代入 \\(I = -0.1 \, \text{mA}\\) 后得到 \\(V_{bd}=10V\\)</li>
 </ul>
 
 
@@ -746,7 +749,7 @@ $$<ul>
     </span>        
     
 </h4>
-<p>求出 \(V_S\) 段的 Voltage</p>
+<p>求出 \\(V_S\\) 段的 Voltage</p>
 <p>
     <figure>
       <img
@@ -764,9 +767,9 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>已知 Parallel Circuit 分流不分压，有 \(I_L=458.3/220=2.083~kA\)</li>
-<li>后面又进入了一个 Series Circuit，有 \(V_{line}=20\cdot 2. 083=41.66 ~kV\)</li>
-<li>根据 KVL，可以得到 \(V_S=V_{line}+V_{load}=500 ~kV\)</li>
+<li>已知 Parallel Circuit 分流不分压，有 \\(I_L=458.3/220=2.083~kA\\)</li>
+<li>后面又进入了一个 Series Circuit，有 \\(V_{line}=20\cdot 2. 083=41.66 ~kV\\)</li>
+<li>根据 KVL，可以得到 \\(V_S=V_{line}+V_{load}=500 ~kV\\)</li>
 </ul>
 
 

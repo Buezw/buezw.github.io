@@ -425,28 +425,21 @@ $$&lt;p&gt;$\vec u$: The Velocity Vector of the charge&lt;/p&gt;</description>
 &lt;/h1&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/signal-and-systems/ss4.sample/image_hu11577419530782591876.png 330w,
+        /docs/uoft/26w/signal-and-systems/ss4.sample/image_hu16987609631823929285.png 660w,
+        /docs/uoft/26w/signal-and-systems/ss4.sample/image_hu18034367935045768103.png 1024w,
+        /docs/uoft/26w/signal-and-systems/ss4.sample/image_hu17761498363794389954.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss4.sample/image_hu16987609631823929285.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;Sampling means to collect a measurement of a signal&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;If there’s too few samples, then there’s a little we can learn&lt;/li&gt;
-&lt;li&gt;If there’s “enough”, then we may be able to figure out the original one&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;The sampling function 
-    &lt;div id=&#34;the-sampling-function&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#the-sampling-function&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;p&gt;The sampling function is defined as&lt;/p&gt;</description>
+&lt;p&gt;Sampling means to collect a measurement of a signal&lt;/p&gt;</description>
       
     </item>
     
@@ -598,11 +591,20 @@ $$&lt;p&gt;$x^{(n)}$: x’s n th derivative for t&lt;/p&gt;</description>
 &lt;p&gt;We have already know how to use Fourier Series to analyze periodic signals by extract it into frequency domain&lt;/p&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/signal-and-systems/ss3.fouriertransform/image_hu13929063524903215331.png 330w,
+        /docs/uoft/26w/signal-and-systems/ss3.fouriertransform/image_hu10108250250312767238.png 660w,
+        /docs/uoft/26w/signal-and-systems/ss3.fouriertransform/image_hu16228746365965956017.png 1024w,
+        /docs/uoft/26w/signal-and-systems/ss3.fouriertransform/image_hu1374045308402058343.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss3.fouriertransform/image_hu10108250250312767238.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
       
     &lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;But what if the signal is aperiodic?&lt;/p&gt;</description>
+&lt;/p&gt;</description>
       
     </item>
     
@@ -783,11 +785,20 @@ $$&lt;p&gt;$x^{(n)}$: x’s n th derivative for t&lt;/p&gt;</description>
 &lt;p&gt;Now consider this case&lt;/p&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu14483275775885328603.png 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu10303013519027271002.png 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu334350903626730891.png 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu10758743045942613175.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu10303013519027271002.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
       
     &lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;we have being given an oscillation signal of an object after collision&lt;/p&gt;</description>
+&lt;/p&gt;</description>
       
     </item>
     
@@ -881,7 +892,17 @@ $$&lt;ul&gt;
 &lt;/h3&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu4047206524842700002.png 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu17756683082345888347.png 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu6769386479947297879.png 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu9239841066616596580.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu17756683082345888347.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>
@@ -1117,7 +1138,7 @@ $$&lt;ul&gt;
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;先 AND 再 NOT，写作 \(\overline {A\cdot B}\)&lt;/li&gt;
+&lt;li&gt;先 AND 再 NOT，写作 \\(\overline {A\cdot B}\\)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
     &lt;figure&gt;
@@ -1342,16 +1363,16 @@ $$&lt;ul&gt;
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;函数 \(f\) 的极限是 \(L\)，当点 \(P(x,y)\) 逼近 \(P_0(a,b)\) 时，写作&lt;/li&gt;
+&lt;li&gt;函数 \\(f\\) 的极限是 \\(L\\)，当点 \\(P(x,y)\\) 逼近 \\(P_0(a,b)\\) 时，写作&lt;/li&gt;
 &lt;/ul&gt;
 $$
 \lim_{(x,y)\to(a,b)} f(x,y) = \lim_{P \to P_0} f(x,y) = L
 $$&lt;ul&gt;
-&lt;li&gt;对任意的 \(\varepsilon &amp;gt; 0\)，存在一个 \(\delta &amp;gt; 0\)，使得&lt;/li&gt;
+&lt;li&gt;对任意的 \\(\varepsilon &gt; 0\\)，存在一个 \\(\delta &gt; 0\\)，使得&lt;/li&gt;
 &lt;/ul&gt;
 $$
 | f(x,y) - L | &lt; \varepsilon
-$$&lt;p&gt;当且仅当 \((x,y)\) 在 \(f(x,y)\) 的定义域内，并且&lt;/p&gt;</description>
+$$&lt;p&gt;当且仅当 \\((x,y)\\) 在 \\(f(x,y)\\) 的定义域内，并且&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/25f/introduction-to-mathematic-physic/imp2.limits/feature.png" />
     </item>
     
@@ -1388,7 +1409,7 @@ $$&lt;p&gt;当且仅当 \((x,y)\) 在 \(f(x,y)\) 的定义域内，并且&lt;/p&
 &lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;最早对 Complex Numbers 的接触出现在 Quadratic Equation 中&lt;/li&gt;
-&lt;li&gt;当有 \(ax^2+bx+c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &amp;lt; 0\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\)&lt;/li&gt;
+&lt;li&gt;当有 \\(ax^2+bx+c=d\\) 的时候，如果 Discriminant 判别式 \\(b^2-4ac &lt; 0\\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \\(i^2=-1\\)&lt;/li&gt;
 &lt;li&gt;但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的&lt;/li&gt;
 &lt;/ul&gt;
 $$
@@ -1633,14 +1654,14 @@ $$&lt;p&gt;
 &lt;ul&gt;
 &lt;li&gt;通常占 &lt;strong&gt;32 bits&lt;/strong&gt;，也就是 &lt;strong&gt;4 bytes&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;因为 1 bit 用来存储正负号，所以剩下 &lt;strong&gt;31 bits&lt;/strong&gt; 存数字&lt;/li&gt;
-&lt;li&gt;能表示的范围：\(-2^{31} \quad 到 \quad 2^{31}-1\)&lt;/li&gt;
+&lt;li&gt;能表示的范围：\\(-2^{31} \quad 到 \quad 2^{31}-1\\)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;short (短整型，short integer)&lt;/strong&gt;
 &lt;ul&gt;
 &lt;li&gt;通常占 &lt;strong&gt;16 bits&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;1 bit 存符号，剩下 &lt;strong&gt;15 bits&lt;/strong&gt; 存数字。&lt;/li&gt;
-&lt;li&gt;范围：\(−1-2^{15} \quad 到 \quad 2^{15}-1\)&lt;/li&gt;
+&lt;li&gt;范围：\\(−1-2^{15} \quad 到 \quad 2^{15}-1\\)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;long (长整型，long integer)&lt;/strong&gt;
@@ -1669,7 +1690,7 @@ $$&lt;p&gt;
 &lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;floating-point numbers 浮点数就是带小数点的数，比如 2.9，−118.763&lt;/li&gt;
-&lt;li&gt;在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \(2.89 \times 10^{14}\) 会写成 &lt;code&gt;2.89e14&lt;/code&gt; 或 &lt;code&gt;2.89E14&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;在计算机内存中，它们的表示方式类似于科学记数法 (scientific notation)，比如 \\(2.89 \times 10^{14}\\) 会写成 &lt;code&gt;2.89e14&lt;/code&gt; 或 &lt;code&gt;2.89E14&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;与 Integer 一样，C/C++ 里有几种存储浮点数的数据类型 (data types)：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol&gt;
@@ -2861,13 +2882,13 @@ $$&lt;ul&gt;
   &lt;tbody&gt;
       &lt;tr&gt;
           &lt;td style=&#34;text-align: left&#34;&gt;x&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;\(v_0 \cos \theta\)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;\\(v_0 \cos \theta\\)&lt;/td&gt;
           &lt;td style=&#34;text-align: left&#34;&gt;0&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr&gt;
           &lt;td style=&#34;text-align: left&#34;&gt;y&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;\(v_0 \sin \theta\)&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;\(\downarrow g, , -g \uparrow\)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;\\(v_0 \sin \theta\\)&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;\\(\downarrow g, \, -g \uparrow\\)&lt;/td&gt;
       &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -3001,7 +3022,7 @@ $$&lt;ul&gt;
 &lt;ul&gt;
 &lt;li&gt;在科学中存在多个 Field的概念，其中包含了 Teperature Field，Pressure Field 等&lt;/li&gt;
 &lt;li&gt;而 Electric Field 则是一个 Vector Field，矢量场，其包含了大小与方向&lt;/li&gt;
-&lt;li&gt;具体来说，定义 Electric Field的方式是在 Electric Field \(\vec{E}\) 的某个点 P 处放置一个 Small Positive Charge 的 \(q_0\)，其为 Test Charge&lt;/li&gt;
+&lt;li&gt;具体来说，定义 Electric Field的方式是在 Electric Field \\(\vec{E}\\) 的某个点 P 处放置一个 Small Positive Charge 的 \\(q_0\\)，其为 Test Charge&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;We want the charge to be small so that it does not disturb the object’s charge distribution&lt;/p&gt;</description>
@@ -3187,7 +3208,7 @@ $$&lt;ul&gt;
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;任何封闭电路中 Induced Current 大小，等于穿过这一电路 Magnetic Flux 的变化率&lt;/li&gt;
-&lt;li&gt;已知 Magnetic Flux 的定义即为 \(\Phi_B=\int B\cdot dA\)&lt;/li&gt;
+&lt;li&gt;已知 Magnetic Flux 的定义即为 \\(\Phi_B=\int B\cdot dA\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3292,11 +3313,11 @@ $$&lt;ul&gt;
 &lt;ul&gt;
 &lt;li&gt;当 Charged Particle 在 Magnetic Field 中移动的时候，它受到的力为
 $$\vec F_B=q(\vec v\times\vec B)$$&lt;/li&gt;
-&lt;li&gt;其中 \(\vec v\) 为 Velocity Vector&lt;/li&gt;
+&lt;li&gt;其中 \\(\vec v\\) 为 Velocity Vector&lt;/li&gt;
 &lt;li&gt;Magnetic Field Strength 的力的方向则是 Cross Product 方向，即通过 Right Hard Rule 给出&lt;/li&gt;
 &lt;li&gt;具体来说 Magnitude 为
 $$F_B=|q|v_B\sin\phi$$&lt;/li&gt;
-&lt;li&gt;其中 \(\phi\) 为 Velocity 和 Magnetic Field 之间的夹角&lt;/li&gt;
+&lt;li&gt;其中 \\(\phi\\) 为 Velocity 和 Magnetic Field 之间的夹角&lt;/li&gt;
 &lt;li&gt;Magnetic Field Strength 的单位为 Tesla，有
 $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})(\text{meter/second})}$$&lt;/li&gt;
 &lt;/ul&gt;
@@ -3327,7 +3348,7 @@ $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})
     &lt;/span&gt;        
     
 &lt;/h3&gt;
-&lt;p&gt;A uniform magnetic field \(\vec{B}\), with a magnitude of \(1.2 , \text{mT}\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \(5.3 , \text{MeV}\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \(1.67 \times 10^{-27} , \text{kg}\). (Neglect Earth&amp;rsquo;s magnetic field.)&lt;/p&gt;</description>
+&lt;p&gt;A uniform magnetic field \\(\vec{B}\\), with a magnitude of \\(1.2 \, \text{mT}\\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \\(5.3 \, \text{MeV}\\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \\(1.67 \times 10^{-27} \, \text{kg}\\). (Neglect Earth&amp;rsquo;s magnetic field.)&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/feature.png" />
     </item>
     
@@ -3447,7 +3468,7 @@ $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;对于一个重力场，其Field Strength为g，而Gravity所做的功则为\(W=mgh\)&lt;/li&gt;
+&lt;li&gt;对于一个重力场，其Field Strength为g，而Gravity所做的功则为\\(W=mgh\\)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
     &lt;figure&gt;
@@ -3490,7 +3511,7 @@ $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;Sequence是按照一定顺序排列的一列数。序列可以是有限的也可以是无限的，通常表示为\(a_1, a_2, a_3, \ldots\)，其中\(a_n\)表示序列的第n项&lt;/li&gt;
+&lt;li&gt;Sequence是按照一定顺序排列的一列数。序列可以是有限的也可以是无限的，通常表示为\\(a_1, a_2, a_3, \ldots\\)，其中\\(a_n\\)表示序列的第n项&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3524,7 +3545,7 @@ $$\lim_{n\rightarrow\infty}a_n=L,L\in \mathbb R$$&lt;/li&gt;
     
 &lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;找到Sequence \(a_n = \left(1 + \frac{1}{n}\right)^n\)的Limit
+&lt;li&gt;找到Sequence \\(a_n = \left(1 + \frac{1}{n}\right)^n\\)的Limit
 $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n = e$$&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -3540,7 +3561,7 @@ $$\lim_{n \to \infty} a_n = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n =
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Let \(\lim_{n \to \infty} a_n = L \text{ and } \lim_{n \to \infty} b_n = K\)
+&lt;li&gt;Let \\(\lim_{n \to \infty} a_n = L \text{ and } \lim_{n \to \infty} b_n = K\\)
 $$\lim_{n \to \infty} (a_n \pm b_n) = L \pm K$$
 $$\lim_{n \to \infty} c a_n = cL$$
 $$\lim_{n \to \infty} (a_n b_n) = LK$$
@@ -3559,7 +3580,7 @@ $$\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{L}{K}$$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Squeeze Theorem也可以用来解Sequence的Convergence，其通常用在 \((-1)^n, \sin(x)\)等在\(n\rightarrow \infty\)时oscillate的函数中&lt;/li&gt;
+&lt;li&gt;Squeeze Theorem也可以用来解Sequence的Convergence，其通常用在 \\((-1)^n, \sin(x)\\)等在\\(n\rightarrow \infty\\)时oscillate的函数中&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3574,8 +3595,8 @@ $$\lim_{n \to \infty} \frac{a_n}{b_n} = \frac{L}{K}$$&lt;/li&gt;
     
 &lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;证明Sequence $\{ c_n \} = \left\{ (-1)^n \frac{1}{n!} \right\}$收敛&lt;/li&gt;
-&lt;li&gt;使用两个序列\(a_n=\frac{1}{2^n}\)，已知Factorial的扩散速度小于Exponential，有
+&lt;li&gt;证明Sequence \\(\{ c_n \} = \left\{ (-1)^n \frac{1}{n!} \right\}\\)收敛&lt;/li&gt;
+&lt;li&gt;使用两个序列\\(a_n=\frac{1}{2^n}\\)，已知Factorial的扩散速度小于Exponential，有
 $$-\frac{1}{2^n} \leq (-1)^n \frac{1}{n!} \leq \frac{1}{2^n}, \quad n \geq 4$$&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -3618,7 +3639,7 @@ $$-\frac{1}{2^n} \leq (-1)^n \frac{1}{n!} \leq \frac{1}{2^n}, \quad n \geq 4$$&l
     
 &lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;当存在一个\(M\in \mathbb R\)使得\(a_n\leq M\)时，称该Sequence Bounded Above&lt;/li&gt;
+&lt;li&gt;当存在一个\\(M\in \mathbb R\\)使得\\(a_n\leq M\\)时，称该Sequence Bounded Above&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3633,7 +3654,7 @@ $$-\frac{1}{2^n} \leq (-1)^n \frac{1}{n!} \leq \frac{1}{2^n}, \quad n \geq 4$$&l
     
 &lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;当存在一个\(M\in \mathbb R\)使得\(a_n\geq M\)时，称该Sequence Bounded Below&lt;/li&gt;
+&lt;li&gt;当存在一个\\(M\in \mathbb R\\)使得\\(a_n\geq M\\)时，称该Sequence Bounded Below&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3695,7 +3716,7 @@ $$S_n=\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \cdots + a_n + \cdots$$&lt;/li
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;对于一个Series \(\sum^\infty_{n=1}a_n\)来说，如果其Partial Sum（前n项之和）等于S，则该Series Converge，反则Diverge&lt;/li&gt;
+&lt;li&gt;对于一个Series \\(\sum^\infty_{n=1}a_n\\)来说，如果其Partial Sum（前n项之和）等于S，则该Series Converge，反则Diverge&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3725,7 +3746,7 @@ $$S_n=\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \cdots + a_n + \cdots$$&lt;/li
     
 &lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;求解\(\sum_{n=1}^{\infty} \frac{2}{4n^2 - 1}\)
+&lt;li&gt;求解\\(\sum_{n=1}^{\infty} \frac{2}{4n^2 - 1}\\)
 $$a_n = \frac{2}{4n^2 - 1} = \frac{2}{(2n - 1)(2n + 1)} = \frac{1}{2n - 1} - \frac{1}{2n + 1}$$&lt;/li&gt;
 &lt;li&gt;通过观察规律可以看出
 $$S_n = \left( \frac{1}{1} - \frac{1}{3} \right) + \left( \frac{1}{3} - \frac{1}{5} \right) + \cdots + \left( \frac{1}{2n-1} - \frac{1}{2n+1} \right) = 1 - \frac{1}{2n+1}$$&lt;/li&gt;
@@ -3745,7 +3766,7 @@ $$\sum_{n=1}^{\infty} \frac{2}{4n^2 - 1} = \lim_{n \to \infty} S_n = \lim_{n \to
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;形如\(\sum_{n=0}^{\infty} ar^n\)的Series被称为Geometric Series，其完整形式为
+&lt;li&gt;形如\\(\sum_{n=0}^{\infty} ar^n\\)的Series被称为Geometric Series，其完整形式为
 $$\sum_{n=0}^{\infty} ar^n = a + ar + ar^2 + \cdots + ar^n + \cdots, \quad a \neq 0$$&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -3762,7 +3783,7 @@ $$\sum_{n=0}^{\infty} ar^n = a + ar + ar^2 + \cdots + ar^n + \cdots, \quad a \ne
 &lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;当Geometric Series的的敛散性高度取决于其公比r的取值&lt;/li&gt;
-&lt;li&gt;具体来说当\(0&amp;lt;|r|&amp;lt;1\) Geometric Series Converge ，当\(|r|\geq 1\)，其Diverge&lt;/li&gt;
+&lt;li&gt;具体来说当\\(0&lt;|r|&lt;1\\) Geometric Series Converge ，当\\(|r|\geq 1\\)，其Diverge&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3793,7 +3814,7 @@ $$\lim_{n \to \infty} S_n = \lim_{n \to \infty} \left[ \frac{a(1 - r^n)}{1 - r} 
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;如果\(\sum a_n\)和\(\sum b_n\)都是Converge的Series，并且分别收敛到A和B，则有
+&lt;li&gt;如果\\(\sum a_n\\)和\\(\sum b_n\\)都是Converge的Series，并且分别收敛到A和B，则有
 $$\sum_{n=1}^{\infty} c a_n = cA$$
 $$\sum_{n=1}^{\infty} (a_n + b_n) = A + B$$
 $$\sum_{n=1}^{\infty} (a_n - b_n) = A - B$$&lt;/li&gt;
@@ -3823,7 +3844,7 @@ $$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;当 \(p&amp;gt;1\) 的时候Converge，\(0&amp;lt;p\leq 1\) 的时候Diverge&lt;/li&gt;
+&lt;li&gt;当 \\(p&gt;1\\) 的时候Converge，\\(0&lt;p\leq 1\\) 的时候Diverge&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3870,10 +3891,10 @@ $$\sum_{n=1}^{\infty} \frac{1}{n^p} = \frac{1}{1^p} + \frac{1}{2^p} + \frac{1}{3
 &lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;如果一个&lt;strong&gt;收敛的交错级数&lt;/strong&gt;满足以下条件：&lt;/li&gt;
-&lt;li&gt;\(a_{n+1} \leq a_n\)（即正项部分单调递减），\(\lim_{n \to \infty} a_n = 0\)，&lt;/li&gt;
-&lt;li&gt;那么，当用第N项部分和\(S_N\)来近似整个级数的和 SS 时，有
+&lt;li&gt;\\(a_{n+1} \leq a_n\\)（即正项部分单调递减），\\(\lim_{n \to \infty} a_n = 0\\)，&lt;/li&gt;
+&lt;li&gt;那么，当用第N项部分和\\(S_N\\)来近似整个级数的和 SS 时，有
 $$|S - S_N| = |R_N| \leq a_{N+1}$$
-换句话说，误差的绝对值小于等于被忽略的第一个正项\(a_{N+1}\)&lt;/li&gt;
+换句话说，误差的绝对值小于等于被忽略的第一个正项\\(a_{N+1}\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3890,7 +3911,7 @@ $$|S - S_N| = |R_N| \leq a_{N+1}$$
 &lt;ul&gt;
 &lt;li&gt;有的Series可能含有正负项，但他们不已一定规律出现&lt;/li&gt;
 &lt;li&gt;这时候就需要利用Absolute and Conditional Convergence&lt;/li&gt;
-&lt;li&gt;如果一个级数 \(\sum |a_n|\) &lt;strong&gt;Convergence Absolutly&lt;/strong&gt;（即级数的项的绝对值构成的级数收敛），则原级数 \(\sum a_n\) 也一定Converge&lt;/li&gt;
+&lt;li&gt;如果一个级数 \\(\sum |a_n|\\) &lt;strong&gt;Convergence Absolutly&lt;/strong&gt;（即级数的项的绝对值构成的级数收敛），则原级数 \\(\sum a_n\\) 也一定Converge&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3905,7 +3926,7 @@ $$|S - S_N| = |R_N| \leq a_{N+1}$$
     
 &lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;对于一个Series，当\(\sum |a_n|\) Diverge但是\(\sum a_n\) converge的时候，其Conditionally Converge 条件收敛&lt;/li&gt;
+&lt;li&gt;对于一个Series，当\\(\sum |a_n|\\) Diverge但是\\(\sum a_n\\) converge的时候，其Conditionally Converge 条件收敛&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -3935,7 +3956,7 @@ $$|S - S_N| = |R_N| \leq a_{N+1}$$
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;如果函数f(x)满足以下条件：f(x)在 \(x \geq 1\) 上是positive，continuous，decreasing的，则：
+&lt;li&gt;如果函数f(x)满足以下条件：f(x)在 \\(x \geq 1\\) 上是positive，continuous，decreasing的，则：
 $$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$&lt;/li&gt;
 &lt;li&gt;的收敛性是一致的：  要么两者都收敛，要么两者都发散&lt;/li&gt;
 &lt;/ul&gt;
@@ -3952,11 +3973,11 @@ $$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;假设存在两个正项级数 \(\sum a_n\) 和 \(\sum b_n\)，并且对所有n都满足 \(0 &amp;lt; a_n \leq b_n\)，则有：&lt;/li&gt;
+&lt;li&gt;假设存在两个正项级数 \\(\sum a_n\\) 和 \\(\sum b_n\\)，并且对所有n都满足 \\(0 &lt; a_n \leq b_n\\)，则有：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ol&gt;
-&lt;li&gt;如果 \(n\sum b_n\) &lt;strong&gt;Converge&lt;/strong&gt;，则 \(\sum a_n\) 也&lt;strong&gt;Converge&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;如果 \(\sum a_n\) &lt;strong&gt;Diverge&lt;/strong&gt;，则 \(\sum b_n\) 也&lt;strong&gt;Diverge&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果 \\(n\sum b_n\\) &lt;strong&gt;Converge&lt;/strong&gt;，则 \\(\sum a_n\\) 也&lt;strong&gt;Converge&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;如果 \\(\sum a_n\\) &lt;strong&gt;Diverge&lt;/strong&gt;，则 \\(\sum b_n\\) 也&lt;strong&gt;Diverge&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 
@@ -3972,9 +3993,9 @@ $$\sum_{n=1}^\infty a_n与\int_{1}^\infty f(x)\, dx$$&lt;/li&gt;
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;对于Direct Comparison能做的，Limit都能做到并且会更加简单
-假设存在两个正项级数 \(\sum a_n\) 和 \(\sum b_n\)，并且满足：&lt;/li&gt;
+假设存在两个正项级数 \\(\sum a_n\\) 和 \\(\sum b_n\\)，并且满足：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;\(a_n &amp;gt; 0\) 和 \(b_n &amp;gt; 0\) 对所有n成立，存在极限： \(\lim_{n \to \infty} \frac{a_n}{b_n} = L\) 其中\(0 &amp;lt; L &amp;lt; \infty\)&lt;/p&gt;</description>
+&lt;p&gt;\\(a_n &gt; 0\\) 和 \\(b_n &gt; 0\\) 对所有n成立，存在极限： \\(\lim_{n \to \infty} \frac{a_n}{b_n} = L\\) 其中\\(0 &lt; L &lt; \infty\\)&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus9.series/feature.png" />
     </item>
     
@@ -4407,8 +4428,8 @@ $$L_1(x) := \begin{cases}
 &lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Real Number 实数，包含了Reation &amp;amp; Irrational Number一直以来拥有一个Fundamental Property就是 Square of any real number is always nonnegative&lt;/li&gt;
-&lt;li&gt;换句话来说，方程\(x^2=-1\)在实数域是无解的，但这并不代表这个方程无解&lt;/li&gt;
-&lt;li&gt;要分析这一问题，首先就需要定义\(\sqrt{-1}\)&lt;/li&gt;
+&lt;li&gt;换句话来说，方程\\(x^2=-1\\)在实数域是无解的，但这并不代表这个方程无解&lt;/li&gt;
+&lt;li&gt;要分析这一问题，首先就需要定义\\(\sqrt{-1}\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -4425,10 +4446,10 @@ $$L_1(x) := \begin{cases}
 &lt;ul&gt;
 &lt;li&gt;An imaginary number is a number of the form bi, where b is real and
 $$i=\sqrt{-1}$$&lt;/li&gt;
-&lt;li&gt;定义指出Complex Number是形式为\(bi\)的数，其中b为Real Number&lt;/li&gt;
+&lt;li&gt;定义指出Complex Number是形式为\\(bi\\)的数，其中b为Real Number&lt;/li&gt;
 &lt;li&gt;有了这定义，我们便可以为任意Real Number找到对应的Square Root，具体来说
 $$(bi)^2=b^2\cdot i^2=b^2\cdot -1=-b^2$$&lt;/li&gt;
-&lt;li&gt;例如\((3i)^2=-9,\sqrt{-9}=3i\)&lt;/li&gt;
+&lt;li&gt;例如\\((3i)^2=-9,\sqrt{-9}=3i\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -4442,7 +4463,7 @@ $$(bi)^2=b^2\cdot i^2=b^2\cdot -1=-b^2$$&lt;/li&gt;
     &lt;/span&gt;        
     
 &lt;/h4&gt;
-&lt;p&gt;Solve the equation \(x^2 +2x+2 = 0\). Using the quadratic formula
+&lt;p&gt;Solve the equation \\(x^2 +2x+2 = 0\\). Using the quadratic formula
 &lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/mat186---calculus/calculus11.complexnumber/feature.png" />
     </item>
@@ -4566,7 +4587,7 @@ $$x=x(t) andy=y(t)$$&lt;/li&gt;
     
 &lt;/h4&gt;
 $$x(t) = t^2 - 3, \quad y(t) = 2t + 1, \quad -2 \leq t \leq 3.$$&lt;ul&gt;
-&lt;li&gt;从第二个Equation中提出\(t = \frac{y - 1}{2}\)后带入
+&lt;li&gt;从第二个Equation中提出\\(t = \frac{y - 1}{2}\\)后带入
 $$x = \left(\frac{y - 1}{2}\right)^2 - 3 \\ = \frac{y^2 - 2y + 1}{4} - 3 \\ = \frac{y^2 - 2y - 11}{4}$$&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -4583,7 +4604,7 @@ $$x = \left(\frac{y - 1}{2}\right)^2 - 3 \\ = \frac{y^2 - 2y + 1}{4} - 3 \\ = \f
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;通过一些等式建立x和y之间的关系&lt;/li&gt;
-&lt;li&gt;例如\(\cos^2x+\sin^2 x=1\)&lt;/li&gt;
+&lt;li&gt;例如\\(\cos^2x+\sin^2 x=1\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -4598,8 +4619,8 @@ $$x = \left(\frac{y - 1}{2}\right)^2 - 3 \\ = \frac{y^2 - 2y + 1}{4} - 3 \\ = \f
     
 &lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;有\(x = 3 \cos \theta \quad \text{and} \quad y = 4 \sin \theta, \quad 0 \leq \theta \leq 2\pi\)&lt;/li&gt;
-&lt;li&gt;通过\(cos \theta=\frac{x}{3},sin\theta=\frac{y}{4}\)替换原式，便有\((\frac{x}{3})^2+(\frac{y}{4})^2=1\)&lt;/li&gt;
+&lt;li&gt;有\\(x = 3 \cos \theta \quad \text{and} \quad y = 4 \sin \theta, \quad 0 \leq \theta \leq 2\pi\\)&lt;/li&gt;
+&lt;li&gt;通过\\(cos \theta=\frac{x}{3},sin\theta=\frac{y}{4}\\)替换原式，便有\\((\frac{x}{3})^2+(\frac{y}{4})^2=1\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -4645,7 +4666,7 @@ $$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;普通的Arc Length公式为\(\int^b_a\sqrt{1+[f&amp;rsquo;(x)]^2}dx\)&lt;/li&gt;
+&lt;li&gt;普通的Arc Length公式为\\(\int^b_a\sqrt{1+[f&#39;(x)]^2}dx\\)&lt;/li&gt;
 &lt;li&gt;将Parametric Curve的Derivative带入，得到
 $$\int^b_a\sqrt{1+(\frac{dy/dt}{dx/dt})^2}dx=\int^b_a\sqrt{\frac{(dx/dt)^2+(dy/dt)^2}{(dx/dt)^2}}\frac{dx}{dt}dt$$&lt;/li&gt;
 &lt;li&gt;也就是
@@ -4818,8 +4839,8 @@ $$=\int^b_a\sqrt{(\frac{dx}{dt})^2+(\frac{dy}{dt})^2}dt=\int^b_a\sqrt{[f&#39;(x)
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li&gt;
-&lt;li&gt;换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &amp;lt; \epsilon\)&lt;/li&gt;
+&lt;li&gt;每一个定义在闭区间\\([a,b]\\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li&gt;
+&lt;li&gt;换句话说，给定任意的连续函数\\(f: [a, b] \to \mathbb{R}\\)和任意小的正数\\(\epsilon\\)，都存在一个多项式\\(P(x)\\)，使得对所有\\(x \in [a, b]\\)都有\\(|f(x) - P(x)| &lt; \epsilon\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -4836,7 +4857,7 @@ $$=\int^b_a\sqrt{(\frac{dx}{dt})^2+(\frac{dy}{dt})^2}dt=\int^b_a\sqrt{[f&#39;(x)
 &lt;ul&gt;
 &lt;li&gt;采用离散的Convolution
 $$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$&lt;/li&gt;
-&lt;li&gt;其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大&lt;/li&gt;
+&lt;li&gt;其满足\\(\sum_i(x_i)=1\\)，离\\(x\\)越近的地方\\(w(x_i)\\)越大&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -4871,11 +4892,11 @@ $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)&lt;/li&gt;
-&lt;li&gt;现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率&lt;/li&gt;
-&lt;li&gt;当\(k=3\)时，概率质量函数为
+&lt;li&gt;这样理解，先不管\\(\binom{n}{k}\\)，假设一个成功率为\\(60\%\\)的事件，其总共实验次数为5次，也就是\\(p=0.6,n=5\\)&lt;/li&gt;
+&lt;li&gt;现在当\\(k=5\\)的时候，Binomial Distribution表示的概率为\\(0.6^5\\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\\(0.6^5\\)，这就是最简单的概率&lt;/li&gt;
+&lt;li&gt;当\\(k=3\\)时，概率质量函数为
 $$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$&lt;/li&gt;
-&lt;li&gt;也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)&lt;/li&gt;
+&lt;li&gt;也就是说，5次实验，每一个5次实验中3次成功的概率为\\(0.6^3 (1-0.6)^{5-3}\\)&lt;/li&gt;
 &lt;li&gt;而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
 $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
 &lt;li&gt;这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10&lt;/li&gt;
@@ -4893,7 +4914,7 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
     
 &lt;/h2&gt;
 $$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;ul&gt;
-&lt;li&gt;用加权平均的方式（基于二项分布）生成新的多项式\(B_n(x)\)，作为\(f(x)\)的近似，实际上就是一个离散的Convolution&lt;/li&gt;
+&lt;li&gt;用加权平均的方式（基于二项分布）生成新的多项式\\(B_n(x)\\)，作为\\(f(x)\\)的近似，实际上就是一个离散的Convolution&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -4924,8 +4945,8 @@ $$(f * g)(x) = \sum_{k} f(k) g(x-k)$$&lt;ul&gt;
     
 &lt;/h3&gt;
 $$B_n(x) = \mathbb{E}\left[f\left(\frac{X}{n}\right)\right]$$&lt;ul&gt;
-&lt;li&gt;最终可以得到Bernstein Polynomial的期望值在\(n\rightarrow \infty\)的情况下是就是\(f(x)\)&lt;/li&gt;
-&lt;li&gt;也就是说可以通过一致收敛性，说明\(B_n(f, x)\)在区间\([0, 1]\)上以任意精度逼近\(f(x)\)&lt;/li&gt;
+&lt;li&gt;最终可以得到Bernstein Polynomial的期望值在\\(n\rightarrow \infty\\)的情况下是就是\\(f(x)\\)&lt;/li&gt;
+&lt;li&gt;也就是说可以通过一致收敛性，说明\\(B_n(f, x)\\)在区间\\([0, 1]\\)上以任意精度逼近\\(f(x)\\)&lt;/li&gt;
 &lt;/ul&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
@@ -5004,7 +5025,7 @@ $$B_n(x) = \mathbb{E}\left[f\left(\frac{X}{n}\right)\right]$$&lt;ul&gt;
 &lt;li&gt;熵是一个衡量系统混乱程度的物理量，系统的熵越高，系统的无序程度就越高
 $$\Delta S = \frac{q_{REV}}{T}$$&lt;/li&gt;
 &lt;li&gt;S is the entropy 熵&lt;/li&gt;
-&lt;li&gt;\(q_{rev}\)​ is the heat transferred 传递的热量&lt;/li&gt;
+&lt;li&gt;\\(q_{rev}\\)​ is the heat transferred 传递的热量&lt;/li&gt;
 &lt;li&gt;T is the &lt;em&gt;thermodynamic&lt;/em&gt; temperature 热力学温度，单位为Kelvin&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -5050,11 +5071,11 @@ $$\Delta S = \frac{q_{REV}}{T}$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;考虑Linear Transformation为一种Function，输入x而输出\(Ax\)&lt;/li&gt;
+&lt;li&gt;考虑Linear Transformation为一种Function，输入x而输出\\(Ax\\)&lt;/li&gt;
 &lt;li&gt;Eigenvector即对于指定的Vector x，其Ax平行于x，有
 $$Ax=\lambda x$$&lt;/li&gt;
-&lt;li&gt;其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue&lt;/li&gt;
-&lt;li&gt;特征向量的定义要求\(x \neq 0\)&lt;/li&gt;
+&lt;li&gt;其中x为A的Eigenvector，\\(\lambda\\)为A的Eigenvalue&lt;/li&gt;
+&lt;li&gt;特征向量的定义要求\\(x \neq 0\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -5145,9 +5166,9 @@ $$Ax=0x=0$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\)&lt;/li&gt;
-&lt;li&gt;要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution&lt;/li&gt;
-&lt;li&gt;由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1&lt;/li&gt;
+&lt;li&gt;对于一个Vector \\(a=[1,2]^T\\)和一个直线\\(y=0\\)&lt;/li&gt;
+&lt;li&gt;要研究\\(c[1,2]^T=0\\)的问题的时候，很明显不存在Non-Trivial Solution&lt;/li&gt;
+&lt;li&gt;由于a在\\(R^2\\)中，而\\([1,0]^T\\)仅Span出了\\(R^2\\)中的一个Subspace，其Dim=1&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
     &lt;figure&gt;
@@ -5994,9 +6015,9 @@ $$A \cap B = \{ x \in X \mid x \in A \text{ and } x \in B \}.$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;思考一个问题，对于一个坐标轴上的点\((2,1)\)和一个向量\(\vec v =[2,1]^T\)，他们的区别&lt;/li&gt;
+&lt;li&gt;思考一个问题，对于一个坐标轴上的点\\((2,1)\\)和一个向量\\(\vec v =[2,1]^T\\)，他们的区别&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Point&lt;/strong&gt;：点是空间中的一个位置，用坐标表示，如P = (x, y, z)表示三维空间中的一个具体位置。点没有方向和大小。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Vector&lt;/strong&gt;：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\(\mathbf{v} = \overrightarrow{AB}\)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vector&lt;/strong&gt;：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\\(\mathbf{v} = \overrightarrow{AB}\\)&lt;/li&gt;
 &lt;li&gt;亦可以说&lt;strong&gt;Point是绝对位置，而向量是一个点到另外一个的有方向的距离&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -6012,7 +6033,7 @@ $$A \cap B = \{ x \in X \mid x \in A \text{ and } x \in B \}.$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;对于\(\vec{v} = \begin{bmatrix} v_1 \ v_2 \ \vdots \ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\)&lt;/li&gt;
+&lt;li&gt;对于\\(\vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\\)&lt;/li&gt;
 &lt;li&gt;它的Norm，也就是向量长度即为
 $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
 &lt;/ul&gt;
@@ -6045,7 +6066,7 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     
 &lt;/h3&gt;
 $$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;ul&gt;
-&lt;li&gt;公式中的每一项\(a_i b_i\)表示两个向量在某个维度上的大小相乘&lt;/li&gt;
+&lt;li&gt;公式中的每一项\\(a_i b_i\\)表示两个向量在某个维度上的大小相乘&lt;/li&gt;
 &lt;li&gt;点积实际上是在将a和b的方向分量进行逐一对比，累加得到两个向量在整个空间上的“相似性”，每一个维度的相似性都将累加到最终的空间相似性上&lt;/li&gt;
 &lt;li&gt;想要表达这个相似性，还存在另一种方式，即通过Projection
 $$\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \cos \theta$$&lt;/li&gt;
@@ -6081,14 +6102,14 @@ $$\theta = \cos^{-1} \left( \frac{\mathbf{A} \cdot \mathbf{B}}{AB} \right) \quad
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Dot Product的一种用法便是Force Vector Directed Along a Line&lt;/li&gt;
-&lt;li&gt;对于一个在\(\vec u\)方向上的Force F，有
+&lt;li&gt;对于一个在\\(\vec u\\)方向上的Force F，有
 $$\vec F_u=\vec F\cdot \vec u=(F\times 1)\cdot \cos\theta=F\cdot \cos\theta$$&lt;/li&gt;
-&lt;li&gt;而这一个\(\cos\theta\)则是
+&lt;li&gt;而这一个\\(\cos\theta\\)则是
 $$\cos\theta=\frac{\vec v\cdot \vec{w}}{|v|\times|w|}$$&lt;/li&gt;
 &lt;li&gt;当把其中一个Vector替换为Direction Vector时，便可以得到Axis-Force&amp;rsquo;s Direction Cosine
 $$\cos\theta = \frac{\{r_xi+r_yj+r_zk\}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1}$$&lt;/li&gt;
-&lt;li&gt;所以就有\(F\cdot \cos \theta=F\cdot \vec u\)之后便可以得到Force在\(\vec u\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）&lt;/li&gt;
-&lt;li&gt;要想得到Force在\(\vec u\)方向上的Cartesian Vector，需要再次乘以Direction Vector&lt;/li&gt;
+&lt;li&gt;所以就有\\(F\cdot \cos \theta=F\cdot \vec u\\)之后便可以得到Force在\\(\vec u\\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）&lt;/li&gt;
+&lt;li&gt;要想得到Force在\\(\vec u\\)方向上的Cartesian Vector，需要再次乘以Direction Vector&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -6118,7 +6139,7 @@ $$\vec F=F_u\cdot \vec u= (\vec F\cdot u\cdot\cos\theta)\cdot \vec u=(F\cdot\fra
 &lt;li&gt;考虑一个问题Consider the two points P = (1, 2) and Q = (−1, 4)，find an equation for the line y = mx + b which passes through P and Q&lt;/li&gt;
 &lt;li&gt;通过Point-Point Formula可以算出
 $$y_2-y_1=\frac{y_2 - y_1}{x_2 - x_1}(x_2-x_1)$$&lt;/li&gt;
-&lt;li&gt;解得 \(y=−x+3\)&lt;/li&gt;
+&lt;li&gt;解得 \\(y=−x+3\\)&lt;/li&gt;
 &lt;li&gt;现在考虑相似的问题 Suppose x and y satisfy the vector equation
 $$\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} + k \begin{bmatrix} 1 \\ -1 \end{bmatrix}, \text{ where } k \in \mathbb{R}$$&lt;/li&gt;
 &lt;/ul&gt;
@@ -6216,7 +6237,7 @@ $$F=kx$$&lt;ul&gt;
 &lt;ul&gt;
 &lt;li&gt;物体在外力作用下，单位面积上承受的内力
 $$Stress(\sigma)=\frac{F}{A_0}$$&lt;/li&gt;
-&lt;li&gt;\(A_0\): Initial Cross-Sectional Area&lt;/li&gt;
+&lt;li&gt;\\(A_0\\): Initial Cross-Sectional Area&lt;/li&gt;
 &lt;li&gt;应力的单位通常是帕斯卡（Pa）&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -6235,8 +6256,8 @@ $$Stress(\sigma)=\frac{F}{A_0}$$&lt;/li&gt;
 &lt;li&gt;应变是材料在外力作用下发生的变形程度&lt;/li&gt;
 &lt;/ul&gt;
 $$Strain(\epsilon)=\frac{\Delta l}{l_0}$$&lt;ul&gt;
-&lt;li&gt;\(\Delta l\)：change of material&amp;rsquo;s length&lt;/li&gt;
-&lt;li&gt;\(l_0\): Initial length of material&lt;/li&gt;
+&lt;li&gt;\\(\Delta l\\)：change of material&amp;rsquo;s length&lt;/li&gt;
+&lt;li&gt;\\(l_0\\): Initial length of material&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -6294,7 +6315,7 @@ $$Strain(\epsilon)=\frac{\Delta l}{l_0}$$&lt;ul&gt;
     
 &lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;在Plastic Deformation后，Atomic Spacing将保持\(r=r_0\)&lt;/li&gt;
+&lt;li&gt;在Plastic Deformation后，Atomic Spacing将保持\\(r=r_0\\)&lt;/li&gt;
 &lt;li&gt;但是Sequence of atoms将进入一个New Equilibrium&lt;/li&gt;
 &lt;li&gt;即在Marcro Perspective上发生Shape的Deform&lt;/li&gt;
 &lt;li&gt;Tensile Strain将会保持一定非零大小&lt;/li&gt;
@@ -6361,7 +6382,7 @@ $$Strain(\epsilon)=\frac{\Delta l}{l_0}$$&lt;ul&gt;
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.3syntheticregressiondat/</guid>
-      <description>&lt;p&gt;本节将介绍如何通过使用深度学习框架来简洁地实现[[3.2_Object-OrientedDesignforImplementation]]中的线性回归模型&lt;/p&gt;</description>
+      <description>&lt;p&gt;本节将介绍如何通过使用深度学习框架来简洁地实现3.2_Object-OrientedDesignforImplementation中的线性回归模型&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/d2l3.3syntheticregressiondat/feature.png" />
     </item>
     
@@ -6461,7 +6482,40 @@ $$softmax(X)_{ij}=\frac{exp(X_{ij})}{\sum_kexp(X_{ik})}$$&lt;/li&gt;
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/</guid>
-      <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
+      <description>&lt;p&gt;在了解多层感知机前，需要先了解Perceptron 感知机&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;4.1.1 隐藏层 
+    &lt;div id=&#34;411-%E9%9A%90%E8%97%8F%E5%B1%82&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#411-%E9%9A%90%E8%97%8F%E5%B1%82&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在3.1_LinearRegression中我们描述了Affine Transformation 仿射变换，如一次函数一般是一种带有偏置项的线性变换&lt;/li&gt;
+&lt;li&gt;如果预测值在仿射变换后确实与输入数据有线性关系，那么这种方式确实够用&lt;/li&gt;
+&lt;li&gt;可是大部分情况下，仿射变换中的线性是一个很强的假设&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;4.1.1.1 线性模型可能会出错 
+    &lt;div id=&#34;4111-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%87%BA%E9%94%99&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#4111-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%87%BA%E9%94%99&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;线性意味着&lt;strong&gt;单调假设&lt;/strong&gt;，权重w在正的情况下，任何特征的增大都会导致模型输出的增大&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;E.X.&lt;/em&gt;&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/feature.png" />
     </item>
     

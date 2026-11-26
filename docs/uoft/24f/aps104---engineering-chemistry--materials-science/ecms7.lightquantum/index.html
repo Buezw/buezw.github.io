@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -441,12 +444,12 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <li>光的能量不是连续的，而是Quantized 量子化的</li>
 </ul>
 $$E = \frac{hC}{\lambda}$$<ul>
-<li>\(h~(Plank~ ~Constant) = 6.626×10^{−34}J⋅s\)</li>
-<li>\(c~(Light~speed)=3\times 10^8 m\cdot s^{-1}\)</li>
-<li>\(λ~(Wavelength)~m\cdot s^{-1}\)</li>
+<li>\\(h~(Plank~ ~Constant) = 6.626×10^{−34}J⋅s\\)</li>
+<li>\\(c~(Light~speed)=3\times 10^8 m\cdot s^{-1}\\)</li>
+<li>\\(λ~(Wavelength)~m\cdot s^{-1}\\)</li>
 <li>其更加常见的形式为
 $$E=hv$$</li>
-<li>\(ν\) : frequency of the light in Hertz \((1 Hz = \frac1s)​\)</li>
+<li>\\(ν\\) : frequency of the light in Hertz \\((1 Hz = \frac1s)​\\)</li>
 </ul>
 
 
@@ -463,10 +466,10 @@ $$E=hv$$</li>
 <ul>
 <li>由Albert Einstein于1905年提出</li>
 <li>当光照射到金属表面时，光子将其能量传递给金属内的电子，如果这些光子的能量足够高，超过了金属的逸出功，电子就会被释放出金属表面</li>
-<li>由于每个光子的能量由其频率决定，其能量和频率的关系则由公式\(E=hv\)给出</li>
+<li>由于每个光子的能量由其频率决定，其能量和频率的关系则由公式\\(E=hv\\)给出</li>
 <li><strong>逸出功</strong>（Work Function）：逸出功是指电子从固体表面逃逸到真空中所需的最小能量。不同材料有不同的逸出功。</li>
 <li><strong>光电子</strong>（Photoelectron）：如果光子的能量高于逸出功，电子就会被释放，成为光电子</li>
-<li><strong>电子的动能</strong>（Kinetic Energy）：释放的光电子将具有一个最大动能，这可以通过 \(Kmax=hf−ϕK_{\text{max}}\)来计算，其中 \(\phi\) 是逸出功</li>
+<li><strong>电子的动能</strong>（Kinetic Energy）：释放的光电子将具有一个最大动能，这可以通过 \\(Kmax=hf−ϕK_{\text{max}}\\)来计算，其中 \\(\phi\\) 是逸出功</li>
 </ul>
 
 
@@ -497,12 +500,12 @@ $$E=hv$$</li>
     
 </h2>
 <ul>
-<li>计算光子能量：使用的公式是 \(E = \frac{hc}{\lambda}\)，</li>
-<li>650纳米的红激光，将其转换成米\(650 \times 10^{-9} \text{ m}\)，计算得到的能量是 \(3.06 \times 10^{-19}\)焦耳</li>
+<li>计算光子能量：使用的公式是 \\(E = \frac{hc}{\lambda}\\)，</li>
+<li>650纳米的红激光，将其转换成米\\(650 \times 10^{-9} \text{ m}\\)，计算得到的能量是 \\(3.06 \times 10^{-19}\\)焦耳</li>
 <li>虽然结果是正确的，但由于在量子力学和粒子物理中常常处理非常小的能量数值，使用焦耳（Joules）单位可能会显得笨拙和难以理解</li>
 <li>于是引入了Electron Volt的概念</li>
-<li>电子伏特是基于电子通过1伏特电势差加速后获得的能量。一个电子伏特定义为 \(1.602 \times 10^{-19}\) 焦耳</li>
-<li>\(E_{\text{Red Photon}} = \frac{3.06 \times 10^{-19} , \text{J}}{1.602 \times 10^{-19} , \text{J/eV}} = 1.91 , \text{eV}\)</li>
+<li>电子伏特是基于电子通过1伏特电势差加速后获得的能量。一个电子伏特定义为 \\(1.602 \times 10^{-19}\\) 焦耳</li>
+<li>\\(E_{\text{Red Photon}} = \frac{3.06 \times 10^{-19} \, \text{J}}{1.602 \times 10^{-19} \, \text{J/eV}} = 1.91 \, \text{eV}\\)</li>
 </ul>
 
 
@@ -543,7 +546,7 @@ $$E=hv$$</li>
 <ul>
 <li>Number of proton in nucleus决定了原子是什么元素</li>
 <li>所以# of Protones也称为Atomic Number 原子序数</li>
-<li>如Carbon-14, 写作\(C_{14}\)</li>
+<li>如Carbon-14, 写作\\(C_{14}\\)</li>
 <li>对于6个Proton来说是Carbon，5个是Boron 硼，7个是Nitrogen 氮气</li>
 </ul>
 
@@ -629,7 +632,7 @@ $$E=hv$$</li>
 </h3>
 <ul>
 <li>角动量量子数（有时也称为方位量子数）描述了电子**轨道的形状</li>
-<li>角动量量子数可以具有比主量子数小 0 到 1 的任何值, that is \(ℓ=0,1,2,&hellip;n−1\)</li>
+<li>角动量量子数可以具有比主量子数小 0 到 1 的任何值, that is \\(ℓ=0,1,2,...n−1\\)</li>
 <li>当ℓ=0 时，轨道是球形的（s-轨道） s亚层可容纳 2 个电子</li>
 <li>当l=1时，亚层是 p 轨道，形状是偶极形（类似哑铃）p亚层可容纳 6 个电子</li>
 <li>当l=2时，亚层是 d 轨道，形状更加复杂，通常有四叶或更多叶的形状 d亚层可容纳 10 个电子</li>
@@ -686,7 +689,7 @@ $$E=hv$$</li>
 <ul>
 <li>自旋量子数ms并不直观地描述电子的物理自旋，因为电子实际上并不是在空间中围绕某个轴物理旋转。</li>
 <li>将电子描述为“旋转”的说法可能会引起误解</li>
-<li><strong>量子数值</strong>：自旋量子数的可能值为\(\frac{1}{2}\)​ 或\(-\frac{1}{2}\)​，通常表示为电子的自旋向上（up-spin）和自旋向下（down-spin）</li>
+<li><strong>量子数值</strong>：自旋量子数的可能值为\\(\frac{1}{2}\\)​ 或\\(-\frac{1}{2}\\)​，通常表示为电子的自旋向上（up-spin）和自旋向下（down-spin）</li>
 </ul>
 
 
@@ -850,7 +853,7 @@ $$E=hv$$</li>
 <li>这意味着一个碳原子的原子核中有六个质子</li>
 <li>因此，要构建一个中性碳原子，我们需要将六个电子放入原子核周围的外壳和子壳中</li>
 <li>要注意1s中的1是Pricipal Quantum Number，s是Angular Momentum Quantum Number</li>
-<li>而且一个亚层是可以包含2个电子的，所以一个n = 2中的 l =1 的亚层p可以有6个电子，写作\(2p^6\)</li>
+<li>而且一个亚层是可以包含2个电子的，所以一个n = 2中的 l =1 的亚层p可以有6个电子，写作\\(2p^6\\)</li>
 <li>那么对于Carbon来说就有
 $$1s^2 \, 2s^2 \, 2p^2$$</li>
 <li>有的时候为了省略，可以从该元素的前一个Nobel Gas的Electron Configuration开始写起</li>
@@ -980,12 +983,12 @@ $$1s^2 2s^2 2p^6 3s^2 3p^6 3d^{10} 4s^1$$<ul>
     
 </h3>
 <ul>
-<li>\(He=1s^2\)</li>
-<li>\(Ne=1s^2 2s^2 2p^6\)</li>
-<li>\(Ar=1s^2 2s^2 2p^6 3s^2 3p^6\)</li>
-<li>\(Kr=1s^2 2s^2 2p^6 3s^2 3p^6 4s^2 4p^6\)</li>
+<li>\\(He=1s^2\\)</li>
+<li>\\(Ne=1s^2 2s^2 2p^6\\)</li>
+<li>\\(Ar=1s^2 2s^2 2p^6 3s^2 3p^6\\)</li>
+<li>\\(Kr=1s^2 2s^2 2p^6 3s^2 3p^6 4s^2 4p^6\\)</li>
 <li>可以发现，由于Nobel Gas的电子构型使其具有八电子（octet）结构，遵循八隅规则</li>
-<li>所以他们的Electron Configuration通常可以表示为\(ns^2 np^6\)的形式</li>
+<li>所以他们的Electron Configuration通常可以表示为\\(ns^2 np^6\\)的形式</li>
 </ul>
 
 
@@ -1012,9 +1015,9 @@ $$1s^2 2s^2 2p^6 3s^2 3p^6 3d^{10} 4s^1$$<ul>
     
 </h3>
 <ul>
-<li><strong>Cl</strong>的Atomic Number是17，其电子构型为\(1s^2 2s^2 2p^6 3s^2 3p^5\)</li>
+<li><strong>Cl</strong>的Atomic Number是17，其电子构型为\\(1s^2 2s^2 2p^6 3s^2 3p^5\\)</li>
 <li>它缺一个电子就可以达到<strong>Octet</strong>的稳定结构</li>
-<li><strong>Na</strong>的Atomic Number是11，电子构型为\(1s^2 2s^2 2p^6 3s^1\) 或简写为 \([Ne]3s^1\)</li>
+<li><strong>Na</strong>的Atomic Number是11，电子构型为\\(1s^2 2s^2 2p^6 3s^1\\) 或简写为 \\([Ne]3s^1\\)</li>
 <li>它如果失去一个电子，也可以达到类似稀有气体的稳定构型</li>
 </ul>
 
@@ -1295,8 +1298,8 @@ $$Na_{(s)} + \frac{1}{2}Cl_{2(g)} \rightarrow NaCl_{(s)}$$</li>
     
 </h3>
 $$Na(s)​→Na(g)​$$<ul>
-<li>固态钠\(Na_{(s)}\)直接转化为气态钠原子\(Na_{(g)}\)，称为升华（sublimation）</li>
-<li>这种物质从固体转变为气体的过程需要能量，称为升华焓\(\Delta H_{\text{sublimation}}\)，对于钠为\(ΔHsublimation​=109kJ/mol\)</li>
+<li>固态钠\\(Na_{(s)}\\)直接转化为气态钠原子\\(Na_{(g)}\\)，称为升华（sublimation）</li>
+<li>这种物质从固体转变为气体的过程需要能量，称为升华焓\\(\Delta H_{\text{sublimation}}\\)，对于钠为\\(ΔHsublimation​=109kJ/mol\\)</li>
 <li>这里正值代表了：系统需要吸收能量便反应从左向右进行</li>
 <li>也就是说，需要能量来熔化然后煮沸钠</li>
 </ul>
@@ -1313,9 +1316,9 @@ $$Na(s)​→Na(g)​$$<ul>
     
 </h3>
 <ul>
-<li>气态钠原子\(Na_{(g)}\)进一步被电离为钠离子\(Na^+_{(g)}\)和一个电子\(e^-\)
+<li>气态钠原子\\(Na_{(g)}\\)进一步被电离为钠离子\\(Na^+_{(g)}\\)和一个电子\\(e^-\\)
 $$Na(g)​→Na(g)^+​+e^−$$</li>
-<li>Ionization energy is \(IENa​=497kJ/mol\)</li>
+<li>Ionization energy is \\(IENa​=497kJ/mol\\)</li>
 <li>可以发现这目前还是一个Posititve，则代表还需要吸收能量</li>
 </ul>
 
@@ -1331,7 +1334,7 @@ $$Na(g)​→Na(g)^+​+e^−$$</li>
     
 </h3>
 $$\frac{1}{​2}Cl_2(g)​→Cl(g)​$$<ul>
-<li>\(BDE_{Cl_2} = 121 , \frac{kJ}{mol}\)</li>
+<li>\\(BDE_{Cl_2} = 121 \, \frac{kJ}{mol}\\)</li>
 <li>这仍然是吸热过程（需要能量输入）</li>
 </ul>
 
@@ -1347,7 +1350,7 @@ $$\frac{1}{​2}Cl_2(g)​→Cl(g)​$$<ul>
     
 </h3>
 $$Cl(g)​+e^−→Cl(g)^−​$$<ul>
-<li>这一过程中的Electron Affinity为\(EACl​=−364\frac{mol}{kJ}​\)</li>
+<li>这一过程中的Electron Affinity为\\(EACl​=−364\frac{mol}{kJ}​\\)</li>
 <li>可以发现能量第一次变为了负的，这是第一个释放能量的步骤</li>
 </ul>
 
@@ -1363,7 +1366,7 @@ $$Cl(g)​+e^−→Cl(g)^−​$$<ul>
     
 </h3>
 $$Na(g)+​Cl(g)^−​→NaCl(s)$$<ul>
-<li>这一个过程包含了Crystallization energy\(Ecrystallization​=−777\frac{mol}{kJ}​\)</li>
+<li>这一个过程包含了Crystallization energy\\(Ecrystallization​=−777\frac{mol}{kJ}​\\)</li>
 <li>可以发现这一步消耗了很多能量</li>
 <li>如果我们将这些能量项中的每一个相加，形成 NaCl 的总能量变化为−414</li>
 </ul>
@@ -1404,7 +1407,7 @@ $$Na(g)+​Cl(g)^−​→NaCl(s)$$<ul>
     </figure>
 </p>
 <ul>
-<li>在固体中，原子之间的距离非常近，并且一个晶格中会有\(10^{23}\)个原子</li>
+<li>在固体中，原子之间的距离非常近，并且一个晶格中会有\\(10^{23}\\)个原子</li>
 <li>原子的数量极其庞大时，原本分裂的离散能级数量非常多，且间距变得极其微小，最终看起来像是连续的能量区域——这就是<strong>能带</strong>（Energy Band）</li>
 <li>原子越多，能带越“密集”</li>
 </ul>
@@ -1472,7 +1475,7 @@ $$Cu =1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 3d^{10} \, 4s^1$$</li>
     
 </h3>
 <ul>
-<li>对于Mg来说\(Mg=1s^2 , 2s^2 , 2p^6 , 3s^2\)，从表面看，3s轨道已经完全填满，因此看起来它不应该有可用的电子来参与导电</li>
+<li>对于Mg来说\\(Mg=1s^2 \, 2s^2 \, 2p^6 \, 3s^2\\)，从表面看，3s轨道已经完全填满，因此看起来它不应该有可用的电子来参与导电</li>
 <li>但是可以发现3p轨道是空的，但它并不是不可用的</li>
 <li>这就像在剧院里，空座位虽然没有人坐，但仍然在那里，可以被占用</li>
 <li>可以被占用。3s轨道和3p轨道的能级相互重叠，因此电子可以从3s轨道很容易地被激发到3p轨道</li>
@@ -1521,8 +1524,8 @@ $$Cu =1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 3d^{10} \, 4s^1$$</li>
 </h3>
 <ul>
 <li><strong>Valence Band</strong>是指<strong>电子填满的最高能量带</strong></li>
-<li>拿Si举例，其Electron Configuration为\(1s^22s^22p^63s^23p^2\)</li>
-<li>其Valence Band即为\(3s^2\)，3p虽然是最高能量带，但他并没有填充满</li>
+<li>拿Si举例，其Electron Configuration为\\(1s^22s^22p^63s^23p^2\\)</li>
+<li>其Valence Band即为\\(3s^2\\)，3p虽然是最高能量带，但他并没有填充满</li>
 <li><strong>导电性</strong>：满带的电子不能自由流动，因为能量状态已经填满，没有空位供电子移动</li>
 </ul>
 
@@ -1539,7 +1542,7 @@ $$Cu =1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 3d^{10} \, 4s^1$$</li>
 </h3>
 <ul>
 <li><strong>Full Band</strong>是指电子完全填满的能量带。</li>
-<li>在硅（Si）的例子中，\(1s^2 2s^2 2p^6\) 层被完全填满，这些内层电子构成了满带</li>
+<li>在硅（Si）的例子中，\\(1s^2 2s^2 2p^6\\) 层被完全填满，这些内层电子构成了满带</li>
 <li>这些满带主要是低能级的核心电子带，电子在这些带中被完全填满，无法参与到导电过程中</li>
 <li><strong>导电性</strong>：满带的电子由于能态完全填满，没有额外的空间或能级供电子跃迁，因此不参与导电。这些带在正常条件下对材料的导电性几乎没有贡献</li>
 </ul>
@@ -1557,8 +1560,8 @@ $$Cu =1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 3d^{10} \, 4s^1$$</li>
 </h3>
 <ul>
 <li><strong>导带</strong>是指紧邻满带之上的未填满能量带</li>
-<li>拿Si举例，其Electron Configuration为\(1s^22s^22p^63s^23p^2\)</li>
-<li>其Valence Band即为\(3p^2\)</li>
+<li>拿Si举例，其Electron Configuration为\\(1s^22s^22p^63s^23p^2\\)</li>
+<li>其Valence Band即为\\(3p^2\\)</li>
 <li>当电子被激发到导带后，它们可以在材料中自由移动，从而参与导电</li>
 <li>Conduction Band通常是空的，或者仅有少量电子占据（在导体中可能存在部分填充）</li>
 <li>导带中的电子是Valence electrons AKA Free Electrons，可以在材料中移动并产生电流</li>
@@ -1860,7 +1863,7 @@ $$\sigma = nq(\mu_n + \mu_p)$$</li>
 </h4>
 <ul>
 <li>Since electrons carry a negative charge</li>
-<li>所以可以通过\(\frac{no<del>of</del>electorns}{m^3}\)</li>
+<li>所以可以通过\\(\frac{no~of~electorns}{m^3}\\)</li>
 </ul>
 
 
@@ -1892,8 +1895,8 @@ $$\sigma = nq(\mu_n + \mu_p)$$</li>
     
 </h4>
 <ul>
-<li>对于Mobility来说存在Electron Mobility和Hole Mobility，分别通过\(\mu_n和\mu_p\)来表示</li>
-<li>其单位为\(\frac{m^2}{V_s}\)</li>
+<li>对于Mobility来说存在Electron Mobility和Hole Mobility，分别通过\\(\mu_n和\mu_p\\)来表示</li>
+<li>其单位为\\(\frac{m^2}{V_s}\\)</li>
 </ul>
 
 
@@ -1908,7 +1911,7 @@ $$\sigma = nq(\mu_n + \mu_p)$$</li>
     
 </h4>
 <ul>
-<li>Charge指的是Magnitude of the fundamental charge \(1.602\times 10^{-19}C\)</li>
+<li>Charge指的是Magnitude of the fundamental charge \\(1.602\times 10^{-19}C\\)</li>
 </ul>
 
 
@@ -1943,8 +1946,8 @@ $$\sigma = nq(\mu_n + \mu_p)$$</li>
 </h4>
 <ul>
 <li>想要在Intrinsic Semiconductor中添加Extra Electrons，可以通过Zero Dimension Inpurity的Point Defects来添加Inpurities Atoms，而添加的这一个Atom会带来额外的电子</li>
-<li>已知对于Silicon来说其存在4个Valence Electrons：\(3s^23p^2\)，一种合适的做法便是将位于元素周期表右侧的Atom加入，即一个存在5个Valence Electron的Atom，这便是P，磷</li>
-<li>已知磷的Atomic Number为15，其Electron Configuration为\(1s^2 2s^2 2p^6 3s^2 3p^3\)</li>
+<li>已知对于Silicon来说其存在4个Valence Electrons：\\(3s^23p^2\\)，一种合适的做法便是将位于元素周期表右侧的Atom加入，即一个存在5个Valence Electron的Atom，这便是P，磷</li>
+<li>已知磷的Atomic Number为15，其Electron Configuration为\\(1s^2 2s^2 2p^6 3s^2 3p^3\\)</li>
 <li>因此添加到硅晶格中时，当与相邻的硅原子形成四个共价键时，将有一个额外的电子踢来踢去</li>
 </ul>
 <p>
@@ -1978,7 +1981,7 @@ $$\sigma = nq(\mu_n + \mu_p)$$</li>
 <li>在Gap Band内，接近导带底部的蓝色线表示磷原子提供的额外电子的能级</li>
 <li>这个能级非常接近导带，因此只需很少的能量就可以将电子激发到导带中。</li>
 <li>由于Impurity P为Simiconductor贡献的 Charge carriers，亦或者说是价带比通过本征促进产生的电荷载流子多得多</li>
-<li>因此我们可以忽略\(\mu_p\)，只用电子浓度和迁移率来计算 n 型半导体的电导率
+<li>因此我们可以忽略\\(\mu_p\\)，只用电子浓度和迁移率来计算 n 型半导体的电导率
 $$σ_{n−type​}=nqμ_n​$$</li>
 </ul>
 
@@ -2013,7 +2016,7 @@ $$σ_{n−type​}=nqμ_n​$$</li>
 </p>
 <ul>
 <li>相反，价带中的电子可以轻易被激发到B提供的一个Hole上，从而填补那里的空穴，也就是Bnad Diagram上的Acceptor Level</li>
-<li>同理可以忽略\(\mu_n\)的大小
+<li>同理可以忽略\\(\mu_n\\)的大小
 $$σ_{p−type}​=pqμ_p​$$</li>
 </ul>
 

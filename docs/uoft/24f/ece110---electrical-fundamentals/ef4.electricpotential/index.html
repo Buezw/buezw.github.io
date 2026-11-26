@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -360,7 +363,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     
 </h2>
 <ul>
-<li>对于一个重力场，其Field Strength为g，而Gravity所做的功则为\(W=mgh\)</li>
+<li>对于一个重力场，其Field Strength为g，而Gravity所做的功则为\\(W=mgh\\)</li>
 </ul>
 <p>
     <figure>
@@ -380,7 +383,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </p>
 <ul>
 <li>可以发现这一个Work Done只和高度差有关，与路径无关（也就是说即使在途中左右摇摆，重力做的功依然不变）</li>
-<li>同理可以类比到Electric Field中，电场力做功为\(W=Eqh\)，并且同样的与路径无关</li>
+<li>同理可以类比到Electric Field中，电场力做功为\\(W=Eqh\\)，并且同样的与路径无关</li>
 </ul>
 
 
@@ -469,7 +472,7 @@ $$dW=\vec E \cdot d\vec s\Rightarrow \int dW= V_f - V_i =  -\int_i^f \vec{E} \cd
     
 </h2>
 <ul>
-<li>Charged Particle在空间中会形成一个Electrical Field，\(\vec{E} = \frac{1}{4\pi \epsilon_0} \frac{q}{r^2} \hat{r}\)，将其代入积分 $$V = -\int_\infty^r \frac{1}{4\pi \epsilon_0} \frac{q}{r^2} dr= \frac{1}{4\pi \epsilon_0} \frac{q}{r}$$</li>
+<li>Charged Particle在空间中会形成一个Electrical Field，\\(\vec{E} = \frac{1}{4\pi \epsilon_0} \frac{q}{r^2} \hat{r}\\)，将其代入积分 $$V = -\int_\infty^r \frac{1}{4\pi \epsilon_0} \frac{q}{r^2} dr= \frac{1}{4\pi \epsilon_0} \frac{q}{r}$$</li>
 </ul>
 <blockquote>
 <p>A positively charged particle produces a positive electric potential. A negatively charged particle produces a negative electric potential.</p>
@@ -504,7 +507,7 @@ $$dW=\vec E \cdot d\vec s\Rightarrow \int dW= V_f - V_i =  -\int_i^f \vec{E} \cd
     </figure>
 </p>
 <ul>
-<li>根据\(V= \frac{1}{4\pi \epsilon_0} \frac{q}{r}\)，r越小V越大，有</li>
+<li>根据\\(V= \frac{1}{4\pi \epsilon_0} \frac{q}{r}\\)，r越小V越大，有</li>
 <li>a) Proton 1 has more Electric Potential (v) than Proton 2, since D &gt; d</li>
 <li>b) Proton 1 has more Electric Potential (v) than Proton 2, since D &gt; d</li>
 <li>c) Proton 1 has more Electric Potential (v) than Proton 2, since D &gt; d</li>
@@ -522,12 +525,12 @@ $$dW=\vec E \cdot d\vec s\Rightarrow \int dW= V_f - V_i =  -\int_i^f \vec{E} \cd
     
 </h2>
 <ul>
-<li>对于空间中的两个Particle，他们之间的距离为 r ，则由他们之间的Electrical Field相互作用而具有的Energy被称为他们的Potential Energy，前面已经提到了一个Partical在空间中会形成一个Electrial Potential \(V = \frac{1}{4\pi \epsilon_0} \frac{q}{r}\) ，而U是Partical在电场中所具有的能量，就有
+<li>对于空间中的两个Particle，他们之间的距离为 r ，则由他们之间的Electrical Field相互作用而具有的Energy被称为他们的Potential Energy，前面已经提到了一个Partical在空间中会形成一个Electrial Potential \\(V = \frac{1}{4\pi \epsilon_0} \frac{q}{r}\\) ，而U是Partical在电场中所具有的能量，就有
 $$U = \frac{1}{4\pi \epsilon_0} \frac{q_1 q_2}{r}$$</li>
 <li>U：两电荷之间的Electrical Potential Energy</li>
-<li>\(q_1、q_2\)：两个电荷的电荷量（C）</li>
-<li>\(r\)：两电荷之间的距离</li>
-<li>\(\varepsilon_0\)：真空介电常数（\(8.85 \times 10^{-12} , \text{F/m}\)）</li>
+<li>\\(q_1、q_2\\)：两个电荷的电荷量（C）</li>
+<li>\\(r\\)：两电荷之间的距离</li>
+<li>\\(\varepsilon_0\\)：真空介电常数（\\(8.85 \times 10^{-12} \, \text{F/m}\\)）</li>
 </ul>
 
 
@@ -561,7 +564,7 @@ $$U = \frac{1}{4\pi \epsilon_0} \frac{q_1 q_2}{r}$$</li>
 </h3>
 <p>有一个等边三角形的电荷系统，包含三个带电粒子：q1=+q，q2=−4q，q3=+2q，分别间隔12cm，求这个系统的Total Potential Energy</p>
 <ul>
-<li>已知两个电荷之间的电势能为： \(U_{ij} = \frac{1}{4\pi \epsilon_0} \frac{q_i q_j}{d}\)，总电势能是所有电荷对之间电势能的总和： \(U = U_{12} + U_{13} + U_{23}\)
+<li>已知两个电荷之间的电势能为： \\(U_{ij} = \frac{1}{4\pi \epsilon_0} \frac{q_i q_j}{d}\\)，总电势能是所有电荷对之间电势能的总和： \\(U = U_{12} + U_{13} + U_{23}\\)
 $$U = U_{12} + U_{13} + U_{23}$$
 $$U = -\frac{4q^2}{4\pi \epsilon_0 d} + \frac{2q^2}{4\pi \epsilon_0 d} - \frac{8q^2}{4\pi \epsilon_0 d} $$
 $$U = -\frac{10q^2}{4\pi \epsilon_0 d}$$</li>

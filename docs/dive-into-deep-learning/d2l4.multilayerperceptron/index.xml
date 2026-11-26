@@ -58,8 +58,8 @@
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;每一个定义在闭区间\([a,b]\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li&gt;
-&lt;li&gt;换句话说，给定任意的连续函数\(f: [a, b] \to \mathbb{R}\)和任意小的正数\(\epsilon\)，都存在一个多项式\(P(x)\)，使得对所有\(x \in [a, b]\)都有\(|f(x) - P(x)| &amp;lt; \epsilon\)&lt;/li&gt;
+&lt;li&gt;每一个定义在闭区间\\([a,b]\\)上的实值连续函数都可以被多项式序列在整个区间上一致逼近。&lt;/li&gt;
+&lt;li&gt;换句话说，给定任意的连续函数\\(f: [a, b] \to \mathbb{R}\\)和任意小的正数\\(\epsilon\\)，都存在一个多项式\\(P(x)\\)，使得对所有\\(x \in [a, b]\\)都有\\(|f(x) - P(x)| &lt; \epsilon\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -76,7 +76,7 @@
 &lt;ul&gt;
 &lt;li&gt;采用离散的Convolution
 $$f(x)\approx\sum^n_{i=0}f(x_i)w(x_i)$$&lt;/li&gt;
-&lt;li&gt;其满足\(\sum_i(x_i)=1\)，离\(x\)越近的地方\(w(x_i)\)越大&lt;/li&gt;
+&lt;li&gt;其满足\\(\sum_i(x_i)=1\\)，离\\(x\\)越近的地方\\(w(x_i)\\)越大&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -111,11 +111,11 @@ $$P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}$$&lt;/li&gt;
     
 &lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;这样理解，先不管\(\binom{n}{k}\)，假设一个成功率为\(60%\)的事件，其总共实验次数为5次，也就是\(p=0.6,n=5\)&lt;/li&gt;
-&lt;li&gt;现在当\(k=5\)的时候，Binomial Distribution表示的概率为\(0.6^5\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\(0.6^5\)，这就是最简单的概率&lt;/li&gt;
-&lt;li&gt;当\(k=3\)时，概率质量函数为
+&lt;li&gt;这样理解，先不管\\(\binom{n}{k}\\)，假设一个成功率为\\(60\%\\)的事件，其总共实验次数为5次，也就是\\(p=0.6,n=5\\)&lt;/li&gt;
+&lt;li&gt;现在当\\(k=5\\)的时候，Binomial Distribution表示的概率为\\(0.6^5\\)，也就是说对于一个概率为0.6的事件，其独立测试五次后都成功的概率为\\(0.6^5\\)，这就是最简单的概率&lt;/li&gt;
+&lt;li&gt;当\\(k=3\\)时，概率质量函数为
 $$\binom{5}{3} 0.6^3 (1-0.6)^{5-3}$$&lt;/li&gt;
-&lt;li&gt;也就是说，5次实验，每一个5次实验中3次成功的概率为\(0.6^3 (1-0.6)^{5-3}\)&lt;/li&gt;
+&lt;li&gt;也就是说，5次实验，每一个5次实验中3次成功的概率为\\(0.6^3 (1-0.6)^{5-3}\\)&lt;/li&gt;
 &lt;li&gt;而在5次实验中这些成功的和失败的实验都可能出现在不同的位置，而这些中的成功的事件的位置可以是
 $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
 &lt;li&gt;这10种情况，也就是出现5次中3次的会有10中情况，所以乘以10&lt;/li&gt;
@@ -133,7 +133,7 @@ $$123,124,125,134,135,145,234,235,245,345$$&lt;/li&gt;
     
 &lt;/h2&gt;
 $$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$&lt;ul&gt;
-&lt;li&gt;用加权平均的方式（基于二项分布）生成新的多项式\(B_n(x)\)，作为\(f(x)\)的近似，实际上就是一个离散的Convolution&lt;/li&gt;
+&lt;li&gt;用加权平均的方式（基于二项分布）生成新的多项式\\(B_n(x)\\)，作为\\(f(x)\\)的近似，实际上就是一个离散的Convolution&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -164,8 +164,8 @@ $$(f * g)(x) = \sum_{k} f(k) g(x-k)$$&lt;ul&gt;
     
 &lt;/h3&gt;
 $$B_n(x) = \mathbb{E}\left[f\left(\frac{X}{n}\right)\right]$$&lt;ul&gt;
-&lt;li&gt;最终可以得到Bernstein Polynomial的期望值在\(n\rightarrow \infty\)的情况下是就是\(f(x)\)&lt;/li&gt;
-&lt;li&gt;也就是说可以通过一致收敛性，说明\(B_n(f, x)\)在区间\([0, 1]\)上以任意精度逼近\(f(x)\)&lt;/li&gt;
+&lt;li&gt;最终可以得到Bernstein Polynomial的期望值在\\(n\rightarrow \infty\\)的情况下是就是\\(f(x)\\)&lt;/li&gt;
+&lt;li&gt;也就是说可以通过一致收敛性，说明\\(B_n(f, x)\\)在区间\\([0, 1]\\)上以任意精度逼近\\(f(x)\\)&lt;/li&gt;
 &lt;/ul&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/weierstrassapproximation/feature.png" />
     </item>
@@ -176,7 +176,40 @@ $$B_n(x) = \mathbb{E}\left[f\left(\frac{X}{n}\right)\right]$$&lt;ul&gt;
       <pubDate>Mon, 15 Apr 2024 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/</guid>
-      <description>&lt;p&gt;在了解多层感知机前，需要先了解[[Perceptron 感知机]]&lt;/p&gt;</description>
+      <description>&lt;p&gt;在了解多层感知机前，需要先了解Perceptron 感知机&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;4.1.1 隐藏层 
+    &lt;div id=&#34;411-%E9%9A%90%E8%97%8F%E5%B1%82&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#411-%E9%9A%90%E8%97%8F%E5%B1%82&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;在3.1_LinearRegression中我们描述了Affine Transformation 仿射变换，如一次函数一般是一种带有偏置项的线性变换&lt;/li&gt;
+&lt;li&gt;如果预测值在仿射变换后确实与输入数据有线性关系，那么这种方式确实够用&lt;/li&gt;
+&lt;li&gt;可是大部分情况下，仿射变换中的线性是一个很强的假设&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h3 class=&#34;relative group&#34;&gt;4.1.1.1 线性模型可能会出错 
+    &lt;div id=&#34;4111-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%87%BA%E9%94%99&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#4111-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%87%BA%E9%94%99&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;线性意味着&lt;strong&gt;单调假设&lt;/strong&gt;，权重w在正的情况下，任何特征的增大都会导致模型输出的增大&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;E.X.&lt;/em&gt;&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/dive-into-deep-learning/d2l4.multilayerperceptron/d2l4.3simpleimplementationofmultilayerperceptron/feature.png" />
     </item>
     

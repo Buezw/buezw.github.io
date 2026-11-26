@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -421,12 +424,12 @@ $$
 V_o=A(V_2−V_1)
 $$<ul>
 <li>同时，他还有良好的 Resistance 设计</li>
-<li><strong>Has high input resistance（高输入电阻 \(R_{\text{in}}\)）</strong>
+<li><strong>Has high input resistance（高输入电阻 \\(R_{\text{in}}\\)）</strong>
 <ul>
 <li>这样不会“吃掉”前级电路的信号，利于级联连接</li>
 </ul>
 </li>
-<li><strong>Has low output resistance（低输出电阻 \(R_o\)）</strong>
+<li><strong>Has low output resistance（低输出电阻 \\(R_o\\)）</strong>
 <ul>
 <li>能驱动后续电路而不失真</li>
 </ul>
@@ -453,7 +456,7 @@ $$<ul>
 </p>
 <ul>
 <li>目前的情况下，三个 Signal（两个 Input 和一个 Output）是独立的</li>
-<li>这种情况下由于 \(A_{v0}\) 是一个非常大的值，来到了 \(10e5\) 的级别</li>
+<li>这种情况下由于 \\(A_{v0}\\) 是一个非常大的值，来到了 \\(10e5\\) 的级别</li>
 <li>在 V1 和 V2 的数值有一点点细小的变化的时候，Output 会马上来到 Saturation 饱和阶段</li>
 <li>所以在没有 Feedback 之前，这个 Op AMP 只适合做一个 Comparator 比较器</li>
 </ul>
@@ -496,19 +499,19 @@ $$<ul>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">\(A_{v0}\)</td>
+          <td style="text-align: left">\\(A_{v0}\\)</td>
           <td style="text-align: left">∞</td>
           <td style="text-align: left">10510^5</td>
           <td style="text-align: left">50 ~ 100</td>
       </tr>
       <tr>
-          <td style="text-align: left">\(R_{in}\)</td>
+          <td style="text-align: left">\\(R_{in}\\)</td>
           <td style="text-align: left">∞</td>
           <td style="text-align: left">数兆欧（several MΩ）</td>
           <td style="text-align: left">数兆欧</td>
       </tr>
       <tr>
-          <td style="text-align: left">\(R_o\)</td>
+          <td style="text-align: left">\\(R_o\\)</td>
           <td style="text-align: left">0</td>
           <td style="text-align: left">&lt; 100Ω</td>
           <td style="text-align: left">几欧（several Ω）</td>
@@ -547,7 +550,7 @@ $$<ul>
 </h2>
 <ul>
 <li>如果我们希望用运放构建具有精确可控增益的放大器，我们需要把它连接成 negative feedback 结构</li>
-<li>其中，两个 Input 的 Signal 并不需要改变，只不过在 Output 前，输出 \(v_o\) 通过一个反馈路径回到反相端，形成 Negative Feedback</li>
+<li>其中，两个 Input 的 Signal 并不需要改变，只不过在 Output 前，输出 \\(v_o\\) 通过一个反馈路径回到反相端，形成 Negative Feedback</li>
 </ul>
 <p>
     <figure>
@@ -571,7 +574,7 @@ $$<ul>
 $$
 v_o = A_{v0} (v_2 - v_1)
 $$<ul>
-<li>本质上来说，由于 \(A_{vo}\) 是一个常数，所以希望控制 v1 和 v2 之间的差值尽可能小是设计 Negative Feedback 的诉求</li>
+<li>本质上来说，由于 \\(A_{vo}\\) 是一个常数，所以希望控制 v1 和 v2 之间的差值尽可能小是设计 Negative Feedback 的诉求</li>
 <li>只要差值足够小它就可以在 Linear Range 中运行</li>
 </ul>
 
@@ -587,7 +590,7 @@ $$<ul>
     
 </h3>
 <ul>
-<li>前面提到了 \(v_2 \approx v_1\)，这边就直接认为它们的 Voltage 是一样的，尽管两个 Node 之间并没有真正的一根连接线，但由于 Voltage 几乎一样，于是就叫他 Virtual Short</li>
+<li>前面提到了 \\(v_2 \approx v_1\\)，这边就直接认为它们的 Voltage 是一样的，尽管两个 Node 之间并没有真正的一根连接线，但由于 Voltage 几乎一样，于是就叫他 Virtual Short</li>
 </ul>
 
 
@@ -605,8 +608,8 @@ $$<ul>
 <li>Op amps with negative feedback 带有负反馈的运放电路，共同满足两个重要前提条件：</li>
 </ul>
 <ol>
-<li><strong>输入电流为 0</strong>：\(i_+ = i_- = 0\)（因为输入阻抗趋近于无穷）</li>
-<li><strong>输入端电压相等</strong>：\(v_+ \approx v_-\)（因为虚短）</li>
+<li><strong>输入电流为 0</strong>：\\(i_+ = i_- = 0\\)（因为输入阻抗趋近于无穷）</li>
+<li><strong>输入端电压相等</strong>：\\(v_+ \approx v_-\\)（因为虚短）</li>
 </ol>
 
 
@@ -637,15 +640,15 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>输入电压 \(v_i\) 接在 <strong>+ 端</strong>，所以这个 Op AMP 是一个 Noninverting input</li>
-<li>负反馈电阻 \(R_1\) 和 \(R_2\) 组成一个分压器，从输出 \(v_o\) 接回 <strong>– 端</strong></li>
+<li>输入电压 \\(v_i\\) 接在 <strong>+ 端</strong>，所以这个 Op AMP 是一个 Noninverting input</li>
+<li>负反馈电阻 \\(R_1\\) 和 \\(R_2\\) 组成一个分压器，从输出 \\(v_o\\) 接回 <strong>– 端</strong></li>
 </ul>
 <blockquote>
 <p>Op AMP 负端的 Voltage 是来自 Output 的，因为它左边是 Ground，其 Voltage 是两个 In Series 的 Resistors 的分压的结果</p>
 </blockquote>
 <ul>
-<li>根据 Virtual Short，\(v_- = v_+ = v_i\)</li>
-<li>输出电压 \(v_o\) 会分压成 \(v_i\)，也就是说：</li>
+<li>根据 Virtual Short，\\(v_- = v_+ = v_i\\)</li>
+<li>输出电压 \\(v_o\\) 会分压成 \\(v_i\\)，也就是说：</li>
 </ul>
 $$
 v_i = v_o \cdot \frac{R_1}{R_1 + R_2}\Rightarrow v_o = v_i \left(1 + \frac{R_2}{R_1}\right)\Rightarrow \text{Voltage gain} = \frac{v_o}{v_i} = 1 + \frac{R_2}{R_1}
@@ -678,11 +681,11 @@ $$
     </figure>
 </p>
 <ul>
-<li>在这个例子下，Signal \(v_i\) 从负端进入，即是一个 Inverting</li>
-<li>输入 \(v_i\) 接到 <strong>– 端</strong>，通过电阻 R1</li>
-<li>正端接地（即 \(v_+ = 0\)）</li>
-<li>输出端 \(v_o\) 通过 R2 接回 – 端，形成负反馈</li>
-<li>由于正端接了地，所以 \(v_+ = 0\)，所以 \(v_- \approx 0\)</li>
+<li>在这个例子下，Signal \\(v_i\\) 从负端进入，即是一个 Inverting</li>
+<li>输入 \\(v_i\\) 接到 <strong>– 端</strong>，通过电阻 R1</li>
+<li>正端接地（即 \\(v_+ = 0\\)）</li>
+<li>输出端 \\(v_o\\) 通过 R2 接回 – 端，形成负反馈</li>
+<li>由于正端接了地，所以 \\(v_+ = 0\\)，所以 \\(v_- \approx 0\\)</li>
 <li>计算负端左边的 KCL</li>
 </ul>
 $$
@@ -716,9 +719,9 @@ $$
     </figure>
 </p>
 <ul>
-<li>输入 \(v_i\) 接在 + 端</li>
+<li>输入 \\(v_i\\) 接在 + 端</li>
 <li>输出端直接连接到 – 端（无电阻）</li>
-<li>它的特性就是 \(R1 → ∞，R2 = 0\)</li>
+<li>它的特性就是 \\(R1 → ∞，R2 = 0\\)</li>
 <li>是 “Non-Inverting” 的一个特例</li>
 </ul>
 $$
@@ -736,14 +739,14 @@ $$
     
 </h4>
 <ul>
-<li>在一般的 Input Output Circuit 中，Signal 一般都不是 Ideal 的，即其存在一个不可忽视的内阻 \(R_{sig}\)，如果这时候想要输出，整体就会被分压为</li>
+<li>在一般的 Input Output Circuit 中，Signal 一般都不是 Ideal 的，即其存在一个不可忽视的内阻 \\(R_{sig}\\)，如果这时候想要输出，整体就会被分压为</li>
 </ul>
 $$
 {\text{out}} = V_{\text{sig}} \cdot \frac{R_L}{R_{\text{sig}} + R_L}
 $$<ul>
-<li>如果 \(R_L\) 很小，输出电压就会比原来的 \(V_{\text{sig}}\) 小很多，从而无法实现型号的稳定输出</li>
+<li>如果 \\(R_L\\) 很小，输出电压就会比原来的 \\(V_{\text{sig}}\\) 小很多，从而无法实现型号的稳定输出</li>
 <li>这叫做 Attenuation 信号衰减</li>
-<li>想要解决这个问题，就可以通过一个 Buffer，让 Voltage 结构变成 \(Vsig → Buffer → RL\)</li>
+<li>想要解决这个问题，就可以通过一个 Buffer，让 Voltage 结构变成 \\(Vsig → Buffer → RL\\)</li>
 <li>而这个 Buffer 应该有的特性为</li>
 </ul>
 <table>
@@ -756,16 +759,16 @@ $$<ul>
   <tbody>
       <tr>
           <td style="text-align: left"><strong>不吃输入信号</strong></td>
-          <td style="text-align: left">输入阻抗极大 \(R_{\text{in}} = \infty\)</td>
+          <td style="text-align: left">输入阻抗极大 \\(R_{\text{in}} = \infty\\)</td>
       </tr>
       <tr>
           <td style="text-align: left"><strong>能推得动输出</strong></td>
-          <td style="text-align: left">输出阻抗极小 \(R_{\text{out}} \approx 0\)</td>
+          <td style="text-align: left">输出阻抗极小 \\(R_{\text{out}} \approx 0\\)</td>
       </tr>
   </tbody>
 </table>
 <ul>
-<li>左边 \(V_{\text{sig}}\) 不会被拉低的同时右边负载 \(R_L\) 也不会拉低输出</li>
+<li>左边 \\(V_{\text{sig}}\\) 不会被拉低的同时右边负载 \\(R_L\\) 也不会拉低输出</li>
 <li>整体结构就来到了这样</li>
 </ul>
 <p>
@@ -785,13 +788,13 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>有 \(V_{\text{out}} \approx V_o \approx V_{\text{sig}}\)</li>
-<li>具体原理如下，由于 Buffer 有一个很大的 \(R_{in}\)，所以有</li>
+<li>有 \\(V_{\text{out}} \approx V_o \approx V_{\text{sig}}\\)</li>
+<li>具体原理如下，由于 Buffer 有一个很大的 \\(R_{in}\\)，所以有</li>
 </ul>
 $$
 V_x = V_{\text{sig}} \cdot \frac{\infty}{R_{\text{sig}} + \infty} = V_{\text{sig}}
 $$<ul>
-<li>而到了输出的时候，又给出了一个非常小的 \(R_{out}\)，即</li>
+<li>而到了输出的时候，又给出了一个非常小的 \\(R_{out}\\)，即</li>
 </ul>
 $$
 V_{\text{out}} = V_o \cdot \frac{R_L}{R_{\text{out}} + R_L} \approx V_o
@@ -877,7 +880,7 @@ $$
 </ul>
 </li>
 <li>
-<p>单位：同样是欧姆（\(\Omega\)）</p>
+<p>单位：同样是欧姆（\\(\Omega\\)）</p>
 </li>
 </ul>
 <table>
@@ -964,7 +967,7 @@ $$<ul>
 </ul>
 <aside>
 💡
-<p>Resistor, Inductor, Capacitor 都能看作是阻抗：\(Z = R + jX\)</p>
+<p>Resistor, Inductor, Capacitor 都能看作是阻抗：\\(Z = R + jX\\)</p>
 <ul>
 <li><strong>Resistor R</strong> → 实数部分（能量损耗）</li>
 <li><strong>L/C</strong> → 虚数部分 jX（能量存储、相位变化）</li>
@@ -988,7 +991,7 @@ $$<ul>
 </ul>
 <aside>
 💡
-<p>已知前面的 Resistor 是 Impedance 的特殊形式，即只有 Real Part 的情况，现在引入完整的 Impedance 作为控制系统，有公式 \(Z = R + jX\)</p>
+<p>已知前面的 Resistor 是 Impedance 的特殊形式，即只有 Real Part 的情况，现在引入完整的 Impedance 作为控制系统，有公式 \\(Z = R + jX\\)</p>
 </aside>
 <p>
     <figure>
@@ -1029,7 +1032,7 @@ $$<aside>
     
 </h4>
 <ul>
-<li>在 \(z_2\) 的槽中放入，Capacitor \(C_1\)，保持 Input Resistance 不变为 \(R_1\)</li>
+<li>在 \\(z_2\\) 的槽中放入，Capacitor \\(C_1\\)，保持 Input Resistance 不变为 \\(R_1\\)</li>
 <li>已知 Capacitor 的 Reactance（Imaginary Part of Impedance）为</li>
 </ul>
 $$
@@ -1079,7 +1082,7 @@ $$
 <hr>
 <ul>
 <li>现在就可以开始分析 Miller Integrator 在 Time Domain 下的表现了</li>
-<li>假设目前先只给了一个 DC 的 \(v_{i}\)（方便展示 Integrate 的效果）</li>
+<li>假设目前先只给了一个 DC 的 \\(v_{i}\\)（方便展示 Integrate 的效果）</li>
 </ul>
 <p>
     <figure>
@@ -1098,13 +1101,13 @@ $$
     </figure>
 </p>
 <ul>
-<li>可以同步得到 Input Current 为 \(i = v_i / R_1\)</li>
-<li>之后，这个突然出现的冲击 Current 将碰到 Capacitor，最后 \(v_o\)  变化的斜率将由 C 决定</li>
+<li>可以同步得到 Input Current 为 \\(i = v_i / R_1\\)</li>
+<li>之后，这个突然出现的冲击 Current 将碰到 Capacitor，最后 \\(v_o\\)  变化的斜率将由 C 决定</li>
 </ul>
 $$
 i = \frac{v_i}{R_1} = C \frac{dv_c}{dt} = C \frac{d(-v_o)}{dt}
 $$<ul>
-<li>想要算出 \(v_o\)，已知 \(\frac{v_i}{R_1} = C \frac{d(-v_o)}{dt}\)，将其改写为</li>
+<li>想要算出 \\(v_o\\)，已知 \\(\frac{v_i}{R_1} = C \frac{d(-v_o)}{dt}\\)，将其改写为</li>
 </ul>
 $$
 \frac{dv_o}{dt} = -\frac{1}{R_1 C} v_i
@@ -1114,7 +1117,7 @@ $$<ul>
 $$
 v_o = -\frac{1}{R_1 C} \int v_i \, dt
 $$<ul>
-<li>前面，为了方便展示的清晰，将 \(v_i\) 设定为了 Constant，于是有</li>
+<li>前面，为了方便展示的清晰，将 \\(v_i\\) 设定为了 Constant，于是有</li>
 </ul>
 $$
 v_o = -\frac{V_i}{R_1 C} t
@@ -1230,9 +1233,9 @@ $$
     </figure>
 </p>
 <ul>
-<li>Summing Circuit 中，两个输入电压：\(v_1, v_2\)，分别通过电阻 \(R_1, R_2\) 接到运放反相端</li>
-<li>运放的反馈电阻是 \(R_F\)，所以这是一个 Inverting Op amp</li>
-<li>进入 \(R_F\) 的 Current 为两个支路的 Current Sum，为</li>
+<li>Summing Circuit 中，两个输入电压：\\(v_1, v_2\\)，分别通过电阻 \\(R_1, R_2\\) 接到运放反相端</li>
+<li>运放的反馈电阻是 \\(R_F\\)，所以这是一个 Inverting Op amp</li>
+<li>进入 \\(R_F\\) 的 Current 为两个支路的 Current Sum，为</li>
 </ul>
 $$
 i=\frac{v_1}{R_1} + \frac{v_2}{R_2}
@@ -1284,12 +1287,12 @@ $$<aside>
 </p>
 <ul>
 <li>同样有两个 Input，不过两个接入的位置为一正一负</li>
-<li>分析两个端口电压，对于 \(v_+\) 端来说，其电压为</li>
+<li>分析两个端口电压，对于 \\(v_+\\) 端来说，其电压为</li>
 </ul>
 $$
 V^+ = \frac{R_4}{R_3 + R_4} v_2
 $$<ul>
-<li>根据 Virtual Short 就可以得到 \(v_-\) 端的电压也为同样的 \(v_+\)，于是可以得到负端的 Current 为</li>
+<li>根据 Virtual Short 就可以得到 \\(v_-\\) 端的电压也为同样的 \\(v_+\\)，于是可以得到负端的 Current 为</li>
 </ul>
 $$
 i_1 = \frac{V^+ - v_1}{R_1}
@@ -1343,7 +1346,7 @@ $$
 </p>
 <ul>
 <li>可以看出，左边的就是一个 Typical Inverting Op amp</li>
-<li>而右边的则是一个 Typical Noninverting Op amp，不过它的 Input Voltage 有一点不同，是 \(\frac{R_4}{R_3+R_4}v_2\)，是一个被分压后的值</li>
+<li>而右边的则是一个 Typical Noninverting Op amp，不过它的 Input Voltage 有一点不同，是 \\(\frac{R_4}{R_3+R_4}v_2\\)，是一个被分压后的值</li>
 <li>之后更具 Superposition 的原理，将他们相加就可以得到</li>
 </ul>
 $$
@@ -1371,7 +1374,7 @@ $$
     
 </h3>
 <ul>
-<li>总结了一下常见电路类型和输入电阻 \(R_{in}\)</li>
+<li>总结了一下常见电路类型和输入电阻 \\(R_{in}\\)</li>
 </ul>
 <table>
   <thead>
@@ -1384,23 +1387,23 @@ $$
   <tbody>
       <tr>
           <td style="text-align: left"><strong>反相运放 (Inverting Op Amp)</strong></td>
-          <td style="text-align: left">\(R_{in} = R_1\)</td>
-          <td style="text-align: left">输入电压先经过电阻 \(R_1\)，再到虚短点</td>
+          <td style="text-align: left">\\(R_{in} = R_1\\)</td>
+          <td style="text-align: left">输入电压先经过电阻 \\(R_1\\)，再到虚短点</td>
       </tr>
       <tr>
           <td style="text-align: left"><strong>同相运放 (Non-inverting Op Amp)</strong></td>
-          <td style="text-align: left">\(R_{in} = \infty\)</td>
+          <td style="text-align: left">\\(R_{in} = \infty\\)</td>
           <td style="text-align: left">输入端直接接到 + 端，理想运放输入电流≈0</td>
       </tr>
       <tr>
           <td style="text-align: left"><strong>分压输入 (Voltage Divider Input)</strong></td>
-          <td style="text-align: left">\(R_{in} = R_3 + R_4\)</td>
-          <td style="text-align: left">输入电压先通过 \(R_3, R_4\) 串联分压</td>
+          <td style="text-align: left">\\(R_{in} = R_3 + R_4\\)</td>
+          <td style="text-align: left">输入电压先通过 \\(R_3, R_4\\) 串联分压</td>
       </tr>
       <tr>
           <td style="text-align: left"><strong>差分放大器 (Difference Amplifier)</strong></td>
-          <td style="text-align: left">\(R_{in} = R_1 + R_3\)</td>
-          <td style="text-align: left">两个电阻 \(R_1, R_3\) 串联到虚短点</td>
+          <td style="text-align: left">\\(R_{in} = R_1 + R_3\\)</td>
+          <td style="text-align: left">两个电阻 \\(R_1, R_3\\) 串联到虚短点</td>
       </tr>
   </tbody>
 </table>
@@ -1466,9 +1469,9 @@ $$
 <ul>
 <li><strong>Instrumentation Amplifier（仪表放大器）</strong>，它是一种 I<strong>mproved difference amplifier 改进型差分放大器</strong></li>
 <li>其由三个 Op amp 组成，前面有两个 Noninverting 的作为输入</li>
-<li>\(A_3\)：后面是一个 Difference amp</li>
+<li>\\(A_3\\)：后面是一个 Difference amp</li>
 <li>先从输出部分开始，一开始的两个 Noninverting amp 由于各自的 Virtual Short，有两个 Node 具有不同的 Voltage</li>
-<li>他们的差值则为 \(v_{id} = v_{i2} - v_{i1}\)</li>
+<li>他们的差值则为 \\(v_{id} = v_{i2} - v_{i1}\\)</li>
 <li>在经过整个电路后得出等效的 Input Voltage 为</li>
 </ul>
 $$
@@ -1535,7 +1538,7 @@ $$<aside>
     </figure>
 </p>
 <ul>
-<li>已知一个标准 OP amp 在当 \(V_2=V_1\)  的时候，输出 \(V_0  = 0\)，但是现实中的 Op amp 更像是加上了一个 Input Offset Voltage</li>
+<li>已知一个标准 OP amp 在当 \\(V_2=V_1\\)  的时候，输出 \\(V_0  = 0\\)，但是现实中的 Op amp 更像是加上了一个 Input Offset Voltage</li>
 </ul>
 <p>
     <figure>
@@ -1554,7 +1557,7 @@ $$<aside>
     </figure>
 </p>
 <ul>
-<li>于是他就导致了 Output \(V_o\)  和 \(V_2-V_1\)  之间产生了 Bias，不再是 Linear 的了</li>
+<li>于是他就导致了 Output \\(V_o\\)  和 \\(V_2-V_1\\)  之间产生了 Bias，不再是 Linear 的了</li>
 </ul>
 <p>
     <figure>
@@ -1574,7 +1577,7 @@ $$<aside>
 </p>
 
 
-<h3 class="relative group">Effect of  \(V_{OS}\)  on Amplifier 
+<h3 class="relative group">Effect of  \\(V_{OS}\\)  on Amplifier 
     <div id="effect-of--v_os--on-amplifier" class="anchor"></div>
     
     <span
@@ -1616,14 +1619,14 @@ $$<aside>
     </figure>
 </p>
 <ul>
-<li>对于 Non-Inverting 来说，\(V_{OS}\)  就是一个和 \(V_{in}\) 被加在一块的 Input</li>
+<li>对于 Non-Inverting 来说，\\(V_{OS}\\)  就是一个和 \\(V_{in}\\) 被加在一块的 Input</li>
 <li>所以整体这个 Op amp 产生的 output 将是</li>
 </ul>
 $$
 V_{out} = \left(1 + \frac{R_2}{R_1}\right)(V_{in} + V_{OS})
 $$<ul>
-<li>可以发现 <strong>\(V_{OS}\)</strong> 被 和输入信号 \(V_{in}\) 一样的比例放大了</li>
-<li>所以即使 \(V_{in}\) 为 0，仍会产生一个 Biased 项，这也就是上图中的类似一次函数产生的原因</li>
+<li>可以发现 <strong>\\(V_{OS}\\)</strong> 被 和输入信号 \\(V_{in}\\) 一样的比例放大了</li>
+<li>所以即使 \\(V_{in}\\) 为 0，仍会产生一个 Biased 项，这也就是上图中的类似一次函数产生的原因</li>
 </ul>
 
 
@@ -1654,7 +1657,7 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>这次，\(V_{in}\) 来到了 Negative 端，而 Virtual Short 只会发生在离 Positive 端最近的旁边一个点上</li>
+<li>这次，\\(V_{in}\\) 来到了 Negative 端，而 Virtual Short 只会发生在离 Positive 端最近的旁边一个点上</li>
 <li>这就导致一个 Extra Voltage 在 Positive 端的进入，可以通过 Superposition 来分析，有</li>
 </ul>
 <p>
@@ -1675,7 +1678,7 @@ $$<ul>
 </p>
 <ul>
 <li>Superposition 将 Inverting Conf. 分为了一个 Non-Inverting + 一个 Inverting 的 Conf.</li>
-<li>左图中 \(V_{out}&rsquo; = -\frac{R_2}{R_1} V_{in}\)，右图中 \(V_{out}&rsquo;&rsquo; = \left(1 + \frac{R_2}{R_1}\right) V_{OS}\)</li>
+<li>左图中 \\(V_{out}' = -\frac{R_2}{R_1} V_{in}\\)，右图中 \\(V_{out}'' = \left(1 + \frac{R_2}{R_1}\right) V_{OS}\\)</li>
 <li>于是 Overall 的 Amplification 就变成了</li>
 </ul>
 $$
@@ -1693,7 +1696,7 @@ $$
     
 </h3>
 <ul>
-<li>通过在 \(R_{in}\) 和 \(v_{in}\) 中串联一个 Capacitor</li>
+<li>通过在 \\(R_{in}\\) 和 \\(v_{in}\\) 中串联一个 Capacitor</li>
 </ul>
 <p>
     <figure>
@@ -1713,8 +1716,8 @@ $$
 </p>
 <ul>
 <li>这个 Capacitor 会阻断直流，即不能让偏移电压直接传到电路中</li>
-<li>所以虽然有 \(V_{OS}\)，但它不会完全被放大到输出端</li>
-<li>来分析一下这个 Capacitor 具体会干什么，先将 \(V_{in}\) 设为 0，单独拿出 \(V_{OS}\) 分析</li>
+<li>所以虽然有 \\(V_{OS}\\)，但它不会完全被放大到输出端</li>
+<li>来分析一下这个 Capacitor 具体会干什么，先将 \\(V_{in}\\) 设为 0，单独拿出 \\(V_{OS}\\) 分析</li>
 </ul>
 <p>
     <figure>
@@ -1733,19 +1736,19 @@ $$
     </figure>
 </p>
 <ul>
-<li>在只有 \(V_{OS}\) 的情况下，Virtual Short 导致了 Negative 端电压也是 \(V_{OS}\)</li>
-<li>但是由于 \(V_{OS}\) 是一个 Dircet Current，它无法进入 Capcitor</li>
+<li>在只有 \\(V_{OS}\\) 的情况下，Virtual Short 导致了 Negative 端电压也是 \\(V_{OS}\\)</li>
+<li>但是由于 \\(V_{OS}\\) 是一个 Dircet Current，它无法进入 Capcitor</li>
 </ul>
 <blockquote>
-<p>Capacitor 的特性 \(i_C = C\cdot \frac{dV}{dt}\)，只有 Voltage Change 的时候才会有 Current</p>
+<p>Capacitor 的特性 \\(i_C = C\cdot \frac{dV}{dt}\\)，只有 Voltage Change 的时候才会有 Current</p>
 </blockquote>
 <aside>
 💡
-<p>这就避免了 \(V_{OS}\) 被叠加在 \(V_{in}\) 的上面</p>
+<p>这就避免了 \\(V_{OS}\\) 被叠加在 \\(V_{in}\\) 的上面</p>
 </aside>
 <ul>
-<li>要具体分析什么叫做叠加在 \(V_{in}\) 上，就需要回顾之前没有 Capacitor 时候的情况，在那个 Circuit 中，\(V_{OS}\) 要么是先和 \(V_{in}\) 做加法，再乘上放大倍率 \(\left(1 + \frac{R_2}{R_1}\right)(V_{in} + V_{OS})\)，要么是 \(\frac{R_2}{R_1} V_{in} + \left(1 + \frac{R_2}{R_1} \right) V_{OS}\) 先加上一个倍率再和 \(V_{in}\) 相加</li>
-<li>这一个倍率的乘数就会令 \(V_{OS}\) 被放大，而有了 Capacitor 就可以避免这一现象</li>
+<li>要具体分析什么叫做叠加在 \\(V_{in}\\) 上，就需要回顾之前没有 Capacitor 时候的情况，在那个 Circuit 中，\\(V_{OS}\\) 要么是先和 \\(V_{in}\\) 做加法，再乘上放大倍率 \\(\left(1 + \frac{R_2}{R_1}\right)(V_{in} + V_{OS})\\)，要么是 \\(\frac{R_2}{R_1} V_{in} + \left(1 + \frac{R_2}{R_1} \right) V_{OS}\\) 先加上一个倍率再和 \\(V_{in}\\) 相加</li>
+<li>这一个倍率的乘数就会令 \\(V_{OS}\\) 被放大，而有了 Capacitor 就可以避免这一现象</li>
 </ul>
 
 
@@ -1780,12 +1783,12 @@ $$
 </p>
 <ul>
 <li>并没有考虑到可能出现的 DC Imperfection 可能造成的影响</li>
-<li>而实际上，当多出了一个 \(V_{OS}\) 的情况下，会使得另一端出现 Imperfection，导致</li>
+<li>而实际上，当多出了一个 \\(V_{OS}\\) 的情况下，会使得另一端出现 Imperfection，导致</li>
 </ul>
 $$
 V_{\text{out}} = V_{\text{OS}} + \frac{1}{C_1} \int \frac{V_{\text{in}}}{R_1} dt
 $$<ul>
-<li>哪怕 \(V_{\text{OS}}\) 很小，积分以后也会不断累积，使得 \(V_{\text{out}}\) 随时间线性上升，最后 saturate 到电源电压 rail 上，电路失效</li>
+<li>哪怕 \\(V_{\text{OS}}\\) 很小，积分以后也会不断累积，使得 \\(V_{\text{out}}\\) 随时间线性上升，最后 saturate 到电源电压 rail 上，电路失效</li>
 </ul>
 <p>
     <figure>
@@ -1805,14 +1808,14 @@ $$<ul>
 </p>
 <ul>
 <li>所以只靠理想电路设计，这个积分器不能长期稳定工作</li>
-<li>所幸的是，存在修复的办法，也就是加一个电阻 \(R_2\) 并联在电容 \(C_1\) 上</li>
+<li>所幸的是，存在修复的办法，也就是加一个电阻 \\(R_2\\) 并联在电容 \\(C_1\\) 上</li>
 <li>直流电流（由 VOSV_{\text{OS}} 引起）原本无法通过电容流动，会导致积分输出发散；</li>
 </ul>
 <blockquote>
 <p>Capacitor 令 DC 无法经过，这导致在一端形成了一个永久的 Voltage Source，持续输出</p>
 </blockquote>
 <ul>
-<li>加了 \(R_2\) 以后，这个 DC 电流可以<strong>改走 \(R_2\) 路径</strong>，而不是一直积累在电容上</li>
+<li>加了 \\(R_2\\) 以后，这个 DC 电流可以<strong>改走 \\(R_2\\) 路径</strong>，而不是一直积累在电容上</li>
 </ul>
 <p>
     <figure>
@@ -1831,14 +1834,14 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>于是最终 \(V_{\text{out}}\) 会有一个有限的、稳定的直流偏移（offset），而不是无限上升；</li>
-<li>在没有 \(R_2\) 的时候，Miller Integrator 的 Gain 为</li>
+<li>于是最终 \\(V_{\text{out}}\\) 会有一个有限的、稳定的直流偏移（offset），而不是无限上升；</li>
+<li>在没有 \\(R_2\\) 的时候，Miller Integrator 的 Gain 为</li>
 </ul>
 $$
 \frac{V_{\text{out}}}{V_{\text{in}}} = -\frac{1}{R_1 C_1 j\omega}
 $$<ul>
 <li>这就是一个是一个 Ideal integrator 的 Gain</li>
-<li>但是由于多了一个 DC Imperfection \(\omega = 0\)，可以观察 Gain 发现，在 \(\omega\)  为 0 的时候，Gain 直接 Diverge 了</li>
+<li>但是由于多了一个 DC Imperfection \\(\omega = 0\\)，可以观察 Gain 发现，在 \\(\omega\\)  为 0 的时候，Gain 直接 Diverge 了</li>
 </ul>
 <p>
     <figure>
@@ -1857,7 +1860,7 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>接下去分析有了 \(R_2\) 的情况，新的传递函数变成：</li>
+<li>接下去分析有了 \\(R_2\\) 的情况，新的传递函数变成：</li>
 </ul>
 $$
 \frac{V_{\text{out}}}{V_{\text{in}}} = -\frac{R_2 / R_1}{1 + R_2 C_1 j\omega}
@@ -1886,13 +1889,13 @@ $$<ul>
 $$
 |H(j\omega)| = \frac{R_2 / R_1}{\sqrt{1 + (\omega R_2 C_1)^2}}
 $$<ul>
-<li>当 \(\omega \to 0\) 的时候</li>
+<li>当 \\(\omega \to 0\\) 的时候</li>
 </ul>
 $$
 |H(j\omega)| \to \frac{R_2}{R_1}
 $$<ul>
 <li>这个是常数，图上对应左边蓝色那段平的部分</li>
-<li>当 \(\omega \to \infty\) 时，</li>
+<li>当 \\(\omega \to \infty\\) 时，</li>
 </ul>
 $$
 |H(j\omega)| \to \frac{R_2 / R_1}{\omega R_2 C_1} = \frac{1}{R_1 C_1 \omega}
@@ -1928,7 +1931,7 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>当一个最普通的方波输出 \(V_{in}\) 进入</li>
+<li>当一个最普通的方波输出 \\(V_{in}\\) 进入</li>
 </ul>
 
 
@@ -1962,7 +1965,7 @@ $$<ul>
 <li>
 <p><strong>0 &lt; t &lt; T：</strong></p>
 <ul>
-<li>理想积分器，输出是对输入常数 \(V_{in}\) 的积分</li>
+<li>理想积分器，输出是对输入常数 \\(V_{in}\\) 的积分</li>
 <li>数学上是线性关系：</li>
 </ul>
 $$
@@ -2003,7 +2006,7 @@ $$
 <li>
 <p>输出是一个<strong>负向指数上升曲线</strong>（因为乘了负号）</p>
 <ul>
-<li>随着时间推移，越来越接近极限值 \(-\frac{R_2}{R_1} V_{in}\)</li>
+<li>随着时间推移，越来越接近极限值 \\(-\frac{R_2}{R_1} V_{in}\\)</li>
 </ul>
 </li>
 <li>
@@ -2036,13 +2039,13 @@ $$
 <p>Input Bias Current 通常由 Op amp 内部的 BJT 晶体管引起</p>
 </li>
 <li>
-<p>记为  \(I_{B1}, I_{B2}\)，分别是流入运放正负输入端的电流</p>
+<p>记为  \\(I_{B1}, I_{B2}\\)，分别是流入运放正负输入端的电流</p>
 </li>
 <li>
 <p>他们的典型数值为</p>
 <ul>
-<li>\(I_{B1} \approx I_{B2} \approx 100 , \text{nA}\)</li>
-<li>\(I_{OS} = |I_{B2} - I_{B1}| \approx 10 , \text{nA}\)（<strong>输入失调电流</strong>）</li>
+<li>\\(I_{B1} \approx I_{B2} \approx 100 \, \text{nA}\\)</li>
+<li>\\(I_{OS} = |I_{B2} - I_{B1}| \approx 10 \, \text{nA}\\)（<strong>输入失调电流</strong>）</li>
 </ul>
 </li>
 </ul>
@@ -2064,7 +2067,7 @@ $$
 </p>
 <ul>
 <li>
-<p>将两个 Input Voltage 都 Grounded（0V），但是由于有 \(I_{B1}\) 流过反馈电阻 \(R_2\)，导致输出电压不为 0</p>
+<p>将两个 Input Voltage 都 Grounded（0V），但是由于有 \\(I_{B1}\\) 流过反馈电阻 \\(R_2\\)，导致输出电压不为 0</p>
 $$
     V_{out} = R_2 \cdot I_{B1}
     $$</li>
@@ -2074,7 +2077,7 @@ $$
 <p>所以在 Bias Current 下，即使输入为 0，输出也会出现偏移（non-zero）</p>
 </aside>
 <ul>
-<li>这个东西同样也有解决方案，就是在 Positive Input 端 Parallel 一个 Resistor \(R_1 \parallel R_2\)</li>
+<li>这个东西同样也有解决方案，就是在 Positive Input 端 Parallel 一个 Resistor \\(R_1 \parallel R_2\\)</li>
 </ul>
 <p>
     <figure>
@@ -2104,7 +2107,7 @@ $$
     </span>        
     
 </h3>
-<p>\(I_{B1}\)</p>
+<p>\\(I_{B1}\\)</p>
 <p>
     <figure>
       <img
@@ -2133,7 +2136,7 @@ $$
 </ul>
 
 
-<h4 class="relative group">\(I_{B2}\) 
+<h4 class="relative group">\\(I_{B2}\\) 
     <div id="i_b2" class="anchor"></div>
     
     <span
@@ -2161,7 +2164,7 @@ $$
 </p>
 <ul>
 <li>
-<p>在正输入端加了一个等效电阻 \(R_1 \parallel R_2\)</p>
+<p>在正输入端加了一个等效电阻 \\(R_1 \parallel R_2\\)</p>
 </li>
 <li>
 <p>这个电流通过该电阻向下流，并造成输出扰动：</p>
@@ -2180,7 +2183,7 @@ $$
 $$
 V_{out} = V_{out}' + V_{out}'' = R_2 (I_{B1} - I_{B2})
 $$<ul>
-<li>如果 \(I_{B1} \approx I_{B2}\)，那 \(V_{out} \approx 0\)，偏置电流误差被“抵消”了</li>
+<li>如果 \\(I_{B1} \approx I_{B2}\\)，那 \\(V_{out} \approx 0\\)，偏置电流误差被“抵消”了</li>
 </ul>
 
 
@@ -2211,12 +2214,12 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>一标准的积分器结构：反馈路径是电容 \(C_1\)，但现在多了 \(I_{B1}, I_{B2}\)</li>
-<li>输入端接地，但 \(I_{B1}\) 没有其他去路，只能穿过电容 <strong>\(C_1\)</strong></li>
-<li>DC 偏置电流 \(I_{B1}\) 经过电容 \(C_1\)，使得输出电压持续积分，最终导致<strong>饱和</strong></li>
+<li>一标准的积分器结构：反馈路径是电容 \\(C_1\\)，但现在多了 \\(I_{B1}, I_{B2}\\)</li>
+<li>输入端接地，但 \\(I_{B1}\\) 没有其他去路，只能穿过电容 <strong>\\(C_1\\)</strong></li>
+<li>DC 偏置电流 \\(I_{B1}\\) 经过电容 \\(C_1\\)，使得输出电压持续积分，最终导致<strong>饱和</strong></li>
 </ul>
 <blockquote>
-<p>加一个并联电阻 \(R_2\)（跟前面分析一致）</p>
+<p>加一个并联电阻 \\(R_2\\)（跟前面分析一致）</p>
 </blockquote>
 
 
@@ -2317,7 +2320,7 @@ $$<ul>
     </span>        
     
 </h4>
-<p>We have a 1 v peak to peak sin function input, with \(R_1=1k\), \(R_2 = 19k\), aksing for the output</p>
+<p>We have a 1 v peak to peak sin function input, with \\(R_1=1k\\), \\(R_2 = 19k\\), aksing for the output</p>
 <hr>
 <p>
     <figure>
@@ -2364,10 +2367,10 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>Using this circuit, there’s a speaker load with \(8\Omega\), and the op-amp we are using is called the 741 Op-amp, its limited current output should be \(20mA\)</li>
-<li>Let’s assume that this buffer has \(v_i = 1V\), the ideal output should also be \(v_o=1V\)</li>
-<li>However there’s a speaker, so a Voltage Divider exist on the output end with \(8\Omega\)</li>
-<li>So the Current required for \(v_o\) to be 1V is then \(125mA\)</li>
+<li>Using this circuit, there’s a speaker load with \\(8\Omega\\), and the op-amp we are using is called the 741 Op-amp, its limited current output should be \\(20mA\\)</li>
+<li>Let’s assume that this buffer has \\(v_i = 1V\\), the ideal output should also be \\(v_o=1V\\)</li>
+<li>However there’s a speaker, so a Voltage Divider exist on the output end with \\(8\Omega\\)</li>
+<li>So the Current required for \\(v_o\\) to be 1V is then \\(125mA\\)</li>
 </ul>
 
 
@@ -2402,7 +2405,7 @@ $$<p>
 </p>
 <ul>
 <li>This graph describe the highest amount of change the output can have, thus if the blue output waveform goes above the SR line, meaning its derivative exceed SR, then the waveform will distort</li>
-<li>The op-amp we mentioned above, which is 741, it has \(SR = ±1V/μs = ±10^6 V/s\)</li>
+<li>The op-amp we mentioned above, which is 741, it has \\(SR = ±1V/μs = ±10^6 V/s\\)</li>
 </ul>
 <p>
     <figure>
@@ -2456,7 +2459,7 @@ $$
 \omega_t = 2\pi \times 10^6 \text{ rad/s} \quad\text{(unity-gain frequency)}
 $$$$
 SR = ±10^6 , \text{V/s}
-$$<p>Find the largest step input, (\(V_i\)), without SR limiting</p>
+$$<p>Find the largest step input, (\\(V_i\\)), without SR limiting</p>
 <hr>
 <p>
     <figure>
@@ -2486,12 +2489,12 @@ $$<p>Find the largest step input, (\(V_i\)), without SR limiting</p>
     </span>        
     
 </h3>
-<p>\(fm\) is the largest frequency of waveform an op-amp can have under largest Output Voltage without Slew Rate Limiting</p>
+<p>\\(fm\\) is the largest frequency of waveform an op-amp can have under largest Output Voltage without Slew Rate Limiting</p>
 <p>We know that a sin wave form can be expressed as</p>
 $$
 v_o(t) = V_{o(max)} \sin(2\pi f_M t)
 $$<ul>
-<li>Whereas the only part we really care is when \(t=0\), the place that have the largest slope</li>
+<li>Whereas the only part we really care is when \\(t=0\\), the place that have the largest slope</li>
 </ul>
 $$
 \left|\frac{dv_o(t)}{dt}\right|{max}= 2\pi f_M V{o(max)}
@@ -2517,7 +2520,7 @@ $$
     </span>        
     
 </h4>
-<p>With \(V_{o(max)} = 10,V, \quad SR = 10^6,V/s\)</p>
+<p>With \\(V_{o(max)} = 10,V, \quad SR = 10^6,V/s\\)</p>
 <hr>
 $$
 f_M = \frac{10^6}{2\pi \times 10} = 15.9\text{kHz}
@@ -2536,7 +2539,7 @@ $$<ul>
     </span>        
     
 </h3>
-<p>From the formula \(SR = 2\pi f V_{o(peak)}\) we can see that \(SR\) is Proportional to the frequency \(f\) and \(V_{0(peak)}\)</p>
+<p>From the formula \\(SR = 2\pi f V_{o(peak)}\\) we can see that \\(SR\\) is Proportional to the frequency \\(f\\) and \\(V_{0(peak)}\\)</p>
 <ul>
 <li>So that to avoid distortion, we rather
 <ul>
@@ -2572,7 +2575,7 @@ $$<ul>
         <a href="#instrumentation-amplifier-an-improved-difference-amplifier" class="l2">Instrumentation Amplifier (an improved difference amplifier)</a>
         <a href="#dc-imperfections" class="l1">DC Imperfections</a>
         <a href="#dc-offsets" class="l2">DC offsets</a>
-        <a href="#effect-of--v_os--on-amplifier" class="l2">Effect of  \(V_{OS}\)  on Amplifier</a>
+        <a href="#effect-of--v_os--on-amplifier" class="l2">Effect of    on Amplifier</a>
         <a href="#use-capacitor-to-remedy-the-offset" class="l2">Use Capacitor to Remedy the offset</a>
         <a href="#miller-integrator" class="l2">Miller Integrator</a>
         <a href="#time-domain" class="l2">Time Domain</a>

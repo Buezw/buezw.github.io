@@ -166,7 +166,7 @@
 &lt;ul&gt;
 &lt;li&gt;在科学中存在多个 Field的概念，其中包含了 Teperature Field，Pressure Field 等&lt;/li&gt;
 &lt;li&gt;而 Electric Field 则是一个 Vector Field，矢量场，其包含了大小与方向&lt;/li&gt;
-&lt;li&gt;具体来说，定义 Electric Field的方式是在 Electric Field \(\vec{E}\) 的某个点 P 处放置一个 Small Positive Charge 的 \(q_0\)，其为 Test Charge&lt;/li&gt;
+&lt;li&gt;具体来说，定义 Electric Field的方式是在 Electric Field \\(\vec{E}\\) 的某个点 P 处放置一个 Small Positive Charge 的 \\(q_0\\)，其为 Test Charge&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
 &lt;p&gt;We want the charge to be small so that it does not disturb the object’s charge distribution&lt;/p&gt;</description>
@@ -259,7 +259,7 @@
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;任何封闭电路中 Induced Current 大小，等于穿过这一电路 Magnetic Flux 的变化率&lt;/li&gt;
-&lt;li&gt;已知 Magnetic Flux 的定义即为 \(\Phi_B=\int B\cdot dA\)&lt;/li&gt;
+&lt;li&gt;已知 Magnetic Flux 的定义即为 \\(\Phi_B=\int B\cdot dA\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -351,11 +351,11 @@
 &lt;ul&gt;
 &lt;li&gt;当 Charged Particle 在 Magnetic Field 中移动的时候，它受到的力为
 $$\vec F_B=q(\vec v\times\vec B)$$&lt;/li&gt;
-&lt;li&gt;其中 \(\vec v\) 为 Velocity Vector&lt;/li&gt;
+&lt;li&gt;其中 \\(\vec v\\) 为 Velocity Vector&lt;/li&gt;
 &lt;li&gt;Magnetic Field Strength 的力的方向则是 Cross Product 方向，即通过 Right Hard Rule 给出&lt;/li&gt;
 &lt;li&gt;具体来说 Magnitude 为
 $$F_B=|q|v_B\sin\phi$$&lt;/li&gt;
-&lt;li&gt;其中 \(\phi\) 为 Velocity 和 Magnetic Field 之间的夹角&lt;/li&gt;
+&lt;li&gt;其中 \\(\phi\\) 为 Velocity 和 Magnetic Field 之间的夹角&lt;/li&gt;
 &lt;li&gt;Magnetic Field Strength 的单位为 Tesla，有
 $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})(\text{meter/second})}$$&lt;/li&gt;
 &lt;/ul&gt;
@@ -386,7 +386,7 @@ $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})
     &lt;/span&gt;        
     
 &lt;/h3&gt;
-&lt;p&gt;A uniform magnetic field \(\vec{B}\), with a magnitude of \(1.2 , \text{mT}\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \(5.3 , \text{MeV}\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \(1.67 \times 10^{-27} , \text{kg}\). (Neglect Earth&amp;rsquo;s magnetic field.)&lt;/p&gt;</description>
+&lt;p&gt;A uniform magnetic field \\(\vec{B}\\), with a magnitude of \\(1.2 \, \text{mT}\\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \\(5.3 \, \text{MeV}\\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \\(1.67 \times 10^{-27} \, \text{kg}\\). (Neglect Earth&amp;rsquo;s magnetic field.)&lt;/p&gt;</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://buezw.github.io/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/feature.png" />
     </item>
     
@@ -468,7 +468,7 @@ $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;对于一个重力场，其Field Strength为g，而Gravity所做的功则为\(W=mgh\)&lt;/li&gt;
+&lt;li&gt;对于一个重力场，其Field Strength为g，而Gravity所做的功则为\\(W=mgh\\)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
     &lt;figure&gt;

@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -346,7 +349,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
   <article class="art">
 
     <div class="prose">
-      <p>在了解多层感知机前，需要先了解[[Perceptron 感知机]]</p>
+      <p>在了解多层感知机前，需要先了解Perceptron 感知机</p>
 
 
 <h2 class="relative group">4.1.1 隐藏层 
@@ -360,7 +363,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     
 </h2>
 <ul>
-<li>在[[3.1_LinearRegression#3.1.1.1 线性模型]]中我们描述了[[Affine Transformation 仿射变换]]，如一次函数一般是一种带有偏置项的线性变换</li>
+<li>在3.1_LinearRegression中我们描述了Affine Transformation 仿射变换，如一次函数一般是一种带有偏置项的线性变换</li>
 <li>如果预测值在仿射变换后确实与输入数据有线性关系，那么这种方式确实够用</li>
 <li>可是大部分情况下，仿射变换中的线性是一个很强的假设</li>
 </ul>
@@ -384,15 +387,15 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <li>如果我们试图预测一个人是否会偿还贷款，我们可以认为收入较高的申请人比收入较低的申请人更有可能偿还贷款</li>
 <li>但上述例子只阐明了<strong>单调性</strong>而非<strong>线性</strong></li>
 <li>收入从0到5万会带来比100万到105万更大的还款可能性</li>
-<li>在上例中，我们任然可以通过[[2.2 数据预处理]]的方式使线性更加合理，如对数化处理</li>
+<li>在上例中，我们任然可以通过2.2 数据预处理的方式使线性更加合理，如对数化处理</li>
 <li>但一个违反单调性的例子比如体温和死亡率的关系</li>
 <li>对于体温高于37度的人来说，温度越高风险越高</li>
 <li>而对于体温低于37度的人来说，温度越低风险就越低</li>
 <li>这种情况也可以使用理37度的距离作为特征</li>
-<li>分类问题，如对于猫狗分类问题，在位置（13，17）处像素强度进行添加，是否整个图像描绘狗的[[Likehood 似然]]会增加？</li>
+<li>分类问题，如对于猫狗分类问题，在位置（13，17）处像素强度进行添加，是否整个图像描绘狗的Likehood 似然会增加？</li>
 <li>这一评估标准注定会失败，如倒置图像后，类别依然保留</li>
 <li>对于上面两个例子来说，猫狗的分类问题无法通过简单的预处理解决</li>
-<li>对于[[深度神经网络]]，我们将使用隐藏层</li>
+<li>对于深度神经网络，我们将使用隐藏层</li>
 </ul>
 
 
@@ -434,16 +437,16 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </h3>
 <ul>
 <li>
-<p>同之前的章节一样，我们通过矩阵\(X\in R^{n\times d}\)来表示n个样本的小批量，其中每个样本具有d个输入特征</p>
+<p>同之前的章节一样，我们通过矩阵\\(X\in R^{n\times d}\\)来表示n个样本的小批量，其中每个样本具有d个输入特征</p>
 </li>
 <li>
-<p>对于具有h个隐藏单元的单隐藏层多层感知机，用\(H\in R^{n\times h}\)表示隐藏层的输出，称为Hidden Representatiosn 隐藏表示</p>
+<p>对于具有h个隐藏单元的单隐藏层多层感知机，用\\(H\in R^{n\times h}\\)表示隐藏层的输出，称为Hidden Representatiosn 隐藏表示</p>
 </li>
 <li>
-<p>因为隐藏层和输出层都是全连接的， 所以我们有隐藏层权重\(W^{(1)}\in R^{R\times h}\)和隐藏层偏置\(b^{(1)}\in R^{1\times h}\)以及输出层\(W^{(2)}\in R^{h\times q}\)和输出层偏置\(b^{(2)}\in R^{1\times q}\)</p>
+<p>因为隐藏层和输出层都是全连接的， 所以我们有隐藏层权重\\(W^{(1)}\in R^{R\times h}\\)和隐藏层偏置\\(b^{(1)}\in R^{1\times h}\\)以及输出层\\(W^{(2)}\in R^{h\times q}\\)和输出层偏置\\(b^{(2)}\in R^{1\times q}\\)</p>
 </li>
 <li>
-<p>所以形式上，对于单隐藏层的多层感知机的输出\(O\in R^{n\times q}\)，有
+<p>所以形式上，对于单隐藏层的多层感知机的输出\\(O\in R^{n\times q}\\)，有
 </p>
 $$\begin{align} \\
 H=WX^{(1)}+b^{(1)} \\
@@ -456,7 +459,7 @@ $$O=(XW^{(1)}+b^{(1)})W^{(2)}+b^{(2)}=XW+b$$</li>
 <p>注意到现在在多层感知机的单隐藏层下，模型依然只做到了线性的放射函数</p>
 </li>
 <li>
-<p>所以为了发挥多层架构的潜力，我们需要添加一个额外的关键要素：[[Activation Function 激活函数]]，激活函数的输出则称为Activations 活性值</p>
+<p>所以为了发挥多层架构的潜力，我们需要添加一个额外的关键要素：Activation Function 激活函数，激活函数的输出则称为Activations 活性值</p>
 </li>
 <li>
 <p>一般来说，有了激活函数，模型就不会退化成线性模型
@@ -499,7 +502,7 @@ O=HW^{(2)}+b^{(2)}
     
 </h2>
 <ul>
-<li>[[Activation Function 激活函数]]</li>
+<li>Activation Function 激活函数</li>
 </ul>
 
     </div>

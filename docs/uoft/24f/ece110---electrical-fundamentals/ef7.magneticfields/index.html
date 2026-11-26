@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -394,11 +397,11 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <ul>
 <li>当 Charged Particle 在 Magnetic Field 中移动的时候，它受到的力为
 $$\vec F_B=q(\vec v\times\vec B)$$</li>
-<li>其中 \(\vec v\) 为 Velocity Vector</li>
+<li>其中 \\(\vec v\\) 为 Velocity Vector</li>
 <li>Magnetic Field Strength 的力的方向则是 Cross Product 方向，即通过 Right Hard Rule 给出</li>
 <li>具体来说 Magnitude 为
 $$F_B=|q|v_B\sin\phi$$</li>
-<li>其中 \(\phi\) 为 Velocity 和 Magnetic Field 之间的夹角</li>
+<li>其中 \\(\phi\\) 为 Velocity 和 Magnetic Field 之间的夹角</li>
 <li>Magnetic Field Strength 的单位为 Tesla，有
 $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})(\text{meter/second})}$$</li>
 </ul>
@@ -429,7 +432,7 @@ $$1 \, \text{tesla} = 1 \, \text{T} = \frac{1 \, \text{newton}}{(\text{coulomb})
     </span>        
     
 </h3>
-<p>A uniform magnetic field \(\vec{B}\), with a magnitude of \(1.2 , \text{mT}\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \(5.3 , \text{MeV}\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \(1.67 \times 10^{-27} , \text{kg}\). (Neglect Earth&rsquo;s magnetic field.)</p>
+<p>A uniform magnetic field \\(\vec{B}\\), with a magnitude of \\(1.2 \, \text{mT}\\), is directed vertically upward throughout the volume of a laboratory chamber. A proton with kinetic energy \\(5.3 \, \text{MeV}\\) enters the chamber, moving horizontally from south to north. What magnetic deflecting force acts on the proton as it enters the chamber? The proton mass is \\(1.67 \times 10^{-27} \, \text{kg}\\). (Neglect Earth&rsquo;s magnetic field.)</p>
 <ul>
 <li>先通过 Energy 求得 Proton 的 Velocity 有
 $$v = \sqrt{\frac{2K}{m}} = \sqrt{\frac{(2)(5.3 \, \text{MeV})(1.60 \times 10^{-13} \, \text{J/MeV})}{1.67 \times 10^{-27} \, \text{kg}}} = 3.2 \times 10^7 \, \text{m/s}$$</li>
@@ -452,7 +455,7 @@ $$F_B = |q| v B \sin \phi
     
 </h2>
 <ul>
-<li>对于一条有 Current 的 Wire，当它位于一个 Uniform 的 Magnetic Field 中时，其会收到一个 Magnetic Field Strength \(\vec F_b\)</li>
+<li>对于一条有 Current 的 Wire，当它位于一个 Uniform 的 Magnetic Field 中时，其会收到一个 Magnetic Field Strength \\(\vec F_b\\)</li>
 </ul>
 <p>
     <figure>
@@ -486,7 +489,7 @@ $$F_B = |q| v B \sin \phi
     
 </h2>
 <ul>
-<li>当一个 Current 从一根直的 Wire 中通过的时候，其周围会形成环形磁场 \(\vec B\)</li>
+<li>当一个 Current 从一根直的 Wire 中通过的时候，其周围会形成环形磁场 \\(\vec B\\)</li>
 </ul>
 <p>
     <figure>
@@ -520,10 +523,10 @@ $$F_B = |q| v B \sin \phi
     
 </h2>
 <ul>
-<li>非直线导线中一个长度元素 \(ds\) 在距离 r 处的点 P 产生的磁场微分为
+<li>非直线导线中一个长度元素 \\(ds\\) 在距离 r 处的点 P 产生的磁场微分为
 $$dB = \frac{\mu_0}{4 \pi} \cdot \frac{i \, ds \, \sin \theta}{r^2}
 $$</li>
-<li>其中的 \(\mu_0\) 为真空磁导率，有 \(μ0​=4π×10^{−7}T⋅m/A=1.26\times 10^{-6}T\cdot m/A\)</li>
+<li>其中的 \\(\mu_0\\) 为真空磁导率，有 \\(μ0​=4π×10^{−7}T⋅m/A=1.26\times 10^{-6}T\cdot m/A\\)</li>
 </ul>
 <p>
     <figure>
@@ -596,7 +599,12 @@ $$B = \frac{\mu_0 i \Phi}{4 \pi R}$$</li>
 </ul>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="EF8.MagneticFields.png-5" alt="Img" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        src="/docs/uoft/24f/ece110---electrical-fundamentals/ef7.magneticfields/EF8.MagneticFields.png-5"
+        alt="Img"
+      />
       
     </figure>
 </p>
@@ -616,7 +624,7 @@ $$B = \frac{\mu_0 i \Phi}{4 \pi R}$$</li>
 <li>已知一根带有 Current i 的 Straight Wire 的 Magnetic Field 有
 $$\vec F_b=i\vec L\times \vec B$$</li>
 <li>两根平行导线之间的力是由于其中一根导线产生的磁场作用在另一根导线上的结果</li>
-<li>导线 a 产生的磁场 \(B_a\) 在 b 位置为 \(B_a = \frac{\mu_0 i_a}{2 \pi d}\)，即 b 收到的 Magnetic Field Strength 为
+<li>导线 a 产生的磁场 \\(B_a\\) 在 b 位置为 \\(B_a = \frac{\mu_0 i_a}{2 \pi d}\\)，即 b 收到的 Magnetic Field Strength 为
 $$F_{ba} = i_b L B_a \sin 90^\circ = i_b L \cdot \frac{\mu_0 i_a}{2 \pi d}
 \Rightarrow F_{ba} = \frac{\mu_0 L i_a i_b}{2 \pi d}$$
 

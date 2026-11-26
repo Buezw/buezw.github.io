@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -414,7 +417,17 @@ $$<p>Known that the Crossed Vector $\vec{u} \times \vec{B}$ has to be perpendicu
 <p>In a Current Carrying Wire, there’s Current $I = \frac{dq}{dt}$, as the speed is $\vec{u} = \frac{d\vec{l}}{dt}$, thus we can get $I d\vec{l} = dq \vec{u}$</p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/image_hu6865449250252621103.png 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/image_hu10634295974235111786.png 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/image_hu17232479267612083390.png 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/image_hu8718510260160520787.png 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/image_hu10634295974235111786.png"
+        alt="image.png"
+      />
       
     </figure>
 </p>
@@ -483,13 +496,33 @@ $$<p>Under a uniform Magnetic Field, the total force will always be zero</p>
 </blockquote>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-74.jpg" alt="Note-74.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-74_hu11744215474000911630.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-74_hu14505842493076724475.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-74_hu9270873911462782458.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-74_hu13497308930312922280.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-74_hu14505842493076724475.jpg"
+        alt="Note-74.jpg"
+      />
       
     </figure>
 </p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="8f6c4e70-0213-4be3-9bf1-46b517472536.png" alt="Note-75.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/8f6c4e70-0213-4be3-9bf1-46b517472536_hu11239303436198745479.png 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/8f6c4e70-0213-4be3-9bf1-46b517472536_hu17182144163605610004.png 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/8f6c4e70-0213-4be3-9bf1-46b517472536_hu15732975823861816029.png 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/8f6c4e70-0213-4be3-9bf1-46b517472536_hu2374246173969925300.png 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/8f6c4e70-0213-4be3-9bf1-46b517472536_hu17182144163605610004.png"
+        alt="Note-75.jpg"
+      />
       
     </figure>
 </p>
@@ -616,7 +649,17 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-76.jpg" alt="Note-76.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-76_hu8969354829944970038.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-76_hu3902899957204627864.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-76_hu17021216558786265012.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-76_hu14710342597323576787.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-76_hu3902899957204627864.jpg"
+        alt="Note-76.jpg"
+      />
       
     </figure>
 </p>
@@ -634,7 +677,17 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-77.jpg" alt="Note-77.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-77_hu17063811444596763183.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-77_hu16816955239809271793.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-77_hu8050269518122541428.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-77_hu17718338597598080091.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-77_hu16816955239809271793.jpg"
+        alt="Note-77.jpg"
+      />
       
     </figure>
 </p>
@@ -719,7 +772,17 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-78.jpg" alt="Note-78.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-78_hu17207272614857405216.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-78_hu9340712241267697348.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-78_hu16944699551913775014.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-78_hu8963708666032039581.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-78_hu9340712241267697348.jpg"
+        alt="Note-78.jpg"
+      />
       
     </figure>
 </p>
@@ -737,7 +800,17 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="bbac981c-37ab-460f-b214-818d853e0b86.png" alt="Note-79.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/bbac981c-37ab-460f-b214-818d853e0b86_hu8320392187898967245.png 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/bbac981c-37ab-460f-b214-818d853e0b86_hu6504796647653315465.png 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/bbac981c-37ab-460f-b214-818d853e0b86_hu5195341485467019213.png 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/bbac981c-37ab-460f-b214-818d853e0b86_hu9542971958068956039.png 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/bbac981c-37ab-460f-b214-818d853e0b86_hu6504796647653315465.png"
+        alt="Note-79.jpg"
+      />
       
     </figure>
 </p>
@@ -755,7 +828,17 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-82.jpg" alt="Note-82.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-82_hu7490079009142493205.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-82_hu13337030553971795932.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-82_hu12887486462147781474.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-82_hu15564375743021735526.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-82_hu13337030553971795932.jpg"
+        alt="Note-82.jpg"
+      />
       
     </figure>
 </p>
@@ -919,7 +1002,17 @@ $$<ul>
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-84.jpg" alt="Note-84.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-84_hu6513518176542046490.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-84_hu8061697412873432992.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-84_hu8294357699954014131.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-84_hu11425963810055367089.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-84_hu8061697412873432992.jpg"
+        alt="Note-84.jpg"
+      />
       
     </figure>
 </p>
@@ -937,7 +1030,17 @@ $$<ul>
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-85.jpg" alt="Note-85.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-85_hu17277295645547731947.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-85_hu3675269517971723821.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-85_hu15858641924036820574.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-85_hu13744114040305610138.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-85_hu3675269517971723821.jpg"
+        alt="Note-85.jpg"
+      />
       
     </figure>
 </p>
@@ -979,7 +1082,17 @@ $$<ul>
 </p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-75.jpg" alt="Note-75.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-75_hu2548254372915711043.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-75_hu14281738974864955708.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-75_hu12401148210644138167.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-75_hu18318481939835054234.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf8.magnetostaticsforcesfields/Note-75_hu14281738974864955708.jpg"
+        alt="Note-75.jpg"
+      />
       
     </figure>
 </p>

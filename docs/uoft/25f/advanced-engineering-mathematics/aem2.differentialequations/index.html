@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -455,7 +458,7 @@ $$
 $$
 a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_0(x)y = f(x)
 $$<ul>
-<li>系数 \(a_i(x)\) 只依赖于 \(x\)，不能含有 \(y\)</li>
+<li>系数 \\(a_i(x)\\) 只依赖于 \\(x\\)，不能含有 \\(y\\)</li>
 <li>示例：
 <ul>
 <li>
@@ -484,8 +487,8 @@ $$
     
 </h3>
 <ul>
-<li>若 \(f(x) = 0\)，则为 <strong>Homogeneous</strong></li>
-<li>若 \(f(x) \ne 0\)，则为 <strong>Non-homogeneous</strong></li>
+<li>若 \\(f(x) = 0\\)，则为 <strong>Homogeneous</strong></li>
+<li>若 \\(f(x) \ne 0\\)，则为 <strong>Non-homogeneous</strong></li>
 </ul>
 
 
@@ -500,7 +503,7 @@ $$
     
 </h3>
 <ul>
-<li>若 \(a_0(x), &hellip;, a_n(x)\) 是 constant，则为 <strong>constant coefficient DE</strong></li>
+<li>若 \\(a_0(x), ..., a_n(x)\\) 是 constant，则为 <strong>constant coefficient DE</strong></li>
 <li>否则为 <strong>Variable coefficient DE</strong></li>
 </ul>
 
@@ -538,8 +541,8 @@ $$
 \frac{dP}{dt} = (\beta - \alpha)P
 $$<ul>
 <li>t 没有显式出现</li>
-<li>\(\beta\)：出生率</li>
-<li>\(\alpha\)：死亡率</li>
+<li>\\(\beta\\)：出生率</li>
+<li>\\(\alpha\\)：死亡率</li>
 </ul>
 
 
@@ -570,12 +573,12 @@ $$
 $$
 y'' + 3(y')^2 + \cos x = 0
 $$<ul>
-<li><strong>non-linear</strong>（因为有 \((y&rsquo;)^2\)）</li>
-<li><strong>non-homogeneous</strong>（有常数项 \(\cos x\)）</li>
-<li><strong>variable coefficient</strong>（\(3(y&rsquo;)^2\) 中的系数依赖 \(y&rsquo;\)，不是常数）</li>
+<li><strong>non-linear</strong>（因为有 \\((y')^2\\)）</li>
+<li><strong>non-homogeneous</strong>（有常数项 \\(\cos x\\)）</li>
+<li><strong>variable coefficient</strong>（\\(3(y')^2\\) 中的系数依赖 \\(y'\\)，不是常数）</li>
 </ul>
 <blockquote>
-<p>这里是 \(y&rsquo;\) 的平方</p>
+<p>这里是 \\(y'\\) 的平方</p>
 </blockquote>
 <hr>
 $$
@@ -588,9 +591,9 @@ $$<ul>
 $$
 \frac{d^2 y}{dx^2} + x^2 \frac{dy}{dx} + (\sin x) y = e^x
 $$<ul>
-<li><strong>linear</strong>（\(y, y&rsquo;, y&rsquo;&rsquo;\) 都是一次）</li>
+<li><strong>linear</strong>（\\(y, y', y''\\) 都是一次）</li>
 <li><strong>non-homogeneous</strong>（右边不是 0）</li>
-<li><strong>variable coefficient</strong>（系数 \(x^2, \sin x\) 都依赖于 \(x\)）</li>
+<li><strong>variable coefficient</strong>（系数 \\(x^2, \sin x\\) 都依赖于 \\(x\\)）</li>
 </ul>
 <hr>
 $$
@@ -604,9 +607,9 @@ $$<ul>
 $$
 y'' + \sin(y') + x y = x^2
 $$<ul>
-<li><strong>non-linear</strong>（因为 \(\sin(y&rsquo;)\) 是非线性项）</li>
-<li><strong>non-homogeneous</strong>（右边为 \(x^2\)）</li>
-<li><strong>variable coefficient</strong>（项 \(x y\) 中系数为 \(x\)）</li>
+<li><strong>non-linear</strong>（因为 \\(\sin(y')\\) 是非线性项）</li>
+<li><strong>non-homogeneous</strong>（右边为 \\(x^2\\)）</li>
+<li><strong>variable coefficient</strong>（项 \\(x y\\) 中系数为 \\(x\\)）</li>
 </ul>
 <hr>
 
@@ -627,7 +630,7 @@ $$<ul>
 $$
 y^{(n)} = F(y^{(n-1)}, ..., y', y, x)
 $$<ul>
-<li>如果一个函数 \(y = \varphi(x)\) 被代入后，使得方程变为 <strong>identity</strong> 恒等式，那么它就是这个微分方程的一个 <strong>solution</strong></li>
+<li>如果一个函数 \\(y = \varphi(x)\\) 被代入后，使得方程变为 <strong>identity</strong> 恒等式，那么它就是这个微分方程的一个 <strong>solution</strong></li>
 <li>代入后要满足：</li>
 </ul>
 $$
@@ -644,7 +647,7 @@ $$
     </span>        
     
 </h4>
-<p>For DE \(y&rsquo; = 6x(y - 1)^{2/3}\)，verify by substitution that  is a solution on interval \((-\infty, +\infty)\)，where C is an arbitrary constant</p>
+<p>For DE \\(y' = 6x(y - 1)^{2/3}\\)，verify by substitution that  is a solution on interval \\((-\infty, +\infty)\\)，where C is an arbitrary constant</p>
 $$
 y' = 2x \cdot 3(x^2 + C)^2 = 6x(x^2 + C)^2
 $$$$
@@ -693,7 +696,7 @@ $$
     
 </h3>
 <ul>
-<li>对于形如 \(y&rsquo; = g(x)h(y)\) 的 ODE</li>
+<li>对于形如 \\(y' = g(x)h(y)\\) 的 ODE</li>
 <li>解法是将变量 x 和 y 分离，积分两边：</li>
 </ul>
 $$
@@ -729,7 +732,7 @@ $$
 $$
 \mu(x) = e^{\int P(x)\,dx}
 $$<ul>
-<li>将方程两边都乘以 \(\mu(x)\)</li>
+<li>将方程两边都乘以 \\(\mu(x)\\)</li>
 </ul>
 $$
 \mu(x) \cdot y' + \mu(x) \cdot P(x) \cdot y = \mu(x) \cdot f(x)
@@ -768,8 +771,8 @@ $$
 $$
 xy' - y = 2x^2 \quad \text{with} \quad y(x_0) = y_0
 $$<ul>
-<li>将 DE 转换成标准形式，有 \(y&rsquo; - \frac{1}{x} y = 2x\)</li>
-<li>所以 \(P(x) = -\frac{1}{x}，f(x) = 2x\)</li>
+<li>将 DE 转换成标准形式，有 \\(y' - \frac{1}{x} y = 2x\\)</li>
+<li>所以 \\(P(x) = -\frac{1}{x}，f(x) = 2x\\)</li>
 </ul>
 <ol>
 <li>
@@ -788,7 +791,7 @@ $$
     \frac{1}{x} y = \int 2 dx + C = 2x + C \quad \Rightarrow \quad y = x(2x + C) = 2x^2 + Cx
     $$</li>
 <li>
-<p>若 IC 为 \(y(1) = 1\)：</p>
+<p>若 IC 为 \\(y(1) = 1\\)：</p>
 <ul>
 <li>解代入得：</li>
 </ul>
@@ -804,13 +807,13 @@ $$
     0 = 2 + C \Rightarrow C = -2
     $$</li>
 <li>
-<p>若 IC 为 \(y&rsquo;(1) = 2, y(1) = 2\)</p>
+<p>若 IC 为 \\(y'(1) = 2, y(1) = 2\\)</p>
 </li>
 </ol>
 $$
 y = 2x^2 + Cx \Rightarrow y' = 4x + C
 $$<ul>
-<li>\(y&rsquo;(1) = 4 + C = 2 \Rightarrow C = -2\)</li>
+<li>\\(y'(1) = 4 + C = 2 \Rightarrow C = -2\\)</li>
 <li>代入 y(1) 得：</li>
 </ul>
 $$
@@ -850,12 +853,12 @@ $$
     $$</li>
 </ul>
 <blockquote>
-<p>给到一个 1st Order Differential Equation，并给了某个点 \((x_0, y_0)\) 的初始条件
+<p>给到一个 1st Order Differential Equation，并给了某个点 \\((x_0, y_0)\\) 的初始条件
 去研究解到底存不存在？如果存在，是不是唯一的？</p>
 </blockquote>
 <ul>
-<li>如果 \(f(x,y)\) 和 \(\frac{\partial f}{\partial y}\)（对 y 的偏导）在矩形区域 R (矩形区域) 内连续</li>
-<li>也就是说如果一个微分方程 \(y&rsquo; = f(x,y)\) 里面的函数 \(f(x,y)\) 和它对 y 的偏导数 \(\frac{\partial f}{\partial y}\) 都是“平滑的”（数学上 = 连续）</li>
+<li>如果 \\(f(x,y)\\) 和 \\(\frac{\partial f}{\partial y}\\)（对 y 的偏导）在矩形区域 R (矩形区域) 内连续</li>
+<li>也就是说如果一个微分方程 \\(y' = f(x,y)\\) 里面的函数 \\(f(x,y)\\) 和它对 y 的偏导数 \\(\frac{\partial f}{\partial y}\\) 都是“平滑的”（数学上 = 连续）</li>
 </ul>
 <p>
     <figure>
@@ -874,10 +877,10 @@ $$
     </figure>
 </p>
 <ul>
-<li>那么在区间 \(I_0 (a &lt; x_0 &lt; b)\) 内，<strong>Solution Exist 并且是 Unique 的</strong>，存在唯一解 \(y(x)\)，并且这个区间 \(I_0\) 包含在更大的区间 \(I (a \leq x \leq b)\) 中</li>
+<li>那么在区间 \\(I_0 (a < x_0 < b)\\) 内，<strong>Solution Exist 并且是 Unique 的</strong>，存在唯一解 \\(y(x)\\)，并且这个区间 \\(I_0\\) 包含在更大的区间 \\(I (a \leq x \leq b)\\) 中</li>
 </ul>
 <blockquote>
-<p>这种情况下，只保证在 \(x_0\) 附近一个<strong>小区间</strong> \(I_0\) 内，存在唯一解</p>
+<p>这种情况下，只保证在 \\(x_0\\) 附近一个<strong>小区间</strong> \\(I_0\\) 内，存在唯一解</p>
 </blockquote>
 
 
@@ -902,7 +905,7 @@ $$
 <p>多了一个 Linear 的条件</p>
 </blockquote>
 <ul>
-<li>如果函数 P(x) 和 f(x) 在包含 \(x_0\) 的开区间 I (开区间) 上连续，</li>
+<li>如果函数 P(x) 和 f(x) 在包含 \\(x_0\\) 的开区间 I (开区间) 上连续，</li>
 <li>那么这个初值问题在整个区间 <strong>I</strong> 上都有唯一解</li>
 </ul>
 <blockquote>
@@ -922,7 +925,7 @@ $$
 </h3>
 <ul>
 <li>两个 Theorem，第一个 Non-Linear 下要满足的条件是</li>
-<li>f(x,y) 连续；\(\dfrac{\partial f}{\partial y}\) 在该区域也连续</li>
+<li>f(x,y) 连续；\\(\dfrac{\partial f}{\partial y}\\) 在该区域也连续</li>
 <li>而在 Linear 的特殊情况下</li>
 </ul>
 $$
@@ -934,10 +937,10 @@ $$
 y' = f(x) - P(x)y = \hat{f}(x,y)
 $$<ul>
 <li>
-<p>也就来到了 Non-Linear 的第一个条件，想要让 \(\hat{f}(x,y)\) Cont. 在 Linear Function 中只需要 \(f(x)、P(x)\)  在区间 II 上连续就行</p>
+<p>也就来到了 Non-Linear 的第一个条件，想要让 \\(\hat{f}(x,y)\\) Cont. 在 Linear Function 中只需要 \\(f(x)、P(x)\\)  在区间 II 上连续就行</p>
 </li>
 <li>
-<p>同时 \(f(x)、P(x)\)  连续的情况下，也满足了 Partial Derivative 连续的条件，这是因为</p>
+<p>同时 \\(f(x)、P(x)\\)  连续的情况下，也满足了 Partial Derivative 连续的条件，这是因为</p>
 $$
     \frac{\partial \hat{f}(x,y)}{\partial y} = -P(x)
     $$</li>
@@ -961,13 +964,13 @@ $$
 $$
 y' = 3y^{2/3}, \quad y(2)=0
 $$<ul>
-<li>Non-Linear Case，检查 \(f(x,y) = 3y^{2/3}\) 是连续的</li>
+<li>Non-Linear Case，检查 \\(f(x,y) = 3y^{2/3}\\) 是连续的</li>
 <li>计算偏导：</li>
 </ul>
 $$
 \frac{\partial f}{\partial y} = 2y^{-1/3} = \frac{2}{y^{1/3}}
 $$<ul>
-<li>观察可以发现，当 y=0 的时候，\(\dfrac{2}{y^{1/3}}\)  会发散</li>
+<li>观察可以发现，当 y=0 的时候，\\(\dfrac{2}{y^{1/3}}\\)  会发散</li>
 </ul>
 <blockquote>
 <p>So, are we guaranteed to have a unique solution?</p>
@@ -992,8 +995,8 @@ $$<ul>
 $$
 y' = f(x,y),
 $$<ul>
-<li>它告诉你：在平面上每一个点 \((x,y)\)，解曲线的斜率是多少</li>
-<li><strong>方向场</strong> 就是：在很多点 \((x,y)\) 上画一条小的斜线，表示解曲线在这里的切线方向</li>
+<li>它告诉你：在平面上每一个点 \\((x,y)\\)，解曲线的斜率是多少</li>
+<li><strong>方向场</strong> 就是：在很多点 \\((x,y)\\) 上画一条小的斜线，表示解曲线在这里的切线方向</li>
 <li>这样即使你没解出方程，也能大致看到解的走势</li>
 </ul>
 
@@ -1015,7 +1018,7 @@ $$
     \frac{dy}{dx} = f(y)
     $$</li>
 <li>
-<p>或者更一般写成 \(F(y,y&rsquo;)=0\)</p>
+<p>或者更一般写成 \\(F(y,y')=0\\)</p>
 </li>
 </ul>
 <p>👉 换句话说：方程的变化只依赖于 y，不依赖于 x</p>
@@ -1032,11 +1035,11 @@ $$
     
 </h3>
 <ul>
-<li>给定：\(y&rsquo; = f(y)\)，如果存在某个 \(y=c\)，使得：\(f(c)=0\)</li>
+<li>给定：\\(y' = f(y)\\)，如果存在某个 \\(y=c\\)，使得：\\(f(c)=0\\)</li>
 <li>那么 y=c 就是 <strong>临界点 (critical point)</strong></li>
 </ul>
 <blockquote>
-<p>也就是导数 \(y&rsquo;=0\) 的点</p>
+<p>也就是导数 \\(y'=0\\) 的点</p>
 </blockquote>
 
 
@@ -1187,12 +1190,12 @@ $$
 a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = g(x)
 $$<ul>
 <li>这是 n-th order linear ordinary differential equation, ODE 的一般</li>
-<li>其中 \(a_k(x)\) 是系数函数，可能随 \(x\) 变化</li>
-<li>右边的 \(g(x)\) 是非齐次项</li>
-<li>\(y^{(n)}\) 表示对函数 y 的 n 阶导数</li>
+<li>其中 \\(a_k(x)\\) 是系数函数，可能随 \\(x\\) 变化</li>
+<li>右边的 \\(g(x)\\) 是非齐次项</li>
+<li>\\(y^{(n)}\\) 表示对函数 y 的 n 阶导数</li>
 <li>其是 <strong>Linear</strong> 的，当它的所有 Coefficient 都是一次方的</li>
 <li>其是 <strong>Homogeneous</strong> 的，当 g(x) = 0 时</li>
-<li>其是 <strong>Constant coefficient differential equation 常系数微分方程</strong>，当 \(a_k(x)\) 都是 Constant 时</li>
+<li>其是 <strong>Constant coefficient differential equation 常系数微分方程</strong>，当 \\(a_k(x)\\) 都是 Constant 时</li>
 </ul>
 
 
@@ -1307,7 +1310,7 @@ $$
     
 </h3>
 <ul>
-<li>若函数 \(a_1(x), a_2(x), &hellip;, a_n(x), g(x)\) 在区间 I 上连续（continuous），且 \(a_n(x) \ne 0\)，那么对任意 \(x_0 \in I\)，初值问题：</li>
+<li>若函数 \\(a_1(x), a_2(x), ..., a_n(x), g(x)\\) 在区间 I 上连续（continuous），且 \\(a_n(x) \ne 0\\)，那么对任意 \\(x_0 \in I\\)，初值问题：</li>
 </ul>
 $$
 a_n(x)y^{(n)} + \cdots + a_0(x)y = g(x), \quad y(x_0) = y_0, \quad y'(x_0) = y_1, \quad \cdots, \quad y^{(n-1)}(x_0) = y_{n-1}
@@ -1315,7 +1318,7 @@ $$<ul>
 <li>在区间 I 上有唯一解</li>
 </ul>
 <blockquote>
-<p>这里的 \(a_n(x)\) 指的是最高项的那个 Coefficient</p>
+<p>这里的 \\(a_n(x)\\) 指的是最高项的那个 Coefficient</p>
 </blockquote>
 
 
@@ -1338,7 +1341,7 @@ $$
 y(1) = y'(1) = y''(1) = 0
 $$<ul>
 <li>系数全是常数，连续</li>
-<li>\(a_3 = 1 \ne 0\)，最高阶导数项系数非零</li>
+<li>\\(a_3 = 1 \ne 0\\)，最高阶导数项系数非零</li>
 <li>所以 Exist Unique Solution</li>
 </ul>
 
@@ -1366,7 +1369,7 @@ $$<ul>
 <hr>
 <ul>
 <li>总的来说，除了最高次项系数不是常数，其他都是 Constant，连续，</li>
-<li>\(1 - t^2 = 0\) 当且仅当 \(t = \pm 1\)，这些点会使 \(a_2(t) = 0\)，不满足定理条件，所以不能包含 \(t = \pm 1\)</li>
+<li>\\(1 - t^2 = 0\\) 当且仅当 \\(t = \pm 1\\)，这些点会使 \\(a_2(t) = 0\\)，不满足定理条件，所以不能包含 \\(t = \pm 1\\)</li>
 </ul>
 
 
@@ -1411,7 +1414,7 @@ $$<ul>
 $$
 L(\alpha y_1 + \beta y_2) = \alpha L(y_1) + \beta L(y_2)
 $$<ul>
-<li>也就是说假设 \(y_1, y_2, &hellip;, y_n\) 是解，那么任意线性组合：</li>
+<li>也就是说假设 \\(y_1, y_2, ..., y_n\\) 是解，那么任意线性组合：</li>
 </ul>
 $$
 c_1 y_1 + c_2 y_2 + \cdots + c_n y_n
@@ -1431,13 +1434,13 @@ $$<ul>
     
 </h3>
 <ul>
-<li>回忆线性代数里的定义：向量 \(v_1, &hellip;, v_n\) 是线性无关的意思是：</li>
+<li>回忆线性代数里的定义：向量 \\(v_1, ..., v_n\\) 是线性无关的意思是：</li>
 </ul>
 $$
 c_1 v_1 + c_2 v_2 + \cdots + c_n v_n = 0
 $$<ul>
-<li>仅当所有 \(c_k = 0\) 时才成</li>
-<li>在函数空间中也一样：如果只有 \(c_1 = c_2 = \cdots = c_n = 0\) 才能让 \(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) = 0\) 成立，则函数 \(f_1, &hellip;, f_n\) 是 linearly independent</li>
+<li>仅当所有 \\(c_k = 0\\) 时才成</li>
+<li>在函数空间中也一样：如果只有 \\(c_1 = c_2 = \cdots = c_n = 0\\) 才能让 \\(c_1 f_1(x) + c_2 f_2(x) + \cdots + c_n f_n(x) = 0\\) 成立，则函数 \\(f_1, ..., f_n\\) 是 linearly independent</li>
 </ul>
 
 
@@ -1451,7 +1454,7 @@ $$<ul>
     </span>        
     
 </h4>
-<p>Are functions \({1 - 3x + 2x², 1 - x + x², 1 + x}\) linearly independent?</p>
+<p>Are functions \\(\{1 - 3x + 2x², 1 - x + x², 1 + x\}\\) linearly independent?</p>
 <hr>
 <p>
     <figure>
@@ -1481,7 +1484,7 @@ $$<ul>
     </span>        
     
 </h4>
-<p>Are functions \({e^x, xe^x, x²e^x}\) linearly independent?\</p>
+<p>Are functions \\(\{e^x, xe^x, x²e^x\}\\) linearly independent?\</p>
 <hr>
 <p>
     <figure>
@@ -1518,8 +1521,8 @@ $$<ul>
 $$
 \sum_{k=1}^{n} c_k y_k
 $$<ul>
-<li>也就是形式如 \(c_1 y_1 + c_2 y_2 + \cdots + c_n y_n\)</li>
-<li>观察每一项（例如 \(x^k\)）的系数，如果所有系数都为零，说明这些函数线性无关</li>
+<li>也就是形式如 \\(c_1 y_1 + c_2 y_2 + \cdots + c_n y_n\\)</li>
+<li>观察每一项（例如 \\(x^k\\)）的系数，如果所有系数都为零，说明这些函数线性无关</li>
 <li>这就是上面的两个例子</li>
 </ul>
 
@@ -1551,7 +1554,7 @@ $$<ul>
 </h3>
 <ul>
 <li>
-<p>对于一组函数 \(f_1(x), f_2(x), \dots, f_n(x)\)，如果它们在区间 \([a, b]\) 上有 \(n-1\) 阶导数，则可以构造一个如下的行列式：</p>
+<p>对于一组函数 \\(f_1(x), f_2(x), \dots, f_n(x)\\)，如果它们在区间 \\([a, b]\\) 上有 \\(n-1\\) 阶导数，则可以构造一个如下的行列式：</p>
 $$
     W(f_1, f_2, \dots, f_n) = \begin{vmatrix}
     f_1 & f_2 & \cdots & f_n \\
@@ -1561,7 +1564,7 @@ $$
     \end{vmatrix}
     $$</li>
 <li>
-<p>假设这组函数在区间 \(I = [a, b]\) 上都有 \(n-1\) 阶导数</p>
+<p>假设这组函数在区间 \\(I = [a, b]\\) 上都有 \\(n-1\\) 阶导数</p>
 </li>
 <li>
 <p>如果它们的 Wronskian 行列式 在整个区间 I 上不<strong>恒等为零（not identically zero）</strong>，那么这些函数是 <strong>Linearly independent</strong> 的</p>
@@ -1625,27 +1628,27 @@ C_2
 \end{bmatrix} \tag{II}
 $$</p>
 <ul>
-<li>令左边的 Matrix 为 \(A(x)\)</li>
-<li>向量为 \(\vec{C} = [C_1, C_2]^T\)</li>
+<li>令左边的 Matrix 为 \\(A(x)\\)</li>
+<li>向量为 \\(\vec{C} = [C_1, C_2]^T\\)</li>
 </ul>
 <aside>
 💡
 <p>想要证明 Wronskian 行列式 在整个区间 I 上不**恒等为零（not identically zero），**就假设它有零解，然后证伪</p>
 </aside>
 <ul>
-<li>也就是寻找一个向量 \(\vec{C}\) 使得：</li>
+<li>也就是寻找一个向量 \\(\vec{C}\\) 使得：</li>
 </ul>
 $$
 A(x)\vec{C} = \vec{0}, \quad \forall x \in \mathbb{R}
 $$<ul>
-<li>如果唯一满足这个条件的是 <strong>\(\vec{C} = \vec{0}\)</strong>，那说明函数是线性无关的</li>
-<li>而要保证这一结论，可以通过证明如果某个点 \(x \in \mathbb{R}\) 使得 \(A(x)\) Invertible，那么系统只有唯一解 \(\vec{C} = \vec{0}\)</li>
-<li>而想要证明 \(A(x_0)\) 可逆，就可以通过 Determinant，即</li>
+<li>如果唯一满足这个条件的是 <strong>\\(\vec{C} = \vec{0}\\)</strong>，那说明函数是线性无关的</li>
+<li>而要保证这一结论，可以通过证明如果某个点 \\(x \in \mathbb{R}\\) 使得 \\(A(x)\\) Invertible，那么系统只有唯一解 \\(\vec{C} = \vec{0}\\)</li>
+<li>而想要证明 \\(A(x_0)\\) 可逆，就可以通过 Determinant，即</li>
 </ul>
 $$
 \vec{C} = A(x_0)^{-1} \vec{0} = \vec{0}
 $$<ul>
-<li>而这个 \(\det A(x)\) 就是 <strong>Wronskian</strong>，有</li>
+<li>而这个 \\(\det A(x)\\) 就是 <strong>Wronskian</strong>，有</li>
 </ul>
 $$
 W(f_1, f_2) = 
@@ -1655,8 +1658,8 @@ m_1 e^{m_1 x} & m_2 e^{m_2 x}
 \end{vmatrix}
 = e^{(m_1 + m_2)x}(m_2 - m_1)
 $$<ul>
-<li>如果 \(m_1 \ne m_2\)，那么 \(W(f_1, f_2) \ne 0\)，Wronskian 不为零</li>
-<li>因此函数集合 \({e^{m_1 x}, e^{m_2 x}}\) Linearly Independent</li>
+<li>如果 \\(m_1 \ne m_2\\)，那么 \\(W(f_1, f_2) \ne 0\\)，Wronskian 不为零</li>
+<li>因此函数集合 \\(\{e^{m_1 x}, e^{m_2 x}\}\\) Linearly Independent</li>
 </ul>
 
 
@@ -1671,8 +1674,8 @@ $$<ul>
     
 </h3>
 <ul>
-<li>已知一组函数 \({f_1(x), f_2(x), \dots, f_n(x)}\)</li>
-<li>计算得 \(W(f_1, f_2, \dots, f_n) = 0\) 对所有 \(x \in I\) 成立</li>
+<li>已知一组函数 \\(\{f_1(x), f_2(x), \dots, f_n(x)\}\\)</li>
+<li>计算得 \\(W(f_1, f_2, \dots, f_n) = 0\\) 对所有 \\(x \in I\\) 成立</li>
 <li><strong>不能</strong>否断定这些函数是 **linearly dependent，**这不是定理所说的内容</li>
 </ul>
 $$
@@ -1723,7 +1726,7 @@ $$<ul>
     
 </h3>
 <ul>
-<li>如果一组函数 \({y_1(x), \dots, y_n(x)}\) 是某个n阶 homogeneous linear ODE 的解</li>
+<li>如果一组函数 \\(\{y_1(x), \dots, y_n(x)\}\\) 是某个n阶 homogeneous linear ODE 的解</li>
 </ul>
 $$
 a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_1(x)y' + a_0(x)y = 0
@@ -1735,8 +1738,8 @@ $$
 W(y_1, y_2, \dots, y_n)(x) \neq 0, \quad \forall x \in I
 $$<ul>
 <li>也就是说</li>
-<li>\(W \equiv 0\) ⇒ 必定线性相关</li>
-<li>\(W \neq 0\) ⇒ 必定线性无关</li>
+<li>\\(W \equiv 0\\) ⇒ 必定线性相关</li>
+<li>\\(W \neq 0\\) ⇒ 必定线性无关</li>
 </ul>
 
 
@@ -1750,7 +1753,7 @@ $$<ul>
     </span>        
     
 </h4>
-<p>Is the set \({e^x,e^{-x},\cosh x}\) the Fundamental Set Solution of \(y-y&rsquo;&rsquo;&rsquo;=0\) ?</p>
+<p>Is the set \\(\{e^x,e^{-x},\cosh x\}\\) the Fundamental Set Solution of \\(y-y'''=0\\) ?</p>
 <hr>
 <p>
     <figure>
@@ -1780,7 +1783,7 @@ $$<ul>
     </span>        
     
 </h3>
-<p>Assume that we already know that \(y_1(x)\) is a solution for this ODE, and consider the ODE</p>
+<p>Assume that we already know that \\(y_1(x)\\) is a solution for this ODE, and consider the ODE</p>
 $$
 y''+P(x)y'+Q(x)y=0
 $$<ul>
@@ -1789,7 +1792,7 @@ $$<ul>
 $$
 y_2(x)=U(x)y_1(x)
 $$<ul>
-<li>Where \(U(x)\) is an undetermined function</li>
+<li>Where \\(U(x)\\) is an undetermined function</li>
 <li>Take the derivative on both side to get</li>
 </ul>
 $$
@@ -1797,13 +1800,13 @@ y_2' = U' y_1 + U y_1'
 $$$$
 y_2'' = U'' y_1 + 2U' y_1' + U y_1''
 $$<ul>
-<li>Recall the original function \(y&rsquo;&rsquo; + P(x) y&rsquo; + Q(x) y = 0\)</li>
-<li>Sub in \(y_2\)  to get</li>
+<li>Recall the original function \\(y'' + P(x) y' + Q(x) y = 0\\)</li>
+<li>Sub in \\(y_2\\)  to get</li>
 </ul>
 $$
 (U y_1)'' + P(U y_1)' + Q(U y_1) = 0
 $$<blockquote>
-<p>Substitution is \(y_2= Uy_1\), since \(y_2\) is also a solution, so it can be sub in the function</p>
+<p>Substitution is \\(y_2= Uy_1\\), since \\(y_2\\) is also a solution, so it can be sub in the function</p>
 </blockquote>
 <ul>
 <li>Expand to get</li>
@@ -1823,13 +1826,13 @@ $$<ul>
 $$
 y_1U''+(2y_1' + P y_1)U'+(y_1'' + P y_1' + Q y_1)U  = 0\tag{1}
 $$<ul>
-<li>We have the original ODE \(y_1&rsquo;&rsquo; + P y_1&rsquo; + Q y_1=0\)</li>
+<li>We have the original ODE \\(y_1'' + P y_1' + Q y_1=0\\)</li>
 <li>Thus (1) now become</li>
 </ul>
 $$
 U y_1'' + (2 y_1' + P y_1) U' + y_1 U'' = 0
 $$<ul>
-<li>Now let \(w=U&rsquo;\), then</li>
+<li>Now let \\(w=U'\\), then</li>
 </ul>
 $$
 y_1 w' + (2 y_1' + P y_1) w = 0
@@ -1857,7 +1860,7 @@ $$
 $$$$
 w y_1^2 = e^{-\int P(x),dx}\Rightarrow w = \frac{1}{y_1^2} e^{-\int P(x),dx}
 $$<ul>
-<li>Recall that we let \(w=U&rsquo;\) before, now sub back to get</li>
+<li>Recall that we let \\(w=U'\\) before, now sub back to get</li>
 </ul>
 $$
 U' = \frac{1}{y_1^2} e^{-\int P(x),dx}
@@ -1867,7 +1870,7 @@ $$<ul>
 $$
 U = \int \frac{1}{y_1^2} e^{-\int P(x),dx},dx
 $$<ul>
-<li>Recall we let \(y_2=y1U(x)\), so the <strong>Final Result</strong> is</li>
+<li>Recall we let \\(y_2=y1U(x)\\), so the <strong>Final Result</strong> is</li>
 </ul>
 $$
 y_2(x) = y_1(x) \int \frac{e^{-\int P(x),dx}}{y_1(x)^2},dx
@@ -1883,7 +1886,7 @@ $$
     </span>        
     
 </h4>
-<p>The function is \(y&rsquo;&rsquo;+4y&rsquo;+4y=0\),  \(y_1(x) = e^{-2x}\)</p>
+<p>The function is \\(y''+4y'+4y=0\\),  \\(y_1(x) = e^{-2x}\\)</p>
 <hr>
 <p>
     <figure>
@@ -1918,27 +1921,27 @@ $$
 a y''' + b y'' + c y' + d y = 0\quad a,b,c,d \in \mathbb{R}
 $$<ul>
 <li>This is a third-order homogeneous linear ODE with constant coefficients</li>
-<li>Consider \(y(x) = e^{mx}\) as a solution</li>
-<li>Now sub in \(y(x)\) into function</li>
+<li>Consider \\(y(x) = e^{mx}\\) as a solution</li>
+<li>Now sub in \\(y(x)\\) into function</li>
 </ul>
 $$
 y' = m e^{mx}, \quad y'' = m^2 e^{mx}, \quad y''' = m^3 e^{mx}
 $$$$
 a m^3 e^{mx} + b m^2 e^{mx} + c m e^{mx} + d e^{mx} = 0
 $$<ul>
-<li>Since \(e^{mx} \neq 0\), then get rid of it to get</li>
+<li>Since \\(e^{mx} \neq 0\\), then get rid of it to get</li>
 </ul>
 $$
 a m^3 + b m^2 + c m + d = 0
 $$<ul>
 <li>This is the Characteristic Equation（特征方程）</li>
-<li>For that Equation above, clearly it has three solutions \(m_1, m_2, m_3\), so the funciton can become</li>
+<li>For that Equation above, clearly it has three solutions \\(m_1, m_2, m_3\\), so the funciton can become</li>
 </ul>
 $$
 a (m - m_1)(m - m_2)(m - m_3) = 0
 $$<ul>
-<li>Thus the three solutions are \(e^{m_1 x},\ e^{m_2 x},\ e^{m_3 x}\)</li>
-<li>And clearly if \(m_1\neq m_2\neq m_3\), then they are linearly independent</li>
+<li>Thus the three solutions are \\(e^{m_1 x},\ e^{m_2 x},\ e^{m_3 x}\\)</li>
+<li>And clearly if \\(m_1\neq m_2\neq m_3\\), then they are linearly independent</li>
 <li>Then will get the fundamental solution set of the DE as</li>
 </ul>
 $$
@@ -2010,7 +2013,7 @@ $$<ul>
 $$
 m_{1,2} = \alpha \pm i\beta
 $$<ul>
-<li>Their roots are \(y = e^{(\alpha + i\beta)x}\), expand and get</li>
+<li>Their roots are \\(y = e^{(\alpha + i\beta)x}\\), expand and get</li>
 </ul>
 $$
 e^{\alpha x} \cos(\beta x), \quad e^{\alpha x} \sin(\beta x)
@@ -2022,8 +2025,8 @@ y = e^{\alpha x}(c_1 \cos\beta x + c_2 \sin\beta x)
 $$<blockquote>
 <p>Prove that a Complex Number Solution’s Conjugate is also a Solution
 We have the first Complex Number as
-\(A_n m_1^n + A_{n-1} m_1^{n-1} + \cdots + A_1 m_1 + A_0 = 0\), take Conjugate on both side to get
-\(\overline{A_n} , \overline{m_1}^n + \overline{A_{n-1}} , \overline{m_1}^{,n-1} + \cdots + \overline{A_1} , \overline{m_1} + \overline{A_0} = 0\), thus also a solution</p>
+\\(A_n m_1^n + A_{n-1} m_1^{n-1} + \cdots + A_1 m_1 + A_0 = 0\\), take Conjugate on both side to get
+\\(\overline{A_n} \, \overline{m_1}^n + \overline{A_{n-1}} \, \overline{m_1}^{\,n-1} + \cdots + \overline{A_1} \, \overline{m_1} + \overline{A_0} = 0\\), thus also a solution</p>
 </blockquote>
 
 
@@ -2037,7 +2040,7 @@ We have the first Complex Number as
     </span>        
     
 </h4>
-<p>If one Real Root has repeated r times \(m_1 = m_2 = \dots = m_r = m\), then the solution is</p>
+<p>If one Real Root has repeated r times \\(m_1 = m_2 = \dots = m_r = m\\), then the solution is</p>
 $$
 e^{mx},x e^{mx}, x^2 e^{mx}, \dots, x^{r-1} e^{mx}
 $$
@@ -2057,7 +2060,7 @@ $$
 y^{(6)} - 8y^{(5)} + 23y^{(4)} - 26y^{(3)} - 2y'' + 32y' - 24y = 0
 $$<hr>
 <ul>
-<li>First get the Characteristic Function \(m^6 - 8m^5 + 23m^4 - 26m^3 - 2m^2 + 32m - 24 = 0\)</li>
+<li>First get the Characteristic Function \\(m^6 - 8m^5 + 23m^4 - 26m^3 - 2m^2 + 32m - 24 = 0\\)</li>
 <li>This function has the following roots</li>
 </ul>
 $$
@@ -2077,22 +2080,22 @@ $$<ul>
       <tr>
           <td style="text-align: left">( m = -1 )</td>
           <td style="text-align: left">Real</td>
-          <td style="text-align: left">( \(e^{-x}\) )</td>
+          <td style="text-align: left">( \\(e^{-x}\\) )</td>
       </tr>
       <tr>
           <td style="text-align: left">( m = 3 )</td>
           <td style="text-align: left">Real</td>
-          <td style="text-align: left">( \(e^{3x}\) )</td>
+          <td style="text-align: left">( \\(e^{3x}\\) )</td>
       </tr>
       <tr>
           <td style="text-align: left">( m = 2 )（重根）</td>
           <td style="text-align: left">Repeated Real</td>
-          <td style="text-align: left">( \(e^{2x},\ x e^{2x}\) )</td>
+          <td style="text-align: left">( \\(e^{2x},\ x e^{2x}\\) )</td>
       </tr>
       <tr>
           <td style="text-align: left">( m = 1 \pm i )</td>
           <td style="text-align: left">Conjugate Complex</td>
-          <td style="text-align: left">( \(e^{x}\cos x,\ e^{x}\sin x\)</td>
+          <td style="text-align: left">( \\(e^{x}\cos x,\ e^{x}\sin x\\)</td>
       </tr>
   </tbody>
 </table>
@@ -2119,7 +2122,7 @@ $$
 $$
 (m - (1+i))^2 (m - (1-i))^2 = 0
 $$<ul>
-<li>Then its a Conjugate Pair of \((1+i)\) and \((1-i)\), their solution is then</li>
+<li>Then its a Conjugate Pair of \\((1+i)\\) and \\((1-i)\\), their solution is then</li>
 </ul>
 $$
 e^{x}\cos x,\ e^{x}\sin x,\ x e^{x}\cos x,\ x e^{x}\sin x
@@ -2160,7 +2163,7 @@ $$
     </span>        
     
 </h3>
-<p>So we are trying to prove that \(y = y_c + y_p\)</p>
+<p>So we are trying to prove that \\(y = y_c + y_p\\)</p>
 <ul>
 <li>So sub it back to get</li>
 </ul>
@@ -2172,7 +2175,7 @@ $$<ul>
 $$
 L(y) = L(y_c) + L(y_p)
 $$<ul>
-<li>We know that \(L(y_c) = 0\)  and \(L(y_p) = g(x)\), thus</li>
+<li>We know that \\(L(y_c) = 0\\)  and \\(L(y_p) = g(x)\\), thus</li>
 </ul>
 $$
 L(y) = 0 + g(x) = g(x)
@@ -2198,7 +2201,7 @@ $$
     </span>        
     
 </h4>
-<p>Having the function \(y&rsquo;&rsquo; - 3y&rsquo; + 2y = e^{x}\)</p>
+<p>Having the function \\(y'' - 3y' + 2y = e^{x}\\)</p>
 <hr>
 <p>
     <figure>
@@ -2256,25 +2259,25 @@ $$<ul>
 $$
 U_1' y_1 + U_2' y_2 = 0 \quad \text{(Eq.1)}\Rightarrow y_p' =U_1y'_1+U_2y'_2
 $$<blockquote>
-<p>This helps when calculating \(y&rsquo;&rsquo;\)</p>
+<p>This helps when calculating \\(y''\\)</p>
 </blockquote>
 <ul>
-<li>Now, calculate the \(y&rsquo;&rsquo;\)</li>
+<li>Now, calculate the \\(y''\\)</li>
 </ul>
 $$
 y_p'' = U_1'y_1' + U_1y_1'' + U_2'y_2' + U_2y_2''
 $$<ul>
-<li>Then sub back the \(y_p\) into \(y&rsquo;&rsquo; + P y&rsquo; + Q y = f(x)\),</li>
+<li>Then sub back the \\(y_p\\) into \\(y'' + P y' + Q y = f(x)\\),</li>
 </ul>
 $$
 (U_1'y_1' + U_1y_1'' + U_2'y_2' + U_2y_2'')+P(U_1y_1' + U_2y_2')+Q(U_1y_1 + U_2y_2)= f(x)
 $$<ul>
-<li>Rearrange \(U_1,U_2\) to get</li>
+<li>Rearrange \\(U_1,U_2\\) to get</li>
 </ul>
 $$
 (U_1'y_1' + U_2'y_2') + U_1(y_1'' + Py_1' + Qy_1) + U_2(y_2'' + Py_2' + Qy_2) = f(x)
 $$<ul>
-<li>Cause \(y_1, y_2\) are solution of the Homo Function, thus</li>
+<li>Cause \\(y_1, y_2\\) are solution of the Homo Function, thus</li>
 </ul>
 $$
 y_1'' + Py_1' + Qy_1 = 0, \quad y_2'' + Py_2' + Qy_2 = 0
@@ -2342,7 +2345,7 @@ $$<ul>
     </span>        
     
 </h4>
-<p>We have the function \(y&rsquo;&rsquo; - 2y&rsquo; + y = \frac{e^t}{1+t^2}\)</p>
+<p>We have the function \\(y'' - 2y' + y = \frac{e^t}{1+t^2}\\)</p>
 <hr>
 <p>
     <figure>

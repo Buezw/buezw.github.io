@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -512,7 +515,17 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-15.jpg" alt="Note-15.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-15_hu8027677145099683887.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-15_hu4485017234351136530.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-15_hu15510021179048282844.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-15_hu946985451037329952.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-15_hu4485017234351136530.jpg"
+        alt="Note-15.jpg"
+      />
       
     </figure>
 </p>
@@ -555,14 +568,34 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-16.jpg" alt="Note-16.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-16_hu5561341969895227978.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-16_hu12577153221582538152.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-16_hu15200213641815853040.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-16_hu11035094698494475723.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-16_hu12577153221582538152.jpg"
+        alt="Note-16.jpg"
+      />
       
     </figure>
 </p>
 <p>The result can be verified by the <strong>Gauss’s Law</strong> that</p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/image_hu8576306230464061745.png 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/image_hu18442228366772805237.png 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/image_hu10451743299683638338.png 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/image_hu5823726943202468390.png 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/image_hu18442228366772805237.png"
+        alt="image.png"
+      />
       
     </figure>
 </p>
@@ -837,7 +870,17 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="2759caf6-e66b-45f5-a334-2f1dd3adf059.png" alt="Note-17.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/2759caf6-e66b-45f5-a334-2f1dd3adf059_hu11048879756718763809.png 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/2759caf6-e66b-45f5-a334-2f1dd3adf059_hu17816351097832000105.png 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/2759caf6-e66b-45f5-a334-2f1dd3adf059_hu2888013213058416725.png 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/2759caf6-e66b-45f5-a334-2f1dd3adf059_hu3126342988567537862.png 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/2759caf6-e66b-45f5-a334-2f1dd3adf059_hu17816351097832000105.png"
+        alt="Note-17.jpg"
+      />
       
     </figure>
 </p>
@@ -855,7 +898,17 @@ $$
 </h2>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-18.jpg" alt="Note-18.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-18_hu16549481518346217333.jpg 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-18_hu16648028699772850264.jpg 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-18_hu740858460479346012.jpg 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-18_hu3691194281484743827.jpg 2x"
+        src="/docs/uoft/26w/electric-and-magnetic-field/emf5.electricpotential/Note-18_hu16648028699772850264.jpg"
+        alt="Note-18.jpg"
+      />
       
     </figure>
 </p>

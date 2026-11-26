@@ -32,11 +32,11 @@
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;考虑Linear Transformation为一种Function，输入x而输出\(Ax\)&lt;/li&gt;
+&lt;li&gt;考虑Linear Transformation为一种Function，输入x而输出\\(Ax\\)&lt;/li&gt;
 &lt;li&gt;Eigenvector即对于指定的Vector x，其Ax平行于x，有
 $$Ax=\lambda x$$&lt;/li&gt;
-&lt;li&gt;其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue&lt;/li&gt;
-&lt;li&gt;特征向量的定义要求\(x \neq 0\)&lt;/li&gt;
+&lt;li&gt;其中x为A的Eigenvector，\\(\lambda\\)为A的Eigenvalue&lt;/li&gt;
+&lt;li&gt;特征向量的定义要求\\(x \neq 0\\)&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -127,9 +127,9 @@ $$Ax=0x=0$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\)&lt;/li&gt;
-&lt;li&gt;要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution&lt;/li&gt;
-&lt;li&gt;由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1&lt;/li&gt;
+&lt;li&gt;对于一个Vector \\(a=[1,2]^T\\)和一个直线\\(y=0\\)&lt;/li&gt;
+&lt;li&gt;要研究\\(c[1,2]^T=0\\)的问题的时候，很明显不存在Non-Trivial Solution&lt;/li&gt;
+&lt;li&gt;由于a在\\(R^2\\)中，而\\([1,0]^T\\)仅Span出了\\(R^2\\)中的一个Subspace，其Dim=1&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
     &lt;figure&gt;
@@ -246,9 +246,9 @@ $$A \cap B = \{ x \in X \mid x \in A \text{ and } x \in B \}.$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;思考一个问题，对于一个坐标轴上的点\((2,1)\)和一个向量\(\vec v =[2,1]^T\)，他们的区别&lt;/li&gt;
+&lt;li&gt;思考一个问题，对于一个坐标轴上的点\\((2,1)\\)和一个向量\\(\vec v =[2,1]^T\\)，他们的区别&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Point&lt;/strong&gt;：点是空间中的一个位置，用坐标表示，如P = (x, y, z)表示三维空间中的一个具体位置。点没有方向和大小。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Vector&lt;/strong&gt;：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\(\mathbf{v} = \overrightarrow{AB}\)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vector&lt;/strong&gt;：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\\(\mathbf{v} = \overrightarrow{AB}\\)&lt;/li&gt;
 &lt;li&gt;亦可以说&lt;strong&gt;Point是绝对位置，而向量是一个点到另外一个的有方向的距离&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -264,7 +264,7 @@ $$A \cap B = \{ x \in X \mid x \in A \text{ and } x \in B \}.$$&lt;/li&gt;
     
 &lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;对于\(\vec{v} = \begin{bmatrix} v_1 \ v_2 \ \vdots \ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\)&lt;/li&gt;
+&lt;li&gt;对于\\(\vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\\)&lt;/li&gt;
 &lt;li&gt;它的Norm，也就是向量长度即为
 $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
 &lt;/ul&gt;
@@ -297,7 +297,7 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$&lt;/li&gt;
     
 &lt;/h3&gt;
 $$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$&lt;ul&gt;
-&lt;li&gt;公式中的每一项\(a_i b_i\)表示两个向量在某个维度上的大小相乘&lt;/li&gt;
+&lt;li&gt;公式中的每一项\\(a_i b_i\\)表示两个向量在某个维度上的大小相乘&lt;/li&gt;
 &lt;li&gt;点积实际上是在将a和b的方向分量进行逐一对比，累加得到两个向量在整个空间上的“相似性”，每一个维度的相似性都将累加到最终的空间相似性上&lt;/li&gt;
 &lt;li&gt;想要表达这个相似性，还存在另一种方式，即通过Projection
 $$\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \cos \theta$$&lt;/li&gt;
@@ -333,14 +333,14 @@ $$\theta = \cos^{-1} \left( \frac{\mathbf{A} \cdot \mathbf{B}}{AB} \right) \quad
 &lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Dot Product的一种用法便是Force Vector Directed Along a Line&lt;/li&gt;
-&lt;li&gt;对于一个在\(\vec u\)方向上的Force F，有
+&lt;li&gt;对于一个在\\(\vec u\\)方向上的Force F，有
 $$\vec F_u=\vec F\cdot \vec u=(F\times 1)\cdot \cos\theta=F\cdot \cos\theta$$&lt;/li&gt;
-&lt;li&gt;而这一个\(\cos\theta\)则是
+&lt;li&gt;而这一个\\(\cos\theta\\)则是
 $$\cos\theta=\frac{\vec v\cdot \vec{w}}{|v|\times|w|}$$&lt;/li&gt;
 &lt;li&gt;当把其中一个Vector替换为Direction Vector时，便可以得到Axis-Force&amp;rsquo;s Direction Cosine
 $$\cos\theta = \frac{\{r_xi+r_yj+r_zk\}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1}$$&lt;/li&gt;
-&lt;li&gt;所以就有\(F\cdot \cos \theta=F\cdot \vec u\)之后便可以得到Force在\(\vec u\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）&lt;/li&gt;
-&lt;li&gt;要想得到Force在\(\vec u\)方向上的Cartesian Vector，需要再次乘以Direction Vector&lt;/li&gt;
+&lt;li&gt;所以就有\\(F\cdot \cos \theta=F\cdot \vec u\\)之后便可以得到Force在\\(\vec u\\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）&lt;/li&gt;
+&lt;li&gt;要想得到Force在\\(\vec u\\)方向上的Cartesian Vector，需要再次乘以Direction Vector&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -370,7 +370,7 @@ $$\vec F=F_u\cdot \vec u= (\vec F\cdot u\cdot\cos\theta)\cdot \vec u=(F\cdot\fra
 &lt;li&gt;考虑一个问题Consider the two points P = (1, 2) and Q = (−1, 4)，find an equation for the line y = mx + b which passes through P and Q&lt;/li&gt;
 &lt;li&gt;通过Point-Point Formula可以算出
 $$y_2-y_1=\frac{y_2 - y_1}{x_2 - x_1}(x_2-x_1)$$&lt;/li&gt;
-&lt;li&gt;解得 \(y=−x+3\)&lt;/li&gt;
+&lt;li&gt;解得 \\(y=−x+3\\)&lt;/li&gt;
 &lt;li&gt;现在考虑相似的问题 Suppose x and y satisfy the vector equation
 $$\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} + k \begin{bmatrix} 1 \\ -1 \end{bmatrix}, \text{ where } k \in \mathbb{R}$$&lt;/li&gt;
 &lt;/ul&gt;

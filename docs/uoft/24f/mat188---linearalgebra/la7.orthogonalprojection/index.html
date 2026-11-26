@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -367,7 +370,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </p>
 <ul>
 <li>正交就是垂直（perpendicular）的另一种说法</li>
-<li>两向量正交的判据之一是其点 积\(x^Ty=y^Tx\)=0</li>
+<li>两向量正交的判据之一是其点 积\\(x^Ty=y^Tx\\)=0</li>
 <li>当两个向量的夹角为90度时，按照勾股定理（毕达哥拉斯定理 Pythagorean theorem）x，y满足</li>
 </ul>
 <div>
@@ -449,7 +452,7 @@ $$
     
 </h3>
 <ul>
-<li>行空间和零空间不仅仅是正交，并且其维数之和等于n，我们称行空间和零空间为\(R^n\)空间内的正交补 Orthogonal complements</li>
+<li>行空间和零空间不仅仅是正交，并且其维数之和等于n，我们称行空间和零空间为\\(R^n\\)空间内的正交补 Orthogonal complements</li>
 </ul>
 
 
@@ -518,15 +521,15 @@ $$q_i^T q_j =
 </h2>
 <ul>
 <li>下面讨论如何求解一个无解方程组Ax=b的解</li>
-<li>它是一个\(n\times n\)方阵，并且是对称阵\((A^TA)^T=(A^TA)\)</li>
-<li>本章的核心内容就是当Ax=b无解的时候，求解\(A^TAx\)=\(A^Tb\)得到最优解</li>
+<li>它是一个\\(n\times n\\)方阵，并且是对称阵\\((A^TA)^T=(A^TA)\\)</li>
+<li>本章的核心内容就是当Ax=b无解的时候，求解\\(A^TAx\\)=\\(A^Tb\\)得到最优解</li>
 </ul>
 <div>
 $$例：A = \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 5 \end{bmatrix}, \quad \text{则} \ A^T A = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 5 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 1 & 2 \\ 1 & 5 \end{bmatrix} = \begin{bmatrix} 3 & 8 \\ 8 & 30 \end{bmatrix} \text{是可逆的矩阵。}
 $$
 </div>
 <ul>
-<li>但是矩阵\(A^TA\)并不总是可逆</li>
+<li>但是矩阵\\(A^TA\\)并不总是可逆</li>
 </ul>
 <div>
 $$例：A = \begin{bmatrix} 1 & 3 \\ 1 & 3 \\ 1 & 3 \end{bmatrix}, \quad \text{则} \ A^T A = \begin{bmatrix} 1 & 1 & 1 \\ 3 & 3 & 3 \end{bmatrix} \begin{bmatrix} 1 & 3 \\ 1 & 3 \\ 1 & 3 \end{bmatrix} = \begin{bmatrix} 3 & 9 \\ 9 & 27 \end{bmatrix} \text{是不可逆矩阵。}
@@ -555,7 +558,7 @@ $$
 <li>这个距离最近的点p就位于穿过b点并与向量a正交的直线 与向量a所在直线的交点上</li>
 <li>则p就是b在a上的投影</li>
 <li>如果我们将向量p视为b 的一种近似，则长度e=b-p就是这一近似的误差</li>
-<li>于是便有方程\(a^T(b-xa)=0\)</li>
+<li>于是便有方程\\(a^T(b-xa)=0\\)</li>
 </ul>
 <blockquote>
 <p>因为向量a和b是列向量，在计算它们的点积（即内积）时，通常需要将其中一个向量转置成行向量，这样才能进行矩阵乘法并得到标量</p>
@@ -599,7 +602,7 @@ p = a x = a \frac{\mathbf{a}^T \mathbf{b}}{\mathbf{a}^T \mathbf{a}}. \quad \text
 $$
 </div>
 <ul>
-<li><strong>其分子\(aa^T\)是一个矩阵，而分母\(a^Ta\)是一个数</strong></li>
+<li><strong>其分子\\(aa^T\\)是一个矩阵，而分母\\(a^Ta\\)是一个数</strong></li>
 <li>观察这个矩阵可知，矩阵P的列空间就是向量a所在的直线</li>
 <li>矩阵的秩是1 (直线)</li>
 </ul>
@@ -645,7 +648,7 @@ $$
 </h3>
 <ul>
 <li>如果做两次投影则有P2b=Pb，这是因为 第二次投影还在原来的位置。</li>
-<li>因此矩阵P有如下性质：<strong>\(P^T=P,P^2=P\)</strong></li>
+<li>因此矩阵P有如下性质：<strong>\\(P^T=P,P^2=P\\)</strong></li>
 </ul>
 
 
@@ -664,7 +667,7 @@ $$
 <li>当出现比Unknown更多的Equations的时候，只能求解最优解</li>
 <li>Ax一定在矩阵A的列空间之内，但是b不一定，</li>
 <li>p是b在Colunm Space上的Projection，所以其是最优解</li>
-<li>将问题转化为求解\(A\hat x=p\)</li>
+<li>将问题转化为求解\\(A\hat x=p\\)</li>
 </ul>
 
 
@@ -679,8 +682,8 @@ $$
     
 </h3>
 <ul>
-<li>Suppose V is a subspace of Rn and \(\vec x ∈ R^n\). The closest vector in V to \(\vec x\) is given by \(ProjV (\vec x )\)</li>
-<li>In other words, \(|\text{Proj}_V(\vec{x}) - \vec{x}| \leq |\vec{v} - \vec{x}|~\text{for any } \vec{v} \in V\)</li>
+<li>Suppose V is a subspace of Rn and \\(\vec x ∈ R^n\\). The closest vector in V to \\(\vec x\\) is given by \\(ProjV (\vec x )\\)</li>
+<li>In other words, \\(\|\text{Proj}_V(\vec{x}) - \vec{x}\| \leq \|\vec{v} - \vec{x}\|~\text{for any } \vec{v} \in V\\)</li>
 </ul>
 <blockquote>
 <p>投影的方向到向量上最短的点就是其在改方向上的投影到向量的距离</p>
@@ -712,7 +715,7 @@ $$\|\vec{v} - \vec{x}\|^2 = \|\vec{v} - \vec{x}^\parallel\|^2 + \|-\vec{x}^\perp
 = \|\vec{v} - \vec{x}^\parallel\|^2 + \|\vec{x}^\perp\|^2$$
 </div>
 <ul>
-<li>可以发现\(|\vec{v} - \vec{x}|^2\)最小的值出现在\(\vec{v} = \vec{x}^\parallel\)的时候</li>
+<li>可以发现\\(\|\vec{v} - \vec{x}\|^2\\)最小的值出现在\\(\vec{v} = \vec{x}^\parallel\\)的时候</li>
 </ul>
 
 
@@ -731,7 +734,7 @@ $$\|\vec{v} - \vec{x}\|^2 = \|\vec{v} - \vec{x}^\parallel\|^2 + \|-\vec{x}^\perp
 之所以叫Orthogonal Projection指的是这个Projection就是最一般的情况，就是一般所理解的正交于一个Subspace的投影</p>
 </blockquote>
 <ul>
-<li>在上面的\(P = A (A^T A)^{-1} A^T\)中，之所以不拆成\(P=AA^{-1}(A^T)^{-1}A^T=I\)，是因为A并不是Square Matrix，即不存在Inverse</li>
+<li>在上面的\\(P = A (A^T A)^{-1} A^T\\)中，之所以不拆成\\(P=AA^{-1}(A^T)^{-1}A^T=I\\)，是因为A并不是Square Matrix，即不存在Inverse</li>
 <li>当A为Square Matrix的时候，即m=n，Input dim = Output dim，这个Projection也就变成了Identity Matrix，即将自身Project Into自己的空间</li>
 <li>但是即使是Projecct到自己的Space，其中仍会包含Linear Transformation</li>
 </ul>
@@ -764,7 +767,7 @@ $$\text{Proj}_V(\vec{x}) = \vec{u}_1 (\vec{u}_1 \cdot \vec{x}) + \vec{u}_2 (\vec
 </div>
 <ul>
 <li>举例来说，对于一组Orthonormal Vector $$u = \{\begin{bmatrix}\frac{1}{\sqrt{2}} \\0 \\\frac{1}{\sqrt{2}}\end{bmatrix},\begin{bmatrix}-\frac{1}{\sqrt{2}} \\0 \\\frac{1}{\sqrt{2}}\end{bmatrix}$$</li>
-<li>\([2,2,2]^T\)的Projection为</li>
+<li>\\([2,2,2]^T\\)的Projection为</li>
 </ul>
 <div>
 $$\begin{align*}
@@ -834,15 +837,15 @@ $$\begin{align*}
 <p>正交投影矩阵，将向量正交投影到Subspace上的一个<strong>矩阵</strong>，A可以是任意矩阵，不是非得是Orthogonal Matrix，其和正交投影公式干的是一样的事，不过用了不同的表达方式</p>
 </blockquote>
 <ul>
-<li>在\(R^3\)空间内，如何将向量b投影到它距离平面最近的一点p？</li>
-<li>如果a1和a2构成了平面的一组基，则平面就是矩阵\(A=[a1,a2]\)的列空间</li>
-<li>\(e=b-p\)是垂直于平面的</li>
-<li>已知p在平面内，于是有\(p=\hat x_1a_1+\hat x_2a_2=A\hat x\)</li>
-<li>而\(e=b-p=b- A\hat x\)正交于平面，因此e与\(a_1\),\(a_2\)均正交</li>
-<li>因此可以得到：\(a_1^T(b-A\hat x  )=0\)并且\(a_2^T(b-A\hat x  )=0\)</li>
-<li>因为a1和a2分别为矩阵A的列向量，即\(a1^T\)和\(a2^T\)为矩阵\(A^T\)的行向量</li>
-<li>\(A^T(b-A\hat x)=0\)</li>
-<li>由于\(b-A\hat x\)在于矩阵AT的零空间\(N(A^T)\)里，从上一讲讨论子空间的正交性可知，向量e与矩阵A的列空间正交，这也正是方程的意义</li>
+<li>在\\(R^3\\)空间内，如何将向量b投影到它距离平面最近的一点p？</li>
+<li>如果a1和a2构成了平面的一组基，则平面就是矩阵\\(A=[a1,a2]\\)的列空间</li>
+<li>\\(e=b-p\\)是垂直于平面的</li>
+<li>已知p在平面内，于是有\\(p=\hat x_1a_1+\hat x_2a_2=A\hat x\\)</li>
+<li>而\\(e=b-p=b- A\hat x\\)正交于平面，因此e与\\(a_1\\),\\(a_2\\)均正交</li>
+<li>因此可以得到：\\(a_1^T(b-A\hat x  )=0\\)并且\\(a_2^T(b-A\hat x  )=0\\)</li>
+<li>因为a1和a2分别为矩阵A的列向量，即\\(a1^T\\)和\\(a2^T\\)为矩阵\\(A^T\\)的行向量</li>
+<li>\\(A^T(b-A\hat x)=0\\)</li>
+<li>由于\\(b-A\hat x\\)在于矩阵AT的零空间\\(N(A^T)\\)里，从上一讲讨论子空间的正交性可知，向量e与矩阵A的列空间正交，这也正是方程的意义</li>
 </ul>
 <div>
 $$\begin{align}
@@ -855,8 +858,8 @@ P &= A (A^T A)^{-1} A^T=\frac{AA^T}{A^TA}
 <p>注意区别大小写P</p>
 </blockquote>
 <ul>
-<li>对于上面的等式在dim = 1中则是\(\frac{\mathbf{a} \mathbf{a}^T}{\mathbf{a}^T \mathbf{a}}\)</li>
-<li>投影矩阵\(P=A(A^TA)^{-1}A^T\)，当它作用于向量b，相当于把b投影到矩阵A的列空间</li>
+<li>对于上面的等式在dim = 1中则是\\(\frac{\mathbf{a} \mathbf{a}^T}{\mathbf{a}^T \mathbf{a}}\\)</li>
+<li>投影矩阵\\(P=A(A^TA)^{-1}A^T\\)，当它作用于向量b，相当于把b投影到矩阵A的列空间</li>
 </ul>
 
 
@@ -871,7 +874,7 @@ P &= A (A^T A)^{-1} A^T=\frac{AA^T}{A^TA}
     
 </h3>
 <ul>
-<li>当b已经在A的列空间之中，有\(Ax=b\)</li>
+<li>当b已经在A的列空间之中，有\\(Ax=b\\)</li>
 </ul>
 <div>
 $$\begin{align*}
@@ -895,7 +898,7 @@ $$\begin{align*}
 </h3>
 <ul>
 <li>如果向量b与A的列空间正交，即向量b在矩阵A的左零空间N(A)中</li>
-<li>在Left Null Space的意义在于\(A^Tb=0\)，所以\(Pb=0\)</li>
+<li>在Left Null Space的意义在于\\(A^Tb=0\\)，所以\\(Pb=0\\)</li>
 </ul>
 <div>
 $$\mathbf{Pb} = \mathbf{A}(\mathbf{A}^\top \mathbf{A})^{-1} \mathbf{A}^\top \mathbf{b} = \mathbf{A}(\mathbf{A}^\top \mathbf{A})^{-1} (\mathbf{A}^\top \mathbf{b}) = \mathbf{A}(\mathbf{A}^\top \mathbf{A})^{-1} 0 = 0$$
@@ -927,7 +930,7 @@ $$\mathbf{P} = \mathbf{Q} (\mathbf{Q}^\top \mathbf{Q})^{-1} \mathbf{Q}^\top$$
 - 因为\\(Q^TQ=I\Rightarrow P=QQ^T\\)
 </div>
 <ul>
-<li>如果Q为Square Matrix，则是一个投影到自身空间的Matrix，即\(P=I\)，因为Q的列向量张成了整个空间，投影过程不会对向量有任何改变</li>
+<li>如果Q为Square Matrix，则是一个投影到自身空间的Matrix，即\\(P=I\\)，因为Q的列向量张成了整个空间，投影过程不会对向量有任何改变</li>
 <li>就上面的例子来说，其Projection在用了Matrix后可以得到</li>
 </ul>
 
@@ -958,7 +961,7 @@ $$\mathbf{P} = \mathbf{Q} (\mathbf{Q}^\top \mathbf{Q})^{-1} \mathbf{Q}^\top$$
     
 </h3>
 <ul>
-<li>Consider an n × n matrix A The matrix A is orthogonal <strong>if and only if</strong>  \(A^TA = I\) or, equivalently, if \(A^{−1} = A^T\)</li>
+<li>Consider an n × n matrix A The matrix A is orthogonal <strong>if and only if</strong>  \\(A^TA = I\\) or, equivalently, if \\(A^{−1} = A^T\\)</li>
 <li>Orthogonal Matrix的Column Vector需要Norm = 1</li>
 </ul>
 <div>
@@ -967,8 +970,8 @@ $$\mathbf{Q} = \begin{bmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}
 $$
 </div>
 <ul>
-<li>再比如\(\begin{bmatrix} 1 &amp; 1 \ 1 &amp; -1 \end{bmatrix} \text{ 并不是正交矩阵}.\)</li>
-<li>因为其Norm为2，\(\mathbf{Q} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 &amp; 1 \ 1 &amp; -1 \end{bmatrix}\)，调整后便可以了</li>
+<li>再比如\\(\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \text{ 并不是正交矩阵}.\\)</li>
+<li>因为其Norm为2，\\(\mathbf{Q} = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}\\)，调整后便可以了</li>
 <li>一个例子便是Rotation Matrix</li>
 </ul>
 <div>
@@ -978,7 +981,7 @@ $$T(\vec{x}) = \begin{bmatrix}
 \end{bmatrix} \vec{x}$$
 </div>
 <ul>
-<li>对于Orthogonal Matrix来说，\(Q^TQ=I\)</li>
+<li>对于Orthogonal Matrix来说，\\(Q^TQ=I\\)</li>
 </ul>
 <div>
 $$\mathbf{Q} = \begin{bmatrix} \mathbf{q}_1 & \cdots & \mathbf{q}_n \end{bmatrix}, \quad 
@@ -1022,8 +1025,8 @@ $$\mathbf{Q} = \begin{bmatrix} \mathbf{q}_1 & \cdots & \mathbf{q}_n \end{bmatrix
 $$||\vec x^2+\vec y^2||=||\vec x^2||+||\vec y^2||$$
 </div>
 <ul>
-<li>需要证明\(|T(\vec{v}) + T(\vec{w})|^2 = |T(\vec{v})|^2 + |T(\vec{w})|^2\)</li>
-<li>对于两个Orthogonal Vector $\vec v ~\&~ \vec w$，T是Linear Transformation，有</li>
+<li>需要证明\\(\|T(\vec{v}) + T(\vec{w})\|^2 = \|T(\vec{v})\|^2 + \|T(\vec{w})\|^2\\)</li>
+<li>对于两个Orthogonal Vector \\(\vec v ~\& ~\vec w\\)，T是Linear Transformation，有</li>
 </ul>
 <div>
 $$\|T(\vec{v}) + T(\vec{w})\|^2 = \|T(\vec{v} + \vec{w})\|^2$$
@@ -1059,13 +1062,13 @@ $$||\vec v^2||+||\vec w||^2= \|T(\vec{v})\|^2 + \|T(\vec{w})\|^2$$
     
 </h3>
 <ul>
-<li>T : \(\mathbb{R}^n \to \mathbb{R}^n\)  is an orthogonal transformation if and only if</li>
+<li>T : \\(\mathbb{R}^n \to \mathbb{R}^n\\)  is an orthogonal transformation if and only if</li>
 </ul>
 <div>
 $$ T(\vec{v}) \cdot T(\vec{w}) = \vec{v} \cdot \vec{w} \text{ for all } \vec{v}, \vec{w} \in \mathbb{R}^n$$
 </div>
 <ul>
-<li>if \(\vec{u}\) and \(\vec{v}\) are orthogonal, then \(T(\vec{u})\) and \(T(\vec{v})\) are also orthogonal</li>
+<li>if \\(\vec{u}\\) and \\(\vec{v}\\) are orthogonal, then \\(T(\vec{u})\\) and \\(T(\vec{v})\\) are also orthogonal</li>
 </ul>
 <blockquote>
 <p>变换前后dot product不变的变换就是Orthogonal Transformation</p>
@@ -1083,13 +1086,13 @@ $$ T(\vec{v}) \cdot T(\vec{w}) = \vec{v} \cdot \vec{w} \text{ for all } \vec{v},
     
 </h4>
 <ul>
-<li>T : \(R^n → R^n\) is an orthogonal linear transformation</li>
+<li>T : \\(R^n → R^n\\) is an orthogonal linear transformation</li>
 </ul>
 <div>
 $$T(\vec{u}) \cdot T(\vec{v}) = (u_1 T(\vec{e}_1) + \dots + u_n T(\vec{e}_n)) \cdot (v_1 T(\vec{e}_1) + \dots + v_n T(\vec{e}_n))$$
 </div>
 <ul>
-<li>根据\(q_i^T q_j = \begin{cases} 0 &amp; \text{若 } i \neq j \1 &amp; \text{若 } i = j \end{cases}\)</li>
+<li>根据\\(q_i^T q_j = \begin{cases} 0 & \text{若 } i \neq j \\1 & \text{若 } i = j \end{cases}\\)</li>
 </ul>
 <div>
 $$T(\vec{u}) \cdot T(\vec{v}) = u_1 v_1 T(\vec{e}_1) \cdot T(\vec{e}_1) + \ldots + u_n v_n T(\vec{e}_n) \cdot T(\vec{e}_n)$$
@@ -1125,7 +1128,7 @@ $$= u_1 v_1 \|T(\vec{e}_1)\|^2 + \ldots + u_n v_n \|T(\vec{e}_n)\|^2 \\
     
 </h3>
 <ul>
-<li>A linear transformation T : \(R^n → R^n\)  is an orthogonal transformation if and only if the vectors \(T (\vec e_1), T(\vec e_2), . . . , T (\vec e_n)\) form an orthonormal basis for \(R^n\)</li>
+<li>A linear transformation T : \\(R^n → R^n\\)  is an orthogonal transformation if and only if the vectors \\(T (\vec e_1), T(\vec e_2), . . . , T (\vec e_n)\\) form an orthonormal basis for \\(R^n\\)</li>
 </ul>
 <blockquote>
 <p>当Column Space为Orthogonal Vector的时候，Matrix为Orthogonal Transformation</p>
@@ -1251,7 +1254,7 @@ $$
 $$\mathbf{B} = \mathbf{b} - \frac{\mathbf{A}^\top \mathbf{b}}{\mathbf{A}^\top \mathbf{A}} \mathbf{A}$$
 </div>
 <ul>
-<li>通过两边乘上\(A^T\)证明其Orthogonal性质</li>
+<li>通过两边乘上\\(A^T\\)证明其Orthogonal性质</li>
 </ul>
 <div>
 $$A^T\mathbf{B} = A^T(\mathbf{b} - \frac{\mathbf{A}^\top \mathbf{b}}{\mathbf{A}^\top \mathbf{A}} \mathbf{A})=0$$
@@ -1316,8 +1319,8 @@ $$\mathbf{Q} = \begin{bmatrix} \mathbf{q}_1 & \mathbf{q}_2 \end{bmatrix} =
 <ul>
 <li>Fitting a line，拟合曲线</li>
 <li>假设有三个数据点{(1,1), (2,2), (3,2)}</li>
-<li>假设直线方程 \(b=Dt+C\)</li>
-<li>将三个点带入方程就有\(C+D=1,C+2D=2,C+3D=2\)</li>
+<li>假设直线方程 \\(b=Dt+C\\)</li>
+<li>将三个点带入方程就有\\(C+D=1,C+2D=2,C+3D=2\\)</li>
 </ul>
 <div>
 $$\left[
@@ -1345,8 +1348,8 @@ $$
 </div>
 <ul>
 <li>可以发现这个Equation是无解的，但目的在于找到最优解</li>
-<li>即方程\(A^TA\hat x =A^Tb\)的解</li>
-<li>在这之前需要定义一个Error来判断那条直线为最优解，定义为\(||e^2||=||Ax-b||^2={e_1}^2+{e_2}^2+{e_3}^2\)</li>
+<li>即方程\\(A^TA\hat x =A^Tb\\)的解</li>
+<li>在这之前需要定义一个Error来判断那条直线为最优解，定义为\\(||e^2||=||Ax-b||^2={e_1}^2+{e_2}^2+{e_3}^2\\)</li>
 </ul>
 <p>
     <figure>
@@ -1356,12 +1359,12 @@ $$
 </p>
 <ul>
 <li>在不存在Outlier 离群值的时候是一种非常好的Regression way</li>
-<li>\(C+Dt分别为p1，p2和p3\)，它们是满足方程并最接近于b的结果</li>
-<li>现在需要求解$\hat x= \left[\begin{array}{c}C \\ D\end{array}\right]$和p</li>
-<li>\(A^TA\hat x=A^Tb\)</li>
+<li>\\(C+Dt分别为p1，p2和p3\\)，它们是满足方程并最接近于b的结果</li>
+<li>现在需要求解\\(\hat x= \left[\begin{array}{c}C \\D \\\end{array}\right]\\)和p</li>
+<li>\\(A^TA\hat x=A^Tb\\)</li>
 </ul>
 <blockquote>
-<p>因为\(A^T(b-A\hat x)=0\)</p>
+<p>因为\\(A^T(b-A\hat x)=0\\)</p>
 </blockquote>
 <div>
 $$A^TA=\left[
@@ -1424,7 +1427,7 @@ $$\quad \text{则有}
 \right]$$
 </div>
 <ul>
-<li>解得\(\hat C=2/3,\hat D=1/2\)</li>
+<li>解得\\(\hat C=2/3,\hat D=1/2\\)</li>
 <li>亦可以通过求Partical Derivative的方法
 $$e1^2 + e2^2 + e3^2 = (C + D - 1)^2 + (C + 2D - 2)^2 + (C + 3D - 2)^2$$
 $$展开结果为2 e =3C2+14D2+9-10C-22D+12CD$$
@@ -1453,12 +1456,12 @@ $$求偏导为12C-20+24D=0； 28D-22+12C=0。与A^TA\hat x=A^Tb相同$$</li>
     
 </h2>
 <ul>
-<li>证明：若A的列向量线性无关时，矩阵\(A^TA\)为可逆矩阵</li>
-<li>要证明此，假设存在x使得\(A^TAx=0\)，后证明x只能是Zero Vector</li>
-<li>第一步将灯饰两边同时乘以\(x^T\)，有\(x^TA^TAx=0\)</li>
-<li>可以重写成\((Ax)^T(Ax)=0\Rightarrow Ax=0\)</li>
-<li>由于A的Column Vector是Linearly Independent的，所以只有\(x=0时有A^TAx=0\)</li>
-<li>即\(A^TAx\) is invertible</li>
+<li>证明：若A的列向量线性无关时，矩阵\\(A^TA\\)为可逆矩阵</li>
+<li>要证明此，假设存在x使得\\(A^TAx=0\\)，后证明x只能是Zero Vector</li>
+<li>第一步将灯饰两边同时乘以\\(x^T\\)，有\\(x^TA^TAx=0\\)</li>
+<li>可以重写成\\((Ax)^T(Ax)=0\Rightarrow Ax=0\\)</li>
+<li>由于A的Column Vector是Linearly Independent的，所以只有\\(x=0时有A^TAx=0\\)</li>
+<li>即\\(A^TAx\\) is invertible</li>
 </ul>
 
     </div>

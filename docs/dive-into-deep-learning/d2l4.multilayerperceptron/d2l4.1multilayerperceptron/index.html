@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -410,7 +413,7 @@ until all points are classified correctly
 <li><code>if yi * (⟨w, xi⟩ + b) ≤ 0</code>：如果分类与预测不符</li>
 <li>在Perceptron中并没有明确的Optimize Method，但可以隐式定义一个仅与分类错误的点有关的数据的损失，也就是上面小于零情况下的
 $$L(w, b) = -\sum_{x_i \in M} y_i (w \cdot x_i + b)$$</li>
-<li>由于\(y_i (w \cdot x_i + b)\)本身是负的，取负之后，这部分损失就变成了正</li>
+<li>由于\\(y_i (w \cdot x_i + b)\\)本身是负的，取负之后，这部分损失就变成了正</li>
 <li>这意味着误分类样本对损失的贡献是增加的，因为我们希望最小化正的损失值</li>
 <li>而对于weight和bias分别的Gradient为
 $$\nabla_w L(w, b) = -\sum_{x_i \in M} y_i x_i$$
@@ -591,7 +594,7 @@ O = HW^{(2)} + b^{(2)}$$</li>
 <ul>
 <li>在知道了Weierstrass Approximation Theorem后，也就是证明该
 $$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$</li>
-<li>Bernstein Polynomial，\(B_n(f, x)\)在区间\([0, 1]\)上以任意精度逼近\(f(x)\)</li>
+<li>Bernstein Polynomial，\\(B_n(f, x)\\)在区间\\([0, 1]\\)上以任意精度逼近\\(f(x)\\)</li>
 <li>通过说明MLP如何通过从Activation Function构造Polynomial，最终证明MLP如何实现函数的理论任意精度逼近</li>
 </ul>
 
@@ -607,19 +610,19 @@ $$B_n(x) = \sum_{i=0}^n f\left(\frac{i}{n}\right) \binom{n}{i} x^i (1-x)^{n-i}$$
     
 </h3>
 <ul>
-<li><strong>Weierstrass Approximation Theorem</strong>指出，任意定义在闭区间 \([a, b]\)上的连续函数\(f\)都可以被多项式函数以任意精度逼近。即，对于任意\(\varepsilon &gt; 0\)，存在一个多项式\(P(x)\)，使得
+<li><strong>Weierstrass Approximation Theorem</strong>指出，任意定义在闭区间 \\([a, b]\\)上的连续函数\\(f\\)都可以被多项式函数以任意精度逼近。即，对于任意\\(\varepsilon > 0\\)，存在一个多项式\\(P(x)\\)，使得
 $$|f(x) - P(x)| < \varepsilon \quad \forall x \in [a, b]$$</li>
 <li>为了证明单隐层神经网络能够逼近任意多项式，我们考虑如下多项式：
 $$P(x) = \sum_{k=0}^n a_k x^k$$</li>
-<li>其中\(a_k\)是多项式系数，n是多项式的次数。</li>
-<li>目标是要构造一个单隐层神经网络\(F(x) = \sum_{j=1}^m \alpha_j \sigma(w_j x + b_j)\)，使得\(F(x)\)能够逼近\(P(x)\)以任意精度</li>
-<li>选择合适的非线性激活函数是关键。假设\(\sigma\)在某个区间内具有泰勒展开：
+<li>其中\\(a_k\\)是多项式系数，n是多项式的次数。</li>
+<li>目标是要构造一个单隐层神经网络\\(F(x) = \sum_{j=1}^m \alpha_j \sigma(w_j x + b_j)\\)，使得\\(F(x)\\)能够逼近\\(P(x)\\)以任意精度</li>
+<li>选择合适的非线性激活函数是关键。假设\\(\sigma\\)在某个区间内具有泰勒展开：
 $$\sigma(z) = \sum_{k=0}^\infty c_k z^k$$</li>
-<li>其中\(c_k\)是泰勒级数的系数。典型的激活函数如 sigmoid、tanh 等都满足在某个区间内可展开为幂级数
+<li>其中\\(c_k\\)是泰勒级数的系数。典型的激活函数如 sigmoid、tanh 等都满足在某个区间内可展开为幂级数
 $$\sigma(x) = \frac{1}{2} + \frac{x}{4} - \frac{x^3}{48} + \frac{x^5}{480} + \cdots$$
 $$\tanh(x) = x - \frac{x^3}{3} + \frac{2x^5}{15} - \frac{17x^7}{315} + \cdots$$</li>
-<li>由于\(P(x)\)是多项式，我们需要构造网络的输出\(F(x)\)来逼近\(P(x)\)具体步骤如下：</li>
-<li>对于每个高阶项\(x^k\)，利用激活函数的非线性性质，通过组合多个隐藏单元来逼近。具体来说，可以通过调整\(w_j\)和\(b_j\)，使得多个\(\sigma(w_j x + b_j)\)的组合能够近似\(x^k\)</li>
+<li>由于\\(P(x)\\)是多项式，我们需要构造网络的输出\\(F(x)\\)来逼近\\(P(x)\\)具体步骤如下：</li>
+<li>对于每个高阶项\\(x^k\\)，利用激活函数的非线性性质，通过组合多个隐藏单元来逼近。具体来说，可以通过调整\\(w_j\\)和\\(b_j\\)，使得多个\\(\sigma(w_j x + b_j)\\)的组合能够近似\\(x^k\\)</li>
 <li>一个二次多项式的例子便是</li>
 </ul>
 <div>
@@ -628,7 +631,7 @@ $$F(x) = \underbrace{\sigma(b_1) \cdot \alpha_1}_{\text{常数项}} + \underbrac
 <ul>
 <li>由于多项式是各阶项的线性组合，单隐层网络通过线性组合隐藏层的输出即可实现对多项式的逼近
 $$F(x) = \sum_{j=1}^m \alpha_j \sigma(w_j x + b_j) \approx \sum_{k=0}^n a_k x^k = P(x)$$</li>
-<li>上述证明假设激活函数\(\sigma\)能够通过适当组合逼近多项式项。某些激活函数（如ReLU）虽然非多项式，但由于其分段线性性质，也具备强大的逼近能力。</li>
+<li>上述证明假设激活函数\\(\sigma\\)能够通过适当组合逼近多项式项。某些激活函数（如ReLU）虽然非多项式，但由于其分段线性性质，也具备强大的逼近能力。</li>
 </ul>
 
 
@@ -651,8 +654,8 @@ $$\sigma(z) = \begin{cases} 0, & z \leq 0 \\ z, & z > 0 \end{cases}$$</li>
 <li>这种特性允许神经网络通过组合多个ReLU单元，在输入空间中划分出多个线性区域，每个区域内的网络输出都是一个线性函数</li>
 <li>通过增加隐藏单元数，可以在输入空间中创建更多的线性区间，从而逼近复杂的非线性函数
 $$F(x) = \sum_{j=1}^m \alpha_j \sigma(w_j x + b_j) = \sum_{j=1}^m \alpha_j \max(0, w_j x + b_j)$$</li>
-<li>每个隐藏单元\(\sigma(w_j x + b_j)\)在\(w_j x + b_j = 0\)处产生一个“折点”，即输入\(x = -\frac{b_j}{w_j}\)处</li>
-<li>通过调整不同单元的权重\(w_j\)和偏置\(b_j\)，可以在输入空间中创建多个折点，将输入空间划分为多个线性区间。</li>
+<li>每个隐藏单元\\(\sigma(w_j x + b_j)\\)在\\(w_j x + b_j = 0\\)处产生一个“折点”，即输入\\(x = -\frac{b_j}{w_j}\\)处</li>
+<li>通过调整不同单元的权重\\(w_j\\)和偏置\\(b_j\\)，可以在输入空间中创建多个折点，将输入空间划分为多个线性区间。</li>
 </ul>
 <p>
     <figure>

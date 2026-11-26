@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -466,10 +469,10 @@ $$
 v_a(t) = V_a \sin(\omega t)
 $$<p>其中：</p>
 <ul>
-<li>\(V_a\)：amplitude 振幅 ，单位 V</li>
-<li>\(\omega\)：angular frequency 角频率，单位 rad/s</li>
-<li>f：frequency 频率，单位 Hz，关系为 \(\omega = 2 \pi f\)</li>
-<li>T：period 周期，单位 s，关系为 \(f = 1/T\)</li>
+<li>\\(V_a\\)：amplitude 振幅 ，单位 V</li>
+<li>\\(\omega\\)：angular frequency 角频率，单位 rad/s</li>
+<li>f：frequency 频率，单位 Hz，关系为 \\(\omega = 2 \pi f\\)</li>
+<li>T：period 周期，单位 s，关系为 \\(f = 1/T\\)</li>
 </ul>
 
 
@@ -491,7 +494,7 @@ V_{rms} = \frac{V_a}{\sqrt{2}}
 $$<p>举例：</p>
 <ul>
 <li>家庭电源（wall power supply）标称 <strong>120 V</strong>，实际上是正弦波的 <strong>rms 值</strong>，</li>
-<li>所以峰值电压是  \(120\sqrt{2} \approx 170 V\)</li>
+<li>所以峰值电压是  \\(120\sqrt{2} \approx 170 V\\)</li>
 </ul>
 
 
@@ -537,12 +540,12 @@ $$
 v(t) = \frac{4V}{\pi}\left(\sin \omega_0 t + \frac{1}{3}\sin 3\omega_0 t + \frac{1}{5}\sin 5\omega_0 t + \cdots \right)
 $$<ul>
 <li>V：方波幅度</li>
-<li>\(\omega_0 = \frac{2\pi}{T}\)：Fundamental Frequency 基频角频率</li>
+<li>\\(\omega_0 = \frac{2\pi}{T}\\)：Fundamental Frequency 基频角频率</li>
 <li>这个公式说明：</li>
 </ul>
 <ol>
 <li>Square Wave 其实是由无穷多个正弦波叠加而成</li>
-<li>其只包含odd harmonics 奇次谐波：\(\omega_0, 3\omega_0, 5\omega_0&hellip;\)</li>
+<li>其只包含odd harmonics 奇次谐波：\\(\omega_0, 3\omega_0, 5\omega_0...\\)</li>
 <li>每个谐波的 Amplitude 随着频率升高而减小（与 1/n 成正比）</li>
 </ol>
 
@@ -578,9 +581,9 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>基频分量（\(\omega_0\)）的幅度是 \(\frac{4V}{\pi}\)</li>
-<li>第三次谐波（\(3\omega_0\)）幅度是 \(\frac{1}{3}\frac{4V}{\pi}\)</li>
-<li>第五次谐波（\(5\omega_0\)）幅度是\(\frac{1}{5}\frac{4V}{\pi}\)， 依此类推</li>
+<li>基频分量（\\(\omega_0\\)）的幅度是 \\(\frac{4V}{\pi}\\)</li>
+<li>第三次谐波（\\(3\omega_0\\)）幅度是 \\(\frac{1}{3}\frac{4V}{\pi}\\)</li>
+<li>第五次谐波（\\(5\omega_0\\)）幅度是\\(\frac{1}{5}\frac{4V}{\pi}\\)， 依此类推</li>
 <li>方波看起来是“方形”的，但它实际上是这些频率分量正弦波叠加的结果。</li>
 </ul>
 
@@ -702,14 +705,14 @@ $$
 D = b_0 2^0 + b_1 2^1 + b_2 2^2 + \dots + b_{N-1} 2^{N-1}
 $$<p>其中：</p>
 <ul>
-<li>\(b_0, b_1, &hellip;, b_{N-1}\) 是 <strong>比特（bits）</strong>，取值只能是 0 或 1</li>
-<li>\(b_0\) 是 LSB least significant bit，最低有效位</li>
-<li><strong>\(b_{N-1}\)</strong> 是 MSB most significant bit，最高有效位</li>
-<li>这个二进制数通常写作 \(b_{N-1} b_{N-2} &hellip; b_0\)</li>
-<li>结果是：一个模拟采样值被量化（quantized）到 \(2^N\) 个可能的等级（levels）中</li>
+<li>\\(b_0, b_1, ..., b_{N-1}\\) 是 <strong>比特（bits）</strong>，取值只能是 0 或 1</li>
+<li>\\(b_0\\) 是 LSB least significant bit，最低有效位</li>
+<li><strong>\\(b_{N-1}\\)</strong> 是 MSB most significant bit，最高有效位</li>
+<li>这个二进制数通常写作 \\(b_{N-1} b_{N-2} ... b_0\\)</li>
+<li>结果是：一个模拟采样值被量化（quantized）到 \\(2^N\\) 个可能的等级（levels）中</li>
 </ul>
 <blockquote>
-<p>之所以是 \(2^N\) 是因为整个 Signal 被当做了一个 Binary Number</p>
+<p>之所以是 \\(2^N\\) 是因为整个 Signal 被当做了一个 Binary Number</p>
 </blockquote>
 <ul>
 <li>N 越大，数字结果就越接近真实模拟值，量化误差（quantization error）就越小，但电路更复杂、成本更高</li>
@@ -730,13 +733,13 @@ $$<p>其中：</p>
 <li><strong>A/D converter</strong> 模数转换器，Analog-to-Digital Converter, ADC</li>
 <li>顾名思义将 Analog Input 转换为 Digital Output</li>
 <li>而中间的模块首先 Sampling，在 Decent 的时间点上读取 Signal</li>
-<li>之后将连续的 Voltage 逼近到 \(2^N\) 个能级中，举例来说有</li>
+<li>之后将连续的 Voltage 逼近到 \\(2^N\\) 个能级中，举例来说有</li>
 <li>假设输入电压范围是 <strong>0 V ~ 5 V</strong></li>
 <li>在这个范围里，电压可能是 <strong>2.53 V</strong>、<strong>3.1415 V</strong>、甚至 <strong>4.00001 V</strong>，理论上是无限多的可能值</li>
 <li>这很合理，因为 Analog Signal 是 continuous 的，而 ADC 不能处理无限多的值，它必须用有限的比特数（二进制位）来表示</li>
 <li>假设是 <strong>3-bit ADC</strong>（N=3）：</li>
-<li>它最多能表示 \(2^3 = 8\) 个等级（levels）</li>
-<li>那么 0~5 V 的输入范围被均匀分成 8 段，每一段宽度是：\(\frac{5}{8} = 0.625 , \text{V}\)</li>
+<li>它最多能表示 \\(2^3 = 8\\) 个等级（levels）</li>
+<li>那么 0~5 V 的输入范围被均匀分成 8 段，每一段宽度是：\\(\frac{5}{8} = 0.625 \, \text{V}\\)</li>
 <li>于是：</li>
 <li>输入 0~0.625 V → 输出 000</li>
 <li>输入 0.625~1.25 V → 输出 001</li>
@@ -778,7 +781,7 @@ $$<p>其中：</p>
     
 </h3>
 <ul>
-<li>Signal Amplifier 信号放大器的功能就是把微弱的信号，如 \(\mu V,nV\) 级别的信号放大到足够大，便于后续的处理</li>
+<li>Signal Amplifier 信号放大器的功能就是把微弱的信号，如 \\(\mu V,nV\\) 级别的信号放大到足够大，便于后续的处理</li>
 <li>而其关键的需求就是 Linearity 线性</li>
 <li>即在 Signal 被放大后，Wave 因保持不变，只是 Amplitude 更大</li>
 <li>其中如果 Wave 的形状发生了改变，即 Distortion 失真</li>
@@ -787,9 +790,9 @@ $$<p>其中：</p>
 $$
 v_o(t) = A v_i(t)
 $$<ul>
-<li>\(v_i\)：input signal（输入信号）</li>
-<li>\(v_o\)：output signal（输出信号）</li>
-<li>\(A\)：amplifier gain（放大器增益），是常数</li>
+<li>\\(v_i\\)：input signal（输入信号）</li>
+<li>\\(v_o\\)：output signal（输出信号）</li>
+<li>\\(A\\)：amplifier gain（放大器增益），是常数</li>
 </ul>
 
 
@@ -886,16 +889,16 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>负载电阻：\(R_L\) （load resistance 负载电阻）</li>
+<li>负载电阻：\\(R_L\\) （load resistance 负载电阻）</li>
 <li>放大器把输入信号放大，输出端得到放大的复制品。</li>
 <li>电压增益 (Voltage gain 电压增益) 定义为：</li>
 </ul>
 $$
 A_v = \frac{v_o}{v_i}
 $$<ul>
-<li>左边：输入电压 \(v_i(t)\)</li>
+<li>左边：输入电压 \\(v_i(t)\\)</li>
 <li>三角形：电压放大器 (voltage amplifier 电压放大器)</li>
-<li>右边：负载电阻 \(R_L\)，输出电压  \(v_o(t)\) 在其两端产生</li>
+<li>右边：负载电阻 \\(R_L\\)，输出电压  \\(v_o(t)\\) 在其两端产生</li>
 <li>其中整个 Transfer 过程都将是 Linear 的（理想状态下）</li>
 </ul>
 
@@ -911,7 +914,7 @@ $$<ul>
     
 </h3>
 <ul>
-<li>已知 Power = Current \(\times\) Voltage</li>
+<li>已知 Power = Current \\(\times\\) Voltage</li>
 <li>所以对于 Power 的增益定义为</li>
 </ul>
 $$
@@ -945,7 +948,7 @@ $$
 G_{dB} = 10 \log_{10} \left( \frac{P_{out}}{P_{in}} \right)
 $$<ul>
 <li>这个 “10” 是最原始的定义，和功率的物理意义绑定。</li>
-<li>在相同电阻 R 下：\(P = \frac{V^2}{R}\)，于是有</li>
+<li>在相同电阻 R 下：\\(P = \frac{V^2}{R}\\)，于是有</li>
 </ul>
 $$
 \frac{P_{out}}{P_{in}} = \left(\frac{V_{out}}{V_{in}}\right)^2
@@ -955,8 +958,8 @@ G_{dB} = 10 \log \left(\frac{P_{out}}{P_{in}}\right)
 = 20 \log \left(\frac{V_{out}}{V_{in}}\right)
 $$<ul>
 <li>所以电压增益、电流增益的 dB 表达式是 <strong>20 log</strong>，完全是从功率的 <strong>10 log 定义</strong> 推出来的。</li>
-<li>拿 Power Gain 举例来说，当 \(A_p\) 为 10 的时候，Power Gain 为 0 dB</li>
-<li>\(A_p\) 为 100 的时候，Power Gain 为 40 dB，\(A_p\) 为 1000 的时候，Power Gain 为 60 dB</li>
+<li>拿 Power Gain 举例来说，当 \\(A_p\\) 为 10 的时候，Power Gain 为 0 dB</li>
+<li>\\(A_p\\) 为 100 的时候，Power Gain 为 40 dB，\\(A_p\\) 为 1000 的时候，Power Gain 为 60 dB</li>
 <li>这就说明了 dB 的增加实际上是底数的倍数级上升</li>
 </ul>
 
@@ -991,8 +994,8 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>其中正电源为 \(V_{CC}\)，负电源为 \(V_{EE}\)</li>
-<li>对于 Amplifier 来说，其存在两个端子，一个接 \(V_{CC}\)，一个接 \(V_{EE}\) 剩下的接地</li>
+<li>其中正电源为 \\(V_{CC}\\)，负电源为 \\(V_{EE}\\)</li>
+<li>对于 Amplifier 来说，其存在两个端子，一个接 \\(V_{CC}\\)，一个接 \\(V_{EE}\\) 剩下的接地</li>
 </ul>
 
 
@@ -1017,9 +1020,9 @@ $$<ul>
 $$
     P_{dc} + P_I = P_L + P_{dissipated}
     $$<ul>
-<li>\(P_I\)：信号源供给的功率（power from signal source）</li>
-<li>\(P_L\)：负载功率（power delivered to load）</li>
-<li>\(P_{dissipated}\)：放大器内部消耗（功率转为热 dissipated power）</li>
+<li>\\(P_I\\)：信号源供给的功率（power from signal source）</li>
+<li>\\(P_L\\)：负载功率（power delivered to load）</li>
+<li>\\(P_{dissipated}\\)：放大器内部消耗（功率转为热 dissipated power）</li>
 </ul>
 </li>
 </ul>
@@ -1036,7 +1039,7 @@ $$
     
 </h4>
 <ul>
-<li>因为 \(P_I\) 很小，可以忽略，所以效率定义为：</li>
+<li>因为 \\(P_I\\) 很小，可以忽略，所以效率定义为：</li>
 </ul>
 $$
 \eta = \frac{P_L}{P_{dc}} \times 100
@@ -1071,9 +1074,9 @@ $$
 <ul>
 <li>Amplifier 在一定范围中是 Linear 的</li>
 <li>但是一旦输出过大或者过小，Output 的 Voltage 就会到达电源的极限，导致其无法再继续增加或减小，Saturation 就出现了</li>
-<li>图中用 \(L_+\) 表示 Positive saturation level 正饱和电平</li>
-<li>用 \(L_-\) 表示 Negative saturation level 负饱和电平</li>
-<li>通常 \(L_+\) 和 \(L_-\) 会比 Power Supply 电源电压）低一点点（几分之一伏），因为电路元件本身有压降</li>
+<li>图中用 \\(L_+\\) 表示 Positive saturation level 正饱和电平</li>
+<li>用 \\(L_-\\) 表示 Negative saturation level 负饱和电平</li>
+<li>通常 \\(L_+\\) 和 \\(L_-\\) 会比 Power Supply 电源电压）低一点点（几分之一伏），因为电路元件本身有压降</li>
 </ul>
 
 
@@ -1115,7 +1118,7 @@ $$
 $$
 \frac{L_-}{A_v} \le v_I \le \frac{L_+}{A_v}
 $$<ul>
-<li>这里 \(A_v\) 是放大器 voltage gain 电压增益</li>
+<li>这里 \\(A_v\\) 是放大器 voltage gain 电压增益</li>
 <li>意思是：输入信号幅度必须在这个范围，输出才不会超出线性区</li>
 </ul>
 
@@ -1148,13 +1151,13 @@ $$<ul>
 </p>
 <ul>
 <li>
-<p>电流 \(i_C(t)\) = total instantaneous current 总瞬时电流</p>
+<p>电流 \\(i_C(t)\\) = total instantaneous current 总瞬时电流</p>
 </li>
 <li>
 <p>它由两部分组成：</p>
 <ul>
-<li>DC component 直流分量）： \(I_C\)，是一个恒定值</li>
-<li>Signal component 信号分量）： \(i_c(t)\)，随时间变化，一般是正弦波</li>
+<li>DC component 直流分量）： \\(I_C\\)，是一个恒定值</li>
+<li>Signal component 信号分量）： \\(i_c(t)\\)，随时间变化，一般是正弦波</li>
 </ul>
 </li>
 <li>
@@ -1163,7 +1166,7 @@ $$
     i_C(t) = I_C + i_c(t)
     $$</li>
 <li>
-<p>如果 \(i_c(t)\) 是正弦波则有</p>
+<p>如果 \\(i_c(t)\\) 是正弦波则有</p>
 $$
     i_c(t) = I_c \sin \omega t
     $$</li>
@@ -1228,15 +1231,15 @@ $$
     
 </h4>
 <ul>
-<li>首先定义一个 Voltage-Controlled Voltage Source 电压控制电压源的 Gain Factor 增益因子为 \(A_{vo}\)</li>
+<li>首先定义一个 Voltage-Controlled Voltage Source 电压控制电压源的 Gain Factor 增益因子为 \\(A_{vo}\\)</li>
 <li>这是一个理想化的模型，意思是输出电压完全由输入电压决定</li>
 <li>在这里，它的关系是</li>
 </ul>
 $$
 v_{out} = A_{vo} \cdot v_{in}
 $$<ul>
-<li>其中 \(A_{vo}\) 就是增益系数（gain factor 增益系数）</li>
-<li>可以理解为：这个“源”相当于一个“自动倍增器”，把输入电压放大 \(A_{vo}\)  倍</li>
+<li>其中 \\(A_{vo}\\) 就是增益系数（gain factor 增益系数）</li>
+<li>可以理解为：这个“源”相当于一个“自动倍增器”，把输入电压放大 \\(A_{vo}\\)  倍</li>
 </ul>
 
 
@@ -1271,7 +1274,7 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>于是这里就出现了第一个 Resistor \(R_S\)</li>
+<li>于是这里就出现了第一个 Resistor \\(R_S\\)</li>
 </ul>
 
 
@@ -1287,34 +1290,34 @@ $$<ul>
 </h4>
 <ul>
 <li>当 Signal Source 把 Voltage 送入 Amplifier 时，放大器输入会端口“呈现出来”一个 Resistor</li>
-<li>而将这个等效的 Resistor 称为 Input Resistance，其大小即为 \(R_i\)</li>
+<li>而将这个等效的 Resistor 称为 Input Resistance，其大小即为 \\(R_i\\)</li>
 <li>到目前为止，已经理通了从 Voltage Source 到 Amplifier 的完整线路，实际的 Input Circuit 如下</li>
 </ul>
 $$
 v_s⟶R_s⟶R_i⟶Amplifier
 $$<ul>
-<li>由于整个 Circuit 是一个 Series 的链接，所以 Amplifier 得到的 Voltage 将会被分压，即 \(R_s\) 和 \(R_i\) 构成了一个 Voltage Divider 分压器</li>
+<li>由于整个 Circuit 是一个 Series 的链接，所以 Amplifier 得到的 Voltage 将会被分压，即 \\(R_s\\) 和 \\(R_i\\) 构成了一个 Voltage Divider 分压器</li>
 <li>其实际得到的 Voltage 为</li>
 </ul>
 $$
  v_i=v_s⋅\frac{R_i}{R_s+R_i}
 $$<ul>
-<li>现在来分析一下 \(R_i\) 和 \(R_s\) 的数值对整体 Amplifier 的影响</li>
-<li>当 \(R_i \gg R_s\)（输入电阻非常大）</li>
+<li>现在来分析一下 \\(R_i\\) 和 \\(R_s\\) 的数值对整体 Amplifier 的影响</li>
+<li>当 \\(R_i \gg R_s\\)（输入电阻非常大）</li>
 </ul>
 $$
 v_i \approx v_s \cdot \frac{R_i}{R_i} = v_s
 $$<ul>
 <li>输入电压几乎等于信号源电压，几乎没有损失</li>
-<li>信号源几乎不用提供电流（因为电流 \(I = v_s / (R_s + R_i)\)，而分母很大）</li>
+<li>信号源几乎不用提供电流（因为电流 \\(I = v_s / (R_s + R_i)\\)，而分母很大）</li>
 <li>这是理想情况</li>
-<li>当 \(R_i \ll R_s\)（输入电阻很小）</li>
+<li>当 \\(R_i \ll R_s\\)（输入电阻很小）</li>
 </ul>
 $$
 v_i \approx v_s \cdot \frac{R_i}{R_s} \ll v_s
 $$<ul>
 <li>输入电压会被大大削弱。</li>
-<li>电流 \(I \approx v_s / R_s\)，信号源要提供很大的电流</li>
+<li>电流 \\(I \approx v_s / R_s\\)，信号源要提供很大的电流</li>
 <li>结果：放大器“吃掉”了信号源的电压，损失严重</li>
 <li>所以，好的电压放大器希望 <strong>Input Resistance</strong> <strong>尽可能大</strong></li>
 </ul>
@@ -1331,14 +1334,14 @@ $$<ul>
     
 </h4>
 <ul>
-<li>Amplifier 本身并不是一个 Ideal 的 Dependent Voltage Source，他也有内部的 Resistance，就是  \(R_o\)</li>
-<li>当 Amplifier 的 Output 想要驱动最终的 Load 的时候，它和 \(R_L\)  形成分压</li>
+<li>Amplifier 本身并不是一个 Ideal 的 Dependent Voltage Source，他也有内部的 Resistance，就是  \\(R_o\\)</li>
+<li>当 Amplifier 的 Output 想要驱动最终的 Load 的时候，它和 \\(R_L\\)  形成分压</li>
 </ul>
 $$
 v_o = A_{vo} v_i \cdot \frac{R_L}{R_L + R_o}
 $$<ul>
-<li>同理，如果 \(R_o\) 较大，输出电压就会被“吃掉”一部分</li>
-<li>如果 \(R_o\) 越小，输出电压就越接近理想值 \(A_{vo} v_i\)</li>
+<li>同理，如果 \\(R_o\\) 较大，输出电压就会被“吃掉”一部分</li>
+<li>如果 \\(R_o\\) 越小，输出电压就越接近理想值 \\(A_{vo} v_i\\)</li>
 <li>所以，好的电压放大器希望 <strong>输出电阻尽可能小</strong></li>
 </ul>
 <p>

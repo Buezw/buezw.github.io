@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -412,7 +415,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>在 Series 的时候，仅当 \(x_1 =x_2 =1\)  的时候 Light 是开的，同时也仅当 \(x_1=x_2=0\)  的时候 Light 是关的</li>
+<li>在 Series 的时候，仅当 \\(x_1 =x_2 =1\\)  的时候 Light 是开的，同时也仅当 \\(x_1=x_2=0\\)  的时候 Light 是关的</li>
 <li>在 Parallel 的情况下则不同</li>
 </ul>
 <p>
@@ -432,7 +435,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>当 \(x_1 =1 | x_2=1\)  的情况下，Light 都是开的，同时 \(x_1 =x_2 =1\)  的时候 Light 也是开的</li>
+<li>当 \\(x_1 =1 | x_2=1\\)  的情况下，Light 都是开的，同时 \\(x_1 =x_2 =1\\)  的时候 Light 也是开的</li>
 <li>上面介绍了 Series 和 Parallel 的两种情况，同时也存在一种情况即两个同时出现，叫做 Series - Parallel Connection</li>
 </ul>
 <p>
@@ -452,7 +455,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>如上图，Light 亮的情况下，需要 \(x_3= 1\) 的前提下，\(x_2\) 和 \(x_1\)  中起码有一个为 1</li>
+<li>如上图，Light 亮的情况下，需要 \\(x_3= 1\\) 的前提下，\\(x_2\\) 和 \\(x_1\\)  中起码有一个为 1</li>
 </ul>
 
 
@@ -468,13 +471,13 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </h3>
 <ul>
 <li>总结上面的规律，可以总结一个表达式</li>
-<li>用 + 表示 OR，用 $$ \(\cdot\) 表示 AND</li>
+<li>用 + 表示 OR，用 \\(\cdot\\) 表示 AND</li>
 <li>在上面的 Series-Parallel Connection 中，则可以表达为</li>
 </ul>
 $$
 L(x_1,x_2,x_3)=(x_1+x_2)+\cdot x_3
 $$<ul>
-<li>需要注意不能把 +，\(\cdot\) 等逻辑运算符和加减乘除搞混</li>
+<li>需要注意不能把 +，\\(\cdot\\) 等逻辑运算符和加减乘除搞混</li>
 </ul>
 
 
@@ -491,7 +494,7 @@ $$<ul>
 <ul>
 <li>到目前为止，我们假设 switch closed 代表正向动作，比如灯亮</li>
 <li>但同样有意义的是考虑另一种情况：当 switch opened 时触发动作</li>
-<li>也就是和之前相反的情况，当 \(x=0\)  的时候 \(L=1\)</li>
+<li>也就是和之前相反的情况，当 \\(x=0\\)  的时候 \\(L=1\\)</li>
 <li>这个运算也叫做 NOT Operation 非运算</li>
 </ul>
 
@@ -564,7 +567,7 @@ $$<ul>
 </p>
 <ul>
 <li>上面的三个就是 Logic Gate 的 Schematic Diagram 原理图</li>
-<li>注意到其中的符号 \(\cdot\), + 等，正如上面所提到的，一个 Logic Gate 存在多个 Input 和一个 Output</li>
+<li>注意到其中的符号 \\(\cdot\\), + 等，正如上面所提到的，一个 Logic Gate 存在多个 Input 和一个 Output</li>
 <li>重新拿到之前的 Series-Parallel Connection</li>
 </ul>
 <p>
@@ -663,7 +666,7 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>在这种情况下分析灯亮的两种情况，即 \(\overline XY+X\overline Y\)</li>
+<li>在这种情况下分析灯亮的两种情况，即 \\(\overline XY+X\overline Y\\)</li>
 </ul>
 <blockquote>
 <p>注意这里的 + 是 OR 的意思</p>
@@ -746,8 +749,8 @@ $$<ul>
 </p>
 <ul>
 <li>这里的关键就在于，+ 并不是再 Add，而是表示 OR</li>
-<li>但是两个 OR 是可以相互组合的，比如 \(\overline s_0\overline s_1 \overline s_2\) 在这里就非常重要，因为它能和剩下的三个依次组合，完成化简</li>
-<li>又因为 \(\overline s_n+s_n\) 无论如何都是 1 的特性，最终可以被化简到非常简单的形式</li>
+<li>但是两个 OR 是可以相互组合的，比如 \\(\overline s_0\overline s_1 \overline s_2\\) 在这里就非常重要，因为它能和剩下的三个依次组合，完成化简</li>
+<li>又因为 \\(\overline s_n+s_n\\) 无论如何都是 1 的特性，最终可以被化简到非常简单的形式</li>
 </ul>
 
 
@@ -815,7 +818,7 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>\(\cdot\)  代表了 AND，0 和 0 做 AND，结果是 0，等</li>
+<li>\\(\cdot\\)  代表了 AND，0 和 0 做 AND，结果是 0，等</li>
 <li>这几个就是最基本的 Boolean Algebra</li>
 </ul>
 
@@ -990,7 +993,7 @@ $$<ul>
     
 </h3>
 <ul>
-<li>在 Boolean Algebra 中，分别使用 AND 和 OR 进行运算，而他们可以被用符号 \(\cdot\) 和 + 表示</li>
+<li>在 Boolean Algebra 中，分别使用 AND 和 OR 进行运算，而他们可以被用符号 \\(\cdot\\) 和 + 表示</li>
 <li>因为 Boolean Algebra 和正常的 Algebra 中用的相同的符号，所以 AND 也被叫做 Logic Product，OR 则叫做 Logic Sum</li>
 <li>于是就有了 Product of Sum 和 Sum of Product</li>
 <li>PoS 就是几个 OR 运算外面接了 AND，SoP 则相反</li>
@@ -1062,10 +1065,10 @@ $$<ul>
 <p>由于 Minterm 是 Product Term (AND Term)，所以需要所有 Term 都为 1，即在 0 的 Term 上 Complement（取反）</p>
 </li>
 <li>
-<p>当一个 Function 被写作是 \(\sum m(0,1,2)\) 就代表了第 0，1，2 行的 Truth Table 值为 1</p>
+<p>当一个 Function 被写作是 \\(\sum m(0,1,2)\\) 就代表了第 0，1，2 行的 Truth Table 值为 1</p>
 </li>
 <li>
-<p>而三个变量又确定了这是一个有着 \(2^3 = 8\)  行的 Truth Table，所以就是 000, 001, 010 三个 Term 为 1，而要让他们为 1，中间还是 Product (AND) 则 Conical SoP 为</p>
+<p>而三个变量又确定了这是一个有着 \\(2^3 = 8\\)  行的 Truth Table，所以就是 000, 001, 010 三个 Term 为 1，而要让他们为 1，中间还是 Product (AND) 则 Conical SoP 为</p>
 $$
     \overline{x_1}\,\overline{x_2}\overline{x_3},\overline{x_1}\,\overline{x_2}\,x_3,\overline{x_1}\,x_2\,\overline{x_3}
     $$</li>
@@ -1146,7 +1149,7 @@ $$
 </h3>
 <ul>
 <li>由于 Boolean Algebra 的 Duality 特性，Min 和 Max term 也有着他们的 Duality</li>
-<li>假设一个 Function \(f(x,y,z)\) 有 \(\sum m (0,1,6,7)\) 作为 Minterm，那根据 Duality 他就有 \(\prod M(2,3,4,5)\) 作为 Maxterm</li>
+<li>假设一个 Function \\(f(x,y,z)\\) 有 \\(\sum m (0,1,6,7)\\) 作为 Minterm，那根据 Duality 他就有 \\(\prod M(2,3,4,5)\\) 作为 Maxterm</li>
 </ul>
 
 
@@ -1161,23 +1164,23 @@ $$
     
 </h4>
 <ul>
-<li>就拿上面的 \(\sum m(0,1,6,7)\) 举例，有</li>
+<li>就拿上面的 \\(\sum m(0,1,6,7)\\) 举例，有</li>
 </ul>
 $$
 f=(x+\overline y+z)\cdot(x+\overline y + \overline z)\cdot (\overline x+y+z)\cdot (\overline x+y+\overline z)
 $$<ul>
-<li>它的 Complement \(\overline f\) 就是 SoP，有</li>
+<li>它的 Complement \\(\overline f\\) 就是 SoP，有</li>
 </ul>
 $$
 \overline f= \overline xy\overline z+\overline xyz +x  \overline y \overline z+x \overline yz
 $$<ul>
-<li>要通过 \(\overline f\) 计算 \(f\)，就通过再次 Complement 就可以得到， 有</li>
+<li>要通过 \\(\overline f\\) 计算 \\(f\\)，就通过再次 Complement 就可以得到， 有</li>
 </ul>
 $$
 \overline{\overline f} = f=\overline{\overline xy\overline z+\overline xyz +x  \overline y \overline z+x \overline yz}
 $$<ul>
-<li>回顾 Demorgan’s Theorem，\(\overline {x_1x_2}=\overline{x_1}+\overline{x_2}\)，\(\overline{x_1+x_2}=\overline{x_1}\cdot \overline{x_2}\)</li>
-<li>在上面的 \(\overline{\overline f}\) 中，先使用第二个得到</li>
+<li>回顾 Demorgan’s Theorem，\\(\overline {x_1x_2}=\overline{x_1}+\overline{x_2}\\)，\\(\overline{x_1+x_2}=\overline{x_1}\cdot \overline{x_2}\\)</li>
+<li>在上面的 \\(\overline{\overline f}\\) 中，先使用第二个得到</li>
 </ul>
 $$
 f=\overline{\overline xy\overline z}\cdot \overline{\overline xyz}\cdot \overline{x\overline y z}\cdot \overline{x \overline y z}

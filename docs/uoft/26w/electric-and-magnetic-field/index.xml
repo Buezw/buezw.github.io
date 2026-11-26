@@ -296,7 +296,17 @@ $$&lt;ul&gt;
 &lt;/h3&gt;
 &lt;p&gt;
     &lt;figure&gt;
-      &lt;img class=&#34;my-0 rounded-md&#34; loading=&#34;lazy&#34; src=&#34;image.png&#34; alt=&#34;image.png&#34; /&gt;
+      &lt;img
+        class=&#34;my-0 rounded-md&#34;
+        loading=&#34;lazy&#34;
+        srcset=&#34;
+        /docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu4047206524842700002.png 330w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu17756683082345888347.png 660w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu6769386479947297879.png 1024w,
+        /docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu9239841066616596580.png 2x&#34;
+        src=&#34;https://buezw.github.io/docs/uoft/26w/electric-and-magnetic-field/emf1.vectorcalculus/image_hu17756683082345888347.png&#34;
+        alt=&#34;image.png&#34;
+      /&gt;
       
     &lt;/figure&gt;
 &lt;/p&gt;</description>

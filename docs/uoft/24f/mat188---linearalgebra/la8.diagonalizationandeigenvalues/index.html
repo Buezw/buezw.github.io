@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -360,11 +363,11 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     
 </h2>
 <ul>
-<li>考虑Linear Transformation为一种Function，输入x而输出\(Ax\)</li>
+<li>考虑Linear Transformation为一种Function，输入x而输出\\(Ax\\)</li>
 <li>Eigenvector即对于指定的Vector x，其Ax平行于x，有
 $$Ax=\lambda x$$</li>
-<li>其中x为A的Eigenvector，\(\lambda\)为A的Eigenvalue</li>
-<li>特征向量的定义要求\(x \neq 0\)</li>
+<li>其中x为A的Eigenvector，\\(\lambda\\)为A的Eigenvalue</li>
+<li>特征向量的定义要求\\(x \neq 0\\)</li>
 </ul>
 
 
@@ -403,7 +406,7 @@ $$Ax=0x=0$$</li>
 <ul>
 <li>因为当其投影到Subspace的时候并没有改变</li>
 <li>因此x为Eigenvector，并且Eigenvalue为1</li>
-<li>同时对于Orthogonal于Subspace的Vector，有\(Px=0\)，则这个x也是Eigenvector，其Eigenvalue为0</li>
+<li>同时对于Orthogonal于Subspace的Vector，有\\(Px=0\\)，则这个x也是Eigenvector，其Eigenvalue为0</li>
 </ul>
 
 
@@ -421,8 +424,8 @@ $$Ax=0x=0$$</li>
 $$A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$$
 </div>
 <ul>
-<li>对于置换矩阵存在Eigenvector \(x=[1,1]^T\)，Eigenvalue为1</li>
-<li>另一个Eigenvalue为\(x=[-1,1]^T\)，对应Eigenvalue为-1，\(Ax=-x\)</li>
+<li>对于置换矩阵存在Eigenvector \\(x=[1,1]^T\\)，Eigenvalue为1</li>
+<li>另一个Eigenvalue为\\(x=[-1,1]^T\\)，对应Eigenvalue为-1，\\(Ax=-x\\)</li>
 </ul>
 
 
@@ -437,7 +440,7 @@ $$A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$$
     
 </h3>
 <ul>
-<li>\(n\times n\) 的Matrix存在n个Eigenvalue</li>
+<li>\\(n\times n\\) 的Matrix存在n个Eigenvalue</li>
 <li>并且它们的和，即为Trace，等于矩阵对角线上的元素之和</li>
 <li>对于二阶矩阵，在已知一个特征值的条件下， 可以据此得到另一个特征值</li>
 </ul>
@@ -454,13 +457,13 @@ $$A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$$
     
 </h2>
 <ul>
-<li>对于\(Ax=\lambda x\)存在两个未知数，下面讨论求解的办法</li>
-<li>Rewrite等式为\((A-\lambda I)x=0\)</li>
-<li>如果系数矩阵\(A - \lambda I\)是<strong>非奇异矩阵</strong>（行列式不为零），那么方程组只有Trivial Solution \(x=0\)</li>
-<li>而如果系数矩阵\(A - \lambda I\)是<strong>奇异矩阵</strong>（行列式为零），那么方程组可能有<strong>非零解\(x \neq 0\)</strong></li>
-<li>于是可以推出\(det(A-\lambda I)=0\)</li>
+<li>对于\\(Ax=\lambda x\\)存在两个未知数，下面讨论求解的办法</li>
+<li>Rewrite等式为\\((A-\lambda I)x=0\\)</li>
+<li>如果系数矩阵\\(A - \lambda I\\)是<strong>非奇异矩阵</strong>（行列式不为零），那么方程组只有Trivial Solution \\(x=0\\)</li>
+<li>而如果系数矩阵\\(A - \lambda I\\)是<strong>奇异矩阵</strong>（行列式为零），那么方程组可能有<strong>非零解\\(x \neq 0\\)</strong></li>
+<li>于是可以推出\\(det(A-\lambda I)=0\\)</li>
 <li>在这个没有x的“特征方程”中，可以解得n个特征值，但是有可能方程有Repeated Root，则会得到重复的Eigenvalue</li>
-<li>得到特征值之后，用消元法解\(A-\lambda I\)，这一矩阵零空间中的向量为矩阵 A的特征向量</li>
+<li>得到特征值之后，用消元法解\\(A-\lambda I\\)，这一矩阵零空间中的向量为矩阵 A的特征向量</li>
 </ul>
 
 
@@ -498,7 +501,7 @@ $$A-4I = \begin{bmatrix} -1 & 1 \\ 1 & -1 \end{bmatrix}, \quad (A-4I)x_1 = 0, \q
 $$A-2I = \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}, \quad (A-2I)x_2 = 0, \quad x_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$$
 </div>
 <ul>
-<li>与前面的例子\(A=\begin{bmatrix} 0 &amp; 1 \ 1 &amp; 0 \end{bmatrix}\)的特征值和特征向量相对比，可知两者为一组平移矩阵</li>
+<li>与前面的例子\\(A=\begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}\\)的特征值和特征向量相对比，可知两者为一组平移矩阵</li>
 <li>在对角元素上分别加3，改变了特征值但是没有改变特征向量</li>
 </ul>
  <div>
@@ -521,9 +524,9 @@ $$A-2I = \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}, \quad (A-2I)x_2 = 0, \qua
     
 </h2>
 <ul>
-<li>将\(det(A-\lambda I)=0\)展开会得到\(\lambda\)的n 阶多项式，多项式的解就是矩阵 A 的特征值</li>
-<li>根据多项式根与系数的关系，解之和即特征值之和等于\(\lambda^{n-1}\)的系数</li>
-<li>而行列式展开式中只有对角线的积这一项包含的\(\lambda^{n-1}\)（其它项最高是n-2次方），而其系数为矩阵A对角线元素之和即矩阵A的Trace，因此特征值之和与矩阵的迹相等</li>
+<li>将\\(det(A-\lambda I)=0\\)展开会得到\\(\lambda\\)的n 阶多项式，多项式的解就是矩阵 A 的特征值</li>
+<li>根据多项式根与系数的关系，解之和即特征值之和等于\\(\lambda^{n-1}\\)的系数</li>
+<li>而行列式展开式中只有对角线的积这一项包含的\\(\lambda^{n-1}\\)（其它项最高是n-2次方），而其系数为矩阵A对角线元素之和即矩阵A的Trace，因此特征值之和与矩阵的迹相等</li>
 </ul>
 
 
@@ -538,7 +541,7 @@ $$A-2I = \begin{bmatrix} 1 & 1 \\ 1 & 1 \end{bmatrix}, \quad (A-2I)x_2 = 0, \qua
     
 </h2>
 <ul>
-<li>\(\lambda_1,\lambda_2\)是对称矩阵的两个不同的特征值，对应的特征向量分别为x1和x2。</li>
+<li>\\(\lambda_1,\lambda_2\\)是对称矩阵的两个不同的特征值，对应的特征向量分别为x1和x2。</li>
 </ul>
 <div>
 $$\text{则有 } A\mathbf{x}_1 = \lambda_1 \mathbf{x}_1, \text{ 左乘 } \mathbf{x}_2^\top \text{ 得 } \mathbf{x}_2^\top A\mathbf{x}_1 = \lambda_1 \mathbf{x}_2^\top \mathbf{x}_1$$
@@ -565,14 +568,14 @@ $$Q = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} \cos 90^\c
 </div>
 <ul>
 <li>Q是一个是一个90度Rotation Matrix</li>
-<li>从矩阵的Trace和Determinant的值可以得到\(\lambda_1+\lambda_2=0,\lambda_1\lambda_2=1\)</li>
+<li>从矩阵的Trace和Determinant的值可以得到\\(\lambda_1+\lambda_2=0,\lambda_1\lambda_2=1\\)</li>
 <li>仅观察Matrix可以发现他的Eigenvector只能是Zero Vector，因为其他Vector乘以Rotation Matrix，其方向将会改变而，不可逆平行于原向量，通过原来的计算可得</li>
 </ul>
 <div>
 $$\det (Q - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmatrix} = \lambda^2 + 1 = 0$$
 </div>
 <ul>
-<li>可以解得\(\lambda_1=i,\lambda_2=-i\)</li>
+<li>可以解得\\(\lambda_1=i,\lambda_2=-i\\)</li>
 <li>如果一个矩阵具有复数特征值a+bi则，它的共轭复数a-bi也是矩阵的特征值</li>
 <li><strong>实数特征值让特征向量伸缩而虚数让其旋转</strong></li>
 </ul>
@@ -589,7 +592,7 @@ $$\det (Q - \lambda I) = \begin{vmatrix} -\lambda & -1 \\ 1 & -\lambda \end{vmat
     
 </h4>
 <ul>
-<li>即满足\(A^T=-A\)的矩阵</li>
+<li>即满足\\(A^T=-A\\)的矩阵</li>
 <li>对称矩阵永远具有实数的特征值，而，具有纯虚数的特征值</li>
 </ul>
 
@@ -615,7 +618,7 @@ $$\det (A - \lambda I) = \begin{vmatrix} 3-\lambda & 1 \\ 0 & 3-\lambda \end{vma
 $$
 </div>
 <ul>
-<li>即\(\lambda_1=\lambda_2=3\)</li>
+<li>即\\(\lambda_1=\lambda_2=3\\)</li>
 </ul>
 <div>
 $$(A-\lambda I)x = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}x = 0, \quad \text{得到} \quad x_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$$
@@ -649,8 +652,8 @@ $$AS = A \begin{bmatrix} \mathbf{x}_1 & \mathbf{x}_2 & \cdots & \mathbf{x}_n \en
 \end{bmatrix} = S D$$
 </div>
 <ul>
-<li>根据上式可写出\(AS=SD\Rightarrow S^{-1}AS=D\)，这就叫Diagonalization</li>
-<li>同理也有\(A=SDS^{-1}\)</li>
+<li>根据上式可写出\\(AS=SD\Rightarrow S^{-1}AS=D\\)，这就叫Diagonalization</li>
+<li>同理也有\\(A=SDS^{-1}\\)</li>
 </ul>
 
 
@@ -671,15 +674,15 @@ $$AS = A \begin{bmatrix} \mathbf{x}_1 & \mathbf{x}_2 & \cdots & \mathbf{x}_n \en
 $$\text{如果 } A\mathbf{x} = \lambda \mathbf{x}, \text{ 则有 } A^2\mathbf{x} = \lambda A\mathbf{x} = \lambda^2 \mathbf{x}。$$
 </div>
 <ul>
-<li>这说明了Matrix \(A\)与\(A^2\)拥有相同的Eigenvector</li>
+<li>这说明了Matrix \\(A\\)与\\(A^2\\)拥有相同的Eigenvector</li>
 </ul>
 <div>
 $$A^2 = S D S^{-1} S D S^{-1} = S D^2 S^{-1}$$
 </div>
 <ul>
-<li>同理可以推广到k-th power的情况，有\(A^k = S D^k S^{-1}\)</li>
-<li>这说明\(A^k\)有着和A一样的特征向量，而特征值为\(\lambda^k\)</li>
-<li>如果矩阵A具有n个线性无关的特征向量，并且特征值均满足\(|\lambda_i|&lt;1\)，则k→∞时，Ak→0</li>
+<li>同理可以推广到k-th power的情况，有\\(A^k = S D^k S^{-1}\\)</li>
+<li>这说明\\(A^k\\)有着和A一样的特征向量，而特征值为\\(\lambda^k\\)</li>
+<li>如果矩阵A具有n个线性无关的特征向量，并且特征值均满足\\(|\lambda_i|<1\\)，则k→∞时，Ak→0</li>
 </ul>
 
 
@@ -735,7 +738,7 @@ $$A = \begin{bmatrix}3 & 1 \\0 & 3\end{bmatrix}$$
 $$\det (A - \lambda I) = \begin{vmatrix} 3-\lambda & 1 \\ 0 & 3-\lambda \end{vmatrix} = (3-\lambda)(3-\lambda) = 0$$
 </div>
 <ul>
-<li>即\(\lambda_1=\lambda_2=3\)</li>
+<li>即\\(\lambda_1=\lambda_2=3\\)</li>
 </ul>
 <div>
 $$(A-\lambda I)x = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}x = 0, \quad \text{得到} \quad x_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$$
@@ -758,8 +761,8 @@ $$(A-\lambda I)x = \begin{bmatrix} 0 & 1 \\ 0 & 0 \end{bmatrix}x = 0, \quad \tex
 <ul>
 <li><strong>差分方程</strong>描述了<strong>离散变量</strong>之间的递推关系</li>
 <li>简单来说，差分方程是用来研究一系列离散点上的函数值之间的关系</li>
-<li>从给定的一个向量\(u_0\)出发，我们可以通过对前一项乘以矩阵A得到下一项的方式，得到一个向量序列：\(u_{k+1}=Au_k\)</li>
-<li>这里的\(u_k+1=Au_k\)可以是一个一阶差分方程，而\(u_k=A^ku_0\)就是方程的解</li>
+<li>从给定的一个向量\\(u_0\\)出发，我们可以通过对前一项乘以矩阵A得到下一项的方式，得到一个向量序列：\\(u_{k+1}=Au_k\\)</li>
+<li>这里的\\(u_k+1=Au_k\\)可以是一个一阶差分方程，而\\(u_k=A^ku_0\\)就是方程的解</li>
 <li>其可以写出Eigenvector的Linear Combination</li>
 </ul>
 <div>
@@ -780,7 +783,7 @@ $$\mathbf{u}_k = A^k \mathbf{u}_0 = c_1 \lambda_1^k \mathbf{x}_1 + c_2 \lambda_2
     
 </h3>
 <ul>
-<li>斐波那契数列为0,1,1,2,3,4,8,13……其通项公式为\(F_{k+2}=F_{k+1}+F_k\)</li>
+<li>斐波那契数列为0,1,1,2,3,4,8,13……其通项公式为\\(F_{k+2}=F_{k+1}+F_k\\)</li>
 <li>令</li>
 </ul>
 <div>
@@ -791,18 +794,18 @@ $$F_{k+2} = F_{k+1} + F_k, \quad F_{k+1} = F_{k+1} \\
 \text{写成矩阵形式为 } \mathbf{u}_{k+1} = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} \mathbf{u}_k$$
 </div>
 <ul>
-<li>所以现在A就是\(\begin{bmatrix} 1 &amp; 1 \ 1 &amp; 0 \end{bmatrix}\)，求解其Eigenvalues有</li>
+<li>所以现在A就是\\(\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}\\)，求解其Eigenvalues有</li>
 </ul>
 <div>
 $$\det(A - \lambda I) = \begin{vmatrix} 1-\lambda & 1 \\ 1 & -\lambda \end{vmatrix} = \lambda^2 - \lambda - 1 = 0$$
 </div>
 <ul>
-<li>\(\text{解得 } \lambda_1 = \frac{1 + \sqrt{5}}{2}, \quad \lambda_2 = \frac{1 - \sqrt{5}}{2}\)，且\(\mathbf{u}_k = A^k \mathbf{u}_0 = c_1 \lambda_1^k \mathbf{x}_1 + c_2 \lambda_2^k \mathbf{x}_2\)</li>
-<li>由于\(\lambda_1\)大于零，\(\lambda_2\)小于零，则在k趋于无线的时候，\(\lambda_2^k\)趋于零</li>
-<li>从特征值可以求得对应的特征向量\(\mathbf{x}_1 = \begin{bmatrix} \lambda_1 \ 1 \end{bmatrix} \text{ 的和 } \mathbf{x}_2 = \begin{bmatrix} \lambda_2 \ 1 \end{bmatrix}\)</li>
+<li>\\(\text{解得 } \lambda_1 = \frac{1 + \sqrt{5}}{2}, \quad \lambda_2 = \frac{1 - \sqrt{5}}{2}\\)，且\\(\mathbf{u}_k = A^k \mathbf{u}_0 = c_1 \lambda_1^k \mathbf{x}_1 + c_2 \lambda_2^k \mathbf{x}_2\\)</li>
+<li>由于\\(\lambda_1\\)大于零，\\(\lambda_2\\)小于零，则在k趋于无线的时候，\\(\lambda_2^k\\)趋于零</li>
+<li>从特征值可以求得对应的特征向量\\(\mathbf{x}_1 = \begin{bmatrix} \lambda_1 \\ 1 \end{bmatrix} \text{ 的和 } \mathbf{x}_2 = \begin{bmatrix} \lambda_2 \\ 1 \end{bmatrix}\\)</li>
 </ul>
 <blockquote>
-<p>在因为是二阶方程，而且矩阵\(A - \lambda I\)是奇异矩阵，所以只要符合其中一个方程即可，立刻可以看出\(\begin{bmatrix} \lambda_1 \ 1 \end{bmatrix}\)是解</p>
+<p>在因为是二阶方程，而且矩阵\\(A - \lambda I\\)是奇异矩阵，所以只要符合其中一个方程即可，立刻可以看出\\(\begin{bmatrix} \lambda_1 \\ 1 \end{bmatrix}\\)是解</p>
 </blockquote>
 <div>
 $$\text{从 } \mathbf{u}_0 = \begin{bmatrix} F_1 \\ F_0 \end{bmatrix} = c_1 \mathbf{x}_1 + c_2 \mathbf{x}_2, \text{ 可以求得 } c_1 = -c_2 = \frac{1}{\sqrt{5}}$$$$

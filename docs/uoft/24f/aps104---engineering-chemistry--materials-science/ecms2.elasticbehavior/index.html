@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -393,7 +396,7 @@ $$F=kx$$<ul>
 <ul>
 <li>物体在外力作用下，单位面积上承受的内力
 $$Stress(\sigma)=\frac{F}{A_0}$$</li>
-<li>\(A_0\): Initial Cross-Sectional Area</li>
+<li>\\(A_0\\): Initial Cross-Sectional Area</li>
 <li>应力的单位通常是帕斯卡（Pa）</li>
 </ul>
 
@@ -412,8 +415,8 @@ $$Stress(\sigma)=\frac{F}{A_0}$$</li>
 <li>应变是材料在外力作用下发生的变形程度</li>
 </ul>
 $$Strain(\epsilon)=\frac{\Delta l}{l_0}$$<ul>
-<li>\(\Delta l\)：change of material&rsquo;s length</li>
-<li>\(l_0\): Initial length of material</li>
+<li>\\(\Delta l\\)：change of material&rsquo;s length</li>
+<li>\\(l_0\\): Initial length of material</li>
 </ul>
 
 
@@ -494,7 +497,7 @@ $$E=\frac{\sigma}{\epsilon}=\frac{\frac{F}{A_0}}{\frac{\Delta l}{l_0}}=\frac{F\c
 </p>
 <ul>
 <li>代表了，当External Force被撤去的时候，既Unloaded之后，Atoms将会回到他们原来的Equilibrium position</li>
-<li>需要注意的是，Atom之间的间距将会回到一开始的\(r=r_0\)</li>
+<li>需要注意的是，Atom之间的间距将会回到一开始的\\(r=r_0\\)</li>
 </ul>
 <p>
     <figure>
@@ -530,7 +533,7 @@ $$E=\frac{\sigma}{\epsilon}=\frac{\frac{F}{A_0}}{\frac{\Delta l}{l_0}}=\frac{F\c
 <li>对于一个材料，在对其施加Stress的时候，其Strain会出现如此的固定趋势</li>
 <li>在Stress等于0的时候，物体处于Equilibrium状态，具体来说其Attractive Force = Repulsive Force</li>
 <li>在持续施加Stress后，Atoms最终将到达一个Yield Strength（不可逆点）后将会产生Plastic Deformation（将在下一章提到）</li>
-<li>将Stress-Strain图放大到\(r_0\)两边后观察</li>
+<li>将Stress-Strain图放大到\\(r_0\\)两边后观察</li>
 </ul>
 <p>
     <figure>
@@ -589,7 +592,7 @@ $$E\propto \frac{dF}{dr}|_r=r_0$$</li>
 <li>Low strain to fracture, almost no deformation before breaking：在断裂之间，几乎不发生Elastic Deformation</li>
 <li>hard to grip：对于Tensile Test所必须的Grip Region，由于一些Material的特殊性，他们无法在Grip Region内被夹住，继而无法进一步测试</li>
 <li>Hard to load on Axis: 当Grip Region滑动的时候，无法使力沿轴拉伸</li>
-<li>关于为什么这些会发生，如为什么Ceramics会直接断裂等，参考[[ECMS 3. Plastic Deformations]]</li>
+<li>关于为什么这些会发生，如为什么Ceramics会直接断裂等，参考ECMS 3. Plastic Deformations</li>
 </ul>
 
     </div>

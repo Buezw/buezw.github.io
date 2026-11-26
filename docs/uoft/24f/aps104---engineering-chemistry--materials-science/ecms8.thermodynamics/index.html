@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -412,7 +415,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <li>熵是一个衡量系统混乱程度的物理量，系统的熵越高，系统的无序程度就越高
 $$\Delta S = \frac{q_{REV}}{T}$$</li>
 <li>S is the entropy 熵</li>
-<li>\(q_{rev}\)​ is the heat transferred 传递的热量</li>
+<li>\\(q_{rev}\\)​ is the heat transferred 传递的热量</li>
 <li>T is the <em>thermodynamic</em> temperature 热力学温度，单位为Kelvin</li>
 </ul>
 
@@ -725,9 +728,9 @@ $$G=H−TS$$<ul>
     
 </h3>
 <ul>
-<li>如果\(\Delta G &lt; 0\)：过程是自发的（有利于发生）。</li>
-<li>如果\(\Delta G = 0\)：系统达到平衡。</li>
-<li>如果\(\Delta G &gt; 0\)：过程是非自发的（需要外界能量输入）</li>
+<li>如果\\(\Delta G < 0\\)：过程是自发的（有利于发生）。</li>
+<li>如果\\(\Delta G = 0\\)：系统达到平衡。</li>
+<li>如果\\(\Delta G > 0\\)：过程是非自发的（需要外界能量输入）</li>
 <li>自发过程的基本条件是整个宇宙的熵（包括系统和环境的熵）总和需要增加，这是在前面的The Second Law of Thermodynamics中定义的
 $$\Delta S_{\text{system}} + \Delta S_{\text{surroundings}} > 0$$</li>
 <li>在恒温下，周围环境的熵变是进入周围环境的热量除以温度
@@ -766,7 +769,7 @@ $$\Delta H_{\text{system}}-T \Delta S_{\text{system}}  < 0$$</li>
 $$\text{Slope} = \frac{\Delta T}{q} \, \left[ = \frac{K}{\frac{J}{\text{mol}}} \right]
 $$
 $$q = \frac{1}{\text{Slope}} \Delta T$$</li>
-<li>\(\frac{1}{\text{Slope}}\)其还有一个名字叫做Molar Heat Capacity \(C_P\)，也就是Specific Heat Capacity比热容</li>
+<li>\\(\frac{1}{\text{Slope}}\\)其还有一个名字叫做Molar Heat Capacity \\(C_P\\)，也就是Specific Heat Capacity比热容</li>
 </ul>
 
 
@@ -783,8 +786,8 @@ $$q = \frac{1}{\text{Slope}} \Delta T$$</li>
 $$q = \frac{1}{\text{Slope}} \Delta T = n C_P \Delta T$$<ul>
 <li>q：热量</li>
 <li>n：物质的摩尔数</li>
-<li>\(C_P\)​：摩尔热容</li>
-<li>\(\Delta T\)：温度变化</li>
+<li>\\(C_P\\)​：摩尔热容</li>
+<li>\\(\Delta T\\)：温度变化</li>
 </ul>
 
 

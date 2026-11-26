@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -363,7 +366,17 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <p>Now consider this case</p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="image.png" alt="image.png" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu14483275775885328603.png 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu10303013519027271002.png 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu334350903626730891.png 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu10758743045942613175.png 2x"
+        src="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/image_hu10303013519027271002.png"
+        alt="image.png"
+      />
       
     </figure>
 </p>
@@ -416,13 +429,33 @@ $$<ul>
 <p>Thus find those $a_0,a_1,a_2\dots$</p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-2.jpg" alt="Note-2.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-2_hu17386503090890534537.jpg 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-2_hu10710161461623787571.jpg 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-2_hu3176060529231445359.jpg 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-2_hu15246501442119970267.jpg 2x"
+        src="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-2_hu10710161461623787571.jpg"
+        alt="Note-2.jpg"
+      />
       
     </figure>
 </p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="5632d54d-c819-4fc6-b5ad-6c72ccf12c66.png" alt="Note-3.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/5632d54d-c819-4fc6-b5ad-6c72ccf12c66_hu868702021183417343.png 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/5632d54d-c819-4fc6-b5ad-6c72ccf12c66_hu4041646746981023431.png 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/5632d54d-c819-4fc6-b5ad-6c72ccf12c66_hu17541689140562139472.png 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/5632d54d-c819-4fc6-b5ad-6c72ccf12c66_hu8649307675268831160.png 2x"
+        src="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/5632d54d-c819-4fc6-b5ad-6c72ccf12c66_hu4041646746981023431.png"
+        alt="Note-3.jpg"
+      />
       
     </figure>
 </p>
@@ -671,13 +704,33 @@ $$
 x(t) = \cos(4\pi t) + 2 \sin(6\pi t)
 $$<p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-22.jpg" alt="Note-22.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-22_hu8080039087991871921.jpg 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-22_hu223625430396811815.jpg 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-22_hu163236003694346802.jpg 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-22_hu2481647717969285307.jpg 2x"
+        src="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-22_hu223625430396811815.jpg"
+        alt="Note-22.jpg"
+      />
       
     </figure>
 </p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="4398532a-ed67-4dff-94e1-8f565637fe37.png" alt="Note-23.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/4398532a-ed67-4dff-94e1-8f565637fe37_hu17701305541705830194.png 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/4398532a-ed67-4dff-94e1-8f565637fe37_hu13161737771396929065.png 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/4398532a-ed67-4dff-94e1-8f565637fe37_hu4749778570582690567.png 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/4398532a-ed67-4dff-94e1-8f565637fe37_hu15866995495691906521.png 2x"
+        src="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/4398532a-ed67-4dff-94e1-8f565637fe37_hu13161737771396929065.png"
+        alt="Note-23.jpg"
+      />
       
     </figure>
 </p>
@@ -701,7 +754,17 @@ $$<p>
 </p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-24.jpg" alt="Note-24.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-24_hu10219338685794270475.jpg 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-24_hu13148075564085153944.jpg 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-24_hu3840572280339373615.jpg 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-24_hu10702017633146669294.jpg 2x"
+        src="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-24_hu13148075564085153944.jpg"
+        alt="Note-24.jpg"
+      />
       
     </figure>
 </p>
@@ -748,7 +811,7 @@ $$<ul>
 </h1>
 <p>Known that all signals in real life are <strong>Real-Valued</strong>, that means</p>
 $$
-x(t)=x(t)^\*
+x(t)=x(t)^*
 $$<p>Known this property, we can then conclude the Symmetry of Real-Valued Signal in Frequency Domain, recall the CTFS coefficients</p>
 $$
 a_k = \frac{1}{T_0} \int_{0}^{T_0} x(t)e^{-\mathbf{j}k\omega_0 t} \, dt
@@ -756,10 +819,10 @@ $$<ul>
 <li>It has the conjugate of</li>
 </ul>
 $$
-a_k^\* = \frac{1}{T_0} \int_{0}^{T_0} x(t)^\* (e^{-\mathbf{j}k\omega_0 t})^\* \, dt= \frac{1}{T_0} \int_{0}^{T_0} x(t) e^{\mathbf{j}k\omega_0 t} \, dt\
+a_k^* = \frac{1}{T_0} \int_{0}^{T_0} x(t)^* (e^{-\mathbf{j}k\omega_0 t})^* \, dt= \frac{1}{T_0} \int_{0}^{T_0} x(t) e^{\mathbf{j}k\omega_0 t} \, dt\
 = a_{-k}
 $$<ul>
-<li>Known that $a_k^\* = a_{-k}$, then we know that $|a_{-k}| = |a_k|$, and $\angle a_{-k} = -\angle a_k$</li>
+<li>Known that $a_k^* = a_{-k}$, then we know that $|a_{-k}| = |a_k|$, and $\angle a_{-k} = -\angle a_k$</li>
 </ul>
 
 
@@ -1088,13 +1151,33 @@ $$
 </p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="Note-26.jpg" alt="Note-26.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-26_hu11707095731379333709.jpg 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-26_hu8317882044759371125.jpg 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-26_hu17925099328360171875.jpg 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-26_hu15636676300818582216.jpg 2x"
+        src="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/Note-26_hu8317882044759371125.jpg"
+        alt="Note-26.jpg"
+      />
       
     </figure>
 </p>
 <p>
     <figure>
-      <img class="my-0 rounded-md" loading="lazy" src="d86d83d2-2f3a-48cd-a29f-83afd16856fa.png" alt="Note-27.jpg" />
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/d86d83d2-2f3a-48cd-a29f-83afd16856fa_hu9643963921011671368.png 330w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/d86d83d2-2f3a-48cd-a29f-83afd16856fa_hu12080872420994356658.png 660w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/d86d83d2-2f3a-48cd-a29f-83afd16856fa_hu8971368157474643139.png 1024w,
+        /docs/uoft/26w/signal-and-systems/ss2.fourierseries/d86d83d2-2f3a-48cd-a29f-83afd16856fa_hu16189606850683362469.png 2x"
+        src="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/d86d83d2-2f3a-48cd-a29f-83afd16856fa_hu12080872420994356658.png"
+        alt="Note-27.jpg"
+      />
       
     </figure>
 </p>

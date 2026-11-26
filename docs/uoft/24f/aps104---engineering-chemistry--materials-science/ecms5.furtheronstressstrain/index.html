@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -405,7 +408,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>在\(\epsilon=0.002\)的位置画一个平行于Linear Elastic Region的直线，其交于SS Curve的位置即为Yield Strength</li>
+<li>在\\(\epsilon=0.002\\)的位置画一个平行于Linear Elastic Region的直线，其交于SS Curve的位置即为Yield Strength</li>
 </ul>
 
 
@@ -421,10 +424,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </h3>
 <p>A hypothetical metal has a 0.2% offset yield strength of 358 MPa, an ultimate tensile strength of 522 MPa, and a fracture strength of 460 MPa.  A sample of this metal, originally 1 m in length with a cross section of 2 mm × 2 mm is loaded along its long axis. Just before fracture, while the load is still applied, the length is 1.3 m and when the load is released, the length is 1.18 m. Calculate the modulus of elasticity in GPa.（这我做集贸啊）</p>
 <ul>
-<li>之前有公式\(\sigma=E\epsilon\)</li>
-<li>现在需要将其推广到\(E=\frac{\Delta \sigma}{\epsilon}\)上</li>
-<li>\(\Delta \sigma\)：有460MPa-0MPa=460MPa</li>
-<li>\(\epsilon\)：有0.3-0.18=0.12</li>
+<li>之前有公式\\(\sigma=E\epsilon\\)</li>
+<li>现在需要将其推广到\\(E=\frac{\Delta \sigma}{\epsilon}\\)上</li>
+<li>\\(\Delta \sigma\\)：有460MPa-0MPa=460MPa</li>
+<li>\\(\epsilon\\)：有0.3-0.18=0.12</li>
 </ul>
 
 
@@ -648,7 +651,7 @@ $$\frac{N_v}{N} = e^{\frac{-Q_v}{kT}} \tag{1}$$<ul>
 <p><strong>Qv​</strong>：表示生成一个Vacancies所需的<strong>Energy</strong>，通常以电子伏特（eV）为单位。</p>
 </li>
 <li>
-<p><strong>k</strong>：这是<strong>Boltzmann Constant</strong>，数值约为 \(1.38\times 10^{-23}J/K\)，用于将温度与能量联系起来。</p>
+<p><strong>k</strong>：这是<strong>Boltzmann Constant</strong>，数值约为 \\(1.38\times 10^{-23}J/K\\)，用于将温度与能量联系起来。</p>
 </li>
 <li>
 <p><strong>T</strong>：这是<strong>Thermodynamic temperature</strong>，以开尔文（K）为单位，是热力学温度是根据热力学原理来衡量系统绝对温度的一个度量，其零点对应理论上的<strong>绝对零度</strong>，即系统的分子运动几乎完全停止、能量达到最低的状态。</p>

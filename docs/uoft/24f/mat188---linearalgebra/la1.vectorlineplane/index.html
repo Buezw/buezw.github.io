@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -410,9 +413,9 @@ $$A \cap B = \{ x \in X \mid x \in A \text{ and } x \in B \}.$$</li>
     
 </h2>
 <ul>
-<li>思考一个问题，对于一个坐标轴上的点\((2,1)\)和一个向量\(\vec v =[2,1]^T\)，他们的区别</li>
+<li>思考一个问题，对于一个坐标轴上的点\\((2,1)\\)和一个向量\\(\vec v =[2,1]^T\\)，他们的区别</li>
 <li><strong>Point</strong>：点是空间中的一个位置，用坐标表示，如P = (x, y, z)表示三维空间中的一个具体位置。点没有方向和大小。</li>
-<li><strong>Vector</strong>：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\(\mathbf{v} = \overrightarrow{AB}\)</li>
+<li><strong>Vector</strong>：向量是一个有大小和方向的数学对象，通常表示两个点之间的位移。例如，从点 A到点B的向量可以表示为\\(\mathbf{v} = \overrightarrow{AB}\\)</li>
 <li>亦可以说<strong>Point是绝对位置，而向量是一个点到另外一个的有方向的距离</strong></li>
 </ul>
 
@@ -428,7 +431,7 @@ $$A \cap B = \{ x \in X \mid x \in A \text{ and } x \in B \}.$$</li>
     
 </h2>
 <ul>
-<li>对于\(\vec{v} = \begin{bmatrix} v_1 \ v_2 \ \vdots \ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\)</li>
+<li>对于\\(\vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} \text{ be in } \mathbb{R}^n\\)</li>
 <li>它的Norm，也就是向量长度即为
 $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$</li>
 </ul>
@@ -461,7 +464,7 @@ $$\sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}$$</li>
     
 </h3>
 $$\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \cdots + a_n b_n = \sum_{i=1}^n a_i b_i$$<ul>
-<li>公式中的每一项\(a_i b_i\)表示两个向量在某个维度上的大小相乘</li>
+<li>公式中的每一项\\(a_i b_i\\)表示两个向量在某个维度上的大小相乘</li>
 <li>点积实际上是在将a和b的方向分量进行逐一对比，累加得到两个向量在整个空间上的“相似性”，每一个维度的相似性都将累加到最终的空间相似性上</li>
 <li>想要表达这个相似性，还存在另一种方式，即通过Projection
 $$\mathbf{a} \cdot \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \cos \theta$$</li>
@@ -497,14 +500,14 @@ $$\theta = \cos^{-1} \left( \frac{\mathbf{A} \cdot \mathbf{B}}{AB} \right) \quad
 </h3>
 <ul>
 <li>Dot Product的一种用法便是Force Vector Directed Along a Line</li>
-<li>对于一个在\(\vec u\)方向上的Force F，有
+<li>对于一个在\\(\vec u\\)方向上的Force F，有
 $$\vec F_u=\vec F\cdot \vec u=(F\times 1)\cdot \cos\theta=F\cdot \cos\theta$$</li>
-<li>而这一个\(\cos\theta\)则是
+<li>而这一个\\(\cos\theta\\)则是
 $$\cos\theta=\frac{\vec v\cdot \vec{w}}{|v|\times|w|}$$</li>
 <li>当把其中一个Vector替换为Direction Vector时，便可以得到Axis-Force&rsquo;s Direction Cosine
 $$\cos\theta = \frac{\{r_xi+r_yj+r_zk\}}{\sqrt{r_x^2+r_y^2+r_z^2}\cdot 1}$$</li>
-<li>所以就有\(F\cdot \cos \theta=F\cdot \vec u\)之后便可以得到Force在\(\vec u\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）</li>
-<li>要想得到Force在\(\vec u\)方向上的Cartesian Vector，需要再次乘以Direction Vector</li>
+<li>所以就有\\(F\cdot \cos \theta=F\cdot \vec u\\)之后便可以得到Force在\\(\vec u\\)方向上的力的Magnitude（注意Dot Product的结果是一个Scalar）</li>
+<li>要想得到Force在\\(\vec u\\)方向上的Cartesian Vector，需要再次乘以Direction Vector</li>
 </ul>
 
 
@@ -534,7 +537,7 @@ $$\vec F=F_u\cdot \vec u= (\vec F\cdot u\cdot\cos\theta)\cdot \vec u=(F\cdot\fra
 <li>考虑一个问题Consider the two points P = (1, 2) and Q = (−1, 4)，find an equation for the line y = mx + b which passes through P and Q</li>
 <li>通过Point-Point Formula可以算出
 $$y_2-y_1=\frac{y_2 - y_1}{x_2 - x_1}(x_2-x_1)$$</li>
-<li>解得 \(y=−x+3\)</li>
+<li>解得 \\(y=−x+3\\)</li>
 <li>现在考虑相似的问题 Suppose x and y satisfy the vector equation
 $$\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} + k \begin{bmatrix} 1 \\ -1 \end{bmatrix}, \text{ where } k \in \mathbb{R}$$</li>
 </ul>
@@ -546,8 +549,8 @@ $$\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} + 
 </p>
 <ul>
 <li>可以发现两个不同的形式表达了同一个Line，他们之所以等价是因为</li>
-<li>\([1,2​]^T\)是直线上的一个固定点（在直线上）。</li>
-<li>\(k\begin{bmatrix} 1 \ -1 \end{bmatrix}\)是一个方向向量，表示直线的方向（斜率），而方程中的斜率为\(m = \frac{\Delta y}{\Delta x}\)，用Direction Vector的y分量除以x分量就可以得到一样的结果</li>
+<li>\\([1,2​]^T\\)是直线上的一个固定点（在直线上）。</li>
+<li>\\(k\begin{bmatrix} 1 \\ -1 \end{bmatrix}\\)是一个方向向量，表示直线的方向（斜率），而方程中的斜率为\\(m = \frac{\Delta y}{\Delta x}\\)，用Direction Vector的y分量除以x分量就可以得到一样的结果</li>
 <li>而对于Intersection来说，当k=-1的时候，有
 $$\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix} +  \begin{bmatrix} -1 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 3\end{bmatrix}$$</li>
 <li>也就是截距</li>
@@ -574,7 +577,7 @@ $$L = \{ \vec{u} \in \mathbb{R}^2 \mid \vec{u} = \vec{v} + t \vec{d}, \text{ for
 <li>同理对于一个Plane，可以通过两个Linearly Independent的Vector与一个Plane上的点表示</li>
 <li>至于前面Line中所提到的Slope，在这里便是Partical Derivative
 $$\mathcal{P} = \{ \vec{u} \in \mathbb{R}^3 \mid \vec{u} = \vec{p} + s \vec{d}_1 + t \vec{d}_2, \text{ for some } s, t \in \mathbb{R} \}$$</li>
-<li>可以发现u是一个\(\mathbb R^3\)中的Subset，这代表了该Subset只含有两个Degree of Freedom，即为三维空间中的一个Plane</li>
+<li>可以发现u是一个\\(\mathbb R^3\\)中的Subset，这代表了该Subset只含有两个Degree of Freedom，即为三维空间中的一个Plane</li>
 </ul>
 <blockquote>
 <p>注意这里的Plane是一个Subset，不是Subspace，具体原因将在后面指出</p>
@@ -592,7 +595,7 @@ $$\mathcal{P} = \{ \vec{u} \in \mathbb{R}^3 \mid \vec{u} = \vec{p} + s \vec{d}_1
     
 </h3>
 <ul>
-<li>对于平面\(Ax+By+Cz=D\)来说，其Normal Vecotr，也就是垂直于整个Plane的Vector即为\(n=[A,B,C]^T\)</li>
+<li>对于平面\\(Ax+By+Cz=D\\)来说，其Normal Vecotr，也就是垂直于整个Plane的Vector即为\\(n=[A,B,C]^T\\)</li>
 </ul>
 
 
@@ -607,11 +610,11 @@ $$\mathcal{P} = \{ \vec{u} \in \mathbb{R}^3 \mid \vec{u} = \vec{p} + s \vec{d}_1
     
 </h3>
 <ul>
-<li>\(P(x_1​,y_1​,z_1​)\)和\(Q(x_2, y_2, z_2)\)都在平面上，那么它们的坐标满足平面方程
+<li>\\(P(x_1​,y_1​,z_1​)\\)和\\(Q(x_2, y_2, z_2)\\)都在平面上，那么它们的坐标满足平面方程
 $$Ax_1+By_1+Cz_1=D，Ax_2+By_2+Cz_2=D$$</li>
-<li>则可以构建向量\(\vec{v} = \begin{bmatrix} x_2 - x_1 \ y_2 - y_1 \ z_2 - z_1 \end{bmatrix}\)</li>
-<li>结合方程组则有\(A(x_2-x_1)+B(y_2-y_1)+C(z_2-z_1)=0\)</li>
-<li>也就是\(\vec v \cdot \vec n =0\)，其中\(\vec{n} = \begin{bmatrix} A \ B \ C \end{bmatrix}\)</li>
+<li>则可以构建向量\\(\vec{v} = \begin{bmatrix} x_2 - x_1 \\ y_2 - y_1 \\ z_2 - z_1 \end{bmatrix}\\)</li>
+<li>结合方程组则有\\(A(x_2-x_1)+B(y_2-y_1)+C(z_2-z_1)=0\\)</li>
+<li>也就是\\(\vec v \cdot \vec n =0\\)，其中\\(\vec{n} = \begin{bmatrix} A \\ B \\ C \end{bmatrix}\\)</li>
 </ul>
 
 
@@ -628,10 +631,10 @@ $$Ax_1+By_1+Cz_1=D，Ax_2+By_2+Cz_2=D$$</li>
 <ul>
 <li>结合上面的思想便可以得到Space的第二个Set Notation表达式
 $$\mathcal{P} = \{ \vec{u} \in \mathbb{R}^3 \mid \vec{n} \cdot (\vec{u} - \vec{p}) = 0 \}$$</li>
-<li>\(u∈R^3\)：表示平面上的任意点的坐标。</li>
-<li>\(\vec{n} \in \mathbb{R}^3\)：表示平面的<strong>法向量</strong>，即垂直于平面表面的向量。</li>
-<li>\(\vec{p} \in \mathbb{R}^3\)：表示平面上的一个固定点，用于确定平面的具体位置。</li>
-<li>点积\(\vec{n} \cdot (\vec{u} - \vec{p}) = 0\)：表示向量\((\vec{u} - \vec{p})\)与法向量\(\vec{n}\)正交。</li>
+<li>\\(u∈R^3\\)：表示平面上的任意点的坐标。</li>
+<li>\\(\vec{n} \in \mathbb{R}^3\\)：表示平面的<strong>法向量</strong>，即垂直于平面表面的向量。</li>
+<li>\\(\vec{p} \in \mathbb{R}^3\\)：表示平面上的一个固定点，用于确定平面的具体位置。</li>
+<li>点积\\(\vec{n} \cdot (\vec{u} - \vec{p}) = 0\\)：表示向量\\((\vec{u} - \vec{p})\\)与法向量\\(\vec{n}\\)正交。</li>
 </ul>
 <p>
     <figure>
@@ -640,7 +643,7 @@ $$\mathcal{P} = \{ \vec{u} \in \mathbb{R}^3 \mid \vec{n} \cdot (\vec{u} - \vec{p
     </figure>
 </p>
 <ul>
-<li>\(\vec p\)为Plane上一点，\(\vec n\)为Plane的Normal Vector，剩下的就是点上的任意位置了，由于任意\(\vec u\)都在平面中，\(\vec u-\vec p\) 将仍处于Plane中，而\(\vec n⋅(\vec u−\vec p​)=0\)是限定他的条件</li>
+<li>\\(\vec p\\)为Plane上一点，\\(\vec n\\)为Plane的Normal Vector，剩下的就是点上的任意位置了，由于任意\\(\vec u\\)都在平面中，\\(\vec u-\vec p\\) 将仍处于Plane中，而\\(\vec n⋅(\vec u−\vec p​)=0\\)是限定他的条件</li>
 </ul>
 <blockquote>
 <p>所有的Vector都为Position Vector，即以坐标系Origin为Head的Vector</p>
@@ -659,10 +662,10 @@ $$\mathcal{P} = \{ \vec{u} \in \mathbb{R}^3 \mid \vec{n} \cdot (\vec{u} - \vec{p
 </h2>
 <ul>
 <li>
-<p>Find the equation for a plane \(\mathcal{P}\) which contains the three points P = (0, 1, 1), Q = (2, 0, 4), andR = (0, 0, 1)</p>
+<p>Find the equation for a plane \\(\mathcal{P}\\) which contains the three points P = (0, 1, 1), Q = (2, 0, 4), andR = (0, 0, 1)</p>
 </li>
 <li>
-<p>Express \(\mathcal{P}\) in vector form, in normal form, and as an equation ax + by + cz = d</p>
+<p>Express \\(\mathcal{P}\\) in vector form, in normal form, and as an equation ax + by + cz = d</p>
 </li>
 <li>
 <p>用三个点确定Plane上的两个Vector</p>

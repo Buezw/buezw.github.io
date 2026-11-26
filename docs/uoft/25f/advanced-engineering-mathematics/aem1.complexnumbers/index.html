@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -373,7 +376,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </h2>
 <ul>
 <li>最早对 Complex Numbers 的接触出现在 Quadratic Equation 中</li>
-<li>当有 \(ax^2+bx+c=d\) 的时候，如果 Discriminant 判别式 \(b^2-4ac &lt; 0\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \(i^2=-1\)</li>
+<li>当有 \\(ax^2+bx+c=d\\) 的时候，如果 Discriminant 判别式 \\(b^2-4ac < 0\\)  的时候，方程没有 Real Solution，这时候就引入了 Imaginary Unit \\(i^2=-1\\)</li>
 <li>但是同时一个 Complex Number 并不止含有 Imaginary Unit，它同时包含 Real Part，于是就可以定义一个完整的 Complex Number 为任意形式的</li>
 </ul>
 $$
@@ -413,7 +416,7 @@ $$<p>
 </h3>
 <ul>
 <li>Complex Number 的加减乘除如下</li>
-<li>设 \(z_1 = x_1 + iy_1, z_2 = x_2 + iy_2\)：</li>
+<li>设 \\(z_1 = x_1 + iy_1, z_2 = x_2 + iy_2\\)：</li>
 </ul>
 
 
@@ -470,9 +473,9 @@ $$
     
 </h4>
 <ul>
-<li>在计算 Complex Number 的 Division 之前需要先定义 \(z^{-1}\)</li>
-<li>这个数他需要满足的条件为 \(z\times z^{-1} =1\)</li>
-<li>现在已知 \(z=a+bi\)，可以计算出 \(z^{-1}\) 的 Rectangular Form 为#</li>
+<li>在计算 Complex Number 的 Division 之前需要先定义 \\(z^{-1}\\)</li>
+<li>这个数他需要满足的条件为 \\(z\times z^{-1} =1\\)</li>
+<li>现在已知 \\(z=a+bi\\)，可以计算出 \\(z^{-1}\\) 的 Rectangular Form 为#</li>
 </ul>
 $$
 \frac1z= \frac{1}{a+bi}=\frac{1}{a+bi}\times\frac{a-bi}{a-bi}=\frac{a-bi}{a^2+b^2}=\frac{a}{a^2+b^2}-i\cdot\frac{b}{a^2+b^2}
@@ -529,13 +532,13 @@ $$
 </h3>
 <ul>
 <li>现在研究几个 Polar Form 下的结论</li>
-<li>假设现在有 \(z=r(\cos\theta+i\sin\theta)\)</li>
-<li>Find Polar Form of \(\overline z\)</li>
+<li>假设现在有 \\(z=r(\cos\theta+i\sin\theta)\\)</li>
+<li>Find Polar Form of \\(\overline z\\)</li>
 </ul>
 $$
 \overline{Z} = r(\cos\theta - i \sin\theta) = r(\cos(-\theta) + i\sin(-\theta))
 $$<ul>
-<li>Find Polar Form of \(\frac1z\)</li>
+<li>Find Polar Form of \\(\frac1z\\)</li>
 </ul>
 $$
 \frac{1}{Z} = \frac{1}{|Z|^2} \, \overline{Z} = \frac{1}{r^2} \, r(\cos(-\theta) + i \sin(-\theta)) = \frac{1}{r} \left( \cos(-\theta) + i \sin(-\theta) \right)
@@ -552,7 +555,7 @@ $$
     
 </h3>
 <ul>
-<li>假设有一个 \(z = a + bi\)，What is the geometric interpretation of  \(\overline z\)  and \(\frac1z\)</li>
+<li>假设有一个 \\(z = a + bi\\)，What is the geometric interpretation of  \\(\overline z\\)  and \\(\frac1z\\)</li>
 </ul>
 <p>
     <figure>
@@ -626,12 +629,12 @@ $$<ul>
 </h3>
 <ul>
 <li>Complex Number 中，<strong>Argument</strong> 是指复数在复平面上与 正实轴 的夹角</li>
-<li>假设现在有 \(z = (-2.5)\left(\sin\frac{\pi}{7} - i\cos\frac{\pi}{7}\right)\)，要求 Z 的极坐标形式，有</li>
+<li>假设现在有 \\(z = (-2.5)\left(\sin\frac{\pi}{7} - i\cos\frac{\pi}{7}\right)\\)，要求 Z 的极坐标形式，有</li>
 </ul>
 $$
 z = 2.5\left(-\sin\frac{\pi}{7} + i\cos\frac{\pi}{7}\right)
 $$<ul>
-<li>注意到 \(\sin\) 和 \(\cos\) 的位置不对，通过三角公式可以变换求得 \(\theta\)</li>
+<li>注意到 \\(\sin\\) 和 \\(\cos\\) 的位置不对，通过三角公式可以变换求得 \\(\theta\\)</li>
 </ul>
 <p>
     <figure>
@@ -707,7 +710,7 @@ $$
     
 </h2>
 <ul>
-<li>We define \(e^z\) for any \(z \in \mathbb{C}\) with the same series:</li>
+<li>We define \\(e^z\\) for any \\(z \in \mathbb{C}\\) with the same series:</li>
 </ul>
 $$
 e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}
@@ -810,14 +813,14 @@ $$<ul>
     
 </h2>
 <ul>
-<li>令 \(z = i\theta\)，代入指数函数的定义：</li>
+<li>令 \\(z = i\theta\\)，代入指数函数的定义：</li>
 </ul>
 $$
 e^{i\theta} = \sum_{n=0}^{\infty} \frac{(i\theta)^n}{n!}
 $$<ul>
 <li>把各项展开，可以分为：</li>
-<li>实部（Real part）：\(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \dots = \cos \theta\)</li>
-<li>虚部（Imaginary part）： \(i(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \dots) = i\sin \theta\)</li>
+<li>实部（Real part）：\\(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \dots = \cos \theta\\)</li>
+<li>虚部（Imaginary part）： \\(i(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \dots) = i\sin \theta\\)</li>
 <li>于是就有</li>
 </ul>
 $$
@@ -835,7 +838,7 @@ $$
     
 </h3>
 <ul>
-<li>前面提到了 Euler&rsquo;s Formula 指出了 \(e^{i\theta} = \cos\theta + i\sin\theta\)，这就说明了 \(e^{i\theta}\) 是在 unit circle 上的一个复数，Arugument 为 \(\theta\)</li>
+<li>前面提到了 Euler&rsquo;s Formula 指出了 \\(e^{i\theta} = \cos\theta + i\sin\theta\\)，这就说明了 \\(e^{i\theta}\\) 是在 unit circle 上的一个复数，Arugument 为 \\(\theta\\)</li>
 </ul>
 
 
@@ -850,10 +853,10 @@ $$
     
 </h3>
 <ul>
-<li>\(|e^{i\theta}| = 1\)，因为 \(\cos^2\theta + \sin^2\theta = 1\)</li>
-<li>回忆 mod 的定义 对于 Complex Number \(z = x+iy\) 来说，它的 mod \(|z| = \sqrt{x^2 + y^2}\)</li>
-<li>套用到 \(e^{i\theta}\) 中可以得到 \(|e^{i\theta}| = \sqrt{(\cos\theta)^2 + (\sin\theta)^2}=1\)</li>
-<li>\(\arg(e^{i\theta}) = \theta + 2k\pi, , k \in \mathbb{Z}\)</li>
+<li>\\(|e^{i\theta}| = 1\\)，因为 \\(\cos^2\theta + \sin^2\theta = 1\\)</li>
+<li>回忆 mod 的定义 对于 Complex Number \\(z = x+iy\\) 来说，它的 mod \\(|z| = \sqrt{x^2 + y^2}\\)</li>
+<li>套用到 \\(e^{i\theta}\\) 中可以得到 \\(|e^{i\theta}| = \sqrt{(\cos\theta)^2 + (\sin\theta)^2}=1\\)</li>
+<li>\\(\arg(e^{i\theta}) = \theta + 2k\pi, \, k \in \mathbb{Z}\\)</li>
 </ul>
 
 
@@ -874,7 +877,7 @@ $$
 Z = r(\cos\theta + i\sin\theta)
 $$<ul>
 <li>这里 r 是模（modulus）</li>
-<li>\(\theta\) 是辐角（argument）</li>
+<li>\\(\theta\\) 是辐角（argument）</li>
 </ul>
 
 
@@ -911,12 +914,12 @@ $$
 $$
 e^{i\theta} = \cos\theta + i\sin\theta
 $$<ul>
-<li>当 \(\theta = \pi\)  时：</li>
+<li>当 \\(\theta = \pi\\)  时：</li>
 </ul>
 $$
 e^{i\pi} = \cos\pi + i\sin\pi
 $$<ul>
-<li>将值代入，有 \(\cos\pi = -1, \quad \sin\pi = 0\)，可以得到</li>
+<li>将值代入，有 \\(\cos\pi = -1, \quad \sin\pi = 0\\)，可以得到</li>
 </ul>
 $$
 e^{i\pi} = -1 + i\cdot 0 = -1
@@ -958,7 +961,7 @@ $$<ul>
 $$
 e^{iy} = \cos y + i\sin y
 $$<ul>
-<li>再乘上 \(e^x\)  可以得到</li>
+<li>再乘上 \\(e^x\\)  可以得到</li>
 </ul>
 $$
 e^{x+iy} = e^x (\cos y + i\sin y)
@@ -1009,7 +1012,7 @@ $$
 $$
 \arg(e^Z) = y + 2k\pi, \quad k \in \mathbb{Z}
 $$<ul>
-<li>如果有两个复数 \(Z_1, Z_2\)：</li>
+<li>如果有两个复数 \\(Z_1, Z_2\\)：</li>
 </ul>
 $$
 \arg(Z_1 Z_2) = \arg(Z_1) + \arg(Z_2)
@@ -1101,14 +1104,14 @@ $$<ul>
     
 </h3>
 <ul>
-<li>设复数：\(Z = |Z| e^{i\theta}\)</li>
+<li>设复数：\\(Z = |Z| e^{i\theta}\\)</li>
 <li>给定整数 kk：</li>
 </ul>
 $$
 Z^k = (|Z| e^{i\theta})^k = (|Z|)^k e^{ik\theta} = |Z|^k (\cos(k\theta) + i\sin(k\theta))
 $$<ul>
-<li>Modulus：被提升到 k 次方，变为 \(|Z|^k\)</li>
-<li>Argument：被放大 k 倍，变为 \(k\theta\)</li>
+<li>Modulus：被提升到 k 次方，变为 \\(|Z|^k\\)</li>
+<li>Argument：被放大 k 倍，变为 \\(k\theta\\)</li>
 <li>也就是说：<strong>复数的幂就是“拉伸模长 + 放大角度”</strong></li>
 </ul>
 
@@ -1140,8 +1143,8 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>B 和 C 正确没什么特别的，对于 E 来说 \(\frac{3\pi}{4}=-\frac{5\pi}{4}\) 也没问题</li>
-<li>对于 F 来说就是多了一个 \(2\pi\)，也没问题</li>
+<li>B 和 C 正确没什么特别的，对于 E 来说 \\(\frac{3\pi}{4}=-\frac{5\pi}{4}\\) 也没问题</li>
+<li>对于 F 来说就是多了一个 \\(2\pi\\)，也没问题</li>
 </ul>
 
 
@@ -1166,7 +1169,7 @@ $$<ul>
 $$
 Z = r_0 e^{i\theta_0}, \quad w = r e^{i\theta}
 $$<ul>
-<li>要求 \(w^n = Z\)，即</li>
+<li>要求 \\(w^n = Z\\)，即</li>
 </ul>
 $$
 (r e^{i\theta})^n = r^n e^{i n\theta} = r_0 e^{i\theta_0}
@@ -1231,13 +1234,13 @@ $$
     
 </h4>
 <ul>
-<li>这些根沿着圆 <strong>平均间隔</strong> \(2\pi/n\)，起点在 \(\theta_0/n\)</li>
+<li>这些根沿着圆 <strong>平均间隔</strong> \\(2\pi/n\\)，起点在 \\(\theta_0/n\\)</li>
 </ul>
 $$
 w_k = Z^{1/n} = r_0^{1/n} e^{i\frac{\theta_0+2k\pi}{n}}, \quad k=0,1,2,\dots,(n-1)
 $$
 
-<h4 class="relative group">Ex. 求 \(\sqrt{i}\) 
+<h4 class="relative group">Ex. 求 \\(\sqrt{i}\\) 
     <div id="ex-%E6%B1%82-sqrti" class="anchor"></div>
     
     <span
@@ -1248,7 +1251,7 @@ $$
     
 </h4>
 <ul>
-<li>先写出 i 作为一个 Complex Number 的 Exponential Form，有 \(i = e^{i\pi/2}\)</li>
+<li>先写出 i 作为一个 Complex Number 的 Exponential Form，有 \\(i = e^{i\pi/2}\\)</li>
 <li>平方根：</li>
 </ul>
 $$
@@ -1270,7 +1273,7 @@ $$<p>
     </figure>
 </p>
 <ul>
-<li>在图上，两个根分布在圆上，相隔 \(\pi\)（180°）</li>
+<li>在图上，两个根分布在圆上，相隔 \\(\pi\\)（180°）</li>
 </ul>
 
 
@@ -1285,20 +1288,20 @@ $$<p>
     
 </h2>
 <ul>
-<li>令 \(w = \ln Z \Rightarrow Z = e^w\)</li>
-<li>这是 Complex Logarithm 的定义方式，即如果我们要定义 \(w = \ln Z\)，那就要让 \(Z = e^w\) 成立</li>
-<li>为了找出 w，我们令复数 \(Z = x + iy = re^{i\theta}\)</li>
+<li>令 \\(w = \ln Z \Rightarrow Z = e^w\\)</li>
+<li>这是 Complex Logarithm 的定义方式，即如果我们要定义 \\(w = \ln Z\\)，那就要让 \\(Z = e^w\\) 成立</li>
+<li>为了找出 w，我们令复数 \\(Z = x + iy = re^{i\theta}\\)</li>
 </ul>
 <blockquote>
 <p>两个分别是 Rectangular Form 和 Polar Form</p>
 </blockquote>
 <ul>
-<li>假设 \(w(x,y) = U(x,y) + iV(x,y)\)，这里表示将 w 写成 Real + Imaginary 的形式，也就有</li>
+<li>假设 \\(w(x,y) = U(x,y) + iV(x,y)\\)，这里表示将 w 写成 Real + Imaginary 的形式，也就有</li>
 </ul>
 $$
 e^{w(x,y)} = e^{U(x,y) + iV(x,y)} = e^{U(x,y)} \cdot e^{iV(x,y)}
 $$<ul>
-<li>这个东西是等于 \(Z = re^{i\theta}\) 的，这就可以将他们一一对应，得到</li>
+<li>这个东西是等于 \\(Z = re^{i\theta}\\) 的，这就可以将他们一一对应，得到</li>
 </ul>
 $$
 e^{U(x,y)} = r \Rightarrow U(x,y) = \log_e r = \log_e |Z|
@@ -1309,10 +1312,10 @@ $$
 \ln(Z) = \log_e |Z| + i(\theta + 2\pi k),\quad k \in \mathbb{Z}
 $$<aside>
 💡
-<p>这表示复对数是一个multi-valued function（多值函数），因为任意加上 \(2\pi k\) 都是合法的解</p>
+<p>这表示复对数是一个multi-valued function（多值函数），因为任意加上 \\(2\pi k\\) 都是合法的解</p>
 </aside>
 <blockquote>
-<p>上面的意思就是，给定一个 \(Z\in \mathbb C\)，\(\ln(Z)\) 存在无数个 Periodic Solutions</p>
+<p>上面的意思就是，给定一个 \\(Z\in \mathbb C\\)，\\(\ln(Z)\\) 存在无数个 Periodic Solutions</p>
 </blockquote>
 <p>
     <figure>
@@ -1331,7 +1334,7 @@ $$<aside>
     </figure>
 </p>
 <ul>
-<li>其中每一个 Solution 之间间隔 \(2\pi\)</li>
+<li>其中每一个 Solution 之间间隔 \\(2\pi\\)</li>
 </ul>
 
 
@@ -1346,7 +1349,7 @@ $$<aside>
     
 </h3>
 <ul>
-<li>由于一个 Complex Number 存在无限个周期性的 Argument，这就是导致 Complex Logarithm 存在无限解的原因，同时 \(\ln Z\) 就可以写成</li>
+<li>由于一个 Complex Number 存在无限个周期性的 Argument，这就是导致 Complex Logarithm 存在无限解的原因，同时 \\(\ln Z\\) 就可以写成</li>
 </ul>
 $$
 \ln(Z)=\log_e|Z|+i\arg(Z)
@@ -1357,7 +1360,7 @@ $$
 Ln(Z)=\log_e|Z|+iArg(Z)
 $$
 
-<h2 class="relative group">Properties of \(e^z\) and \(ln(z)\) 
+<h2 class="relative group">Properties of \\(e^z\\) and \\(ln(z)\\) 
     <div id="properties-of-ez-and-lnz" class="anchor"></div>
     
     <span
@@ -1368,11 +1371,11 @@ $$
     
 </h2>
 <ul>
-<li>设现在有 Complex Number \(z = x + iy\)，可以得到以下性质</li>
+<li>设现在有 Complex Number \\(z = x + iy\\)，可以得到以下性质</li>
 </ul>
 <ol>
-<li>\(|e^z| = e^x\)，模长等于实部的指数</li>
-<li>\(\arg(e^z) = y + 2\pi k，k \in \mathbb{Z}\)，幅角来自虚部</li>
+<li>\\(|e^z| = e^x\\)，模长等于实部的指数</li>
+<li>\\(\arg(e^z) = y + 2\pi k，k \in \mathbb{Z}\\)，幅角来自虚部</li>
 </ol>
 <hr>
 <ul>
@@ -1384,8 +1387,8 @@ $$<ul>
 <li>所以有：</li>
 </ul>
 <ol>
-<li>\(e^{\ln(z)} = z\)，只要 \(z \neq 0\)</li>
-<li>如果 \(w_1 \in \ln(z_1), w_2 \in \ln(z_2)\)，那么 \(w_1 + w_2 \in \ln(z_1 z_2)\)</li>
+<li>\\(e^{\ln(z)} = z\\)，只要 \\(z \neq 0\\)</li>
+<li>如果 \\(w_1 \in \ln(z_1), w_2 \in \ln(z_2)\\)，那么 \\(w_1 + w_2 \in \ln(z_1 z_2)\\)</li>
 </ol>
 <aside>
 💡
@@ -1417,7 +1420,7 @@ $$
     
 </h3>
 <ul>
-<li>先说结论，\(ln(3)\) 就是 \(log_e(3)\)</li>
+<li>先说结论，\\(ln(3)\\) 就是 \\(log_e(3)\\)</li>
 <li>具体带入公式可以得到 3 的 Mod 为 3，Arg 为 0，于是有</li>
 </ul>
 $$
@@ -1435,12 +1438,12 @@ $$
     
 </h3>
 <ul>
-<li>\(\ln(-3)\) 就和上面的不一样了，在 Real Analysis 中，Logarithm 中是不允许出现负数的，但是在 Complex Analysis 中，有</li>
+<li>\\(\ln(-3)\\) 就和上面的不一样了，在 Real Analysis 中，Logarithm 中是不允许出现负数的，但是在 Complex Analysis 中，有</li>
 </ul>
 $$
 \ln(-3) = \log_e |-3| + i\arg(-3) = \log_e 3 + i\pi
 $$<ul>
-<li>详细来说，-3 的 mod 为 3，Arg 为 \(\pi\)</li>
+<li>详细来说，-3 的 mod 为 3，Arg 为 \\(\pi\\)</li>
 </ul>
 
 
@@ -1455,7 +1458,7 @@ $$<ul>
     
 </h3>
 <ul>
-<li>两边取对数就可以知道这题在问的是 \(Z = \ln(1 + i)\) 的解，有</li>
+<li>两边取对数就可以知道这题在问的是 \\(Z = \ln(1 + i)\\) 的解，有</li>
 </ul>
 $$
 Z = \ln(1 + i) = \log_e \sqrt{2} + i\left( \frac{\pi}{4} + 2\pi k \right), \quad k \in \mathbb{Z}
@@ -1479,7 +1482,7 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>用图画出所有解在复平面上的位置就有，将 Real Part 固定：\(\log_e \sqrt{2}\)，将 Imagery Part 周期性上移：\(\frac{\pi}{4} + 2\pi k\)</li>
+<li>用图画出所有解在复平面上的位置就有，将 Real Part 固定：\\(\log_e \sqrt{2}\\)，将 Imagery Part 周期性上移：\\(\frac{\pi}{4} + 2\pi k\\)</li>
 <li>最终得到一条沿虚轴等间距排列的点列</li>
 </ul>
 
@@ -1495,18 +1498,18 @@ $$<ul>
     
 </h2>
 <ul>
-<li>想要定义 \(Z^α\)，\(\text{其中 } Z, \alpha \in \mathbb{C}\)</li>
-<li>类似于实数域中 \(x^a\)，我们在复数域中定义：</li>
+<li>想要定义 \\(Z^α\\)，\\(\text{其中 } Z, \alpha \in \mathbb{C}\\)</li>
+<li>类似于实数域中 \\(x^a\\)，我们在复数域中定义：</li>
 </ul>
 $$
 Z^\alpha = e^{\alpha \cdot \ln(Z)}
 $$<aside>
 💡
-<p>这仍是一个多值函数，因为 \(\ln(Z)\) 是多值的</p>
+<p>这仍是一个多值函数，因为 \\(\ln(Z)\\) 是多值的</p>
 </aside>
 
 
-<h3 class="relative group">Ex. 1: \(2^\pi\) 
+<h3 class="relative group">Ex. 1: \\(2^\pi\\) 
     <div id="ex-1-2pi" class="anchor"></div>
     
     <span
@@ -1519,8 +1522,8 @@ $$<aside>
 $$
 2^\pi = e^{\pi \cdot \ln(2)}
 $$<ul>
-<li>右边使用公式 \(e^{\alpha \ln Z}\)</li>
-<li>现在分析 Complex logarithm \(\ln 2\)，有</li>
+<li>右边使用公式 \\(e^{\alpha \ln Z}\\)</li>
+<li>现在分析 Complex logarithm \\(\ln 2\\)，有</li>
 </ul>
 $$
 \ln(2) = \log_e 2 + i \cdot 2\pi k
@@ -1528,7 +1531,7 @@ $$<blockquote>
 <p>2 的 Arg (Principle Argument) 是 0，但是 arg 不是</p>
 </blockquote>
 <ul>
-<li>乘以 \(\pi\) 得到：</li>
+<li>乘以 \\(\pi\\) 得到：</li>
 </ul>
 $$
 \pi \log_e 2 + i \cdot 2\pi^2 k
@@ -1543,11 +1546,11 @@ $$<ul>
 $$
 2^\pi = 2^\pi \angle 2\pi^2 k
 $$<ul>
-<li>意思是模长为 \(2^\pi\)，虚部会旋转 \(2\pi^2 k\)</li>
+<li>意思是模长为 \\(2^\pi\\)，虚部会旋转 \\(2\pi^2 k\\)</li>
 </ul>
 
 
-<h3 class="relative group">Ex. 2: \(i^i\) 
+<h3 class="relative group">Ex. 2: \\(i^i\\) 
     <div id="ex-2-ii" class="anchor"></div>
     
     <span
@@ -1558,7 +1561,7 @@ $$<ul>
     
 </h3>
 <ul>
-<li>已知 \(i^i = e^{\ln(i) \cdot i}\)</li>
+<li>已知 \\(i^i = e^{\ln(i) \cdot i}\\)</li>
 </ul>
 $$
 \ln(i) = \log_e 1 + i \cdot \arg(i) = 0 + i\left( \frac{\pi}{2} + 2\pi k \right)
@@ -1598,7 +1601,7 @@ $$<ul>
 $$
 \cos x = \frac{e^{ix} + e^{-ix}}{2}, \quad \sin x = \frac{e^{ix} - e^{-ix}}{2i}
 $$<ul>
-<li>把 \(\cos A \cos B\) 用复指数展开：</li>
+<li>把 \\(\cos A \cos B\\) 用复指数展开：</li>
 </ul>
 $$
 \begin{align*}\cos A \cdot \cos B &= \left( \frac{e^{iA} + e^{-iA}}{2} \right)   \cdot \left( \frac{e^{iB} + e^{-iB}}{2} \right) \\&= \tfrac{1}{4} \left( e^{i(A+B)} + e^{i(A-B)} + e^{-i(A-B)} + e^{-i(A+B)} \right)\end{align*}
@@ -1638,7 +1641,7 @@ $$
     \sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}, \quad \cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}
     $$</li>
 <li>
-<p>现在想要定义 \(\sin(z),\cos(z)\) 在复数 \(z \in \mathbb{C}\) 中怎么定义</p>
+<p>现在想要定义 \\(\sin(z),\cos(z)\\) 在复数 \\(z \in \mathbb{C}\\) 中怎么定义</p>
 </li>
 <li>
 <p>Definition 就是直接先把 Complex Number z 替换进去，可以得到</p>
@@ -1666,7 +1669,7 @@ $$
     
 </h3>
 <ul>
-<li>双曲正弦函数 \(\sinh x\) 是和单位双曲线 \(x^2-y^2=1\) 有关的正弦函数，定义为</li>
+<li>双曲正弦函数 \\(\sinh x\\) 是和单位双曲线 \\(x^2-y^2=1\\) 有关的正弦函数，定义为</li>
 </ul>
 $$
 \sinh(x) = \frac{e^x - e^{-x}}{2}, \quad\cosh(x) = \frac{e^x + e^{-x}}{2}
@@ -1687,7 +1690,7 @@ $$<p>
     </figure>
 </p>
 <ul>
-<li>同理，Complex Number 下的 \(\sinh z\) 就是把 z 先带入</li>
+<li>同理，Complex Number 下的 \\(\sinh z\\) 就是把 z 先带入</li>
 </ul>
 $$
 \sinh(z) = \frac{e^z - e^{-z}}{2}, \quad \forall z \in \mathbb{C}
@@ -1714,28 +1717,28 @@ $$
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left">\(\sin(z)\)</td>
-          <td style="text-align: left">\(\frac{e^{iz} - e^{-iz}}{2i}\)</td>
+          <td style="text-align: left">\\(\sin(z)\\)</td>
+          <td style="text-align: left">\\(\frac{e^{iz} - e^{-iz}}{2i}\\)</td>
       </tr>
       <tr>
-          <td style="text-align: left">\(cos⁡(z)\cos(z)\)</td>
-          <td style="text-align: left">\(\frac{e^{iz} + e^{-iz}}{2}\)</td>
+          <td style="text-align: left">\\(cos⁡(z)\cos(z)\\)</td>
+          <td style="text-align: left">\\(\frac{e^{iz} + e^{-iz}}{2}\\)</td>
       </tr>
       <tr>
-          <td style="text-align: left">\(\tan(z)\)</td>
-          <td style="text-align: left">\(\frac{\sin(z)}{\cos(z)}, 条件：\cos(z) \ne 0\)</td>
+          <td style="text-align: left">\\(\tan(z)\\)</td>
+          <td style="text-align: left">\\(\frac{\sin(z)}{\cos(z)}, 条件：\cos(z) \ne 0\\)</td>
       </tr>
       <tr>
-          <td style="text-align: left">\(\cot(z)\)</td>
-          <td style="text-align: left">\(c\frac{\cos(z)}{\sin(z)}, 条件：s\sin(z) \ne 0\)</td>
+          <td style="text-align: left">\\(\cot(z)\\)</td>
+          <td style="text-align: left">\\(c\frac{\cos(z)}{\sin(z)}, 条件：s\sin(z) \ne 0\\)</td>
       </tr>
       <tr>
-          <td style="text-align: left">\(\sinh(z)\)</td>
-          <td style="text-align: left">\(\frac{e^z - e^{-z}}{2}\)</td>
+          <td style="text-align: left">\\(\sinh(z)\\)</td>
+          <td style="text-align: left">\\(\frac{e^z - e^{-z}}{2}\\)</td>
       </tr>
       <tr>
-          <td style="text-align: left">\(\cosh(z)\)</td>
-          <td style="text-align: left">\(\frac{e^z + e^{-z}}{2}\)</td>
+          <td style="text-align: left">\\(\cosh(z)\\)</td>
+          <td style="text-align: left">\\(\frac{e^z + e^{-z}}{2}\\)</td>
       </tr>
   </tbody>
 </table>
@@ -1768,7 +1771,7 @@ $$
 </h3>
 <ul>
 <li>
-<p>先定义一个 Complex Number \(z = x + i y\)，其中 \(x, y \in \mathbb R\)</p>
+<p>先定义一个 Complex Number \\(z = x + i y\\)，其中 \\(x, y \in \mathbb R\\)</p>
 </li>
 <li>
 <p>已知 Complex sine function 为</p>
@@ -1851,22 +1854,22 @@ $$
 \sin(z) = \frac{e^{iz} - e^{-iz}}{2i}, \quad \sinh(z) = \frac{e^z - e^{-z}}{2}
 $$<ul>
 <li>
-<p>代入 \(z \to i z\)：</p>
+<p>代入 \\(z \to i z\\)：</p>
 $$
     \sinh(i z) = \frac{e^{iz} - e^{-iz}}{2} = i \sin(z)
     $$</li>
 <li>
 <p>所以得到关系：</p>
 <ul>
-<li>\(\sinh(z) = i \sin(i z)\)</li>
-<li>\(\sin(z) = -i \sinh(i z)\)</li>
+<li>\\(\sinh(z) = i \sin(i z)\\)</li>
+<li>\\(\sin(z) = -i \sinh(i z)\\)</li>
 </ul>
 </li>
 <li>
 <p>对于 Cos 也有类似结论，</p>
 <ul>
-<li>\(\cos(i z) = \cosh(z)\)</li>
-<li>\(\cosh(i z) = \cos(z)\)</li>
+<li>\\(\cos(i z) = \cosh(z)\\)</li>
+<li>\\(\cosh(i z) = \cos(z)\\)</li>
 </ul>
 </li>
 </ul>
@@ -1914,7 +1917,7 @@ $$
 |\cos(z)|^2 = \cos^2(x) + \sinh^2(y)
 $$<aside>
 💡
-<p>\(|\sin(z)|^2\) 和 \(|\cos(z)|^2\) 不一定小于等于 1，因为 \(\sinh(y)\) 可能非常大</p>
+<p>\\(|\sin(z)|^2\\) 和 \\(|\cos(z)|^2\\) 不一定小于等于 1，因为 \\(\sinh(y)\\) 可能非常大</p>
 </aside>
 
 
@@ -1939,8 +1942,8 @@ $$<ul>
 $$
 \sin(x) = 0, \quad \sinh(y) = 0
 $$<ul>
-<li>\(\sin(x) = 0 \implies x = k\pi, ; k \in \mathbb{Z}\)</li>
-<li>\(\sinh(y) = 0 \implies y = 0\)</li>
+<li>\\(\sin(x) = 0 \implies x = k\pi, \; k \in \mathbb{Z}\\)</li>
+<li>\\(\sinh(y) = 0 \implies y = 0\\)</li>
 <li>所以：</li>
 </ul>
 $$
@@ -1956,8 +1959,8 @@ $$<ul>
 $$
 \cos(x) = 0, \quad \sinh(y) = 0
 $$<ul>
-<li>\(\cos(x) = 0 \implies x = \frac{(k+1)\pi}{2}, ; k \in \mathbb{Z}\)</li>
-<li>\(\sinh(y) = 0 \implies y = 0\)</li>
+<li>\\(\cos(x) = 0 \implies x = \frac{(k+1)\pi}{2}, \; k \in \mathbb{Z}\\)</li>
+<li>\\(\sinh(y) = 0 \implies y = 0\\)</li>
 </ul>
 $$
 \cos(z) = 0 \iff z = \frac{(k+1)\pi}{2}, \quad k \in \mathbb{Z}
@@ -1986,12 +1989,12 @@ $$
     
 </h3>
 <ul>
-<li>先说结论，sin(z) 和 cos(z) 的 Period 就是 \(2\pi\)，而 sinh(z) 和 cosh(z) 的 Period 为 \(2\pi i\)</li>
+<li>先说结论，sin(z) 和 cos(z) 的 Period 就是 \\(2\pi\\)，而 sinh(z) 和 cosh(z) 的 Period 为 \\(2\pi i\\)</li>
 </ul>
 $$
 \sin(z) = \frac{e^{iz} - e^{-iz}}{2i}, \quad \cos(z) = \frac{e^{iz} + e^{-iz}}{2}.
 $$<ul>
-<li>把 \(z \to z + 2\pi\)：</li>
+<li>把 \\(z \to z + 2\pi\\)：</li>
 </ul>
 $$
 \sin(z+2\pi) = \frac{e^{i(z+2\pi)} - e^{-i(z+2\pi)}}{2i}
@@ -2013,7 +2016,7 @@ $$<ul>
 $$
 \cos(z+2\pi) = \cos(z)
 $$<ul>
-<li>所以 \(\sin(z)\) 和 \(\cos(z)\) 的周期是 <strong>\(2\pi\)</strong></li>
+<li>所以 \\(\sin(z)\\) 和 \\(\cos(z)\\) 的周期是 <strong>\\(2\pi\\)</strong></li>
 </ul>
 
 
@@ -2030,14 +2033,14 @@ $$<ul>
 $$
 \sinh(z) = \frac{e^z - e^{-z}}{2}, \quad \cosh(z) = \frac{e^z + e^{-z}}{2}.
 $$<ul>
-<li>把 \(z \to z + 2\pi i\)</li>
+<li>把 \\(z \to z + 2\pi i\\)</li>
 </ul>
 $$
 \sinh(z+2\pi i) = \frac{e^{z+2\pi i} - e^{-(z+2\pi i)}}{2}.
 $$$$
 = \frac{e^z e^{2\pi i} - e^{-z} e^{-2\pi i}}{2}.
 $$<ul>
-<li>因为 \(e^{2\pi i} = 1, ; e^{-2\pi i} = 1\)，所以：</li>
+<li>因为 \\(e^{2\pi i} = 1, \; e^{-2\pi i} = 1\\)，所以：</li>
 </ul>
 $$
 \sinh(z+2\pi i) = \frac{e^z - e^{-z}}{2} = \sinh(z)
@@ -2045,7 +2048,7 @@ $$<p>同理：</p>
 $$
 \cosh(z+2\pi i) = \cosh(z)
 $$<ul>
-<li>所以最终得出 \(\sinh(z)\) 和 \(\cosh(z)\)  的周期是 <strong>\(2\pi i\)</strong></li>
+<li>所以最终得出 \\(\sinh(z)\\) 和 \\(\cosh(z)\\)  的周期是 <strong>\\(2\pi i\\)</strong></li>
 </ul>
 <p>
     <figure>
@@ -2083,9 +2086,9 @@ $$
 $$$$
 i(e^{iz} + e^{-iz}) = e^{iz} - e^{-iz}\Rightarrow(i-1)e^{iz} = -(i+1)e^{-iz}\Rightarrow e^{2iz} = \frac{-(i+1)}{i-1}
 $$<ul>
-<li>化简得到  \(e^{2iz} = i\)，取对数：\(2iz = \ln(i)\)</li>
-<li>得到 \(\ln(i) = i\left(\frac{\pi}{2} + 2k\pi\right), \quad k \in \mathbb{Z}\)</li>
-<li>解出 z 为 \(z = \frac{\pi}{4} + k\pi, \quad k \in \mathbb{Z}\)</li>
+<li>化简得到  \\(e^{2iz} = i\\)，取对数：\\(2iz = \ln(i)\\)</li>
+<li>得到 \\(\ln(i) = i\left(\frac{\pi}{2} + 2k\pi\right), \quad k \in \mathbb{Z}\\)</li>
+<li>解出 z 为 \\(z = \frac{\pi}{4} + k\pi, \quad k \in \mathbb{Z}\\)</li>
 </ul>
 
     </div>
@@ -2106,7 +2109,7 @@ $$<ul>
         <a href="#integer-powers-of-complex-numbers" class="l2">Integer Powers of Complex Numbers</a>
         <a href="#roots-of-complex-numbers" class="l2">Roots of Complex Numbers</a>
         <a href="#complex-logarithm" class="l2">Complex Logarithm</a>
-        <a href="#properties-of-ez-and-lnz" class="l2">Properties of \(e^z\) and \(ln(z)\)</a>
+        <a href="#properties-of-ez-and-lnz" class="l2">Properties of  and </a>
         <a href="#general-complex-power" class="l2">General Complex Power</a>
         <a href="#jacques-hadamard" class="l2">Jacques Hadamard</a>
         <a href="#defining-complex-trigonometric-functions" class="l2">Defining Complex Trigonometric Functions</a>

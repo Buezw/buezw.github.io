@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -361,9 +364,9 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     
 </h2>
 <ul>
-<li>Velocity，瞬时速度，\(\vec v=\frac{d\vec s}{dt}\)</li>
-<li>Average Velocity，一个区间内的平均速度 \(\vec{v}_{avg}=\frac{\Delta \vec x}{\Delta t}\)</li>
-<li>Speed，Scalar，\(|\vec v|\)</li>
+<li>Velocity，瞬时速度，\\(\vec v=\frac{d\vec s}{dt}\\)</li>
+<li>Average Velocity，一个区间内的平均速度 \\(\vec{v}_{avg}=\frac{\Delta \vec x}{\Delta t}\\)</li>
+<li>Speed，Scalar，\\(|\vec v|\\)</li>
 </ul>
 
 
@@ -479,7 +482,7 @@ $$<blockquote>
 </p>
 <p>Find the impact speed of an asteroid falling to earth from a height of 109m (from the center of earth), when 𝑣𝑜 =-50 m/s. Consider m(earth)=6e24 kg, and G=6.67e-11Nm²/kg², and r(earth)=6.4e6 m</p>
 <ul>
-<li>已知u，S0，Sf，求Vf，已知加速度是Position s的函数 \(a=\frac{Gm_e}{r^2}\)</li>
+<li>已知u，S0，Sf，求Vf，已知加速度是Position s的函数 \\(a=\frac{Gm_e}{r^2}\\)</li>
 </ul>
 $$
 v^2={v_0}^2-2\int\frac{Gm_e}{s^2}ds={v_0}^2+2Gm_e(\frac{1}{s}-\frac{1}{s_0})
@@ -514,7 +517,7 @@ $$
 </h4>
 <p>A projectile travels through fluid with an initial velocity of 60 m/s. The acceleration is 𝑎 = −0.4 v3𝑚/𝑠². Find v after 4 s</p>
 <ul>
-<li>可以发现a是v的函数，有 \(a(v)=-0.4v^3\)</li>
+<li>可以发现a是v的函数，有 \\(a(v)=-0.4v^3\\)</li>
 </ul>
 $$
 a(v)=\frac{dv}{dt}\Rightarrow \int^t_{t_0} dt=\int\frac{dv}{-0.4v^3}=\frac{-1}{0.4}\int v^{-3}dv

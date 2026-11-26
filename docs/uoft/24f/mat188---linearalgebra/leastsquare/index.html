@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -360,9 +363,9 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     
 </h2>
 <ul>
-<li>对于一个Vector \(a=[1,2]^T\)和一个直线\(y=0\)</li>
-<li>要研究\(c[1,2]^T=0\)的问题的时候，很明显不存在Non-Trivial Solution</li>
-<li>由于a在\(R^2\)中，而\([1,0]^T\)仅Span出了\(R^2\)中的一个Subspace，其Dim=1</li>
+<li>对于一个Vector \\(a=[1,2]^T\\)和一个直线\\(y=0\\)</li>
+<li>要研究\\(c[1,2]^T=0\\)的问题的时候，很明显不存在Non-Trivial Solution</li>
+<li>由于a在\\(R^2\\)中，而\\([1,0]^T\\)仅Span出了\\(R^2\\)中的一个Subspace，其Dim=1</li>
 </ul>
 <p>
     <figure>
@@ -384,8 +387,8 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </h3>
 <ul>
 <li>但是对于a到直线的距离仍存在Optimized Solution</li>
-<li>最优解出现在\([1,2]^T\)的终点在\([1,0]\)方向上最短的情况，即一个Error最小的情况</li>
-<li>可以从a出发找到无数个到达向量\([1,0]^T\)方向的向量</li>
+<li>最优解出现在\\([1,2]^T\\)的终点在\\([1,0]\\)方向上最短的情况，即一个Error最小的情况</li>
+<li>可以从a出发找到无数个到达向量\\([1,0]^T\\)方向的向量</li>
 </ul>
 <p>
     <figure>
@@ -394,8 +397,8 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>而其中最短的则是\(\vec {e}\)</li>
-<li>也可以说\(\vec e\)是Equation Error最小的Solution</li>
+<li>而其中最短的则是\\(\vec {e}\\)</li>
+<li>也可以说\\(\vec e\\)是Equation Error最小的Solution</li>
 </ul>
 
 
@@ -410,7 +413,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     
 </h3>
 <ul>
-<li>对于向量\([1,1,3]^T\)来说，要计算其到达平面\(x+y-2z=0\)的最短距离</li>
+<li>对于向量\\([1,1,3]^T\\)来说，要计算其到达平面\\(x+y-2z=0\\)的最短距离</li>
 </ul>
 <p>
     <figure>
@@ -419,8 +422,8 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>\(\vec e\) 则代表了这一个距离</li>
-<li>则e的起点在Plane\(x+y-2z=0\)上的位置就是这一个最优解</li>
+<li>\\(\vec e\\) 则代表了这一个距离</li>
+<li>则e的起点在Plane\\(x+y-2z=0\\)上的位置就是这一个最优解</li>
 </ul>
 
 
@@ -444,8 +447,8 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>在上图中p就是a在\([1,0]^T\)方向上的投影</li>
-<li>则有\(e=b-p\)</li>
+<li>在上图中p就是a在\\([1,0]^T\\)方向上的投影</li>
+<li>则有\\(e=b-p\\)</li>
 <li>而最小化这个e就是目标，这个目标通过Orthogonal 正交实现</li>
 <li>具体来说从A出发的orthogonal to p的vector e就是这个Optimized Solution</li>
 </ul>
@@ -456,10 +459,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     </figure>
 </p>
 <ul>
-<li>\(R^3\)中同理，只不过是将投影的改为了Plane</li>
-<li>于是便有\(e=(b-A\hat x)\)</li>
-<li>要让e垂直于Plane \(A=[a1,a2]\)</li>
-<li>有\(a_1^T(b-A\hat x  )=0\)并且\(a_2^T(b-A\hat x  )=0\)</li>
+<li>\\(R^3\\)中同理，只不过是将投影的改为了Plane</li>
+<li>于是便有\\(e=(b-A\hat x)\\)</li>
+<li>要让e垂直于Plane \\(A=[a1,a2]\\)</li>
+<li>有\\(a_1^T(b-A\hat x  )=0\\)并且\\(a_2^T(b-A\hat x  )=0\\)</li>
 <li>于是可以得到公式
 $$A^T(b-A\hat x)=0\Rightarrow A^TA\hat x=A^Tb$$</li>
 </ul>
@@ -486,9 +489,9 @@ $$A^T(b-A\hat x)=0\Rightarrow A^TA\hat x=A^Tb$$</li>
 </p>
 <ul>
 <li>对于三个点{(1,1), (2,2), (3,2)}</li>
-<li>构建方程\(y=wx\)</li>
-<li>带入点后得到\(1=w,2=2w,2=3w\)</li>
-<li>通过\(A^TA\hat x=A^Tb\)</li>
+<li>构建方程\\(y=wx\\)</li>
+<li>带入点后得到\\(1=w,2=2w,2=3w\\)</li>
+<li>通过\\(A^TA\hat x=A^Tb\\)</li>
 </ul>
 <div>
 $$A^T A = \begin{bmatrix}
@@ -516,7 +519,7 @@ $$A^T b = \begin{bmatrix}
 $$
 </div>
 <ul>
-<li>便有\(14w=11\Rightarrow w=\frac{11}{14}\)</li>
+<li>便有\\(14w=11\Rightarrow w=\frac{11}{14}\\)</li>
 </ul>
 <p>
     <figure>
@@ -547,8 +550,8 @@ $$
 </p>
 <ul>
 <li>找到了这个红色的Vector，也就是最小的e</li>
-<li>同理运用到最经典的\(y=wx+b\)也是一样</li>
-<li>\(1=w+b,2=2w+b,2=3w+b\)</li>
+<li>同理运用到最经典的\\(y=wx+b\\)也是一样</li>
+<li>\\(1=w+b,2=2w+b,2=3w+b\\)</li>
 </ul>
 <div>
 $$A^T A = \begin{bmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{bmatrix} \begin{bmatrix} 1 & 1 \\ 2 & 1 \\ 3 & 1 \end{bmatrix} = \begin{bmatrix} 1^2 + 2^2 + 3^2 & 1 + 2 + 3 \\ 1 + 2 + 3 & 3 \end{bmatrix} = \begin{bmatrix} 14 & 6 \\ 6 & 3 \end{bmatrix}$$
@@ -556,7 +559,7 @@ $$A^T \mathbf{b} = \begin{bmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \end{bmatrix} \begin{b
 $$\begin{bmatrix} 14 & 6 \\ 6 & 3 \end{bmatrix} \begin{bmatrix} w \\ b \end{bmatrix} = \begin{bmatrix} 11 \\ 5 \end{bmatrix} $$
 </div>
 <ul>
-<li>于是有\(w=\frac{1}{2},b=\frac{2}{3}\)</li>
+<li>于是有\\(w=\frac{1}{2},b=\frac{2}{3}\\)</li>
 </ul>
 <p>
     <figure>
@@ -574,7 +577,7 @@ $$\begin{bmatrix} 14 & 6 \\ 6 & 3 \end{bmatrix} \begin{bmatrix} w \\ b \end{bmat
     </figure>
 </p>
 <ul>
-<li>所以这就是\(A^TA\hat x=A^Tb\) 在Linear Regression的作用</li>
+<li>所以这就是\\(A^TA\hat x=A^Tb\\) 在Linear Regression的作用</li>
 <li>需要知道的是这个方法（Normal Equation）求得的是解析解，在一般在feature &lt; 10000的时候采用，但是过程可能不可逆</li>
 </ul>
 

@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -398,16 +401,16 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <p>而对于一个Linear Transformation，大部分情况下Basis Vector围成的面积都是一个长方形</p>
 </li>
 <li>
-<p>而[[MAT188 Chapter 2 Linear Transformations#2.2 Linear Transformations in Geometry]]中存在一种Sheer Transformation，即对于一个Basis Vector来说，其出现了不属于其方向上的分量</p>
+<p>而MAT188 Chapter 2 Linear Transformations中存在一种Sheer Transformation，即对于一个Basis Vector来说，其出现了不属于其方向上的分量</p>
 </li>
 <li>
-<p>如上图中的\(\vec e_2\)来说，其为&lt;2,2&gt;，即产生了Sheer</p>
+<p>如上图中的\\(\vec e_2\\)来说，其为&lt;2,2&gt;，即产生了Sheer</p>
 </li>
 <li>
 <p>在这种情况下，所围成的面积便成为了Parallelogram</p>
 </li>
 <li>
-<p>于是就有了两种计算\(\mathbb R^2\)行列式的办法
+<p>于是就有了两种计算\\(\mathbb R^2\\)行列式的办法
 </p>
 $$det(A)=|A||B|sin\theta$$<p>
 
@@ -421,16 +424,16 @@ $$det(A)=|A||B|sin\theta$$<p>
 <p>这个平行四边形同时适用于Cross Product于Determinate</p>
 </li>
 <li>
-<p>这一个公式同样也是[[Cross Product 向量叉乘]]的大小（Norm），同时也是一个3x3Determinate的大小（体积）</p>
+<p>这一个公式同样也是Cross Product 向量叉乘的大小（Norm），同时也是一个3x3Determinate的大小（体积）</p>
 </li>
 <li>
 <p>如果说Cross Product要找的是一个向量，Determinate要找的则是一个体积</p>
 </li>
 <li>
-<p>总的来说，要找\(R^2\)中的Determinate的值，其本质在求Linear Transformation后Basis Vector围成的面积</p>
+<p>总的来说，要找\\(R^2\\)中的Determinate的值，其本质在求Linear Transformation后Basis Vector围成的面积</p>
 </li>
 <li>
-<p>而这一个面积可以通过\(|A||B|sin\theta\)求，其同时也可以通过</p>
+<p>而这一个面积可以通过\\(|A||B|sin\theta\\)求，其同时也可以通过</p>
 </li>
 </ul>
 <p>
@@ -470,9 +473,9 @@ a_{31} & a_{32} & a_{33}
 | & | & |
 \end{bmatrix}
 $$<ul>
-<li>3x3的Matrix的Determinate的几何意义为在\(\mathbb R^3\)中的Parallelepiped的Volume</li>
-<li>而对于\(\mathbb R^3\)中的三个向量来说，如果它们线性相关（如共面，即两个向量可以通过Lienar Conbination得到第三个向量的情况下），则他们在3x3Determinate的几何意义也是就是体积便不再存在，其是一个高度为0的长方体</li>
-<li>具体来说判断的方法便是\(\vec{u} \cdot (\vec{v} \times \vec{w}) = 0\)，见下图</li>
+<li>3x3的Matrix的Determinate的几何意义为在\\(\mathbb R^3\\)中的Parallelepiped的Volume</li>
+<li>而对于\\(\mathbb R^3\\)中的三个向量来说，如果它们线性相关（如共面，即两个向量可以通过Lienar Conbination得到第三个向量的情况下），则他们在3x3Determinate的几何意义也是就是体积便不再存在，其是一个高度为0的长方体</li>
+<li>具体来说判断的方法便是\\(\vec{u} \cdot (\vec{v} \times \vec{w}) = 0\\)，见下图</li>
 </ul>
 <p>
     <figure>
@@ -493,7 +496,7 @@ $$<ul>
     
 </h3>
 <ul>
-<li>具体来说，当\(det(A)=0\)的时候，其相当于一个Linear Transformation至少压缩了一个维度</li>
+<li>具体来说，当\\(det(A)=0\\)的时候，其相当于一个Linear Transformation至少压缩了一个维度</li>
 <li>而在维度被压缩之后，此过程并不可逆，见下图</li>
 </ul>
 <p>
@@ -521,12 +524,12 @@ $$<ul>
     </figure>
 </p>
 <ul>
-<li>在上面提到过了行列式的几何意义为体积，而\(\vec u,\vec v\)并不会一直出现在xy Plane中，要计算其体积，基本上要用底面积乘以高的形式</li>
-<li>而底面积则可以通过\(\vec c= \vec v\times \vec w\)的Cross Product，同时求出其大小与方向</li>
-<li>具体来说，其大小即为\(|u|\)，而其方向应该是<strong>垂直于vw Plane的</strong></li>
-<li>而将\(\vec u\cdot \vec c\)时，则可以得到Determinate中的第三个Vetor在一个垂直于vw Plane的同时具有方向和大小的向量\(\vec c\)上的Projection长度乘以其向量\(\vec c\)（本身Norm为vw所围成的平行四边形的面积）</li>
-<li>则最终得到Determinate中的第三个向量\(\vec u\)在一个垂直于vw Plane的方向上的分量，在几何意义上来说为平行六面体的高</li>
-<li>和一个\(\vec v\times \vec w\)所得到的两个向量围成的平行四边形的长度，即平行六面体的底面积</li>
+<li>在上面提到过了行列式的几何意义为体积，而\\(\vec u,\vec v\\)并不会一直出现在xy Plane中，要计算其体积，基本上要用底面积乘以高的形式</li>
+<li>而底面积则可以通过\\(\vec c= \vec v\times \vec w\\)的Cross Product，同时求出其大小与方向</li>
+<li>具体来说，其大小即为\\(|u|\\)，而其方向应该是<strong>垂直于vw Plane的</strong></li>
+<li>而将\\(\vec u\cdot \vec c\\)时，则可以得到Determinate中的第三个Vetor在一个垂直于vw Plane的同时具有方向和大小的向量\\(\vec c\\)上的Projection长度乘以其向量\\(\vec c\\)（本身Norm为vw所围成的平行四边形的面积）</li>
+<li>则最终得到Determinate中的第三个向量\\(\vec u\\)在一个垂直于vw Plane的方向上的分量，在几何意义上来说为平行六面体的高</li>
+<li>和一个\\(\vec v\times \vec w\\)所得到的两个向量围成的平行四边形的长度，即平行六面体的底面积</li>
 <li>两者相乘便可以得到该3x3 Matrix Determinate的值，即这三个Vector所围成的Parallelepiped体积\</li>
 </ul>
 $$\begin{align}\text{det} \, A = \vec{u} \cdot (\vec{v} \times \vec{w}) \\
@@ -900,8 +903,8 @@ $$</div>
     
 </h3>
 <ul>
-<li>\(det(AB)=det(A)\cdot det(B)\)</li>
-<li>\(det(A+B)\neq det(A)+det(B)\)</li>
+<li>\\(det(AB)=det(A)\cdot det(B)\\)</li>
+<li>\\(det(A+B)\neq det(A)+det(B)\\)</li>
 </ul>
 
 
@@ -916,9 +919,9 @@ $$</div>
     
 </h3>
 <ul>
-<li>\(det(A^{-1})\)</li>
-<li>已知\(A^{-1}A=I\)，即\(det(A^{-1})det(A)=det(I)=1\)</li>
-<li>则有\(det(A^{-1})=\frac{1}{det(A)}\)</li>
+<li>\\(det(A^{-1})\\)</li>
+<li>已知\\(A^{-1}A=I\\)，即\\(det(A^{-1})det(A)=det(I)=1\\)</li>
+<li>则有\\(det(A^{-1})=\frac{1}{det(A)}\\)</li>
 </ul>
 
 
@@ -933,7 +936,7 @@ $$</div>
     
 </h3>
 <ul>
-<li>\(det(A^2)=det(A)^2=det(A)\cdot det(A)\)</li>
+<li>\\(det(A^2)=det(A)^2=det(A)\cdot det(A)\\)</li>
 </ul>
 
 
@@ -948,8 +951,8 @@ $$</div>
     
 </h3>
 <ul>
-<li>\(det(2A)=2^ndet(A)\)</li>
-<li>对于nxn Matrix来说，犹豫每一个Row都乘上的Coefficient 2，即存在\(2^n\)的总系数</li>
+<li>\\(det(2A)=2^ndet(A)\\)</li>
+<li>对于nxn Matrix来说，犹豫每一个Row都乘上的Coefficient 2，即存在\\(2^n\\)的总系数</li>
 </ul>
 
 
@@ -964,7 +967,7 @@ $$</div>
     
 </h3>
 <ul>
-<li>\(det(A^T)=det(A)\)</li>
+<li>\\(det(A^T)=det(A)\\)</li>
 </ul>
 <div>
 $$\left| \begin{array}{cc} 
@@ -1053,7 +1056,7 @@ $$
 </h3>
 <ul>
 <li>将每一行拆成3部分，每一部分都对应了不同的行上的不同元素</li>
-<li>总共会得到\(3^3\)个Matrix即27个，而其中大部分Matrix由于行或列上全为0有Det=0</li>
+<li>总共会得到\\(3^3\\)个Matrix即27个，而其中大部分Matrix由于行或列上全为0有Det=0</li>
 <li>而其中的非零情况出现在每一列都有的情况下（因为我们是从行出发开始分解的，所以每一行都保证了有值）</li>
 </ul>
 <div>
@@ -1131,8 +1134,8 @@ a_{11}a_{22}a_{33} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33}
 $$det(A)=\sum_{n!}\pm a_{1\alpha}a_{2\beta}a_{3\gamma}\dots a_{n\omega}$$
 </div>
 <ul>
-<li>\(n!\)：由于我们是用Row做的，即在Row1中有n个Column可以选，而到了Row2中，只有n-1个Column可以选，以此类推可能性即为\(n!\)</li>
-<li>\(\alpha,\beta,\gamma,\omega\)：列标号中的任何值</li>
+<li>\\(n!\\)：由于我们是用Row做的，即在Row1中有n个Column可以选，而到了Row2中，只有n-1个Column可以选，以此类推可能性即为\\(n!\\)</li>
+<li>\\(\alpha,\beta,\gamma,\omega\\)：列标号中的任何值</li>
 </ul>
 <div>
 $$\left| \begin{array}{cccc} 
@@ -1226,10 +1229,10 @@ a_{31} & a_{32} & 0
     
 </h3>
 <ul>
-<li>将原公式中属于矩阵第一行的\(a_{ij}\)提出来，其系数即为代数余子式，是一个低阶行列式的值。这个低阶行列式是由原矩阵去掉\(a_{ij}\)所在的行和列组成的。</li>
-<li>对矩阵中任意元素\(a_{ij}\)而言，其代数余子式\(C_{ij}\)j就是矩阵的行列式的公式中\(a_{ij}\)的系数</li>
-<li>\(C_{ij}\)等于原矩阵移除第i行和第j列后剩余元素组成的n-1阶矩阵的行列式数值乘以\((-1)^{i+j}\)</li>
-<li>\(C_{ij}\)在 i+j 为偶数时为正，奇数时为负数</li>
+<li>将原公式中属于矩阵第一行的\\(a_{ij}\\)提出来，其系数即为代数余子式，是一个低阶行列式的值。这个低阶行列式是由原矩阵去掉\\(a_{ij}\\)所在的行和列组成的。</li>
+<li>对矩阵中任意元素\\(a_{ij}\\)而言，其代数余子式\\(C_{ij}\\)j就是矩阵的行列式的公式中\\(a_{ij}\\)的系数</li>
+<li>\\(C_{ij}\\)等于原矩阵移除第i行和第j列后剩余元素组成的n-1阶矩阵的行列式数值乘以\\((-1)^{i+j}\\)</li>
+<li>\\(C_{ij}\\)在 i+j 为偶数时为正，奇数时为负数</li>
 <li>则可以总结对于n阶Square Matrix来说，有</li>
 </ul>
 <div>
@@ -1330,7 +1333,7 @@ $$\mathbf{A}^{-1} = \frac{1}{\det(\mathbf{A})} \mathbf{C}^\top$$
     
 </h3>
 <ul>
-<li>此处的Cofactor的Transpose\(C^T\)便可以称为Adjoint Martirx，即伴随矩阵</li>
+<li>此处的Cofactor的Transpose\\(C^T\\)便可以称为Adjoint Martirx，即伴随矩阵</li>
 <li>对于Adjoint Matrix来说，其大小总是原Matrix的Dimension-1即为n-1</li>
 </ul>
 
@@ -1346,15 +1349,15 @@ $$\mathbf{A}^{-1} = \frac{1}{\det(\mathbf{A})} \mathbf{C}^\top$$
     
 </h3>
 <ul>
-<li>已知Gauss Jordan Elimination提到\([A|I]\)在A被消成I后，I会变成\(A^{-1}\)</li>
-<li>同时\(A^{-1}A=I\)，现在将\(\mathbf{A}^{-1} = \frac{1}{\det(\mathbf{A})} \mathbf{C}^\top\)带入</li>
+<li>已知Gauss Jordan Elimination提到\\([A|I]\\)在A被消成I后，I会变成\\(A^{-1}\\)</li>
+<li>同时\\(A^{-1}A=I\\)，现在将\\(\mathbf{A}^{-1} = \frac{1}{\det(\mathbf{A})} \mathbf{C}^\top\\)带入</li>
 </ul>
 <div>
 $$A\cdot \mathbf{A}^{-1} = A\cdot\frac{1}{\det(\mathbf{A})} \mathbf{C}^\top=I$$
 $$A\cdot C^T=det(A)\cdot I$$
 </div>
 <ul>
-<li>如果上式成立，则\(\mathbf{A}^{-1} = \frac{1}{\det(\mathbf{A})} \mathbf{C}^\top\)为真命题</li>
+<li>如果上式成立，则\\(\mathbf{A}^{-1} = \frac{1}{\det(\mathbf{A})} \mathbf{C}^\top\\)为真命题</li>
 </ul>
 <div>
 $$\mathbf{AC}^T = \begin{bmatrix} 
@@ -1409,21 +1412,21 @@ $$
     
 </h2>
 <ul>
-<li>对于问题Ax=b来说，其解法很简单的就等于\(x=A^{-1}B\)</li>
-<li>而在知道了\(A^{-1}\)的值之后有</li>
+<li>对于问题Ax=b来说，其解法很简单的就等于\\(x=A^{-1}B\\)</li>
+<li>而在知道了\\(A^{-1}\\)的值之后有</li>
 </ul>
 <div>
 $$\mathbf{x} = \mathbf{A}^{-1} \mathbf{b} = \frac{1}{\det(\mathbf{A})} \mathbf{C}^T \mathbf{b}$$
 </div>
 <ul>
-<li>选择乘上\(C^T\) 的不再是A而是b了，但一个Matrix乘以一个Cofactor Matrix的做法又令人想到了Determinant，可以发现</li>
+<li>选择乘上\\(C^T\\) 的不再是A而是b了，但一个Matrix乘以一个Cofactor Matrix的做法又令人想到了Determinant，可以发现</li>
 </ul>
 <div>
 $$x_j = \frac{\det(\mathbf{B}_j)}{\det(\mathbf{A})}
 $$
 </div>
 <ul>
-<li>其中每一个\(B_i\)都是一个第i列被\(B_i\)所替换的Matrix A，具体来说有</li>
+<li>其中每一个\\(B_i\\)都是一个第i列被\\(B_i\\)所替换的Matrix A，具体来说有</li>
 </ul>
 <div>
 $$\mathbf{B}_1 = \begin{bmatrix}
@@ -1444,7 +1447,7 @@ a_{n1} & \cdots & a_{n2} & b_n
 $$
 </div>
 <ul>
-<li>可以发现等式中的\(C^T_i \cdot B_i\)正好等于\(B_i\)的Determinant</li>
+<li>可以发现等式中的\\(C^T_i \cdot B_i\\)正好等于\\(B_i\\)的Determinant</li>
 </ul>
 <blockquote>
 <p>其实相比于消元法，采用克莱姆法则计算方程的解效率较低。。。</p>

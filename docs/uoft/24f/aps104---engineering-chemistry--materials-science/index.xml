@@ -84,7 +84,7 @@
 &lt;li&gt;熵是一个衡量系统混乱程度的物理量，系统的熵越高，系统的无序程度就越高
 $$\Delta S = \frac{q_{REV}}{T}$$&lt;/li&gt;
 &lt;li&gt;S is the entropy 熵&lt;/li&gt;
-&lt;li&gt;\(q_{rev}\)​ is the heat transferred 传递的热量&lt;/li&gt;
+&lt;li&gt;\\(q_{rev}\\)​ is the heat transferred 传递的热量&lt;/li&gt;
 &lt;li&gt;T is the &lt;em&gt;thermodynamic&lt;/em&gt; temperature 热力学温度，单位为Kelvin&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -361,7 +361,7 @@ $$F=kx$$&lt;ul&gt;
 &lt;ul&gt;
 &lt;li&gt;物体在外力作用下，单位面积上承受的内力
 $$Stress(\sigma)=\frac{F}{A_0}$$&lt;/li&gt;
-&lt;li&gt;\(A_0\): Initial Cross-Sectional Area&lt;/li&gt;
+&lt;li&gt;\\(A_0\\): Initial Cross-Sectional Area&lt;/li&gt;
 &lt;li&gt;应力的单位通常是帕斯卡（Pa）&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -380,8 +380,8 @@ $$Stress(\sigma)=\frac{F}{A_0}$$&lt;/li&gt;
 &lt;li&gt;应变是材料在外力作用下发生的变形程度&lt;/li&gt;
 &lt;/ul&gt;
 $$Strain(\epsilon)=\frac{\Delta l}{l_0}$$&lt;ul&gt;
-&lt;li&gt;\(\Delta l\)：change of material&amp;rsquo;s length&lt;/li&gt;
-&lt;li&gt;\(l_0\): Initial length of material&lt;/li&gt;
+&lt;li&gt;\\(\Delta l\\)：change of material&amp;rsquo;s length&lt;/li&gt;
+&lt;li&gt;\\(l_0\\): Initial length of material&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -439,7 +439,7 @@ $$Strain(\epsilon)=\frac{\Delta l}{l_0}$$&lt;ul&gt;
     
 &lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;在Plastic Deformation后，Atomic Spacing将保持\(r=r_0\)&lt;/li&gt;
+&lt;li&gt;在Plastic Deformation后，Atomic Spacing将保持\\(r=r_0\\)&lt;/li&gt;
 &lt;li&gt;但是Sequence of atoms将进入一个New Equilibrium&lt;/li&gt;
 &lt;li&gt;即在Marcro Perspective上发生Shape的Deform&lt;/li&gt;
 &lt;li&gt;Tensile Strain将会保持一定非零大小&lt;/li&gt;

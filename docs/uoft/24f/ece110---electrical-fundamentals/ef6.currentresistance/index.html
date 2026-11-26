@@ -67,7 +67,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .side h1{font-size:2.25rem;line-height:1;margin:0}
 .who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
 .who b{font-weight:500;color:var(--text)}
-.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.6}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:62px 1fr;gap:4px 10px;margin:14px 0 0;font-size:.92rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
 .side .lab{border-color:var(--paper2)}
 .kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
 .kit:last-child{border-bottom:none}
@@ -133,7 +136,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
 <link rel="stylesheet" href="/lib/katex/katex.min.css">
 <script defer src="/lib/katex/katex.min.js"></script>
-<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
 <style>
  
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
@@ -465,7 +468,7 @@ $$i=\frac{dq}{dt}$$</li>
 <li>电流密度是描述电荷流动分布的重要量，带有方向信息
 $$i=\int\vec J\cdot d\vec A$$</li>
 <li>其中 dA 是<strong>垂直于</strong>导体表面元素的面积矢量</li>
-<li>若电流 i 在截面上均匀分布且平行于 \(\vec A\)，积分就可以化简为
+<li>若电流 i 在截面上均匀分布且平行于 \\(\vec A\\)，积分就可以化简为
 $$i=JA\Rightarrow J=\frac{i}{A}$$</li>
 </ul>
 
@@ -481,10 +484,10 @@ $$i=JA\Rightarrow J=\frac{i}{A}$$</li>
     
 </h2>
 <ul>
-<li>在不同 Electirc Force 下，Charge Carriers (Assumed Positive) 会获得一个 Drift Speed \(\vec v_d\)，其方向于 Electric Field 方向一致</li>
+<li>在不同 Electirc Force 下，Charge Carriers (Assumed Positive) 会获得一个 Drift Speed \\(\vec v_d\\)，其方向于 Electric Field 方向一致</li>
 <li>并且 Current Density 与 Drift Speed 有
 $$\vec J=(ne)\vec V_d$$</li>
-<li>其中 n 是单位面积（通常为 \(1m^3\) 中 Charge Carrier 的数量）</li>
+<li>其中 n 是单位面积（通常为 \\(1m^3\\) 中 Charge Carrier 的数量）</li>
 <li>e 则是单个 Charge Carrier 的电荷量</li>
 </ul>
 
@@ -503,7 +506,7 @@ $$\vec J=(ne)\vec V_d$$</li>
 <li>一个 Conductor 的 Resistance R 被定义为
 $$R=\frac{V}{i}$$</li>
 <li>V 是 Conductor 两端的 Potential Difference</li>
-<li>Resitance 的SI Unit 为 欧姆 \(\Omega\)</li>
+<li>Resitance 的SI Unit 为 欧姆 \\(\Omega\\)</li>
 <li>Resistance 在电路中起到了 Reduce Current Flow，Adjust Signal Levels，Divide Votages 等作用</li>
 </ul>
 
@@ -522,8 +525,8 @@ $$R=\frac{V}{i}$$</li>
 <li>电阻的颜色编码标识了他的电阻值和公差，具体来</li>
 <li>前两位代表了电阻值的有效数字，第三位代表了倍率，第四位为公差</li>
 <li>例如，红-红-橙-金：</li>
-<li>红色（2）、红色（2）、橙色（\(\times 1000\)）、金色（公差 \(\pm 5%\)）</li>
-<li>电阻值为 \(22 \times 1000 = 22k\Omega\)，误差为 \(\pm 5%\)</li>
+<li>红色（2）、红色（2）、橙色（\\(\times 1000\\)）、金色（公差 \\(\pm 5\%\\)）</li>
+<li>电阻值为 \\(22 \times 1000 = 22k\Omega\\)，误差为 \\(\pm 5\%\\)</li>
 </ul>
 
 
@@ -540,8 +543,8 @@ $$R=\frac{V}{i}$$</li>
 <ul>
 <li>与 Capacitance 一样，Resitivity 也是材料的固有属性，用于描述<strong>材料</strong>对于电流的阻碍能力
 $$\rho=\frac{1}{\sigma}=\frac{E}{J}$$</li>
-<li>E 为电场强度，J 为电流密度，Resitivity 的单位是 \(\Omega\cdot m\)</li>
-<li>同样也有 \(\vec E=\rho \vec J\)，说明了材料的电阻率越高，相同电流密度下的电场强度就越高</li>
+<li>E 为电场强度，J 为电流密度，Resitivity 的单位是 \\(\Omega\cdot m\\)</li>
+<li>同样也有 \\(\vec E=\rho \vec J\\)，说明了材料的电阻率越高，相同电流密度下的电场强度就越高</li>
 </ul>
 
 
@@ -556,7 +559,7 @@ $$\rho=\frac{1}{\sigma}=\frac{E}{J}$$</li>
     
 </h3>
 <ul>
-<li>Resitivity 描述的是 Material 对 Current 流动的阻碍属性，与其形状和大小无关，而 Resistance 描述的特点物体对电流流动的阻碍，单位是 \(\Omega\)，计算一个 Conductor Resisitance 的方式是
+<li>Resitivity 描述的是 Material 对 Current 流动的阻碍属性，与其形状和大小无关，而 Resistance 描述的特点物体对电流流动的阻碍，单位是 \\(\Omega\\)，计算一个 Conductor Resisitance 的方式是
 $$R=\rho\frac LA$$</li>
 <li>A 为 Cross-Sectional Area</li>
 </ul>
@@ -609,7 +612,7 @@ $$\rho - \rho_0 = \rho_0 \alpha (T - T_0)$$</li>
     
 </h2>
 <ul>
-<li>Power 是能量转换的速率，其最基本的计算公式为 \(P=iV\)，单位为瓦特</li>
+<li>Power 是能量转换的速率，其最基本的计算公式为 \\(P=iV\\)，单位为瓦特</li>
 <li>利用 Ohm&rsquo;s Law，可以改写成
 $$P=i^2R=\frac{V^2}{R}$$</li>
 </ul>
