@@ -21,6 +21,16 @@
     </item>
     
     <item>
+      <title>Binomial Probability Law: Practice Problems</title>
+      <link>https://buezw.github.io/docs/articles/binomial-practice/</link>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/binomial-practice/</guid>
+      <description>20 practice questions on Bernoulli trials and the binomial law, easiest to hardest, with answer key and full worked solutions.</description>
+      
+    </item>
+    
+    <item>
       <title>Avellaneda–Stoikov 做市模型完整推导：从库存风险到最优双边报价</title>
       <link>https://buezw.github.io/docs/articles/as-full-derivation/</link>
       <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
@@ -37,6 +47,16 @@
       <author>youremail@example.com (Buezwqwg)</author>
       <guid>https://buezw.github.io/docs/articles/black-scholes/</guid>
       <description>五个输入、一个输出：Black-Scholes 定价公式、d₁ 与 d₂ 的含义，以及隐含波动率的由来。</description>
+      
+    </item>
+    
+    <item>
+      <title>Options Market-Making Simulator: Project Report (English Summary)</title>
+      <link>https://buezw.github.io/docs/articles/options-mm-simulator-summary/</link>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/options-mm-simulator-summary/</guid>
+      <description>A backtesting system from raw Deribit BTC options data to a full market-maker loop: SVI surface, quoting, fills, hedging and PnL attribution.</description>
       
     </item>
     

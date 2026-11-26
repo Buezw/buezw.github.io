@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Options Market-Making Simulator: Project Report (English Summary) · Jingnan Huang</title>
+<meta name="description" content="A backtesting system from raw Deribit BTC options data to a full market-maker loop: SVI surface, quoting, fills, hedging and PnL attribution.">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f3f0ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
+
+ 
+.search{position:relative;flex:1;max-width:520px}
+ 
+@media (min-width:1101px){
+  .topnav{display:grid;grid-template-columns:1fr minmax(0,520px) 1fr}
+  .search{width:100%;max-width:none}
+  .topnav nav{justify-self:end}
+}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
+
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
+
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:80px 1fr;gap:16px 14px;margin:32px 0 6px;font-size:1rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
+
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
+
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
+
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
+ 
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+</style>
+
+<link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
+<link rel="stylesheet" href="/lib/katex/katex.min.css">
+<script defer src="/lib/katex/katex.min.js"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<style>
+ 
+.banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.banner>div{padding:0 clamp(24px,3.4vw,64px);max-width:calc(860px + 2*clamp(24px,3.4vw,64px));width:100%;margin:0 auto;box-sizing:border-box;min-width:0}
+.banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 12px;white-space:nowrap;width:max-content}
+.banner h1.wrap{white-space:normal;width:auto}
+.banner .meta{font-size:.86rem}
+.banner .lead{max-width:860px;margin:0 0 12px}
+.nav2{display:flex;gap:8px}
+.nav2 a{display:block;background:#fff;border:1px solid var(--paper2);padding:8px 14px;width:220px}
+.nav2 a:hover{border-color:var(--text)}
+.nav2 small{display:block;font-size:.72rem;color:var(--dim)}
+.nav2 b{display:block;font-weight:500;font-size:.86rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav2 .nx{text-align:right}
+.page{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh / var(--zoom) - 40px);overflow:auto;padding-right:4px}
+.side{padding:30px 22px 30px var(--px)}
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.grp{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;margin-top:8px;padding-bottom:12px;border-bottom:1px solid var(--paper2)}
+.grp a:hover{color:var(--c)}
+.grp small{display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:.76rem;font-weight:400;color:var(--dim);margin-top:6px;letter-spacing:0}
+.grp small i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.sib{font-size:.88rem;line-height:1.35;counter-reset:n}
+.sib a{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;align-items:baseline;padding:6px 8px 6px 0;color:#4a4741;border-radius:3px}
+.sib a em{font-style:normal;font-family:var(--serif);font-size:.95rem;color:var(--dim);text-align:right;padding-right:6px}
+.sib a span{overflow-wrap:anywhere}
+.sib a:hover{color:var(--text);background:rgba(255,255,255,.55)}
+.sib a.cur{background:#fff;color:var(--text);font-weight:500;box-shadow:inset 2px 0 0 var(--c)}
+.sib a.cur em{color:var(--c)}
+.rail{padding:30px var(--px) 30px 24px;border-left:1px solid var(--line)}
+.toc{font-size:.84rem;line-height:1.4;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 0 4px 12px;margin-left:-1px;border-left:2px solid transparent;color:#5a5650}
+.toc a.l2{padding-left:24px;font-size:.8rem;color:var(--dim)}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--c);border-left-color:var(--c)}
+.totop{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--dim)}
+.totop:hover{color:var(--text)}
+
+.art{padding:30px clamp(24px,3.4vw,64px) 50px;min-width:0}
+.art>*{margin-left:auto;margin-right:auto}
+.ahead{max-width:860px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--text)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+.ahead h1{font-size:2.6rem;line-height:1.12;margin:12px 0 0;overflow-wrap:anywhere}
+.ahead .crumb{margin-bottom:10px}
+.lead{margin:14px 0 0;font-size:1.05rem;line-height:1.65;color:#4a4741}
+
+ 
+.prose{max-width:860px;font-size:1.02rem;line-height:1.8;color:#232220;overflow-wrap:break-word}
+.prose h1,.prose h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-size:1.65rem;line-height:1.25;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:1.8em 0 .5em;scroll-margin-top:20px}
+.prose h4{font-size:1.05rem;font-weight:600;margin:1.6em 0 .4em;scroll-margin-top:20px}
+.prose>*:first-child{margin-top:0}
+.prose h1>span,.prose h2>span,.prose h3>span,.prose h4>span{display:none}
+.prose .anchor{scroll-margin-top:20px}
+.prose p{margin:0 0 1em}
+.prose a{color:var(--c);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.prose strong{font-weight:600;color:var(--text)}
+.prose ul,.prose ol{padding-left:1.4em;margin:0 0 1em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.2em 0}
+.prose blockquote{margin:1.2em 0;padding:.6em 1.1em;border-left:3px solid var(--c);background:#faf9f6;color:#4a4741}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose img,.prose video{display:block;max-width:100%;height:auto;margin:1.2em auto;border:1px solid var(--line)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;margin:1.2em 0;font-size:.92rem}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top}
+.prose th{background:#f6f4ef;font-weight:600}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:#f3f0ea;padding:.1em .35em;border-radius:3px}
+.prose pre{background:#faf9f6;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;font-size:.86rem;line-height:1.6;margin:1.2em 0}
+.prose pre code{background:none;padding:0;font-size:inherit}
+.prose .highlight{margin:1.2em 0}
+.prose .highlight pre{margin:0}
+.prose .katex-display{overflow-x:auto;overflow-y:hidden;padding:.2em 0}
+.prose .katex{font-size:1.06em}
+
+.pn{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:18px;border-top:1px solid var(--text)}
+.pn a{display:block;padding:12px 14px;border:1px solid var(--line)}
+.pn a:hover{border-color:var(--text)}
+.pn span{display:block;font-size:.78rem;color:var(--dim)}
+.pn b{font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
+.pn .nx{text-align:right;grid-column:2}
+
+@media (max-width:1000px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .banner{display:block;padding:22px 0 18px}
+  .banner h1{font-size:1.8rem!important;white-space:normal;width:auto}
+  .nav2{display:none}
+  .prose{font-size:.98rem}
+  .pn{grid-template-columns:1fr}
+  .pn .nx{grid-column:1}
+}
+</style>
+</head>
+<body style="--c:var(--blue)">
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 128 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
+  </div>
+  <nav>
+    <a href="/docs/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+<script>
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
+</script>
+
+
+<section class="banner">
+  <div>
+    <div class="crumb"><a href="/docs/">Notebook</a><i>/</i><a href="/docs/">Articles</a></div>
+    <h1 class="serif" id="atitle">Options Market-Making Simulator: Project Report (English Summary)</h1><p class="lead">A backtesting system from raw Deribit BTC options data to a full market-maker loop: SVI surface, quoting, fills, hedging and PnL attribution.</p>
+    <div class="meta">
+      <span>Sep 16, 2026</span><span>Edited 11/26/26</span>
+      <i class="lang">EN</i>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <article class="art">
+
+    <div class="prose">
+      
+<p><em>Project Report: From Raw Deribit BTC Options Data to PnL Attribution</em></p>
+<aside>
+💡
+<p><strong>One-line summary.</strong> This is a backtesting system that turns <strong>raw Deribit BTC options/futures market data</strong> into a <strong>complete market-maker decision loop</strong>: record data → fit a volatility surface → quote → match fills → hedge → attribute every dollar of PnL to a specific risk source — replaying history strictly in time order, with no look-ahead. The underlying is currently fixed to BTC; <code>load_range()</code> keeps a currency-switch hook for extending to ETH and others later.</p>
+</aside>
+
+
+<h2 class="relative group">1. The six steps end to end 
+    <div id="1-the-six-steps-end-to-end" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-the-six-steps-end-to-end" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The six steps below are the system&rsquo;s main pipeline; the core method used in each step is written directly into that step.</p>
+<ol>
+<li><strong>Record data:</strong> <code>record_deribit.py</code> connects to Deribit&rsquo;s public API and continuously logs order-book snapshots, tickers (mark price and index price included), and trade prints for BTC options/futures, partitioned by date into <code>parquet</code> files.</li>
+<li><strong>Load &amp; align:</strong> <code>load_range()</code> reads BTC data for a given date range, parses instrument names, filters out illiquid contracts by minimum open interest, and merges everything into a single timestamp-sorted event stream.</li>
+<li><strong>Initial surface fit (pricing):</strong> implied volatility is backed out from tickers using the <strong>Black-76</strong> futures-options pricing formula; contracts are grouped by expiry and fit with vega-weighted <strong>SVI</strong> (Stochastic Volatility Inspired) parameterization to produce a complete volatility surface — see Section 2.</li>
+<li><strong>Assemble the market-making/risk/hedging components:</strong> quoting, position bookkeeping, limits, hedging, and fill matching — see Sections 3–7. Three of these stages each have a dedicated method:
+<ul>
+<li><strong>Quoting:</strong> the <strong>Avellaneda-Stoikov</strong> inventory-aware market-making framework — half-spread widens with vega/gamma, and quotes are adjusted by inventory skew;</li>
+<li><strong>Fill matching:</strong> either <strong>Poisson</strong> theoretical matching (fill intensity decays exponentially with spread) or <strong>trade-replay</strong> (a fill is only recorded if a real historical trade crosses the quote);</li>
+<li><strong>Hedging:</strong> one of interval hedging / fixed-band hedging / <strong>Whalley–Wilmott</strong> optimal-band hedging.</li>
+</ul>
+</li>
+<li><strong>Event-driven backtest:</strong> periodic surface-refit events and hedge-check events are inserted into the event stream and processed strictly in time order with no look-ahead; at every hedge-check point, the hedging rule chosen in Step 4 is executed.</li>
+<li><strong>Output &amp; PnL attribution:</strong> the PnL series is produced and decomposed term by term into delta/gamma/theta/vega via a multivariate <strong>Taylor</strong> expansion, with the residual tracked separately (see Section 8); Sharpe ratio, maximum drawdown, and other metrics are then computed and plotted.</li>
+</ol>
+
+
+<h2 class="relative group">2. The foundation of pricing: from market data to a volatility surface 
+    <div id="2-the-foundation-of-pricing-from-market-data-to-a-volatility-surface" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-the-foundation-of-pricing-from-market-data-to-a-volatility-surface" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">2.1 The Black-Scholes formula 
+    <div id="21-the-black-scholes-formula" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#21-the-black-scholes-formula" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The most basic option-pricing model is the Black-Scholes formula. For a European call on a spot underlying with strike $K$ and time to expiry $\tau$, the theoretical price is:</p>
+$$
+C = S\,N(d_1) - Ke^{-r\tau}N(d_2), \qquad d_1 = \frac{\ln(S/K) + (r + \sigma^2/2)\tau}{\sigma\sqrt{\tau}}, \qquad d_2 = d_1 - \sigma\sqrt{\tau} \tag{1}
+$$<p>where $S$ is the current underlying price, $K$ is the strike, $r$ is the risk-free rate, $\tau$ is time to expiry, $\sigma$ is volatility, and $N(\cdot)$ is the standard normal CDF. Every variable in Eq. (1) except $\sigma$ ($S$, $K$, $r$, $\tau$) is directly observable in the market.</p>
+
+
+<h3 class="relative group">2.2 Backing out implied volatility 
+    <div id="22-backing-out-implied-volatility" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#22-backing-out-implied-volatility" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Implied volatility (IV) is computed by running Eq. (1) in reverse: given the option&rsquo;s real market price or mid quote $C_{\text{market}}$, substitute it into the left-hand side of Eq. (1) and solve for the unique $\sigma$ that makes the equation hold:</p>
+$$
+\sigma_{\text{IV}} = \sigma \ \text{ such that } \ C(\sigma) = C_{\text{market}} \tag{2}
+$$<p>Eq. (2) has no closed-form solution, since $\sigma$ sits inside $N(\cdot)$; it is typically solved numerically (e.g. Newton-Raphson). This is what &ldquo;backing out implied vol from market data&rdquo; actually means in practice: rather than computing a price from a model, it reads the market&rsquo;s own price and infers what volatility expectation the market is currently pricing in.</p>
+
+
+<h3 class="relative group">2.3 Why IV differs across strikes 
+    <div id="23-why-iv-differs-across-strikes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#23-why-iv-differs-across-strikes" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>One of Black-Scholes&rsquo; core assumptions is that the underlying price follows geometric Brownian motion with a <strong>constant volatility</strong> $\sigma$ — in theory, the IV backed out should be the same regardless of strike. In real markets this is almost never true, for three main reasons:</p>
+<ul>
+<li><strong>Tail-risk pricing:</strong> real underlying price distributions have fatter tails than the normal distribution, with a higher probability of extreme moves than the model assumes. Deep out-of-the-money and deep in-the-money options are effectively pricing this tail risk, so the market assigns them a higher IV as a risk premium rather than pricing everything off the at-the-money IV.</li>
+<li><strong>Supply-and-demand imbalance:</strong> demand differs by strike. In crypto markets, for instance, investors routinely buy out-of-the-money puts as tail hedges; this demand pushes up the price — and hence the backed-out IV — at that strike, independent of the underlying&rsquo;s true volatility expectation and driven purely by order flow pressure.</li>
+<li><strong>Leverage effect and the price-dependence of volatility:</strong> when the underlying falls, leverage rises (or market panic rises), and realized volatility tends to rise with it. This negative correlation between price and volatility — &ldquo;price down, vol up&rdquo; — systematically produces higher backed-out IV at lower strikes (the put side).</li>
+</ul>
+<p>Plotting the string of IVs backed out across strikes at a single expiry — strike (or log-moneyness) on the x-axis, IV on the y-axis — typically produces a curve that is low in the middle and higher on both sides, resembling a smile: the <strong>volatility smile</strong>. It is not an artifact of the model; it is the market telling you that Black-Scholes&rsquo; constant-volatility assumption is wrong, and that the true implied risk expectation genuinely differs across strikes.</p>
+<p>The project actually uses <strong>Black-76</strong> to back out IV (see the note following Eq. (1)), a variant of Black-Scholes for options on a futures underlying: $Se^{r\tau}$ in Eq. (1) is replaced directly with the futures price $F$, so interest rates and dividends need not be handled separately (these carry costs are already embedded in the futures price); the formula structure and the logic of &ldquo;solving for $\sigma$ from a price&rdquo; are otherwise identical to Black-Scholes. Because BTC options on Deribit are written on perpetuals/futures rather than spot, using Black-76 rather than plain Black-Scholes is what avoids a systematic bias in the backed-out implied volatility.</p>
+
+
+<h3 class="relative group">2.4 From curve to surface: SVI fitting 
+    <div id="24-from-curve-to-surface-svi-fitting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#24-from-curve-to-surface-svi-fitting" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>For a single expiry, plotting IV against strike gives a curved line (the volatility smile) rather than a flat one. Stacking these curves across all expiries produces a three-dimensional <strong>volatility surface</strong>: strike on one axis, time to expiry on the other, and implied volatility as the height.</p>
+<p>The project fits each expiry&rsquo;s curve with the <strong>SVI</strong> (Stochastic Volatility Inspired) parameterization, which describes total variance as a function of strike using five parameters:</p>
+$$
+w(k) = a + b\left(\rho(k-m) + \sqrt{(k-m)^2 + \sigma^2}\right) \tag{3}
+$$<p>where $k$ is log-moneyness, $a$ controls the overall level of the curve, $b$ controls how steep the two wings are, $\rho$ controls the direction of left-right skew, $m$ controls the location of the curve&rsquo;s minimum, and $\sigma$ controls how rounded that minimum is. Fitting is <strong>vega-weighted</strong> per contract — liquid, high-vega contracts get more weight, so illiquid, noisy deep-OTM quotes don&rsquo;t drag the whole curve off.</p>
+<p>Figure 1 plots the curve produced by a representative parameter set ($a=0.04$, $b=0.4$, $\rho=-0.3$, $m=0$, $\sigma=0.15$, corresponding to a 7-day expiry) substituted into Eq. (3): $\rho<0$ skews the curve to the left, meaning IV on the low-strike (put) side is steeper than on the high-strike side — exactly the leverage-effect-driven left skew discussed in Section 2.3, now expressed in SVI parameters.</p>
+<p><em>Figure 1: Three SVI curves at different expiries (parameters evolve with time to expiry: larger $a$ reflects more accumulated total variance over a longer horizon, larger $\sigma$ flattens the minimum, and the strength of the left skew $\rho$ eases slightly). Stacking this family of curves along the expiry axis is exactly what the volatility surface is. (Plot of total variance $w(k)$ vs. log-moneyness $k$ for 7-, 30- and 90-day expiries — see the PDF version.)</em></p>
+<p>The differences among the three curves illustrate how the surface behaves along the expiry axis: the longer the expiry, the higher the overall level of total variance (larger $a$, since variance accumulates over time), the flatter the minimum (larger $\sigma$, since the market disagrees less about long-run volatility than short-run), and typically a somewhat weaker left skew (short-dated options are more exposed to near-term price shocks and the leverage effect). SVI fitting in the project is done independently for each expiry; in practice one still has to check that adjacent expiries don&rsquo;t create <strong>calendar arbitrage</strong> (i.e. near-month total variance must not exceed far-month) before the stitched-together surface can be trusted.</p>
+<p>If too few data points are available in a given window, the fit degrades to an uncalibrated <strong>flat 50% volatility surface</strong> and prints a warning — this is an engineering fallback, not a theoretically correct surface; it only exists to keep downstream modules from crashing on a failed fit.</p>
+
+
+<h2 class="relative group">3. Quoter: pricing and quoting 
+    <div id="3-quoter-pricing-and-quoting" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-quoter-pricing-and-quoting" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The backtest&rsquo;s core is four modules with clearly separated responsibilities, tied together into a closed loop through a single ledger (<code>Inventory</code>) — the four sections starting here work through <code>Quoter</code>, <code>Inventory</code> &amp; <code>RiskLimits</code>, <code>Hedger</code>, and <code>FillModel</code> in turn, and the final section shows how they close the loop via <code>Inventory</code>.</p>
+<p><code>Quoter</code>&rsquo;s output, given a contract, is a pair of directly postable (bid, ask) quotes, computed in three steps.</p>
+
+
+<h3 class="relative group">3.1 Computing fair value 
+    <div id="31-computing-fair-value" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#31-computing-fair-value" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Look up the implied volatility $\sigma$ that the surface assigns to this contract (a specific strike and expiry), and substitute it along with the underlying price $F$, strike $K$, and time to expiry $\tau$ into Black-76 to get the contract&rsquo;s theoretical value:</p>
+$$
+\text{fair} = \text{Black76}(F, K, \tau, \sigma) \tag{4}
+$$<p>The <code>greeks</code> module simultaneously computes this contract&rsquo;s delta, gamma, vega, and theta, which feed into the next two steps.</p>
+
+
+<h3 class="relative group">3.2 Widening the half-spread with vega/gamma 
+    <div id="32-widening-the-half-spread-with-vegagamma" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#32-widening-the-half-spread-with-vegagamma" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Rather than adding or subtracting a fixed dollar amount, the half-spread itself scales up with vega and gamma:</p>
+$$
+\text{half-spread} = \text{base} + k_1|\text{vega}| + k_2|\text{gamma}| \tag{5}
+$$<p>where base is a floor spread covering fees and model error, and $k_1$, $k_2$ are two calibrated coefficients. The intuition: high vega means the contract is sensitive to shifts in the volatility outlook, so a bad move there can hurt more; high gamma means delta drifts quickly with the underlying price, and a hedge that can&rsquo;t keep up risks losing control of the exposure. Both of these &ldquo;harder to manage later&rdquo; risks get priced into the spread right at quote time.</p>
+
+
+<h3 class="relative group">3.3 Inventory skew: shifting the whole quote band 
+    <div id="33-inventory-skew-shifting-the-whole-quote-band" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#33-inventory-skew-shifting-the-whole-quote-band" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Read the current net position direction from <code>Inventory</code>; if the desk is already substantially net short (delta already very negative), shift the entire quote band upward by a skew amount:</p>
+$$
+\text{bid} = \text{fair} - \text{half-spread} + \text{skew}, \qquad \text{ask} = \text{fair} + \text{half-spread} + \text{skew} \tag{6}
+$$<p>Skew moves opposite to the current net position — the more skewed the position, the larger the shift — so the bid moves closer to fair (more willing to buy back) and the ask is pushed higher (less willing to sell more), using the asymmetry of the quote to encourage the market to work off the inventory rather than paying to hedge it out actively every time.</p>
+<p>Putting it together: the surface supplies $\sigma$ → Eq. (4) produces fair value and the Greeks → Eq. (5) uses vega/gamma to size the spread → Eq. (6) uses current inventory to decide which way to shift the band — the resulting (bid, ask) pair is exactly the input that <code>FillModel</code> checks next to decide whether it gets hit.</p>
+
+
+<h2 class="relative group">4. Inventory and RiskLimits: bookkeeping and the brake 
+    <div id="4-inventory-and-risklimits-bookkeeping-and-the-brake" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-inventory-and-risklimits-bookkeeping-and-the-brake" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Together these two manage whether an already-taken position is healthy: <code>Inventory</code> keeps the books, and <code>RiskLimits</code> applies the brake when the books go out of bounds.</p>
+
+
+<h3 class="relative group">4.1 Inventory: aggregating net position and net Greeks 
+    <div id="41-inventory-aggregating-net-position-and-net-greeks" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#41-inventory-aggregating-net-position-and-net-greeks" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Every time a trade fills, <code>FillModel</code> feeds the result back to <code>Inventory</code>, which updates the holding $q_i$ (net contracts held in instrument $i$; a market-maker short position is recorded as negative). What <code>Inventory</code> maintains in real time is not each contract&rsquo;s individual Greeks, but the <strong>net exposure</strong> aggregated by holding size:</p>
+$$
+\Delta_{\text{net}} = \sum_i q_i\delta_i, \qquad \Gamma_{\text{net}} = \sum_i q_i\gamma_i, \qquad \nu_{\text{net}} = \sum_i q_i\nu_i, \qquad \Theta_{\text{net}} = \sum_i q_i\theta_i \tag{7}
+$$<p>where $\delta_i$, $\gamma_i$, $\nu_i$, $\theta_i$ are contract $i$&rsquo;s current Greeks (computed live from the surface and Black-76). These four net values in Eq. (7) are the book&rsquo;s &ldquo;vital signs&rdquo;: <code>Quoter</code> uses the sign and magnitude of $\Delta_{\text{net}}$ to set the direction and size of the inventory skew in Section 3.3, <code>Hedger</code> uses $\Delta_{\text{net}}$ to decide whether to trigger a hedge, and <code>RiskLimits</code> checks all four net values against their respective thresholds.</p>
+
+
+<h3 class="relative group">4.2 RiskLimits: pausing one side of the quote once a limit is breached 
+    <div id="42-risklimits-pausing-one-side-of-the-quote-once-a-limit-is-breached" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#42-risklimits-pausing-one-side-of-the-quote-once-a-limit-is-breached" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><code>RiskLimits</code> sets an upper and lower bound on each net value in Eq. (7) — for example $|\Delta_{\text{net}}| \le \Delta_{\max}$, $|\Gamma_{\text{net}}| \le \Gamma_{\max}$, $|\nu_{\text{net}}| \le \nu_{\max}$ — and separately caps the holding $|q_i|$ of any single contract, to keep an illiquid, rarely-traded contract from passively building an outsized exposure. The check fires every time <code>Inventory</code> updates; once a net value crosses its threshold, <code>RiskLimits</code> <strong>does not force-close existing positions</strong> — instead it pauses taking on more risk in that same direction. For instance, if $\nu_{\text{net}}$ is already too positive (net long volatility), quoting on the sell-options side is paused while the buy side stays open, until $\nu_{\text{net}}$ is pulled back within bounds by subsequent hedging or offsetting fills, at which point two-sided quoting resumes.</p>
+<p>The division of labor: <code>Inventory</code> is the system&rsquo;s single source of truth for net exposure, and <code>RiskLimits</code> reads that ledger to decide &ldquo;should we take on any more position&rdquo; — the gate on inflow. It does not actively work down existing exposure; that responsibility belongs to <code>Hedger</code>, covered next.</p>
+
+
+<h2 class="relative group">5. Hedger: actively working down existing risk 
+    <div id="5-hedger-actively-working-down-existing-risk" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5-hedger-actively-working-down-existing-risk" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>At every hedge-check point, <code>Hedger</code> uses futures/perpetual contracts to offset part of the $\Delta_{\text{net}}$ (Eq. (7)) that <code>Inventory</code> has aggregated, using one of three rules, from simplest to most refined:</p>
+
+
+<h3 class="relative group">5.1 Interval hedging 
+    <div id="51-interval-hedging" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#51-interval-hedging" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Triggered at a fixed time interval (e.g. every 5 minutes), flattening $\Delta_{\text{net}}$ to zero. The simplest logic, but no adjustment happens between triggers regardless of how the market moves, so the response to a sudden move is slow and exposure can already be substantial by the time the next trigger fires.</p>
+
+
+<h3 class="relative group">5.2 Fixed-band hedging 
+    <div id="52-fixed-band-hedging" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#52-fixed-band-hedging" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Set a band $H$; a hedge only triggers when $|\Delta_{\text{net}}| > H$, and it pulls $\Delta_{\text{net}}$ back only to the band edge $\pm H$ rather than to zero:</p>
+$$
+\text{Trigger condition: } |\Delta_{\text{net}}| > H \;\Rightarrow\; \text{hedge size} = \Delta_{\text{net}} - \operatorname{sign}(\Delta_{\text{net}})\cdot H \tag{8}
+$$<p>No hedge fires when moves are small, saving on hedging fees, while a large move is caught promptly enough to keep exposure from running away. The band $H$ is typically a fixed number set by hand, not adapted to market conditions.</p>
+<p>The hedge trade incurs a fee and half the bid-ask spread — a real transaction-cost drag that shows up in the final PnL attribution. <code>Hedger</code> and <code>RiskLimits</code> are complementary: one works down the stock of risk, the other limits the flow into it.</p>
+
+
+<h3 class="relative group">5.3 Future work: Whalley–Wilmott optimal band 
+    <div id="53-future-work-whalleywilmott-optimal-band" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#53-future-work-whalleywilmott-optimal-band" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p><code>Hedger</code> currently implements only the two rules in 5.1 and 5.2, both with a fixed, hand-set band $H$. The planned third rule lets the band itself be computed dynamically, following Whalley &amp; Wilmott (1997): trading off transaction cost against exposure risk yields a theoretically optimal band</p>
+$$
+H^*(t) \propto \left(\frac{\Gamma_{\text{net}}^2 F^2 \kappa}{\lambda}\right)^{1/3} \tag{9}
+$$<p>where $\Gamma_{\text{net}}$ is the current net gamma (Eq. (7)), $F$ is the underlying price, $\kappa$ is the per-unit transaction cost of hedging, and $\lambda$ is a risk-aversion coefficient. The intuition: larger gamma means delta drifts faster, so the band should narrow and hedging should happen more often; higher transaction cost means the band should widen to trade less often; higher risk aversion (less tolerance for exposure swings) should also narrow the band. In production this would mean recomputing $H^*(t)$ at every hedge-check point and substituting it for the fixed $H$ in the trigger logic of Eq. (8).</p>
+<p>What remains unimplemented is mainly calibrating the two parameters $\kappa$ and $\lambda$ — the current data volume isn&rsquo;t yet enough to reliably estimate per-unit hedging cost and risk aversion, which is itself a direct consequence of the &ldquo;insufficient data&rdquo; bottleneck noted in Section 9.</p>
+
+
+<h2 class="relative group">6. FillModel: deciding when a quote gets hit 
+    <div id="6-fillmodel-deciding-when-a-quote-gets-hit" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6-fillmodel-deciding-when-a-quote-gets-hit" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><code>FillModel</code> decides when a posted quote counts as filled, offering two modes.</p>
+
+
+<h3 class="relative group">6.1 Poisson theoretical matching 
+    <div id="61-poisson-theoretical-matching" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#61-poisson-theoretical-matching" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Assumes fills follow a Poisson process whose intensity decays with spread: the smaller the distance $\delta$ between the quote and fair value, the higher the fill intensity, commonly modeled as exponential decay:</p>
+$$
+\lambda(\delta) = Ae^{-k\delta} \tag{10}
+$$<p>where $A$ is the base fill intensity when quoting right at fair value, and $k$ controls how quickly intensity decays with spread. Over a time slice of length $dt$, the probability of this quote being hit is approximately $\lambda(\delta)\,dt$. This mode requires no real trade data at all, only calibrating the two parameters $A$, $k$, so it can keep a backtest running even when data — or trade-replay samples in particular — is sparse; the tradeoff is that fill behavior is assumed rather than observed, and may diverge from the market&rsquo;s actual fill dynamics.</p>
+
+
+<h3 class="relative group">6.2 Trade-replay 
+    <div id="62-trade-replay" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#62-trade-replay" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Replays real trades that actually happened on Deribit: walking through historical trades in time order, whenever a real trade price $p_{\text{trade}}$ appears, check whether it crosses the quote standing at that moment —</p>
+$$
+p_{\text{trade}} \ge \text{ask} \;\Rightarrow\; \text{deemed a sell}, \qquad p_{\text{trade}} \le \text{bid} \;\Rightarrow\; \text{deemed a buy} \tag{11}
+$$<p>If it crosses, a fill is recorded — at the posted bid/ask (not at $p_{\text{trade}}$ itself), on the logic that a counterparty would have traded against the quote itself had it really been resting there. This mode is grounded entirely in trading activity that actually happened, requiring no assumed distribution and staying closer to reality, but it depends on the density of historical trades: illiquid expiries and deep out-of-the-money contracts see real fills only rarely, and a trigger may not occur for a long stretch, leaving too few samples.</p>
+<p>Once filled, <code>FillModel</code> feeds the result back to <code>Inventory</code> to update the position, and records an <strong>edge</strong> (the difference between the fill price and fair value at that moment) — money earned purely from the quoted spread, tracked separately as its own line item in PnL attribution.</p>
+
+
+<h2 class="relative group">7. Data flow across the four modules 
+    <div id="7-data-flow-across-the-four-modules" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#7-data-flow-across-the-four-modules" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>An analogy helps organize the four roles: think of the whole market-making system as a small factory. <code>Quoter</code> is the &ldquo;pricer,&rdquo; deciding only what price each order should be quoted at; <code>FillModel</code> is the &ldquo;receiving clerk,&rdquo; deciding whether an order was actually taken; <code>Inventory</code> is the &ldquo;ledger,&rdquo; recording how much stock the factory currently owes or is holding; <code>RiskLimits</code> is the &ldquo;gatekeeper,&rdquo; deciding whether new orders can still be accepted; <code>Hedger</code> is the &ldquo;stock clearer,&rdquo; periodically working down accumulated inventory. Each role operates independently, but all of them report to — or read from — the same ledger, which is what keeps the whole factory from falling into chaos.</p>
+<p>The data flow is shown in Figure 2.</p>
+<p><em>Figure 2: Vol surface (<code>Surface</code>) → <code>Quoter</code> (post quote) → <code>FillModel</code> (check fill) → <code>RiskLimits</code> (pause on breach) / <code>Hedger</code> (hedge with futures) → <code>Inventory</code> (update net position). Solid lines are the main decision chain; the two dashed lines are feedback loops, carrying the latest results from <code>RiskLimits</code> and <code>Hedger</code> back to <code>Quoter</code>, used on the next cycle to pause one side of quoting or adjust the inventory skew. (Diagram — see the PDF version.)</em></p>
+
+
+<h2 class="relative group">8. PnL attribution: where the money actually comes from 
+    <div id="8-pnl-attribution-where-the-money-actually-comes-from" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#8-pnl-attribution-where-the-money-actually-comes-from" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Position value $V$ is a function of the underlying price $F$, implied volatility $\sigma$, and time $t$. A multivariate Taylor expansion decomposes the change in position value $dV$ over some interval into several terms:</p>
+$$
+\text{PnL} \approx \text{edge} + \Delta\cdot dF + \tfrac{1}{2}\Gamma\cdot dF^2 + \Theta\cdot dt + \nu\cdot d\sigma - \text{hedging cost} \tag{12}
+$$<p>where edge is the only term in Eq. (12) that doesn&rsquo;t come from a Greek — it is the difference between fill price and fair value (see Section 6); $\Delta$, $\Gamma$, $\Theta$, $\nu$ are the position&rsquo;s net delta, gamma, theta, and vega at the start of the interval (aggregated by <code>Inventory</code>); $dF$, $d\sigma$, $dt$ are the changes in underlying price, implied volatility, and time over the interval; and hedging cost in Eq. (12) is the sum of fees and half-spread incurred by <code>Hedger</code>.</p>
+<p>Substituting the starting Greeks into each term gives a theoretical contribution, which is then compared against the account&rsquo;s actual realized PnL; the difference is recorded as the <strong>residual</strong>:</p>
+$$
+\text{residual} = \text{actual PnL} - \left(\text{edge} + \Delta\,dF + \tfrac{1}{2}\Gamma\,dF^2 + \Theta\,dt + \nu\,d\sigma - \text{hedging cost}\right) \tag{13}
+$$<p>The residual in Eq. (13) mainly comes from three sources: the Taylor expansion is truncated at second order, dropping third-order and higher terms; second-order cross Greeks such as vanna and volga aren&rsquo;t broken out separately; and there is discretization error between hedge-check points. A smaller residual share means the attribution framework is more trustworthy, and that hedging frequency and Greek computation are on solid ground.</p>
+<p>Summing every interval&rsquo;s attribution over a full backtest run answers the question of where this market-making system&rsquo;s money actually comes from: edge and theta are typically relatively stable income terms, while gamma&rsquo;s negative contribution and hedging costs are the unavoidable price of discrete hedging; what&rsquo;s left after netting the two is what the system genuinely earns — not the single, uninformative number of total account PnL.</p>
+
+
+<h2 class="relative group">9. Current bottleneck 
+    <div id="9-current-bottleneck" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#9-current-bottleneck" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The full chain — Deribit → recording → parquet → loading → implied vol/SVI surface → quoting + inventory + fill matching → event loop (hedging included) → PnL attribution → metrics/plots — is completely wired up at the code level. The one remaining bottleneck is <strong>Step 3</strong>: when the data volume is too small, the surface fit degrades to an uncalibrated flat 50% surface, and every downstream number — quotes, hedges, attribution — is then built on that placeholder surface and carries no real meaning. This isn&rsquo;t a logic bug; it&rsquo;s an inevitable waiting period until enough data has accumulated to support a genuine fit.</p>
+
+    </div>
+    <nav class="pn"><a href="/docs/articles/black-scholes/"><span>← Previous</span><b>Black-Scholes：一份“权利”该值多少钱</b></a><a class="nx" href="/docs/articles/market-making-loop/"><span>Next →</span><b>期权做市商的核心业务闭环：从定价曲面到 Pn L 归因的五层标准流程</b></a>
+    </nav>
+  </article>
+
+  <aside class="rail">
+    <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#1-the-six-steps-end-to-end" class="l1">1. The six steps end to end</a>
+        <a href="#2-the-foundation-of-pricing-from-market-data-to-a-volatility-surface" class="l1">2. The foundation of pricing: from market data to a volatility surface</a>
+        <a href="#21-the-black-scholes-formula" class="l2">2.1 The Black-Scholes formula</a>
+        <a href="#22-backing-out-implied-volatility" class="l2">2.2 Backing out implied volatility</a>
+        <a href="#23-why-iv-differs-across-strikes" class="l2">2.3 Why IV differs across strikes</a>
+        <a href="#24-from-curve-to-surface-svi-fitting" class="l2">2.4 From curve to surface: SVI fitting</a>
+        <a href="#3-quoter-pricing-and-quoting" class="l1">3. Quoter: pricing and quoting</a>
+        <a href="#31-computing-fair-value" class="l2">3.1 Computing fair value</a>
+        <a href="#32-widening-the-half-spread-with-vegagamma" class="l2">3.2 Widening the half-spread with vega/gamma</a>
+        <a href="#33-inventory-skew-shifting-the-whole-quote-band" class="l2">3.3 Inventory skew: shifting the whole quote band</a>
+        <a href="#4-inventory-and-risklimits-bookkeeping-and-the-brake" class="l1">4. Inventory and RiskLimits: bookkeeping and the brake</a>
+        <a href="#41-inventory-aggregating-net-position-and-net-greeks" class="l2">4.1 Inventory: aggregating net position and net Greeks</a>
+        <a href="#42-risklimits-pausing-one-side-of-the-quote-once-a-limit-is-breached" class="l2">4.2 RiskLimits: pausing one side of the quote once a limit is breached</a>
+        <a href="#5-hedger-actively-working-down-existing-risk" class="l1">5. Hedger: actively working down existing risk</a>
+        <a href="#51-interval-hedging" class="l2">5.1 Interval hedging</a>
+        <a href="#52-fixed-band-hedging" class="l2">5.2 Fixed-band hedging</a>
+        <a href="#53-future-work-whalleywilmott-optimal-band" class="l2">5.3 Future work: Whalley–Wilmott optimal band</a>
+        <a href="#6-fillmodel-deciding-when-a-quote-gets-hit" class="l1">6. FillModel: deciding when a quote gets hit</a>
+        <a href="#61-poisson-theoretical-matching" class="l2">6.1 Poisson theoretical matching</a>
+        <a href="#62-trade-replay" class="l2">6.2 Trade-replay</a>
+        <a href="#7-data-flow-across-the-four-modules" class="l1">7. Data flow across the four modules</a>
+        <a href="#8-pnl-attribution-where-the-money-actually-comes-from" class="l1">8. PnL attribution: where the money actually comes from</a>
+        <a href="#9-current-bottleneck" class="l1">9. Current bottleneck</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>Last updated <time id="updated" datetime="2026-11-26T20:10:58Z">Nov 26, 2026, 3:10 PM ET</time> · buezw.github.io</span>
+</footer>
+<script>
+(function(){
+  var el=document.getElementById('updated'); if(!el||!window.Intl) return;
+  try{
+    var d=new Date(el.getAttribute('datetime'));
+    var s=new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(d);
+    el.textContent=s;
+  }catch(e){}
+})();
+</script>
+
+<script>
+
+
+(function(){
+  var root=document.querySelector('.prose'); if(!root) return;
+  var re=/\*\*((?:(?!\*\*)[\s\S]){1,400}?)\*\*/g;
+  root.querySelectorAll('p,li,td,th,h1,h2,h3,h4,h5,blockquote').forEach(function(el){
+    if(el.closest('pre,code')) return;
+    if(el.querySelector('p,li,ul,ol,table')) return;
+    if(el.innerHTML.indexOf('**')<0) return;
+    var parts=el.innerHTML.split(/(<code[\s\S]*?<\/code>)/);
+    for(var i=0;i<parts.length;i+=2){ parts[i]=parts[i].replace(/\*{4}/g,'').replace(re,'<strong>$1</strong>').replace(/\*\*/g,''); }
+    el.innerHTML=parts.join('');
+  });
+})();
+</script>
+<script>
+ 
+(function(){
+  var h=document.getElementById('atitle'); if(!h) return;
+  function fit(){
+    h.classList.remove('wrap'); h.style.fontSize='';
+    if(window.innerWidth<=760) return;
+    var band=h.closest('.banner'), right=band.getBoundingClientRect().right-parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+    var size=parseFloat(getComputedStyle(h).fontSize), min=parseFloat(getComputedStyle(document.documentElement).fontSize)*1.5;
+    while(h.getBoundingClientRect().right>right && size>min){ size-=1; h.style.fontSize=size+'px'; }
+    if(h.getBoundingClientRect().right>right) h.classList.add('wrap');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+ 
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a')); if(!links.length) return;
+  var heads=links.map(function(a){var e=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));return e&&(e.closest('h1,h2,h3,h4,h5,h6')||e);});
+  function on(){
+    var y=window.scrollY+80, k=0;
+    heads.forEach(function(h,i){ if(h && h.getBoundingClientRect().top+window.scrollY<=y) k=i; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) k=heads.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});
+  }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+</script>
+</body>
+</html>
