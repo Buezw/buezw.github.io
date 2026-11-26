@@ -21,6 +21,26 @@
     </item>
     
     <item>
+      <title>Avellaneda-Stoikov 做市策略：模拟报告</title>
+      <link>https://buezw.github.io/docs/articles/as-simulation-report/</link>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/as-simulation-report/</guid>
+      <description>从零实现 A-S 闭式做市模型的 Python 蒙特卡洛模拟，附毒性流冲击测试与 OFI 信号实验，如实报告结果。</description>
+      
+    </item>
+    
+    <item>
+      <title>蝶式价差：从一个交易结构到一条概率密度曲线</title>
+      <link>https://buezw.github.io/docs/articles/butterfly/</link>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/butterfly/</guid>
+      <description>蝶式价差是测量市场隐含概率密度的量尺，翼展收缩到零就得到 Breeden–Litzenberger 公式。</description>
+      
+    </item>
+    
+    <item>
       <title>OLS Factor Models: CAPM and Fama–French Three-Factor</title>
       <link>https://buezw.github.io/docs/articles/ols-factor-models/</link>
       <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>

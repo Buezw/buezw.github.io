@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avellaneda-Stoikov 做市策略：模拟报告 · Jingnan Huang</title>
+<meta name="description" content="从零实现 A-S 闭式做市模型的 Python 蒙特卡洛模拟，附毒性流冲击测试与 OFI 信号实验，如实报告结果。">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f3f0ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
+
+ 
+.search{position:relative;flex:1;max-width:520px}
+ 
+@media (min-width:1101px){
+  .topnav{display:grid;grid-template-columns:1fr minmax(0,520px) 1fr}
+  .search{width:100%;max-width:none}
+  .topnav nav{justify-self:end}
+}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
+
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
+
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:80px 1fr;gap:16px 14px;margin:32px 0 6px;font-size:1rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
+
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
+
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
+
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
+ 
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+</style>
+
+<link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
+<link rel="stylesheet" href="/lib/katex/katex.min.css">
+<script defer src="/lib/katex/katex.min.js"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<style>
+ 
+.banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.banner>div{padding:0 clamp(24px,3.4vw,64px);max-width:calc(860px + 2*clamp(24px,3.4vw,64px));width:100%;margin:0 auto;box-sizing:border-box;min-width:0}
+.banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 12px;white-space:nowrap;width:max-content}
+.banner h1.wrap{white-space:normal;width:auto}
+.banner .meta{font-size:.86rem}
+.banner .lead{max-width:860px;margin:0 0 12px}
+.nav2{display:flex;gap:8px}
+.nav2 a{display:block;background:#fff;border:1px solid var(--paper2);padding:8px 14px;width:220px}
+.nav2 a:hover{border-color:var(--text)}
+.nav2 small{display:block;font-size:.72rem;color:var(--dim)}
+.nav2 b{display:block;font-weight:500;font-size:.86rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav2 .nx{text-align:right}
+.page{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh / var(--zoom) - 40px);overflow:auto;padding-right:4px}
+.side{padding:30px 22px 30px var(--px)}
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.grp{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;margin-top:8px;padding-bottom:12px;border-bottom:1px solid var(--paper2)}
+.grp a:hover{color:var(--c)}
+.grp small{display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:.76rem;font-weight:400;color:var(--dim);margin-top:6px;letter-spacing:0}
+.grp small i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.sib{font-size:.88rem;line-height:1.35;counter-reset:n}
+.sib a{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;align-items:baseline;padding:6px 8px 6px 0;color:#4a4741;border-radius:3px}
+.sib a em{font-style:normal;font-family:var(--serif);font-size:.95rem;color:var(--dim);text-align:right;padding-right:6px}
+.sib a span{overflow-wrap:anywhere}
+.sib a:hover{color:var(--text);background:rgba(255,255,255,.55)}
+.sib a.cur{background:#fff;color:var(--text);font-weight:500;box-shadow:inset 2px 0 0 var(--c)}
+.sib a.cur em{color:var(--c)}
+.rail{padding:30px var(--px) 30px 24px;border-left:1px solid var(--line)}
+.toc{font-size:.84rem;line-height:1.4;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 0 4px 12px;margin-left:-1px;border-left:2px solid transparent;color:#5a5650}
+.toc a.l2{padding-left:24px;font-size:.8rem;color:var(--dim)}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--c);border-left-color:var(--c)}
+.totop{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--dim)}
+.totop:hover{color:var(--text)}
+
+.art{padding:30px clamp(24px,3.4vw,64px) 50px;min-width:0}
+.art>*{margin-left:auto;margin-right:auto}
+.ahead{max-width:860px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--text)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+.ahead h1{font-size:2.6rem;line-height:1.12;margin:12px 0 0;overflow-wrap:anywhere}
+.ahead .crumb{margin-bottom:10px}
+.lead{margin:14px 0 0;font-size:1.05rem;line-height:1.65;color:#4a4741}
+
+ 
+.prose{max-width:860px;font-size:1.02rem;line-height:1.8;color:#232220;overflow-wrap:break-word}
+.prose h1,.prose h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-size:1.65rem;line-height:1.25;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:1.8em 0 .5em;scroll-margin-top:20px}
+.prose h4{font-size:1.05rem;font-weight:600;margin:1.6em 0 .4em;scroll-margin-top:20px}
+.prose>*:first-child{margin-top:0}
+.prose h1>span,.prose h2>span,.prose h3>span,.prose h4>span{display:none}
+.prose .anchor{scroll-margin-top:20px}
+.prose p{margin:0 0 1em}
+.prose a{color:var(--c);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.prose strong{font-weight:600;color:var(--text)}
+.prose ul,.prose ol{padding-left:1.4em;margin:0 0 1em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.2em 0}
+.prose blockquote{margin:1.2em 0;padding:.6em 1.1em;border-left:3px solid var(--c);background:#faf9f6;color:#4a4741}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose img,.prose video{display:block;max-width:100%;height:auto;margin:1.2em auto;border:1px solid var(--line)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;margin:1.2em 0;font-size:.92rem}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top}
+.prose th{background:#f6f4ef;font-weight:600}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:#f3f0ea;padding:.1em .35em;border-radius:3px}
+.prose pre{background:#faf9f6;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;font-size:.86rem;line-height:1.6;margin:1.2em 0}
+.prose pre code{background:none;padding:0;font-size:inherit}
+.prose .highlight{margin:1.2em 0}
+.prose .highlight pre{margin:0}
+.prose .katex-display{overflow-x:auto;overflow-y:hidden;padding:.2em 0}
+.prose .katex{font-size:1.06em}
+
+.pn{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:18px;border-top:1px solid var(--text)}
+.pn a{display:block;padding:12px 14px;border:1px solid var(--line)}
+.pn a:hover{border-color:var(--text)}
+.pn span{display:block;font-size:.78rem;color:var(--dim)}
+.pn b{font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
+.pn .nx{text-align:right;grid-column:2}
+
+@media (max-width:1000px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .banner{display:block;padding:22px 0 18px}
+  .banner h1{font-size:1.8rem!important;white-space:normal;width:auto}
+  .nav2{display:none}
+  .prose{font-size:.98rem}
+  .pn{grid-template-columns:1fr}
+  .pn .nx{grid-column:1}
+}
+</style>
+</head>
+<body style="--c:var(--blue)">
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 123 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
+  </div>
+  <nav>
+    <a href="/docs/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+<script>
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
+</script>
+
+
+<section class="banner">
+  <div>
+    <div class="crumb"><a href="/docs/">Notebook</a><i>/</i><a href="/docs/">Articles</a></div>
+    <h1 class="serif" id="atitle">Avellaneda-Stoikov 做市策略：模拟报告</h1><p class="lead">从零实现 A-S 闭式做市模型的 Python 蒙特卡洛模拟，附毒性流冲击测试与 OFI 信号实验，如实报告结果。</p>
+    <div class="meta">
+      <span>Sep 15, 2026</span><span>Edited 11/26/26</span>
+      <i class="lang">CN</i>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <article class="art">
+
+    <div class="prose">
+      
+<p>库存感知做市模型的从零实现与压力测试 | <code>Market-Maker-Strategy/python</code></p>
+<blockquote>
+<p>Avellaneda, M. &amp; Stoikov, S. (2008). &ldquo;High-frequency trading in a limit order book.&rdquo; <em>Quantitative Finance</em>, 8(3), 217–224. DOI: 10.1080/14697680701381228</p>
+</blockquote>
+
+
+<h2 class="relative group">一、我做了什么 
+    <div id="%E4%B8%80%E6%88%91%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%80%E6%88%91%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>在原有的 C 语言限价订单簿撮合引擎（<code>engine/</code>，仅 3 档离散价位、无浮点运算，为裸机环境设计）之上，另起了一个独立的 Python 子项目（<code>python/</code>），从零实现 Avellaneda &amp; Stoikov (2008) 论文里真正的闭式做市模型，而不是把这套连续价格、连续做市强度的数学，硬塞进一个只有 3 个价位槽的离散撮合引擎里。</p>
+<p>具体做了四件事，对应最初提的四个要求：</p>
+<ul>
+<li><strong>模拟 mid-price</strong>：中间价按论文原设定，走算术布朗运动 $dS = \sigma\, dW$。</li>
+<li><strong>按库存调整 reservation price</strong>：库存为正（多头）会把报价中枢往下拉（更想卖出），库存为负（空头）反之，具体公式见第二节。</li>
+<li><strong>计算最优 bid/ask</strong>：闭式最优价差公式，两档对称挂在 reservation price 两侧。</li>
+<li><strong>跟踪库存与 P&amp;L</strong>：逐 tick 记录库存、现金、按当前中间价 mark 的浮动盈亏，蒙特卡洛批量跑几千条路径统计终局分布。</li>
+</ul>
+<p>然后按要求做了两个进阶模块：一个 order flow imbalance 信号，一个 adverse selection / toxic flow 冲击测试。这两块没有为了效果好看去调参——下面第四、五节会把真实测出来的数字和为什么会是这个结果都如实写出来，包括一开始设计错了、后来怎么改对的过程。</p>
+
+
+<h2 class="relative group">二、模型：论文原始公式 
+    <div id="%E4%BA%8C%E6%A8%A1%E5%9E%8B%E8%AE%BA%E6%96%87%E5%8E%9F%E5%A7%8B%E5%85%AC%E5%BC%8F" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%8C%E6%A8%A1%E5%9E%8B%E8%AE%BA%E6%96%87%E5%8E%9F%E5%A7%8B%E5%85%AC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>论文用指数效用的做市商，中间价 $S_t$ 服从算术布朗运动，订单簿里离中间价距离 $\delta$ 的挂单以 Poisson 强度成交：</p>
+$$
+\lambda(\delta) = A \cdot e^{-k\delta}
+$$<p>求解做市商的 HJB 方程，得到闭式的 reservation price（在当前库存 $q$ 下，做市商对多持一单位和少持一单位无差别的价格）：</p>
+$$
+r(s,q,t) = s - q\gamma\sigma^2(T-t)
+$$<p>对应的最优总价差，两档对称挂在 $r$ 两侧：</p>
+$$
+\delta_{\text{total}} = \gamma\sigma^2(T-t) + \frac{2}{\gamma}\ln\!\left(1+\frac{\gamma}{k}\right)
+$$$$
+\text{bid} = r - \frac{\delta_{\text{total}}}{2} \qquad \text{ask} = r + \frac{\delta_{\text{total}}}{2}
+$$<p>$\gamma$ 是做市商的风险厌恶系数，$\sigma$ 是波动率，$k$ 是订单簿厚度（越大表示挂单要越贴近中间价才能成交），$A$ 是零距离处的基础成交强度。全部符号含义、公式出处见 <code>avellaneda_stoikov/model.py</code> 的 docstring。</p>
+<p>实现上用 numpy 把蒙特卡洛的每一条路径都当成数组里的一条车道，同一个时间循环里所有路径并行推进——因为路径之间彼此独立，唯一真正的递归关系是沿着时间展开的（库存、现金都依赖到当前为止的整条成交历史），不需要对每条路径单独写 Python 循环。</p>
+
+
+<h2 class="relative group">三、核心结果：AS 策略 vs. 对称策略（不做库存调整） 
+    <div id="%E4%B8%89%E6%A0%B8%E5%BF%83%E7%BB%93%E6%9E%9Cas-%E7%AD%96%E7%95%A5-vs-%E5%AF%B9%E7%A7%B0%E7%AD%96%E7%95%A5%E4%B8%8D%E5%81%9A%E5%BA%93%E5%AD%98%E8%B0%83%E6%95%B4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%89%E6%A0%B8%E5%BF%83%E7%BB%93%E6%9E%9Cas-%E7%AD%96%E7%95%A5-vs-%E5%AF%B9%E7%A7%B0%E7%AD%96%E7%95%A5%E4%B8%8D%E5%81%9A%E5%BA%93%E5%AD%98%E8%B0%83%E6%95%B4" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>论文自己的对照组（Sec. 4）：把 reservation price 里的 $q$ 项去掉，其余（价差公式、成交模型）完全一样，这样能干净地隔离出库存偏斜这一项到底带来了什么。参数用论文原始算例：$s_0=100$, $T=1$, $\sigma=2$, $\gamma=0.1$, $k=1.5$, $A=140$, $dt=0.005$（200 步/条路径），5000 条路径。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">策略</th>
+          <th style="text-align: center">PnL 均值</th>
+          <th style="text-align: center">PnL 标准差</th>
+          <th style="text-align: center">库存标准差</th>
+          <th style="text-align: center">平均最大|库存|</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">symmetric（对称）</td>
+          <td style="text-align: center">61.05</td>
+          <td style="text-align: center">8.15</td>
+          <td style="text-align: center">8.12</td>
+          <td style="text-align: center">9.64</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">as（库存偏斜）</td>
+          <td style="text-align: center">57.29</td>
+          <td style="text-align: center">5.74</td>
+          <td style="text-align: center">3.00</td>
+          <td style="text-align: center">4.09</td>
+      </tr>
+  </tbody>
+</table>
+<p>这正是论文的核心结论：AS 策略放弃了一点点均值 PnL（约 6%），换来终局 PnL 分布标准差降低 30%，库存风险只有对称策略的三分之一左右——用更少的尾部风险换取更稳的收益，而不是单纯赚得更多。</p>
+<p><em>图 1：单条模拟路径 — 中间价/AS bid-ask/reservation price（上），AS 与对称策略的库存对比（中），两者的 mark-to-mid P&amp;L 对比（下）。可以直接看到 reservation price 如何跟着库存左右移动，以及 AS 的库存曲线明显比对称策略收得更紧。（原文为图表，见 PDF 版）</em></p>
+<p><em>图 2：5000 条蒙特卡洛路径的终局 P&amp;L 分布对比——AS（蓝）明显比对称策略（橙）更集中，尾部更薄。（原文为图表，见 PDF 版）</em></p>
+
+
+<h2 class="relative group">四、进阶一：Adverse Selection / Toxic Flow 冲击测试 
+    <div id="%E5%9B%9B%E8%BF%9B%E9%98%B6%E4%B8%80adverse-selection--toxic-flow-%E5%86%B2%E5%87%BB%E6%B5%8B%E8%AF%95" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9B%9B%E8%BF%9B%E9%98%B6%E4%B8%80adverse-selection--toxic-flow-%E5%86%B2%E5%87%BB%E6%B5%8B%E8%AF%95" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">怎么建模毒性流 
+    <div id="%E6%80%8E%E4%B9%88%E5%BB%BA%E6%A8%A1%E6%AF%92%E6%80%A7%E6%B5%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E6%80%8E%E4%B9%88%E5%BB%BA%E6%A8%A1%E6%AF%92%E6%80%A7%E6%B5%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>论文本身假设订单流是无信息的 Poisson 过程——它自己的模型里，永远没有对手方比做市商更了解下一步价格会怎么走。真实的毒性流打破了这个假设：一部分对手方确实知道点什么，专挑做市商即将被打穿的那一侧下单。</p>
+<p>实现方式：每个 tick 以概率 <code>jump_prob</code> 触发一次价格跳跃（大小 <code>jump_size</code>），跳跃幅度特意设得比半个价差还大——因为普通一个 tick 的扩散幅度（$\sigma\sqrt{dt} \approx 0.14$）远小于半价差（$\approx 0.85$），如果用下一 tick 会往哪走这么短的预见期去建模知情交易，冲击测试根本测不出任何效果（这是实际跑出来才发现的，见下方踩过的坑）。<code>toxicity</code> $\in [0,1]$ 控制这次跳跃里有多少比例的流量是知情的：跳跃发生时，即将被打穿的一侧（价格要涨就是卖价，要跌就是买价）成交概率会被推向 1。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">toxicity</th>
+          <th style="text-align: center">symmetric PnL 均值</th>
+          <th style="text-align: center">as PnL 均值</th>
+          <th style="text-align: center">as_defensive PnL 均值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">0.00</td>
+          <td style="text-align: center">60.71</td>
+          <td style="text-align: center">57.26</td>
+          <td style="text-align: center">56.94</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.10</td>
+          <td style="text-align: center">60.60</td>
+          <td style="text-align: center">56.88</td>
+          <td style="text-align: center">56.71</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.20</td>
+          <td style="text-align: center">60.03</td>
+          <td style="text-align: center">56.56</td>
+          <td style="text-align: center">56.29</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.35</td>
+          <td style="text-align: center">60.02</td>
+          <td style="text-align: center">56.25</td>
+          <td style="text-align: center">56.14</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.50</td>
+          <td style="text-align: center">59.80</td>
+          <td style="text-align: center">55.92</td>
+          <td style="text-align: center">55.85</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1.00</td>
+          <td style="text-align: center">—</td>
+          <td style="text-align: center">54.69</td>
+          <td style="text-align: center">54.89</td>
+      </tr>
+  </tbody>
+</table>
+<p>（每格 4000 条路径，<code>vpin_kappa=0.3</code>；toxicity=1.00 单独跑，不在默认扫描网格里）</p>
+<p><em>图 3：均值 P&amp;L 随注入毒性上升而单调下降（三条策略线都是）。（原文为图表，见 PDF 版）</em></p>
+
+
+<h3 class="relative group">两个诚实的发现（不是一开始预想的） 
+    <div id="%E4%B8%A4%E4%B8%AA%E8%AF%9A%E5%AE%9E%E7%9A%84%E5%8F%91%E7%8E%B0%E4%B8%8D%E6%98%AF%E4%B8%80%E5%BC%80%E5%A7%8B%E9%A2%84%E6%83%B3%E7%9A%84" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%A4%E4%B8%AA%E8%AF%9A%E5%AE%9E%E7%9A%84%E5%8F%91%E7%8E%B0%E4%B8%8D%E6%98%AF%E4%B8%80%E5%BC%80%E5%A7%8B%E9%A2%84%E6%83%B3%E7%9A%84" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>毒性确实单调拖累 PnL，但在这组参数下幅度不算大。</strong> 第一版冲击测试用下一 tick 作知情预见期，测出来 toxicity 几乎没有可观测的影响——半价差每次都稳赢过普通扩散的幅度。直到把知情交易明确建模成提前知道一次和价差同量级的跳跃，效果才显现。这本身就是一个值得记录的发现：对称/AS 报价策略要感觉到逆向选择，冲击幅度得和它能拿到的补偿（价差）在同一个量级上，不然根本不痛不痒。</li>
+<li><strong>as_defensive（用 <code>signals.ToxicityProxy</code> 这个简化版 VPIN 信号反应式加宽价差）基本是打平的，没有明显帮助。</strong> 它会让全程成交量少掉约 20%（价差变宽，连正常无信息的订单流也被挡在外面），只有在毒性最高的那一档才勉强反超一点点。原因是结构性的，不是没调好参：<code>ToxicityProxy</code> 完全基于过去的成交历史构建，而这个测试里的跳跃是瞬时、逐 tick 独立的——对一个只能往回看的信号来说，没有任何在跳跃发生前能抓到的痕迹。VPIN 这类毒性指标在文献里本来就是设计来抓持续性的单边知情流（比如 Flash Crash 前的那种机构订单流），不是用来抓孤立冲击的。第一版图省事直接把 <code>vpin_kappa</code> 设成 2.0，结果更糟——滚动窗口里成交笔数太少（约 18 笔），单靠二项分布的抽样噪声就经常显得失衡，几乎一直在自己吓自己地加宽价差，哪怕注入毒性为零，PnL 也直接腰斩。0.3 是调得更保守的一版，不是解决了这个问题。</li>
+</ul>
+
+
+<h2 class="relative group">五、进阶二：Order Flow Imbalance 信号 
+    <div id="%E4%BA%94%E8%BF%9B%E9%98%B6%E4%BA%8Corder-flow-imbalance-%E4%BF%A1%E5%8F%B7" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BA%94%E8%BF%9B%E9%98%B6%E4%BA%8Corder-flow-imbalance-%E4%BF%A1%E5%8F%B7" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>思路来自 Cont, Kukanov &amp; Stoikov (2014)：净订单流失衡能预测短期价格走向。这里用这个模拟器自己产生的净签约成交流量（我方买入 − 我方卖出，在滚动窗口内求和）作为论文原版全订单簿队列变化的简化替代，用一个 <code>ofi_theta</code> 参数把它线性叠加进 reservation price。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">ofi_theta</th>
+          <th style="text-align: center">PnL 均值</th>
+          <th style="text-align: center">PnL 标准差</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">-2.0</td>
+          <td style="text-align: center">53.69</td>
+          <td style="text-align: center">6.56</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">-1.0</td>
+          <td style="text-align: center">55.23</td>
+          <td style="text-align: center">6.92</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">-0.5</td>
+          <td style="text-align: center">55.87</td>
+          <td style="text-align: center">7.12</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.0</td>
+          <td style="text-align: center">56.47</td>
+          <td style="text-align: center">7.42</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">0.5</td>
+          <td style="text-align: center">56.89</td>
+          <td style="text-align: center">7.76</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">1.0</td>
+          <td style="text-align: center">57.02</td>
+          <td style="text-align: center">8.40</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2.0</td>
+          <td style="text-align: center">55.32</td>
+          <td style="text-align: center">11.07</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5.0</td>
+          <td style="text-align: center">-16.38</td>
+          <td style="text-align: center">38.13</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10.0</td>
+          <td style="text-align: center">-221.68</td>
+          <td style="text-align: center">76.14</td>
+      </tr>
+  </tbody>
+</table>
+<p><em>图 4：均值 P&amp;L 随 OFI 倾斜强度变化（toxicity=0.3，4000 条路径/格）——小幅正向倾斜有边际收益，过了某个量级后迅速崩坏。（原文为图表，见 PDF 版）</em></p>
+<p>在 <code>ofi_theta</code> ≈ 0.5–1.0（顺着最近的净成交流量小幅拉动 reservation price）能看到一个稳定、可跨随机种子复现的小幅收益（约 +0.5∼0.6，换来更高的方差）。但过了 theta ≈ 2 之后同一个（未做截断的）线性倾斜项开始起反作用，到 theta=10 直接崩溃。原因两边一致：<code>ofi_theta</code> 直接乘在一个没有裁剪的滚动均值上，一段本身只是噪声、并非真正知情的成交流，也能把 reservation price 甩出去好几倍价差。这条曲线的形状比某个具体的最优值更值得记住——顺着已实现流量小幅调整确实有真实的边际收益，但这个收益很脆弱；这正是为什么真实生产系统里，基于信号的调整都会做裁剪/衰减而不是直接线性叠加，报告里特意把这个失败模式也保留下来展示，而不是只放调好的那一个值。</p>
+
+
+<h2 class="relative group">六、诚实说明：已知局限 
+    <div id="%E5%85%AD%E8%AF%9A%E5%AE%9E%E8%AF%B4%E6%98%8E%E5%B7%B2%E7%9F%A5%E5%B1%80%E9%99%90" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%85%AD%E8%AF%9A%E5%AE%9E%E8%AF%B4%E6%98%8E%E5%B7%B2%E7%9F%A5%E5%B1%80%E9%99%90" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>中间价过程没有 regime 结构——没有真实市场的波动率聚集、成交量相关的跳跃、动量；除冲击测试专门加的跳跃外，其余部分严格按论文假设走纯 $\sigma$ 恒定的算术布朗运动。</li>
+<li>成交是单位大小、逐边独立的 Poisson 事件——没有队列位置、没有部分成交、没有深度，这是论文自己的简化，不是这里额外加的。</li>
+<li>两个信号模块的效果如实报告，没有挑好看的数字：OFI 有真实但脆弱、容易被自己的幅度反噬的边际收益；毒性防御在这个模拟器注入的（瞬时型）毒性下基本打平，需要真正持续性的毒性 regime 才有公平发挥的机会。</li>
+<li>跑在 Python 3.6.8、没有 pandas/pytest 的环境里——测试套件是和 C 项目 <code>tests/test_market_maker.c</code> 一样的纯 assert + print PASS/FAIL 风格，没有框架依赖。</li>
+</ul>
+
+
+<h2 class="relative group">七、如何复现 
+    <div id="%E4%B8%83%E5%A6%82%E4%BD%95%E5%A4%8D%E7%8E%B0" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%B8%83%E5%A6%82%E4%BD%95%E5%A4%8D%E7%8E%B0" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> python <span class="o">&amp;&amp;</span> pip3 install -r requirements.txt
+</span></span><span class="line"><span class="cl">make <span class="nb">test</span>    <span class="c1"># 跑测试套件</span>
+</span></span><span class="line"><span class="cl">make single  <span class="c1"># 图1</span>
+</span></span><span class="line"><span class="cl">make mc      <span class="c1"># 图2</span>
+</span></span><span class="line"><span class="cl">make stress  <span class="c1"># 图3、图4 + 上面两张结果表</span>
+</span></span></code></pre></div><p>全部代码、公式出处、更详细的文字版结果见项目内 <code>python/README.md</code> 与根目录 <code>README.md</code>。</p>
+
+
+<h2 class="relative group">参考文献 
+    <div id="%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li>Avellaneda, M. &amp; Stoikov, S. (2008). &ldquo;High-frequency trading in a limit order book.&rdquo; <em>Quantitative Finance</em>, 8(3), 217–224.</li>
+<li>Cont, R., Kukanov, A., &amp; Stoikov, S. (2014). &ldquo;The Price Impact of Order Book Events.&rdquo; <em>Journal of Financial Econometrics</em>, 12(1), 47–88.</li>
+<li>Easley, D., Lopez de Prado, M. M., &amp; O&rsquo;Hara, M. (2012). &ldquo;Flow Toxicity and Liquidity in a High-Frequency World.&rdquo; <em>Review of Financial Studies</em>, 25(5), 1457–1493.</li>
+</ol>
+
+    </div>
+    <nav class="pn"><a href="/docs/articles/as2.optimal-spread/"><span>← Previous</span><b>A-S 2. 最优价差 δ*：从零开始完整推导</b></a><a class="nx" href="/docs/articles/butterfly/"><span>Next →</span><b>蝶式价差：从一个交易结构到一条概率密度曲线</b></a>
+    </nav>
+  </article>
+
+  <aside class="rail">
+    <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#%e4%b8%80%e6%88%91%e5%81%9a%e4%ba%86%e4%bb%80%e4%b9%88" class="l1">一、我做了什么</a>
+        <a href="#%e4%ba%8c%e6%a8%a1%e5%9e%8b%e8%ae%ba%e6%96%87%e5%8e%9f%e5%a7%8b%e5%85%ac%e5%bc%8f" class="l1">二、模型：论文原始公式</a>
+        <a href="#%e4%b8%89%e6%a0%b8%e5%bf%83%e7%bb%93%e6%9e%9cas-%e7%ad%96%e7%95%a5-vs-%e5%af%b9%e7%a7%b0%e7%ad%96%e7%95%a5%e4%b8%8d%e5%81%9a%e5%ba%93%e5%ad%98%e8%b0%83%e6%95%b4" class="l1">三、核心结果：AS 策略 vs. 对称策略（不做库存调整）</a>
+        <a href="#%e5%9b%9b%e8%bf%9b%e9%98%b6%e4%b8%80adverse-selection--toxic-flow-%e5%86%b2%e5%87%bb%e6%b5%8b%e8%af%95" class="l1">四、进阶一：Adverse Selection / Toxic Flow 冲击测试</a>
+        <a href="#%e6%80%8e%e4%b9%88%e5%bb%ba%e6%a8%a1%e6%af%92%e6%80%a7%e6%b5%81" class="l2">怎么建模毒性流</a>
+        <a href="#%e4%b8%a4%e4%b8%aa%e8%af%9a%e5%ae%9e%e7%9a%84%e5%8f%91%e7%8e%b0%e4%b8%8d%e6%98%af%e4%b8%80%e5%bc%80%e5%a7%8b%e9%a2%84%e6%83%b3%e7%9a%84" class="l2">两个诚实的发现（不是一开始预想的）</a>
+        <a href="#%e4%ba%94%e8%bf%9b%e9%98%b6%e4%ba%8corder-flow-imbalance-%e4%bf%a1%e5%8f%b7" class="l1">五、进阶二：Order Flow Imbalance 信号</a>
+        <a href="#%e5%85%ad%e8%af%9a%e5%ae%9e%e8%af%b4%e6%98%8e%e5%b7%b2%e7%9f%a5%e5%b1%80%e9%99%90" class="l1">六、诚实说明：已知局限</a>
+        <a href="#%e4%b8%83%e5%a6%82%e4%bd%95%e5%a4%8d%e7%8e%b0" class="l1">七、如何复现</a>
+        <a href="#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae" class="l1">参考文献</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>Last updated <time id="updated" datetime="2026-11-26T20:06:55Z">Nov 26, 2026, 3:06 PM ET</time> · buezw.github.io</span>
+</footer>
+<script>
+(function(){
+  var el=document.getElementById('updated'); if(!el||!window.Intl) return;
+  try{
+    var d=new Date(el.getAttribute('datetime'));
+    var s=new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(d);
+    el.textContent=s;
+  }catch(e){}
+})();
+</script>
+
+<script>
+
+
+(function(){
+  var root=document.querySelector('.prose'); if(!root) return;
+  var re=/\*\*((?:(?!\*\*)[\s\S]){1,400}?)\*\*/g;
+  root.querySelectorAll('p,li,td,th,h1,h2,h3,h4,h5,blockquote').forEach(function(el){
+    if(el.closest('pre,code')) return;
+    if(el.querySelector('p,li,ul,ol,table')) return;
+    if(el.innerHTML.indexOf('**')<0) return;
+    var parts=el.innerHTML.split(/(<code[\s\S]*?<\/code>)/);
+    for(var i=0;i<parts.length;i+=2){ parts[i]=parts[i].replace(/\*{4}/g,'').replace(re,'<strong>$1</strong>').replace(/\*\*/g,''); }
+    el.innerHTML=parts.join('');
+  });
+})();
+</script>
+<script>
+ 
+(function(){
+  var h=document.getElementById('atitle'); if(!h) return;
+  function fit(){
+    h.classList.remove('wrap'); h.style.fontSize='';
+    if(window.innerWidth<=760) return;
+    var band=h.closest('.banner'), right=band.getBoundingClientRect().right-parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+    var size=parseFloat(getComputedStyle(h).fontSize), min=parseFloat(getComputedStyle(document.documentElement).fontSize)*1.5;
+    while(h.getBoundingClientRect().right>right && size>min){ size-=1; h.style.fontSize=size+'px'; }
+    if(h.getBoundingClientRect().right>right) h.classList.add('wrap');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+ 
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a')); if(!links.length) return;
+  var heads=links.map(function(a){var e=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));return e&&(e.closest('h1,h2,h3,h4,h5,h6')||e);});
+  function on(){
+    var y=window.scrollY+80, k=0;
+    heads.forEach(function(h,i){ if(h && h.getBoundingClientRect().top+window.scrollY<=y) k=i; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) k=heads.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});
+  }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+</script>
+</body>
+</html>
