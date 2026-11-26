@@ -134,17 +134,64 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px var(--px) 22px}
 .banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 10px}
 .banner .meta{font-size:.86rem}
-.wrap{flex:1;padding:26px var(--px) 50px;max-width:1240px;width:100%;box-sizing:border-box}
+.wrap{flex:1;padding:26px var(--px) 50px;width:100%;box-sizing:border-box}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:34px}
 .card{display:block;border:1px solid var(--line);padding:16px 18px 14px;background:#fff}
 .card:hover{border-color:var(--text)}
 .card b{display:block;font-family:var(--serif);font-weight:500;font-size:1.2rem;line-height:1.25}
 .card span{display:block;margin-top:6px;font-size:.8rem;color:var(--dim)}
 .card i.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--d);margin-right:6px;vertical-align:1px}
-.list{max-width:900px;--c:var(--blue)}
+.list{--c:var(--blue)}
+.card ul{list-style:none;margin:10px 0 0;padding:10px 0 0;border-top:1px solid var(--line);font-size:.84rem;color:#4a4741;line-height:1.7}
+.card ul li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ 
+.blocks{columns:2;column-gap:48px}
+.block{break-inside:avoid;padding-bottom:26px}
+.block .lab b{display:flex;align-items:center;gap:8px}
+.block .lab b i{width:8px;height:8px;border-radius:50%;background:var(--d)}
+.block .lab b a:hover{color:var(--c)}
+ 
+.leaf{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:start}
+.about{position:sticky;top:20px;display:flex;flex-direction:column;gap:24px}
+.kv{display:grid;grid-template-columns:86px minmax(0,1fr);font-size:.88rem;margin-top:4px}
+.kv dt,.kv dd{margin:0;padding:7px 0;border-bottom:1px solid var(--line)}
+.kv dt{color:var(--dim)}
+.sibs a{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.sibs a span{color:var(--dim);font-size:.8rem}
+.sibs a:hover{color:var(--c)}
+@media (max-width:1000px){.blocks{columns:1}.leaf{grid-template-columns:minmax(0,1fr)}.about{position:static}}
 .list .rs .t span .lang{margin-right:6px;vertical-align:1px}
 .empty{color:var(--dim)}
 @media (max-width:760px){.banner h1{font-size:1.8rem}}
+ 
+.ccards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.ccard{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-top:3px solid var(--d);padding:22px 26px 20px;background:#fff;min-height:190px}
+.ccard:hover{border-color:var(--text);border-top-color:var(--d)}
+.ccard .ca{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--dim)}
+.ccard b{font-size:2rem;font-weight:500;line-height:1.15;letter-spacing:-.01em}
+.ccard .cs{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem;color:var(--dim)}
+.ccard em{margin-top:auto;font-style:normal;font-size:.92rem;color:var(--c)}
+.ccard:hover em{text-decoration:underline}
+@media (max-width:760px){.ccards{grid-template-columns:minmax(0,1fr)}.ccard b{font-size:1.6rem}}
+ 
+.banner h1{font-size:3rem}
+.banner .meta{font-size:.95rem}
+.wrap{font-size:16.5px}
+.wrap .lab{font-size:.88rem;padding-bottom:9px}
+.wrap .lab b{font-size:1.05rem}
+.wrap .rs{padding:12px 0 13px!important}
+.wrap .rs .t b{font-size:1.12rem;line-height:1.4}
+.wrap .rs .t span{font-size:.92rem}
+.wrap .rs p{font-size:.95rem;margin-top:5px}
+.wrap .lang{font-size:.72rem}
+.kv{font-size:.98rem}
+.kv dt,.kv dd{padding:10px 0}
+.kv dt{}
+.sibs a{font-size:.98rem;padding:10px 0}
+@media (min-width:1001px){.leaf{grid-template-columns:minmax(0,1fr) 320px;gap:56px}}
+.card b{font-size:1.35rem}
+.card span,.card ul{font-size:.9rem}
+@media (max-width:760px){.banner h1{font-size:2rem}.wrap{font-size:15px}}
 </style>
 </head>
 <body style="--c:var(--blue)">
@@ -250,37 +297,56 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
   <div class="crumb"><a href="/docs/">Docs</a><i>/</i><a href="/docs/uoft/">UofT Coursework</a><i>/</i><a href="/docs/uoft/26w/">Winter 2026</a></div>
   <h1 class="serif">Signals &amp; Systems</h1>
   <div class="meta"><i class="area" style="--d:#c49a5a">Signals</i>
-    <span>8 pages</span>
+    <span>8 notes</span>
   </div>
 </section>
 
 <main class="wrap">
-  <div class="list">
-    <div class="lab"><b>Pages</b><span>8</span></div>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss1.fundamentalsofcontinuousanddiscretetimesignals/">
+  <div class="leaf">
+    <div class="list">
+      <div class="lab"><b>Notes</b><span>8</span></div>
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss1.fundamentalsofcontinuousanddiscretetimesignals/">
   <div class="t"><b>SS 1. Fundamentals of Continuous and Discrete Time Signals</b><span><i class="lang">EN</i> Jan 12, 2026</span></div><p>Signals · Period · Support · Duration</p>
 </a>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/">
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss2.fourierseries/">
   <div class="t"><b>SS 2. Fourier Series</b><span><i class="lang">EN</i> Jan 19, 2026</span></div><p>Fourier Series · The Complex Exponential Fourier Series · Continuous-Time Fourier Series (CTFS) · The CTFS and Signal Manipulations</p>
 </a>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss3.fouriertransform/">
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss3.fouriertransform/">
   <div class="t"><b>SS 3. Fourier Transform</b><span><i class="lang">EN</i> Feb 3, 2026</span></div><p>Fourier Transform · Existence of the CTFT for Finite Signals · The CTFT and Signal Manipulations · Discrete-Time Fourier Transform (DTFT)</p>
 </a>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss4.sample/">
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss4.sample/">
   <div class="t"><b>SS 4. Sample</b><span><i class="lang">EN</i> Feb 23, 2026</span></div><p>Sampling · Band-Limited Signals · Nyquist-Shannon Sampling Theorem</p>
 </a>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/">
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/">
   <div class="t"><b>SS 5. Continuous-Time System</b><span><i class="lang">EN</i> Mar 8, 2026</span></div><p>Continuous-Time System · Linear Time-Invariant (LTI) System · Convolution · LTI system properties and the impulse response</p>
 </a>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/">
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss6.analysisofctsusingforiertransform/">
   <div class="t"><b>SS 6. Analysis of CTS using Fourier Transform</b><span><i class="lang">EN</i> Mar 11, 2026</span></div><p>LTI systems with Complex Exponential Inputs · LTI System and Invertibility · Complex Exponential Inputs · Frequency response of a LTI system</p>
 </a>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/">
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss7.analysisofctsystemusinglaplacetransform/">
   <div class="t"><b>SS 7. Analysis of CT System using Laplace Transform</b><span><i class="lang">EN</i> Mar 24, 2026</span></div><p>LTI System with Complex Exponential Inputs · Motivation for transfer function methods · Signals of Exponential Class · Analysis of LICC-ODEs via Laplace Transform</p>
 </a>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/">
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/">
   <div class="t"><b>SS 8. Fundamentals of Discrete-Time Systems</b><span><i class="lang">EN</i> Mar 26, 2026</span></div><p>DT System · LTI System Properties and the Impulse Response · Finite impulse response (FIR) systems · Difference Equations and DT systems</p>
 </a>
+    </div>
+    <aside class="about">
+      <div>
+        <div class="lab"><b>About</b></div>
+        <dl class="kv"><dt>Term</dt><dd>Winter 2026</dd><dt>Area</dt><dd><i class="area" style="--d:#c49a5a">Signals</i></dd>
+          <dt>Notes</dt><dd>8</dd><dt>Span</dt><dd>Jan 12 – Mar 26, 2026</dd>
+          <dt>Language</dt><dd>8 EN</dd>
+        </dl>
+      </div>
+      <div>
+        <div class="lab"><b>Also in Winter 2026</b></div>
+        <nav class="sibs">
+          <a href="/docs/uoft/26w/ece221---circuit-analysis/">ECE221 Circuit Analysis<span>7</span></a>
+          <a href="/docs/uoft/26w/ece243---computer-organization/">ECE243 Computer Organization<span>8</span></a>
+          <a href="/docs/uoft/26w/electric-and-magnetic-field/">Electric &amp; Magnetic Fields<span>10</span></a>
+        </nav>
+      </div>
+    </aside>
   </div>
 </main>
 

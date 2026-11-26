@@ -134,17 +134,64 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px var(--px) 22px}
 .banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 10px}
 .banner .meta{font-size:.86rem}
-.wrap{flex:1;padding:26px var(--px) 50px;max-width:1240px;width:100%;box-sizing:border-box}
+.wrap{flex:1;padding:26px var(--px) 50px;width:100%;box-sizing:border-box}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:34px}
 .card{display:block;border:1px solid var(--line);padding:16px 18px 14px;background:#fff}
 .card:hover{border-color:var(--text)}
 .card b{display:block;font-family:var(--serif);font-weight:500;font-size:1.2rem;line-height:1.25}
 .card span{display:block;margin-top:6px;font-size:.8rem;color:var(--dim)}
 .card i.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--d);margin-right:6px;vertical-align:1px}
-.list{max-width:900px;--c:var(--blue)}
+.list{--c:var(--blue)}
+.card ul{list-style:none;margin:10px 0 0;padding:10px 0 0;border-top:1px solid var(--line);font-size:.84rem;color:#4a4741;line-height:1.7}
+.card ul li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ 
+.blocks{columns:2;column-gap:48px}
+.block{break-inside:avoid;padding-bottom:26px}
+.block .lab b{display:flex;align-items:center;gap:8px}
+.block .lab b i{width:8px;height:8px;border-radius:50%;background:var(--d)}
+.block .lab b a:hover{color:var(--c)}
+ 
+.leaf{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:start}
+.about{position:sticky;top:20px;display:flex;flex-direction:column;gap:24px}
+.kv{display:grid;grid-template-columns:86px minmax(0,1fr);font-size:.88rem;margin-top:4px}
+.kv dt,.kv dd{margin:0;padding:7px 0;border-bottom:1px solid var(--line)}
+.kv dt{color:var(--dim)}
+.sibs a{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.sibs a span{color:var(--dim);font-size:.8rem}
+.sibs a:hover{color:var(--c)}
+@media (max-width:1000px){.blocks{columns:1}.leaf{grid-template-columns:minmax(0,1fr)}.about{position:static}}
 .list .rs .t span .lang{margin-right:6px;vertical-align:1px}
 .empty{color:var(--dim)}
 @media (max-width:760px){.banner h1{font-size:1.8rem}}
+ 
+.ccards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.ccard{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-top:3px solid var(--d);padding:22px 26px 20px;background:#fff;min-height:190px}
+.ccard:hover{border-color:var(--text);border-top-color:var(--d)}
+.ccard .ca{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--dim)}
+.ccard b{font-size:2rem;font-weight:500;line-height:1.15;letter-spacing:-.01em}
+.ccard .cs{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem;color:var(--dim)}
+.ccard em{margin-top:auto;font-style:normal;font-size:.92rem;color:var(--c)}
+.ccard:hover em{text-decoration:underline}
+@media (max-width:760px){.ccards{grid-template-columns:minmax(0,1fr)}.ccard b{font-size:1.6rem}}
+ 
+.banner h1{font-size:3rem}
+.banner .meta{font-size:.95rem}
+.wrap{font-size:16.5px}
+.wrap .lab{font-size:.88rem;padding-bottom:9px}
+.wrap .lab b{font-size:1.05rem}
+.wrap .rs{padding:12px 0 13px!important}
+.wrap .rs .t b{font-size:1.12rem;line-height:1.4}
+.wrap .rs .t span{font-size:.92rem}
+.wrap .rs p{font-size:.95rem;margin-top:5px}
+.wrap .lang{font-size:.72rem}
+.kv{font-size:.98rem}
+.kv dt,.kv dd{padding:10px 0}
+.kv dt{}
+.sibs a{font-size:.98rem;padding:10px 0}
+@media (min-width:1001px){.leaf{grid-template-columns:minmax(0,1fr) 320px;gap:56px}}
+.card b{font-size:1.35rem}
+.card span,.card ul{font-size:.9rem}
+@media (max-width:760px){.banner h1{font-size:2rem}.wrap{font-size:15px}}
 </style>
 </head>
 <body style="--c:var(--blue)">
@@ -250,49 +297,70 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
   <div class="crumb"><a href="/docs/">Docs</a><i>/</i><a href="/docs/uoft/">UofT Coursework</a><i>/</i><a href="/docs/uoft/24f/">Fall 2024</a></div>
   <h1 class="serif">APS105 Programming with C</h1>
   <div class="meta"><i class="area" style="--d:#8c8577">Programming</i>
-    <span>12 pages</span>
+    <span>12 notes</span>
   </div>
 </section>
 
 <main class="wrap">
-  <div class="list">
-    <div class="lab"><b>Pages</b><span>12</span></div>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/">
+  <div class="leaf">
+    <div class="list">
+      <div class="lab"><b>Notes</b><span>12</span></div>
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc1.introtoprogrammingcomputers/">
   <div class="t"><b>LPC 1. Intro to Programming Computers</b><span><i class="lang">CN</i> Jan 8, 2025</span></div><p>1.2 Binary representation in memory · 1.4 Write Simple C Programs 编写简单的 C 程序</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc2.dataoperations/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc2.dataoperations/">
   <div class="t"><b>LPC 2. Data &amp; Operations</b><span><i class="lang">CN</i> Jan 9, 2025</span></div><p>2.1 Double data type for real numbers · 2.2 Data types and representation · 2.3 Operations · 2.4. Math library</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc3.decisionmakingstatements/">
   <div class="t"><b>LPC 3. Decision Making Statements</b><span><i class="lang">CN</i> Jan 13, 2025</span></div><p>3.1 If-Statement · 3.2 Multiple Conditions · 3.3 Nested-if Statement</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc4.repetition/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc4.repetition/">
   <div class="t"><b>LPC 4. Repetition</b><span><i class="lang">CN</i> Jan 20, 2025</span></div><p>4.1 While Loop · 4.2 Do-while Loop · For loops · 4.4 Nested Loop</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc5.functions/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc5.functions/">
   <div class="t"><b>LPC 5. Functions</b><span><i class="lang">CN</i> Jan 28, 2025</span></div><p>5.1 Functions · 5.1.2 Function Prototype · 5.2. Communicate from a function · 5.3 Variable Scope</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc6.pointers/">
   <div class="t"><b>LPC 6. Pointers</b><span><i class="lang">CN</i> Feb 20, 2025</span></div><p>6.1 Why Pointers ? · 6.2 What are Pointers ? · 6.3 Use Pointers to Communicate · 6.4. Rules defining scope of variables</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc7.arrays/">
   <div class="t"><b>LPC 7. Arrays</b><span><i class="lang">CN</i> Feb 22, 2025</span></div><p>7.1 Why and how to use arrays ? · 7.2 What are arrays, and how are they stored ? · 7.3 How do we pass an Array to a function ?</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc8.dynamicmemoryallocation/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc8.dynamicmemoryallocation/">
   <div class="t"><b>LPC 8. Dynamic Memory Allocation</b><span><i class="lang">CN</i> Mar 7, 2025</span></div><p>8.1 Dynamic Memory Allocation · 8.1.1 Different Options when array size is unknown</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc9.multi-dimensionalarrays/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc9.multi-dimensionalarrays/">
   <div class="t"><b>LPC 9. Multi-dimensional Arrays</b><span><i class="lang">CN</i> Mar 25, 2025</span></div><p>9.1 Why and How to use 2D Array · 9.2. How do we pass a 2D array to a function? · 9.3 Dynamic Memory Allocation of 2D Arrays</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc10.strings/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc10.strings/">
   <div class="t"><b>LPC 10. Strings</b><span><i class="lang">CN</i> Mar 27, 2025</span></div><p>10.1. What are strings? · 10.2 Input/Output Strings · 10.3. String Functions · 10.4 Array of Strings</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc11.recursion/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc11.recursion/">
   <div class="t"><b>LPC 11. Recursion</b><span><i class="lang">CN</i> Mar 31, 2025</span></div><p>11.1 Recursive Functions by Definition · 11.2 Recursion in Patterns · 11.3 Recursion in arrays</p>
 </a>
-    <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc12.datastructure/">
+      <a class="rs" href="/docs/uoft/24f/aps105---learning-programming-with-c/lpc12.datastructure/">
   <div class="t"><b>LPC 12. Data Structure</b><span><i class="lang">CN</i> Mar 31, 2025</span></div><p>12.1 What are Data Structures · 12.2 Pointers to Data Structures · 12.1.1 Define a data Structure · 12.1.2 Access Members of a data Structure</p>
 </a>
+    </div>
+    <aside class="about">
+      <div>
+        <div class="lab"><b>About</b></div>
+        <dl class="kv"><dt>Term</dt><dd>Fall 2024</dd><dt>Area</dt><dd><i class="area" style="--d:#8c8577">Programming</i></dd>
+          <dt>Notes</dt><dd>12</dd><dt>Span</dt><dd>Jan 8 – Mar 31, 2025</dd>
+          <dt>Language</dt><dd>12 CN</dd>
+        </dl>
+      </div>
+      <div>
+        <div class="lab"><b>Also in Fall 2024</b></div>
+        <nav class="sibs">
+          <a href="/docs/uoft/24f/mat186---calculus/">MAT186 Calculus<span>5</span></a>
+          <a href="/docs/uoft/24f/mie100---dynamics/">MIE100 Dynamics<span>5</span></a>
+          <a href="/docs/uoft/24f/ece110---electrical-fundamentals/">ECE110 Electrical Fundamentals<span>10</span></a>
+          <a href="/docs/uoft/24f/aps104---engineering-chemistry--materials-science/">APS104 Engineering Chemistry &amp; Materials Science<span>7</span></a>
+          <a href="/docs/uoft/24f/mat188---linearalgebra/">MAT188 Linear Algebra<span>5</span></a>
+        </nav>
+      </div>
+    </aside>
   </div>
 </main>
 

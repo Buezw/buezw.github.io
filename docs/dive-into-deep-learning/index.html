@@ -134,17 +134,64 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px var(--px) 22px}
 .banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 10px}
 .banner .meta{font-size:.86rem}
-.wrap{flex:1;padding:26px var(--px) 50px;max-width:1240px;width:100%;box-sizing:border-box}
+.wrap{flex:1;padding:26px var(--px) 50px;width:100%;box-sizing:border-box}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:34px}
 .card{display:block;border:1px solid var(--line);padding:16px 18px 14px;background:#fff}
 .card:hover{border-color:var(--text)}
 .card b{display:block;font-family:var(--serif);font-weight:500;font-size:1.2rem;line-height:1.25}
 .card span{display:block;margin-top:6px;font-size:.8rem;color:var(--dim)}
 .card i.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--d);margin-right:6px;vertical-align:1px}
-.list{max-width:900px;--c:var(--blue)}
+.list{--c:var(--blue)}
+.card ul{list-style:none;margin:10px 0 0;padding:10px 0 0;border-top:1px solid var(--line);font-size:.84rem;color:#4a4741;line-height:1.7}
+.card ul li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ 
+.blocks{columns:2;column-gap:48px}
+.block{break-inside:avoid;padding-bottom:26px}
+.block .lab b{display:flex;align-items:center;gap:8px}
+.block .lab b i{width:8px;height:8px;border-radius:50%;background:var(--d)}
+.block .lab b a:hover{color:var(--c)}
+ 
+.leaf{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:start}
+.about{position:sticky;top:20px;display:flex;flex-direction:column;gap:24px}
+.kv{display:grid;grid-template-columns:86px minmax(0,1fr);font-size:.88rem;margin-top:4px}
+.kv dt,.kv dd{margin:0;padding:7px 0;border-bottom:1px solid var(--line)}
+.kv dt{color:var(--dim)}
+.sibs a{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.sibs a span{color:var(--dim);font-size:.8rem}
+.sibs a:hover{color:var(--c)}
+@media (max-width:1000px){.blocks{columns:1}.leaf{grid-template-columns:minmax(0,1fr)}.about{position:static}}
 .list .rs .t span .lang{margin-right:6px;vertical-align:1px}
 .empty{color:var(--dim)}
 @media (max-width:760px){.banner h1{font-size:1.8rem}}
+ 
+.ccards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.ccard{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-top:3px solid var(--d);padding:22px 26px 20px;background:#fff;min-height:190px}
+.ccard:hover{border-color:var(--text);border-top-color:var(--d)}
+.ccard .ca{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--dim)}
+.ccard b{font-size:2rem;font-weight:500;line-height:1.15;letter-spacing:-.01em}
+.ccard .cs{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem;color:var(--dim)}
+.ccard em{margin-top:auto;font-style:normal;font-size:.92rem;color:var(--c)}
+.ccard:hover em{text-decoration:underline}
+@media (max-width:760px){.ccards{grid-template-columns:minmax(0,1fr)}.ccard b{font-size:1.6rem}}
+ 
+.banner h1{font-size:3rem}
+.banner .meta{font-size:.95rem}
+.wrap{font-size:16.5px}
+.wrap .lab{font-size:.88rem;padding-bottom:9px}
+.wrap .lab b{font-size:1.05rem}
+.wrap .rs{padding:12px 0 13px!important}
+.wrap .rs .t b{font-size:1.12rem;line-height:1.4}
+.wrap .rs .t span{font-size:.92rem}
+.wrap .rs p{font-size:.95rem;margin-top:5px}
+.wrap .lang{font-size:.72rem}
+.kv{font-size:.98rem}
+.kv dt,.kv dd{padding:10px 0}
+.kv dt{}
+.sibs a{font-size:.98rem;padding:10px 0}
+@media (min-width:1001px){.leaf{grid-template-columns:minmax(0,1fr) 320px;gap:56px}}
+.card b{font-size:1.35rem}
+.card span,.card ul{font-size:.9rem}
+@media (max-width:760px){.banner h1{font-size:2rem}.wrap{font-size:15px}}
 </style>
 </head>
 <body style="--c:var(--blue)">
@@ -250,22 +297,74 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
   <div class="crumb"><a href="/docs/">Docs</a></div>
   <h1 class="serif">Dive Into Deep Learning</h1>
   <div class="meta"><i class="area" style="--d:#7fa070">ML</i><span>4 folders</span>
-    <span>21 pages</span>
+    <span>21 notes</span>
   </div>
 </section>
 
 <main class="wrap">
-  <div class="cards">
-    <a class="card" href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/"><b>Chapter 3. Linear Neural Network</b><span>6 pages · latest Apr 2024</span></a>
-    <a class="card" href="/docs/dive-into-deep-learning/d2l4.multilayerperceptron/"><b>Chapter 4. Multilayer Perceptron</b><span>5 pages · latest Dec 2024</span></a>
-    <a class="card" href="/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/"><b>D2L 5. Deep Learning Computation</b><span>4 pages · latest Jan 2025</span></a>
-    <a class="card" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/"><b>D2L 6. Convolution Neuron Network</b><span>5 pages · latest Mar 2025</span></a>
+  <div class="ccards">
+    <a class="ccard" href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/" style="--d:#999">
+      <div class="ca"><span>6 notes</span></div>
+      <b class="serif">Chapter 3. Linear Neural Network</b>
+      <div class="cs">
+        <span>Apr 15 – Apr 15, 2024</span>
+        <span>Updated Apr 15</span>
+      </div>
+      <em>Open course →</em>
+    </a>
+    <a class="ccard" href="/docs/dive-into-deep-learning/d2l4.multilayerperceptron/" style="--d:#999">
+      <div class="ca"><span>5 notes</span></div>
+      <b class="serif">Chapter 4. Multilayer Perceptron</b>
+      <div class="cs">
+        <span>Apr 15 – Dec 20, 2024</span>
+        <span>Updated Dec 20</span>
+      </div>
+      <em>Open course →</em>
+    </a>
+    <a class="ccard" href="/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/" style="--d:#999">
+      <div class="ca"><span>4 notes</span></div>
+      <b class="serif">D2L 5. Deep Learning Computation</b>
+      <div class="cs">
+        <span>Dec 21 – Jan 19, 2025</span>
+        <span>Updated Jan 19</span>
+      </div>
+      <em>Open course →</em>
+    </a>
+    <a class="ccard" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/" style="--d:#999">
+      <div class="ca"><span>5 notes</span></div>
+      <b class="serif">D2L 6. Convolution Neuron Network</b>
+      <div class="cs">
+        <span>Jan 28 – Mar 31, 2025</span>
+        <span>Updated Mar 31</span>
+      </div>
+      <em>Open course →</em>
+    </a>
   </div>
-  <div class="list">
-    <div class="lab"><b>Pages</b><span>1</span></div>
-    <a class="rs" href="/docs/dive-into-deep-learning/linearregression/">
+  <div class="leaf">
+    <div class="list">
+      <div class="lab"><b>Notes</b><span>1</span></div>
+      <a class="rs" href="/docs/dive-into-deep-learning/linearregression/">
   <div class="t"><b>Linear Regression</b><span><i class="lang">CN</i> Nov 4, 2024</span></div>
 </a>
+    </div>
+    <aside class="about">
+      <div>
+        <div class="lab"><b>About</b></div>
+        <dl class="kv"><dt>Area</dt><dd><i class="area" style="--d:#7fa070">ML</i></dd>
+          <dt>Notes</dt><dd>1</dd><dt>Span</dt><dd>Nov 4 – Nov 4, 2024</dd>
+          <dt>Language</dt><dd>1 CN</dd>
+        </dl>
+      </div>
+      <div>
+        <div class="lab"><b>Also in Docs</b></div>
+        <nav class="sibs">
+          <a href="/docs/reads/">Books<span>2</span></a>
+          <a href="/docs/displays/">Displays<span>3</span></a>
+          <a href="/docs/projects/">Projects<span>1</span></a>
+          <a href="/docs/uoft/">UofT Coursework<span>89</span></a>
+        </nav>
+      </div>
+    </aside>
   </div>
 </main>
 

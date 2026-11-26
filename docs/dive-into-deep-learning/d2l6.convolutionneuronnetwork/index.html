@@ -134,17 +134,64 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px var(--px) 22px}
 .banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 10px}
 .banner .meta{font-size:.86rem}
-.wrap{flex:1;padding:26px var(--px) 50px;max-width:1240px;width:100%;box-sizing:border-box}
+.wrap{flex:1;padding:26px var(--px) 50px;width:100%;box-sizing:border-box}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:34px}
 .card{display:block;border:1px solid var(--line);padding:16px 18px 14px;background:#fff}
 .card:hover{border-color:var(--text)}
 .card b{display:block;font-family:var(--serif);font-weight:500;font-size:1.2rem;line-height:1.25}
 .card span{display:block;margin-top:6px;font-size:.8rem;color:var(--dim)}
 .card i.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--d);margin-right:6px;vertical-align:1px}
-.list{max-width:900px;--c:var(--blue)}
+.list{--c:var(--blue)}
+.card ul{list-style:none;margin:10px 0 0;padding:10px 0 0;border-top:1px solid var(--line);font-size:.84rem;color:#4a4741;line-height:1.7}
+.card ul li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ 
+.blocks{columns:2;column-gap:48px}
+.block{break-inside:avoid;padding-bottom:26px}
+.block .lab b{display:flex;align-items:center;gap:8px}
+.block .lab b i{width:8px;height:8px;border-radius:50%;background:var(--d)}
+.block .lab b a:hover{color:var(--c)}
+ 
+.leaf{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:start}
+.about{position:sticky;top:20px;display:flex;flex-direction:column;gap:24px}
+.kv{display:grid;grid-template-columns:86px minmax(0,1fr);font-size:.88rem;margin-top:4px}
+.kv dt,.kv dd{margin:0;padding:7px 0;border-bottom:1px solid var(--line)}
+.kv dt{color:var(--dim)}
+.sibs a{display:flex;justify-content:space-between;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.88rem}
+.sibs a span{color:var(--dim);font-size:.8rem}
+.sibs a:hover{color:var(--c)}
+@media (max-width:1000px){.blocks{columns:1}.leaf{grid-template-columns:minmax(0,1fr)}.about{position:static}}
 .list .rs .t span .lang{margin-right:6px;vertical-align:1px}
 .empty{color:var(--dim)}
 @media (max-width:760px){.banner h1{font-size:1.8rem}}
+ 
+.ccards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.ccard{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);border-top:3px solid var(--d);padding:22px 26px 20px;background:#fff;min-height:190px}
+.ccard:hover{border-color:var(--text);border-top-color:var(--d)}
+.ccard .ca{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--dim)}
+.ccard b{font-size:2rem;font-weight:500;line-height:1.15;letter-spacing:-.01em}
+.ccard .cs{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem;color:var(--dim)}
+.ccard em{margin-top:auto;font-style:normal;font-size:.92rem;color:var(--c)}
+.ccard:hover em{text-decoration:underline}
+@media (max-width:760px){.ccards{grid-template-columns:minmax(0,1fr)}.ccard b{font-size:1.6rem}}
+ 
+.banner h1{font-size:3rem}
+.banner .meta{font-size:.95rem}
+.wrap{font-size:16.5px}
+.wrap .lab{font-size:.88rem;padding-bottom:9px}
+.wrap .lab b{font-size:1.05rem}
+.wrap .rs{padding:12px 0 13px!important}
+.wrap .rs .t b{font-size:1.12rem;line-height:1.4}
+.wrap .rs .t span{font-size:.92rem}
+.wrap .rs p{font-size:.95rem;margin-top:5px}
+.wrap .lang{font-size:.72rem}
+.kv{font-size:.98rem}
+.kv dt,.kv dd{padding:10px 0}
+.kv dt{}
+.sibs a{font-size:.98rem;padding:10px 0}
+@media (min-width:1001px){.leaf{grid-template-columns:minmax(0,1fr) 320px;gap:56px}}
+.card b{font-size:1.35rem}
+.card span,.card ul{font-size:.9rem}
+@media (max-width:760px){.banner h1{font-size:2rem}.wrap{font-size:15px}}
 </style>
 </head>
 <body style="--c:var(--blue)">
@@ -255,23 +302,42 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 </section>
 
 <main class="wrap">
-  <div class="list">
-    <div class="lab"><b>Pages</b><span>5</span></div>
-    <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
+  <div class="leaf">
+    <div class="list">
+      <div class="lab"><b>Pages</b><span>5</span></div>
+      <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.2imageconvolution/">
   <div class="t"><b>D2L 6.2 Image Convolution</b><span><i class="lang">CN</i> Jan 28, 2025</span></div><p>6.2.1 Cross-Correlation Calculation · 6.2.2 Convolution Layer 卷积层 · 6.2.3 Edge detection · 6.2.5. Cross-Correlation and Convolution</p>
 </a>
-    <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
+      <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.3paddingstride/">
   <div class="t"><b>D2L 6.3 Padding &amp; Stride</b><span><i class="lang">CN</i> Mar 25, 2025</span></div><p>6.3.1 Padding 填充 · 6.3.2 Stride 步幅</p>
 </a>
-    <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
+      <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.4multipleinputoutput/">
   <div class="t"><b>D2L 6.4 Multiple Input &amp; Output</b><span><i class="lang">CN</i> Mar 25, 2025</span></div><p>6.4.1 Multiple Input Channel · 6.4.2 Multiple Output Channel · 6.4.3 1x1 Convolution Layer</p>
 </a>
-    <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
+      <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.5poolinglayer/">
   <div class="t"><b>D2L 6.5 Pooling Layer</b><span><i class="lang">CN</i> Mar 31, 2025</span></div><p>Pooling Layer · 6.5.1 Maximum &amp; Average Pooling Layer · 6.5.2 Padding &amp; Stride · 6.5.3 Multiple Channel</p>
 </a>
-    <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
+      <a class="rs" href="/docs/dive-into-deep-learning/d2l6.convolutionneuronnetwork/d2l6.6lenet/">
   <div class="t"><b>D2L 6.6 Le Net</b><span><i class="lang">CN</i> Mar 31, 2025</span></div><p>6.6.1 LeNet · 6.6.2 Model Train · 定义函数 · 1️⃣ 初始化网络参数（使用 Xavier 初始化）</p>
 </a>
+    </div>
+    <aside class="about">
+      <div>
+        <div class="lab"><b>About</b></div>
+        <dl class="kv">
+          <dt>Pages</dt><dd>5</dd><dt>Span</dt><dd>Jan 28 – Mar 31, 2025</dd>
+          <dt>Language</dt><dd>5 CN</dd>
+        </dl>
+      </div>
+      <div>
+        <div class="lab"><b>Also in Dive Into Deep Learning</b></div>
+        <nav class="sibs">
+          <a href="/docs/dive-into-deep-learning/d2l3.linearneuralnetwork/">Chapter 3. Linear Neural Network<span>6</span></a>
+          <a href="/docs/dive-into-deep-learning/d2l4.multilayerperceptron/">Chapter 4. Multilayer Perceptron<span>5</span></a>
+          <a href="/docs/dive-into-deep-learning/d2l5.deeplearningcomputation/">D2L 5. Deep Learning Computation<span>4</span></a>
+        </nav>
+      </div>
+    </aside>
   </div>
 </main>
 
