@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>连接器测试 · Jingnan Huang</title>
-<meta name="description" content="连接器测试 — notes by Jingnan Huang">
+<title>CT 1. 连接器全属性测试 · Jingnan Huang</title>
+<meta name="description" content="CT 1. 连接器全属性测试 — notes by Jingnan Huang">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -348,10 +348,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <section class="banner">
   <div>
     <div class="crumb"><a href="/docs/">Notebook</a><i>/</i><a href="/docs/">Connector Test</a></div>
-    <h1 class="serif" id="atitle">连接器测试</h1>
+    <h1 class="serif" id="atitle">CT 1. 连接器全属性测试</h1>
     <div class="meta"><i class="area" style="--d:#8c8577">Programming</i>
-      <span>Nov 26, 2026</span>
-      <i class="lang">EN</i>
+      <span>Nov 26, 2026</span><span>Edited 11/26/26</span>
+      <i class="lang">CN</i>
     </div>
   </div>
 </section>
@@ -360,39 +360,200 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
   <article class="art">
 
     <div class="prose">
-      <p>这篇笔记是 Claude 通过玄枢 MCP 连接器创建的，用来测试写入功能。</p>
+      
+<p>这篇笔记用来一次性测试玄枢和博客的所有显示效果：首页列表里的标题、日期、摘要、领域圆点、课程名和中英文标记，以及文章页里的公式、代码、表格、引用、提示框、列表、图片和各种链接。它最早是 Claude 通过玄枢的 MCP 连接器新建的，之后又在 Claude Code 里改写成了现在这个版本。测试完成以后，把开头的 publish 去掉，它就会从博客上消失，但玄枢里还会保留这篇笔记。为了让博客把它标成中文文章，这里需要写够两百个以上的汉字，所以这一段话特意写得长一些，顺便说明一下每个部分各自在测试什么东西。</p>
 
 
-<h2 class="relative group">测试内容 
-    <div id="%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9" class="anchor"></div>
+<h2 class="relative group">公式 
+    <div id="%E5%85%AC%E5%BC%8F" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#%E5%85%AC%E5%BC%8F" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>行内公式：$e^{i\pi} + 1 = 0$，带星号的共轭和卷积 $Z_L = Z_T^*$、$y(t) = h(t) * x(t)$。</p>
+<p>独立公式：</p>
+$$
+\mathcal{F}\{x(t)\} = X(\mathbf{j}\omega) = \int_{-\infty}^{\infty} x(t)\, e^{-\mathbf{j}\omega t}\, \text{d}t
+$$$$
+\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}^{-1} = \frac{1}{-2}\begin{bmatrix} 4 & -2 \\ -3 & 1 \end{bmatrix}
+$$
+
+<h2 class="relative group">代码 
+    <div id="%E4%BB%A3%E7%A0%81" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E4%BB%A3%E7%A0%81" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;第 n 个斐波那契数&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;玄枢&#34;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</span></span></code></pre></div><p>行内代码：<code>npm run build</code>。</p>
+
+
+<h2 class="relative group">表格 
+    <div id="%E8%A1%A8%E6%A0%BC" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E8%A1%A8%E6%A0%BC" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">项目</th>
+          <th style="text-align: left">状态</th>
+          <th style="text-align: left">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">首页列表</td>
+          <td style="text-align: left">✓</td>
+          <td style="text-align: left">标题、日期、摘要、领域、课程、CN</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">文章页</td>
+          <td style="text-align: left">✓</td>
+          <td style="text-align: left">面包屑、Edited、标签、目录</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">链接</td>
+          <td style="text-align: left">✓</td>
+          <td style="text-align: left"><a href="https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/">SS5 笔记</a></td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">引用与提示框 
+    <div id="%E5%BC%95%E7%94%A8%E4%B8%8E%E6%8F%90%E7%A4%BA%E6%A1%86" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%BC%95%E7%94%A8%E4%B8%8E%E6%8F%90%E7%A4%BA%E6%A1%86" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p>这是一段引用：一个系统如果满足叠加原理，那么它就是线性的。</p>
+</blockquote>
+<aside>
+💡
+<p>这是从 Notion 导出的提示框（callout），在玄枢里显示成灰底带图标的样式。</p>
+</aside>
+
+
+<h2 class="relative group">列表 
+    <div id="%E5%88%97%E8%A1%A8" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%88%97%E8%A1%A8" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li>有序列表第一项</li>
+<li>第二项
+<ul>
+<li>嵌套的无序列表</li>
+<li>再一项</li>
+</ul>
+</li>
+<li>第三项</li>
+</ol>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 新建笔记（write_note）</li>
+<li><input checked="" disabled="" type="checkbox"> 修改笔记（edit_note）</li>
+<li><input disabled="" type="checkbox"> 测试完撤下</li>
+</ul>
+
+
+<h2 class="relative group">图片 
+    <div id="%E5%9B%BE%E7%89%87" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E5%9B%BE%E7%89%87" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /docs/connector-test/ct1.fulltest/pipeline_hu2136755996751567965.png 330w,
+        /docs/connector-test/ct1.fulltest/pipeline_hu5434397827361209929.png 660w,
+        /docs/connector-test/ct1.fulltest/pipeline_hu13138680651935224673.png 1024w,
+        /docs/connector-test/ct1.fulltest/pipeline_hu2694748261063110815.png 2x"
+        src="/docs/connector-test/ct1.fulltest/pipeline_hu5434397827361209929.png"
+        alt="玄枢到首页的流程"
+      />
+      
+    </figure>
+</p>
+
+
+<h2 class="relative group">链接 
+    <div id="%E9%93%BE%E6%8E%A5" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#%E9%93%BE%E6%8E%A5" aria-label="Anchor">#</a>
     </span>        
     
 </h2>
 <ul>
-<li>新建笔记：write_note</li>
-<li>修改笔记：edit_note ✓ 已通过</li>
-<li>公式：$e^{i\pi} + 1 = 0$</li>
-<li>链接：Futures Contract 期货合约</li>
+<li>指向已发布的笔记：<a href="https://buezw.github.io/docs/uoft/26w/signal-and-systems/ss5.continuous-timesystem/">SS 5. Continuous-Time System</a></li>
+<li>指向未发布的笔记（博客上会变成普通文字）：Futures Contract 期货合约</li>
+<li>外部链接：<a href="https://buezw.github.io" target="_blank">buezw.github.io</a></li>
 </ul>
-<p>测试完可以删掉这篇。</p>
 
     </div>
   </article>
 
   <aside class="rail">
     <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#%e5%85%ac%e5%bc%8f" class="l1">公式</a>
+        <a href="#%e4%bb%a3%e7%a0%81" class="l1">代码</a>
+        <a href="#%e8%a1%a8%e6%a0%bc" class="l1">表格</a>
+        <a href="#%e5%bc%95%e7%94%a8%e4%b8%8e%e6%8f%90%e7%a4%ba%e6%a1%86" class="l1">引用与提示框</a>
+        <a href="#%e5%88%97%e8%a1%a8" class="l1">列表</a>
+        <a href="#%e5%9b%be%e7%89%87" class="l1">图片</a>
+        <a href="#%e9%93%be%e6%8e%a5" class="l1">链接</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
     </div>
   </aside>
 </div>
 
 <footer>
   <span>© 2026 Jingnan Huang</span>
-  <span>Last updated <time id="updated" datetime="2026-11-26T18:43:28Z">Nov 26, 2026, 1:43 PM ET</time> · buezw.github.io</span>
+  <span>Last updated <time id="updated" datetime="2026-11-26T18:45:32Z">Nov 26, 2026, 1:45 PM ET</time> · buezw.github.io</span>
 </footer>
 <script>
 (function(){

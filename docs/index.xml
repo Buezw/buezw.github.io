@@ -11,31 +11,15 @@
     <copyright>© 2026 Buezwqwg</copyright>
     <lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>连接器测试</title>
-      <link>https://buezw.github.io/docs/connector-test/connector-test/</link>
+      <title>CT 1. 连接器全属性测试</title>
+      <link>https://buezw.github.io/docs/connector-test/ct1.fulltest/</link>
       <pubDate>Thu, 26 Nov 2026 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/connector-test/connector-test/</guid>
-      <description>&lt;p&gt;这篇笔记是 Claude 通过玄枢 MCP 连接器创建的，用来测试写入功能。&lt;/p&gt;
-
-
-&lt;h2 class=&#34;relative group&#34;&gt;测试内容 
-    &lt;div id=&#34;%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
-    
-    &lt;span
-        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
-        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
-            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
-    &lt;/span&gt;        
-    
-&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;新建笔记：write_note&lt;/li&gt;
-&lt;li&gt;修改笔记：edit_note ✓ 已通过&lt;/li&gt;
-&lt;li&gt;公式：$e^{i\pi} + 1 = 0$&lt;/li&gt;
-&lt;li&gt;链接：Futures Contract 期货合约&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;测试完可以删掉这篇。&lt;/p&gt;</description>
+      <guid>https://buezw.github.io/docs/connector-test/ct1.fulltest/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Last Edit: 11/26/26&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这篇笔记用来一次性测试玄枢和博客的所有显示效果：首页列表里的标题、日期、摘要、领域圆点、课程名和中英文标记，以及文章页里的公式、代码、表格、引用、提示框、列表、图片和各种链接。它最早是 Claude 通过玄枢的 MCP 连接器新建的，之后又在 Claude Code 里改写成了现在这个版本。测试完成以后，把开头的 publish 去掉，它就会从博客上消失，但玄枢里还会保留这篇笔记。为了让博客把它标成中文文章，这里需要写够两百个以上的汉字，所以这一段话特意写得长一些，顺便说明一下每个部分各自在测试什么东西。&lt;/p&gt;</description>
       
     </item>
     
