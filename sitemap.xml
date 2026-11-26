@@ -4,13 +4,19 @@
 
   <url>
     <loc>https://buezw.github.io/</loc>
-    <lastmod>2026-09-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-26T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://buezw.github.io/docs/</loc>
-    <lastmod>2026-09-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-26T00:00:00+00:00</lastmod>
+    <changefreq>always</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://buezw.github.io/docs/sample/connector-test/</loc>
+    <lastmod>2026-11-26T00:00:00+00:00</lastmod>
     <changefreq>always</changefreq>
     <priority>0.5</priority>
   </url>

@@ -9,7 +9,36 @@
     <managingEditor>youremail@example.com (Buezwqwg)</managingEditor>
     <webMaster>youremail@example.com (Buezwqwg)</webMaster>
     <copyright>© 2026 Buezwqwg</copyright>
-    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>连接器测试</title>
+      <link>https://buezw.github.io/docs/sample/connector-test/</link>
+      <pubDate>Thu, 26 Nov 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/sample/connector-test/</guid>
+      <description>&lt;p&gt;这篇笔记是 Claude 通过玄枢 MCP 连接器创建的，用来测试写入功能。&lt;/p&gt;
+
+
+&lt;h2 class=&#34;relative group&#34;&gt;测试内容 
+    &lt;div id=&#34;%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9&#34; class=&#34;anchor&#34;&gt;&lt;/div&gt;
+    
+    &lt;span
+        class=&#34;absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100&#34;&gt;
+        &lt;a class=&#34;group-hover:text-primary-300 dark:group-hover:text-neutral-700&#34;
+            style=&#34;text-decoration-line: none !important;&#34; href=&#34;#%E6%B5%8B%E8%AF%95%E5%86%85%E5%AE%B9&#34; aria-label=&#34;Anchor&#34;&gt;#&lt;/a&gt;
+    &lt;/span&gt;        
+    
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;新建笔记：write_note&lt;/li&gt;
+&lt;li&gt;修改笔记：edit_note ✓ 已通过&lt;/li&gt;
+&lt;li&gt;公式：$e^{i\pi} + 1 = 0$&lt;/li&gt;
+&lt;li&gt;链接：Futures Contract 期货合约&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;测试完可以删掉这篇。&lt;/p&gt;</description>
+      
+    </item>
+    
     <item>
       <title>CO 8. Cache</title>
       <link>https://buezw.github.io/docs/uoft/26w/ece243---computer-organization/co8.cache/</link>
