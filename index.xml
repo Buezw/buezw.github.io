@@ -21,6 +21,36 @@
     </item>
     
     <item>
+      <title>OLS Factor Models: CAPM and Fama–French Three-Factor</title>
+      <link>https://buezw.github.io/docs/articles/ols-factor-models/</link>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/ols-factor-models/</guid>
+      <description>Hand-calculated OLS examples for CAPM and FF3, then a real-data application to AAPL (2021-08 to 2026-07).</description>
+      
+    </item>
+    
+    <item>
+      <title>A-S 2. 最优价差 δ*：从零开始完整推导</title>
+      <link>https://buezw.github.io/docs/articles/as2.optimal-spread/</link>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/as2.optimal-spread/</guid>
+      <description>从成交强度 λ(δ)=Ae^{−kδ} 出发，推导短视最优价差 1/k，再给出 HJB 动态最优价差并拼成完整双边报价。</description>
+      
+    </item>
+    
+    <item>
+      <title>VaR 与 CVaR：从“最多亏多少”到“亏起来有多惨”</title>
+      <link>https://buezw.github.io/docs/articles/var-cvar/</link>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/var-cvar/</guid>
+      <description>VaR 划定“正常”与“异常”的边界，CVaR 度量越过边界后的平均亏损；正态假设下的推导、诊断表与完整体系。</description>
+      
+    </item>
+    
+    <item>
       <title>A-S 1. CARA 效用与保留价格：从零开始完整推导</title>
       <link>https://buezw.github.io/docs/articles/as1.cara-reservation-price/</link>
       <pubDate>Fri, 11 Sep 2026 00:00:00 +0000</pubDate>

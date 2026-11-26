@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OLS Factor Models: CAPM and Fama–French Three-Factor · Jingnan Huang</title>
+<meta name="description" content="Hand-calculated OLS examples for CAPM and FF3, then a real-data application to AAPL (2021-08 to 2026-07).">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f3f0ea">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500&family=Noto+Sans+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#f3f0ea; --paper2:#ebe6dc; --text:#141414; --dim:#7a7670; --line:#e2ddd4;
+  --blue:#1f3a8a; --red:#7a2430;
+  --px:clamp(20px,3.2vw,56px);
+  --serif:'Source Serif 4','Noto Serif SC',Georgia,serif;
+}
+ 
+html{--zoom:1;zoom:var(--zoom)}
+@media (min-width:2000px){html{--zoom:1.3}}
+@media (min-width:2400px){html{--zoom:1.45}}
+*{box-sizing:border-box}
+body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:column;background:#fff;color:var(--text);
+  font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+
+ 
+.topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
+.brand{display:flex;align-items:center;gap:12px;color:var(--text);flex:none}
+.brand b{font-size:1.3rem;line-height:1}
+.brand span{color:var(--dim);border-left:1px solid var(--line);padding-left:12px}
+.topnav nav{display:flex;gap:26px;margin-left:auto;flex:none}
+.topnav nav a{color:var(--text)}
+.topnav nav a:hover{color:var(--blue)}
+.topnav nav a.on{box-shadow:0 2px 0 var(--text)}
+
+ 
+.search{position:relative;flex:1;max-width:520px}
+ 
+@media (min-width:1101px){
+  .topnav{display:grid;grid-template-columns:1fr minmax(0,520px) 1fr}
+  .search{width:100%;max-width:none}
+  .topnav nav{justify-self:end}
+}
+.sbox{display:flex;align-items:center;gap:10px;border:1px solid var(--line);padding:6px 12px;color:var(--dim);background:#faf9f6}
+.sbox:focus-within{border-color:var(--text);background:#fff}
+.sbox input{all:unset;flex:1;min-width:0;font-size:.9rem;color:var(--text)}
+.sbox input::placeholder{color:var(--dim)}
+.sbox input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none}
+.sbox kbd{font-family:inherit;font-size:.72rem;border:1px solid var(--line);padding:0 6px;background:#fff;color:var(--dim)}
+.sres{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--text);box-shadow:0 12px 30px rgba(20,20,20,.12);max-height:min(70vh,560px);overflow:auto;display:none}
+.sres.open{display:block}
+.sres a{display:block;padding:10px 14px;border-bottom:1px solid var(--line)}
+.sres a:last-child{border-bottom:none}
+.sres a.on,.sres a:hover{background:#f6f4ef}
+.sres .srt{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.sres .srt b{font-weight:500;font-size:.92rem;color:var(--text);min-width:0;overflow-wrap:anywhere}
+.sres .srt span{color:var(--dim);font-size:.78rem;white-space:nowrap;flex:none;max-width:45%;overflow:hidden;text-overflow:ellipsis}
+.sres p{margin:3px 0 0;color:var(--dim);font-size:.82rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sres mark{background:#fbeec2;color:inherit;padding:0 1px}
+.sres .none{padding:14px;color:var(--dim);font-size:.88rem}
+footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;border-top:1px solid var(--line);color:var(--dim);font-size:.8rem}
+
+ 
+.lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:.8rem;color:var(--dim);border-bottom:1px solid var(--line);padding-bottom:7px;margin-bottom:2px}
+.lab b{font-weight:500;color:var(--text);font-size:.9rem}
+
+ 
+.side{background:var(--paper);padding:40px 24px 22px var(--px);display:flex;flex-direction:column;gap:28px}
+.side h1{font-size:2.25rem;line-height:1;margin:0}
+.who{color:var(--dim);margin-top:8px;font-size:.9rem;line-height:1.5}
+.who b{font-weight:500;color:var(--text)}
+.blurb{margin:0;color:#3a3833;font-size:.95rem;line-height:1.65}
+.roles{display:grid;grid-template-columns:80px 1fr;gap:16px 14px;margin:32px 0 6px;font-size:1rem}
+.roles dt{color:var(--dim);font-size:.78rem;letter-spacing:.06em;padding-top:2px}
+.roles dd{margin:0;font-weight:500}
+.side .lab{border-color:var(--paper2)}
+.kit{padding:6px 0;border-bottom:1px solid var(--paper2)}
+.kit:last-child{border-bottom:none}
+.kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.contact{font-size:.9rem;margin-top:8px}
+.contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
+.contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
+.contact a:hover{text-decoration:underline}
+.cv{margin-top:auto;align-self:flex-start;border:1px solid var(--text);padding:7px 15px;font-size:.92rem}
+.cv:hover{background:var(--text);color:#fff}
+
+ 
+.rs{display:block;padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.rs .t{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.rs .t b{font-weight:500;font-size:.95rem;line-height:1.4;min-width:0;overflow-wrap:anywhere}
+.rs .t span{color:var(--dim);white-space:nowrap;font-size:.86rem}
+.rs p{margin:4px 0 3px;color:var(--dim);font-size:.86rem;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rs .m{font-size:.78rem;color:var(--red)}
+.rs:hover b{color:var(--red)}
+.nb .rs{padding:5px 0}
+.nb .rs p{-webkit-line-clamp:1}
+.nb .rs .m{color:var(--blue)}
+.nb .rs:hover b{color:var(--blue)}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mrow .m{display:flex;align-items:center;gap:8px;min-width:0}
+.area{font-style:normal;font-size:.7rem;font-weight:500;line-height:1.55;white-space:nowrap;color:var(--text)}
+.area::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;background:var(--d)}
+.lang{font-style:normal;font-size:.68rem;font-weight:500;letter-spacing:.03em;line-height:1.55;padding:0 6px;border-radius:2px;color:var(--dim);border:1px solid #cfcac1;white-space:nowrap}
+
+.sys{padding:7px 0 8px;border-bottom:1px solid var(--line)}
+.sys .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sys .t b{font-weight:500}
+.st{font-size:.8rem;white-space:nowrap}
+.st::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:currentColor;margin-right:6px;vertical-align:1px}
+.ok{color:#2f6b4a}.wip{color:#b06a1e}
+.sys .d{color:var(--dim);font-size:.86rem;margin-top:1px}
+.sys .m{color:var(--dim);font-size:.78rem}
+
+ 
+@media (max-width:1100px){
+  .topnav{flex-wrap:wrap;row-gap:12px}
+  .search{order:3;flex-basis:100%;max-width:none}
+}
+@media (max-width:760px){
+  body{font-size:14.5px}
+  .topnav{flex-wrap:wrap;gap:12px 18px;padding-top:13px;padding-bottom:12px}
+  .brand span{display:none}
+  .topnav nav{gap:16px;flex-wrap:wrap;margin-left:0;order:2;flex-basis:100%}
+  .search{order:3;flex-basis:100%;max-width:none}
+  .sbox kbd{display:none}
+  .nb .rs p{-webkit-line-clamp:2}
+}
+ 
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+</style>
+
+<link rel="stylesheet" href="/css/chroma-github.min.bb8f3cc7a7c1b4e41467f091e1d94f231c6a352f9449903bc1bf5b035cd43097.css" integrity="sha256-u488x6fBtOQUZ/CR4dlPIxxqNS&#43;USZA7wb9bA1zUMJc=">
+<link rel="stylesheet" href="/lib/katex/katex.min.css">
+<script defer src="/lib/katex/katex.min.js"></script>
+<script defer src="/lib/katex/auto-render.min.js" onload="renderMathInElement(document.querySelector('.prose'),{delimiters:[{left:'\\\\[',right:'\\\\]',display:true},{left:'\\\\(',right:'\\\\)',display:false},{left:'$$',right:'$$',display:true},{left:'\\[',right:'\\]',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false}],throwOnError:false,ignoredTags:['script','noscript','style','textarea','pre','code']})"></script>
+<style>
+ 
+.banner{background:var(--paper);border-bottom:1px solid var(--text);padding:28px 0 22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.banner>div{padding:0 clamp(24px,3.4vw,64px);max-width:calc(860px + 2*clamp(24px,3.4vw,64px));width:100%;margin:0 auto;box-sizing:border-box;min-width:0}
+.banner h1{font-size:2.5rem;line-height:1.14;margin:10px 0 12px;white-space:nowrap;width:max-content}
+.banner h1.wrap{white-space:normal;width:auto}
+.banner .meta{font-size:.86rem}
+.banner .lead{max-width:860px;margin:0 0 12px}
+.nav2{display:flex;gap:8px}
+.nav2 a{display:block;background:#fff;border:1px solid var(--paper2);padding:8px 14px;width:220px}
+.nav2 a:hover{border-color:var(--text)}
+.nav2 small{display:block;font-size:.72rem;color:var(--dim)}
+.nav2 b{display:block;font-weight:500;font-size:.86rem;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav2 .nx{text-align:right}
+.page{flex:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,300px)}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh / var(--zoom) - 40px);overflow:auto;padding-right:4px}
+.side{padding:30px 22px 30px var(--px)}
+.crumb{font-size:.8rem;color:var(--dim)}
+.crumb a:hover{color:var(--text)}
+.crumb i{font-style:normal;margin:0 6px;color:#bdb7ac}
+.grp{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.2;margin-top:8px;padding-bottom:12px;border-bottom:1px solid var(--paper2)}
+.grp a:hover{color:var(--c)}
+.grp small{display:flex;align-items:center;gap:7px;font-family:'Inter Tight',sans-serif;font-size:.76rem;font-weight:400;color:var(--dim);margin-top:6px;letter-spacing:0}
+.grp small i{width:7px;height:7px;border-radius:50%;background:var(--d)}
+.sib{font-size:.88rem;line-height:1.35;counter-reset:n}
+.sib a{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;align-items:baseline;padding:6px 8px 6px 0;color:#4a4741;border-radius:3px}
+.sib a em{font-style:normal;font-family:var(--serif);font-size:.95rem;color:var(--dim);text-align:right;padding-right:6px}
+.sib a span{overflow-wrap:anywhere}
+.sib a:hover{color:var(--text);background:rgba(255,255,255,.55)}
+.sib a.cur{background:#fff;color:var(--text);font-weight:500;box-shadow:inset 2px 0 0 var(--c)}
+.sib a.cur em{color:var(--c)}
+.rail{padding:30px var(--px) 30px 24px;border-left:1px solid var(--line)}
+.toc{font-size:.84rem;line-height:1.4;border-left:1px solid var(--line)}
+.toc a{display:block;padding:4px 0 4px 12px;margin-left:-1px;border-left:2px solid transparent;color:#5a5650}
+.toc a.l2{padding-left:24px;font-size:.8rem;color:var(--dim)}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--c);border-left-color:var(--c)}
+.totop{display:inline-block;margin-top:14px;font-size:.8rem;color:var(--dim)}
+.totop:hover{color:var(--text)}
+
+.art{padding:30px clamp(24px,3.4vw,64px) 50px;min-width:0}
+.art>*{margin-left:auto;margin-right:auto}
+.ahead{max-width:860px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--text)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;font-size:.84rem;color:var(--dim)}
+.meta .area{font-size:.8rem}
+.ahead h1{font-size:2.6rem;line-height:1.12;margin:12px 0 0;overflow-wrap:anywhere}
+.ahead .crumb{margin-bottom:10px}
+.lead{margin:14px 0 0;font-size:1.05rem;line-height:1.65;color:#4a4741}
+
+ 
+.prose{max-width:860px;font-size:1.02rem;line-height:1.8;color:#232220;overflow-wrap:break-word}
+.prose h1,.prose h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;font-size:1.65rem;line-height:1.25;margin:2.2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+.prose h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;margin:1.8em 0 .5em;scroll-margin-top:20px}
+.prose h4{font-size:1.05rem;font-weight:600;margin:1.6em 0 .4em;scroll-margin-top:20px}
+.prose>*:first-child{margin-top:0}
+.prose h1>span,.prose h2>span,.prose h3>span,.prose h4>span{display:none}
+.prose .anchor{scroll-margin-top:20px}
+.prose p{margin:0 0 1em}
+.prose a{color:var(--c);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+.prose strong{font-weight:600;color:var(--text)}
+.prose ul,.prose ol{padding-left:1.4em;margin:0 0 1em}
+.prose li{margin:.25em 0}
+.prose li>ul,.prose li>ol{margin:.2em 0}
+.prose blockquote{margin:1.2em 0;padding:.6em 1.1em;border-left:3px solid var(--c);background:#faf9f6;color:#4a4741}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose img,.prose video{display:block;max-width:100%;height:auto;margin:1.2em auto;border:1px solid var(--line)}
+.prose hr{border:none;border-top:1px solid var(--line);margin:2em 0}
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;margin:1.2em 0;font-size:.92rem}
+.prose th,.prose td{border:1px solid var(--line);padding:6px 12px;text-align:left;vertical-align:top}
+.prose th{background:#f6f4ef;font-weight:600}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.86em;background:#f3f0ea;padding:.1em .35em;border-radius:3px}
+.prose pre{background:#faf9f6;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;font-size:.86rem;line-height:1.6;margin:1.2em 0}
+.prose pre code{background:none;padding:0;font-size:inherit}
+.prose .highlight{margin:1.2em 0}
+.prose .highlight pre{margin:0}
+.prose .katex-display{overflow-x:auto;overflow-y:hidden;padding:.2em 0}
+.prose .katex{font-size:1.06em}
+
+.pn{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:44px;padding-top:18px;border-top:1px solid var(--text)}
+.pn a{display:block;padding:12px 14px;border:1px solid var(--line)}
+.pn a:hover{border-color:var(--text)}
+.pn span{display:block;font-size:.78rem;color:var(--dim)}
+.pn b{font-weight:500;font-size:.95rem;overflow-wrap:anywhere}
+.pn .nx{text-align:right;grid-column:2}
+
+@media (max-width:1000px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .rail{display:none}
+}
+@media (max-width:760px){
+  .banner{display:block;padding:22px 0 18px}
+  .banner h1{font-size:1.8rem!important;white-space:normal;width:auto}
+  .nav2{display:none}
+  .prose{font-size:.98rem}
+  .pn{grid-template-columns:1fr}
+  .pn .nx{grid-column:1}
+}
+</style>
+</head>
+<body style="--c:var(--blue)">
+<header class="topnav">
+  <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
+  <div class="search">
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 121 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <div class="sres" id="sres" role="listbox"></div>
+  </div>
+  <nav>
+    <a href="/docs/" class="on">Notebook</a>
+    <a href="/utefa/">Research</a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+  </nav>
+</header>
+<script>
+ 
+(function(){
+  var q=document.getElementById('q'), box=document.getElementById('sres');
+  if(!q||!box) return;
+  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var data=null, loading=null, sel=-1, hits=[];
+  var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
+  function load(){
+    if(data) return Promise.resolve(data);
+    if(!loading) loading=fetch('/index.json').then(function(r){return r.json();}).then(function(d){
+      data=d.filter(function(x){return x.content && x.permalink && !SKIP.test(x.permalink+'/');});
+      return data;
+    }).catch(function(){ data=[]; return data; });
+    return loading;
+  }
+  function esc(t){return t.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function hl(t,terms){
+    var out=esc(t);
+    terms.forEach(function(w){ if(!w) return; out=out.replace(new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'gi'),function(m){return '<mark>'+m+'</mark>';}); });
+    return out;
+  }
+  function clean(c){
+    return c.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'")
+      .replace(/\$\$[\s\S]*?\$\$/g,' ').replace(/\$[^$\n]*\$/g,' ').replace(/\\[a-zA-Z]+/g,' ')
+      .replace(/[#*_>`|]/g,' ').replace(/\s+/g,' ').trim();
+  }
+  function snippet(c,w){
+    c=clean(c);
+    var i=c.toLowerCase().indexOf(w);
+    if(i<0) return c.slice(0,140);
+    var a=Math.max(0,i-50);
+    return (a?'… ':'')+c.slice(a,a+150);
+  }
+  function where(p){
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
+    if(p[0]==='finance') return 'Research';
+    if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
+  }
+  function render(){
+    var v=q.value.trim().toLowerCase();
+    if(!v){ box.classList.remove('open'); box.innerHTML=''; return; }
+    var terms=v.split(/\s+/);
+    hits=data.map(function(x){
+      var t=x.title.toLowerCase(), c=x.content.toLowerCase(), s=0;
+      for(var i=0;i<terms.length;i++){
+        var w=terms[i];
+        if(t.indexOf(w)>=0) s+=10; else if(c.indexOf(w)>=0) s+=1; else return null;
+      }
+      return {x:x,s:s};
+    }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
+    sel=-1;
+    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    box.innerHTML=hits.map(function(h){
+      var x=h.x;
+      return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
+    }).join('');
+    box.classList.add('open');
+  }
+  function mark(){
+    var as=box.querySelectorAll('a');
+    as.forEach(function(a,i){a.classList.toggle('on',i===sel);});
+    if(as[sel]) as[sel].scrollIntoView({block:'nearest'});
+  }
+  q.addEventListener('focus',load);
+  q.addEventListener('input',function(){ load().then(render); });
+  q.addEventListener('keydown',function(e){
+    var n=box.querySelectorAll('a').length;
+    if(e.key==='ArrowDown'&&n){ sel=(sel+1)%n; mark(); e.preventDefault(); }
+    else if(e.key==='ArrowUp'&&n){ sel=(sel-1+n)%n; mark(); e.preventDefault(); }
+    else if(e.key==='Enter'){ var a=box.querySelectorAll('a')[sel<0?0:sel]; if(a){ location.href=a.href; e.preventDefault(); } }
+    else if(e.key==='Escape'){ q.value=''; render(); q.blur(); }
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='/'&&document.activeElement!==q&&!/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); q.focus(); }
+  });
+  document.addEventListener('click',function(e){ if(!e.target.closest('.search')) box.classList.remove('open'); });
+  q.addEventListener('focus',function(){ if(q.value.trim()&&box.innerHTML) box.classList.add('open'); });
+})();
+</script>
+
+
+<section class="banner">
+  <div>
+    <div class="crumb"><a href="/docs/">Notebook</a><i>/</i><a href="/docs/">Articles</a></div>
+    <h1 class="serif" id="atitle">OLS Factor Models: CAPM and Fama–French Three-Factor</h1><p class="lead">Hand-calculated OLS examples for CAPM and FF3, then a real-data application to AAPL (2021-08 to 2026-07).</p>
+    <div class="meta">
+      <span>Sep 14, 2026</span><span>Edited 11/26/26</span>
+      <i class="lang">EN</i>
+    </div>
+  </div>
+</section>
+
+<div class="page">
+  <article class="art">
+
+    <div class="prose">
+      
+<p><em>Hand-Calculated Worked Examples, and a Real-Data Application to AAPL</em></p>
+<p><strong>Purpose of this document.</strong> This report has three parts. Part I derives the OLS factor-loading estimator from first principles and walks a fully hand-computed CAPM example with a small, illustrative dataset. Part II does the same for the Fama–French three-factor model. Part III applies both models to real historical market data for Apple Inc. (AAPL), fetched from Yahoo! Finance and Kenneth R. French&rsquo;s Data Library, with every regression cross-checked against statsmodels. Parts I–II use small, clearly labeled illustrative datasets chosen so the arithmetic is easy to verify by hand; they are not real market data. Part III uses only real data.</p>
+
+
+<h1 class="relative group">Part I — CAPM: Worked Example 
+    <div id="part-i--capm-worked-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#part-i--capm-worked-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">1. Model and setup 
+    <div id="1-model-and-setup" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#1-model-and-setup" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The Capital Asset Pricing Model (CAPM) regression is</p>
+$$
+R_i - R_f = \alpha + \beta(R_m - R_f) + \varepsilon,
+$$<p>where $R_i - R_f$ is the stock&rsquo;s excess return and $R_m - R_f$ is the market&rsquo;s excess return. Stacking $T$ months of data,</p>
+$$
+y \in \mathbb{R}^T, \qquad X \in \mathbb{R}^{T\times 2} = [\mathbf{1} \mid x],
+$$<p>and OLS solves the normal equations $X^\top X\hat\beta = X^\top y$, giving</p>
+$$
+\boxed{\hat\beta = (X^\top X)^{-1}X^\top y.}
+$$<blockquote>
+<p><em>Illustrative data below (Table 1) — not real market data. Chosen with round numbers so every step can be verified by hand.</em></p>
+</blockquote>
+
+
+<h2 class="relative group">2. Data 
+    <div id="2-data" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#2-data" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><em>Table 1: Illustrative monthly data ($T=6$)</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Month</th>
+          <th style="text-align: center">Stock excess return $y$ (%)</th>
+          <th style="text-align: center">Market excess return $x$ (%)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">5</td>
+          <td style="text-align: center">3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">−2</td>
+          <td style="text-align: center">−1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">5</td>
+          <td style="text-align: center">−3</td>
+          <td style="text-align: center">−2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">6</td>
+          <td style="text-align: center">6</td>
+          <td style="text-align: center">3</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">3. Computation 
+    <div id="3-computation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#3-computation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+$$
+X^\top X = \begin{bmatrix} 6 & 9 \\ 9 & 43 \end{bmatrix}, \qquad X^\top y = \begin{bmatrix} 15 \\ 75 \end{bmatrix}, \qquad \det(X^\top X) = 6(43) - 9(9) = 177.
+$$$$
+(X^\top X)^{-1} = \frac{1}{177}\begin{bmatrix} 43 & -9 \\ -9 & 6 \end{bmatrix} \implies \hat\beta = \frac{1}{177}\begin{bmatrix} 43(15) - 9(75) \\ -9(15) + 6(75) \end{bmatrix} = \begin{bmatrix} -0.169 \\ 1.780 \end{bmatrix}.
+$$<p>So $\hat\alpha \approx -0.17\%$ and $\hat\beta \approx 1.78$.</p>
+
+
+<h2 class="relative group">4. Fit diagnostics: $R^2$ and $t$-statistics 
+    <div id="4-fit-diagnostics-r2-and-t-statistics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#4-fit-diagnostics-r2-and-t-statistics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>With fitted values $\hat y = -0.169 + 1.780x$, the residuals are $(-0.17, -0.05, 1.05, -2.39, 0.73, 0.83)$, giving</p>
+$$
+SSR = 8.068, \qquad SST = 101.5, \qquad R^2 = 1 - \frac{SSR}{SST} \approx 0.9205.
+$$<p>With $T-2=4$ degrees of freedom, $\hat\sigma^2 = SSR/4 = 2.017$. Using $\sum(x_i - \bar x)^2 = 29.5$ and $\bar x = 1.5$:</p>
+$$
+SE(\hat\beta) = \sqrt{\hat\sigma^2/29.5} \approx 0.2615, \qquad SE(\hat\alpha) = \sqrt{\hat\sigma^2\left(\frac{1}{6} + \frac{1.5^2}{29.5}\right)} \approx 0.700.
+$$<p><em>Table 2: CAPM results (illustrative data)</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: center">Estimate</th>
+          <th style="text-align: center">Std. Error</th>
+          <th style="text-align: center">$t$-statistic</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\hat\alpha$</td>
+          <td style="text-align: center">−0.17%</td>
+          <td style="text-align: center">0.70</td>
+          <td style="text-align: center">−0.24</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\hat\beta$</td>
+          <td style="text-align: center">1.78</td>
+          <td style="text-align: center">0.26</td>
+          <td style="text-align: center"><strong>6.81</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Interpretation.</strong> $\beta$&rsquo;s $t$-statistic (6.81) is large, so the market loading is reliably different from zero; $\alpha$&rsquo;s $t$-statistic (−0.24) is not, so the small negative intercept is indistinguishable from noise. $R^2 \approx 0.92$ means the market factor explains about 92% of this (illustrative) stock&rsquo;s return variance — deliberately high here so the arithmetic is clean; real single-stock CAPM $R^2$ is typically much lower (see Part III).</p>
+
+
+<h1 class="relative group">Part II — Fama–French Three-Factor: Worked Example 
+    <div id="part-ii--famafrench-three-factor-worked-example" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#part-ii--famafrench-three-factor-worked-example" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">5. Model and setup 
+    <div id="5-model-and-setup" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#5-model-and-setup" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>The three-factor model adds size (SMB) and value (HML) to the market factor:</p>
+$$
+R_i - R_f = \alpha + \beta_{\text{MKT}}(R_m - R_f) + \beta_{\text{SMB}}\,SMB + \beta_{\text{HML}}\,HML + \varepsilon.
+$$<p>Now $X \in \mathbb{R}^{T\times 4}$ (a column of ones plus three factor columns), and the same estimator applies: $\hat\beta = (X^\top X)^{-1}X^\top y$.</p>
+<blockquote>
+<p><em>Illustrative data below (Table 4) — not real market data, chosen so the market loading is clearly significant while SMB and HML are deliberately weak, to demonstrate how the t-statistic separates real exposures from noise.</em></p>
+</blockquote>
+
+
+<h2 class="relative group">6. Data 
+    <div id="6-data" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#6-data" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><em>Table 3: Illustrative monthly data ($T=12$)</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Month</th>
+          <th style="text-align: center">MKT</th>
+          <th style="text-align: center">SMB</th>
+          <th style="text-align: center">HML</th>
+          <th style="text-align: center">$y$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">−1</td>
+          <td style="text-align: center">6</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">−1</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">−1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">−1</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">9</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">5</td>
+          <td style="text-align: center">−2</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">−1</td>
+          <td style="text-align: center">−3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">6</td>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">−2</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">7</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">8</td>
+          <td style="text-align: center">−3</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">−2</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">9</td>
+          <td style="text-align: center">5</td>
+          <td style="text-align: center">−1</td>
+          <td style="text-align: center">−2</td>
+          <td style="text-align: center">9</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">10</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">1</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">11</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">12</td>
+          <td style="text-align: center">−1</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">0</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">7. Computation 
+    <div id="7-computation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#7-computation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+$$
+X^\top X = \begin{bmatrix} 12 & 13 & 6 & 4 \\ 13 & 83 & -17 & -5 \\ 6 & -17 & 22 & 0 \\ 4 & -5 & 0 & 18 \end{bmatrix}, \qquad X^\top y = \begin{bmatrix} 34 \\ 143 \\ -17 \\ 2 \end{bmatrix}.
+$$$$
+(X^\top X)^{-1} \approx \begin{bmatrix} 0.2303 & -0.0631 & -0.1115 & -0.0687 \\ -0.0631 & 0.0319 & 0.0418 & 0.0229 \\ -0.1115 & 0.0418 & 0.1082 & 0.0364 \\ -0.0687 & 0.0229 & 0.0364 & 0.0772 \end{bmatrix}
+$$$$
+\hat\beta = (X^\top X)^{-1}X^\top y = \begin{bmatrix} \hat\alpha \\ \hat\beta_{\text{MKT}} \\ \hat\beta_{\text{SMB}} \\ \hat\beta_{\text{HML}} \end{bmatrix} = \begin{bmatrix} 0.5723 \\ 1.7479 \\ 0.4219 \\ 0.4695 \end{bmatrix}.
+$$
+
+<h2 class="relative group">8. Fit diagnostics 
+    <div id="8-fit-diagnostics" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#8-fit-diagnostics" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+$$
+SSR = 6.82, \qquad SST = 173.67, \qquad R^2 = 1 - \frac{6.82}{173.67} \approx 0.961.
+$$<p>With $T-4=8$ degrees of freedom, $\hat\sigma^2 = 6.82/8 = 0.852$, and standard errors from $\sqrt{\hat\sigma^2 \cdot \operatorname{diag}[(X^\top X)^{-1}]}$:</p>
+<p><em>Table 4: Fama–French three-factor results (illustrative data)</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: center">Estimate</th>
+          <th style="text-align: center">Std. Error</th>
+          <th style="text-align: center">$t$-statistic</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\hat\alpha$</td>
+          <td style="text-align: center">0.572</td>
+          <td style="text-align: center">0.443</td>
+          <td style="text-align: center">1.29</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\hat\beta_{\text{MKT}}$</td>
+          <td style="text-align: center">1.748</td>
+          <td style="text-align: center">0.165</td>
+          <td style="text-align: center"><strong>10.61</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\hat\beta_{\text{SMB}}$</td>
+          <td style="text-align: center">0.422</td>
+          <td style="text-align: center">0.304</td>
+          <td style="text-align: center">1.39</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\hat\beta_{\text{HML}}$</td>
+          <td style="text-align: center">0.470</td>
+          <td style="text-align: center">0.257</td>
+          <td style="text-align: center">1.83</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Interpretation.</strong> Only the market loading clears the usual $\vert t\vert > 2$ threshold. Despite $R^2$ rising to 0.961 from the single-factor case, the SMB and HML loadings themselves are not individually reliable in this illustrative sample — a reminder that $R^2$ and per-coefficient significance answer different questions.</p>
+
+
+<h1 class="relative group">Part III — Real-Data Application: AAPL 
+    <div id="part-iii--real-data-application-aapl" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#part-iii--real-data-application-aapl" aria-label="Anchor">#</a>
+    </span>        
+    
+</h1>
+
+
+<h2 class="relative group">9. Data sources and sample 
+    <div id="9-data-sources-and-sample" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#9-data-sources-and-sample" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>This part uses <strong>real, historical monthly market data</strong> — no simulated or synthetic returns.</p>
+<ul>
+<li><strong>Stock return data:</strong> Monthly adjusted-close prices for AAPL, downloaded from Yahoo! Finance via the <code>yfinance</code> Python package. Monthly simple returns (%) computed as $R_t = 100 \times (P_t/P_{t-1} - 1)$ using adjusted close (dividend- and split-adjusted).</li>
+<li><strong>Factor data:</strong> Market excess return (Mkt–RF), size (SMB), value (HML), and the risk-free rate (RF), all monthly percent, from Kenneth R. French&rsquo;s Data Library (<a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip" target="_blank">https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/F-F_Research_Data_Factors_CSV.zip</a>), using only the monthly section of the file.</li>
+<li><strong>Sample period:</strong> 2021-08 through 2026-07, $T=60$ monthly observations — the last 60 months for which both AAPL price data and Fama–French factor data are jointly available.</li>
+<li>AAPL&rsquo;s excess return each month, $R_t^{AAPL} - RF_t$, is the dependent variable $y$ in both regressions below.</li>
+</ul>
+<p>Every regression was computed two independent ways: (1) manually via the OLS normal equations in NumPy, and (2) cross-checked against <code>statsmodels.api.OLS</code> and <code>numpy.linalg.lstsq</code>. All three methods agreed to within numerical machine precision ($<10^{-12}$).</p>
+
+
+<h2 class="relative group">10. Model 1: CAPM 
+    <div id="10-model-1-capm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#10-model-1-capm" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+$$
+R_t^{AAPL} - RF_t = \alpha + \beta(Mkt_t - RF_t) + \varepsilon_t, \qquad t = 1,\dots,60.
+$$$$
+\hat\beta = \begin{bmatrix} \hat\alpha \\ \hat\beta_{\text{MKT}} \end{bmatrix} = \begin{bmatrix} 0.4799 \\ 1.0478 \end{bmatrix}.
+$$<p><em>Table 5: CAPM regression, AAPL excess returns, 2021-08 to 2026-07 ($T=60$, real data)</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: center">Estimate</th>
+          <th style="text-align: center">Std. Error</th>
+          <th style="text-align: center">$t$-statistic</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\alpha$ (intercept)</td>
+          <td style="text-align: center">0.4799</td>
+          <td style="text-align: center">0.7011</td>
+          <td style="text-align: center">0.6846</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\beta_{\text{MKT}}$</td>
+          <td style="text-align: center">1.0478</td>
+          <td style="text-align: center">0.1504</td>
+          <td style="text-align: center"><strong>6.9646</strong>*</td>
+      </tr>
+  </tbody>
+</table>
+<p>* $\vert t\vert > 2$, significant at approximately the 5% level.</p>
+<p>$R^2 = 0.4554$, Adjusted $R^2 = 0.4460$.</p>
+<p><strong>Interpretation.</strong> $\hat\beta_{\text{MKT}} \approx 1.05$ is highly significant ($t \approx 6.96$): AAPL moves essentially one-for-one with the market, with slightly above-average systematic risk. $\hat\alpha \approx 0.48\%$/month is not statistically distinguishable from zero ($t \approx 0.68$) — no reliable evidence of CAPM-abnormal return over this sample. $R^2 \approx 45.5\%$: the market factor alone explains under half of AAPL&rsquo;s month-to-month variance; the remaining $\approx 54.5\%$ is idiosyncratic, firm-specific risk.</p>
+
+
+<h2 class="relative group">11. Model 2: Fama–French three-factor 
+    <div id="11-model-2-famafrench-three-factor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#11-model-2-famafrench-three-factor" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+$$
+R_t^{AAPL} - RF_t = \alpha + \beta_{\text{MKT}}(Mkt_t - RF_t) + \beta_{\text{SMB}}\,SMB_t + \beta_{\text{HML}}\,HML_t + \varepsilon_t.
+$$$$
+\hat\beta = \begin{bmatrix} \hat\alpha \\ \hat\beta_{\text{MKT}} \\ \hat\beta_{\text{SMB}} \\ \hat\beta_{\text{HML}} \end{bmatrix} = \begin{bmatrix} 0.6080 \\ 1.0179 \\ -0.0941 \\ -0.2347 \end{bmatrix}.
+$$<p><em>Table 6: Fama–French three-factor regression, AAPL excess returns, 2021-08 to 2026-07 ($T=60$, real data)</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Parameter</th>
+          <th style="text-align: center">Estimate</th>
+          <th style="text-align: center">Std. Error</th>
+          <th style="text-align: center">$t$-statistic</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$\alpha$ (intercept)</td>
+          <td style="text-align: center">0.6080</td>
+          <td style="text-align: center">0.7352</td>
+          <td style="text-align: center">0.8270</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\beta_{\text{MKT}}$</td>
+          <td style="text-align: center">1.0179</td>
+          <td style="text-align: center">0.1605</td>
+          <td style="text-align: center"><strong>6.3415</strong>*</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\beta_{\text{SMB}}$</td>
+          <td style="text-align: center">−0.0941</td>
+          <td style="text-align: center">0.2652</td>
+          <td style="text-align: center">−0.3547</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$\beta_{\text{HML}}$</td>
+          <td style="text-align: center">−0.2347</td>
+          <td style="text-align: center">0.1855</td>
+          <td style="text-align: center">−1.2656</td>
+      </tr>
+  </tbody>
+</table>
+<p>* $\vert t\vert > 2$, significant at approximately the 5% level.</p>
+<p>$R^2 = 0.4726$, Adjusted $R^2 = 0.4443$.</p>
+<p><strong>Interpretation.</strong> The market loading remains large and highly significant ($\hat\beta_{\text{MKT}} \approx 1.02$, $t \approx 6.34$). Neither SMB ($t \approx -0.35$) nor HML ($t \approx -1.27$) is significant at the 5% level — consistent with AAPL behaving like a large, growth-oriented stock with no meaningful size or value tilt. The intercept remains statistically indistinguishable from zero. Adding SMB and HML raises $R^2$ only marginally (45.54% → 47.26%), and adjusted $R^2$ actually edges down slightly (44.60% → 44.43%) — the two extra factors add essentially no genuine explanatory power once the market factor is included; roughly 53% of AAPL&rsquo;s return variance remains firm-specific.</p>
+
+
+<h2 class="relative group">12. Data verification 
+    <div id="12-data-verification" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#12-data-verification" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>Table 7 reproduces the first and last five rows of the 60-row merged dataset (all figures in percent except the date column); the full CSV (<code>aapl_ff_merged.csv</code>) is available on request for independent verification.</p>
+<p><em>Table 7: Merged monthly dataset (excerpt: first and last 5 of 60 rows)</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Date</th>
+          <th style="text-align: right">AAPL Ret.</th>
+          <th style="text-align: right">Mkt–RF</th>
+          <th style="text-align: right">SMB</th>
+          <th style="text-align: right">HML</th>
+          <th style="text-align: right">RF</th>
+          <th style="text-align: right">AAPL Excess</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">2021-08</td>
+          <td style="text-align: right">4.25</td>
+          <td style="text-align: right">2.94</td>
+          <td style="text-align: right">−0.32</td>
+          <td style="text-align: right">−0.23</td>
+          <td style="text-align: right">0.00</td>
+          <td style="text-align: right">4.25</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2021-09</td>
+          <td style="text-align: right">−6.80</td>
+          <td style="text-align: right">−4.40</td>
+          <td style="text-align: right">0.66</td>
+          <td style="text-align: right">5.12</td>
+          <td style="text-align: right">0.00</td>
+          <td style="text-align: right">−6.80</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2021-10</td>
+          <td style="text-align: right">5.87</td>
+          <td style="text-align: right">6.63</td>
+          <td style="text-align: right">−2.26</td>
+          <td style="text-align: right">−0.53</td>
+          <td style="text-align: right">0.00</td>
+          <td style="text-align: right">5.87</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2021-11</td>
+          <td style="text-align: right">10.51</td>
+          <td style="text-align: right">−1.58</td>
+          <td style="text-align: right">−1.31</td>
+          <td style="text-align: right">−0.37</td>
+          <td style="text-align: right">0.00</td>
+          <td style="text-align: right">10.51</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2021-12</td>
+          <td style="text-align: right">7.42</td>
+          <td style="text-align: right">3.23</td>
+          <td style="text-align: right">−1.63</td>
+          <td style="text-align: right">3.25</td>
+          <td style="text-align: right">0.01</td>
+          <td style="text-align: right">7.41</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">⋮</td>
+          <td style="text-align: right"></td>
+          <td style="text-align: right"></td>
+          <td style="text-align: right">(50 rows omitted — see attached CSV)</td>
+          <td style="text-align: right"></td>
+          <td style="text-align: right"></td>
+          <td style="text-align: right">⋮</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2026-03</td>
+          <td style="text-align: right">−3.93</td>
+          <td style="text-align: right">−5.18</td>
+          <td style="text-align: right">0.44</td>
+          <td style="text-align: right">3.29</td>
+          <td style="text-align: right">0.29</td>
+          <td style="text-align: right">−4.22</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2026-04</td>
+          <td style="text-align: right">6.92</td>
+          <td style="text-align: right">9.95</td>
+          <td style="text-align: right">0.19</td>
+          <td style="text-align: right">−1.37</td>
+          <td style="text-align: right">0.29</td>
+          <td style="text-align: right">6.63</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2026-05</td>
+          <td style="text-align: right">15.11</td>
+          <td style="text-align: right">4.91</td>
+          <td style="text-align: right">−1.59</td>
+          <td style="text-align: right">−2.31</td>
+          <td style="text-align: right">0.31</td>
+          <td style="text-align: right">14.80</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2026-06</td>
+          <td style="text-align: right">−7.27</td>
+          <td style="text-align: right">−1.07</td>
+          <td style="text-align: right">3.39</td>
+          <td style="text-align: right">3.58</td>
+          <td style="text-align: right">0.29</td>
+          <td style="text-align: right">−7.56</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2026-07</td>
+          <td style="text-align: right">6.76</td>
+          <td style="text-align: right">−0.60</td>
+          <td style="text-align: right">−1.96</td>
+          <td style="text-align: right">2.11</td>
+          <td style="text-align: right">0.33</td>
+          <td style="text-align: right">6.43</td>
+      </tr>
+  </tbody>
+</table>
+
+
+<h2 class="relative group">13. Summary: illustrative examples vs. real data 
+    <div id="13-summary-illustrative-examples-vs-real-data" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#13-summary-illustrative-examples-vs-real-data" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p><em>Table 8: Side-by-side comparison</em></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: center">Illustrative (Parts I–II)</th>
+          <th style="text-align: center">Real AAPL data (Part III)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">CAPM $R^2$</td>
+          <td style="text-align: center">0.92</td>
+          <td style="text-align: center">0.46</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">CAPM $\beta$, $t$-stat</td>
+          <td style="text-align: center">1.78, $t=6.81$</td>
+          <td style="text-align: center">1.05, $t=6.96$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">FF3 $R^2$</td>
+          <td style="text-align: center">0.96</td>
+          <td style="text-align: center">0.47</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">FF3 $\beta_{\text{MKT}}$, $t$-stat</td>
+          <td style="text-align: center">1.75, $t=10.61$</td>
+          <td style="text-align: center">1.02, $t=6.34$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">FF3 SMB/HML significant?</td>
+          <td style="text-align: center">No (illustrative, by design)</td>
+          <td style="text-align: center">No</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Why the real $R^2$ is so much lower.</strong> The illustrative datasets in Parts I–II were constructed with small, clean residuals purely to make the OLS arithmetic easy to verify by hand. Real single-stock monthly returns are dominated by firm-specific news — earnings surprises, product announcements, litigation, supply-chain events — that have nothing to do with market-wide, size, or value factors. An AAPL CAPM/FF3 $R^2$ in the 45–47% range is, in fact, on the high end for an individual large-cap stock; many mid- and small-cap names see single-factor $R^2$ in the 10–20% range. This is precisely the idiosyncratic-risk share that diversification is designed to remove.</p>
+
+    </div>
+    <nav class="pn"><a href="/docs/articles/as2.optimal-spread/"><span>← Previous</span><b>A-S 2. 最优价差 δ*：从零开始完整推导</b></a><a class="nx" href="/docs/articles/var-cvar/"><span>Next →</span><b>Va R 与 C Va R：从“最多亏多少”到“亏起来有多惨”</b></a>
+    </nav>
+  </article>
+
+  <aside class="rail">
+    <div class="sticky">
+      <div class="lab"><b>On this page</b></div>
+      <nav class="toc" id="toc">
+        <a href="#part-i--capm-worked-example" class="l1">Part I — CAPM: Worked Example</a>
+        <a href="#1-model-and-setup" class="l2">1. Model and setup</a>
+        <a href="#2-data" class="l2">2. Data</a>
+        <a href="#3-computation" class="l2">3. Computation</a>
+        <a href="#4-fit-diagnostics-r2-and-t-statistics" class="l2">4. Fit diagnostics:  and -statistics</a>
+        <a href="#part-ii--famafrench-three-factor-worked-example" class="l1">Part II — Fama–French Three-Factor: Worked Example</a>
+        <a href="#5-model-and-setup" class="l2">5. Model and setup</a>
+        <a href="#6-data" class="l2">6. Data</a>
+        <a href="#7-computation" class="l2">7. Computation</a>
+        <a href="#8-fit-diagnostics" class="l2">8. Fit diagnostics</a>
+        <a href="#part-iii--real-data-application-aapl" class="l1">Part III — Real-Data Application: AAPL</a>
+        <a href="#9-data-sources-and-sample" class="l2">9. Data sources and sample</a>
+        <a href="#10-model-1-capm" class="l2">10. Model 1: CAPM</a>
+        <a href="#11-model-2-famafrench-three-factor" class="l2">11. Model 2: Fama–French three-factor</a>
+        <a href="#12-data-verification" class="l2">12. Data verification</a>
+        <a href="#13-summary-illustrative-examples-vs-real-data" class="l2">13. Summary: illustrative examples vs. real data</a>
+      </nav>
+      <a class="totop" href="#">↑ Back to top</a>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span>© 2026 Jingnan Huang</span>
+  <span>Last updated <time id="updated" datetime="2026-11-26T20:04:58Z">Nov 26, 2026, 3:04 PM ET</time> · buezw.github.io</span>
+</footer>
+<script>
+(function(){
+  var el=document.getElementById('updated'); if(!el||!window.Intl) return;
+  try{
+    var d=new Date(el.getAttribute('datetime'));
+    var s=new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(d);
+    el.textContent=s;
+  }catch(e){}
+})();
+</script>
+
+<script>
+
+
+(function(){
+  var root=document.querySelector('.prose'); if(!root) return;
+  var re=/\*\*((?:(?!\*\*)[\s\S]){1,400}?)\*\*/g;
+  root.querySelectorAll('p,li,td,th,h1,h2,h3,h4,h5,blockquote').forEach(function(el){
+    if(el.closest('pre,code')) return;
+    if(el.querySelector('p,li,ul,ol,table')) return;
+    if(el.innerHTML.indexOf('**')<0) return;
+    var parts=el.innerHTML.split(/(<code[\s\S]*?<\/code>)/);
+    for(var i=0;i<parts.length;i+=2){ parts[i]=parts[i].replace(/\*{4}/g,'').replace(re,'<strong>$1</strong>').replace(/\*\*/g,''); }
+    el.innerHTML=parts.join('');
+  });
+})();
+</script>
+<script>
+ 
+(function(){
+  var h=document.getElementById('atitle'); if(!h) return;
+  function fit(){
+    h.classList.remove('wrap'); h.style.fontSize='';
+    if(window.innerWidth<=760) return;
+    var band=h.closest('.banner'), right=band.getBoundingClientRect().right-parseFloat(getComputedStyle(document.documentElement).fontSize)*2.5;
+    var size=parseFloat(getComputedStyle(h).fontSize), min=parseFloat(getComputedStyle(document.documentElement).fontSize)*1.5;
+    while(h.getBoundingClientRect().right>right && size>min){ size-=1; h.style.fontSize=size+'px'; }
+    if(h.getBoundingClientRect().right>right) h.classList.add('wrap');
+  }
+  fit(); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+<script>
+ 
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#toc a')); if(!links.length) return;
+  var heads=links.map(function(a){var e=document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));return e&&(e.closest('h1,h2,h3,h4,h5,h6')||e);});
+  function on(){
+    var y=window.scrollY+80, k=0;
+    heads.forEach(function(h,i){ if(h && h.getBoundingClientRect().top+window.scrollY<=y) k=i; });
+    if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) k=heads.length-1;
+    links.forEach(function(a,i){a.classList.toggle('on',i===k);});
+  }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+</script>
+</body>
+</html>
