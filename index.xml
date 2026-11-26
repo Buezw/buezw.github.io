@@ -12,10 +12,10 @@
     <lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://buezw.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>连接器测试</title>
-      <link>https://buezw.github.io/docs/sample/connector-test/</link>
+      <link>https://buezw.github.io/docs/connector-test/connector-test/</link>
       <pubDate>Thu, 26 Nov 2026 00:00:00 +0000</pubDate>
       <author>youremail@example.com (Buezwqwg)</author>
-      <guid>https://buezw.github.io/docs/sample/connector-test/</guid>
+      <guid>https://buezw.github.io/docs/connector-test/connector-test/</guid>
       <description>&lt;p&gt;这篇笔记是 Claude 通过玄枢 MCP 连接器创建的，用来测试写入功能。&lt;/p&gt;
 
 
