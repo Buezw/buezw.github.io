@@ -20,5 +20,15 @@
       
     </item>
     
+    <item>
+      <title>A-S 1. CARA 效用与保留价格：从零开始完整推导</title>
+      <link>https://buezw.github.io/docs/articles/as1.cara-reservation-price/</link>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 +0000</pubDate>
+      <author>youremail@example.com (Buezwqwg)</author>
+      <guid>https://buezw.github.io/docs/articles/as1.cara-reservation-price/</guid>
+      <description>从做市商的财富定义出发，经 CARA 效用与正态期望效用，推导出保留价格 r = s − ½γqσ²(T−t)。</description>
+      
+    </item>
+    
   </channel>
 </rss>
