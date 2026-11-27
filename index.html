@@ -4,7 +4,8 @@
 	<meta name="generator" content="Hugo 0.135.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jingnan Huang · Notes &amp; Research</title>
+<title data-zh="Jingnan Huang · 笔记与研究">Jingnan Huang · Notes &amp; Research</title>
+<script>(function(){var l;try{l=localStorage.getItem('lang')}catch(e){}if(l!=='zh'&&l!=='en'){l=/^zh/i.test(navigator.language||'')?'zh':'en'}document.documentElement.setAttribute('data-lang',l)})();</script>
 <meta name="description" content="Jingnan Huang — Computer Engineering at the University of Toronto. Course notes, trading systems and market research.">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -32,6 +33,20 @@ body{margin:0;min-height:calc(100vh / var(--zoom));display:flex;flex-direction:c
   font:15px/1.6 'Inter Tight','Noto Sans SC',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .serif{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+
+ 
+html[data-lang=zh] .L-en,html:not([data-lang=zh]) .L-zh{display:none!important}
+ 
+html[data-lang=zh] .lf.hz:not(.all) [data-l=EN],html:not([data-lang=zh]) .lf.he:not(.all) [data-l=CN]{display:none}
+.lf.all .more{display:none!important}
+ 
+html[data-lang=zh] [data-l=CN] .lang,html:not([data-lang=zh]) [data-l=EN] .lang{display:none}
+.more{all:unset;cursor:pointer;display:block;margin-top:10px;font-size:.84rem;color:var(--dim)}
+.more:hover{color:var(--text);text-decoration:underline}
+.lsw{display:flex;align-items:center;gap:2px;font-size:.82rem;color:var(--line)}
+.lsw button{all:unset;cursor:pointer;padding:1px 5px;color:var(--dim)}
+.lsw button:hover{color:var(--text)}
+html:not([data-lang=zh]) .lsw [data-setlang=en],html[data-lang=zh] .lsw [data-setlang=zh]{color:var(--text);font-weight:500}
 
  
 .topnav{position:relative;z-index:5;display:flex;align-items:center;gap:28px;padding:15px var(--px) 14px;border-bottom:1px solid var(--text);font-size:.9rem;background:#fff}
@@ -88,7 +103,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 .kit:last-child{border-bottom:none}
 .kit>span{display:block;color:var(--dim);font-size:.78rem;margin-bottom:5px}
 .chips{display:flex;flex-wrap:wrap;gap:6px}
-.chips span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
+.chips>span{background:#fff;border:1px solid var(--paper2);padding:2px 8px;font-size:.8rem}
 .contact{font-size:.9rem;margin-top:8px}
 .contact>a{display:block;padding-bottom:6px;border-bottom:1px solid var(--paper2);overflow-wrap:anywhere}
 .contact div{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:6px}
@@ -193,22 +208,50 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
 <header class="topnav">
   <a href="/" class="brand"><b class="serif">JH</b><span>buezw.github.io</span></a>
   <div class="search">
-    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 129 notes and 2 reports" aria-label="Search notes"><kbd>/</kbd></label>
+    <label class="sbox"><span aria-hidden="true">⌕</span><input id="q" type="search" autocomplete="off" placeholder="Search 129 notes and 2 reports" data-en-ph="Search 129 notes and 2 reports" data-zh-ph="搜索 129 篇笔记和 2 篇报告" aria-label="Search notes"><kbd>/</kbd></label>
     <div class="sres" id="sres" role="listbox"></div>
   </div>
   <nav>
-    <a href="/docs/">Notebook</a>
-    <a href="/utefa/">Research</a>
-    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu</a>
+    <a href="/docs/"><span class="L-en">Notebook</span><span class="L-zh">笔记</span></a>
+    <a href="/utefa/"><span class="L-en">Research</span><span class="L-zh">研究</span></a>
+    <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener"><span class="L-en">Zhihu</span><span class="L-zh">知乎</span></a>
     <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
+    <span class="lsw" role="group" aria-label="Language"><button type="button" data-setlang="en">EN</button>/<button type="button" data-setlang="zh">中</button></span>
   </nav>
 </header>
+<script>
+
+
+window.SiteLang=(function(){
+  var fns=[], root=document.documentElement;
+  function cur(){ return root.getAttribute('data-lang')==='zh'?'zh':'en'; }
+  function apply(){
+    var l=cur();
+    root.lang = l==='zh'?'zh-CN':'en';
+    document.querySelectorAll('[data-zh-ph]').forEach(function(e){ e.placeholder=e.getAttribute('data-'+l+'-ph'); });
+    document.querySelectorAll('[data-zh-title]').forEach(function(e){
+      if(!e.hasAttribute('data-en-title')) e.setAttribute('data-en-title',e.title);
+      e.title=e.getAttribute('data-'+l+'-title');
+    });
+    var t=document.querySelector('title');
+    if(t&&t.getAttribute('data-zh')){ if(!t.hasAttribute('data-en')) t.setAttribute('data-en',document.title); document.title=t.getAttribute('data-'+l); }
+    fns.forEach(function(f){ try{f(l);}catch(e){} });
+  }
+  function set(l){ root.setAttribute('data-lang',l); try{localStorage.setItem('lang',l);}catch(e){} apply(); }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-setlang]'); if(b){ set(b.getAttribute('data-setlang')); return; }
+    var m=e.target.closest('.more'); if(m){ var c=m.closest('.lf'); if(c) c.classList.add('all'); }
+  });
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply); else apply();
+  return {get:cur,set:set,on:function(f){fns.push(f); f(cur());}};
+})();
+</script>
 <script>
  
 (function(){
   var q=document.getElementById('q'), box=document.getElementById('sres');
   if(!q||!box) return;
-  var NAMES={"/docs/dive-into-deep-learning/":"Dive Into Deep Learning","/docs/reads/efficientlyinefficient/":"Efficiently Inefficient","/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":"APS104 Engineering Chemistry \u0026 Materials Science","/docs/uoft/24f/aps105---learning-programming-with-c/":"APS105 Programming with C","/docs/uoft/24f/ece110---electrical-fundamentals/":"ECE110 Electrical Fundamentals","/docs/uoft/24f/mat186---calculus/":"MAT186 Calculus","/docs/uoft/24f/mat188---linearalgebra/":"MAT188 Linear Algebra","/docs/uoft/24f/mie100---dynamics/":"MIE100 Dynamics","/docs/uoft/25f/advanced-engineering-mathematics/":"Advanced Engineering Mathematics","/docs/uoft/25f/digital-systems/":"Digital Systems","/docs/uoft/25f/introduction-to-mathematic-physic/":"Introduction to Mathematical Physics","/docs/uoft/25f/introductory-electronics/":"Introductory Electronics","/docs/uoft/25f/object-oriented-programming-using-c++/":"Object-Oriented Programming in C++","/docs/uoft/26w/ece221---circuit-analysis/":"ECE221 Circuit Analysis","/docs/uoft/26w/ece243---computer-organization/":"ECE243 Computer Organization","/docs/uoft/26w/electric-and-magnetic-field/":"Electric \u0026 Magnetic Fields","/docs/uoft/26w/signal-and-systems/":"Signals \u0026 Systems"};
+  var NAMES={"/docs/dive-into-deep-learning/":{"en":"Dive Into Deep Learning","zh":"动手学深度学习"},"/docs/reads/efficientlyinefficient/":{"en":"Efficiently Inefficient","zh":"Efficiently Inefficient"},"/docs/uoft/24f/aps104---engineering-chemistry--materials-science/":{"en":"APS104 Engineering Chemistry \u0026 Materials Science","zh":"APS104 工程化学与材料科学"},"/docs/uoft/24f/aps105---learning-programming-with-c/":{"en":"APS105 Programming with C","zh":"APS105 C 语言程序设计"},"/docs/uoft/24f/ece110---electrical-fundamentals/":{"en":"ECE110 Electrical Fundamentals","zh":"ECE110 电学基础"},"/docs/uoft/24f/mat186---calculus/":{"en":"MAT186 Calculus","zh":"MAT186 微积分"},"/docs/uoft/24f/mat188---linearalgebra/":{"en":"MAT188 Linear Algebra","zh":"MAT188 线性代数"},"/docs/uoft/24f/mie100---dynamics/":{"en":"MIE100 Dynamics","zh":"MIE100 动力学"},"/docs/uoft/25f/advanced-engineering-mathematics/":{"en":"Advanced Engineering Mathematics","zh":"高等工程数学"},"/docs/uoft/25f/digital-systems/":{"en":"Digital Systems","zh":"数字系统"},"/docs/uoft/25f/introduction-to-mathematic-physic/":{"en":"Introduction to Mathematical Physics","zh":"数学物理导论"},"/docs/uoft/25f/introductory-electronics/":{"en":"Introductory Electronics","zh":"电子学导论"},"/docs/uoft/25f/object-oriented-programming-using-c++/":{"en":"Object-Oriented Programming in C++","zh":"C++ 面向对象编程"},"/docs/uoft/26w/ece221---circuit-analysis/":{"en":"ECE221 Circuit Analysis","zh":"ECE221 电路分析"},"/docs/uoft/26w/ece243---computer-organization/":{"en":"ECE243 Computer Organization","zh":"ECE243 计算机组成"},"/docs/uoft/26w/electric-and-magnetic-field/":{"en":"Electric \u0026 Magnetic Fields","zh":"电磁场"},"/docs/uoft/26w/signal-and-systems/":{"en":"Signals \u0026 Systems","zh":"信号与系统"}};
   var data=null, loading=null, sel=-1, hits=[];
   var SKIP=/\/(docs\/sample|credits|tags|categories|authors|series)\//i;
   function load(){
@@ -238,9 +281,10 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     return (a?'… ':'')+c.slice(a,a+150);
   }
   function where(p){
-    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k]; }
+    var zh=SiteLang.get()==='zh';
+    for(var k in NAMES){ if(p.indexOf(k)===0) return NAMES[k][zh?'zh':'en']; }
     p=decodeURIComponent(p).replace(/^\/|\/$/g,'').split('/');
-    if(p[0]==='finance') return 'Research';
+    if(p[0]==='finance') return zh?'研究':'Research';
     if(p[0]==='docs'&&p[1]==='uoft'&&p[3]) return p[3].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
     return p.length>1 ? p[1].replace(/-+/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();}) : '';
   }
@@ -257,7 +301,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
       return {x:x,s:s};
     }).filter(Boolean).sort(function(a,b){return b.s-a.s;}).slice(0,8);
     sel=-1;
-    if(!hits.length){ box.innerHTML='<div class="none">No matches for “'+esc(q.value.trim())+'”</div>'; box.classList.add('open'); return; }
+    if(!hits.length){ box.innerHTML='<div class="none">'+(SiteLang.get()==='zh'?'没有找到“'+esc(q.value.trim())+'”':'No matches for “'+esc(q.value.trim())+'”')+'</div>'; box.classList.add('open'); return; }
     box.innerHTML=hits.map(function(h){
       var x=h.x;
       return '<a href="'+x.permalink+'"><div class="srt"><b>'+hl(x.title,terms)+'</b><span>'+esc(where(x.permalink))+(x.date?' · '+esc(x.date):'')+'</span></div><p>'+hl(snippet(x.content,terms[0]),terms)+'</p></a>';
@@ -292,39 +336,39 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
     <div>
       <h1 class="serif">Jingnan Huang</h1>
       <dl class="roles">
-        <dt>UofT</dt><dd>Computer Engineering</dd>
-        <dt>UTEFA</dt><dd>Sales &amp; Trading Analyst</dd>
+        <dt>UofT</dt><dd><span class="L-en">Computer Engineering</span><span class="L-zh">计算机工程</span></dd>
+        <dt>UTEFA</dt><dd><span class="L-en">Sales &amp; Trading Analyst</span><span class="L-zh">销售与交易分析师</span></dd>
       </dl>
     </div>
-    <p class="blurb">Quantitative trading and low‑latency systems: market microstructure, low‑latency infrastructure and FPGA acceleration. I keep notes on every course I take.</p>
+    <p class="blurb"><span class="L-en">Quantitative trading and low‑latency systems: market microstructure, low‑latency infrastructure and FPGA acceleration. I keep notes on every course I take.</span><span class="L-zh">专注量化交易与低延迟系统：市场微观结构、低延迟基础设施和 FPGA 加速。我上的每一门课都有笔记。</span></p>
     <div>
-      <div class="lab"><b>Toolkit</b></div>
-      <div class="kit"><span>Languages</span><div class="chips"><span>C++17</span><span>C</span><span>Python</span><span>Verilog</span></div></div>
-      <div class="kit"><span>Hardware</span><div class="chips"><span>Xilinx FPGA</span><span>AVX2 SIMD</span></div></div>
-      <div class="kit"><span>Quant</span><div class="chips"><span>Monte Carlo</span><span>VPIN</span><span>Stochastic calculus</span></div></div>
-      <div class="kit"><span>Math</span><div class="chips"><span>Laplace &amp; Fourier</span><span>Linear algebra</span></div></div>
+      <div class="lab"><b><span class="L-en">Toolkit</span><span class="L-zh">技能</span></b></div>
+      <div class="kit"><span><span class="L-en">Languages</span><span class="L-zh">编程语言</span></span><div class="chips"><span>C++17</span><span>C</span><span>Python</span><span>Verilog</span></div></div>
+      <div class="kit"><span><span class="L-en">Hardware</span><span class="L-zh">硬件</span></span><div class="chips"><span>Xilinx FPGA</span><span>AVX2 SIMD</span></div></div>
+      <div class="kit"><span><span class="L-en">Quant</span><span class="L-zh">量化</span></span><div class="chips"><span><span class="L-en">Monte Carlo</span><span class="L-zh">蒙特卡洛</span></span><span>VPIN</span><span><span class="L-en">Stochastic calculus</span><span class="L-zh">随机微积分</span></span></div></div>
+      <div class="kit"><span><span class="L-en">Math</span><span class="L-zh">数学</span></span><div class="chips"><span><span class="L-en">Laplace &amp; Fourier</span><span class="L-zh">拉普拉斯与傅里叶</span></span><span><span class="L-en">Linear algebra</span><span class="L-zh">线性代数</span></span></div></div>
     </div>
     <div>
-      <div class="lab"><b>Contact</b></div>
+      <div class="lab"><b><span class="L-en">Contact</span><span class="L-zh">联系方式</span></b></div>
       <div class="contact">
         <a href="mailto:jingnan.huang@mail.utoronto.ca">jingnan.huang@mail.utoronto.ca</a>
         <div>
           <a href="https://github.com/Buezw" target="_blank" rel="noopener">GitHub ↗</a>
           <a href="https://linkedin.com/in/jingnan-huang-buezw/" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener">Zhihu ↗</a>
+          <a href="https://www.zhihu.com/people/ting-wen-jun-heng-xiu" target="_blank" rel="noopener"><span class="L-en">Zhihu</span><span class="L-zh">知乎</span> ↗</a>
         </div>
       </div>
     </div>
   </aside>
   <section class="band">
     <div class="bh">
-      <b>Activity</b>
-      <span>Mar 2025 — Nov 2026 · <i class="lg b2"></i>notes <i class="lg r"></i>research &amp; systems</span>
+      <b><span class="L-en">Activity</span><span class="L-zh">动态</span></b>
+      <span><span class="L-en">Mar 2025</span><span class="L-zh">2025年3月</span> — <span class="L-en">Nov 2026</span><span class="L-zh">2026年11月</span> · <i class="lg b2"></i><span class="L-en">notes</span><span class="L-zh">笔记</span> <i class="lg r"></i><span class="L-en">research &amp; systems</span><span class="L-zh">研究与系统</span></span>
     </div>
     <div class="hm">
-        <span><i class="b3" title="Mar 24, 2025 · 4 notes"></i><i class="b3" title="Mar 25, 2025 · 4 notes"></i><i></i><i class="b1" title="Mar 27, 2025 · 1 note"></i><i class="b1" title="Mar 28, 2025 · 1 note"></i><i></i><i></i></span>
-        <span><i class="b3" title="Mar 31, 2025 · 4 notes"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i class="b1" title="Apr 7, 2025 · 1 note"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i class="b3" title="Mar 24, 2025 · 4 notes" data-zh-title="2025年3月24日 · 4 篇笔记"></i><i class="b3" title="Mar 25, 2025 · 4 notes" data-zh-title="2025年3月25日 · 4 篇笔记"></i><i></i><i class="b1" title="Mar 27, 2025 · 1 note" data-zh-title="2025年3月27日 · 1 篇笔记"></i><i class="b1" title="Mar 28, 2025 · 1 note" data-zh-title="2025年3月28日 · 1 篇笔记"></i><i></i><i></i></span>
+        <span><i class="b3" title="Mar 31, 2025 · 4 notes" data-zh-title="2025年3月31日 · 4 篇笔记"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i class="b1" title="Apr 7, 2025 · 1 note" data-zh-title="2025年4月7日 · 1 篇笔记"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -336,7 +380,7 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i class="r" title="Jul 1, 2025 · research"></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i class="r" title="Jul 1, 2025 · research" data-zh-title="2025年7月1日 · 研究"></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -345,49 +389,40 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i class="b1" title="Sep 2, 2025 · 1 note"></i><i></i><i class="b1" title="Sep 4, 2025 · 1 note"></i><i></i><i class="b1" title="Sep 6, 2025 · 1 note"></i><i class="b2" title="Sep 7, 2025 · 2 notes"></i></span>
+        <span><i></i><i class="b1" title="Sep 2, 2025 · 1 note" data-zh-title="2025年9月2日 · 1 篇笔记"></i><i></i><i class="b1" title="Sep 4, 2025 · 1 note" data-zh-title="2025年9月4日 · 1 篇笔记"></i><i></i><i class="b1" title="Sep 6, 2025 · 1 note" data-zh-title="2025年9月6日 · 1 篇笔记"></i><i class="b2" title="Sep 7, 2025 · 2 notes" data-zh-title="2025年9月7日 · 2 篇笔记"></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i class="r" title="Sep 15, 2025 · research"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i class="b1" title="Sep 22, 2025 · 1 note"></i><i></i><i></i><i></i><i></i><i class="b1" title="Sep 27, 2025 · 1 note"></i><i class="b1" title="Sep 28, 2025 · 1 note"></i></span>
-        <span><i></i><i></i><i></i><i class="b1" title="Oct 2, 2025 · 1 note"></i><i></i><i></i><i class="b1" title="Oct 5, 2025 · 1 note"></i></span>
-        <span><i class="b1" title="Oct 6, 2025 · 1 note"></i><i class="b1" title="Oct 7, 2025 · 1 note"></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i class="r" title="Nov 2, 2025 · research"></i></span>
+        <span><i class="r" title="Sep 15, 2025 · research" data-zh-title="2025年9月15日 · 研究"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i class="b1" title="Sep 22, 2025 · 1 note" data-zh-title="2025年9月22日 · 1 篇笔记"></i><i></i><i></i><i></i><i></i><i class="b1" title="Sep 27, 2025 · 1 note" data-zh-title="2025年9月27日 · 1 篇笔记"></i><i class="b1" title="Sep 28, 2025 · 1 note" data-zh-title="2025年9月28日 · 1 篇笔记"></i></span>
+        <span><i></i><i></i><i></i><i class="b1" title="Oct 2, 2025 · 1 note" data-zh-title="2025年10月2日 · 1 篇笔记"></i><i></i><i></i><i class="b1" title="Oct 5, 2025 · 1 note" data-zh-title="2025年10月5日 · 1 篇笔记"></i></span>
+        <span><i class="b1" title="Oct 6, 2025 · 1 note" data-zh-title="2025年10月6日 · 1 篇笔记"></i><i class="b1" title="Oct 7, 2025 · 1 note" data-zh-title="2025年10月7日 · 1 篇笔记"></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i class="r" title="Dec 18, 2025 · research"></i><i></i><i class="r" title="Dec 20, 2025 · research"></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i class="b2" title="Jan 12, 2026 · 2 notes"></i><i class="b3" title="Jan 13, 2026 · 3 notes"></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i class="b2" title="Jan 19, 2026 · 2 notes"></i><i class="b1" title="Jan 20, 2026 · 1 note"></i><i class="b1" title="Jan 21, 2026 · 1 note"></i><i class="b1" title="Jan 22, 2026 · 1 note"></i><i class="b1" title="Jan 23, 2026 · 1 note"></i><i></i><i></i></span>
-        <span><i></i><i class="b1" title="Jan 27, 2026 · 1 note"></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i class="b2" title="Feb 3, 2026 · 2 notes"></i><i></i><i class="b1" title="Feb 5, 2026 · 1 note"></i><i class="b1" title="Feb 6, 2026 · 1 note"></i><i></i><i></i></span>
-        <span><i class="b1" title="Feb 9, 2026 · 1 note"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i class="b1" title="Feb 22, 2026 · 1 note"></i></span>
-        <span><i class="b3" title="Feb 23, 2026 · 3 notes"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i class="b1" title="Mar 8, 2026 · 1 note"></i></span>
-        <span><i class="b2" title="Mar 9, 2026 · 2 notes"></i><i class="b1" title="Mar 10, 2026 · 1 note"></i><i class="b2" title="Mar 11, 2026 · 2 notes"></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i class="b1" title="Mar 18, 2026 · 1 note"></i><i></i><i></i><i></i><i></i></span>
-        <span><i class="b1" title="Mar 23, 2026 · 1 note"></i><i class="b1" title="Mar 24, 2026 · 1 note"></i><i></i><i class="b1" title="Mar 26, 2026 · 1 note"></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i class="b1" title="Apr 20, 2026 · 1 note"></i><i></i><i></i><i></i><i></i><i class="b1" title="Apr 25, 2026 · 1 note"></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i class="r" title="Nov 2, 2025 · research" data-zh-title="2025年11月2日 · 研究"></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i class="r" title="Dec 18, 2025 · research" data-zh-title="2025年12月18日 · 研究"></i><i></i><i class="r" title="Dec 20, 2025 · research" data-zh-title="2025年12月20日 · 研究"></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i class="b2" title="Jan 12, 2026 · 2 notes" data-zh-title="2026年1月12日 · 2 篇笔记"></i><i class="b3" title="Jan 13, 2026 · 3 notes" data-zh-title="2026年1月13日 · 3 篇笔记"></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i class="b2" title="Jan 19, 2026 · 2 notes" data-zh-title="2026年1月19日 · 2 篇笔记"></i><i class="b1" title="Jan 20, 2026 · 1 note" data-zh-title="2026年1月20日 · 1 篇笔记"></i><i class="b1" title="Jan 21, 2026 · 1 note" data-zh-title="2026年1月21日 · 1 篇笔记"></i><i class="b1" title="Jan 22, 2026 · 1 note" data-zh-title="2026年1月22日 · 1 篇笔记"></i><i class="b1" title="Jan 23, 2026 · 1 note" data-zh-title="2026年1月23日 · 1 篇笔记"></i><i></i><i></i></span>
+        <span><i></i><i class="b1" title="Jan 27, 2026 · 1 note" data-zh-title="2026年1月27日 · 1 篇笔记"></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i class="b2" title="Feb 3, 2026 · 2 notes" data-zh-title="2026年2月3日 · 2 篇笔记"></i><i></i><i class="b1" title="Feb 5, 2026 · 1 note" data-zh-title="2026年2月5日 · 1 篇笔记"></i><i class="b1" title="Feb 6, 2026 · 1 note" data-zh-title="2026年2月6日 · 1 篇笔记"></i><i></i><i></i></span>
+        <span><i class="b1" title="Feb 9, 2026 · 1 note" data-zh-title="2026年2月9日 · 1 篇笔记"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i class="b1" title="Feb 22, 2026 · 1 note" data-zh-title="2026年2月22日 · 1 篇笔记"></i></span>
+        <span><i class="b3" title="Feb 23, 2026 · 3 notes" data-zh-title="2026年2月23日 · 3 篇笔记"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i class="b1" title="Mar 8, 2026 · 1 note" data-zh-title="2026年3月8日 · 1 篇笔记"></i></span>
+        <span><i class="b2" title="Mar 9, 2026 · 2 notes" data-zh-title="2026年3月9日 · 2 篇笔记"></i><i class="b1" title="Mar 10, 2026 · 1 note" data-zh-title="2026年3月10日 · 1 篇笔记"></i><i class="b2" title="Mar 11, 2026 · 2 notes" data-zh-title="2026年3月11日 · 2 篇笔记"></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i class="b1" title="Mar 18, 2026 · 1 note" data-zh-title="2026年3月18日 · 1 篇笔记"></i><i></i><i></i><i></i><i></i></span>
+        <span><i class="b1" title="Mar 23, 2026 · 1 note" data-zh-title="2026年3月23日 · 1 篇笔记"></i><i class="b1" title="Mar 24, 2026 · 1 note" data-zh-title="2026年3月24日 · 1 篇笔记"></i><i></i><i class="b1" title="Mar 26, 2026 · 1 note" data-zh-title="2026年3月26日 · 1 篇笔记"></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i class="b1" title="Apr 20, 2026 · 1 note" data-zh-title="2026年4月20日 · 1 篇笔记"></i><i></i><i></i><i></i><i></i><i class="b1" title="Apr 25, 2026 · 1 note" data-zh-title="2026年4月25日 · 1 篇笔记"></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -398,9 +433,6 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i></i><i class="b1" title="Sep 11, 2026 · 1 note"></i><i></i><i class="b2" title="Sep 13, 2026 · 2 notes"></i></span>
-        <span><i class="b1" title="Sep 14, 2026 · 1 note"></i><i class="b2" title="Sep 15, 2026 · 2 notes"></i><i class="b3" title="Sep 16, 2026 · 4 notes"></i><i></i><i></i><i></i><i class="b1" title="Sep 20, 2026 · 1 note"></i></span>
-        <span><i class="b1" title="Sep 21, 2026 · 1 note"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -409,112 +441,184 @@ footer{display:flex;justify-content:space-between;padding:12px var(--px) 14px;bo
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
         <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-        <span><i></i><i></i><i></i><i class="b1" title="Nov 26, 2026 · 1 note"></i><i class="x"></i><i class="x"></i><i class="x"></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i class="b1" title="Sep 11, 2026 · 1 note" data-zh-title="2026年9月11日 · 1 篇笔记"></i><i></i><i class="b2" title="Sep 13, 2026 · 2 notes" data-zh-title="2026年9月13日 · 2 篇笔记"></i></span>
+        <span><i class="b1" title="Sep 14, 2026 · 1 note" data-zh-title="2026年9月14日 · 1 篇笔记"></i><i class="b2" title="Sep 15, 2026 · 2 notes" data-zh-title="2026年9月15日 · 2 篇笔记"></i><i class="b3" title="Sep 16, 2026 · 4 notes" data-zh-title="2026年9月16日 · 4 篇笔记"></i><i></i><i></i><i></i><i class="b1" title="Sep 20, 2026 · 1 note" data-zh-title="2026年9月20日 · 1 篇笔记"></i></span>
+        <span><i class="b1" title="Sep 21, 2026 · 1 note" data-zh-title="2026年9月21日 · 1 篇笔记"></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span><i></i><i></i><i></i><i class="b1" title="Nov 26, 2026 · 1 note" data-zh-title="2026年11月26日 · 1 篇笔记"></i><i class="x"></i><i class="x"></i><i class="x"></i></span>
     </div>
-    <div class="ml"><em style="left:6.82%">May 25</em><em style="left:26.14%">Sep 25</em><em style="left:46.59%">Jan 26</em><em style="left:65.91%">May 26</em><em style="left:86.36%">Sep 26</em></div>
+    <div class="ml"><em style="left:6.82%"><span class="L-en">May 25</span><span class="L-zh">2025年5月</span></em><em style="left:26.14%"><span class="L-en">Sep 25</span><span class="L-zh">2025年9月</span></em><em style="left:46.59%"><span class="L-en">Jan 26</span><span class="L-zh">2026年1月</span></em><em style="left:65.91%"><span class="L-en">May 26</span><span class="L-zh">2026年5月</span></em><em style="left:86.36%"><span class="L-en">Sep 26</span><span class="L-zh">2026年9月</span></em></div>
   </section>
   <section class="col nb" style="--c:var(--blue)">
-    <h2 class="serif">Notebook</h2>
-    <div class="lab"><b>Latest</b></div>
-    <a class="rs" href="/docs/connector-test/ct1.fulltest/">
-  <div class="t"><b>CT 1. 连接器全属性测试</b><span>Nov 26, 2026</span></div><p>一篇把首页列表和文章页的所有显示效果都用上的测试笔记：公式、代码、表格、提示框、图片和各种链接。</p>
+    <h2 class="serif"><span class="L-en">Notebook</span><span class="L-zh">笔记</span></h2>
+    <div class="lab"><b><span class="L-en">Latest</span><span class="L-zh">最新</span></b></div>
+    <div class="L-en">
+      <a class="rs" href="/docs/articles/binomial-practice/" data-l="EN">
+  <div class="t"><b>Binomial Probability Law: Practice Problems</b><span><span class="L-en">Sep 21, 2026</span><span class="L-zh">2026年9月21日</span></span></div><p>20 practice questions on Bernoulli trials and the binomial law, easiest to hardest, with answer key and full worked solutions.</p>
   <div class="mrow">
-    <span class="m"><i class="area" style="--d:#8c8577">Programming</i><span>Connector Test</span></span>
-    <i class="lang">CN</i>
+    <span class="m"><i class="area" style="--d:#999"></i><span><span class="L-en">Articles</span><span class="L-zh">文章</span></span></span>
+    <i class="lang"><span class="L-en">EN</span><span class="L-zh">英文</span></i>
   </div>
 </a>
-    <a class="rs" href="/docs/articles/binomial-practice/">
-  <div class="t"><b>Binomial Probability Law: Practice Problems</b><span>Sep 21, 2026</span></div><p>20 practice questions on Bernoulli trials and the binomial law, easiest to hardest, with answer key and full worked solutions.</p>
+      <a class="rs" href="/docs/articles/options-mm-simulator-summary/" data-l="EN">
+  <div class="t"><b>Options Market-Making Simulator: Project Report (English Summary)</b><span><span class="L-en">Sep 16, 2026</span><span class="L-zh">2026年9月16日</span></span></div><p>A backtesting system from raw Deribit BTC options data to a full market-maker loop: SVI surface, quoting, fills, hedging and PnL attribution.</p>
   <div class="mrow">
-    <span class="m"><i class="area" style="--d:#999"></i><span>Articles</span></span>
-    <i class="lang">EN</i>
+    <span class="m"><i class="area" style="--d:#999"></i><span><span class="L-en">Articles</span><span class="L-zh">文章</span></span></span>
+    <i class="lang"><span class="L-en">EN</span><span class="L-zh">英文</span></i>
   </div>
 </a>
-    <a class="rs" href="/docs/articles/options-mm-simulator/">
-  <div class="t"><b>Options Market-Making Simulator 项目报告：从 Deribit BTC 期权原始数据到 Pn L 归因</b><span>Sep 20, 2026</span></div><p>Deribit BTC 期权做市回测系统的完整报告：Black-76 反解 IV、SVI 曲面与 TRF 求解、报价/成交/风控/对冲模块与 PnL 归因。</p>
+      <a class="rs" href="/docs/articles/ols-factor-models/" data-l="EN">
+  <div class="t"><b>OLS Factor Models: CAPM and Fama–French Three-Factor</b><span><span class="L-en">Sep 14, 2026</span><span class="L-zh">2026年9月14日</span></span></div><p>Hand-calculated OLS examples for CAPM and FF3, then a real-data application to AAPL (2021-08 to 2026-07).</p>
   <div class="mrow">
-    <span class="m"><i class="area" style="--d:#999"></i><span>Articles</span></span>
-    <i class="lang">CN</i>
+    <span class="m"><i class="area" style="--d:#999"></i><span><span class="L-en">Articles</span><span class="L-zh">文章</span></span></span>
+    <i class="lang"><span class="L-en">EN</span><span class="L-zh">英文</span></i>
   </div>
 </a>
-    <a class="rs" href="/docs/articles/as-full-derivation/">
-  <div class="t"><b>Avellaneda–Stoikov 做市模型完整推导：从库存风险到最优双边报价</b><span>Sep 16, 2026</span></div><p>保留价格（报价中枢）与最优价差（中枢两边留多宽）的完整推导，并用蒙特卡洛回测验证定性结论。</p>
+      <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/" data-l="EN">
+  <div class="t"><b>EMF 10. Time-Varying Fields</b><span><span class="L-en">Apr 20, 2026</span><span class="L-zh">2026年4月20日</span></span></div><p>Faraday’s Law · Time-varying Magnetic Flux · Faraday’s Law Relates Electric and Magnetic Fields · Electromagnetic Generator</p>
   <div class="mrow">
-    <span class="m"><i class="area" style="--d:#999"></i><span>Articles</span></span>
-    <i class="lang">CN</i>
+    <span class="m"><i class="area" style="--d:#8a7bb0"><span class="L-en">Physics</span><span class="L-zh">物理</span></i><span><span class="L-en">Electric &amp; Magnetic Fields</span><span class="L-zh">电磁场</span></span></span>
+    <i class="lang"><span class="L-en">EN</span><span class="L-zh">英文</span></i>
   </div>
 </a>
-    <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co8.cache/">
-  <div class="t"><b>CO 8. Cache</b><span>Apr 25, 2026</span></div><p>Physics of Memory · Cache Memory · Direct-Mapped Caches · Associative Caches</p>
+      <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/" data-l="EN">
+  <div class="t"><b>SS 8. Fundamentals of Discrete-Time Systems</b><span><span class="L-en">Mar 26, 2026</span><span class="L-zh">2026年3月26日</span></span></div><p>DT System · LTI System Properties and the Impulse Response · Finite impulse response (FIR) systems · Difference Equations and DT systems</p>
   <div class="mrow">
-    <span class="m"><i class="area" style="--d:#5b8c85">Hardware</i><span>ECE243 Computer Organization</span></span>
-    <i class="lang">CN</i>
+    <span class="m"><i class="area" style="--d:#c49a5a"><span class="L-en">Signals</span><span class="L-zh">信号</span></i><span><span class="L-en">Signals &amp; Systems</span><span class="L-zh">信号与系统</span></span></span>
+    <i class="lang"><span class="L-en">EN</span><span class="L-zh">英文</span></i>
   </div>
 </a>
-    <a class="rs" href="/docs/uoft/26w/electric-and-magnetic-field/emf10.time-varyingfields/">
-  <div class="t"><b>EMF 10. Time-Varying Fields</b><span>Apr 20, 2026</span></div><p>Faraday’s Law · Time-varying Magnetic Flux · Faraday’s Law Relates Electric and Magnetic Fields · Electromagnetic Generator</p>
+      <a class="rs" href="/docs/uoft/26w/ece221---circuit-analysis/ca7.frequencydomainanalysis/" data-l="EN">
+  <div class="t"><b>CA 7. Frequency Domain Analysis</b><span><span class="L-en">Mar 23, 2026</span><span class="L-zh">2026年3月23日</span></span></div><p>Network function, Transfer function · Impulse Response, Convolution · Step Response · Frequency Response</p>
   <div class="mrow">
-    <span class="m"><i class="area" style="--d:#8a7bb0">Physics</i><span>Electric &amp; Magnetic Fields</span></span>
-    <i class="lang">EN</i>
+    <span class="m"><i class="area" style="--d:#6b86b8"><span class="L-en">Circuits</span><span class="L-zh">电路</span></i><span><span class="L-en">ECE221 Circuit Analysis</span><span class="L-zh">ECE221 电路分析</span></span></span>
+    <i class="lang"><span class="L-en">EN</span><span class="L-zh">英文</span></i>
   </div>
 </a>
-    <a class="rs" href="/docs/uoft/26w/signal-and-systems/ss8.fundamentalsofdiscrete-timesystems/">
-  <div class="t"><b>SS 8. Fundamentals of Discrete-Time Systems</b><span>Mar 26, 2026</span></div><p>DT System · LTI System Properties and the Impulse Response · Finite impulse response (FIR) systems · Difference Equations and DT systems</p>
+      <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co6.low-levelgraphicsinsoftware/" data-l="EN">
+  <div class="t"><b>CO 6. Low-level Graphics in Software</b><span><span class="L-en">Mar 9, 2026</span><span class="L-zh">2026年3月9日</span></span></div><p>Intro to Low-Level Graphics · Drawing Lines on Screen · Animation · Bouncing Boxes</p>
   <div class="mrow">
-    <span class="m"><i class="area" style="--d:#c49a5a">Signals</i><span>Signals &amp; Systems</span></span>
-    <i class="lang">EN</i>
+    <span class="m"><i class="area" style="--d:#5b8c85"><span class="L-en">Hardware</span><span class="L-zh">硬件</span></i><span><span class="L-en">ECE243 Computer Organization</span><span class="L-zh">ECE243 计算机组成</span></span></span>
+    <i class="lang"><span class="L-en">EN</span><span class="L-zh">英文</span></i>
   </div>
 </a>
-    <a class="go" href="/docs/">Open the notebook →</a>
+    </div>
+    <div class="L-zh">
+      <a class="rs" href="/docs/connector-test/ct1.fulltest/" data-l="CN">
+  <div class="t"><b>CT 1. 连接器全属性测试</b><span><span class="L-en">Nov 26, 2026</span><span class="L-zh">2026年11月26日</span></span></div><p>一篇把首页列表和文章页的所有显示效果都用上的测试笔记：公式、代码、表格、提示框、图片和各种链接。</p>
+  <div class="mrow">
+    <span class="m"><i class="area" style="--d:#8c8577"><span class="L-en">Programming</span><span class="L-zh">编程</span></i><span><span class="L-en">Connector Test</span><span class="L-zh">连接器测试</span></span></span>
+    <i class="lang"><span class="L-en">CN</span><span class="L-zh">中文</span></i>
+  </div>
+</a>
+      <a class="rs" href="/docs/articles/options-mm-simulator/" data-l="CN">
+  <div class="t"><b>Options Market-Making Simulator 项目报告：从 Deribit BTC 期权原始数据到 Pn L 归因</b><span><span class="L-en">Sep 20, 2026</span><span class="L-zh">2026年9月20日</span></span></div><p>Deribit BTC 期权做市回测系统的完整报告：Black-76 反解 IV、SVI 曲面与 TRF 求解、报价/成交/风控/对冲模块与 PnL 归因。</p>
+  <div class="mrow">
+    <span class="m"><i class="area" style="--d:#999"></i><span><span class="L-en">Articles</span><span class="L-zh">文章</span></span></span>
+    <i class="lang"><span class="L-en">CN</span><span class="L-zh">中文</span></i>
+  </div>
+</a>
+      <a class="rs" href="/docs/articles/as-full-derivation/" data-l="CN">
+  <div class="t"><b>Avellaneda–Stoikov 做市模型完整推导：从库存风险到最优双边报价</b><span><span class="L-en">Sep 16, 2026</span><span class="L-zh">2026年9月16日</span></span></div><p>保留价格（报价中枢）与最优价差（中枢两边留多宽）的完整推导，并用蒙特卡洛回测验证定性结论。</p>
+  <div class="mrow">
+    <span class="m"><i class="area" style="--d:#999"></i><span><span class="L-en">Articles</span><span class="L-zh">文章</span></span></span>
+    <i class="lang"><span class="L-en">CN</span><span class="L-zh">中文</span></i>
+  </div>
+</a>
+      <a class="rs" href="/docs/articles/black-scholes/" data-l="CN">
+  <div class="t"><b>Black-Scholes：一份“权利”该值多少钱</b><span><span class="L-en">Sep 16, 2026</span><span class="L-zh">2026年9月16日</span></span></div><p>五个输入、一个输出：Black-Scholes 定价公式、d₁ 与 d₂ 的含义，以及隐含波动率的由来。</p>
+  <div class="mrow">
+    <span class="m"><i class="area" style="--d:#999"></i><span><span class="L-en">Articles</span><span class="L-zh">文章</span></span></span>
+    <i class="lang"><span class="L-en">CN</span><span class="L-zh">中文</span></i>
+  </div>
+</a>
+      <a class="rs" href="/docs/uoft/26w/ece243---computer-organization/co8.cache/" data-l="CN">
+  <div class="t"><b>CO 8. Cache</b><span><span class="L-en">Apr 25, 2026</span><span class="L-zh">2026年4月25日</span></span></div><p>Physics of Memory · Cache Memory · Direct-Mapped Caches · Associative Caches</p>
+  <div class="mrow">
+    <span class="m"><i class="area" style="--d:#5b8c85"><span class="L-en">Hardware</span><span class="L-zh">硬件</span></i><span><span class="L-en">ECE243 Computer Organization</span><span class="L-zh">ECE243 计算机组成</span></span></span>
+    <i class="lang"><span class="L-en">CN</span><span class="L-zh">中文</span></i>
+  </div>
+</a>
+      <a class="rs" href="/docs/uoft/25f/introductory-electronics/ie2.operationalamplifier/" data-l="CN">
+  <div class="t"><b>IE 2. Operational Amplifiers</b><span><span class="L-en">Oct 7, 2025</span><span class="L-zh">2025年10月7日</span></span></div><p>2.1 The Ideal Op Amp · 2.2 The Inverting Configuration · DC Imperfections · Input Bias Current</p>
+  <div class="mrow">
+    <span class="m"><i class="area" style="--d:#6b86b8"><span class="L-en">Circuits</span><span class="L-zh">电路</span></i><span><span class="L-en">Introductory Electronics</span><span class="L-zh">电子学导论</span></span></span>
+    <i class="lang"><span class="L-en">CN</span><span class="L-zh">中文</span></i>
+  </div>
+</a>
+      <a class="rs" href="/docs/uoft/25f/advanced-engineering-mathematics/aem2.differentialequations/" data-l="CN">
+  <div class="t"><b>AEM 2. Differential Equations</b><span><span class="L-en">Oct 6, 2025</span><span class="L-zh">2025年10月6日</span></span></div><p>Ordinary Differential Equations 常微分方程 · Classifying DE’s · Solution of ODE · Existence of Solutions, General, Particular and Singular</p>
+  <div class="mrow">
+    <span class="m"><i class="area" style="--d:#b97a7a"><span class="L-en">Math</span><span class="L-zh">数学</span></i><span><span class="L-en">Advanced Engineering Mathematics</span><span class="L-zh">高等工程数学</span></span></span>
+    <i class="lang"><span class="L-en">CN</span><span class="L-zh">中文</span></i>
+  </div>
+</a>
+    </div>
+    <a class="go" href="/docs/"><span class="L-en">Open the notebook →</span><span class="L-zh">打开笔记 →</span></a>
   </section>
   <section class="col rsc" style="--c:var(--red)">
-    <h2 class="serif">Research</h2>
+    <h2 class="serif"><span class="L-en">Research</span><span class="L-zh">研究</span></h2>
     <div class="stack">
       <div>
-        <div class="lab"><b>Systems</b><span>2 shipped · 1 in progress</span></div>
+        <div class="lab"><b><span class="L-en">Systems</span><span class="L-zh">系统</span></b><span><span class="L-en">2 shipped · 1 in progress</span><span class="L-zh">已上线 2 · 进行中 1</span></span></div>
         <div class="sys">
-          <div class="t"><b>Option Pricer</b><span class="st ok">Shipped</span></div>
-          <div class="d">High-performance Monte Carlo engine in C&#43;&#43; with variance reduction.</div>
-          <div class="m">C&#43;&#43;17 · Monte Carlo · Nov 2025</div>
+          <div class="t"><b>Option Pricer</b><span class="st ok"><span class="L-en">Shipped</span><span class="L-zh">已上线</span></span></div>
+          <div class="d"><span class="L-en">High-performance Monte Carlo engine in C&#43;&#43; with variance reduction.</span><span class="L-zh">用 C&#43;&#43; 写的高性能蒙特卡洛定价引擎，带方差缩减。</span></div>
+          <div class="m">C&#43;&#43;17 · Monte Carlo · <span class="L-en">Nov 2025</span><span class="L-zh">2025年11月</span></div>
         </div>
         <div class="sys">
-          <div class="t"><b>FPGA Matching</b><span class="st wip">In progress</span></div>
-          <div class="d">Low-latency matching engine on Xilinx UltraScale&#43; with tick-to-trade optimization.</div>
-          <div class="m">Verilog · Xilinx · Sep 2025</div>
+          <div class="t"><b>FPGA Matching</b><span class="st wip"><span class="L-en">In progress</span><span class="L-zh">进行中</span></span></div>
+          <div class="d"><span class="L-en">Low-latency matching engine on Xilinx UltraScale&#43; with tick-to-trade optimization.</span><span class="L-zh">基于 Xilinx UltraScale&#43; 的低延迟撮合引擎，针对 tick-to-trade 延迟做了优化。</span></div>
+          <div class="m">Verilog · Xilinx · <span class="L-en">Sep 2025</span><span class="L-zh">2025年9月</span></div>
         </div>
         <div class="sys">
-          <div class="t"><b>Market Sim</b><span class="st ok">Shipped</span></div>
-          <div class="d">Event-driven market simulator with realistic latency &amp; queue models.</div>
-          <div class="m">Python · Event-Driven · Jul 2025</div>
+          <div class="t"><b>Market Sim</b><span class="st ok"><span class="L-en">Shipped</span><span class="L-zh">已上线</span></span></div>
+          <div class="d"><span class="L-en">Event-driven market simulator with realistic latency &amp; queue models.</span><span class="L-zh">事件驱动的市场模拟器，带贴近真实的延迟和排队模型。</span></div>
+          <div class="m">Python · Event-Driven · <span class="L-en">Jul 2025</span><span class="L-zh">2025年7月</span></div>
         </div>
       </div>
-      <div>
-        <div class="lab"><b>Reports</b><span>2 published</span></div>
+      <div class="L-en">
+        <div class="lab"><b><span class="L-en">Reports</span><span class="L-zh">报告</span></b><span>1 published</span></div>
         <a class="rs" href="/finance/market-commentary/order-flow-toxicity/">
           <div class="t"><b>Quantifying Order Flow Toxicity: A Microstructure Perspective</b><span>Dec 20, 2025</span></div><p>Implementing the VPIN (Volume-Synchronized Probability of Informed Trading) metric to detect adverse selection risk in high-frequency order books.</p><div class="m">Market Microstructure · Quant · Python</div>
         </a>
+      </div>
+      <div class="L-zh">
+        <div class="lab"><b><span class="L-en">Reports</span><span class="L-zh">报告</span></b><span>已发布 1 篇</span></div>
         <a class="rs" href="/finance/market-commentary/volatility-regime-structure/">
-          <div class="t"><b>波动率路径下的隐性结构：当前政权转换的随机性分析</b><span>Dec 18, 2025</span></div><p>探讨在当前宏观流动性紧缩背景下，如何通过随机微积分视角观察波动率曲率的异常变化。</p><div class="m">Market Research · Stochastic</div>
+          <div class="t"><b>波动率路径下的隐性结构：当前政权转换的随机性分析</b><span>2025年12月18日</span></div><p>探讨在当前宏观流动性紧缩背景下，如何通过随机微积分视角观察波动率曲率的异常变化。</p><div class="m">市场研究 · 随机过程</div>
         </a>
       </div>
     </div>
-    <a class="go" href="/utefa/">Open research →</a>
+    <a class="go" href="/utefa/"><span class="L-en">Open research →</span><span class="L-zh">查看研究 →</span></a>
   </section>
 
 </div>
 
 <footer>
   <span>© 2026 Jingnan Huang</span>
-  <span>Last updated <time id="updated" datetime="2026-11-26T20:13:55Z">Nov 26, 2026, 3:13 PM ET</time> · buezw.github.io</span>
+  <span><span class="L-en">Last updated</span><span class="L-zh">最后更新</span> <time id="updated" datetime="2026-11-27T16:51:50Z">Nov 27, 2026, 11:51 AM ET</time> · buezw.github.io</span>
 </footer>
 <script>
 (function(){
   var el=document.getElementById('updated'); if(!el||!window.Intl) return;
-  try{
-    var d=new Date(el.getAttribute('datetime'));
-    var s=new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(d);
-    el.textContent=s;
-  }catch(e){}
+  function show(l){
+    try{
+      var d=new Date(el.getAttribute('datetime'));
+      el.textContent = l==='zh'
+        ? new Intl.DateTimeFormat('zh-CN',{timeZone:'America/Toronto',year:'numeric',month:'long',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(d)+'（多伦多时间）'
+        : new Intl.DateTimeFormat('en-US',{timeZone:'America/Toronto',month:'short',day:'numeric',year:'numeric',hour:'numeric',minute:'2-digit',timeZoneName:'short'}).format(d);
+    }catch(e){}
+  }
+  if(window.SiteLang) SiteLang.on(show); else show('en');
 })();
 </script>
 
